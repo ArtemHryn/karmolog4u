@@ -1,0 +1,47 @@
+@import "../styles/main.scss";
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  height: 100%;
+  position: relative;
+}
+
+body {
+  height: 100%;
+  overflow: auto;
+  position: relative;
+  background-color: #454545;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  font-style: normal;
+  cursor: pointer;
+}
+
+p,
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
