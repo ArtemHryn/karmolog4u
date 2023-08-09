@@ -2,6 +2,11 @@
 
 import Hero from "@/components/Hero/Hero";
 
+export const metadata = {
+  title: "Test Title",
+  description: "Test descr",
+};
+
 export default function Home() {
   return (
     <main>
