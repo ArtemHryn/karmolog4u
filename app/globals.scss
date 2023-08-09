@@ -16,6 +16,7 @@ body {
   overflow: auto;
   position: relative;
   background-color: #454545;
+  color: $main_text_color;
 }
 
 a {
@@ -44,4 +45,10 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }

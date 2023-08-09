@@ -1,0 +1,7 @@
+@mixin fontRegular($fz, $fw, $lh, $col: #fdfdfd, $ta: left) {
+  font-size: $fz;
+  font-weight: $fw;
+  line-height: calc($lh / $fz);
+  color: $col;
+  text-align: $ta;
+}

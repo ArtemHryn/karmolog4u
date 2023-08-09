@@ -1,0 +1,27 @@
+@import "/styles//main.scss";
+
+.marqueesContainer {
+  position: relative;
+}
+
+.text {
+  @include fontRegular(14px, 400, 19.5px);
+  padding: 12px 10px;
+}
+
+.redText {
+  position: absolute;
+  top: 20px;
+  background-color: $additional_bg;
+  rotate: (-3deg);
+  transform-origin: left center;
+  z-index: 2;
+}
+
+.darkText {
+  rotate: (3deg);
+  background-color: #000;
+  position: absolute;
+  top: -20px;
+  transform-origin: left center;
+}

@@ -1,7 +1,18 @@
+import { Open_Sans, Unbounded } from "next/font/google";
 import "./globals.scss";
-import { Inter } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+export const open_Sans = Open_Sans({
+  subsets: ["cyrillic"],
+  variable: "--font-open_sans",
+  weight: ["700", "600", "500", "400"],
+  display: "swap",
+});
+export const unbounded = Unbounded({
+  subsets: ["cyrillic"],
+  variable: "--font-unbounded",
+  weight: ["700", "600", "500", "400"],
+  display: "swap",
+});
 
 export const metadata = {
   title: "Create Next App",
@@ -11,7 +22,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={open_Sans.className}>{children}</body>
     </html>
   );
 }

@@ -1,0 +1,17 @@
+@import "/styles/main.scss";
+.text {
+  @include fontRegular(14px, 400, 19.5px);
+  max-width: 242px;
+  margin-bottom: 32px;
+}
+
+.author {
+  @include fontRegular(42px, 400, 42px);
+  text-transform: uppercase;
+  margin-bottom: 48px;
+}
+
+.text_description {
+  @include fontRegular(16px, 400, 22.4px);
+  margin-bottom: 44px;
+}
