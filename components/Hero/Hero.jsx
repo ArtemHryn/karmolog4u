@@ -1,6 +1,7 @@
+import Image from "next/image";
+import Marquees from "./Marquees/Marquees";
 import Container from "../Common/Container/Container";
 import VideoButton from "./VideoButton/VideoButton";
-import Marquees from "./Marquees/Marquees";
 
 import styled from "./Hero.module.scss";
 import { unbounded } from "@/app/layout";
@@ -14,16 +15,33 @@ const Hero = () => {
       <h1 className={`${styled.author} ${unbounded.className}`}>
         СЕРГІЙ СКЛЯРЕНКО
       </h1>
-      <p className={styled.text_description} style={{ marginBottom: "24px" }}>
-        Я створив для вас простір енергетичної сили, де ви зможете знайти дієві
-        інструменти для Вашої глобальної трансформації до шляху свідомого,
-        гармонічного та щасливого життя.
-      </p>
-      <p className={`${styled.text_description}`}>
-        {" "}
-        З любов&apos;ю та служінням до вас!
-      </p>
-      <VideoButton />
+      <div className={styled.description_container}>
+        <div style={{backdropFilter: 'blur(4px)'}}>
+          <h1 className={`${styled.author2} ${unbounded.className}`}>
+            СЕРГІЙ СКЛЯРЕНКО
+          </h1>
+          <p
+            className={`${styled.text_description} ${styled.additionl_text_description}`}
+          >
+            Я створив для вас простір енергетичної сили, де ви зможете знайти
+            дієві інструменти для Вашої глобальної трансформації до шляху
+            свідомого, гармонічного та щасливого життя.
+          </p>
+          <p className={`${styled.text_description}`}>
+            {" "}
+            З любов&apos;ю та служінням до вас!
+          </p>
+          <VideoButton />
+        </div>
+        <Image
+          src="/assets/images/SergiyHero.webp"
+          width={360}
+          height={516}
+          alt="Сергій Скляренко"
+          className={styled.hero_img}
+          priority={true}
+        />
+      </div>
       <Marquees />
     </Container>
   );

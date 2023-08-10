@@ -1,27 +1,52 @@
 @import "/styles//main.scss";
 
 .marqueesContainer {
-  position: relative;
+  position: absolute;
+  max-width: 100vw;
+  bottom: -5%;
+  left: 0;
+  @media screen and (min-width: $min_tablet) {
+    bottom: 2%;
+  }
+  @media screen and (min-width: $min_desktop) {
+    bottom: 3.5%;
+  }
 }
 
 .text {
   @include fontRegular(14px, 400, 19.5px);
   padding: 12px 10px;
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(18px, 400, 25.2px);
+    padding: 18px 10px;
+  }
+  @media screen and (min-width: $min_desktop) {
+  }
 }
 
 .redText {
   position: absolute;
   top: 20px;
   background-color: $additional_bg;
-  rotate: (-3deg);
+  rotate: (-2deg);
   transform-origin: left center;
   z-index: 2;
+
+  @media screen and (min-width: $min_desktop) {
+    rotate: (-1.8deg);
+    transform-origin: center;
+  }
 }
 
 .darkText {
-  rotate: (3deg);
+  rotate: (2deg);
   background-color: #000;
   position: absolute;
   top: -20px;
   transform-origin: left center;
+
+  @media screen and (min-width: $min_desktop) {
+    rotate: (1.8deg);
+    transform-origin: center;
+  }
 }

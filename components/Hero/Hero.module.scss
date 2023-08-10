@@ -3,15 +3,86 @@
   @include fontRegular(14px, 400, 19.5px);
   max-width: 242px;
   margin-bottom: 32px;
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(18px, 400, 25.2px);
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    margin-bottom: 48px;
+  }
 }
 
 .author {
   @include fontRegular(42px, 400, 42px);
   text-transform: uppercase;
   margin-bottom: 48px;
+
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(56px, 400, 56px);
+    margin-bottom: 24px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    display: none;
+  }
+}
+
+.author2 {
+  display: none;
+  @media screen and (min-width: $min_desktop) {
+    display: block;
+    @include fontRegular(94px, 400, 94px);
+    margin-bottom: 60px;
+  }
 }
 
 .text_description {
   @include fontRegular(16px, 400, 22.4px);
   margin-bottom: 44px;
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(20px, 400, 28px);
+    margin-bottom: 80px;
+  }
+  @media screen and (min-width: $min_desktop) {
+  }
+}
+
+.additionl_text_description {
+  margin-bottom: 24px;
+  @media screen and (min-width: $min_tablet) {
+    margin-bottom: 32px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    max-width: 628px;
+  }
+}
+
+.hero_img {
+  display: none;
+  @media screen and (min-width: $min_tablet) {
+    display: block;
+    backdrop-filter: blur(4px);
+  }
+  @media screen and (min-width: $min_desktop) {
+    width: 519px;
+    height: 727px;
+  }
+}
+
+.description_container {
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 55px;
+  @media screen and (min-width: $min_tablet) {
+    background-image: url("../../public//assets/images/hero_bg.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 110% 50%;
+    background-size: 65%;
+  }
+  @media screen and (min-width: $min_desktop) {
+    background-position: 100% 50%;
+    background-size: 634px 634px;
+  }
 }

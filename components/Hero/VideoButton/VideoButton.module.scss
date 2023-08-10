@@ -14,10 +14,19 @@
   font-size: 16px;
   font-weight: 600;
   line-height: 1;
+  @include fontRegular(16px, 600, 16px);
   transition: all 0.3s ease;
-  margin-bottom: 55px;
   &:hover,
   :focus {
     scale: 1.05;
+  }
+
+  @media screen and (min-width: $min_tablet) {
+    width: 356px;
+    height: 60px;
+    @include fontRegular(18px, 600, 18px);
+  }
+  @media screen and (min-width: $min_desktop) {
+    width: 411px;
   }
 }

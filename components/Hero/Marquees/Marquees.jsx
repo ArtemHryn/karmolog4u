@@ -6,16 +6,24 @@ import styled from "./Marquees.module.scss";
 const Marquees = () => {
   return (
     <div className={styled.marqueesContainer}>
-      <Marquee direction="right" speed="20" className={styled.redText}>
+      <Marquee speed="20" className={styled.redText}>
         <p className={`${styled.text} ${unbounded.className}`}>
           СЕРГІЙ СКЛЯРЕНКО - ПРОВІДНИЙ КАРМОЛОГ, ПСИХОТЕРАПЕВТ, АСПІРАНТ
-          ПСИХОЛОГІЇ -&nbsp;
+          ПСИХОЛОГІЇ&nbsp;
+        </p>
+        <p className={`${styled.text} ${unbounded.className}`}>
+          СЕРГІЙ СКЛЯРЕНКО - ПРОВІДНИЙ КАРМОЛОГ, ПСИХОТЕРАПЕВТ, АСПІРАНТ
+          ПСИХОЛОГІЇ&nbsp;
         </p>
       </Marquee>
-      <Marquee speed="20" className={styled.darkText}>
+      <Marquee speed="20" className={styled.darkText} direction="right">
         <p className={`${styled.text} ${unbounded.className}`}>
           СЕРГІЙ СКЛЯРЕНКО - ПРОВІДНИЙ КАРМОЛОГ, ПСИХОТЕРАПЕВТ, АСПІРАНТ
-          ПСИХОЛОГІЇ -&nbsp;
+          ПСИХОЛОГІЇ&nbsp;
+        </p>
+        <p className={`${styled.text} ${unbounded.className}`}>
+          СЕРГІЙ СКЛЯРЕНКО - ПРОВІДНИЙ КАРМОЛОГ, ПСИХОТЕРАПЕВТ, АСПІРАНТ
+          ПСИХОЛОГІЇ&nbsp;
         </p>
       </Marquee>
     </div>
