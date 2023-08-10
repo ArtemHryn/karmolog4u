@@ -1,9 +1,11 @@
 import styles from "./Container.module.scss";
 
-const Container = ({ children }) => {
+const Container = ({ children, styled }) => {
   return (
     <section className={styles.section}>
-      <div className={styles.container}>{children}</div>
+      <div className={`${styles.container} ${styled ? styled : ""}`}>
+        {children}
+      </div>
     </section>
   );
 };
