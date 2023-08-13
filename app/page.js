@@ -2,6 +2,7 @@
 
 import Hero from "@/components/Hero/Hero";
 import About from "@components/About/About";
+import MyDream from "@components/MyDream/MyDream";
 
 export const metadata = {
   title: "Test Title",
@@ -13,6 +14,7 @@ export default function Home() {
     <main>
       <Hero />
       <About />
+      <MyDream />
     </main>
   );
 }
