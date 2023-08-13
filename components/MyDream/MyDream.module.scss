@@ -1,0 +1,128 @@
+@import "/styles//main.scss";
+
+.section_container {
+  @media screen and (min-width: $min_tablet) {
+    background-image: radial-gradient(
+        circle,
+        rgba(158, 19, 50, 0.1) 17%,
+        rgba(0, 0, 0, 0) 55%
+      ),
+      radial-gradient(circle, rgba(158, 19, 50, 0.1) 15%, rgba(0, 0, 0, 0) 55%);
+    background-position: 420px -120px, -20px -200px;
+    background-size: 400px, 360px;
+    background-repeat: no-repeat;
+  }
+  @media screen and (min-width: $min_desktop) {
+    background-image: radial-gradient(
+        circle,
+        rgba(158, 19, 50, 0.1) 17%,
+        rgba(0, 0, 0, 0) 55%
+      ),
+      radial-gradient(circle, rgba(158, 19, 50, 0.1) 15%, rgba(0, 0, 0, 0) 55%);
+    background-position: 950px -120px, 120px -180px;
+    background-size: 380px, 360px;
+    background-repeat: no-repeat;
+  }
+}
+.container {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  @media screen and (min-width: $min_desktop) {
+    gap: 102px;
+  }
+}
+
+.text_container {
+  flex: 1;
+}
+
+.section_title {
+  position: relative;
+  z-index: 2;
+  @include fontRegular(28px, 400, 39.2px, $main_text_color, center);
+  margin-bottom: 80px;
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(48px, 400, 48px, $main_text_color, center);
+    margin-bottom: 100px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    @include fontRegular(64px, 400, 89.6px, $main_text_color, center);
+  }
+}
+
+.additional_title {
+  @include fontRegular(24px, 400, 24px);
+  margin-bottom: 24px;
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(32px, 400, 32px);
+    margin-bottom: 42px;
+  }
+}
+
+.img {
+  width: 328px;
+  height: 152px;
+  margin-bottom: 24px;
+  @media screen and (min-width: $min_tablet) {
+    display: none;
+  }
+  @media screen and (min-width: $min_desktop) {
+  }
+}
+
+.imgTab {
+  display: none;
+  @media screen and (min-width: $min_tablet) {
+    flex: 1;
+    display: block;
+    width: 261px;
+    height: 281px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    width: 519px;
+    height: 240px;
+  }
+}
+
+.text_description {
+  @include fontRegular(16px, 400, 22.4px);
+  margin-bottom: 32px;
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(18px, 400, 25.2px);
+    text-wrap: balances;
+  }
+  @media screen and (min-width: $min_desktop) {
+  }
+
+  & > span {
+    @media screen and (min-width: $min_tablet) {
+      display: block;
+    }
+    @media screen and (min-width: $min_desktop) {
+      display: inline;
+    }
+  }
+}
+
+.link {
+  display: flex;
+  width: 328px;
+  height: 52px;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 30px;
+  background: $buttons_color;
+
+  @include fontRegular(16px, 600, 16px);
+
+  @media screen and (min-width: $min_tablet) {
+    width: 356px;
+    height: 60px;
+    @include fontRegular(18px, 600, 18px);
+  }
+  @media screen and (min-width: $min_desktop) {
+    width: 411px;
+  }
+}

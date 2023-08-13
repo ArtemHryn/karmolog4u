@@ -5,6 +5,7 @@ import styled from "./About.module.scss";
 import { unbounded } from "@app/layout";
 
 const About = () => {
+  const years = new Date().getFullYear() - 2015;
   return (
     <Container styled={styled.container}>
       <h1 className={`${styled.headerText} ${unbounded.className}`}>
@@ -19,17 +20,18 @@ const About = () => {
           className={styled.img}
         />
         <p className={styled.about_us}>
-          Провідний кармолог України, з 8-річним практичним досвідом.
-          Психотерапевт. Магістр психології. Член асоціації психосинтезу
-          України. Автор трансформаційних практик та медитацій. Засновник
-          «Студії трансформації Сергія Скляренка». Ініційований кармічний
-          діагност, адепт методу «Матриця долі» Наталії Ладіні.
+          Провідний кармолог України, з{" "}
+          {new Date().getMonth() > 4 ? years : years - 1}-річним практичним
+          досвідом. Психотерапевт. Магістр психології. Член асоціації
+          психосинтезу України. Автор трансформаційних практик та медитацій.
+          Засновник «Студії трансформації Сергія Скляренка». Ініційований
+          кармічний діагност, адепт методу «Матриця долі» Наталії Ладіні.
         </p>
       </div>
       <div className={`${styled.about_us_facts_container}`}>
         <div className={`${styled.about_us_fact} ${styled.about_us_fact1}`}>
           <p className={`${styled.about_us_fact_title} ${unbounded.className}`}>
-            8 років
+            {new Date().getMonth() > 4 ? years : years - 1} років
           </p>
           <p className={styled.about_us_fact_description}>
             консультантської практики у методі «Матриця долі»

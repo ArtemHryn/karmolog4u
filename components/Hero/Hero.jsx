@@ -16,12 +16,12 @@ const Hero = () => {
         СЕРГІЙ СКЛЯРЕНКО
       </h1>
       <div className={styled.description_container}>
-        <div style={{backdropFilter: 'blur(4px)'}}>
+        <div style={{ backdropFilter: "blur(4px)" }}>
           <h1 className={`${styled.author2} ${unbounded.className}`}>
             СЕРГІЙ СКЛЯРЕНКО
           </h1>
           <p
-            className={`${styled.text_description} ${styled.additionl_text_description}`}
+            className={`${styled.text_description} ${styled.additional_text_description}`}
           >
             Я створив для вас простір енергетичної сили, де ви зможете знайти
             дієві інструменти для Вашої глобальної трансформації до шляху
