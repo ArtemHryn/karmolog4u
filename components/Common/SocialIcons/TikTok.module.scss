@@ -1,0 +1,11 @@
+@import "/styles/main.scss";
+
+.icon {
+  width: 30px;
+  height: 30px;
+  fill: $seconds_text_color;
+  @media screen and (min-width: $min_tablet) {
+    width: 48px;
+    height: 48px;
+  }
+}
