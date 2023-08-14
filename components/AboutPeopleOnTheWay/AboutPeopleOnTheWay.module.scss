@@ -1,0 +1,63 @@
+@import "/styles/main.scss";
+
+.title {
+  @include fontRegular(24px, 400, 24px, $main_text_color, center);
+  text-wrap: balance;
+  margin-bottom: 42px;
+
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(32px, 400, 32px, $main_text_color, center);
+  }
+}
+
+.description {
+  @include fontRegular(15px, 400, 22.4px, $main_text_color, center);
+  text-wrap: balance;
+  margin-bottom: 48px;
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(18px, 400, 25.2px, $main_text_color, center);
+    text-wrap: wrap;
+  }
+  @media screen and (min-width: $min_desktop) {
+    text-wrap: balance;
+  }
+}
+
+.socialList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  @media screen and (min-width: $min_tablet) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    flex-wrap: nowrap;
+  }
+}
+
+.socialText {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  border-radius: 30px;
+  background-color: #000;
+  padding: 12px 20px;
+
+  @include fontRegular(24px, 400, 24px, $main_text_color, center);
+  transition: scale 0.3s ease;
+
+  @media screen and (min-width: $min_tablet) {
+    min-width: 356px;
+    @include fontRegular(32px, 400, 32px, $main_text_color, center);
+  }
+  @media screen and (min-width: $min_desktop) {
+    min-width: 302px;
+  }
+  &:hover,
+  &:focus {
+    scale: 1.05;
+  }
+}
