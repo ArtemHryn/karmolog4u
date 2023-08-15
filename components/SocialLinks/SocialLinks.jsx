@@ -1,31 +1,30 @@
 import React from "react";
-import instagram from "../../public/assets/header/socialIcon/Group 24.svg";
-import telegram from "../../public/assets/header/socialIcon/vector.svg";
-import tiktok from "../../public/assets/header/socialIcon/vector-1.svg";
-import whatsapp from "../../public/assets/header/socialIcon/vector-2.svg";
-import youtube from "../../public/assets/header/socialIcon/vector-3.svg";
-import viber from "../../public/assets/header/socialIcon/Vector 2.svg";
 import Link from "next/link";
-import Image from "next/image";
 import styles from "./SocialLinks.module.scss";
+import Instagram from "@components/Common/SocialIcons/Instagram";
+import Telegram from "@components/Common/SocialIcons/Telegram";
+import TikTok from "@components/Common/SocialIcons/TikTok";
+import Whatsapp from "@components/Common/SocialIcons/Whatsapp";
+import YouTube from "@components/Common/SocialIcons/YouTube";
+import Viber from "@components/Common/SocialIcons/Viber";
 
 const links = [
-  { icon: instagram, to: "#", alt: "" },
-  { icon: telegram, to: "#", alt: "" },
-  { icon: tiktok, to: "#", alt: "" },
-  { icon: whatsapp, to: "#", alt: "" },
-  { icon: youtube, to: "#", alt: "" },
-  { icon: viber, to: "#", alt: "" },
+  { icon: Instagram, to: "#" },
+  { icon: Telegram, to: "#" },
+  { icon: TikTok, to: "#" },
+  { icon: Whatsapp, to: "#" },
+  { icon: YouTube, to: "#" },
+  { icon: Viber, to: "#" },
 ];
 function SocialLinks() {
   return (
     <div className={styles.wrap}>
       <p className={styles.title}>Соціальні мережі та контакти</p>
       <ul className={styles.list}>
-        {links.map((link, index) => (
-          <li key={index} className={styles.item}>
-            <Link href={link.to}>
-              <Image priority src={link.icon} alt={link.alt} />
+        {links.map(({ icon: Icon, to }, index) => (
+          <li key={index}>
+            <Link href={to} className={styles.link}>
+              <Icon styled={styles.icon} />
             </Link>
           </li>
         ))}
