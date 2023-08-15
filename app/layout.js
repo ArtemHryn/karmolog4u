@@ -1,5 +1,6 @@
 import { Open_Sans, Unbounded } from "next/font/google";
 import "./globals.scss";
+import Header from "@components/Header/Header";
 
 export const open_Sans = Open_Sans({
   subsets: ["cyrillic"],
@@ -12,12 +13,13 @@ export const unbounded = Unbounded({
   weight: ["700", "600", "500", "400"],
 });
 
-
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={open_Sans.className}>{children}</body>
+      <body className={open_Sans.className}>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }

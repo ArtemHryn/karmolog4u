@@ -1,0 +1,51 @@
+@import "../styles/main.scss";
+
+.wrap {
+  background: $main_bg;
+  position: relative;
+}
+
+.header {
+  padding: 20px 16px 0;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @media screen and (min-width: $min_desktop) {
+    padding: 20px 80px 0;
+  }
+}
+
+.add_nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 23px;
+  @media screen and (min-width: $min_desktop) {
+    gap: 37px;
+  }
+}
+
+.logo {
+  @media screen and (max-width: $min_desktop) {
+    transform: translateX(24px);
+  }
+  @media screen and (min-width: $min_desktop) {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.burger {
+  @media screen and (min-width: $min_desktop) {
+    display: none;
+  }
+}
+
+.desktop_nav {
+  display: none;
+  @media screen and (min-width: $min_desktop) {
+    display: block;
+  }
+}
