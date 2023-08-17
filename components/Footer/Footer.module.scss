@@ -1,0 +1,95 @@
+@import "../styles/main.scss";
+
+.wrap {
+  border-top: 1px solid $seconds_text_color;
+  padding: 20px 0 32px;
+
+  background-color: $section_color;
+  @media screen and (min-width: $min_tablet) {
+    padding: 32px 0 32px;
+  }
+}
+
+.footer {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 46px;
+  max-width: 328px;
+  @media screen and (min-width: $min_tablet) {
+    max-width: 736px;
+    gap: 40px;
+  }
+  @media screen and (min-width: $min_tablet) {
+    max-width: 1280px;
+    gap: 40px;
+  }
+}
+
+.wrap_logo {
+  display: flex;
+  flex-direction: row;
+  gap: 22px;
+  width: 262px;
+  @media screen and (min-width: $min_tablet) {
+    width: max-content;
+    flex-direction: column;
+    gap: 28px;
+    margin: 0 auto;
+    align-items: center;
+  }
+}
+
+.hover {
+  color: $main_text_color;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover .title {
+    color: $seconds_text_color;
+  }
+  &:hover {
+    color: $seconds_text_color;
+  }
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  @media screen and (min-width: $min_tablet) {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+.title {
+  @include fontRegular(16px, 400, 22.4px);
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.link_wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  @media screen and (min-width: $min_tablet) {
+    gap: 40px;
+    justify-content: flex-end;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 46px;
+  @media screen and (min-width: $min_tablet) {
+    flex-direction: row-reverse;
+    margin: 0 auto;
+    gap: 64px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    margin: 0;
+    justify-content: space-between;
+  }
+}
