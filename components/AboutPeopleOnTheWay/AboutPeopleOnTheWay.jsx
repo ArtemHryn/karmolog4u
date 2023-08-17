@@ -46,7 +46,7 @@ const AboutPeopleOnTheWay = async () => {
             target="_blank"
             rel="noreferrer noopener"
           >
-            <TikTok />
+            <TikTok styled={styles.icon} />
             66,4 тис.
           </Link>
         </li>
@@ -59,7 +59,7 @@ const AboutPeopleOnTheWay = async () => {
             target="_blank"
             rel="noreferrer noopener"
           >
-            <Instagram /> 34,5 тис.
+            <Instagram styled={styles.icon} /> 34,5 тис.
           </Link>
         </li>
         <li>
@@ -69,7 +69,7 @@ const AboutPeopleOnTheWay = async () => {
             target="_blank"
             rel="noreferrer noopener"
           >
-            <YouTube />
+            <YouTube styled={styles.icon} />
             {setYoutubeSubs()}
           </Link>
         </li>
@@ -80,7 +80,7 @@ const AboutPeopleOnTheWay = async () => {
             target="_blank"
             rel="noreferrer noopener"
           >
-            <Telegram />
+            <Telegram styled={styles.icon} />
             7,2 тис.
           </Link>
         </li>

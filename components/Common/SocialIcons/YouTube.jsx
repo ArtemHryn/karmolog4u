@@ -1,4 +1,3 @@
-import styles from "./TikTok.module.scss";
 
 const YouTube = ({ styled }) => {
   return (
@@ -6,7 +5,7 @@ const YouTube = ({ styled }) => {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 30 30"
       fill="none"
-      className={`${styles.icon} ${styled ? styled : ""}`}
+      className={`${styled ? styled : ""}`}
     >
       <path
         fillRule="evenodd"
