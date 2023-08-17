@@ -2,13 +2,12 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Header.module.scss";
 import Nav from "./Nav/Nav";
-import Image from "next/image";
-import logo from "../../public/assets/header/Logo.svg";
-import burger from "../../public/assets/header/fi-rs-menu-burger.svg";
-import shoppingBag from "../../public/assets/header/fi-rs-shopping-bag.svg";
-import user from "../../public/assets/header/fi-rs-user.svg";
 import Link from "next/link";
 import MobileNav from "./MobileNav/MobileNav";
+import Logo from "@components/Common/Icons/Logo";
+import ShoppingBag from "@components/Common/Icons/ShoppingBag";
+import User from "@components/Common/Icons/User";
+import Burger from "@components/Common/Icons/Burger";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(null);
@@ -22,37 +21,36 @@ function Header() {
   }, [isOpen]);
 
   return (
-    <div className={styles.wrap}>
+    <header className={styles.wrap}>
       <div className={styles.header}>
         <button
           type="button"
-          className={styles.burger}
+          className={`${styles.burger} ${styles.hover}`}
           onClick={() => setIsOpen(!isOpen)}
         >
-          <Image priority src={burger} alt="Follow us on Twitter" />
+          <Burger />
         </button>
-        <Link href={"#"}>
-          <Image
-            priority
-            src={logo}
-            alt="Follow us on Twitter"
-            className={`${styles.logo}`}
-          />
+        <Link href={"/"} className={`${styles.logo} ${styles.hover}`}>
+          <Logo />
         </Link>
         <div className={styles.desktop_nav}>
           <Nav />
         </div>
         <div className={styles.add_nav}>
-          <Link href={"#"}>
-            <Image priority src={shoppingBag} alt="Follow us on Twitter" />
+          <Link
+            href={"#"}
+            className={`${styles.hover} ${styles.bag}`}
+            data-after="0"
+          >
+            <ShoppingBag />
           </Link>
-          <Link href={"#"}>
-            <Image priority src={user} alt="Follow us on Twitter" />
+          <Link href={"#"} className={styles.hover}>
+            <User />
           </Link>
           <MobileNav isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
       </div>
-    </div>
+    </header>
   );
 }
 
