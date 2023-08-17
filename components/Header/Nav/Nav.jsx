@@ -1,8 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import styles from "./Nav.module.scss";
-import Image from "next/image";
-import arrow from "../../../public/assets/header/01 align center.svg";
+import ArrowDown from "@components/Common/Icons/ArrowDown";
 
 const links = [
   {
@@ -68,16 +67,11 @@ function Nav() {
                 onClick={onClick}
               >
                 <p className={styles.title}>{item.title}</p>
-                <span>
-                  <Image
-                    priority
-                    src={arrow}
-                    alt="Follow us on Twitter"
-                    className={`${styles.dropdown_icon} ${
-                      +active === +item.id ? styles.dropdown_icon_rotate : ""
-                    }`}
-                  />
-                </span>
+                <ArrowDown
+                  styled={`${styles.dropdown_icon} ${
+                    +active === +item.id ? styles.dropdown_icon_rotate : ""
+                  }`}
+                />
               </button>
               <ul
                 className={`${styles.dropdown_list} ${
