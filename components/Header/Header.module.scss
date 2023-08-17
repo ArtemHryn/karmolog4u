@@ -1,7 +1,7 @@
 @import "../styles/main.scss";
 
 .wrap {
-  background: $main_bg;
+  background-color: $main_bg;
   position: relative;
 }
 
@@ -28,12 +28,14 @@
 }
 
 .logo {
+  width: 40px;
+  height: 40px;
   @media screen and (max-width: $min_desktop) {
     transform: translateX(24px);
   }
   @media screen and (min-width: $min_desktop) {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
   }
 }
 
@@ -47,5 +49,33 @@
   display: none;
   @media screen and (min-width: $min_desktop) {
     display: block;
+  }
+}
+
+.hover {
+  color: $main_text_color;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    color: $seconds_text_color;
+  }
+}
+
+.bag {
+  position: relative;
+  &::after {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    content: attr(data-after);
+    background-color: $seconds_text_color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    right: -7px;
+    @include fontRegular(12px, 500, 22.4px);
   }
 }
