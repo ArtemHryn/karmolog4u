@@ -29,7 +29,7 @@ function SocialLinks({ styles }) {
         {links.map(({ icon: Icon, to }, index) => (
           <li key={index}>
             <Link href={to} className={styles.link}>
-              <Icon styled={styles.icon} />
+              <Icon styled={styles.icon_social} />
             </Link>
           </li>
         ))}
