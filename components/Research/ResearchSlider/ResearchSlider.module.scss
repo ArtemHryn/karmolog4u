@@ -1,0 +1,93 @@
+@import "/styles/main.scss";
+
+.swiper_container {
+  transform: translateY(-10px);
+}
+
+//Swiper
+.pagination {
+  background: red !important;
+  @media screen and (min-width: $min_desktop) {
+    .swiper > .swiper-pagination {
+      display: none !important;
+    }
+  }
+}
+//Swiper element
+
+.slider_element_container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 238px;
+  width: 100%;
+
+  border-radius: 30px;
+  border: 1px solid $seconds_text_color;
+  padding: 18px 15px;
+  background: #000;
+  margin-bottom: 30px;
+  @media screen and (min-width: $min_tablet) {
+    padding: 18px 29px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    padding: 18px 56.5px;
+  }
+}
+
+.logo {
+  width: 30px;
+  height: 30px;
+}
+
+.text {
+  @include fontRegular(16px, 400, 22.4px, $main_text_color, center);
+  text-wrap: balance;
+  white-space: break-spaces;
+}
+
+.link {
+  display: flex;
+  padding: 17px 44px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  background-color: $buttons_color;
+
+  @include fontRegular(16px, 600, 16px);
+}
+
+.slider_button {
+  position: absolute;
+  display: none;
+  @media screen and (min-width: $min_desktop) {
+    display: block;
+
+    top: 50%;
+    background-color: $buttons_color;
+    padding: 20px 0;
+    transition: all 0.3s ease;
+    &_prev {
+      left: 0;
+      rotate: 180deg;
+      transform: translateY(50%);
+    }
+    &_next {
+      right: 0;
+      transform: translateY(-50%);
+    }
+    &:hover,
+    &:focus {
+      background-color: #e24668;
+    }
+  }
+}
+
+.slider_arrow {
+  width: 24px;
+  height: 24px;
+  fill: $main_text_color;
+}

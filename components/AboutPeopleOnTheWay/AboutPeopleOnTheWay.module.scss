@@ -45,7 +45,9 @@
   border-radius: 30px;
   background-color: #000;
   padding: 12px 20px;
-
+  & > svg {
+    transition: all 0.3s ease;
+  }
   @include fontRegular(24px, 400, 24px, $main_text_color, center);
   transition: all 0.3s ease;
 
