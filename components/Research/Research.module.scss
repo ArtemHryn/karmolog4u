@@ -1,0 +1,77 @@
+@import "/styles/main.scss";
+
+.header {
+  @include fontRegular(40px, 400, 40px);
+  margin-bottom: 48px;
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(48px, 400, 48px);
+    margin-bottom: 60px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    @include fontRegular(64px, 400, 89.6px);
+    margin-bottom: 23px;
+  }
+}
+
+.content_container {
+  background-image: radial-gradient(
+    circle,
+    rgba(109, 27, 45, 0.2) 39%,
+    rgba(0, 0, 0, 0) 66%
+  );
+  background-position: 50% 100px;
+  background-size: 300px;
+  background-repeat: no-repeat;
+  @media screen and (min-width: $min_tablet) {
+    background-image: radial-gradient(
+      circle,
+      rgba(109, 27, 45, 0.3) 39%,
+      rgba(0, 0, 0, 0) 66%
+    );
+    background-position: 50% 100px;
+    background-size: 750px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-position: 110% 15%;
+    background-size: 750px 650px;
+  }
+}
+
+.description_container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 34px;
+  @media screen and (min-width: $min_tablet) {
+    gap: 40px;
+    margin-bottom: 95px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    gap: 44px;
+    margin-bottom: 0px;
+    width: calc((100% - 9px) / 2);
+  }
+}
+
+.description {
+  @include fontRegular(16px, 400, 22.4px);
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(18px, 400, 25.2px);
+    max-width: 96%;
+  }
+  @media screen and (min-width: $min_desktop) {
+  }
+}
+
+.img {
+  @media screen and (min-width: $min_tablet) {
+    width: 628px;
+    height: 397px;
+    margin-inline: auto;
+    writing-mode: horizontal-tb;
+    backdrop-filter: blur(10px);
+  }
+}
