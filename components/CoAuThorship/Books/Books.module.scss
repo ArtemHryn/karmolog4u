@@ -1,0 +1,77 @@
+@import "/styles/main.scss";
+
+.books_wrapper {
+  @media screen and (min-width: $min_tablet) {
+    display: none;
+  }
+}
+
+//Swiper
+
+.pagination {
+  background: red !important;
+  @media screen and (min-width: $min_tablet) {
+    .swiper > .swiper-pagination {
+      display: none !important;
+      bottom: 100px;
+    }
+  }
+}
+
+//book slide
+.book_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 328px;
+  padding: 30px 31px;
+  border-radius: 30px;
+  background-color: #000;
+  margin-bottom: 40px;
+  min-height: 458px;
+  @media screen and (min-width: $min_tablet) {
+    min-height: 461px;
+    margin-bottom: 0px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    padding: 40px 31px;
+    max-width: 302px;
+  }
+}
+
+.img {
+  margin-bottom: 16px;
+}
+
+.book_text {
+  @include fontRegular(16px, 400, 22.4px, $main_text_color, center);
+  margin-bottom: 24px;
+  max-width: 240px;
+}
+
+.buy_button {
+  display: flex;
+  padding: 17px 44px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  background-color: $buttons_color;
+
+  @include fontRegular(16px, 600, 16px, $main_text_color);
+}
+
+//Tabs and bigger
+
+.books_list {
+  display: none;
+  @media screen and (min-width: $min_tablet) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    gap: 133px;
+  }
+}
