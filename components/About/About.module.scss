@@ -4,12 +4,12 @@
   display: grid;
   @media screen and (min-width: $min_tablet) {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    grid-column-gap: 24px;
-    grid-row-gap: 24px;
+    grid-template-rows: repeat(5, 1fr);
+    gap: 24px;
   }
   @media screen and (min-width: $min_desktop) {
     grid-template-rows: repeat(2, 1fr);
+    place-items: center;
   }
 }
 
@@ -21,11 +21,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    grid-area: 1 / 2 / 2 / 3;
+    grid-area: 2 / 2 / 3 / 3;
   }
   @media screen and (min-width: $min_desktop) {
     @include fontRegular(64px, 400, 89.6px);
-    grid-area: 1 / 2 / 2 / 3;
+    grid-area: 1 / 2 / 3 / 3;
     align-items: flex-end;
     margin-bottom: 0;
   }
@@ -52,7 +52,7 @@
   flex-direction: column;
   align-items: center;
   @media screen and (min-width: $min_tablet) {
-    grid-area: 1 / 1 / 4 / 2;
+    grid-area: 1 / 1 / 5 / 2;
   }
   @media screen and (min-width: $min_desktop) {
     grid-area: 1 / 1 / 7 / 2;
@@ -66,7 +66,7 @@
   background-image: $under_photo_gradient;
   transform: translateY(-20px);
   margin-bottom: 16px;
-  @media screen and (min-width: $min_desktop) {
+  @media screen and (min-width: $min_tablet) {
     @include fontRegular(18px, 400, 25.2px);
     margin-bottom: 0px;
   }
@@ -78,7 +78,7 @@
   flex-wrap: wrap;
   gap: 16px;
   @media screen and (min-width: $min_tablet) {
-    grid-area: 2 / 1 / 5 / 3;
+    grid-area: 3 / 1 / 6 / 3;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
