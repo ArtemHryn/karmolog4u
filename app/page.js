@@ -8,6 +8,7 @@ import Feedback from "@components/Feedback/Feedback";
 import MyDream from "@components/MyDream/MyDream";
 import QuestionAnswer from "@components/QuestionAnswer/QuestionAnswer";
 import Research from "@components/Research/Research";
+import StarCustomers from "@components/StarCustomers/StarCustomers";
 
 export const metadata = {
   title: "Test Title",
@@ -23,6 +24,7 @@ export default function Home() {
       <AboutPeopleOnTheWay />
       <Research />
       <CoAuThorship />
+      <StarCustomers/>
       <QuestionAnswer />
       <Feedback/>
     </main>
