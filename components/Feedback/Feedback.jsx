@@ -13,17 +13,17 @@ const links = [
   {
     icon: Whatsapp,
     name: "WhatsApp",
-    to: "",
+    to: "https://wa.me/380678696760",
   },
   {
     icon: Telegram,
     name: "Telegram",
-    to: "",
+    to: "https://t.me/karmolog4u",
   },
   {
     icon: Viber,
     name: "Viber",
-    to: "",
+    to: "viber://chat?number=%2B380678696760",
   },
 ];
 function Feedback() {
