@@ -53,8 +53,3 @@ button {
   cursor: pointer;
 }
 
-.bullet {
-  @media screen and (min-width: $min_desktop) {
-    display: none !important;
-  }
-}

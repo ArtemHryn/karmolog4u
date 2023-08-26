@@ -14,6 +14,8 @@ const ResearchSlideElement = ({ card, index }) => {
       <p className={styles.text}>{card.text}</p>
       <Link
         href={card.file}
+        target="_blank"
+        rel="noreferrer noopener"
         className={`${styles.link} ${open_Sans.className}`}
       >
         Переглянути

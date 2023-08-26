@@ -3,6 +3,7 @@
 import Hero from "@/components/Hero/Hero";
 import About from "@components/About/About";
 import AboutPeopleOnTheWay from "@components/AboutPeopleOnTheWay/AboutPeopleOnTheWay";
+import CoAuThorship from "@components/CoAuThorship/CoAuThorship";
 import Feedback from "@components/Feedback/Feedback";
 import MyDream from "@components/MyDream/MyDream";
 import QuestionAnswer from "@components/QuestionAnswer/QuestionAnswer";
@@ -21,6 +22,7 @@ export default function Home() {
       <MyDream />
       <AboutPeopleOnTheWay />
       <Research />
+      <CoAuThorship />
       <QuestionAnswer />
       <Feedback/>
     </main>

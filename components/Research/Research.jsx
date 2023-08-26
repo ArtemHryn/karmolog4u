@@ -4,8 +4,6 @@ import styles from "./Research.module.scss";
 import { unbounded } from "@app/layout";
 import ResearchSlider from "./ResearchSlider/ResearchSlider";
 
-
-
 const Research = () => {
   return (
     <Container>
@@ -44,6 +42,13 @@ const Research = () => {
             className={styles.img}
           />
         </picture>
+        <Image
+          src="/assets/images/research_arrow.svg"
+          width={135}
+          height={38}
+          alt="arrow"
+          className={styles.arrow}
+        />
       </div>
       <ResearchSlider />
     </Container>
