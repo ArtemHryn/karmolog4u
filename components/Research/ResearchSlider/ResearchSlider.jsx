@@ -51,6 +51,10 @@ const ResearchSlider = () => {
         modules={[Pagination]}
         spaceBetween={24}
         pagination={pagination}
+        style={{
+          "--swiper-pagination-bullet-inactive-color": "#454545;",
+          "--swiper-pagination-color": "#9D253F",
+        }}
         breakpoints={{
           360: {
             slidesPerView: 1,

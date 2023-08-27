@@ -11,8 +11,8 @@ import Research from "@components/Research/Research";
 import StarCustomers from "@components/StarCustomers/StarCustomers";
 
 export const metadata = {
-  title: "Test Title",
-  description: "Test descr",
+  title: "Сергій Скляренко",
+  description: "Сергій Скляренко",
 };
 
 export default function Home() {

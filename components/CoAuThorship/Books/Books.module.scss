@@ -9,7 +9,7 @@
 //Swiper
 
 .pagination {
-  background: red !important;
+  opacity: 1 !important;
   @media screen and (min-width: $min_tablet) {
     .swiper > .swiper-pagination {
       display: none !important;
