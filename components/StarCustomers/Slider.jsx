@@ -71,7 +71,7 @@ function Slider() {
           slidesPerView: 2,
           spaceBetween: 24,
         },
-        1440: {
+        1280: {
           slidesPerView: 4,
           spaceBetween: 24,
         },
