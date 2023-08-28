@@ -6,13 +6,20 @@
 }
 
 .header {
+  max-width: 1440px;
+  margin: 0 auto;
   padding: 20px 16px 0;
   position: relative;
   z-index: 10;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  @media screen and (min-width: $min_desktop) {
+    @media screen and (min-width: $mac) {
+        max-width: 1312px;
+    padding: 20px 16px 0;
+  }
+  @media screen and (min-width: $big_pc) {
+     max-width: 1440px;
     padding: 20px 80px 0;
   }
 }
@@ -30,7 +37,7 @@
 .logo {
   width: 40px;
   height: 40px;
-  @media screen and (max-width: $min_desktop) {
+  @media screen and (max-width: 1279.5px) {
     transform: translateX(24px);
   }
   @media screen and (min-width: $min_desktop) {
