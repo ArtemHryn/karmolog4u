@@ -73,7 +73,7 @@ function Slider() {
         },
         1280: {
           slidesPerView: 4,
-          spaceBetween: 24,
+          spaceBetween: 23,
         },
       }}
     >

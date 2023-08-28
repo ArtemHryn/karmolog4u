@@ -138,11 +138,18 @@
   display: none;
   position: absolute;
   bottom: 0;
-  left: 777px;
+
   animation: arrow-move 3s infinite;
   transform-origin: top left;
   @media screen and (min-width: $min_desktop) {
+    left: 699px;
     display: block;
+  }
+  @media screen and (min-width: $mac) {
+    left: 713px;
+  }
+  @media screen and (min-width: $big_pc) {
+    left: 777px;
   }
 }
 @keyframes arrow-move {

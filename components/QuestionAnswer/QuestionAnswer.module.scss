@@ -12,7 +12,7 @@
     @include fontRegular(18px, 400, 25.2px);
   }
   @media screen and (min-width: $min_desktop) {
-    gap: 32px;
+    gap: 31px;
   }
 }
 
@@ -84,7 +84,7 @@
   }
   @media screen and (min-width: $min_desktop) {
     padding: 20px 34px;
-    width: 628px;
+    width: 626px;
   }
 }
 
