@@ -22,10 +22,19 @@
   }
   @media screen and (min-width: $min_tablet) {
     max-width: $min_tablet;
-
   }
   @media screen and (min-width: $min_desktop) {
     max-width: $min_desktop;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+  @media screen and (min-width: $mac) {
+    max-width: $mac;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  @media screen and (min-width: $big_pc) {
+    max-width: $big_pc;
     padding-left: 80px;
     padding-right: 80px;
   }
