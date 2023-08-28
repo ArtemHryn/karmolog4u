@@ -45,7 +45,7 @@ const MyDream = () => {
         <picture>
           <source
             srcSet="/assets/images/studentsDesk.webp"
-            media="(min-width: 1440px)"
+            media="(min-width: 1280px)"
           />
           <Image
             src="/assets/images/studentsTab.webp"

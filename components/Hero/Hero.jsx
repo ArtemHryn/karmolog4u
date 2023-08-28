@@ -8,7 +8,7 @@ import { unbounded } from "@/app/layout";
 
 const Hero = () => {
   return (
-    <Container>
+    <Container styledSection={styled.styled_section}>
       <p className={styled.text}>
         Твій провідник в щасливе та гармонійне життя
       </p>

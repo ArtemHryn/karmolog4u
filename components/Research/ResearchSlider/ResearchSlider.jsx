@@ -17,7 +17,7 @@ const researchBlock = [
   },
   {
     text: "“Феномен розвитку емпатії особистості у період дорослішання: соціально-психологічний аспект”",
-    file: "http://visnyk.nuou.org.ua/article/download/235113/237965",
+    file: "http://visnyk.nuou.org.ua/article/view/235113/237965",
   },
   {
     text: "“Роль асертивності в професійному становленні психолога-консультанта в умовах соціальних викликів”",
@@ -64,7 +64,7 @@ const ResearchSlider = () => {
             slidesPerView: 2,
             slidesPerGroup: 2,
           },
-          1440: {
+          1280: {
             slidesPerView: 3,
             slidesPerGroup: 3,
           },
