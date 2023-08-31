@@ -21,7 +21,7 @@ const links = [
   { icon: YouTube, to: "https://www.youtube.com/@user-qi5qi3vr9k" },
   {
     icon: Viber,
-    to: "viber://chat/?number=380678696760",
+    to: "viber://chat/?number=%2B380678696760",
   },
 ];
 function SocialLinks({ styles }) {
