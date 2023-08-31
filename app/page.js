@@ -34,12 +34,12 @@ export async function generateMetadata() {
       siteName: "Karmolog4u",
       images: [
         {
-          url: `/opengraph-image.jpg`,
+          url: `/opengraph-image.png`,
           width: 600,
           height: 600,
         },
         {
-          url: "/opengraph-image.jpg",
+          url: "/opengraph-image.png",
           width: 1200,
           height: 1200,
           alt: "Custom alt",
@@ -71,7 +71,7 @@ export async function generateMetadata() {
       // siteId: "1467726470533754880",
       // creator: "@Karmolog4u",
       // creatorId: "1467726470533754880",
-      images: ["/twitter-image.jpg"],
+      images: ["/twitter-image.png"],
     },
     manifest: "/manifest.json",
     icons: {
