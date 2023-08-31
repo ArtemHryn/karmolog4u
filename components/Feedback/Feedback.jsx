@@ -23,7 +23,7 @@ const links = [
   {
     icon: Viber,
     name: "Viber",
-    to: "viber://chat/?number=380678696760",
+    to: "viber://chat/?number=%2B380678696760",
   },
 ];
 function Feedback() {
