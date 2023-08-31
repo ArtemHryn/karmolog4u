@@ -18,12 +18,12 @@ const links = [
   {
     icon: Telegram,
     name: "Telegram",
-    to: "https://t.me/karmolog4u",
+    to: "https://t.me/karmologforyou",
   },
   {
     icon: Viber,
     name: "Viber",
-    to: "viber://chat?number=%2B380678696760",
+    to: "viber://chat/?number=380678696760",
   },
 ];
 function Feedback() {
@@ -42,13 +42,15 @@ function Feedback() {
         <ul className={styles.list}>
           {links.map(({ icon: Icon, name, to }, index) => (
             <li key={index}>
-              <Link
+              <a
                 href={to}
                 className={`${styles.link} ${unbounded.className}`}
+                target="_blank"
+                rel="noreferrer noopener"
               >
                 <Icon styled={styles.icon} />
                 {name}
-              </Link>
+              </a>
             </li>
           ))}
         </ul>
