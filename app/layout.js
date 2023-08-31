@@ -16,11 +16,11 @@ export const unbounded = Unbounded({
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="uk">
       <body className={open_Sans.className}>
         <Header />
         {children}
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );
