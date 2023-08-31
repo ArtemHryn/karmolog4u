@@ -27,19 +27,19 @@ const content = [
   },
   {
     image: "/assets/images/starCustomers/sofia_stuzhuk.webp",
-    owner: "dashaspok",
+    owner: "sofia_stuzhuk",
     feedback:
       "Я відчула, що зробила мега квантовий стрибок. Все це завдяки трансформації у Сергія.",
     link: "https://www.instagram.com/dashapimakhova/",
-    altImage: "/assets/images/starCustomers/dashaspok_Alt.webp",
+    altImage: "/assets/images/starCustomers/sofia_stuzhuk_Alt.webp",
   },
   {
     image: "/assets/images/starCustomers/dashaspok.webp",
-    owner: "sofia_stuzhuk",
+    owner: "dashaspok",
     feedback:
       "Мій самий найкращий провідник та вчитель - Сергій Скляренко. Рекомендую від всієї душі.",
     link: "https://www.instagram.com/sofia_stuzhuk/",
-    altImage: "/assets/images/starCustomers/sofia_stuzhuk_Alt.webp",
+    altImage: "/assets/images/starCustomers/dashaspok_Alt.webp",
   },
 ];
 
