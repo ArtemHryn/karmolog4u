@@ -35,8 +35,8 @@ const Hero = () => {
         </div>
         <Image
           src="/assets/images/SergiyHero.webp"
-          width={360}
-          height={516}
+          width={1557}
+          height={2181}
           alt="Сергій Скляренко"
           className={styled.hero_img}
           priority={true}

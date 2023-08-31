@@ -68,6 +68,8 @@
   @media screen and (min-width: $min_tablet) {
     display: block;
     backdrop-filter: blur(4px);
+    width: 360px;
+    height: 516px;
   }
   @media screen and (min-width: $min_desktop) {
     width: 519px;
