@@ -1,0 +1,59 @@
+@import "/styles/main.scss";
+
+.box {
+  @media screen and (min-width: $min_desktop) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.title {
+  @include fontRegular(32px, 400, 44.8px);
+  margin-bottom: 28px;
+
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(48px, 400, 48px);
+    margin-bottom: 44px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    @include fontRegular(64px, 400, 89.6px);
+    margin-bottom: 48px;
+  }
+}
+
+.button {
+  display: flex;
+  width: 328px;
+  height: 52px;
+  justify-content: center;
+  align-items: center;
+
+  background-color: $buttons_color;
+  border-radius: 30px;
+
+  margin-bottom: 16px;
+
+  @include fontRegular(16px, 600, 16px);
+
+  @media screen and (min-width: $min_tablet) {
+    width: 356px;
+    height: 60px;
+
+    @include fontRegular(18px, 600, 18px);
+
+    margin-bottom: 24px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    width: 411px;
+
+    margin-bottom: 0px;
+  }
+}
+
+.img {
+  @media screen and (min-width: $min_desktop) {
+    width: 519px;
+    height: 300px;
+  }
+}
