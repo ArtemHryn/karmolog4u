@@ -54,6 +54,6 @@
 .img {
   @media screen and (min-width: $min_desktop) {
     width: 519px;
-    height: 300px;
+    min-height: 300px;
   }
 }
