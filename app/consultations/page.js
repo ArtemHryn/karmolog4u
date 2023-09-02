@@ -7,13 +7,8 @@ export default function Consultations() {
     <main>
       <Hero
         linkNames={links}
-        title="ТЕРАПЕВТИЧНІ 
-СЕСІЇ З СЕРГІЄМ
-СКЛЯРЕНКО "
-        img={{
-          img: "/assets/images/consultationsHero.webp",
-          alt: "Фото Сергія",
-        }}
+        title="КОНСУЛЬТАЦІЇ З МАТРИЦІ ДОЛІ"
+        img={{ img: "/assets/images/consultationsHero.webp", alt: 'Фото Сергія' }}
       />
     </main>
   );
