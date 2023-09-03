@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Marquees from "./Marquees/Marquees";
-import Container from "../Common/Container/Container";
 import VideoButton from "./VideoButton/VideoButton";
+import Container from "@components/Common/Container/Container";
 
 import styled from "./Hero.module.scss";
 import { unbounded } from "@/app/layout";
