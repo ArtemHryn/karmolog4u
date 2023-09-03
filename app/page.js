@@ -1,14 +1,14 @@
 // import styled from "./page.module.scss";
 
-import Hero from "@/components/Hero/Hero";
-import About from "@components/About/About";
-import AboutPeopleOnTheWay from "@components/AboutPeopleOnTheWay/AboutPeopleOnTheWay";
-import CoAuThorship from "@components/CoAuThorship/CoAuThorship";
-import Feedback from "@components/Feedback/Feedback";
-import MyDream from "@components/MyDream/MyDream";
-import QuestionAnswer from "@components/QuestionAnswer/QuestionAnswer";
-import Research from "@components/Research/Research";
-import StarCustomers from "@components/StarCustomers/StarCustomers";
+import Hero from "@/components/Main/Hero/Hero";
+import About from "@components/Main/About/About";
+import AboutPeopleOnTheWay from "@components/Main/AboutPeopleOnTheWay/AboutPeopleOnTheWay";
+import CoAuThorship from "@components/Main/CoAuThorship/CoAuThorship";
+import Feedback from "@components/Main/Feedback/Feedback";
+import MyDream from "@components/Main/MyDream/MyDream";
+import QuestionAnswer from "@components/Main/QuestionAnswer/QuestionAnswer";
+import Research from "@components/Main/Research/Research";
+import StarCustomers from "@components/Main/StarCustomers/StarCustomers";
 
 export async function generateMetadata() {
   return {
