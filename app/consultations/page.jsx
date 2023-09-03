@@ -1,11 +1,9 @@
-import Comments from "@components/Common/Icons/ConsultationsIcons/Comments";
-import SadSmile from "@components/Common/Icons/ConsultationsIcons/SadSmile";
-import ServicesForYouIf from "@components/Common/ServicesForYouIf/ServicesForYouIf";
+import ServicesForYouIf from "@components/Services/ServicesForYouIf/ServicesForYouIf";
 import Hero from "@components/Services/Hero/Hero";
 import reasons from "@helper/consultationReasonList";
+import AboutConsultations from "@components/Services/AboutConsultations/AboutConsultations";
 
 const links = [{ href: "/consultations", name: "Консультація з матриці долі" }];
-
 
 export default function Consultations() {
   return (
@@ -22,6 +20,7 @@ export default function Consultations() {
         title="Консультації з матриці долі для тебе, якщо:"
         listOfReasons={reasons}
       />
+      <AboutConsultations />
     </main>
   );
 }
