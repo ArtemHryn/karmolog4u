@@ -8,7 +8,7 @@ import { open_Sans, unbounded } from "@app/layout";
 const Hero = ({ linkNames = [], title, img }) => {
   return (
     <Container>
-      <HeroNav linkNames={linkNames} />
+      <HeroNav linkNames={linkNames}/>
       <div className={styles.box}>
         <div>
           <h1 className={`${styles.title} ${unbounded.className}`}>{title}</h1>
