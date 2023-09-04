@@ -1,12 +1,16 @@
 // import styled from "./page.module.scss";
 
 import Hero from "@/components/Main/Hero/Hero";
+import QuestionAnswer from "@components/Common/QuestionAnswer/QuestionAnswer";
 import About from "@components/Main/About/About";
 import AboutPeopleOnTheWay from "@components/Main/AboutPeopleOnTheWay/AboutPeopleOnTheWay";
 import CoAuThorship from "@components/Main/CoAuThorship/CoAuThorship";
 import Feedback from "@components/Main/Feedback/Feedback";
 import MyDream from "@components/Main/MyDream/MyDream";
-import QuestionAnswer from "@components/Main/QuestionAnswer/QuestionAnswer";
+import {
+  column1,
+  column2,
+} from "@components/Main/QuestionAnswer/QuestionAnswer";
 import Research from "@components/Main/Research/Research";
 import StarCustomers from "@components/Main/StarCustomers/StarCustomers";
 
@@ -98,7 +102,7 @@ export default function Home() {
       <Research />
       <CoAuThorship />
       <StarCustomers />
-      <QuestionAnswer />
+      <QuestionAnswer column1={column1} column2={column2} />
       <Feedback />
     </main>
   );
