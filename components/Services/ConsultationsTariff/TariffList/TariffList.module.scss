@@ -1,0 +1,185 @@
+@import "/styles/main.scss";
+
+//Tariff list
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  @media screen and (min-width: $min_tablet) {
+    gap: 24px;
+  }
+}
+
+//Dropdown
+
+.tariff {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 23px;
+  background-color: $main_text_color;
+  border-radius: 30px;
+  @media screen and (min-width: $min_tablet) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 30px 32px;
+    align-items: center;
+  }
+  @media screen and (min-width: $min_desktop) {
+    padding: 30px 43px;
+  }
+}
+
+.toggle_btn {
+  transition: transform 750ms ease;
+  display: none;
+  @media screen and (min-width: $min_tablet) {
+    display: block;
+    margin-right: 16px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    margin-right: 28px;
+  }
+}
+
+.toggle_btn_open {
+  transform: rotateX(180deg) rotateY(180deg);
+}
+
+.icon_arrow {
+  width: 50px;
+  height: 50px;
+}
+
+.tariff_title {
+  @include fontRegular(24px, 400, 24px, $dropdown_bg, center);
+  margin-bottom: 20px;
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(18px, 400, 25.2px, $dropdown_bg);
+    margin-bottom: 0px;
+    margin-right: 40px;
+    width: 226px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    @include fontRegular(28px, 400, 39.2px, $dropdown_bg);
+    width: 651px;
+    margin-right: 62px;
+  }
+}
+
+.tariff_title_per_hour {
+  @media screen and (min-width: $min_desktop) {
+    width: 570px;
+  }
+}
+
+.details_btn {
+  @include fontRegular(16px, 400, 22.4px, $dropdown_bg, center);
+  text-decoration-line: underline;
+  max-height: 30px;
+  transition: opacity 750ms ease, visibility 750ms ease, max-height 550ms ease;
+  @media screen and (min-width: $min_tablet) {
+    display: none;
+  }
+}
+
+.price {
+  @include fontRegular(28px, 400, 24px, $dropdown_bg, center);
+  margin-bottom: 28px;
+  & > span {
+    @include fontRegular(14px, 400, 14px, $dropdown_bg);
+  }
+  @media screen and (min-width: $min_tablet) {
+    margin-bottom: 0px;
+    max-width: 103px;
+    & > span {
+      @include fontRegular(18px, 400, 18px, $dropdown_bg, left);
+    }
+  }
+  @media screen and (min-width: $min_desktop) {
+    max-width: 182px;
+    @include fontRegular(28px, 400, 39.2px, $dropdown_bg);
+  }
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 195px;
+  height: 51px;
+
+  @include fontRegular(16px, 600, 16px, $main_text_color);
+
+  background-color: $buttons_color;
+  border-radius: 30px;
+  @media screen and (min-width: $min_tablet) {
+    margin-left: auto;
+  }
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+//active component of dropdown
+
+.wrapper_mob {
+  @media screen and (min-width: $min_tablet) {
+    display: none;
+  }
+}
+
+.wrapper_tab {
+  display: none;
+  @media screen and (min-width: $min_tablet) {
+    display: block;
+    margin-bottom: 0px;
+  }
+}
+
+.description_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 600px;
+  margin-bottom: 28px;
+  gap: 20px;
+  transition: opacity 550ms ease, visibility 550ms ease, max-height 550ms ease,
+    padding-top 550ms ease;
+  @media screen and (min-width: $min_tablet) {
+    margin-bottom: 0px;
+    padding-top: 33px;
+    padding-left: 58px;
+    align-items: flex-start;
+  }
+}
+
+.is_hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  max-height: 0px;
+  padding-top: 0px;
+}
+.description {
+  @include fontRegular(14px, 400, 19.6px, $dropdown_bg, center);
+  text-wrap: balance;
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(18px, 400, 25.2px, $dropdown_bg);
+  }
+}
+
+.time {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  @include fontRegular(14px, 400, 19.6px, $dropdown_bg, center);
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(18px, 400, 25.2px, $dropdown_bg);
+  }
+}

@@ -2,6 +2,7 @@ import ServicesForYouIf from "@components/Services/ServicesForYouIf/ServicesForY
 import Hero from "@components/Services/Hero/Hero";
 import reasons from "@helper/consultationReasonList";
 import AboutConsultations from "@components/Services/AboutConsultations/AboutConsultations";
+import ConsultationsTariff from "@components/Services/ConsultationsTariff/ConsultationsTariff";
 
 const links = [{ href: "/consultations", name: "Консультація з матриці долі" }];
 
@@ -21,6 +22,7 @@ export default function Consultations() {
         listOfReasons={reasons}
       />
       <AboutConsultations />
+      <ConsultationsTariff />
     </main>
   );
 }
