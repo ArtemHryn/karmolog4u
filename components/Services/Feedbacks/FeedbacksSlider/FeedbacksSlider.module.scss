@@ -1,0 +1,124 @@
+@import "/styles/main.scss";
+
+//swiper
+.swiper {
+  position: relative;
+  padding-bottom: 20px !important;
+  @media screen and (min-width: $min_tablet) {
+    padding-bottom: 40px !important;
+  }
+  @media screen and (min-width: $min_desktop) {
+    overflow: visible !important;
+  }
+}
+
+.slide {
+  @media screen and (min-width: $min_desktop) {
+    width: 70% !important;
+  }
+}
+.pagination {
+  opacity: 1 !important;
+  @media screen and (min-width: $min_tablet) {
+    --swiper-pagination-bullet-width: 16px;
+    --swiper-pagination-bullet-height: 16px;
+    width: var(--swiper-pagination-bullet-width);
+    height: var(--swiper-pagination-bullet-height);
+  }
+}
+
+//card
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 590px;
+  padding: 0px 18px;
+  gap: 24px;
+
+  border-radius: 30px;
+  background-color: #000;
+  border: 1px solid $seconds_text_color;
+  @media screen and (min-width: $min_tablet) {
+    flex-direction: row;
+    padding: 0px 50px;
+    min-height: 542px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    min-height: 363px;
+  }
+}
+
+.card_text_container {
+  display: flex;
+  flex-direction: column;
+  @media screen and (min-width: $min_tablet) {
+    order: 2;
+  }
+
+}
+
+.img {
+  @media screen and (min-width: $min_tablet) {
+    // order: 1;
+  }
+}
+
+.card_title {
+  @include fontRegular(24px, 400, 24px);
+  margin-right: auto;
+  margin-bottom: 28px;
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(32px, 400, 32px);
+  }
+}
+
+.card_description {
+  @include fontRegular(14px, 400, 19.6px);
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(16px, 400, 22.4px);
+  }
+}
+
+//arrow buttons
+
+.btn_container {
+  display: none;
+  @media screen and (min-width: $min_desktop) {
+    position: absolute;
+    top: -25.5%;
+    right: 10%;
+
+    display: flex;
+    align-items: center;
+    gap: 48px;
+  }
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #83263b;
+  padding: 8px;
+  transition: scale 250ms ease;
+  &:hover, &:focus {
+    scale: 1.1;
+  }
+}
+
+.arrow {
+  fill: $main_text_color;
+  &_right {
+    rotate: -90deg;
+  }
+  &_left {
+    rotate: 90deg;
+  }
+}
