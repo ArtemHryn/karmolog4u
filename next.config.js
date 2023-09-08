@@ -7,4 +7,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = { ...nextConfig, server: { host: "0.0.0.0" } };
