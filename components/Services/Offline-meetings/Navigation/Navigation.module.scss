@@ -1,0 +1,77 @@
+@import "/styles/main.scss";
+
+.title {
+  @include fontRegular(32px, 400, 44.8px, $main_text_color, center);
+  margin-bottom: 28px;
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(64px, 400, 89.6px, $main_text_color, center);
+    margin-bottom: 40px;
+  }
+}
+
+.studio {
+  @include fontRegular(14px, 400, 19.6px, #e24668, center);
+  text-wrap: balance;
+  margin-bottom: 56px;
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(18px, 400, 25.2px, #e24668, center);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+  }
+  @media screen and (min-width: $min_desktop) {
+  }
+  &_line {
+    @media screen and (min-width: $min_tablet) {
+      height: 2px;
+      width: 60px;
+      background-color: #e24668;
+    }
+    @media screen and (min-width: $min_desktop) {
+    }
+  }
+}
+
+.nav_links_list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  @media screen and (min-width: $min_desktop) {
+    flex-direction: row;
+  }
+}
+
+.nav_link {
+  display: flex;
+  padding: 17px 0px;
+  justify-content: center;
+  align-items: center;
+
+  width: 328px;
+
+  border-radius: 30px;
+  background-color: #000;
+
+  @include fontRegular(24px, 400, 24px);
+  transition: all 350ms ease;
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(28px, 400, 39.2px);
+    width: 411px;
+    padding: 20px 0px;
+  }
+  @media screen and (min-width: $min_desktop) {
+  }
+  &:hover,
+  &:focus {
+    scale: 1.1;
+    background-color: #e24668;
+    @media screen and (min-width: $min_desktop) {
+      scale: 1.05;
+    }
+  }
+  &_active {
+    background-color: $buttons_color;
+  }
+}

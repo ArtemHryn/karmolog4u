@@ -1,0 +1,93 @@
+@import "/styles/main.scss";
+
+.title {
+  @include fontRegular(24px, 400, 24px);
+  margin-bottom: 28px;
+
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(28px, 400, 39.2px);
+    margin-bottom: 40px;
+  }
+}
+
+.topic_container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 60px;
+  @media screen and (min-width: $min_tablet) {
+    margin-bottom: 80px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    flex-direction: row;
+  }
+}
+
+.topic_container2 {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  @media screen and (min-width: $min_desktop) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 132px;
+  }
+}
+
+.inner_topic_container {
+  @media screen and (min-width: $min_desktop) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.video {
+  width: 328px;
+  height: 182px;
+  border-radius: 30px;
+  @media screen and (min-width: $min_tablet) {
+    width: 736px;
+    height: 410px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    width: 628px;
+    height: 350px;
+  }
+}
+
+.link {
+  display: flex;
+  width: 328px;
+  align-items: center;
+
+  padding: 12px 0px 12px 20px;
+  gap: 16px;
+
+  border-radius: 30px;
+
+  background-color: #000;
+  @include fontRegular(24px, 400, 24px);
+  transition: scale 350ms ease;
+  &:hover, &:focus {
+    scale: 1.05;
+  }
+  @media screen and (min-width: $min_tablet) {
+    width: 356px;
+    @include fontRegular(32px, 400, 32px);
+  }
+  @media screen and (min-width: $min_desktop) {
+  }
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: $buttons_color;
+  @media screen and (min-width: $min_tablet) {
+    width: 48px;
+    height: 48px;
+  }
+  @media screen and (min-width: $min_desktop) {
+  }
+}

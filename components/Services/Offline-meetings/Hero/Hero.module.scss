@@ -1,0 +1,67 @@
+@import "/styles/main.scss";
+
+.container {
+  display: grid;
+  gap: 24px;
+  @media screen and (min-width: $min_tablet) {
+    gap: 32px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    grid-template-columns: 1fr 519px;
+
+  }
+}
+
+.section {
+  @media screen and (min-width: $min_desktop) {
+    background-image: radial-gradient(
+      circle,
+      rgba(109, 27, 45, 0.14) 8%,
+      rgba(0, 0, 0, 0) 79%
+    );
+    background-size: 440px 450px;
+    background-position: 10% 50%;
+    background-repeat: no-repeat;
+  }
+}
+
+.title {
+  @include fontRegular(28px, 400, 39.2px);
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(36px, 400, 36px);
+  }
+  @media screen and (min-width: $min_desktop) {
+    grid-column: 1;
+    grid-row: 1;
+
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+}
+
+.text_list {
+  display: flex;
+  gap: 24px;
+  @media screen and (min-width: $min_tablet) {
+    gap: 24px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+}
+
+.text {
+  @include fontRegular(16px, 400, 22.4px);
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(18px, 400, 25.2px);
+  }
+}
+
+.img {
+  @media screen and (min-width: $min_desktop) {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+}
