@@ -6,6 +6,7 @@ import OfflineMeetingsHero from "@components/Services/Offline-meetings/Hero/Hero
 import HowIsGoingNailing from "@components/Services/Offline-meetings/HowIsGoingNailing/HowIsGoingNailing";
 
 import getNailingFeedbacks from "@helper/nailingFeedbacks";
+import getNailingQuestions from "@helper/nailingQuestions";
 
 const text = [
   "Глибинна психотерапевтична робота з розблокуванням свідомих та підсвідомих процесів для розбору запиту кожного учасника. Авторська методика Сергія Скляренка дозволяє запустити процес синтезу деструктивної програми в свідомості кожного учасника, завдяки чому трансформація відбувається з гарантованою ефективністю.",

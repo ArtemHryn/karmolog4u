@@ -22,3 +22,5 @@ const getNailingQuestions = () => {
     ],
   };
 };
+
+export default getNailingQuestions;
