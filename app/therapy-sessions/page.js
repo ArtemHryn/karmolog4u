@@ -1,8 +1,8 @@
 import QuestionAnswer from "@components/Common/QuestionAnswer/QuestionAnswer";
 import Feedback from "@components/Main/Feedback/Feedback";
 import Feedbacks from "@components/Services/Feedbacks/Feedbacks";
+import Hero from "@components/Services/Hero/Hero";
 import ServicesForYouIf from "@components/Services/ServicesForYouIf/ServicesForYouIf";
-import Hero from "@components/TherapySessions/Hero/Hero";
 import IndividualSessions from "@components/TherapySessions/IndividualSessions/IndividualSessions";
 import SessionInsights from "@components/TherapySessions/SessionInsights/SessionInsights";
 
