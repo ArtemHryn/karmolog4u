@@ -2,11 +2,12 @@ import Container from "@components/Common/Container/Container";
 import { unbounded } from "@app/layout";
 
 import styles from "./AboutPractice.module.scss";
+import Title from "@components/Common/Title/Title";
 
 const AboutPractice = ({ practiceSteps, showResult, title }) => {
   return (
     <Container>
-      <h1 className={`${styles.title} ${unbounded.className}`}>{title}</h1>
+      <Title styled={styles.title}>{title}</Title>
       <ul className={`${styles.list} ${styles.list_first}`}>
         {practiceSteps.map((step, index) => (
           <li key={index} className={styles.list_item}>

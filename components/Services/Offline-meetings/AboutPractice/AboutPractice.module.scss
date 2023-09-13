@@ -1,10 +1,8 @@
 @import "/styles/main.scss";
 
 .title {
-  @include fontRegular(28px, 400, 39.2px);
   margin-bottom: 40px;
   @media screen and (min-width: $min_tablet) {
-    @include fontRegular(36px, 400, 36px);
     margin-bottom: 48px;
     text-wrap: balance;
   }

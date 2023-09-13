@@ -2,14 +2,12 @@ import Image from "next/image";
 import Container from "@components/Common/Container/Container";
 
 import styles from "./AboutRetreat.module.scss";
-import { unbounded } from "@app/layout";
+import Title from "@components/Common/Title/Title";
 
 const AboutRetreat = () => {
   return (
     <Container styled={styles.container}>
-      <h1 className={`${styles.title} ${unbounded.className}`}>
-        Що на вас чекає?
-      </h1>
+      <Title styled={styles.title}>Що на вас чекає?</Title>
       <picture className={styles.img}>
         <source
           srcSet="/assets/images/about_retreat_desc.webp"

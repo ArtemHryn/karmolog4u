@@ -17,7 +17,7 @@ const practiceSteps = [
   "Практика стояння на цвяхах. <br/> <br/> *Тема кожної практики різна.",
 ];
 
-const page = () => {
+const NailingPage = () => {
   const { column1, column2 } = getNailingQuestions();
   return (
     <>
@@ -39,4 +39,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default NailingPage;
