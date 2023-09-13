@@ -4,17 +4,21 @@ import HeroNav from "@components/Common/HeroNav/HeroNav";
 
 import styles from "./Hero.module.scss";
 import { open_Sans, unbounded } from "@app/layout";
+import Link from "next/link";
 
 const Hero = ({ linkNames = [], title, img }) => {
   return (
     <Container>
-      <HeroNav linkNames={linkNames}/>
+      <HeroNav linkNames={linkNames} />
       <div className={styles.box}>
-        <div>
+        <div className={styles.text_wrapper}>
           <h1 className={`${styles.title} ${unbounded.className}`}>{title}</h1>
-          <button className={`${styles.button} ${open_Sans.className}`}>
+          <Link
+            href={`${linkNames[0].href}/dialog`}
+            className={`${styles.button} ${open_Sans.className}`}
+          >
             Записатися
-          </button>
+          </Link>
         </div>
         <Image
           src={img.img}
