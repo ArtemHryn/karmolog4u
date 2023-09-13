@@ -8,27 +8,27 @@ import styles from "./SpeechesExamples.module.scss";
 const examples = [
   {
     id: "1",
-    videoId: "PLuUtpIkhVY?si=JvbMh9b9m1iDWych",
+    videoId: "BhmkDrlU8Cs?si=6hjwrji_nJJML6xD",
     title: "Жінка очима чоловіка",
   },
   {
     id: "2",
-    videoId: "PLuUtpIkhVY?si=JvbMh9b9m1iDWych",
+    videoId: "MZtABi3U--c?si=4FtYhUcmnbCyndlE",
     title: "Тренінг з основ матриці долі",
   },
   {
     id: "3",
-    videoId: "PLuUtpIkhVY?si=JvbMh9b9m1iDWych",
+    videoId: "wYngQV5TYG8?si=y5nEaZ42a3YH1OrE",
     title: "Родова карма. Взаємини з родом",
   },
   {
     id: "4",
-    videoId: "PLuUtpIkhVY?si=JvbMh9b9m1iDWych",
+    videoId: "QT7M6fixwfk?si=muese92BTZSXcwBE",
     title: "Практика цвяхостояння",
   },
   {
     id: "5",
-    videoId: "PLuUtpIkhVY?si=JvbMh9b9m1iDWych",
+    videoId: "QQUWJRoNQa4?si=UdqLY2ruOCNwOBQQ",
     title: "Як визначити справжні бажання?",
   },
 ];

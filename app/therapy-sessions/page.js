@@ -1,14 +1,16 @@
 import QuestionAnswer from "@components/Common/QuestionAnswer/QuestionAnswer";
 import Feedback from "@components/Main/Feedback/Feedback";
+import Feedbacks from "@components/Services/Feedbacks/Feedbacks";
 import ServicesForYouIf from "@components/Services/ServicesForYouIf/ServicesForYouIf";
 import Hero from "@components/TherapySessions/Hero/Hero";
 import IndividualSessions from "@components/TherapySessions/IndividualSessions/IndividualSessions";
 import SessionInsights from "@components/TherapySessions/SessionInsights/SessionInsights";
+
+import therapyFeedbacks from "@helper/therapyFeedbacks";
 import { column1, column2 } from "@helper/therapySessionsQA";
 import therapyReasons from "@helper/therayReasonList";
-import React from "react";
 
-const links = [{ href: "/therapySessions", name: "Терапевтичні сесії" }];
+const links = [{ href: "/therapy-sessions", name: "Терапевтичні сесії" }];
 
 function TherapySessions() {
   return (
@@ -27,6 +29,7 @@ function TherapySessions() {
       />
       <SessionInsights />
       <IndividualSessions />
+      <Feedbacks feedbacks={therapyFeedbacks}/>
       <QuestionAnswer column1={column1} column2={column2} />
       <Feedback />
     </main>
