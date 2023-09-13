@@ -1,0 +1,57 @@
+@import "/styles/main.scss";
+
+.container {
+  display: grid;
+  gap: 40px;
+  @media screen and (min-width: $min_desktop) {
+    gap: 60px;
+  }
+}
+
+.title_mob {
+  @media screen and (min-width: $min_tablet) {
+    display: none;
+  }
+}
+
+.title {
+  display: none;
+  @media screen and (min-width: $min_tablet) {
+    display: block;
+  }
+}
+
+.video_list {
+  display: grid;
+  gap: 36px;
+  & > li:last-child {
+    padding-top: 24px;
+    @media screen and (min-width: $min_tablet) {
+      padding-top: 20px;
+    }
+    @media screen and (min-width: $min_desktop) {
+      justify-content: center;
+      padding-top: 0px;
+      padding-left: 100px;
+    }
+  }
+  @media screen and (min-width: $min_tablet) {
+    gap: 40px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 24px;
+    grid-row-gap: 36px;
+    align-items: center;
+  }
+}
+
+.video_title {
+  @include fontRegular(14px, 400, 19.6px);
+  margin-bottom: 16px;
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(28px, 400, 39.2px);
+
+    margin-bottom: 24px;
+  }
+}

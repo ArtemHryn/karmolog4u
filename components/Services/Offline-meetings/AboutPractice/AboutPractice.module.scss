@@ -1,0 +1,97 @@
+@import "/styles/main.scss";
+
+.title {
+  margin-bottom: 40px;
+  @media screen and (min-width: $min_tablet) {
+    margin-bottom: 48px;
+    text-wrap: balance;
+  }
+  @media screen and (min-width: $min_desktop) {
+    margin-bottom: 60px;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  @media screen and (min-width: $min_tablet) {
+    gap: 24px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    flex-direction: row;
+  }
+  &_first {
+    margin-bottom: 20px;
+    @media screen and (min-width: $min_tablet) {
+      margin-bottom: 24px;
+    }
+  }
+}
+
+.list_item {
+  display: flex;
+  padding: 20px 18px;
+  border-radius: 30px;
+  border: 1px solid $seconds_text_color;
+  background-color: #000;
+  gap: 16px;
+  @media screen and (min-width: $min_tablet) {
+    padding: 30px 56px;
+    gap: 32px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    flex: 1;
+  }
+  &_result {
+    flex-direction: column;
+    @media screen and (min-width: $min_tablet) {
+      gap: 24px;
+    }
+  }
+}
+
+.index {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: $seconds_text_color;
+
+  @include fontRegular(24px, 400, 24px);
+
+  @media screen and (min-width: $min_tablet) {
+    width: 52px;
+    height: 52px;
+    @include fontRegular(32px, 400, 32px);
+  }
+  @media screen and (min-width: $min_desktop) {
+    flex: 1
+  }
+}
+
+.step_text {
+  width: 228px;
+
+  @include fontRegular(16px, 400, 22.4px);
+
+  @media screen and (min-width: $min_tablet) {
+    width: 100%;
+    @include fontRegular(18px, 400, 25.2px);
+  }
+  @media screen and (min-width: $min_desktop) {
+    width: 426px;
+    text-wrap: balance;
+  }
+}
+
+.step_text_title {
+  @include fontRegular(24px, 400, 24px, #e24668);
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(28px, 400, 39.2px, #e24668);
+  }
+  @media screen and (min-width: $min_desktop) {
+  }
+}
