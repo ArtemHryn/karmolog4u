@@ -14,7 +14,7 @@ function Header() {
 
   useEffect(() => {
     if (!isOpen) {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = "visible";
     } else {
       document.body.style.overflow = "hidden";
     }

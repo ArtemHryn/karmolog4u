@@ -7,9 +7,9 @@ const links = [
   {
     title: "ПОСЛУГИ",
     links: [
-      { name: "Терапевтичні сесії", link: "" },
-      { name: "Консультація з матриці долі", link: "" },
-      { name: "Офлайн зустрічі", link: "" },
+      { name: "Терапевтичні сесії", link: "/therapy-sessions" },
+      { name: "Консультація з матриці долі", link: "/consultations" },
+      { name: "Офлайн зустрічі", link: "/offline-meetings" },
     ],
     id: 12,
   },
@@ -80,7 +80,7 @@ function Nav() {
               >
                 {item.links.map((link, index) => (
                   <li key={index} className={styles.dropdown_item}>
-                    <a href="#" className={styles.dropdown_link}>
+                    <a href={link.link} className={styles.dropdown_link}>
                       {link.name}
                     </a>
                   </li>
