@@ -5,6 +5,7 @@ import { open_Sans, unbounded } from "@app/layout";
 import styles from "./TariffList.module.scss";
 import ActiveDropDown from "./ActiveDropDown";
 import ToggleArrow from "@components/Common/Icons/ConsultationsIcons/ToggleArrow";
+import Link from "next/link";
 
 const DropDown = ({ tariff }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -51,12 +52,13 @@ const DropDown = ({ tariff }) => {
         {price}
         <span>{isPerHour ? "/година" : ""}</span>
       </p>
-      <button
+      <Link
+        href={"consultations/dialog"}
         aria-label="Записатися"
         className={`${styles.btn} ${open_Sans.className}`}
       >
         Записатися
-      </button>
+      </Link>
 
       <div className={styles.wrapper_tab}>
         <ActiveDropDown
