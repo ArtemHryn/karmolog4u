@@ -1,0 +1,76 @@
+@import "/styles/main.scss";
+
+.container {
+  position: relative;
+}
+.section {
+  @media screen and (min-width: $min_desktop) {
+    padding-bottom: 160px;
+  }
+}
+
+.title {
+  @include fontRegular(28px, 400, 39.2px);
+  margin-bottom: 40px;
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(36px, 400, 43.2px);
+    margin-bottom: 48px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    margin-bottom: 60px;
+  }
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  @media screen and (min-width: $min_desktop) {
+    flex-direction: row;
+  }
+}
+
+.wrap_item {
+  width: 100%;
+  @include fontRegular(16px, 400, 22.4px, $main_text_color);
+  leading-trim: both;
+  text-edge: cap;
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(18px, 400, 25.2px, $main_text_color);
+  }
+}
+
+.blur {
+  display: none;
+  @media screen and (min-width: $min_tablet) {
+    display: block;
+    width: 287px;
+    height: 227px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    border-radius: 287px;
+    background: linear-gradient(
+      180deg,
+      rgba(109, 27, 45, 0.4) 0%,
+      rgba(158, 19, 50, 0.4) 45.14%
+    );
+    filter: blur(125px);
+  }
+  @media screen and (min-width: $min_desktop) {
+    left: 80px;
+    right: auto;
+  }
+}
+
+.blur_pos {
+  display: none;
+  @media screen and (min-width: $min_desktop) {
+    display: block;
+    position: absolute;
+    right: 80px;
+    bottom: 0px;
+    left: auto;
+    top: auto;
+  }
+}
