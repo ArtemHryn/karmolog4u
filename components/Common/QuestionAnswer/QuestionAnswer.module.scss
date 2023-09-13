@@ -12,20 +12,22 @@
     @include fontRegular(18px, 400, 25.2px);
   }
   @media screen and (min-width: $min_desktop) {
-    gap: 31px;
+    gap: 0px;
+    min-height: 51px;
   }
 }
 
 .drop_btn_text {
   max-width: 260px;
   @media screen and (min-width: $min_tablet) {
-    max-width: 490px;
+    max-width: 500px;
   }
 }
 
 .drop_icon {
   width: 30px;
   height: 30px;
+  fill: #9D253F;
   transform: rotate(0deg);
   transition-property: transform;
   transition-duration: 350ms;
