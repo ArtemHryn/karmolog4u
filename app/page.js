@@ -102,8 +102,8 @@ export default function Home() {
       <Research />
       <CoAuThorship />
       <StarCustomers />
-      <QuestionAnswer column1={column1} column2={column2} />
-      <Feedback />
+      <QuestionAnswer column1={column1} column2={column2} main />
+      <Feedback main />
     </main>
   );
 }
