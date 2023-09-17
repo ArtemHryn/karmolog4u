@@ -20,7 +20,7 @@
   }
   @media screen and (min-width: $min_desktop) {
     flex-direction: row;
-    align-items: center;
+    // align-items: center;
     gap: 192px;
   }
 }
@@ -41,7 +41,7 @@
   }
 }
 
-.title {
+.main_title {
   margin-bottom: 48px;
   color: $main_text_color;
   @include fontRegular(40px, 400, 48px);
@@ -54,6 +54,21 @@
   @media screen and (min-width: $min_desktop) {
     margin-bottom: 80px;
     @include fontRegular(64px, 400, 89.6px);
+  }
+}
+
+.title {
+  margin-bottom: 40px;
+  color: $main_text_color;
+  @include fontRegular(28px, 400, 39.2px);
+  leading-trim: both;
+  text-edge: cap;
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(36px, 400, 43.2px);
+    margin-bottom: 48px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    margin-bottom: 60px;
   }
 }
 
@@ -137,7 +152,7 @@
 .arrow {
   display: none;
   position: absolute;
-  bottom: 0;
+  // bottom: 0;
 
   animation: arrow-move 3s infinite;
   transform-origin: top left;
@@ -149,7 +164,7 @@
     left: 713px;
   }
   @media screen and (min-width: $big_pc) {
-    left: 777px;
+    left: 697px;
   }
 }
 @keyframes arrow-move {
