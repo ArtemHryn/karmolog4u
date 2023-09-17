@@ -4,11 +4,14 @@ import Dropdown from "./Dropdown";
 import styles from "./QuestionAnswer.module.scss";
 import { unbounded } from "@/app/layout";
 
-
-function QuestionAnswer({ column1, column2 }) {
+function QuestionAnswer({ column1, column2, main }) {
   return (
     <Container>
-      <h2 className={`${styles.title} ${unbounded.className}`}>
+      <h2
+        className={`${main ? styles.main_title : styles.title} ${
+          unbounded.className
+        }`}
+      >
         Питання / Відповідь
       </h2>
       <div className={styles.wrap}>
