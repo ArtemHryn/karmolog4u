@@ -1,0 +1,63 @@
+@import "/styles/main.scss";
+
+
+
+.cont {
+  @media screen and (min-width: $min_desktop) {
+    display: grid;
+    column-gap: 24px;
+  }
+}
+
+.title {
+  @include fontRegular(28px, 400, 39.2px);
+  margin-bottom: 24px;
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(36px, 400, 43.2px);
+    margin-bottom: 32px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    margin-bottom: 60px;
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
+.article {
+  width: 100%;
+
+  @include fontRegular(16px, 400, 22.4px, $main_text_color);
+  leading-trim: both;
+  text-edge: cap;
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(18px, 400, 25.2px, $main_text_color);
+  }
+  @media screen and (min-width: $min_desktop) {
+    width: 737px;
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
+
+.wrap {
+  @media screen and (min-width: $min_desktop) {
+    position: relative;
+  }
+}
+
+.image {
+  margin-bottom: 24px;
+  @media screen and (min-width: $min_tablet) and (max-width: 1279px) {
+    width: 100%;
+    max-width: 736px;
+    height: 380px;
+    margin-bottom: 32px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    margin: auto;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+  object-fit: cover;
+  border-radius: 30px;
+}

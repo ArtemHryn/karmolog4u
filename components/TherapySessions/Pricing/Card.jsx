@@ -1,16 +1,26 @@
 import React from "react";
-
+import styles from "./Pricing.module.scss";
+import { unbounded } from "@app/layout";
+import Link from "next/link";
 function Card({ content }) {
   return (
-    <div>
-      <div>
-        <h4>
+    <div className={styles.card}>
+      <div className={styles.card_wrap}>
+        <h4 className={`${styles.card_title} ${unbounded.className}`}>
           {content.title}
-          <span>{content.addTitle}</span>
+          <span className={styles.card_title_add}>{content.addTitle}</span>
         </h4>
-        <h3>{content.price}</h3>
+        <h3 className={`${styles.card_price} ${unbounded.className}`}>
+          {content.price}
+        </h3>
       </div>
-      <button>{content.button}</button>
+      <Link
+        href={"therapy-sessions/dialog"}
+        aria-label="Записатися"
+        className={styles.button}
+      >
+        Записатись
+      </Link>
     </div>
   );
 }

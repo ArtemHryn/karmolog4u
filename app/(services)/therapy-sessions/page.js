@@ -4,8 +4,11 @@ import Feedbacks from "@components/Services/Feedbacks/Feedbacks";
 import Hero from "@components/Services/Hero/Hero";
 import ServicesForYouIf from "@components/Services/ServicesForYouIf/ServicesForYouIf";
 import IndividualSessions from "@components/TherapySessions/IndividualSessions/IndividualSessions";
+import PairedSessions from "@components/TherapySessions/PairedSessions/PairedSessions";
+import Pricing from "@components/TherapySessions/Pricing/Pricing";
 import SessionInsights from "@components/TherapySessions/SessionInsights/SessionInsights";
-
+import { individualPricing } from "@helper/individualTherapyPricing";
+import { pairedPricing } from "@helper/pairedTherapyPricing";
 import therapyFeedbacks from "@helper/therapyFeedbacks";
 import { column1, column2 } from "@helper/therapySessionsQA";
 import therapyReasons from "@helper/therayReasonList";
@@ -29,7 +32,16 @@ function TherapySessions() {
       />
       <SessionInsights />
       <IndividualSessions />
-      <Feedbacks feedbacks={therapyFeedbacks}/>
+      <Pricing
+        content={individualPricing}
+        accTitle={"індивідуальних терапевтичних сесій"}
+      />
+      <PairedSessions />
+      <Pricing
+        content={pairedPricing}
+        accTitle={"парних терапевтичних сесій"}
+      />
+      <Feedbacks feedbacks={therapyFeedbacks} />
       <QuestionAnswer column1={column1} column2={column2} />
       <Feedback />
     </main>
