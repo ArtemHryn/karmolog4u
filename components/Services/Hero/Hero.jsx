@@ -20,13 +20,18 @@ const Hero = ({ linkNames = [], title, img }) => {
             Записатися
           </Link>
         </div>
-        <Image
-          src={img.img}
-          alt={img.alt}
-          width={1280}
-          height={920}
-          className={styles.img}
-        />
+        <picture className={styles.img}>
+          {img.imgDesk && (
+            <source srcSet={img.imgDesk} media="(min-width: 1280px)" />
+          )}
+          <Image
+            src={img.img}
+            alt={img.alt}
+            width={1280}
+            height={920}
+            className={styles.img}
+          />
+        </picture>
       </div>
     </Container>
   );

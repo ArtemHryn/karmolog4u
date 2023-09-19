@@ -13,17 +13,17 @@ const examples = [
   },
   {
     id: "2",
-    videoId: "MZtABi3U--c?si=4FtYhUcmnbCyndlE",
+    videoId: "EBqm4_GGeV8?si=3h6VUk-1v-xZcF6V",
     title: "Тренінг з основ матриці долі",
   },
   {
     id: "3",
-    videoId: "wYngQV5TYG8?si=y5nEaZ42a3YH1OrE",
+    videoId: "z4mgRLcsv48?si=u97Dki9z1u-LqQz3",
     title: "Родова карма. Взаємини з родом",
   },
   {
     id: "4",
-    videoId: "QT7M6fixwfk?si=muese92BTZSXcwBE",
+    videoId: "K-Rhc_dFkzY?si=ImYFol8_L8JVYHqS",
     title: "Практика цвяхостояння",
   },
   {

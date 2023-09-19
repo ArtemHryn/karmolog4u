@@ -1,0 +1,46 @@
+import AboutCourse from "@components/Education/AboutCourse/AboutCourse";
+import Feedback from "@components/Main/Feedback/Feedback";
+import Hero from "@components/Services/Hero/Hero";
+
+const links = [
+  {
+    href: "/karmologist-himself",
+    name: "КУРС “САМ СОБІ КАРМОЛОГ”",
+  },
+];
+
+const text = [
+  "Курс “Cам собі кармолог” – навчання основам методу “Матриця долі”. Курс включає базові алгоритми розрахунків матриці долі та основи трактування матриці долі для самостійної роботи з інструментом. Отримані знання ви можете застосувати для того, щоб краще зрозуміти себе та своє оточення та трансформувати свою матрицю. По завершенню даного курсу ви отримуєте сертифікат про ознайомлення з програмою. Право консультування в методі “Матриця долі” після проходження даного курсу не надається.",
+  "Проходження даного курсу дає можливість продовжити навчання на консультантському та поглибленому рівнях міжнародної школи Студії трансформації.",
+  "Якщо ви вже проходили навчання в іншій школі кармології і маєте базові знання методу. Ви маєте можливість перевірити свої знання і після успішного проходження тесту відразу потрапити на консультанський курс.",
+  "Для отримання тесту зверніться до менеджера в будь який зручний месенждер для вас",
+  "*Навчання складається з 10 уроків в онлайн-форматі",
+];
+
+const KarmologistPage = () => {
+  return (
+    <main>
+      <Hero
+        linkNames={links}
+        title="КУРС “САМ СОБІ КАРМОЛОГ”"
+        img={{
+          img: "/assets/images/karmologist-himself_hero.webp",
+          alt: "Фото Сергія Скляренка",
+          imgDesk: "/assets/images/karmologist-himself_hero_desk.webp",
+        }}
+      />
+      <AboutCourse
+        img={{
+          img: "/assets/images/education_karmologis-himself_about_course.webp",
+          alt: "Фото Сергія Скляренка",
+          imgDesk:
+            "/assets/images/education_karmologis-himself_about_course_desc.webp",
+        }}
+        text={text}
+      />
+      <Feedback />
+    </main>
+  );
+};
+
+export default KarmologistPage;
