@@ -24,7 +24,7 @@ const examples = [
   {
     id: "4",
     videoId: "K-Rhc_dFkzY?si=ImYFol8_L8JVYHqS",
-    title: "Практика цвяхостояння",
+    title: "Любов до себе та взаємозвʼязок з навколишнім світом",
   },
   {
     id: "5",

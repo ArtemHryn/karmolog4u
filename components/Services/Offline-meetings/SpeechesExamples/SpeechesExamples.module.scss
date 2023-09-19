@@ -23,7 +23,7 @@
 
 .video_list {
   display: grid;
-  gap: 36px;
+  gap: 26px;
   & > li:last-child {
     padding-top: 24px;
     @media screen and (min-width: $min_tablet) {
@@ -49,9 +49,17 @@
 .video_title {
   @include fontRegular(14px, 400, 19.6px);
   margin-bottom: 16px;
+  min-height: 40px;
+  display: flex;
+  align-items: flex-end;
   @media screen and (min-width: $min_tablet) {
     @include fontRegular(28px, 400, 39.2px);
 
     margin-bottom: 24px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    min-height: 80px;
+    align-items: center;
+    margin-bottom: 14px;
   }
 }
