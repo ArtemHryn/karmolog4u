@@ -1,0 +1,81 @@
+@import "/styles/main.scss";
+
+.container {
+  display: grid;
+  gap: 24px;
+  @media screen and (min-width: $min_tablet) {
+    gap: 32px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    gap: 0px;
+    column-gap: 133px;
+    align-items: center;
+    background-image: radial-gradient(
+        circle,
+        rgba(109, 27, 45, 0.10) 23%,
+        rgba(158, 19, 50, 0.10) 35%,
+        rgba(0, 0, 0, 0) 79%
+      ),
+      radial-gradient(
+        circle,
+        rgba(109, 27, 45, 0.1) 23%,
+        rgba(158, 19, 50, 0.1) 35%,
+        rgba(0, 0, 0, 0) 79%
+      );
+    background-size: 320px 380px, 220px 280px;
+    background-position: 50% 0%, 90% 80%;
+    background-repeat: no-repeat;
+  }
+}
+
+.title {
+  @media screen and (min-width: $min_desktop) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
+.img {
+  border-radius: 30px;
+  @media screen and (min-width: $min_desktop) {
+    object-fit: contain;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+}
+
+.text_container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+  max-height: 400px;
+  margin-bottom: 16px;
+  transition: max-height 750ms ease;
+  &_more {
+    max-height: 1500px;
+  }
+  @media screen and (min-width: $min_tablet) {
+    margin-bottom: 0px;
+    max-height: 100%;
+    overflow: visible;
+  }
+  @media screen and (min-width: $min_desktop) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
+
+.text {
+  @include fontRegular(18px, 400, 25.2px);
+}
+
+.btn {
+  @include fontRegular(16px, 400, 22.4px, #fff, center);
+  text-decoration-line: underline;
+  width: 100%;
+  padding: 8px;
+  @media screen and (min-width: $min_tablet) {
+    display: none;
+  }
+}

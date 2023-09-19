@@ -65,6 +65,7 @@
 }
 
 .img {
+  border-radius: 30px;
   @media screen and (min-width: $min_desktop) {
     width: 519px;
     min-height: 300px;

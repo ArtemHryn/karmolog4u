@@ -27,10 +27,10 @@ const AboutRetreat = () => {
         </p>
         <ul className={styles.list}>
           <li>
-            <p className={styles.text}>
-              практики для отримання сили стародавніх предків, позбавлення від
-              страхів, отримання матеріального достатку;
-            </p>
+            <p className={styles.text}>практики для отримання сили роду;</p>
+          </li>
+          <li>
+            <p className={styles.text}>пропрацювання страхів;</p>
           </li>
           <li>
             <p className={styles.text}>
