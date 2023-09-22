@@ -1,6 +1,14 @@
+import QuestionAnswer from "@components/Common/QuestionAnswer/QuestionAnswer";
 import AboutCourse from "@components/Education/AboutCourse/AboutCourse";
+import AccessToTheCourse from "@components/Education/AccessToTheCourse/AccessToTheCourse";
+import KarmologistPageTariffs from "@components/Education/KarmologistPageTariffs/KarmologistPageTariffs";
+import WhatIsWaitingForYou from "@components/Education/WhatIsWaitingForYou/WhatIsWaitingForYou";
 import Feedback from "@components/Main/Feedback/Feedback";
+import Feedbacks from "@components/Services/Feedbacks/Feedbacks";
 import Hero from "@components/Services/Hero/Hero";
+
+import getKarmologistCoursesFeedbacks from "@helper/education/karmologistCourseFeedbacks";
+import getKarmologistCoursesQuestions from "@helper/education/karmologistCoursesQuestions";
 
 const links = [
   {
@@ -18,6 +26,7 @@ const text = [
 ];
 
 const KarmologistPage = () => {
+  const { column1, column2 } = getKarmologistCoursesQuestions();
   return (
     <main>
       <Hero
@@ -38,6 +47,11 @@ const KarmologistPage = () => {
         }}
         text={text}
       />
+      <WhatIsWaitingForYou />
+      <KarmologistPageTariffs />
+      <AccessToTheCourse />
+      <Feedbacks feedbacks={getKarmologistCoursesFeedbacks()} />
+      <QuestionAnswer column1={column1} column2={column2} main />
       <Feedback />
     </main>
   );

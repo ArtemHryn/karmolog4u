@@ -1,0 +1,75 @@
+@import "/styles/main.scss";
+
+.title {
+  margin-bottom: 40px;
+  @media screen and (min-width: $min_tablet) {
+    margin-bottom: 60px;
+  }
+  @media screen and (min-width: $min_desktop) {
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  @media screen and (min-width: $min_tablet) {
+    gap: 24px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    flex-direction: row;
+  }
+}
+
+.element {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background-color: #000;
+  border-radius: 30px;
+  border: 1px solid $seconds_text_color;
+  gap: 28px;
+  padding: 30px;
+  @media screen and (min-width: $min_tablet) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0;
+  }
+  @media screen and (min-width: $min_desktop) {
+    width: calc((100% - 24px) / 2);
+  }
+}
+
+.text {
+  @include fontRegular(28px, 400, 28px, #fff, center);
+  @media screen and (min-width: $min_tablet) {
+    line-height: 1.4;
+  }
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 204px;
+  height: 48px;
+
+  border-radius: 30px;
+  background-color: $buttons_color;
+
+  margin: 0 auto;
+  @include fontRegular(16px, 600, 16px);
+
+  transition: all 250ms ease;
+  &:is(:hover, :focus) {
+    scale: 1.05;
+    background-color: $buttons_hover_color;
+  }
+  @media screen and (min-width: $min_tablet) {
+    margin: 0;
+  }
+  @media screen and (min-width: $min_desktop) {
+  }
+}
