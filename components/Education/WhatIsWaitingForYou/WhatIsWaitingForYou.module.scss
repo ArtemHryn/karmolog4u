@@ -1,0 +1,71 @@
+@import "/styles/main.scss";
+
+.title {
+  margin-bottom: 40px;
+  @media screen and (min-width: $min_tablet) {
+    margin-bottom: 48px;
+    text-align: center;
+  }
+  @media screen and (min-width: $min_desktop) {
+    margin-bottom: 60px;
+  }
+}
+
+.cards_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  @media screen and (min-width: $min_tablet) {
+    gap: 24px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    flex-direction: row;
+  }
+}
+
+//card
+
+.card_list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  justify-content: center;
+  padding: 28px 28px 28px 32px;
+  border-radius: 30px;
+  border: 1px solid $seconds_text_color;
+  background-color: $black;
+  @media screen and (min-width: $min_tablet) {
+    padding: 40px 0px 40px 140px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    padding: 40px 0px 30px 60px;
+  }
+}
+
+.card_element {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+}
+
+.column1_text {
+  @include fontRegular(16px, 600, 16px);
+  flex: 2;
+  @media screen and (min-width: $min_tablet) {
+    flex: 1;
+    font-size: 18px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    flex: 2;
+  }
+}
+.column2_text {
+  @include fontRegular(16px, 400, 22.4px);
+  flex: 5;
+  @media screen and (min-width: $min_tablet) {
+    flex: 6;
+  }
+  @media screen and (min-width: $min_desktop) {
+    flex: 5;
+  }
+}

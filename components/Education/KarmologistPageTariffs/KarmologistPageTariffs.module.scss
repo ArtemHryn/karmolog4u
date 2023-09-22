@@ -1,0 +1,12 @@
+@import "/styles/main.scss";
+
+.title {
+  margin-bottom: 40px;
+  text-align: center;
+  @media screen and (min-width: $min_tablet) {
+    margin-bottom: 48px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    margin-bottom: 60px;
+  }
+}
