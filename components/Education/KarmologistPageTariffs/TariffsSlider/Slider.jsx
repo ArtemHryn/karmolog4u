@@ -1,7 +1,6 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper";
 import Card from "./Card";
 import getTariffs from "@helper/education/karmologistTariffs";
 
@@ -9,14 +8,7 @@ const Slider = () => {
   return (
     <div>
       <Swiper
-        onClick={() => setIsStopped((prev) => !prev)}
         spaceBetween={24}
-        autoplay={{
-          delay: 4500,
-          disableOnInteraction: false,
-          pauseOnMouseEnter: true,
-        }}
-        modules={[Autoplay]}
         breakpoints={{
           360: {
             slidesPerView: 1,
