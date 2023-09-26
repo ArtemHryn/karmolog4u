@@ -9,11 +9,12 @@ import Hero from "@components/Services/Hero/Hero";
 
 import getKarmologistCoursesFeedbacks from "@helper/education/karmologistCourseFeedbacks";
 import getKarmologistCoursesQuestions from "@helper/education/karmologistCoursesQuestions";
+import { getCardsForKarmologistHimself } from "@helper/education/whatIsWaitingForYou";
 
 const links = [
   {
     href: "/karmologist-himself",
-    name: "КУРС “САМ СОБІ КАРМОЛОГ”",
+    name: "Курс “Сам собі кармолог”",
   },
 ];
 
@@ -27,6 +28,7 @@ const text = [
 
 const KarmologistPage = () => {
   const { column1, column2 } = getKarmologistCoursesQuestions();
+  const cards = getCardsForKarmologistHimself();
   return (
     <main>
       <Hero
@@ -47,7 +49,7 @@ const KarmologistPage = () => {
         }}
         text={text}
       />
-      <WhatIsWaitingForYou />
+      <WhatIsWaitingForYou cards={cards} />
       <KarmologistPageTariffs />
       <AccessToTheCourse />
       <Feedbacks feedbacks={getKarmologistCoursesFeedbacks()} />
