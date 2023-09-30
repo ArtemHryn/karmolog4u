@@ -1,9 +1,11 @@
 import QuestionAnswer from "@components/Common/QuestionAnswer/QuestionAnswer";
 import AboutCourse from "@components/Education/AboutCourse/AboutCourse";
+import EduPricing from "@components/Education/EduPricing/EduPricing";
 import WhatIsWaitingForYou from "@components/Education/WhatIsWaitingForYou/WhatIsWaitingForYou";
 import Feedback from "@components/Main/Feedback/Feedback";
 import Feedbacks from "@components/Services/Feedbacks/Feedbacks";
 import Hero from "@components/Services/Hero/Hero";
+import { addInfo } from "@helper/education/advancedCourseEduPricing";
 import getAdvancedCourseFeedback from "@helper/education/advancedCourseFeedbakcs";
 import getAdvancedCourseQuestions from "@helper/education/advancedCoursesQuestions";
 import { getCardsForAdvancedCourse } from "@helper/education/whatIsWaitingForYou";
@@ -42,6 +44,15 @@ const AdvancedPage = () => {
         text={text}
       />
       <WhatIsWaitingForYou cards={cards} />
+      <EduPricing
+        card={{ title: "Поглиблений курс ", price: "1700€" }}
+        addInfo={addInfo}
+        desc={{
+          first:
+            "*Участь у “Навчанні за поглибленими розрахунками” можлива лише за умови проходження навчання на “Консультантському курсі”.",
+          second: "**Наступний курс стартує у наприкінці 2023 року.",
+        }}
+      />
       <Feedbacks feedbacks={getAdvancedCourseFeedback()} />
       <QuestionAnswer column1={column1} column2={column2} main />
 
