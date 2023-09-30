@@ -19,7 +19,7 @@ const HowIsGoingNailing = () => {
         Детальніше про практику стояння на цвяхах
       </h2>
       <div className={styles.topic_container2}>
-        <Video id={"zZIbiQZ27Jw?si=mTxqZGjAm0z3o9-s"} />
+        <Video id={"1elEAD1qJfA?si=QQJAHeGe6e6EWblu"} />
         <SeeMoreOnMyYouTube />
       </div>
     </Container>

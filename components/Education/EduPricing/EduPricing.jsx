@@ -3,14 +3,16 @@ import React from "react";
 import styles from "./EduPricing.module.scss";
 import Title from "@components/Common/Title/Title";
 import Link from "next/link";
-import { open_Sans, unbounded } from "@app/layout";
+import { open_Sans } from "@app/layout";
 
-function EduPricing({ card, addInfo = [],desc }) {
+function EduPricing({ card, addInfo = [], desc, link }) {
   return (
     <Container>
       <Title styled={styles.title}>Вартість навчання</Title>
       <p className={styles.desc}>
-       {desc.first}<br/>{desc.second}
+        {desc.first}
+        <br />
+        {desc.second}
       </p>
       <section>
         <div className={styles.card}>
@@ -28,10 +30,10 @@ function EduPricing({ card, addInfo = [],desc }) {
             </div>
           </div>
           <Link
-            href={`/consulting-course/dialog`}
+            href={link}
             className={`${styles.button} ${open_Sans.className}`}
           >
-            Записатись
+            Записатися
           </Link>
         </div>
       </section>

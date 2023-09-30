@@ -6,7 +6,7 @@ import styles from "./WhatIsWaitingForYou.module.scss";
 
 const WhatIsWaitingForYou = ({ cards }) => {
   return (
-    <Container>
+    <Container styled={styles.container}>
       <Title styled={styles.title}>Що на вас чекає?</Title>
       <div
         className={`${styles.cards_wrapper} ${
