@@ -5,7 +5,7 @@ import Title from "@components/Common/Title/Title";
 import styles from "./AboutCourse.module.scss";
 import TextContainer from "./TextContainer";
 
-const AboutCourse = ({ img, text = [] }) => {
+const AboutCourse = ({ img, text = [],styled }) => {
   return (
     <Container styled={styles.container}>
       <Title styled={styles.title}>Про курс</Title>
@@ -18,7 +18,7 @@ const AboutCourse = ({ img, text = [] }) => {
           alt={img.alt}
           width={736}
           height={500}
-          className={styles.img}
+          className={`${styles.img} ${styled ? styled : ""}`}
         />
       </picture>
       <TextContainer text={text} />
