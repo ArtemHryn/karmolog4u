@@ -1,0 +1,13 @@
+@import "/styles/main.scss";
+
+.image {
+  height: 208px;
+  object-fit: cover;
+  object-position: bottom;
+  @media screen and (min-width: $min_tablet) {
+    height: 410px;
+  }
+   @media screen and (min-width: $min_desktop) {
+   height: auto;
+  }
+}
