@@ -22,10 +22,13 @@ const Card = ({ card }) => {
         </ul>
         <p className={`${styles.price} ${unbounded.className}`}>{card.price}</p>
         <div className={styles.btn_wrapper}>
-          <Link href={"#"} className={`${styles.btn}`}>
+          <Link href={"karmologist-himself/dialog"} className={`${styles.btn}`}>
             Повна оплата
           </Link>
-          <Link href={"#"} className={`${styles.btn} ${styles.second_btn}`}>
+          <Link
+            href={"karmologist-himself/dialog"}
+            className={`${styles.btn} ${styles.second_btn}`}
+          >
             Препоплата 50%
           </Link>
         </div>

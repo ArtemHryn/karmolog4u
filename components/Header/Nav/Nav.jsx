@@ -17,7 +17,7 @@ const links = [
     title: "НАВЧАННЯ",
     links: [
       { name: "Курс “Cам собі кармолог”", link: "/karmologist-himself" },
-      { name: "Консультантський курс", link: "" },
+      { name: "Консультантський курс", link: "/consulting-course" },
       { name: "Поглиблений курс", link: "/advanced-course" },
     ],
     id: 13,

@@ -1,5 +1,25 @@
 @import "/styles/main.scss";
 
+.container {
+  @media screen and (min-width: $min_desktop) {
+    background-image: radial-gradient(
+        circle,
+        rgba(109, 27, 45, 0.3) 23%,
+        rgba(158, 19, 50, 0.2) 35%,
+        rgba(0, 0, 0, 0) 79%
+      ),
+      radial-gradient(
+        circle,
+        rgba(109, 27, 45, 0.1) 23%,
+        rgba(158, 19, 50, 0.1) 35%,
+        rgba(0, 0, 0, 0) 79%
+      );
+    background-size: 30% 440px, 320px 380px;
+    background-position: 12% 20%, 80% 0%;
+    background-repeat: no-repeat;
+  }
+}
+
 .title {
   margin-bottom: 40px;
   @media screen and (min-width: $min_tablet) {

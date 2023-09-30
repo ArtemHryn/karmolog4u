@@ -15,25 +15,25 @@ const AccessToTheCourse = () => {
       </Title>
       <ul className={styles.list}>
         <li className={styles.element}>
-          <p className={`${styles.text} ${unbounded.className}`}>На 1 місяць:</p>
+          <p className={`${styles.text} ${unbounded.className}`}>
+            На 1 місяць:
+          </p>
           <p className={`${styles.text} ${unbounded.className}`}>50€</p>
           <Link
-            href={"https://t.me/karmologforyou"}
+            href={"karmologist-himself/dialog"}
             className={`${styles.button} ${open_Sans.className}`}
-            target="_blank"
-            rel="noreferrer noopener"
           >
             Продовжити
           </Link>
         </li>
         <li className={styles.element}>
-          <p className={`${styles.text} ${unbounded.className}`}>На 2 місяці:</p>
+          <p className={`${styles.text} ${unbounded.className}`}>
+            На 2 місяці:
+          </p>
           <p className={`${styles.text} ${unbounded.className}`}>90€</p>
           <Link
-            href={"https://t.me/karmologforyou"}
+            href={"karmologist-himself/dialog"}
             className={`${styles.button} ${open_Sans.className}`}
-            target="_blank"
-            rel="noreferrer noopener"
           >
             Продовжити
           </Link>

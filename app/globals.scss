@@ -18,6 +18,15 @@ body {
   color: $main_text_color;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* Колір заповнення скролбара */
+  border-radius: 6px; /* Округлені кути заповнення скролбара */
+}
+
 a {
   color: inherit;
   text-decoration: none;

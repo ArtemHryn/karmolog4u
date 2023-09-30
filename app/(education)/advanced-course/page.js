@@ -47,6 +47,7 @@ const AdvancedPage = () => {
       <EduPricing
         card={{ title: "Поглиблений курс ", price: "1700€" }}
         addInfo={addInfo}
+        link='/advanced-course/dialog'
         desc={{
           first:
             "*Участь у “Навчанні за поглибленими розрахунками” можлива лише за умови проходження навчання на “Консультантському курсі”.",

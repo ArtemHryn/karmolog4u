@@ -1,4 +1,3 @@
-import Container from "@components/Common/Container/Container";
 import AboutCourse from "@components/Education/AboutCourse/AboutCourse";
 import Hero from "@components/Education/ConsultingCourse/Hero/Hero";
 import styled from "@components/Education/ConsultingCourse/AboutCourse/AboutCourse.module.scss";
@@ -39,6 +38,7 @@ const ConsultingCourse = () => {
       <EduPricing
         card={{ title: "Консультантський курс", price: "1400€" }}
         addInfo={addInfo}
+        link={`/consulting-course/dialog`}
         desc={{
           first:
             "*Участь у “Консультантському курсі” можлива лише за умови проходження навчання “Сам собі кармолог” або після успішно складеного теоретичного тесту.",
