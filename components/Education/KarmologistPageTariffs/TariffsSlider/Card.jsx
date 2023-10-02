@@ -8,9 +8,10 @@ const Card = ({ card }) => {
   return (
     <div className={styles.card}>
       <p className={styles.recruitment}>Триває набір</p>
-      <p className={`${styles.card_title} ${unbounded.className}`}>
-        {card.title}
-      </p>
+      <p
+        dangerouslySetInnerHTML={{ __html: card.title }}
+        className={`${styles.card_title} ${unbounded.className}`}
+      />
       <div className={styles.wrapper}>
         <ul className={styles.list}>
           {card.aboutCourse.map((el) => (
@@ -25,12 +26,14 @@ const Card = ({ card }) => {
           <Link href={"karmologist-himself/dialog"} className={`${styles.btn}`}>
             Повна оплата
           </Link>
-          <Link
-            href={"karmologist-himself/dialog"}
-            className={`${styles.btn} ${styles.second_btn}`}
-          >
-            Препоплата 50%
-          </Link>
+          {!card.hidePrepaymentBtn && (
+            <Link
+              href={"karmologist-himself/dialog"}
+              className={`${styles.btn} ${styles.second_btn}`}
+            >
+              Предоплата 50%
+            </Link>
+          )}
         </div>
       </div>
 
