@@ -70,8 +70,9 @@
 }
 
 .column1_text {
-  @include fontRegular(16px, 600, 16px);
+  @include fontRegular(16px, 600, 16px, $main_text_color, right);
   white-space: nowrap;
+  min-width: 26px;
   @media screen and (min-width: $min_tablet) {
     font-size: 18px;
   }
