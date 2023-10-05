@@ -97,8 +97,12 @@
 .icon {
   width: 24px;
   height: 24px;
-  padding: 5px 8px;
-  fill: $seconds_text_color;
+  & > svg {
+    width: 24px;
+    height: 24px;
+    padding: 5px 8px;
+    fill: $seconds_text_color;
+  }
 }
 
 .price {

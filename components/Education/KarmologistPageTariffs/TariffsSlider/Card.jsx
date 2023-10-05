@@ -16,7 +16,9 @@ const Card = ({ card }) => {
         <ul className={styles.list}>
           {card.aboutCourse.map((el) => (
             <li key={el} className={styles.list_text_element}>
-              <HeroNavArrow styled={styles.icon} />
+              <p className={styles.icon}>
+                <HeroNavArrow/>
+              </p>
               <p className={styles.list_text}>{el}</p>
             </li>
           ))}

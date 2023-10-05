@@ -20,10 +20,19 @@
 .title {
   @include fontRegular(32px, 400, 44.8px);
   margin-bottom: 28px;
-
+  display: none;
+  &_mobile {
+    @include fontRegular(32px, 400, 44.8px);
+    margin-bottom: 28px;
+    display: block;
+    @media screen and (min-width: $min_tablet) {
+      display: none;
+    }
+  }
   @media screen and (min-width: $min_tablet) {
     @include fontRegular(48px, 400, 48px);
     margin-bottom: 44px;
+    display: block;
   }
   @media screen and (min-width: $min_desktop) {
     @include fontRegular(64px, 400, 89.6px);
@@ -69,9 +78,8 @@
 }
 
 .img {
-    object-fit: cover;
-      @media screen and (min-width: $min_tablet) {
-
+  object-fit: cover;
+  @media screen and (min-width: $min_tablet) {
     height: 420px;
   }
   border-radius: 30px;
