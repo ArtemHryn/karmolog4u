@@ -46,6 +46,7 @@
 .checkbox_wrapper input {
   position: absolute;
   opacity: 0;
+  appearance: none
 }
 
 .checkbox_wrapper input:checked + label svg path {
