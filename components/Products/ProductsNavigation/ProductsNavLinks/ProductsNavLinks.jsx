@@ -25,11 +25,9 @@ const ProductsNavLinks = () => {
       breakpoints={{
         360: {
           slidesPerView: 2,
-          spaceBetween: 16,
         },
         768: {
           slidesPerView: 3,
-          spaceBetween: 24,
         },
         1280: {
           slidesPerView: 4,

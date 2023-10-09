@@ -3,26 +3,22 @@ import { useSwiper } from "swiper/react";
 import { useEffect } from "react";
 
 import styles from "./ProductsNavLinks.module.scss";
+import Link from "next/link";
 
 const NavLink = ({ link, index, currentRoute }) => {
   const swiper = useSwiper();
-  const router = useRouter();
   useEffect(() => {
     currentRoute === link.href && swiper.slideTo(index, 300);
-  });
+  }, [currentRoute, index, link.href, swiper]);
   return (
-    <button
+    <Link
       href={link.href}
       className={`${styles.link} ${
         currentRoute === link.href && styles.link_active
       }`}
-      onClick={() => {
-        swiper.slideTo(index + 1, 300);
-        router.push(link.href);
-      }}
     >
       {link.name}
-    </button>
+    </Link>
   );
 };
 

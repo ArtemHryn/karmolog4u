@@ -34,8 +34,6 @@
   @media screen and (min-width: $min_tablet) {
     @include fontRegular(18px, 600, 18px);
   }
-  @media screen and (min-width: $min_desktop) {
-  }
 }
 
 .link_active {
