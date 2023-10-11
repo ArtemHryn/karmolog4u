@@ -6,13 +6,13 @@ import MeditationsList from "@components/Products/Meditations/MeditationsList";
 import { useEffect, useState } from "react";
 
 const MeditationsPage = () => {
-  const [energies, setEnergies] = useState(false);
+  const [energies, setEnergies] = useState(true);
   const [showOpenedMeditation, setShowOpenedMeditation] = useState(false);
   const [showClosedMeditation, setShowClosedMeditation] = useState(false);
 
   useEffect(() => {
     setEnergies(() => {
-      return JSON.parse(window.localStorage.getItem("energies")) ?? false;
+      return JSON.parse(window.localStorage.getItem("energies")) ?? true;
     });
     setShowOpenedMeditation(() => {
       return (
