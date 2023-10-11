@@ -3,17 +3,37 @@ import Link from "next/link";
 import Youtube from "react-youtube";
 
 import Logo from "@components/Common/Icons/Logo";
-import Video from "@components/Services/Offline-meetings/HowIsGoingNailing/Video";
+import { open_Sans, unbounded } from "@app/layout";
 
 import styles from "./Meditations.module.scss";
 
 const Meditation = ({ card }) => {
-  const { video, isWaiting, name, price, img, link } = card;
+  const { video, isWaiting, name, price, img, link, cardName } = card;
+
+  const getCardName = () => {
+    if (!cardName) return;
+    const classNameToAdd = `${open_Sans.className}`;
+
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = cardName;
+
+    const spanElement = tempDiv.querySelector("span");
+    spanElement.classList.add(classNameToAdd);
+    return tempDiv.innerHTML;
+  };
+
   return (
     <>
-      {isWaiting ? (
+      {isWaiting || cardName ? (
         <div className={styles.waiting_card}>
-          <Logo styled={styles.card_logo} />
+          {cardName ? (
+            <p
+              dangerouslySetInnerHTML={{ __html: getCardName() }}
+              className={`${styles.card_name} ${unbounded.className}`}
+            />
+          ) : (
+            <Logo styled={styles.card_logo} />
+          )}
         </div>
       ) : video ? (
         <Youtube videoId={video} iframeClassName={styles.video} />
