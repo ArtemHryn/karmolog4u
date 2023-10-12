@@ -1,9 +1,12 @@
+import Container from "@components/Common/Container/Container";
+import Gifts from "@components/Products/Gifts/Gifts";
+
 const GiftsPage = () => {
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <Container>
+      <Gifts />
+    </Container>
+  );
+};
 
 export default GiftsPage;
