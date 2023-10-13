@@ -10,7 +10,11 @@ const GuidesAndBooksList = ({ showGuides, showOtherGuides, showBooks }) => {
 
   useEffect(() => {
     if (!showGuides && !showOtherGuides && !showBooks) {
-      setGuideAndBooksList([...list.guideTTEnergies]);
+      setGuideAndBooksList([
+        ...list.guideTTEnergies,
+        ...list.otherGuidesList,
+        ...list.booksList,
+      ]);
       return;
     }
     setGuideAndBooksList([

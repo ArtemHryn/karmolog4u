@@ -1,4 +1,5 @@
-@import "/styles/main.scss";
+@import '/styles/main.scss';
+
 
 //checkboxes
 
@@ -91,23 +92,9 @@
   }
 }
 
-//info text
+//courses list 
 
-.about_guides {
-  @include fontRegular(14px, 400, 19.6px, $main_text_color, center);
-  margin-bottom: 40px;
-  @media screen and (min-width: $min_tablet) {
-    @include fontRegular(16px, 400, 22.4px, $main_text_color, center);
-    margin-bottom: 48px;
-  }
-  @media screen and (min-width: $min_desktop) {
-    margin-bottom: 60px;
-  }
-}
-
-//guides and books list
-
-.guide_and_books_list {
+.courses_list {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   row-gap: 40px;
@@ -122,7 +109,7 @@
   }
 }
 
-.guide_and_books_list_item {
+.courses_list_item {
   display: flex;
   flex-direction: column;
   gap: 12px;
