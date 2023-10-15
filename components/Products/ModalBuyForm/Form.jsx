@@ -89,11 +89,11 @@ const Form = ({ price }) => {
       <div className={styles.checkbox_wrapper}>
         <input
           type="checkbox"
-          id="check-3"
+          id="license"
           checked={license}
           onChange={(e) => setLicense(e.target.checked)}
         />
-        <label htmlFor="check-3">
+        <label htmlFor="license">
           <svg viewBox="0,0,50,50">
             <path d="M5 30 L 20 45 L 45 5"></path>
           </svg>

@@ -13,7 +13,6 @@ const ModalBuyForm = () => {
   const searchParams = useSearchParams();
   const name = searchParams.get("name");
   const price = searchParams.get("price");
-
   return (
     <div className={styles.modal_container}>
       <Title styled={styles.title}>Ваше замовлення:</Title>
@@ -25,9 +24,11 @@ const ModalBuyForm = () => {
           height={72}
         />
         <p className={styles.product_name}>{name}</p>
-        <Title styled={styles.price} variant="p">
-          {price}
-        </Title>
+        {price && (
+          <Title styled={styles.price} variant="p">
+            {price}
+          </Title>
+        )}
       </div>
       <p className={styles.warning}>
         *Вартість вказана в іноземній валюті, тому відповідає курсу на момент

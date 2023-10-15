@@ -49,7 +49,7 @@ const Meditation = ({ card }) => {
           <Link
             className={styles.button}
             aria-label="замовити медитацію"
-            href={`buy-product?price=${price}&name=${name}`}
+            href={`buy-product?${price ? `price=${price}` : ""}&name=${name}`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
