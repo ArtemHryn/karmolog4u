@@ -61,3 +61,8 @@ button {
   background-color: transparent;
   cursor: pointer;
 }
+
+.react-tel-input .country-list .country.highlight {
+  border: 1px solid $seconds_text_color !important;
+  background-color: transparent !important;
+}

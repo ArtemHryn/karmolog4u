@@ -20,7 +20,7 @@ const links = [
 
 const ModalContext = () => {
   return (
-    <>
+    <div className={styles.container}>
       <h1 className={`${styles.title} ${unbounded.className}`}>
         ВАЖЛИВЕ ПОВІДОМЛЕННЯ!
       </h1>
@@ -42,7 +42,7 @@ const ModalContext = () => {
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 };
 
