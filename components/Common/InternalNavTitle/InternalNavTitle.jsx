@@ -7,7 +7,7 @@ const InternalNavTitle = ({ title, links }) => {
   return (
     <>
       <HeroNav linkNames={links} />
-      <Title styled={`${styles.title}`}>{title}</Title>
+      <Title styled={styles.title}>{title}</Title>
       <Title variant="p" styled={`${styles.studio}`}>
         <span className={styles.studio_line} /> Студія трансформації Сергія
         Скляренка <span className={styles.studio_line} />
