@@ -1,0 +1,52 @@
+@import "/styles/main.scss";
+
+.link_to_details {
+  transition: scale 250ms ease;
+  &:is(:hover, :focus) {
+    scale: 1.03;
+  }
+}
+
+.waiting_card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 205px;
+  border-radius: 30px;
+  background-image: linear-gradient(270deg, #e24668 -135.76%, #000 102.98%);
+  @media screen and (min-width: $min_tablet) {
+    height: 223px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    height: 190px;
+  }
+}
+
+.card_name {
+  @include fontRegular(18px, 400, 25.2px, $main_text_color, center);
+  text-wrap: balance;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  padding: 20px 50px;
+}
+
+.card_logo {
+  width: 70px;
+  height: 70px;
+}
+
+.video {
+  width: 328px;
+  height: 205px;
+  border-radius: 30px;
+  @media screen and (min-width: $min_tablet) {
+    height: 223px;
+    width: 356px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    height: 190px;
+    width: 302px;
+  }
+}

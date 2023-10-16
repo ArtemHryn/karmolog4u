@@ -1,5 +1,6 @@
 import ProductsNavigation from "@components/Products/ProductsNavigation/ProductsNavigation";
 
+
 const ProductsLayout = ({ children, modal }) => {
   return (
     <main>

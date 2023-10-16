@@ -1,45 +1,14 @@
-import Image from "next/image";
 import Link from "next/link";
-import Youtube from "react-youtube";
-
-import Logo from "@components/Common/Icons/Logo";
-import { open_Sans, unbounded } from "@app/layout";
+import OpenDetailLink from "./OpenDetailLink/OpenDetailLink";
 
 import styles from "./Meditations.module.scss";
 
 const Meditation = ({ card }) => {
-  const { video, isWaiting, name, price, img, link, cardName } = card;
-
-  const getCardName = () => {
-    if (!cardName) return;
-    const classNameToAdd = `${open_Sans.className}`;
-
-    const tempDiv = document.createElement("div");
-    tempDiv.innerHTML = cardName;
-
-    const spanElement = tempDiv.querySelector("span");
-    spanElement.classList.add(classNameToAdd);
-    return tempDiv.innerHTML;
-  };
-
+  const { isWaiting, name, price, link } = card;
   return (
     <>
-      {isWaiting || cardName ? (
-        <div className={styles.waiting_card}>
-          {cardName ? (
-            <p
-              dangerouslySetInnerHTML={{ __html: getCardName() }}
-              className={`${styles.card_name} ${unbounded.className}`}
-            />
-          ) : (
-            <Logo styled={styles.card_logo} />
-          )}
-        </div>
-      ) : video ? (
-        <Youtube videoId={video} iframeClassName={styles.video} />
-      ) : (
-        <Image src={img} alt={name} width={356} height={223} />
-      )}
+      <OpenDetailLink card={card} />
+
       <div className={styles.text_wrapper}>
         <p className={styles.name}>
           {name} {price && <span>{price}</span>}
@@ -49,7 +18,7 @@ const Meditation = ({ card }) => {
           <Link
             className={styles.button}
             aria-label="замовити медитацію"
-            href={`buy-product?${price ? `price=${price}` : ""}&name=${name}`}
+            href={`/products/buy-product?${price ? `price=${price}` : ""}&name=${name}`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

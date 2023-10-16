@@ -90,7 +90,7 @@
   border: 1px solid #7e7e7e;
   width: 100%;
   padding: 0px 28px;
-  @include fontRegular(12px, 500, 12px);
+  @include fontRegular(14px, 500, 14px);
   outline: none;
   &:focus + label,
   &:not(:placeholder-shown) + label {
@@ -111,7 +111,7 @@
   top: 50%;
   transform: translate(15px, -120%);
   transition: transform 250ms ease;
-  @include fontRegular(12px, 500, 12px);
+  @include fontRegular(14px, 500, 14px);
 }
 
 //phone input
@@ -120,7 +120,7 @@
 }
 
 .phone_title {
-  @include fontRegular(12px, 500, 12px);
+  @include fontRegular(14px, 500, 14px);
 }
 
 .flagInput {
@@ -128,7 +128,7 @@
   width: 100% !important;
   border-radius: 30px !important;
   border: 1px solid #7e7e7e !important;
-  font-size: 12px !important;
+  font-size: 14px !important;
   font-weight: 500 !important;
   line-height: 1 !important;
   height: 50px !important;
