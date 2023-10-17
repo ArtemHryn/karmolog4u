@@ -2,6 +2,7 @@ import Title from "@components/Common/Title/Title";
 import Link from "next/link";
 
 import styles from "./MeditationsDescriptions.module.scss";
+import MeditationsTextList from "./MeditationsTextList";
 
 const list = {
   title: "ЯК ОТРИМАТИ МЕДИТАЦІЮ?",
@@ -13,7 +14,7 @@ const list = {
 };
 
 const MeditationText = ({ name, desc, price, category }) => {
-  const { text, warning } = desc;
+  const categoryList = ["closed", "webinars"];
   return (
     <div>
       <Title styled={styles.title}>{name}</Title>
@@ -32,30 +33,20 @@ const MeditationText = ({ name, desc, price, category }) => {
           </Link>
         </>
       )}
-      {text && (
+      {desc?.text && (
         <div className={styles.text_wrapper}>
-          {text.map((el, index) => (
+          {desc.text.map((el) => (
             <p key={el} className={styles.text}>
               {el}
             </p>
           ))}
         </div>
       )}
-      {category === "closed" && (
-        <div>
-          <p className={styles.list_title}>{list.title}</p>
-          <ul>
-            {list.text.map((el, index) => (
-              <li key={index}>
-                <p className={styles.text}>
-                  {index + 1}. {el}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-      {warning && <p>{warning}</p>}
+      <div className={styles.list_wrapper}>
+        {categoryList.includes(category) && <MeditationsTextList list={list} />}
+        {desc?.list && <MeditationsTextList list={desc.list} />}
+      </div>
+      {desc?.warning && <p>{desc.warning}</p>}
     </div>
   );
 };

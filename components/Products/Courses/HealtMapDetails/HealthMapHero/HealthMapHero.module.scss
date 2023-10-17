@@ -1,0 +1,92 @@
+@import "/styles/main.scss";
+
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  @media screen and (min-width: $min_tablet) {
+    gap: 24px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.text_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  @media screen and (min-width: $min_desktop) {
+    flex: 1;
+  }
+}
+
+.title {
+  @include fontRegular(32px, 400, 44.8px);
+  margin-bottom: 28px;
+
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(48px, 400, 48px);
+    margin-bottom: 44px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    @include fontRegular(64px, 400, 89.6px);
+    margin-bottom: 40px;
+  }
+}
+
+.text {
+  @include fontRegular(16px, 400, 22.4px);
+  @media screen and (min-width: $min_tablet) {
+    margin-bottom: 44px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    margin-bottom: 48px;
+  }
+}
+
+.button {
+  display: flex;
+  width: 328px;
+  height: 52px;
+  justify-content: center;
+  align-items: center;
+
+  background-color: $buttons_color;
+  border-radius: 30px;
+
+  margin-bottom: 16px;
+
+  @include fontRegular(16px, 600, 16px);
+
+  transition: all 0.3s ease;
+
+  &:hover,
+  &:focus {
+    scale: 1.05;
+    background-color: $buttons_hover_color;
+  }
+  @media screen and (min-width: $min_tablet) {
+    width: 356px;
+    height: 60px;
+
+    @include fontRegular(18px, 600, 18px);
+
+    margin-bottom: 24px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    width: 411px;
+
+    margin-bottom: 0px;
+  }
+}
+
+.img {
+  border-radius: 30px;
+  @media screen and (min-width: $min_desktop) {
+    width: 519px;
+    min-height: 300px;
+  }
+}

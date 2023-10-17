@@ -93,6 +93,18 @@
 
 //list
 
+.list_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  @media screen and (min-width: $min_tablet) {
+    gap: 48px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    gap: 60px;
+  }
+}
+
 .list_title {
   @include fontRegular(16px, 600, 16px);
   margin-bottom: 32px;

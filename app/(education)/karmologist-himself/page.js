@@ -10,6 +10,7 @@ import Hero from "@components/Services/Hero/Hero";
 import getKarmologistCoursesFeedbacks from "@helper/education/karmologistCourseFeedbacks";
 import getKarmologistCoursesQuestions from "@helper/education/karmologistCoursesQuestions";
 import { getCardsForKarmologistHimself } from "@helper/education/whatIsWaitingForYou";
+import getTariffs from "@helper/education/karmologistTariffs";
 
 const links = [
   {
@@ -50,7 +51,10 @@ const KarmologistPage = () => {
         text={text}
       />
       <WhatIsWaitingForYou cards={cards} />
-      <KarmologistPageTariffs />
+      <KarmologistPageTariffs
+        tariffs={getTariffs()}
+        link={"karmologist-himself/dialog"}
+      />
       <AccessToTheCourse />
       <Feedbacks feedbacks={getKarmologistCoursesFeedbacks()} />
       <QuestionAnswer column1={column1} column2={column2} main />
