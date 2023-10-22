@@ -4,7 +4,7 @@ import Card from "./Card";
 
 import styles from "./WhatIsWaitingForYou.module.scss";
 
-const WhatIsWaitingForYou = ({ cards }) => {
+const WhatIsWaitingForYou = ({ cards, column1Style }) => {
   return (
     <Container styled={styles.container}>
       <Title styled={styles.title}>Що на вас чекає?</Title>
@@ -13,9 +13,9 @@ const WhatIsWaitingForYou = ({ cards }) => {
           cards.warning ? styles.warning_margin : ""
         }`}
       >
-        <Card list={cards.card1} />
-        <Card list={cards.card2} />
-        <Card list={cards.card3} />
+        <Card list={cards.card1} column1Style={column1Style} />
+        <Card list={cards.card2} column1Style={column1Style} />
+        <Card list={cards.card3} column1Style={column1Style} />
       </div>
       {cards.warning && <p className={styles.warning}>{cards.warning}</p>}
     </Container>

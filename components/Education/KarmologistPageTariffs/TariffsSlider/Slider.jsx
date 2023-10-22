@@ -2,9 +2,8 @@
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import Card from "./Card";
-import getTariffs from "@helper/education/karmologistTariffs";
 
-const Slider = () => {
+const Slider = ({ tariffs, link }) => {
   return (
     <div>
       <Swiper
@@ -19,9 +18,9 @@ const Slider = () => {
           },
         }}
       >
-        {getTariffs().map((card, index) => (
+        {tariffs.map((card, index) => (
           <SwiperSlide key={index}>
-            <Card card={card} />
+            <Card card={card} link={link} />
           </SwiperSlide>
         ))}
       </Swiper>

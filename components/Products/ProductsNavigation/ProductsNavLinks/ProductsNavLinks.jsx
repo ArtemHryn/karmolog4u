@@ -7,14 +7,7 @@ import NavLink from "./NavLink";
 import styles from "./ProductsNavLinks.module.scss";
 import "swiper/css";
 
-const links = [
-  { name: "Медитації", href: "meditations" },
-  { name: "Навчальні курси", href: "courses" },
-  { name: "Гайди та книги", href: "guides-and-books" },
-  { name: "Подарунки Студії", href: "gifts" },
-];
-
-const ProductsNavLinks = () => {
+const ProductsNavLinks = ({ links }) => {
   const fullRoute = usePathname().split("/");
   const currentRoute = fullRoute[fullRoute.length - 1];
 

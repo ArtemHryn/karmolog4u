@@ -1,0 +1,176 @@
+@import "/styles/main.scss";
+
+.wrapper {
+  display: grid;
+  gap: 40px;
+  margin-bottom: 120px;
+  @media screen and (min-width: $min_tablet) {
+    gap: 48px;
+    margin-bottom: 140px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    gap: 24px;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 160px;
+  }
+}
+
+.title {
+  @include fontRegular(24px, 400, 24px);
+  margin-bottom: 32px;
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(28px, 400, 39.2px);
+    margin-bottom: 40px;
+  }
+}
+
+.price {
+  display: flex;
+  gap: 20px;
+  @include fontRegular(24px, 400, 24px);
+  margin-bottom: 24px;
+  & > span {
+    text-decoration: line-through;
+    color: #7e7e7e;
+  }
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(28px, 400, 39.2px);
+  }
+}
+
+.contact_us {
+  @include fontRegular(14px, 400, 19.6px);
+  margin-bottom: 24px;
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(16px, 400, 22.4px);
+    max-width: 166px;
+  }
+}
+
+.button {
+  display: flex;
+  width: 328px;
+  height: 52px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  background-color: $buttons_color;
+  margin-bottom: 32px;
+  @include fontRegular(16px, 600, 16px);
+
+  @media screen and (min-width: $min_tablet) {
+    width: 261px;
+    margin-bottom: 48px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    width: 194px;
+  }
+}
+
+//description
+
+.text_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+  @media screen and (min-width: $min_tablet) {
+    margin-bottom: 48px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    margin-bottom: 60px;
+  }
+}
+
+.text {
+  @include fontRegular(14px, 400, 19.6px);
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(16px, 400, 22.4px);
+  }
+}
+
+.total_list_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+//list
+
+.list_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  @media screen and (min-width: $min_tablet) {
+    gap: 48px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    gap: 60px;
+  }
+}
+
+.list_title {
+  @include fontRegular(16px, 600, 16px);
+  margin-bottom: 32px;
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(18px, 600, 18px);
+  }
+}
+
+//what is inside
+
+.what_is_inside_title {
+  @include fontRegular(16px, 600, 16px);
+  text-decoration: underline;
+  margin-bottom: 32px;
+}
+
+.what_is_inside_list {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 27px;
+  width: 100%;
+  list-style-type: disc;
+  padding-left: 24px;
+  @media screen and (min-width: $min_tablet) {
+    width: 366px;
+  }
+}
+
+.what_is_inside_list_item {
+  width: calc((100% - 27px) / 2);
+}
+
+//стилі як виглядає продукт
+
+.how_it_looks_container {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+}
+
+.how_it_looks_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.how_it_looks_title {
+  @include fontRegular(16px, 600, 16px);
+  text-decoration: underline;
+}
+
+.how_it_looks_list {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 27px;
+  width: 100%;
+  list-style-type: disc;
+  padding-left: 24px;
+}
+
+.how_it_looks_textAfter {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}

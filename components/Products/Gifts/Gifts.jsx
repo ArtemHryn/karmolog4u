@@ -2,71 +2,50 @@ import Image from "next/image";
 import Link from "next/link";
 import BagIcon from "./BagIcon";
 
+import { gifts } from "@helper/products/giftsList";
+
 import styles from "./Gifts.module.scss";
+import OpenDetailsLink from "./OpenDetailsLink";
 
 const Gifts = () => {
   return (
-      <ul className={styles.list}>
-        <li className={styles.list_item}>
-          <Image
-            src={"/assets/images/meditations/cert.webp"}
-            alt="сертифікат"
-            width={356}
-            height={223}
-          />
-          <div className={styles.text_wrapper}>
-            <p className={styles.title}>Подарунковий сертифікат</p>
-            <p className={styles.remark}>
-              *Вартість залежить від обраної послуги
-            </p>
-          </div>
-        </li>
-        <li className={styles.list_item}>
-          <Image
-            src={"/assets/images/meditations/candle.webp"}
-            alt="сертифікат"
-            width={356}
-            height={223}
-          />
-          <p className={styles.discount}>-23%</p>
-          <div className={styles.bottom_wrapper}>
-            <div className={styles.text_wrapper}>
-              <p className={styles.title}>Матрична свічка</p>
-              <p className={styles.price}>
-                25.41€ <span>33 €</span>
-              </p>
-            </div>
-            <Link
-              className={styles.button}
-              aria-label="замовити медитацію"
-              href={"#"}
-            >
-              <BagIcon />
-            </Link>
-          </div>
-        </li>
-        <li className={styles.list_item}>
-          <Image
-            src={"/assets/images/meditations/block.webp"}
-            alt="сертифікат"
-            width={356}
-            height={223}
+    <ul className={styles.list}>
+      {gifts.map((el) => (
+        <li className={styles.list_item} key={el.name}>
+          <OpenDetailsLink
+            img={el.img}
+            discount={el.discount}
+            name={el.name}
+            id={el.id}
           />
           <div className={styles.bottom_wrapper}>
             <div className={styles.text_wrapper}>
-              <p className={styles.title}>Бокс “Полум’я трансформації”</p>
-              <p className={styles.price}>88€</p>
+              <p className={styles.title}>{el.name}</p>
+              {el.remark && <p className={styles.remark}>{el.remark}</p>}
+              {el.price && (
+                <p className={styles.price}>
+                  {el.discount
+                    ? `${el.price * ((100 - el.discount) / 100)}€`
+                    : `${el.price}€`}
+                  {el.discount && <span>{el.price}€</span>}
+                </p>
+              )}
             </div>
-            <Link
-              className={styles.button}
-              aria-label="замовити медитацію"
-              href={"#"}
-            >
-              <BagIcon />
-            </Link>
+            {el.price && (
+              <Link
+                className={styles.button}
+                aria-label="замовити медитацію"
+                href={`/products/buy-product?${
+                  el.price ? `price=${el.price}€` : ""
+                }&name=${el.name}`}
+              >
+                <BagIcon />
+              </Link>
+            )}
           </div>
         </li>
-      </ul>
+      ))}
+    </ul>
   );
 };
 

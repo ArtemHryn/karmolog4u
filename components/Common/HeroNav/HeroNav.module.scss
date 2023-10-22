@@ -3,6 +3,7 @@
 .list {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 6px;
   margin-bottom: 44px;
   @media screen and (min-width: $min_tablet) {
@@ -13,9 +14,7 @@
 .list_item {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
   gap: 5px;
-
   @media screen and (min-width: $min_tablet) {
     gap: 10px;
   }

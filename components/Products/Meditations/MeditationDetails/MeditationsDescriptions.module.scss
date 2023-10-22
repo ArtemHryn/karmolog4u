@@ -1,0 +1,114 @@
+@import "/styles/main.scss";
+
+//wrapper
+.wrapper {
+  display: grid;
+  gap: 40px;
+  margin-bottom: 120px;
+  @media screen and (min-width: $min_tablet) {
+    gap: 48px;
+    margin-bottom: 140px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    gap: 24px;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 160px;
+  }
+}
+
+//images
+.video {
+  width: 328px;
+  height: 205px;
+  border-radius: 30px;
+  @media screen and (min-width: $min_tablet) {
+    width: 736px;
+    height: 462px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    width: 519px;
+    height: 326px;
+  }
+}
+
+//title
+.title {
+  @include fontRegular(24px, 400, 24px);
+  margin-bottom: 32px;
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(28px, 400, 39.2px);
+    margin-bottom: 40px;
+  }
+}
+
+.price {
+  @include fontRegular(24px, 400, 24px);
+  margin-bottom: 24px;
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(28px, 400, 39.2px);
+  }
+}
+
+.button {
+  display: flex;
+  width: 328px;
+  height: 52px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  background-color: $buttons_color;
+  margin-bottom: 32px;
+  @include fontRegular(16px, 600, 16px);
+
+  @media screen and (min-width: $min_tablet) {
+    width: 261px;
+    margin-bottom: 48px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    width: 194px;
+  }
+}
+
+//description
+
+.text_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+  @media screen and (min-width: $min_tablet) {
+    margin-bottom: 48px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    margin-bottom: 60px;
+  }
+}
+
+.text {
+  @include fontRegular(14px, 400, 19.6px);
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(16px, 400, 22.4px);
+  }
+}
+
+//list
+
+.list_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  @media screen and (min-width: $min_tablet) {
+    gap: 48px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    gap: 60px;
+  }
+}
+
+.list_title {
+  @include fontRegular(16px, 600, 16px);
+  margin-bottom: 32px;
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(18px, 600, 18px);
+  }
+}

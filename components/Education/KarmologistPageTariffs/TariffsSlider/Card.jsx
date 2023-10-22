@@ -4,7 +4,7 @@ import HeroNavArrow from "@components/Common/Icons/HeroNavArrow";
 import styles from "./TariffsSlider.module.scss";
 import Link from "next/link";
 
-const Card = ({ card }) => {
+const Card = ({ card, link }) => {
   return (
     <div className={styles.card}>
       <p className={styles.recruitment}>Триває набір</p>
@@ -17,22 +17,22 @@ const Card = ({ card }) => {
           {card.aboutCourse.map((el) => (
             <li key={el} className={styles.list_text_element}>
               <p className={styles.icon}>
-                <HeroNavArrow/>
+                <HeroNavArrow />
               </p>
-              <p className={styles.list_text}>{el}</p>
+              <p
+                className={styles.list_text}
+                dangerouslySetInnerHTML={{ __html: el }}
+              />
             </li>
           ))}
         </ul>
         <p className={`${styles.price} ${unbounded.className}`}>{card.price}</p>
         <div className={styles.btn_wrapper}>
-          <Link href={"karmologist-himself/dialog"} className={`${styles.btn}`}>
+          <Link href={link} className={`${styles.btn}`}>
             Повна оплата
           </Link>
           {!card.hidePrepaymentBtn && (
-            <Link
-              href={"karmologist-himself/dialog"}
-              className={`${styles.btn} ${styles.second_btn}`}
-            >
+            <Link href={link} className={`${styles.btn} ${styles.second_btn}`}>
               Предоплата 50%
             </Link>
           )}

@@ -1,23 +1,16 @@
 @import "/styles/main.scss";
 
-.section {
-  padding-top: 0;
+.swiper {
+  overflow: visible !important;
 }
 
-.list {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  row-gap: 40px;
-  @media screen and (min-width: $min_tablet) {
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 24px;
-    row-gap: 60px;
-  }
-  @media screen and (min-width: $min_desktop) {
-    row-gap: 87px;
-    grid-template-columns: repeat(4, 1fr);
-  }
+.meditation_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
+
+//gifts
 
 .list_item {
   position: relative;

@@ -29,7 +29,7 @@ const CoursesCheckboxes = ({
               <path d="M5 30 L 20 45 L 45 5"></path>
             </svg>
           </label>
-          <p className={styles.text}>Гайди по 22 енергіям</p>
+          <p className={styles.text}>Вебінари</p>
         </div>
       </li>
       <li>
@@ -51,7 +51,7 @@ const CoursesCheckboxes = ({
               <path d="M5 30 L 20 45 L 45 5"></path>
             </svg>
           </label>
-          <p className={styles.text}>Інші гайди</p>
+          <p className={styles.text}>Навчальні інтенсиви</p>
         </div>
       </li>
       <li>
@@ -73,7 +73,7 @@ const CoursesCheckboxes = ({
               <path d="M5 30 L 20 45 L 45 5"></path>
             </svg>
           </label>
-          <p className={styles.text}>Друковані видання</p>
+          <p className={styles.text}>Терапевтичні ефіри</p>
         </div>
       </li>
     </ul>
