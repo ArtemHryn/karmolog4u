@@ -7,6 +7,7 @@ import styles from "./ProductionCanBeInterestingSlider.module.scss";
 import "swiper/css";
 
 const ProductionCanBeInterestingSlider = ({ slides }) => {
+  if (slides.length === 0) return null;
   return (
     <Swiper
       className={styles.swiper}
@@ -21,6 +22,7 @@ const ProductionCanBeInterestingSlider = ({ slides }) => {
         },
         1280: {
           slidesPerView: 4,
+          spaceBetween: 24,
         },
       }}
     >
