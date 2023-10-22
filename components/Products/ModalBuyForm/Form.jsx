@@ -100,11 +100,11 @@ const Form = ({ price }) => {
         </label>
         <p className={styles.text}>
           Я підтверджую, що ознайомився (-лася) з{" "}
-          <Link href={"#"} target="_blank">
+          <Link href={"/"} target="_blank">
             політикою конфіденційності
           </Link>{" "}
           та{" "}
-          <Link href={"#"} target="_blank">
+          <Link href={"/"} target="_blank">
             договором публічної оферти
           </Link>
         </p>

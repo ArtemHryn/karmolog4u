@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import Title from "@components/Common/Title/Title";
