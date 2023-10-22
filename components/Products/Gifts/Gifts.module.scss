@@ -48,7 +48,6 @@
 .bottom_wrapper {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .text_wrapper {
@@ -71,6 +70,14 @@
   @include fontRegular(20px, 400, 28px);
   & > span {
     color: #7e7e7e;
+  }
+}
+
+.details_link {
+  transition: all 250ms ease;
+  &:hover,
+  &:focus {
+    scale: 1.05;
   }
 }
 
