@@ -1,4 +1,3 @@
-import { useRouter } from "next/navigation";
 import { useSwiper } from "swiper/react";
 import { useEffect } from "react";
 

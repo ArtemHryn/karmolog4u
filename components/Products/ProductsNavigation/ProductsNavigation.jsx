@@ -24,9 +24,7 @@ const ProductsNavigation = () => {
   const pathname = usePathname();
 
   if (params.id || pathname.includes("health-map-details")) return null;
-
   const links = [linksList.find((el) => el.href === segment)];
-
   return (
     <Container styledSection={styles.section}>
       <InternalNavTitle links={links} title={"АВТОРСЬКІ ПРОДУКТИ"} />

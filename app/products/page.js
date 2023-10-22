@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 
 const Products = () => {
-  redirect("meditations");
+  redirect("/products/meditations");
 };
 
 export default Products;

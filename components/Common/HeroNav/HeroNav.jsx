@@ -15,14 +15,16 @@ const HeroNav = ({ linkNames }) => {
           Головна
         </Link>
       </li>
-      {linkNames.map((link) => (
-        <li key={link.name} className={styles.list_item}>
-          <HeroNavArrow styled={styles.arrow} />
-          <Link href={link.href} className={`${styles.link} ${open_Sans}`}>
-            {link.name}
-          </Link>
-        </li>
-      ))}
+      {linkNames.map((link) =>
+        !link ? null : (
+          <li key={link.name} className={styles.list_item}>
+            <HeroNavArrow styled={styles.arrow} />
+            <Link href={link.href} className={`${styles.link} ${open_Sans}`}>
+              {link.name}
+            </Link>
+          </li>
+        )
+      )}
     </ul>
   );
 };

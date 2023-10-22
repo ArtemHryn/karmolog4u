@@ -1,7 +1,8 @@
+
 import HeroNav from "../HeroNav/HeroNav";
 import Title from "../Title/Title";
 
-import styles from './InternalNavTitle.module.scss'
+import styles from "./InternalNavTitle.module.scss";
 
 const InternalNavTitle = ({ title, links }) => {
   return (
