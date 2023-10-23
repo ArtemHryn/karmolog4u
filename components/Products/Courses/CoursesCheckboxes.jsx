@@ -51,7 +51,7 @@ const CoursesCheckboxes = ({
               <path d="M5 30 L 20 45 L 45 5"></path>
             </svg>
           </label>
-          <p className={styles.text}>Навчальні інтенсиви</p>
+          <p className={styles.text}>Інтенсиви</p>
         </div>
       </li>
       <li>

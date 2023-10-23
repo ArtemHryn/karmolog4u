@@ -7,6 +7,7 @@ import AboutPeopleOnTheWay from "@components/Main/AboutPeopleOnTheWay/AboutPeopl
 import CoAuThorship from "@components/Main/CoAuThorship/CoAuThorship";
 import Feedback from "@components/Main/Feedback/Feedback";
 import MyDream from "@components/Main/MyDream/MyDream";
+import PatentedMethods from "@components/Main/PatendedMethods/PatendedMethods";
 import {
   column1,
   column2,
@@ -100,6 +101,7 @@ export default function Home() {
       <MyDream />
       <AboutPeopleOnTheWay />
       <Research />
+      <PatentedMethods />
       <CoAuThorship />
       <StarCustomers />
       <QuestionAnswer column1={column1} column2={column2} main />

@@ -38,7 +38,6 @@ const KarmologistPage = () => {
         img={{
           img: "/assets/images/karmologist-himself_hero.webp",
           alt: "Фото Сергія Скляренка",
-          imgDesk: "/assets/images/karmologist-himself_hero_desk.webp",
         }}
       />
       <AboutCourse

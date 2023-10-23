@@ -38,8 +38,8 @@ const MyDream = () => {
               користь у цей світ.
             </span>
           </p>
-          <Link href="#" className={`${styles.link} ${open_Sans.className}`}>
-            Асоціація учнів
+          <Link href="/products/meditations" className={`${styles.link} ${open_Sans.className}`}>
+            Медитації по 22 енергіям
           </Link>
         </div>
         <picture>

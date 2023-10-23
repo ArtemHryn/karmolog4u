@@ -13,7 +13,7 @@ import styles from "./ProductsNavLinks/ProductsNavLinks.module.scss";
 
 const linksList = [
   { name: "Медитації", href: "meditations" },
-  { name: "Навчальні курси", href: "courses" },
+  { name: "Вебінари", href: "courses" },
   { name: "Гайди та книги", href: "guides-and-books" },
   { name: "Подарунки Студії", href: "gifts" },
 ];
