@@ -34,7 +34,7 @@ const links = [
     title: "АВТОРСЬКІ ПРОДУКТИ",
     links: [
       { name: "Медитації", link: "/products/meditations" },
-      { name: "Навчальні курси", link: "/products/courses" },
+      { name: "Вебінари", link: "/products/courses" },
       { name: "Гайди та книги", link: "/products/guides-and-books" },
       { name: "Подарунки Студії", link: "/products/gifts" },
     ],

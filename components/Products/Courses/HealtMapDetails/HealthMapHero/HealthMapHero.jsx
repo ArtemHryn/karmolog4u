@@ -31,12 +31,6 @@ const HealthMapHero = () => {
             причин, а не наслідків, для відкриття перед собою можливості
             істинного зцілення і переходу у вібрації Нового Часу.
           </p>
-          <Link
-            href={`/products/courses/health-map-details/dialog`}
-            className={`${styles.button} ${open_Sans.className}`}
-          >
-            Записатися
-          </Link>
         </div>
         <picture className={styles.img}>
           <Image
