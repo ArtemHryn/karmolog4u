@@ -30,6 +30,7 @@ const ConsultingCourse = () => {
         img={{
           img: "/assets/images/consultingCourse/About.webp",
           alt: "Фото Сергія Скляренка",
+          imgDesk: "/assets/images/consultingCourse/about_desc.webp",
         }}
         styled={styled.image}
         text={text}
