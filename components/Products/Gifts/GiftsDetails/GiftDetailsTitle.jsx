@@ -23,7 +23,7 @@ const GiftDetailsTitle = ({ card }) => {
           </>
         )}
         <Link
-          href={`/products/buy-product?${
+          href={`/products/buy-gift?${
             card.price
               ? `price=${
                   card.discount

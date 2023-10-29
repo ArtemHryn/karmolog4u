@@ -1,0 +1,263 @@
+@import "/styles/main.scss";
+
+.modal_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 360px;
+  padding: 40px 16px;
+
+  border-radius: 30px;
+  background-color: #131313;
+  overflow-y: auto;
+  @media screen and (min-width: $min_tablet) {
+    padding: 50px;
+    max-width: 510px;
+  }
+}
+
+.title {
+  @include fontRegular(24px, 400, 24px);
+  margin-bottom: 32px;
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(28px, 400, 39.2px);
+  }
+}
+
+.order_wrapper {
+  display: flex;
+  align-items: center;
+  padding: 12px 0px;
+  border-top: 1px solid #e24668;
+  border-bottom: 1px solid #e24668;
+  gap: 16px;
+  margin-bottom: 20px;
+  @media screen and (min-width: $min_tablet) {
+    margin-bottom: 24px;
+  }
+}
+
+.product_name {
+  @include fontRegular(16px, 400, 22.4px);
+}
+
+.price {
+  @include fontRegular(18px, 400, 25.2px);
+}
+
+.warning {
+  @include fontRegular(10px, 500, 10px);
+  margin-bottom: 40px;
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(12px, 500, 12px);
+  }
+}
+
+//form
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  @media screen and (min-width: $min_tablet) {
+    gap: 28px;
+  }
+}
+
+.form_title {
+  @include fontRegular(14px, 400, 19.6px);
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(18px, 500, 25.2px);
+  }
+}
+
+//input
+.inputGroup {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  height: 70px;
+  @media screen and (min-width: $min_tablet) {
+    height: 81px;
+  }
+}
+
+.input {
+  height: 50px;
+  background-color: transparent;
+  border-radius: 30px;
+  border: 1px solid #7e7e7e;
+  width: 100%;
+  padding: 0px 28px;
+  @include fontRegular(14px, 500, 14px);
+  outline: none;
+  &:focus + label,
+  &:not(:placeholder-shown) + label {
+    transform: translate(0%, -400%);
+  }
+  @media screen and (min-width: $min_tablet) {
+    height: 60px;
+    &:focus + label,
+    &:not(:placeholder-shown) + label {
+      transform: translate(0%, -440%);
+    }
+  }
+}
+
+.label {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(15px, -120%);
+  transition: transform 250ms ease;
+  @include fontRegular(14px, 500, 14px);
+}
+
+//phone input
+.phone {
+  width: 100%;
+}
+
+.phone_title {
+  @include fontRegular(14px, 500, 14px);
+}
+
+.flagInput {
+  background-color: transparent !important;
+  width: 100% !important;
+  border-radius: 30px !important;
+  border: 1px solid #7e7e7e !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 1 !important;
+  height: 50px !important;
+  color: $main_text_color !important;
+  box-shadow: none !important;
+  @media screen and (min-width: $min_tablet) {
+    height: 60px !important;
+  }
+}
+
+.buttonClass {
+  & div::before {
+    border: none !important;
+    box-shadow: none !important;
+  }
+}
+
+.dropdownClass {
+  background-color: #131313 !important;
+  max-height: 150px !important;
+  width: 320px !important;
+}
+
+//checkbox
+.checkbox_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  @media screen and (min-width: $min_tablet) {
+    gap: 12px;
+  }
+}
+.checkbox_wrapper *,
+.checkbox_wrapper *:after,
+.checkbox_wrapper *:before {
+  box-sizing: border-box;
+}
+
+.checkbox_wrapper input {
+  position: absolute;
+  opacity: 0;
+  appearance: none;
+}
+
+.checkbox_wrapper input:checked + label svg path {
+  stroke-dashoffset: 0;
+}
+
+.checkbox_wrapper input:focus + label {
+  transform: scale(1.03);
+}
+
+.checkbox_wrapper input + label {
+  display: flex;
+  border: 1px solid $main_text_color;
+  width: 24px;
+  height: 24px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  & > svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+.checkbox_wrapper input + label:active {
+  transform: scale(1.05);
+  border-radius: 12px;
+}
+
+.checkbox_wrapper input + label svg {
+  pointer-events: none;
+  padding: 10%;
+}
+
+.checkbox_wrapper input + label svg path {
+  fill: none;
+  stroke: $main_text_color;
+  stroke-width: 4px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 101;
+  transition: all 250ms cubic-bezier(1, 0, 0.37, 0.91);
+}
+
+.text {
+  @include fontRegular(10px, 500, 10px);
+  text-wrap: balance;
+  & > a {
+    text-decoration: underline;
+  }
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(12px, 500, 12px);
+  }
+}
+
+.form_price {
+  display: flex;
+  gap: 16px;
+  @include fontRegular(14px, 400, 19.6px);
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(18px, 400, 25.2px);
+  }
+}
+
+.submit_btn {
+  display: flex;
+  width: 100%;
+  height: 52px;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 30px;
+  background-color: $buttons_color;
+
+  @include fontRegular(16px, 600, 16px);
+  transition: opacity 250ms ease;
+  &:disabled {
+    opacity: 0.3;
+  }
+  @media screen and (min-width: $min_tablet) {
+    height: 60px;
+    @include fontRegular(18px, 600, 18px);
+  }
+}
+
+.error {
+  @include fontRegular(10px, 500, 10px, #e60000);
+}
