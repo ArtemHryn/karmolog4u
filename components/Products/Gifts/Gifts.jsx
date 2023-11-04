@@ -35,7 +35,7 @@ const Gifts = () => {
               <Link
                 className={styles.button}
                 aria-label="замовити медитацію"
-                href={`/products/buy-product?${
+                href={`/products/buy-gift?${
                   el.price ? `price=${el.price}€` : ""
                 }&name=${el.name}`}
               >
