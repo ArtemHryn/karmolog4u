@@ -1,3 +1,7 @@
+import { NextResponse } from "next/server";
+
+export const dynamic = "force-dynamic";
+
 const apiUrl = "https://api.novaposhta.ua/v2.0/json/";
 
 export const GET = async (request) => {
@@ -27,9 +31,12 @@ export const GET = async (request) => {
       label: wh.Description,
       value: wh.Description,
     }));
-    return new Response(JSON.stringify({ data: filteredWH }), {
-      status: 200,
-    });
+    return NextResponse.json(
+      { data: filteredWH },
+      {
+        status: 200,
+      }
+    );
   } catch (error) {
     console.log(error);
   }

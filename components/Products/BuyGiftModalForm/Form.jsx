@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import { useForm, Controller } from "react-hook-form";
