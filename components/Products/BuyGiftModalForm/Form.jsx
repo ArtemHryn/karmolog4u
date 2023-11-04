@@ -1,18 +1,25 @@
 import { useState } from "react";
 import PhoneInput from "react-phone-input-2";
 import { useForm, Controller } from "react-hook-form";
+import AsyncSelect from "react-select/async";
+import Select from "react-select";
+import Link from "next/link";
+
+import Title from "@components/Common/Title/Title";
 
 import styles from "./BuyGiftModalForm.module.scss";
 import "react-phone-input-2/lib/bootstrap.css";
-import Title from "@components/Common/Title/Title";
-import Link from "next/link";
 
 const Form = ({ price }) => {
   const [license, setLicense] = useState(false);
+  const [warehousesList, setWarehousesList] = useState([]);
+  const [cityValue, setCityValue] = useState("");
 
   const {
     register,
     handleSubmit,
+    setValue,
+    getValues,
     control,
     formState: { errors },
   } = useForm();
@@ -20,7 +27,33 @@ const Form = ({ price }) => {
   const onFormSubmit = (data) => {
     console.log(data);
   };
+  getValues("city");
+  const loadOptions = async (value, callback) => {
+    if (value.length < 3) return;
+    const data = await fetch(`/api/nova-poshta/cities?city=${value}`);
+    const options = await data.json();
+    await callback(options.data);
+  };
 
+  const cityStyling = {
+    control: () => `${styles.control}`,
+    indicatorSeparator: () => styles.indicatorSeparator,
+    menu: () => styles.menu,
+    option: ({ isSelected, isFocused }) =>
+      isSelected || isFocused ? styles.option_selected : styles.option,
+    input: () => styles.singleValue,
+    singleValue: () => styles.singleValue,
+  };
+
+  const onCityChange = async (selectedCity) => {
+    const data = await fetch(
+      `/api/nova-poshta/warehouses?warehouse=${selectedCity.value}`
+    );
+    const wh = await data.json();
+    setWarehousesList(wh.data);
+    setValue("city", selectedCity);
+    setCityValue(selectedCity.value);
+  };
   return (
     <form className={styles.form} onSubmit={handleSubmit(onFormSubmit)}>
       <Title variant="p" styled={styles.form_title}>
@@ -57,6 +90,51 @@ const Form = ({ price }) => {
         </label>
         {errors.email && <p className={styles.error}>{errors.email.message}</p>}
       </div>
+      <div>
+        <p>Місто/населенний пункт</p>
+        <Controller
+          name="city"
+          control={control}
+          rules={{
+            required: { value: true, message: "Виберіть місто" },
+          }}
+          render={({ field }) => (
+            <AsyncSelect
+              loadOptions={loadOptions}
+              defaultOptions
+              onChange={onCityChange}
+              noOptionsMessage={() => {
+                return "Введіть перші 3 букви";
+              }}
+              classNames={cityStyling}
+              placeholder="Введіть назву міста"
+            />
+          )}
+        />
+      </div>
+      {cityValue && warehousesList.length !== 0 && (
+        <div>
+          <p>Номер відділення/поштомату Нової Пошти</p>
+          <Controller
+            name="warehouse"
+            control={control}
+            rules={{
+              required: { value: true, message: "Виберіть відділення" },
+            }}
+            render={({ field }) => (
+              <Select
+                options={warehousesList}
+                onChange={(wh) => setValue("warehouse", wh.value)}
+                noOptionsMessage={() => {
+                  return "Відділення не знайдено";
+                }}
+                classNames={cityStyling}
+                placeholder="Введіть відділення"
+              />
+            )}
+          />
+        </div>
+      )}
       <div>
         <p>Ваш номер телефону</p>
         <Controller

@@ -12,6 +12,8 @@ const BuyGiftModalForm = () => {
   const searchParams = useSearchParams();
   const name = searchParams.get("name");
   const price = searchParams.get("price");
+
+
   return (
     <div className={styles.modal_container}>
       <Title styled={styles.title}>Ваше замовлення:</Title>

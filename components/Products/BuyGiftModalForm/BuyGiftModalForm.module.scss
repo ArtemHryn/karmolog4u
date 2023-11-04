@@ -114,6 +114,40 @@
   @include fontRegular(14px, 500, 14px);
 }
 
+//city selector
+
+.control {
+  background-color: transparent !important;
+  width: 100% !important;
+  height: 50px !important;
+  border-radius: 30px !important;
+  border: 1px solid #7e7e7e !important;
+  box-shadow: none !important;
+  @media screen and (min-width: $min_tablet) {
+    height: 60px !important;
+  }
+}
+
+.indicatorSeparator {
+  display: none !important;
+}
+
+.menu {
+  background-color: $section_color !important;
+}
+
+.option {
+  color: #fff;
+  &_selected {
+    background-color: transparent !important;
+    border: 1px solid $buttons_color !important;
+  }
+}
+
+.singleValue {
+  color: $main_text_color !important;
+}
+
 //phone input
 .phone {
   width: 100%;
