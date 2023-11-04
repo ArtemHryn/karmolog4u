@@ -1,8 +1,11 @@
+import { NextResponse } from "next/server";
 const apiUrl = "https://api.novaposhta.ua/v2.0/json/";
+
+export const dynamic = "force-dynamic";
 
 export const GET = async (request) => {
   try {
-    const url = new URL(request.url);
+    const url = new URL(request?.url ? request.url : "");
 
     const cityName = url.searchParams.get("city");
     const cityReq = {
@@ -25,9 +28,12 @@ export const GET = async (request) => {
       value: el.Ref,
       label: el.Description,
     }));
-    return new Response(JSON.stringify({ data: filteredCities }), {
-      status: 200,
-    });
+    return NextResponse.json(
+      { data: filteredCities },
+      {
+        status: 200,
+      }
+    );
   } catch (error) {
     console.log(error);
   }
