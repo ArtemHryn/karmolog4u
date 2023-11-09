@@ -1,3 +1,4 @@
+import AboutFoundation from "@components/HumanPsychology/AboutFoundation/AboutFoundation";
 import Hero from "@components/HumanPsychology/Hero/Hero";
 
 const links = [
@@ -11,6 +12,7 @@ const CharitableFoundationPage = () => {
   return (
     <>
       <Hero links={links} title={"БЛАГОДІЙНИЙ ФОНД"} />
+      <AboutFoundation/>
     </>
   );
 };
