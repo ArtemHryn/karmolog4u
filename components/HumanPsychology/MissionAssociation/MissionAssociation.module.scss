@@ -1,0 +1,102 @@
+@import "/styles/main.scss";
+
+.title {
+  text-align: center;
+  margin-bottom: 40px;
+  @media screen and (min-width: $min_tablet) {
+    margin-bottom: 48px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    margin-bottom: 60px;
+  }
+}
+
+.warning {
+  @include fontRegular(16px, 400, 22.4px);
+  margin-bottom: 16px;
+  & > a {
+    text-decoration: underline;
+  }
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(18px, 400, 25.2px);
+    margin-bottom: 24px;
+  }
+}
+
+.about_psycho {
+  padding: 30px 24px;
+  @include fontRegular(16px, 400, 22.4px, #101010);
+  background-color: $card_bg;
+  border-radius: 30px;
+  margin-bottom: 16px;
+  text-wrap: balance;
+  & > b {
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(18px, 400, 25.2px, #101010);
+    padding: 30px 51.5px;
+    margin-bottom: 24px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    padding: 30px 77px;
+  }
+}
+
+.mission_list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  @media screen and (min-width: $min_tablet) {
+    gap: 24px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    flex-direction: row;
+  }
+}
+
+.mission_item {
+  position: relative;
+  padding: 50px 24px;
+  border-radius: 30px;
+  background: #2e2e2e;
+  overflow: hidden;
+  @media screen and (min-width: $min_tablet) {
+    padding: 50px 51.5px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    width: calc((100% - 24px) / 2);
+    padding: 50px 71.5px;
+  }
+}
+
+.mission_text {
+  @include fontRegular(14px, 400, 19.6px, #fdfdfd);
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(16px, 400, 22.4px, #fdfdfd);
+  }
+}
+
+.mission_number {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100px;
+  height: 60px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  background-color: #cfb691;
+  clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+  @include fontRegular(24px, 400, 24px, #101010);
+  @media screen and (min-width: $min_tablet) {
+    width: 135px;
+    height: 85px;
+    padding-right: 28px;
+    @include fontRegular(28px, 400, 39.2px, #101010);
+  }
+}
