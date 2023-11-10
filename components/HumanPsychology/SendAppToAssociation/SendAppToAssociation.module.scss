@@ -1,0 +1,75 @@
+@import "/styles/main.scss";
+
+.title {
+  text-align: center;
+  margin-bottom: 40px;
+  @media screen and (min-width: $min_tablet) {
+    margin-bottom: 48px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    margin-bottom: 60px;
+  }
+}
+
+.main_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  @media screen and (min-width: $min_tablet) {
+    gap: 24px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    flex-direction: row;
+  }
+}
+
+.inner_wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 13px 24px 24px;
+  background-color: #2e2e2e;
+  border-radius: 30px;
+  gap: 24px;
+  @media screen and (min-width: $min_tablet) {
+    padding: 60px 54px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    width: 737px;
+  }
+}
+
+.text {
+  @include fontRegular(16px, 400, 22.4px);
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(18px, 400, 25.2px);
+  }
+}
+
+.link {
+  display: flex;
+  width: 280px;
+  height: 52px;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 30px;
+  background-color: #cfb691;
+
+  @include fontRegular(16px, 600, 16px, #101010);
+  transition: all 250ms ease;
+  &:hover {
+    background-color: #fdfdfd;
+    scale: 1.05;
+  }
+  @media screen and (min-width: $min_tablet) {
+    width: 411px;
+    height: 60px;
+    @include fontRegular(18px, 600, 18px, #101010);
+  }
+}
+
+.img {
+  @media screen and (min-width: $min_desktop) {
+    width: 519px;
+  }
+}
