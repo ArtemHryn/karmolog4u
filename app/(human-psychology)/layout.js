@@ -76,8 +76,12 @@ export async function generateMetadata() {
   };
 }
 
-const psychologyLayout = ({ children }) => {
-  return <main>{children}</main>;
+const psychologyLayout = ({ children, modal }) => {
+  return (
+    <main>
+      {children} {modal}
+    </main>
+  );
 };
 
 export default psychologyLayout;

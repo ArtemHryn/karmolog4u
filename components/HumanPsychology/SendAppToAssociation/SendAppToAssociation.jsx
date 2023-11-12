@@ -1,9 +1,9 @@
 import Container from "@components/Common/Container/Container";
 import Title from "@components/Common/Title/Title";
+import Link from "next/link";
+import Image from "next/image";
 
 import styles from "./SendAppToAssociation.module.scss";
-import Image from "next/image";
-import Link from "next/link";
 
 const SendAppToAssociation = () => {
   return (
@@ -27,7 +27,7 @@ const SendAppToAssociation = () => {
             Для отримання заяви на вступ до Асоціації “Кармотерапії та
             психології” заповніть свої дані, натиснувши на кнопку нижче
           </p>
-          <Link href={"#"} className={styles.link}>
+          <Link href={"send-application"} className={styles.link}>
             Подати заявку
           </Link>
         </div>
