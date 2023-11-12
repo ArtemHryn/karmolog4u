@@ -6,7 +6,8 @@ import styles from "./MissionAssociation.module.scss";
 
 const MissionAssociation = () => {
   return (
-    <Container>
+    <Container styledSection={styles.section} styled={styles.container}>
+      <div className={styles.spot} />
       <Title styled={styles.title}>Місія ГО та Асоціації</Title>
       <p className={styles.warning}>
         *з установчими документами можете ознайомитись{" "}

@@ -15,12 +15,8 @@ html {
 body {
   height: 100%;
   position: relative;
-  background-color: #454545;
-  color: $main_text_color;
-}
-
-main {
   background-color: $section_color;
+  color: $main_text_color;
 }
 
 ::-webkit-scrollbar {
