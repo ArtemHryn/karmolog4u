@@ -13,7 +13,7 @@ import styles from "./TasksAssociation.module.scss";
 const TasksAssociation = () => {
   return (
     <Container styledSection={styles.section} styled={styles.container}>
-      <div className={styles.slap} />
+      <div className={styles.spot} />
       <Title styled={styles.title}>Завдання ГО та Асоціації</Title>
       <ul className={styles.main_list}>
         <li className={styles.main_list_item}>
