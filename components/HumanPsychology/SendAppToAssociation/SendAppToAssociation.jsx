@@ -7,7 +7,8 @@ import styles from "./SendAppToAssociation.module.scss";
 
 const SendAppToAssociation = () => {
   return (
-    <Container>
+    <Container styledSection={styles.section} styled={styles.container}>
+      <div className={styles.slap} />
       <Title styled={styles.title}>
         Вступ до Асоціації “Кармотерапії та психології”
       </Title>

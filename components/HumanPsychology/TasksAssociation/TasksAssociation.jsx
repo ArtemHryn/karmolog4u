@@ -12,7 +12,8 @@ import styles from "./TasksAssociation.module.scss";
 
 const TasksAssociation = () => {
   return (
-    <Container>
+    <Container styledSection={styles.section} styled={styles.container}>
+      <div className={styles.slap} />
       <Title styled={styles.title}>Завдання ГО та Асоціації</Title>
       <ul className={styles.main_list}>
         <li className={styles.main_list_item}>

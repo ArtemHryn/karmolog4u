@@ -50,7 +50,7 @@ const Form = ({ setIsSent }) => {
         name={"name"}
         title={"ПІП українською мовою"}
         error={errors}
-        required={false}
+        required={true}
       />
       {/* ПІБ англ*/}
       <Field
@@ -58,7 +58,7 @@ const Form = ({ setIsSent }) => {
         name={"nameEng"}
         title={"ПІП англійською мовою"}
         error={errors}
-        required={false}
+        required={true}
       />
       {/* дата */}
       <Controller
@@ -79,7 +79,7 @@ const Form = ({ setIsSent }) => {
               mask={[/\d/, /\d/, ".", /\d/, /\d/, ".", /\d/, /\d/, /\d/, /\d/]}
               type="text"
               guide={false}
-              placeholder="дд.мм.рр"
+              placeholder="дд.мм.рррр"
               className={`${styles.input} ${styles.input_date}`}
               id="date"
             />{" "}
