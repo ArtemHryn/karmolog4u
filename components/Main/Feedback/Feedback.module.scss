@@ -34,7 +34,7 @@
 .icon {
   width: 24px;
   height: 24px;
-  fill: $seconds_text_color;
+  fill: $accent_v2;
   @media screen and (min-width: $min_tablet) {
     width: 45px;
     height: 45px;
@@ -113,10 +113,11 @@
   }
   &:hover,
   &:focus {
+    color: $main_bg;
     scale: 1.05;
-    background-color: $seconds_text_color;
+    background-color: $accent_v2;
     & > svg {
-      fill: $main_text_color;
+      fill: $main_bg;
     }
   }
 }
@@ -129,7 +130,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: rgba(109, 27, 45, 0.5);
+  color: rgba(207, 182, 145, 0.5);
   filter: blur(4px);
   @media screen and (min-width: $min_tablet) {
     width: 368px;

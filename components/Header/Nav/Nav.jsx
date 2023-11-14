@@ -25,8 +25,8 @@ const links = [
   {
     title: "ГО ПСИХОЛОГІЯ ЛЮДСЬКОЇ ДОЛІ",
     links: [
-      { name: "Асоціація \"Кармотерапії та психології\"", link: "/association" },
-      { name: "Благодійний фонд", link: "" },
+      { name: 'Асоціація "Кармотерапії та психології"', link: "/association" },
+      { name: "Благодійний фонд", link: "/charitable-foundation" },
     ],
     id: 14,
   },
