@@ -1,0 +1,24 @@
+@import "/styles/main.scss";
+
+.container {
+  position: absolute;
+}
+
+.ellipse {
+  width: 227px;
+  height: 287px;
+  transform: rotate(-90deg);
+  border-radius: 287px;
+  background: linear-gradient(
+    180deg,
+    rgba(207, 182, 145, 0.4) 0%,
+    rgba(207, 182, 145, 0.4) 45.14%
+  );
+  filter: blur(125px);
+  &:nth-of-type(1) {
+    position: absolute;
+    right: 16px;
+
+    top: 2020px;
+  }
+}

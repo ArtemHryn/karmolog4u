@@ -7,7 +7,7 @@ import Title from "@components/Common/Title/Title";
 
 function MyHistoryFoundation() {
   return (
-    <Container>
+    <Container styled={styles.container}>
       <Title styled={styles.title}>МОЯ ІСТОРІЯ</Title>
       <section className={styles.section}>
         <article className={styles.article}>
@@ -27,7 +27,9 @@ function MyHistoryFoundation() {
         </article>
         <picture className={styles.img}>
           <source
-            srcSet={"/assets/images/humanPsychology/my_history_foundation_desc.webp"}
+            srcSet={
+              "/assets/images/humanPsychology/my_history_foundation_desc.webp"
+            }
             media="(min-width: 1280px)"
           />
           <Image
