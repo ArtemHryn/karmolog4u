@@ -9,24 +9,20 @@ function AboutFoundation() {
     <Container styled={styles.container}>
       <h1 className="visually-hidden">БЛАГОДІЙНИЙ ФОНД</h1>
       <section className={styles.section}>
-        {/* <article className={styles.article}> */}
-          <picture className={styles.img}>
-            <source
-              srcSet={
-                "/assets/images/humanPsychology/about_foundation_desc.webp"
-              }
-              media="(min-width: 1280px)"
-            />
-            <Image
-              src={"/assets/images/humanPsychology/about_foundation.webp"}
-              width={736}
-              height={430}
-              alt="Сергій Скляренко"
-              priority={true}
-              className={styles.img}
-            />
-          </picture>
-        {/* </article> */}
+        <picture className={styles.img}>
+          <source
+            srcSet={"/assets/images/humanPsychology/about_foundation_desc.webp"}
+            media="(min-width: 1280px)"
+          />
+          <Image
+            src={"/assets/images/humanPsychology/about_foundation.webp"}
+            width={736}
+            height={430}
+            alt="Сергій Скляренко"
+            priority={true}
+            className={styles.img}
+          />
+        </picture>
         <article className={styles.article}>
           <p className={styles.text}>
             Після подорожі в Непал я на 100% переконався, що гроші - то є
@@ -52,6 +48,22 @@ function AboutFoundation() {
         </article>
       </section>
       <section className={styles.section}>
+        <picture className={styles.img}>
+          <source
+            srcSet={
+              "/assets/images/humanPsychology/about_foundation_2_desc.webp"
+            }
+            media="(min-width: 1280px)"
+          />
+          <Image
+            src={"/assets/images/humanPsychology/about_foundation_2.webp"}
+            width={736}
+            height={420}
+            alt="Сергій Скляренко"
+            priority={true}
+            className={styles.img}
+          />
+        </picture>
         <article className={styles.article}>
           <p className={styles.text}>
             Наприклад, в Непалі місцеві монахи готові покладати тисячні купюри
@@ -70,22 +82,6 @@ function AboutFoundation() {
             можливість спробувати діяти в стосунках з грошима по-іншому
           </p>
         </article>
-        <picture className={styles.img}>
-          <source
-            srcSet={
-              "/assets/images/humanPsychology/about_foundation_2_desc.webp"
-            }
-            media="(min-width: 1280px)"
-          />
-          <Image
-            src={"/assets/images/humanPsychology/about_foundation_2.webp"}
-            width={736}
-            height={420}
-            alt="Сергій Скляренко"
-            priority={true}
-            className={styles.img}
-          />
-        </picture>
       </section>
     </Container>
   );
