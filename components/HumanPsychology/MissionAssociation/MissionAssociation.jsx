@@ -11,7 +11,14 @@ const MissionAssociation = () => {
       <Title styled={styles.title}>Місія ГО та Асоціації</Title>
       <p className={styles.warning}>
         *з установчими документами можете ознайомитись{" "}
-        <Link href={"#"}>тут</Link>
+        <Link
+          href={
+            "https://drive.google.com/drive/folders/1--EQIuMjzA7NDUAAliB9Yi_vAUEcuzU7"
+          }
+          target="_blank"
+        >
+          тут
+        </Link>
       </p>
       <p className={styles.about_psycho}>
         Психічне здоров’я – це основа якісного життя кожної людини. В Україні,

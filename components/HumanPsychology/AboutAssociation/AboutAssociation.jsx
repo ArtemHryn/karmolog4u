@@ -78,7 +78,14 @@ const AboutAssociation = () => {
           </p>
           <p className={styles.text}>
             * ознайомитись з положенням про асоціацію і ГО можливо{" "}
-            <Link href={"#"}>тут</Link>
+            <Link
+              href={
+                "https://drive.google.com/drive/folders/1--EQIuMjzA7NDUAAliB9Yi_vAUEcuzU7"
+              }
+              target="_blank"
+            >
+              тут
+            </Link>
           </p>
         </div>
       </div>
