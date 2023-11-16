@@ -24,7 +24,7 @@ const FeedbacksSlider = ({ feedbacks }) => {
       style={{
         "--swiper-pagination-bottom": "0px",
         "--swiper-pagination-bullet-inactive-color": "#454545;",
-        "--swiper-pagination-color": "#9D253F",
+        "--swiper-pagination-color": "#cfb691",
       }}
       modules={[Pagination]}
       grabCursor={true}

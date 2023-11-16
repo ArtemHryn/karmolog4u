@@ -58,7 +58,7 @@
   border-radius: 30px;
   background-color: $buttons_color;
   margin-bottom: 32px;
-  @include fontRegular(16px, 600, 16px);
+  @include fontRegular(16px, 600, 16px, $third_text_color);
 
   @media screen and (min-width: $min_tablet) {
     width: 261px;

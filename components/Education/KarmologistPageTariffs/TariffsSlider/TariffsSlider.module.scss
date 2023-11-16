@@ -29,8 +29,7 @@
   padding: 30px 20px;
 
   border-radius: 30px;
-  background-image: linear-gradient(90deg, #b9314f 0.07%, #631c2b 99.94%);
-
+  background-image: linear-gradient(270deg, #cfb691 -135.76%, #000 102.98%);
   @include fontRegular(24px, 400, 24px, $main_text_color, center);
   z-index: 0;
   transform: translateY(15px);
@@ -52,7 +51,7 @@
   padding: 32px 25.5px;
 
   border-radius: 30px;
-  background-color: $main_text_color;
+  background-color: $card_bg_v2;
   z-index: 2;
   @media screen and (min-width: $min_tablet) {
     padding: 40px 70px;
@@ -85,9 +84,9 @@
 .list_text {
   max-width: 243px;
 
-  @include fontRegular(14px, 400, 19.6px, $main_bg);
+  @include fontRegular(14px, 400, 19.6px, $main_text_color);
   @media screen and (min-width: $min_tablet) {
-    @include fontRegular(16px, 400, 22.4px, $main_bg);
+    @include fontRegular(16px, 400, 22.4px, $main_text_color);
     max-width: 281px;
   }
   @media screen and (min-width: $min_desktop) {
@@ -106,7 +105,7 @@
 }
 
 .price {
-  @include fontRegular(28px, 400, 39.2px, $main_bg);
+  @include fontRegular(28px, 400, 39.2px, $main_text_color);
   margin-bottom: 24px;
   @media screen and (min-width: $min_tablet) {
     margin-bottom: 28px;
@@ -130,7 +129,7 @@
   background-color: $buttons_color;
   border: 2px solid $buttons_color;
 
-  @include fontRegular(16px, 600, 16px);
+  @include fontRegular(16px, 600, 16px, $third_text_color);
 
   transition: all 250ms ease;
 
@@ -143,7 +142,10 @@
 
 .second_btn {
   background-color: transparent;
-  color: $main_bg;
+  color: $main_text_color;
+  &:is(:hover, :focus) {
+    background-color: $buttons_color;
+  }
 }
 
 //Message to scroll

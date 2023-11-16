@@ -7,7 +7,9 @@ import { unbounded } from "@app/layout";
 const About = () => {
   const years = new Date().getFullYear() - 2015;
   return (
-    <Container styled={styled.container}>
+    <Container styled={styled.container} styledSection={styled.section}>
+      <div className={styled.spot} />
+
       <h1 className={`${styled.headerText} ${unbounded.className}`}>
         Я - Сергій Скляренко
       </h1>

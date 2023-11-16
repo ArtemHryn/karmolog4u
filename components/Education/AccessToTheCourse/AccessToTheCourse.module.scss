@@ -60,7 +60,7 @@
   background-color: $buttons_color;
 
   margin: 0 auto;
-  @include fontRegular(16px, 600, 16px);
+  @include fontRegular(16px, 600, 16px, $third_text_color);
 
   transition: all 250ms ease;
   &:is(:hover, :focus) {

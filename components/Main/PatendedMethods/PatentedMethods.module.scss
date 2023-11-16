@@ -52,7 +52,7 @@
 
   padding: 39px 68px;
   border-radius: 30px;
-  border: 1px solid $buttons_hover_color;
+  border: 1px solid $buttons_color;
   background: #000;
   height: 180px;
   @media screen and (min-width: $min_tablet) {
@@ -78,9 +78,11 @@
 
   border-radius: 30px;
   background-color: $buttons_color;
+  color: $third_text_color;
   transition: all 250ms ease;
   &:hover,
   &:focus {
     scale: 1.05;
+    background-color: $buttons_hover_color;
   }
 }

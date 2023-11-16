@@ -53,7 +53,7 @@
 
   margin-bottom: 16px;
 
-  @include fontRegular(16px, 600, 16px);
+  @include fontRegular(16px, 600, 16px, $third_text_color);
 
   transition: all 0.3s ease;
 
@@ -66,7 +66,7 @@
     width: 356px;
     height: 60px;
 
-    @include fontRegular(18px, 600, 18px);
+    @include fontRegular(18px, 600, 18px, $third_text_color);
 
     margin-bottom: 24px;
   }

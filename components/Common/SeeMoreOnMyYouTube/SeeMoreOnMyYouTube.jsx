@@ -8,6 +8,8 @@ import styles from './SeeMoreOnMyYouTube.module.scss'
 const SeeMoreOnMyYouTube = () => {
   return (
     <div className={styles.inner_topic_container}>
+      <div className={styles.spot} />
+
       <h2 className={`${styles.title} ${unbounded.className}`}>
         Більше відео ви можете переглянути на моєму YouTube каналі
       </h2>

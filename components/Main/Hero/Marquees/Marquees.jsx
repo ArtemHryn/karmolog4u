@@ -7,11 +7,11 @@ const Marquees = () => {
   return (
     <div className={styled.marqueesContainer}>
       <Marquee speed="20" className={styled.redText}>
-        <p className={`${styled.text} ${unbounded.className}`}>
+        <p className={`${styled.text_dark} ${unbounded.className}`}>
           СЕРГІЙ СКЛЯРЕНКО - ПРОВІДНИЙ КАРМОЛОГ, ПСИХОТЕРАПЕВТ, АСПІРАНТ
           ПСИХОЛОГІЇ&nbsp;
         </p>
-        <p className={`${styled.text} ${unbounded.className}`}>
+        <p className={`${styled.text_dark} ${unbounded.className}`}>
           СЕРГІЙ СКЛЯРЕНКО - ПРОВІДНИЙ КАРМОЛОГ, ПСИХОТЕРАПЕВТ, АСПІРАНТ
           ПСИХОЛОГІЇ&nbsp;
         </p>

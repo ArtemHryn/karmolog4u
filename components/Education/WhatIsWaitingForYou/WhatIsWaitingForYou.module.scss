@@ -1,23 +1,11 @@
 @import "/styles/main.scss";
 
+.section {
+  overflow: visible;
+}
+
 .container {
-  @media screen and (min-width: $min_desktop) {
-    background-image: radial-gradient(
-        circle,
-        rgba(109, 27, 45, 0.3) 23%,
-        rgba(158, 19, 50, 0.2) 35%,
-        rgba(0, 0, 0, 0) 79%
-      ),
-      radial-gradient(
-        circle,
-        rgba(109, 27, 45, 0.1) 23%,
-        rgba(158, 19, 50, 0.1) 35%,
-        rgba(0, 0, 0, 0) 79%
-      );
-    background-size: 30% 440px, 320px 380px;
-    background-position: 12% 20%, 80% 0%;
-    background-repeat: no-repeat;
-  }
+  position: relative;
 }
 
 .title {
@@ -32,6 +20,8 @@
 }
 
 .cards_wrapper {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -95,5 +85,52 @@
   @include fontRegular(16px, 400, 22.4px);
   @media screen and (min-width: $min_desktop) {
     text-wrap: balance;
+  }
+}
+
+
+.spot {
+  display: none;
+  @media screen and (min-width: $min_desktop) {
+    position: absolute;
+    display: block;
+
+    top: 25%;
+    left: 27%;
+
+    width: 221px;
+    height: 280px;
+
+    border-radius: 270px;
+    background: linear-gradient(
+      180deg,
+      rgba(206, 180, 144, 0.4) 0%,
+      rgba(207, 182, 145, 0.4) 45.14%
+    );
+
+    filter: blur(105px);
+  }
+}
+
+.spot2 {
+  display: none;
+  @media screen and (min-width: $min_desktop) {
+    position: absolute;
+    display: block;
+
+    top: 34%;
+    right: 27%;
+
+    width: 221px;
+    height: 280px;
+
+    border-radius: 280px;
+    background: linear-gradient(
+      180deg,
+      rgba(206, 180, 144, 0.4) 0%,
+      rgba(207, 182, 145, 0.4) 45.14%
+    );
+
+    filter: blur(105px);
   }
 }

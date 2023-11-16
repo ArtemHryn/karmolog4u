@@ -53,7 +53,7 @@ const ResearchSlider = () => {
         pagination={pagination}
         style={{
           "--swiper-pagination-bullet-inactive-color": "#454545;",
-          "--swiper-pagination-color": "#9D253F",
+          "--swiper-pagination-color": "#CFB691",
         }}
         breakpoints={{
           360: {

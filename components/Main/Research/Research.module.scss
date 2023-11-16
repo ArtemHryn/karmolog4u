@@ -1,5 +1,11 @@
 @import "/styles/main.scss";
 
+
+
+.container {
+  position: relative;
+}
+
 .header {
   @include fontRegular(40px, 400, 40px);
   margin-bottom: 48px;
@@ -15,22 +21,8 @@
 
 .content_container {
   position: relative;
-  background-image: radial-gradient(
-    circle,
-    rgba(109, 27, 45, 0.2) 39%,
-    rgba(0, 0, 0, 0) 66%
-  );
-  background-position: 50% 100px;
-  background-size: 300px;
-  background-repeat: no-repeat;
+
   @media screen and (min-width: $min_tablet) {
-    background-image: radial-gradient(
-      circle,
-      rgba(109, 27, 45, 0.3) 39%,
-      rgba(0, 0, 0, 0) 66%
-    );
-    background-position: 50% 100px;
-    background-size: 750px;
   }
   @media screen and (min-width: $min_desktop) {
     display: flex;
@@ -64,8 +56,6 @@
     @include fontRegular(18px, 400, 25.2px);
     max-width: 96%;
   }
-  @media screen and (min-width: $min_desktop) {
-  }
 }
 
 .arrow {
@@ -81,11 +71,39 @@
 }
 .img {
   @media screen and (min-width: $min_tablet) {
-    width: 628px;
-    height: 397px;
-    margin-inline: auto;
-    writing-mode: horizontal-tb;
-    backdrop-filter: blur(10px);
+    width: 351px;
+    height: 487px;
+    margin-left: auto;
+  }
+}
+
+.spot {
+  display: none;
+  @media screen and (min-width: $min_tablet) {
+    position: absolute;
+    display: block;
+
+    top: 40%;
+    right: 4%;
+
+    width: 432px;
+    height: 468px;
+    transform: rotate(-90deg);
+
+    border-radius: 468px;
+    background-image: linear-gradient(
+      180deg,
+      rgba(207, 182, 145, 0.4) 0%,
+      rgba(207, 182, 145, 0.4) 45.14%
+    );
+
+    filter: blur(105px);
+  }
+  @media screen and (min-width: $min_desktop) {
+    width: 339px;
+    height: 468px;
+    top: 30%;
+    right: 6%;
   }
 }
 

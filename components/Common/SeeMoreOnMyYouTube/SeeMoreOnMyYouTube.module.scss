@@ -1,6 +1,7 @@
-@import '/styles/main.scss';
+@import "/styles/main.scss";
 
 .inner_topic_container {
+  position: relative;
   @media screen and (min-width: $min_desktop) {
     display: flex;
     flex-direction: column;
@@ -18,6 +19,8 @@
 }
 
 .link {
+  position: relative;
+  z-index: 2;
   display: flex;
   width: 328px;
   align-items: center;
@@ -30,14 +33,14 @@
   background-color: #000;
   @include fontRegular(24px, 400, 24px);
   transition: scale 350ms ease;
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     scale: 1.05;
   }
   @media screen and (min-width: $min_tablet) {
     width: 356px;
     @include fontRegular(32px, 400, 32px);
   }
-
 }
 
 .icon {
@@ -48,5 +51,27 @@
     width: 48px;
     height: 48px;
   }
+}
 
+.spot {
+  display: none;
+  @media screen and (min-width: $min_desktop) {
+    position: absolute;
+    display: block;
+
+    top: -18%;
+    left: 35%;
+
+    width: 201px;
+    height: 260px;
+
+    border-radius: 280px;
+    background-image: linear-gradient(
+      180deg,
+      rgba(207, 182, 145, 0.4) 7%,
+      rgba(207, 182, 145, 0.4) 45.14%
+    );
+
+    filter: blur(105px);
+  }
 }

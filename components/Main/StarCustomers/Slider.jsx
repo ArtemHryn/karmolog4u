@@ -56,7 +56,7 @@ function Slider() {
       style={{
         "--swiper-pagination-bottom": "0px",
         "--swiper-pagination-bullet-inactive-color": "#454545;",
-        "--swiper-pagination-color": "#9D253F",
+        "--swiper-pagination-color": "#CFB691",
       }}
       modules={[Pagination]}
       pagination={pagination}

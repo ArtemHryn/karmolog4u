@@ -14,7 +14,7 @@ function EduPricing({ card, addInfo = [], desc, link }) {
         <br />
         {desc.second}
       </p>
-      <section>
+      <div>
         <div className={styles.card}>
           <div className={styles.wrap}>
             <Title variant="h4" styled={styles.card_title}>
@@ -36,7 +36,7 @@ function EduPricing({ card, addInfo = [], desc, link }) {
             Записатися
           </Link>
         </div>
-      </section>
+      </div>
       <section>
         <ul className={styles.info}>
           {addInfo.map((item, index) => (

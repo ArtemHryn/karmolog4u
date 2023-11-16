@@ -6,7 +6,8 @@ import ResearchSlider from "./ResearchSlider/ResearchSlider";
 
 const Research = () => {
   return (
-    <Container>
+    <Container styled={styles.container} styledSection={styles.section}>
+      <div className={styles.spot} />
       <h1 className={`${styles.header} ${unbounded.className}`}>
         Наукова діяльність
       </h1>
@@ -29,12 +30,8 @@ const Research = () => {
           </li>
         </ul>
         <picture>
-          <source
-            srcSet="/assets/images/research-sergiy-tab.webp"
-            media="(min-width: 768px)"
-          />
           <Image
-            src="/assets/images/research_sergiy_mob.webp"
+            src="/assets/images/research_sergiy.webp"
             priority={false}
             width={328}
             height={207}

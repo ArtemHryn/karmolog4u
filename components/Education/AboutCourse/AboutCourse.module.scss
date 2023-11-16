@@ -1,6 +1,11 @@
 @import "/styles/main.scss";
 
+.section {
+  overflow: visible;
+}
+
 .container {
+  position: relative;
   display: grid;
   gap: 24px;
   @media screen and (min-width: $min_tablet) {
@@ -10,21 +15,6 @@
     gap: 0px;
     column-gap: 133px;
     align-items: center;
-    background-image: radial-gradient(
-        circle,
-        rgba(109, 27, 45, 0.10) 23%,
-        rgba(158, 19, 50, 0.10) 35%,
-        rgba(0, 0, 0, 0) 79%
-      ),
-      radial-gradient(
-        circle,
-        rgba(109, 27, 45, 0.1) 23%,
-        rgba(158, 19, 50, 0.1) 35%,
-        rgba(0, 0, 0, 0) 79%
-      );
-    background-size: 320px 380px, 220px 280px;
-    background-position: 50% 0%, 90% 80%;
-    background-repeat: no-repeat;
   }
 }
 
@@ -77,5 +67,51 @@
   padding: 8px;
   @media screen and (min-width: $min_tablet) {
     display: none;
+  }
+}
+
+.spot {
+  display: none;
+  @media screen and (min-width: $min_desktop) {
+    position: absolute;
+    display: block;
+
+    top: 20%;
+    left: 42%;
+
+    width: 221px;
+    height: 280px;
+
+    border-radius: 270px;
+    background: linear-gradient(
+      180deg,
+      rgba(206, 180, 144, 0.4) 0%,
+      rgba(207, 182, 145, 0.4) 45.14%
+    );
+
+    filter: blur(105px);
+  }
+}
+
+.spot2 {
+  display: none;
+  @media screen and (min-width: $min_desktop) {
+    position: absolute;
+    display: block;
+
+    top: 46%;
+    right: 7%;
+
+    width: 221px;
+    height: 280px;
+
+    border-radius: 280px;
+    background: linear-gradient(
+      180deg,
+      rgba(206, 180, 144, 0.4) 0%,
+      rgba(207, 182, 145, 0.4) 45.14%
+    );
+
+    filter: blur(105px);
   }
 }

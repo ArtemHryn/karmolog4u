@@ -7,6 +7,8 @@ import { unbounded } from "@app/layout";
 const OfflineMeetingsHero = ({ title, text, img }) => {
   return (
     <Container styled={styles.container} styledSection={styles.section}>
+      <div className={styles.spot} />
+
       <h1 className={`${styles.title} ${unbounded.className}`}>{title}</h1>
       <Image
         src={img}

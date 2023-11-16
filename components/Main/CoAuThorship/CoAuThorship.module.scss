@@ -1,6 +1,11 @@
 @import "/styles/main.scss";
 
+.section {
+  overflow: visible;
+}
+
 .container {
+  position: relative;
   @media screen and (min-width: $min_desktop) {
     display: flex;
     justify-content: space-between;
@@ -53,5 +58,28 @@
   }
   100% {
     transform: translateX(0px);
+  }
+}
+
+.spot {
+  display: none;
+  @media screen and (min-width: $min_desktop) {
+    position: absolute;
+    display: block;
+
+    top: 16%;
+    left: 22%;
+
+    width: 250px;
+    height: 270px;
+
+    border-radius: 270px;
+    background: linear-gradient(
+      180deg,
+      rgba(206, 180, 144, 0.4) 0%,
+      rgba(207, 182, 145, 0.4) 45.14%
+    );
+
+    filter: blur(125px);
   }
 }

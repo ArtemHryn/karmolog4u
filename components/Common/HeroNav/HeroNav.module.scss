@@ -24,7 +24,7 @@
   @include fontRegular(14px, 400, 19.6px, $main_text_color);
   transition: all 250ms ease;
   &:is(:hover, :focus) {
-    color: #b9314f;
+    color: $seconds_text_color;
   }
 
   @media screen and (min-width: $min_tablet) {
