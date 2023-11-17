@@ -1,6 +1,11 @@
 @import "/styles/main.scss";
 
+.section {
+  overflow: visible;
+}
+
 .container {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -148,5 +153,32 @@
 }
 
 .text_thanks {
-  text-align: center;
+  @include fontRegular(14px, 400, 19.6px, $main_text_color, center);
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(18px, 400, 25.2px, $main_text_color, center);
+  }
+}
+
+.spot {
+  display: none;
+  @media screen and (min-width: $min_tablet) {
+    display: block;
+    width: 227px;
+    height: 287px;
+    transform: rotate(-90deg);
+    position: absolute;
+    right: 16px;
+    top: 4px;
+    border-radius: 287px;
+    background: linear-gradient(
+      180deg,
+      rgba(207, 182, 145, 0.4) 0%,
+      rgba(207, 182, 145, 0.4) 45.14%
+    );
+    filter: blur(125px);
+    z-index: -1;
+  }
+  @media screen and (min-width: $min_desktop) {
+    display: none;
+  }
 }

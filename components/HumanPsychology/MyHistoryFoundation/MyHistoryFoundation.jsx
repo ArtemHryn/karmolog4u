@@ -7,7 +7,7 @@ import Title from "@components/Common/Title/Title";
 
 function MyHistoryFoundation() {
   return (
-    <Container styled={styles.container}>
+    <Container styled={styles.container} styledSection={styles.section}>
       <Title styled={styles.title}>МОЯ ІСТОРІЯ</Title>
       <section className={styles.section}>
         <article className={styles.article}>
@@ -42,6 +42,7 @@ function MyHistoryFoundation() {
           />
         </picture>
       </section>
+      <div className={styles.spot} />
     </Container>
   );
 }

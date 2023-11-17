@@ -1,5 +1,4 @@
 import AboutFoundation from "@components/HumanPsychology/AboutFoundation/AboutFoundation";
-import BgEllipse from "@components/HumanPsychology/BgEllipse/BgEllipse";
 import CollaborativeSuccessFoundation from "@components/HumanPsychology/CollaborativeSuccessFoundation/CollaborativeSuccessFoundation";
 import DonationsFoundation from "@components/HumanPsychology/DonationsFoundation/DonationsFoundation";
 import Hero from "@components/HumanPsychology/Hero/Hero";
@@ -16,7 +15,7 @@ const links = [
 
 const CharitableFoundationPage = () => {
   return (
-    <main style={{ position: "relative" }}>
+    <>
       <Hero links={links} title={"БЛАГОДІЙНИЙ ФОНД"} />
       <AboutFoundation />
       <MyHistoryFoundation />
@@ -24,8 +23,7 @@ const CharitableFoundationPage = () => {
       <RecommendationFoundation />
       <CollaborativeSuccessFoundation />
       <Feedback />
-      <BgEllipse/>
-    </main>
+    </>
   );
 };
 

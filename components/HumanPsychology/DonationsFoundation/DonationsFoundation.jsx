@@ -7,8 +7,10 @@ import Title from "@components/Common/Title/Title";
 
 function DonationsFoundation() {
   return (
-    <Container styled={styles.container}>
-      <Title styled={styles.title} variant="h2">ДОНАТИ, ЯКІ РЕАЛІЗУЮТЬ МРІЇ!</Title>
+    <Container styled={styles.container} styledSection={styles.section}>
+      <Title styled={styles.title} variant="h2">
+        ДОНАТИ, ЯКІ РЕАЛІЗУЮТЬ МРІЇ!
+      </Title>
       <section className={styles.section}>
         <article className={styles.article}>
           <p className={styles.text}>
@@ -45,6 +47,7 @@ function DonationsFoundation() {
           />
         </picture>
       </section>
+      <div className={styles.spot} />
     </Container>
   );
 }
