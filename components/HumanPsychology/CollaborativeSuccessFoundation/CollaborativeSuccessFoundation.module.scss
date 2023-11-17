@@ -1,7 +1,12 @@
 @import "/styles/main.scss";
 
+.section {
+  overflow: visible;
+}
+
 .container {
   display: flex;
+  position: relative;
   flex-direction: column;
   gap: 16px;
   @media screen and (min-width: $min_tablet) {
@@ -81,8 +86,25 @@
 
 .image {
   transition: all 0.3s ease;
-  //    &:nth-of-type(2){
+}
 
-  //     transform: translateY(-90px);
-  // }
+.spot {
+  display: none;
+  @media screen and (min-width: $min_desktop) {
+    display: block;
+    width: 227px;
+    height: 287px;
+    transform: rotate(-90deg);
+    position: absolute;
+    left: 166px;
+    top: -100px;
+    border-radius: 287px;
+    background: linear-gradient(
+      180deg,
+      rgba(207, 182, 145, 0.4) 0%,
+      rgba(207, 182, 145, 0.4) 45.14%
+    );
+    filter: blur(125px);
+    z-index: -1;
+  }
 }

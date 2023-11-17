@@ -28,7 +28,7 @@ function CollaborativeSuccessFoundation() {
     },
   };
   return (
-    <Container styled={styles.container}>
+    <Container styled={styles.container} styledSection={styles.section}>
       <Title styled={styles.title} variant="h2">
         Разом ми змогли допомогти
       </Title>
@@ -52,6 +52,7 @@ function CollaborativeSuccessFoundation() {
           </SwiperSlide>
         ))}
       </Swiper>
+      <div className={styles.spot} />
     </Container>
   );
 }

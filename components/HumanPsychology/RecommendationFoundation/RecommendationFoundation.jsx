@@ -8,7 +8,7 @@ import ArrowRight from "@components/Common/Icons/HumanPsychologyIcons/ArrowRight
 
 function RecommendationFoundation() {
   return (
-    <Container styled={styles.container}>
+    <Container styled={styles.container} styledSection={styles.section}>
       <Title styled={styles.title} variant="h2">
         Рекомендації по внесенню благодійного внеску в фонд ГО “Психологія
         людської долі”
@@ -65,6 +65,7 @@ function RecommendationFoundation() {
           <p className={styles.text_thanks}>Щиро дякуємо вам за довіру!</p>
         </article>
       </section>
+      <div className={styles.spot} />
     </Container>
   );
 }
