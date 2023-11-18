@@ -33,12 +33,14 @@
   &:hover,
   &:focus {
     scale: 1.1;
-    background-color: #e24668;
+    color: $third_text_color;
+    background-color: $buttons_color;
     @media screen and (min-width: $min_desktop) {
       scale: 1.05;
     }
   }
   &_active {
+    color: $third_text_color;
     background-color: $buttons_color;
   }
 }

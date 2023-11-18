@@ -27,7 +27,7 @@
 .drop_icon {
   width: 30px;
   height: 30px;
-  fill: #9d253f;
+  fill: $seconds_text_color;
   transform: rotate(0deg);
   transition-property: transform;
   transition-duration: 350ms;

@@ -45,6 +45,7 @@
   border-radius: 30px;
   background-color: #000;
   padding: 12px 20px;
+  transition: all 0.3s ease;
   & > svg {
     transition: all 0.3s ease;
   }
@@ -62,8 +63,9 @@
   &:focus {
     scale: 1.05;
     background-color: $seconds_text_color;
+    color: $third_text_color;
     & > svg {
-      fill: $main_text_color;
+      fill: $third_text_color;
     }
   }
 }

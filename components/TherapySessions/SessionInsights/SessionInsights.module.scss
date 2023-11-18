@@ -4,6 +4,7 @@
   position: relative;
 }
 .section {
+  overflow: visible;
   @media screen and (min-width: $min_desktop) {
     padding-bottom: 160px;
   }
@@ -50,10 +51,10 @@
     right: 0px;
     top: 0px;
     border-radius: 287px;
-    background: linear-gradient(
+    background-image: linear-gradient(
       180deg,
-      rgba(109, 27, 45, 0.4) 0%,
-      rgba(158, 19, 50, 0.4) 45.14%
+      rgba(207, 182, 145, 0.4) 7%,
+      rgba(207, 182, 145, 0.4) 45.14%
     );
     filter: blur(125px);
   }

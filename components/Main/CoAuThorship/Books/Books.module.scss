@@ -58,7 +58,11 @@
   border-radius: 30px;
   background-color: $buttons_color;
 
-  @include fontRegular(16px, 600, 16px, $main_text_color);
+  @include fontRegular(16px, 600, 16px, $third_text_color);
+  transition: all 250ms ease;
+  &:is(:hover, :focus) {
+    background-color: $buttons_hover_color;
+  }
 }
 
 //Tabs and bigger
@@ -66,6 +70,8 @@
 .books_list {
   display: none;
   @media screen and (min-width: $min_tablet) {
+    position: relative;
+    z-index: 2;
     display: flex;
     align-items: center;
     justify-content: center;

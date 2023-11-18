@@ -10,7 +10,10 @@ import Circles from "./Circles/Circles";
 
 const MyDream = () => {
   return (
-    <Container styled={styles.section_container}>
+    <Container styled={styles.section_container} styledSection={styles.section}>
+      <div className={styles.spot} />
+      <div className={styles.spot2} />
+
       <div style={{ position: "relative" }}>
         <Circles />
         <h1 className={`${styles.section_title} ${unbounded.className}`}>
@@ -38,7 +41,10 @@ const MyDream = () => {
               користь у цей світ.
             </span>
           </p>
-          <Link href="/products/meditations" className={`${styles.link} ${open_Sans.className}`}>
+          <Link
+            href="/products/meditations"
+            className={`${styles.link} ${open_Sans.className}`}
+          >
             Медитації по 22 енергіям
           </Link>
         </div>

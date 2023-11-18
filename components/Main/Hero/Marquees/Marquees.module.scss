@@ -16,9 +16,17 @@
 .text {
   @include fontRegular(14px, 400, 19.5px);
   padding: 12px 10px;
+  &_dark {
+    @include fontRegular(14px, 400, 19.5px, $third_text_color);
+    padding: 12px 10px;
+  }
   @media screen and (min-width: $min_tablet) {
     @include fontRegular(18px, 400, 25.2px);
     padding: 18px 10px;
+    &_dark {
+      @include fontRegular(18px, 400, 25.2px, $third_text_color);
+      padding: 18px 10px;
+    }
   }
   @media screen and (min-width: $min_desktop) {
   }
@@ -31,7 +39,6 @@
   rotate: (-2deg);
   transform-origin: left center;
   z-index: 2;
-
   @media screen and (min-width: $min_desktop) {
     rotate: (-1.8deg);
     transform-origin: center;

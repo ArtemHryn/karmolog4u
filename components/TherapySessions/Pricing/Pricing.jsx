@@ -19,7 +19,7 @@ function Pricing({ content, accTitle }) {
           оферти
         </p>
       </section>
-      <section>
+      <div>
         <ul className={styles.list}>
           {content.map((item, index) => (
             <li key={index}>
@@ -27,7 +27,7 @@ function Pricing({ content, accTitle }) {
             </li>
           ))}
         </ul>
-      </section>
+      </div>
     </Container>
   );
 }

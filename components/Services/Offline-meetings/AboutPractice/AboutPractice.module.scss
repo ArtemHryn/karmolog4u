@@ -60,12 +60,12 @@
   border-radius: 50%;
   background-color: $seconds_text_color;
 
-  @include fontRegular(24px, 400, 24px);
+  @include fontRegular(24px, 400, 24px, $third_text_color);
 
   @media screen and (min-width: $min_tablet) {
     width: 52px;
     height: 52px;
-    @include fontRegular(32px, 400, 32px);
+    @include fontRegular(32px, 400, 32px, $third_text_color);
   }
   @media screen and (min-width: $min_desktop) {
     flex: 1
@@ -88,10 +88,9 @@
 }
 
 .step_text_title {
-  @include fontRegular(24px, 400, 24px, #e24668);
+  @include fontRegular(24px, 400, 24px, $seconds_text_color);
   @media screen and (min-width: $min_tablet) {
-    @include fontRegular(28px, 400, 39.2px, #e24668);
+    @include fontRegular(28px, 400, 39.2px, $seconds_text_color);
   }
-  @media screen and (min-width: $min_desktop) {
-  }
+
 }

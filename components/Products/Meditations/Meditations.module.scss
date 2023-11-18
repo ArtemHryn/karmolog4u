@@ -142,14 +142,9 @@
   gap: 12px;
 }
 
-
-
-
 .text_wrapper {
   display: flex;
 }
-
-
 
 .name {
   @include fontRegular(16px, 400, 22.4px);
@@ -160,7 +155,6 @@
   & > p {
     @include fontRegular(20px, 400, 22.4px);
   }
-
 }
 
 .is_waiting {
@@ -178,10 +172,12 @@
   border-radius: 30px;
   background-color: $buttons_color;
   margin-left: 24px;
+  transition: all 250ms ease;
+  &:is(:hover, :focus) {
+    background-color: $buttons_hover_color;
+  }
   & > svg {
     width: 24px;
     height: 24px;
   }
 }
-
-

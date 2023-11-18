@@ -24,7 +24,7 @@
 
 .title_accent {
   display: block;
-  color: $buttons_hover_color;
+  color: $seconds_text_color;
 }
 
 .desc {
@@ -46,7 +46,7 @@
 
 .card {
   border-radius: 30px;
-  background-color: $main_text_color;
+  background-color: $card_bg_v2;
 
   display: flex;
   width: 328px;
@@ -80,7 +80,7 @@
 }
 
 .card_title {
-  @include fontRegular(28px, 400, 39.2px, $section_color, center);
+  @include fontRegular(28px, 400, 39.2px, $main_text_color, center);
   @media screen and (min-width: $min_desktop) {
     display: flex;
     gap: 10px;
@@ -89,20 +89,20 @@
 
 .card_title_add {
   display: block;
-  @include fontRegular(14px, 400, 19.6px, $section_color, center);
+  @include fontRegular(14px, 400, 19.6px, $main_text_color, center);
   @media screen and (min-width: $min_tablet) {
     display: none;
   }
   @media screen and (min-width: $min_desktop) {
-    @include fontRegular(28px, 400, 39.2px, $section_color);
+    @include fontRegular(28px, 400, 39.2px, $main_text_color);
     display: block;
   }
 }
 
 .card_price {
-  @include fontRegular(28px, 400, 39.2px, $section_color, center);
+  @include fontRegular(28px, 400, 39.2px, $main_text_color, center);
   @media screen and (min-width: $min_desktop) {
-    @include fontRegular(32px, 400, 38.4px, $section_color);
+    @include fontRegular(32px, 400, 38.4px, $main_text_color);
   }
 }
 
@@ -114,14 +114,11 @@
   align-items: center;
   border-radius: 30px;
   background-color: $buttons_color;
-  @include fontRegular(16px, 600, 19.2px);
+  @include fontRegular(16px, 600, 19.2px, $third_text_color);
   transition: all 0.3s ease;
   &:hover,
   :focus {
     scale: 1.05;
     background-color: $buttons_hover_color;
-  }
-  &:active {
-    background-color: #83263b;
   }
 }

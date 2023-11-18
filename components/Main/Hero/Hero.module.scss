@@ -14,9 +14,6 @@
     max-width: 100%;
     margin-bottom: 20px;
   }
-  @media screen and (min-width: $min_desktop) {
-    margin-bottom: 48px;
-  }
 }
 
 .author {
@@ -67,13 +64,12 @@
   display: none;
   @media screen and (min-width: $min_tablet) {
     display: block;
-    backdrop-filter: blur(4px);
     width: 360px;
     height: 516px;
   }
   @media screen and (min-width: $min_desktop) {
-    width: 519px;
-    height: 727px;
+    width: 497px;
+    height: 694px;
   }
 }
 
@@ -83,14 +79,14 @@
 
   margin-bottom: 55px;
   @media screen and (min-width: $min_tablet) {
-    background-image: url("../../../public//assets/images/hero_bg.svg");
+    background-image: url("../../../public//assets/images/Vector.svg");
     background-repeat: no-repeat;
     background-size: contain;
-    background-position: 110% 50%;
-    background-size: 65%;
+    background-position: 105% 50%;
+    background-size: 75%;
   }
   @media screen and (min-width: $min_desktop) {
     background-position: 100% 50%;
-    background-size: 634px 634px;
+    background-size: 684px 684px;
   }
 }

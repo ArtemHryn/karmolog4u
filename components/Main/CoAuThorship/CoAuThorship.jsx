@@ -8,7 +8,8 @@ import BooksArrow from "@components/Common/Icons/BooksArrow";
 
 const CoAuThorship = () => {
   return (
-    <Container styled={styles.container}>
+    <Container styled={styles.container} styledSection={styles.section}>
+      <div className={styles.spot} />
       <div>
         <h1 className={`${styles.header} ${unbounded.className}`}>
           Книги з моїм співавторством
@@ -17,7 +18,7 @@ const CoAuThorship = () => {
           Я є співавтором тренінгових книжок, які допоможуть початківцям та
           професіоналам у роботі зі своїми клієнтами.
         </p>
-        <BooksArrow styled={styles.arrow}/>
+        <BooksArrow styled={styles.arrow} />
       </div>
       <Books />
       <BooksTab />

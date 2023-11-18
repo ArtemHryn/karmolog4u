@@ -8,7 +8,9 @@ import { unbounded } from "@app/layout";
 
 const AboutConsultations = () => {
   return (
-    <Container styled={styles.container}>
+    <Container styled={styles.container} styledSection={styles.section}>
+      <div className={styles.spot} />
+      <div className={styles.spot2} />
       <div className={styles.text_wrapper}>
         <div>
           <h1 className={`${styles.title} ${unbounded.className}`}>
@@ -34,11 +36,10 @@ const AboutConsultations = () => {
           <p className={styles.description}>
             Після внесення оплати за консультацію з вами зв’язується менеджер
             Студії, щоб обрати найближчу дату для проведення вашої зустрічі зі
-            мною. Консультація проходить в Zoom. Після проведеної
-            консультації в залежності від обраного тарифу ви отримуєте в
-            месенджері матеріали згідно з планом вашої трансформації, якщо це
-            передбачено тарифом, а також ви отримуєте посилання на збереження
-            запису вашої консультації
+            мною. Консультація проходить в Zoom. Після проведеної консультації в
+            залежності від обраного тарифу ви отримуєте в месенджері матеріали
+            згідно з планом вашої трансформації, якщо це передбачено тарифом, а
+            також ви отримуєте посилання на збереження запису вашої консультації
           </p>
         </div>
       </div>

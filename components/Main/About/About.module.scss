@@ -1,7 +1,12 @@
 @import "/styles/main.scss";
 
+.section {
+  overflow: visible;
+}
+
 .container {
   display: grid;
+  position: relative;
   @media screen and (min-width: $min_tablet) {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(5, 1fr);
@@ -40,11 +45,6 @@
   @media screen and (min-width: $min_desktop) {
     width: 443px;
     height: 586px;
-    background: radial-gradient(
-      circle,
-      hsla(347, 60%, 27%, 0.5) 22%,
-      hsla(0, 0%, 0%, 0) 65%
-    );
   }
 }
 .about_us_header_container {
@@ -64,11 +64,15 @@
   padding: 38px 26px 54px;
   border-radius: 30px;
   background-image: $under_photo_gradient;
-  transform: translateY(-20px);
+
   margin-bottom: 16px;
   @media screen and (min-width: $min_tablet) {
+    transform: translateY(-16px);
     @include fontRegular(18px, 400, 25.2px);
     margin-bottom: 0px;
+  }
+  @media screen and (min-width: $min_tablet) {
+    transform: translateY(-20px);
   }
 }
 
@@ -148,5 +152,29 @@
   grid-area: 3 / 1 / 4 / 2;
   @media screen and (min-width: $min_desktop) {
     grid-area: 2 / 2 / 3 / 3;
+  }
+}
+
+.spot {
+  display: none;
+  @media screen and (min-width: $min_desktop) {
+    position: absolute;
+    display: block;
+
+    top: 13%;
+    left: 15%;
+
+    width: 227px;
+    height: 287px;
+    transform: rotate(-90deg);
+
+    border-radius: 287px;
+    background-image: linear-gradient(
+      180deg,
+      rgba(207, 182, 145, 0.4) 7%,
+      rgba(207, 182, 145, 0.4) 45.14%
+    );
+
+    filter: blur(105px);
   }
 }
