@@ -7,6 +7,15 @@ import styles from "./Gifts.module.scss";
 import OpenDetailsLink from "./OpenDetailsLink";
 
 const Gifts = () => {
+  const getDiscountPrice = (d, p) => {
+    return d ? `${p * ((100 - d) / 100)}€` : `${p}€`;
+  };
+
+  const getImg = (img) => {
+    const pic = img ? img.split("/") : null;
+    return pic ? pic[pic.length - 1] : null;
+  };
+
   return (
     <ul className={styles.list}>
       {gifts.map((el) => (
@@ -23,9 +32,7 @@ const Gifts = () => {
               {el.remark && <p className={styles.remark}>{el.remark}</p>}
               {el.price && (
                 <p className={styles.price}>
-                  {el.discount
-                    ? `${el.price * ((100 - el.discount) / 100)}€`
-                    : `${el.price}€`}
+                  {getDiscountPrice(el.discount, el.price)}
                   {el.discount && <span>{el.price}€</span>}
                 </p>
               )}
@@ -35,8 +42,10 @@ const Gifts = () => {
                 className={styles.button}
                 aria-label="замовити медитацію"
                 href={`/products/buy-gift?${
-                  el.price ? `price=${el.price}€` : ""
-                }&name=${el.name}`}
+                  el.price
+                    ? `price=${getDiscountPrice(el.discount, el.price)}`
+                    : ""
+                }&name=${el.name}&pic=${getImg(el.img)}`}
               >
                 <BagIcon />
               </Link>

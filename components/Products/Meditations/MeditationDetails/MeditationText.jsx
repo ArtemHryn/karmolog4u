@@ -13,8 +13,10 @@ const list = {
   ],
 };
 
-const MeditationText = ({ name, desc, price, category }) => {
+const MeditationText = ({ name, desc, price, category, img }) => {
   const categoryList = ["closed", "webinars"];
+  const pic = img ? img.split("/") : null;
+
   return (
     <div>
       <Title styled={styles.title}>{name}</Title>
@@ -26,7 +28,7 @@ const MeditationText = ({ name, desc, price, category }) => {
           <Link
             href={`/products/buy-product?${
               price ? `price=${price}` : ""
-            }&name=${name}`}
+            }&name=${name}&pic=${img ? pic[pic.length - 1] : ""}`}
             className={styles.button}
           >
             Придбати

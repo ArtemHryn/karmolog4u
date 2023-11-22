@@ -13,6 +13,7 @@ const MeditationsDescriptions = ({ meditation }) => {
         desc={desc}
         price={price}
         category={category}
+        img={img}
       />
     </div>
   );

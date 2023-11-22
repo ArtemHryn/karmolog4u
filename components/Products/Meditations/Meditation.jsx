@@ -4,7 +4,8 @@ import OpenDetailLink from "./OpenDetailLink/OpenDetailLink";
 import styles from "./Meditations.module.scss";
 
 const Meditation = ({ card }) => {
-  const { isWaiting, name, price, link } = card;
+  const { isWaiting, name, price, link, img } = card;
+  const pic = img ? img.split("/") : null;
   return (
     <>
       <OpenDetailLink card={card} />
@@ -20,7 +21,7 @@ const Meditation = ({ card }) => {
             aria-label="замовити медитацію"
             href={`/products/buy-product?${
               price ? `price=${price}` : ""
-            }&name=${name}`}
+            }&name=${name}&pic=${img ? pic[pic.length - 1] : ""}`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
