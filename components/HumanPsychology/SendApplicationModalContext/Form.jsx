@@ -12,12 +12,11 @@ import Field from "./Field";
 import styles from "./SendApplicationModalContext.module.scss";
 import "react-phone-input-2/lib/bootstrap.css";
 
-const url = "http://localhost:3001/mails/send-mail";
+const url = "https://karmolog4u-server.onrender.com/mails/send-mail";
 
 const Form = ({ setIsSent }) => {
   const [license, setLicense] = useState(false);
   const router = useRouter();
-
   const {
     register,
     handleSubmit,
@@ -26,6 +25,8 @@ const Form = ({ setIsSent }) => {
   } = useForm();
 
   const onFormSubmit = async (data) => {
+    const [d, m, y] = data.date;
+    data.date = `${y}-${m}-${d}`;
     const body = JSON.stringify(data);
     try {
       await fetch(url, {

@@ -12,12 +12,14 @@ const ModalBuyForm = () => {
   const searchParams = useSearchParams();
   const name = searchParams.get("name");
   const price = searchParams.get("price");
+  const pic = searchParams.get("pic");
+
   return (
     <div className={styles.modal_container}>
       <Title styled={styles.title}>Ваше замовлення:</Title>
       <div className={styles.order_wrapper}>
         <Image
-          src={"/assets/images/meditations/book2.webp"}
+          src={`/assets/images/meditations/${pic}`}
           alt="замовлення"
           width={91}
           height={72}
