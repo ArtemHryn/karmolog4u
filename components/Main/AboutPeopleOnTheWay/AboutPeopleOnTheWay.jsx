@@ -1,12 +1,14 @@
+import Link from "next/link";
 import Container from "@components/Common/Container/Container";
 import Instagram from "@components/Common/SocialIcons/Instagram";
 import Telegram from "@components/Common/SocialIcons/Telegram";
 import TikTok from "@components/Common/SocialIcons/TikTok";
 import YouTube from "@components/Common/SocialIcons/YouTube";
+import { unbounded } from "@app/layout";
 
 import styles from "./AboutPeopleOnTheWay.module.scss";
-import { unbounded } from "@app/layout";
-import Link from "next/link";
+
+export const revalidate = 86400;
 
 const YOUTUBE_SUB =
   "https://youtube.googleapis.com/youtube/v3/channels?part=statistics&id=UC2GVkvJoRHgeX6hYF9iuWKA&key=AIzaSyASnlbbidn7c9fl4YjaaOpsiI1PAOE1jAI";
@@ -14,14 +16,13 @@ const YOUTUBE_SUB =
 async function getYoutubeSub() {
   const res = await fetch(YOUTUBE_SUB);
   if (!res.ok) {
-    return "8,2 тис.";
+    return "8,8 тис.";
   }
   return res.json();
 }
 
 const AboutPeopleOnTheWay = async () => {
   const data = await getYoutubeSub();
-
   const setYoutubeSubs = () => {
     const subs = data.items[0].statistics.subscriberCount;
     const subsInThousands = Math.ceil(subs / 100) / 10;
