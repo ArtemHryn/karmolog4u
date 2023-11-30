@@ -12,7 +12,7 @@ const YOUTUBE_SUB =
   "https://youtube.googleapis.com/youtube/v3/channels?part=statistics&id=UC2GVkvJoRHgeX6hYF9iuWKA&key=AIzaSyASnlbbidn7c9fl4YjaaOpsiI1PAOE1jAI";
 
 async function getYoutubeSub() {
-  const res = await fetch(YOUTUBE_SUB, { next: { revalidate: "force-cache" } });
+  const res = await fetch(YOUTUBE_SUB, { cache: "no-store" });
   if (!res.ok) {
     return "8,8 тис.";
   }
