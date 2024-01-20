@@ -1,0 +1,12 @@
+@import "../styles/main.scss";
+
+.hero {
+  margin-bottom: 80px;
+  @media screen and (min-width: $min_tablet) {
+    margin-bottom: 100px;
+  }
+//   @media screen and (min-width: $min_desktop) {
+//     margin-bottom: 80px;
+//   }
+}
+
