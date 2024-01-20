@@ -40,7 +40,7 @@ const links = [
     ],
     id: 15,
   },
-  { title: "КАЛЬКУЛЯТОР", links: "" },
+  { title: "КАЛЬКУЛЯТОР", links: "/calculator" },
 ];
 
 function Nav() {
@@ -89,7 +89,7 @@ function Nav() {
             </li>
           ) : (
             <li>
-              <a href="#" className={styles.title}>
+              <a href={item.links} className={styles.title}>
                 {item.title}
               </a>
             </li>
