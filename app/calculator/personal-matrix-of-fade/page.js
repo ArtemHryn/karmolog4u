@@ -2,8 +2,10 @@
 import CalculatorHero from "@components/Calculator/CalculatorHero/CalculatorHero";
 import PersonalCalculator from "@components/Calculator/PersonalMatrix/PersonalCalculator";
 import Container from "@components/Common/Container/Container";
-import React from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useSearchParams, useRouter } from "next/navigation";
+
 import style from "./page.module.scss";
 
 const heroData = {
@@ -25,13 +27,29 @@ const heroData = {
   ],
 };
 function PersonalMatrixOfFade() {
+  const [isShowMatrix, setIsShowMatrix] = useState(false);
+  const [date, setDate] = useState("");
+  const [name, setName] = useState("");
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+
+  const router = useRouter();
+
+  const onSubmit = (data) => {
+    setName(data.name);
+    setDate(data.date);
+    setIsShowMatrix(true);
+    router.push(
+      `/calculator/personal-matrix-of-fade?name=${data.name}&date=${data.date}`,
+      {
+        scroll: false,
+      }
+    );
+  };
 
   return (
     <main>
@@ -60,15 +78,19 @@ function PersonalMatrixOfFade() {
                 )}
               </article>
 
-              <button type="submit">Розрахувати матрицю </button>
+              <button style={{ color: "white" }} type="submit">
+                Розрахувати матрицю{" "}
+              </button>
             </form>
           </article>
         </section>
-        <section>
-          <article>
-            <PersonalCalculator />
-          </article>
-        </section>
+        {isShowMatrix && (
+          <section>
+            <article>
+              <PersonalCalculator date={date} name={name} />
+            </article>
+          </section>
+        )}
       </Container>
     </main>
   );
