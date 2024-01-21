@@ -75,14 +75,14 @@ export const getPersonalGraph = ({ info, lifeMap }) => {
     data.earth = checkNum(data.day, data.year);
     data.personal = checkNum(data.sky, data.earth);
 
-    data.man = checkNum(data.topLeft, data.bottomRight1);
-    data.woman = checkNum(data.topRight, data.bottomLeft1);
+    data.man = checkNum(data.topLeft1, data.bottomRight1);
+    data.woman = checkNum(data.topRight1, data.bottomLeft1);
     data.social = checkNum(data.man, data.woman);
 
     data.spirit = checkNum(data.personal, data.social);
     data.planet = checkNum(data.social, data.spirit);
   }
-
+  console.log(data);
   return data;
 };
 
@@ -217,7 +217,10 @@ export const getHealthMap = ({ info }) => {
         energy: bottom1,
         tip: "ноги, криж",
       },
-      { name: "Пудсумок", tip: "системи: кісткова, лімфатична, зайва вага" },
+      {
+        chakraName: "Пудсумок",
+        tip: "системи: кісткова, лімфатична, зайва вага",
+      },
     ],
   };
 
@@ -335,9 +338,9 @@ export const getPeriod = ({ info }) => {
     const key = `${el.arcane}-${array[index - 32].arcane}-${checkNum(
       el.arcane,
       array[index - 32].arcane
-      )}`;
+    )}`;
     return { age: el.age, arcane: key };
   });
-    
+
   return period;
 };
