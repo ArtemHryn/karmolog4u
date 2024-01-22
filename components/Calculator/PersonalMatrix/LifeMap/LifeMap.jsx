@@ -1,31 +1,40 @@
+import Title from '@components/Common/Title/Title';
+import styles from './LifeMap.module.scss';
+
 const LifeMap = ({ maps }) => {
   if (!maps) return;
 
   const mapsList = Object.keys(maps.map);
   return (
-    <div>
+    <div className={styles.main_wrapper}>
       <div>
-        <h3>Карта життя</h3>
-        <ul>
-          {mapsList.map((mapType) => (
+        <Title variant="h3" styled={styles.lifemap_title}>
+          Карта життя
+        </Title>
+        <ul className={styles.main_life_map_list}>
+          {mapsList.map(mapType => (
             <li key={mapType}>
-              {maps.map[mapType].map((el) => (
-                <li key={el.name}>
-                  <p>{el.key}</p>
-                  <p>{el.name}</p>
-                </li>
-              ))}
+              <ul className={styles.second_life_map_list}>
+                {maps.map[mapType].map((el, index) => (
+                  <li key={el.name} className={styles.second_life_map_list_item}>
+                    <p className={`${styles.key} ${index === 2 && styles.result_key}`}>{el.key}</p>
+                    <p>{el.name}</p>
+                  </li>
+                ))}
+              </ul>
             </li>
           ))}
         </ul>
       </div>
       <div>
-        <h3>{maps.extensions_list.title}</h3>
-        <ul>
-          {maps.extensions_list.extension.map((el) => (
-            <li key={el.name}>
-              <p>{el.key}</p>
-              <p>{el.name}</p>
+        <Title variant="h3" styled={styles.extension_title}>
+          {maps.extensions_list.title}
+        </Title>
+        <ul className={styles.extension_list}>
+          {maps.extensions_list.extension.map(el => (
+            <li key={el.name} className={styles.extension_list_item}>
+              <p className={styles.extension_key}>{el.key}</p>
+              <p className={styles.extension_name}>{el.name}</p>
             </li>
           ))}
         </ul>

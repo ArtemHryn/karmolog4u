@@ -1,0 +1,516 @@
+@import '/styles/main.scss';
+
+.date_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.date_title {
+  text-align: center;
+  @include fontRegular(24px, 400, 24px);
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(28px, 400, 39.2px);
+  }
+}
+
+.date {
+  @include fontRegular(18px, 400, 25.2px, $seconds_text_color);
+}
+
+.graph_wrapper {
+  position: relative;
+
+  @media screen and (min-width: $min_tablet) {
+    display: flex;
+    justify-content: center;
+  }
+}
+.graph {
+  width: 328px;
+  height: 413px;
+  @media screen and (min-width: $min_tablet) {
+    width: 618px;
+    height: 716px;
+  }
+}
+
+// circles
+
+.out_key {
+  position: absolute;
+  display: block;
+  width: 30px;
+  @include fontRegular(16px, 700, 28px, $seconds_text_color);
+  text-align: center;
+  @media screen and (min-width: $min_tablet) {
+    width: 35px;
+    @include fontRegular(20px, 700, 28px, $seconds_text_color);
+  }
+}
+
+.middle_key {
+  position: absolute;
+  display: block;
+  width: 25px;
+  @include fontRegular(12px, 700, 28px, $seconds_text_color);
+  text-align: center;
+  @media screen and (min-width: $min_tablet) {
+    width: 30px;
+    @include fontRegular(16px, 700, 28px, $seconds_text_color);
+  }
+}
+
+.inner_key {
+  position: absolute;
+  display: block;
+  width: 20px;
+  @include fontRegular(10px, 700, 28px, $seconds_text_color);
+  text-align: center;
+  @media screen and (min-width: $min_tablet) {
+    width: 30px;
+    @include fontRegular(16px, 700, 28px, $seconds_text_color);
+  }
+}
+
+.out {
+  &_day {
+    top: 46.2%;
+    left: 0%;
+  }
+  &_topLeft1 {
+    top: 21.3%;
+    left: 13.5%;
+  }
+  &_month {
+    top: 10.5%;
+    left: 45.7%;
+  }
+  &_topRight1 {
+    top: 21.1%;
+    right: 12.5%;
+  }
+  &_year {
+    top: 46%;
+    right: 0%;
+  }
+  &_bottomRight1 {
+    bottom: 21.6%;
+    right: 13%;
+  }
+  &_bottom1 {
+    bottom: 11.5%;
+    right: 45.1%;
+  }
+  &_bottomLeft1 {
+    bottom: 21.8%;
+    left: 13.7%;
+  }
+  @media screen and (min-width: $min_tablet) {
+    &_day {
+      top: 48.2%;
+      left: 9.8%;
+    }
+    &_topLeft1 {
+      top: 21%;
+      left: 22%;
+    }
+    &_month {
+      top: 9%;
+      left: 48.7%;
+    }
+    &_topRight1 {
+      top: 20.7%;
+      right: 18.8%;
+    }
+    &_year {
+      top: 48%;
+      right: 9.2%;
+    }
+    &_bottomRight1 {
+      bottom: 20%;
+      right: 19.3%;
+    }
+    &_bottom1 {
+      bottom: 8.7%;
+      right: 46.2%;
+    }
+    &_bottomLeft1 {
+      bottom: 20.2%;
+      left: 22.2%;
+    }
+  }
+  @media screen and (min-width: $min_desktop) {
+    &_day {
+      top: 48.5%;
+      left: 2.3%;
+    }
+    &_topLeft1 {
+      top: 21%;
+      left: 17%;
+    }
+    &_month {
+      top: 9%;
+      left: 48.7%;
+    }
+    &_topRight1 {
+      top: 20.7%;
+      right: 12.8%;
+    }
+    &_year {
+      top: 48%;
+      right: 1.5%;
+    }
+    &_bottomRight1 {
+      bottom: 20%;
+      right: 13.3%;
+    }
+    &_bottom1 {
+      bottom: 8.7%;
+      right: 45.4%;
+    }
+    &_bottomLeft1 {
+      bottom: 20.2%;
+      left: 17.2%;
+    }
+  }
+}
+
+.middle {
+  &_left2 {
+    top: 46.4%;
+    left: 8.5%;
+  }
+  &_topLeft2 {
+    top: 25.6%;
+    left: 20.3%;
+  }
+  &_top2 {
+    top: 16.9%;
+    left: 46.3%;
+  }
+  &_topRight2 {
+    top: 25.4%;
+    right: 19.1%;
+  }
+  &_right2 {
+    top: 46.2%;
+    right: 8.7%;
+  }
+  &_bottomRight2 {
+    bottom: 26%;
+    right: 19%;
+  }
+  &_bottom2 {
+    bottom: 17.6%;
+    right: 45.8%;
+  }
+  &_bottomLeft2 {
+    bottom: 26%;
+    left: 20%;
+  }
+  @media screen and (min-width: $min_tablet) {
+    &_left2 {
+      top: 48.2%;
+      left: 17.5%;
+    }
+    &_topLeft2 {
+      top: 25.2%;
+      left: 26.6%;
+    }
+    &_top2 {
+      top: 15.7%;
+      left: 49.2%;
+    }
+    &_topRight2 {
+      top: 25.1%;
+      right: 24.6%;
+    }
+    &_right2 {
+      top: 48%;
+      right: 15.4%;
+    }
+    &_bottomRight2 {
+      bottom: 25%;
+      right: 24.1%;
+    }
+    &_bottom2 {
+      bottom: 15.7%;
+      right: 46.5%;
+    }
+    &_bottomLeft2 {
+      bottom: 25%;
+      left: 27.2%;
+    }
+  }
+  @media screen and (min-width: $min_tablet) {
+    &_left2 {
+      top: 48.2%;
+      left: 11.3%;
+    }
+    &_topLeft2 {
+      top: 25.3%;
+      left: 22.3%;
+    }
+    &_top2 {
+      top: 15.7%;
+      left: 49.2%;
+    }
+    &_topRight2 {
+      top: 25.1%;
+      right: 19.8%;
+    }
+    &_right2 {
+      top: 48%;
+      right: 8.8%;
+    }
+    &_bottomRight2 {
+      bottom: 25%;
+      right: 19.1%;
+    }
+    &_bottom2 {
+      bottom: 15.7%;
+      right: 45.8%;
+    }
+    &_bottomLeft2 {
+      bottom: 25%;
+      left: 23%;
+    }
+  }
+}
+
+.inner {
+  &_left3 {
+    top: 46.2%;
+    left: 16%;
+  }
+  &_topLeft3 {
+    top: 29%;
+    left: 25.6%;
+  }
+  &_top3 {
+    top: 21.8%;
+    left: 47.2%;
+  }
+  &_topRight3 {
+    top: 28.7%;
+    right: 24.7%;
+  }
+  &_right3 {
+    top: 46%;
+    right: 16.2%;
+  }
+  &_bottomRight3 {
+    bottom: 29.9%;
+    right: 24.5%;
+  }
+  &_bottom3 {
+    bottom: 23%;
+    right: 46.6%;
+  }
+  &_bottomLeft3 {
+    bottom: 30%;
+    left: 25.5%;
+  }
+  @media screen and (min-width: $min_tablet) {
+    &_left3 {
+      top: 48.2%;
+      left: 23%;
+    }
+    &_topLeft3 {
+      top: 29.2%;
+      left: 31.2%;
+    }
+    &_top3 {
+      top: 21.4%;
+      left: 48.4%;
+    }
+    &_topRight3 {
+      top: 29%;
+      right: 28.2%;
+    }
+    &_right3 {
+      top: 48%;
+      right: 21%;
+    }
+    &_bottomRight3 {
+      bottom: 29.1%;
+      right: 28.9%;
+    }
+    &_bottom3 {
+      bottom: 21.5%;
+      right: 47.2%;
+    }
+    &_bottomLeft3 {
+      bottom: 29.3%;
+      left: 30.4%;
+    }
+  }
+  @media screen and (min-width: $min_desktop) {
+    &_left3 {
+      top: 48.2%;
+      left: 18.1%;
+    }
+    &_topLeft3 {
+      top: 29.2%;
+      left: 27.7%;
+    }
+    &_top3 {
+      top: 21.4%;
+      left: 48.4%;
+    }
+    &_topRight3 {
+      top: 29%;
+      right: 23.9%;
+    }
+    &_right3 {
+      top: 48%;
+      right: 15.5%;
+    }
+    &_bottomRight3 {
+      bottom: 29.1%;
+      right: 24.8%;
+    }
+    &_bottom3 {
+      bottom: 21.4%;
+      right: 46.7%;
+    }
+    &_bottomLeft3 {
+      bottom: 29.1%;
+      left: 26.8%;
+    }
+  }
+}
+
+.center {
+  position: absolute;
+  display: block;
+  width: 30px;
+  @include fontRegular(16px, 700, 28px, $seconds_text_color);
+  text-align: center;
+  top: 46.5%;
+  left: 45.8%;
+  @media screen and (min-width: $min_tablet) {
+    width: 40px;
+    @include fontRegular(22px, 700, 28px, $seconds_text_color);
+    top: 48.2%;
+    left: 49%;
+  }
+  @media screen and (min-width: $min_desktop) {
+    top: 48.4%;
+    left: 48.9%;
+  }
+}
+
+.center2 {
+  position: absolute;
+  display: block;
+  width: 24px;
+  @include fontRegular(10px, 700, 28px, $seconds_text_color);
+  text-align: center;
+  top: 46.2%;
+  left: 54.9%;
+  @media screen and (min-width: $min_tablet) {
+    width: 40px;
+    @include fontRegular(16px, 700, 28px, $seconds_text_color);
+    top: 48.2%;
+    left: 55.7%;
+  }
+  @media screen and (min-width: $min_desktop) {
+    top: 48.2%;
+    left: 56.9%;
+  }
+}
+
+.life {
+  &_innerTop {
+    top: 28.5%;
+    left: 47.1%;
+  }
+  &_innerLeft {
+    top: 46.2%;
+    left: 24.4%;
+  }
+  &_innerRight {
+    top: 46.2%;
+    right: 24.4%;
+  }
+  &_innerBottom {
+    bottom: 29.6%;
+    left: 47.3%;
+  }
+  &_money {
+    bottom: 40.8%;
+    right: 22.4%;
+  }
+  &_balance {
+    bottom: 34.5%;
+    right: 30.5%;
+  }
+  &_love {
+    bottom: 28.8%;
+    right: 38.1%;
+  }
+  @media screen and (min-width: $min_tablet) {
+    &_innerTop {
+      top: 28.6%;
+      left: 49.1%;
+    }
+    &_innerLeft {
+      top: 48.1%;
+      left: 29.6%;
+    }
+    &_innerRight {
+      top: 48.1%;
+      right: 28.6%;
+    }
+    &_innerBottom {
+      bottom: 28.7%;
+      left: 49.3%;
+    }
+    &_money {
+      bottom: 41%;
+      right: 26.3%;
+    }
+    &_balance {
+      bottom: 34.3%;
+      right: 33.9%;
+    }
+    &_love {
+      bottom: 27.9%;
+      right: 39.5%;
+    }
+  }
+  @media screen and (min-width: $min_desktop) {
+    &_innerTop {
+      top: 28.8%;
+      left: 49%;
+    }
+    &_innerLeft {
+      top: 48.1%;
+      left: 25.7%;
+    }
+    &_innerRight {
+      top: 48.1%;
+      right: 24.4%;
+    }
+    &_innerBottom {
+      bottom: 28.7%;
+      left: 49.3%;
+    }
+    &_money {
+      bottom: 41%;
+      right: 21.7%;
+    }
+    &_balance {
+      bottom: 34.3%;
+      right: 30.8%;
+    }
+    &_love {
+      bottom: 27.9%;
+      right: 37.5%;
+    }
+  }
+}

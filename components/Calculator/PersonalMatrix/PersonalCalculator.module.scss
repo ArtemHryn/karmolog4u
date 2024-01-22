@@ -1,0 +1,8 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  @media screen and (min-width: $min_desktop) {
+    display: flex;
+    gap: 34px;
+  }
+}
