@@ -1,5 +1,3 @@
-// import styled from "./page.module.scss";
-
 import Hero from "@/components/Main/Hero/Hero";
 import QuestionAnswer from "@components/Common/QuestionAnswer/QuestionAnswer";
 import About from "@components/Main/About/About";

@@ -82,7 +82,6 @@ export const getPersonalGraph = ({ info, lifeMap }) => {
     data.spirit = checkNum(data.personal, data.social);
     data.planet = checkNum(data.social, data.spirit);
   }
-  console.log(data);
   return data;
 };
 
@@ -113,7 +112,7 @@ export const getLifeMap = ({ info }) => {
       social: [
         { name: "Чоловіче родове призначення", key: man },
         { name: "Жіноче родове призначення", key: woman },
-        { name: "Соціальне призначення", social },
+        { name: "Соціальне призначення", key: social },
       ],
       spirit: [
         { name: "Особисте призначення", key: personal },

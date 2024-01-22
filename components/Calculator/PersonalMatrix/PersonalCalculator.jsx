@@ -1,16 +1,12 @@
-import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { getHealthMap, getLifeMap, getPeriod, getPersonalGraph } from '@helper/calculator/personal';
+import PeriodMap from './PeriodMap/PeriodMap';
+import LifeMap from './LifeMap/LifeMap';
+import HealthMap from './HealthMap/HealthMap';
+import MatrixGraph from './MatrixGraph/MatrixGraph';
 
-import PersonalMatrix from "./PersonalMatrix";
-import {
-  getHealthMap,
-  getLifeMap,
-  getPeriod,
-  getPersonalGraph,
-} from "@helper/calculator/personal";
-import PeriodMap from "./PeriodMap/PeriodMap";
-import LifeMap from "./LifeMap/LifeMap";
-import HealthMap from "./HealthMap/HealthMap";
+import styles from './PersonalCalculator.module.scss';
 
 function PersonalCalculator({ date, name }) {
   const [matrix, setMatrix] = useState(null);
@@ -24,7 +20,7 @@ function PersonalCalculator({ date, name }) {
     if (!date) return;
     // console.log(searchParams.get('name'));
     // console.log(searchParams.get('date'));
-    const [day, month, year] = date.split("-");
+    const [day, month, year] = date.split('.');
     const result = getPersonalGraph({
       info: { day, month, year },
       lifeMap: true,
@@ -39,10 +35,12 @@ function PersonalCalculator({ date, name }) {
 
   return (
     <>
-      <PersonalMatrix matrix={matrix} />
-      <LifeMap maps={lifeMap} />
-      <HealthMap health={health} />
-      <PeriodMap period={period} />
+      <div className={styles.wrapper}>
+        <MatrixGraph matrix={matrix} date={date} name={name} />
+        <LifeMap maps={lifeMap} />
+      </div>
+      {/* <HealthMap health={health} />
+      <PeriodMap period={period} /> */}
     </>
   );
 }

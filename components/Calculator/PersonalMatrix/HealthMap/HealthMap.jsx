@@ -1,6 +1,5 @@
 const HealthMap = ({ health }) => {
   if (!health) return;
-  console.log(health);
   return (
     <div>
       <h3>{health.title}</h3>
