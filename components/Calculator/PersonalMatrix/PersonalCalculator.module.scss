@@ -1,8 +1,23 @@
 @import '/styles/main.scss';
 
 .wrapper {
+  margin-bottom: 60px;
+  @media screen and (min-width: $min_tablet) {
+    margin-bottom: 96px;
+  }
   @media screen and (min-width: $min_desktop) {
     display: flex;
     gap: 34px;
+  }
+}
+
+.maps_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  @media screen and (min-width: $min_desktop) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
   }
 }

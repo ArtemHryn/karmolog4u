@@ -7,12 +7,15 @@ import HealthMap from './HealthMap/HealthMap';
 import MatrixGraph from './MatrixGraph/MatrixGraph';
 
 import styles from './PersonalCalculator.module.scss';
+import { ageCalculator, getCurrentPeriod } from '@helper/calculator/ageCalc';
+import CurrentPeriod from './CurrentPeriod/CurrentPeriod';
 
 function PersonalCalculator({ date, name }) {
   const [matrix, setMatrix] = useState(null);
   const [lifeMap, setLifeMap] = useState(null);
   const [period, setPeriod] = useState(null);
   const [health, setHealth] = useState(null);
+  const [currentPeriod, setCurrentPeriod] = useState({});
 
   const searchParams = useSearchParams();
 
@@ -25,8 +28,11 @@ function PersonalCalculator({ date, name }) {
       info: { day, month, year },
       lifeMap: true,
     });
+    const periodList = getPeriod({ info: result });
+    const currentPeriodResult = getCurrentPeriod(ageCalculator(day, month, year), periodList);
+    setCurrentPeriod(currentPeriodResult);
     setMatrix(result);
-    setPeriod(getPeriod({ info: result }));
+    setPeriod(periodList);
     setLifeMap(getLifeMap({ info: result }));
     setHealth(getHealthMap({ info: result }));
   }, [date, searchParams]);
@@ -39,8 +45,11 @@ function PersonalCalculator({ date, name }) {
         <MatrixGraph matrix={matrix} date={date} name={name} />
         <LifeMap maps={lifeMap} />
       </div>
-      {/* <HealthMap health={health} />
-      <PeriodMap period={period} /> */}
+      <div className={styles.maps_wrapper}>
+        <HealthMap health={health} />
+        <PeriodMap period={period} />
+        <CurrentPeriod period={currentPeriod} />
+      </div>
     </>
   );
 }
