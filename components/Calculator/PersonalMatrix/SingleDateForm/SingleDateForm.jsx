@@ -5,15 +5,14 @@ import TextMaskInput from 'react-text-mask';
 import styles from './SingleDateForm.module.scss';
 import { open_Sans } from '@app/layout';
 
-const SingleDateForm = ({ setDate, setName, setIsShowMatrix }) => {
+const SingleDateForm = ({ setDate, setName, setIsShowMatrix, name, date }) => {
   const router = useRouter();
-
   const {
     register,
     handleSubmit,
     control,
     formState: { errors },
-  } = useForm();
+  } = useForm({ defaultValues: { name: name || '', date: date || '' } });
 
   const onSubmit = data => {
     setName(data.name);
@@ -24,7 +23,6 @@ const SingleDateForm = ({ setDate, setName, setIsShowMatrix }) => {
     });
   };
 
-  
   return (
     <article>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
