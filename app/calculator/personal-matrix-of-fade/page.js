@@ -1,8 +1,11 @@
 'use client';
+
+import { useSearchParams } from 'next/navigation';
+
 import CalculatorHero from '@components/Calculator/CalculatorHero/CalculatorHero';
 import PersonalCalculator from '@components/Calculator/PersonalMatrix/PersonalCalculator';
 import Container from '@components/Common/Container/Container';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import SingleDateForm from '@components/Calculator/PersonalMatrix/SingleDateForm/SingleDateForm';
 
 import styles from './page.module.scss';
@@ -29,7 +32,24 @@ function PersonalMatrixOfFade() {
   const [isShowMatrix, setIsShowMatrix] = useState(false);
   const [date, setDate] = useState('');
   const [name, setName] = useState('');
+  const [isChecked, setIsChecked] = useState(false);
 
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const linkName = searchParams.get('name');
+    const linkDate = searchParams.get('date');
+    if (linkName) {
+      setName(linkName);
+    }
+    if (linkDate) {
+      setDate(linkDate);
+      setIsShowMatrix(true);
+    }
+    setIsChecked(true);
+  }, [isChecked, searchParams]);
+
+  if (!isChecked) return null;
   return (
     <main>
       <Container>
@@ -37,7 +57,13 @@ function PersonalMatrixOfFade() {
           <article className="">
             <CalculatorHero heroData={heroData} />
           </article>
-          <SingleDateForm setDate={setDate} setName={setName} setIsShowMatrix={setIsShowMatrix} />
+          <SingleDateForm
+            setDate={setDate}
+            setName={setName}
+            setIsShowMatrix={setIsShowMatrix}
+            name={name}
+            date={date}
+          />
         </section>
       </Container>
       {isShowMatrix && (

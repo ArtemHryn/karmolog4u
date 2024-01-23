@@ -17,12 +17,10 @@ function PersonalCalculator({ date, name }) {
   const [health, setHealth] = useState(null);
   const [currentPeriod, setCurrentPeriod] = useState({});
 
-  const searchParams = useSearchParams();
+
 
   useEffect(() => {
     if (!date) return;
-    // console.log(searchParams.get('name'));
-    // console.log(searchParams.get('date'));
     const [day, month, year] = date.split('.');
     const result = getPersonalGraph({
       info: { day, month, year },
@@ -35,7 +33,7 @@ function PersonalCalculator({ date, name }) {
     setPeriod(periodList);
     setLifeMap(getLifeMap({ info: result }));
     setHealth(getHealthMap({ info: result }));
-  }, [date, searchParams]);
+  }, [date]);
 
   if (!date) return;
 
