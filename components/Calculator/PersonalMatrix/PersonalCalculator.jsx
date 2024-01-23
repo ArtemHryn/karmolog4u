@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
 import { getHealthMap, getLifeMap, getPeriod, getPersonalGraph } from '@helper/calculator/personal';
 import PeriodMap from './PeriodMap/PeriodMap';
 import LifeMap from './LifeMap/LifeMap';
@@ -17,8 +16,6 @@ function PersonalCalculator({ date, name }) {
   const [health, setHealth] = useState(null);
   const [currentPeriod, setCurrentPeriod] = useState({});
 
-
-
   useEffect(() => {
     if (!date) return;
     const [day, month, year] = date.split('.');
@@ -35,11 +32,16 @@ function PersonalCalculator({ date, name }) {
     setHealth(getHealthMap({ info: result }));
   }, [date]);
 
+  useEffect(() => {
+    const matrix = document.getElementById('personal-calculator');
+    matrix.scrollIntoView({ behavior: 'smooth' });
+  });
+
   if (!date) return;
 
   return (
     <>
-      <div className={styles.wrapper}>
+      <div className={styles.wrapper} id="personal-calculator">
         <MatrixGraph matrix={matrix} date={date} name={name} />
         <LifeMap maps={lifeMap} />
       </div>
