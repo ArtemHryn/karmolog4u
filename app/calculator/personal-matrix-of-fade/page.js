@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import SingleDateForm from '@components/Calculator/PersonalMatrix/SingleDateForm/SingleDateForm';
 
 import styles from './page.module.scss';
+import SocialInfo from '@components/Calculator/SocialInfo/SocialInfo';
 
 const heroData = {
   links: [
@@ -51,7 +52,7 @@ function PersonalMatrixOfFade() {
 
   if (!isChecked) return null;
   return (
-    <main>
+    <>
       <Container>
         <section className={styles.hero}>
           <article className="">
@@ -67,11 +68,14 @@ function PersonalMatrixOfFade() {
         </section>
       </Container>
       {isShowMatrix && (
-        <Container styledSection={styles.matrix_wrapper}>
-          <PersonalCalculator date={date} name={name} />
-        </Container>
+        <>
+          <Container styledSection={styles.matrix_wrapper}>
+            <PersonalCalculator date={date} name={name} />
+          </Container>
+          <SocialInfo />
+        </>
       )}
-    </main>
+    </>
   );
 }
 
