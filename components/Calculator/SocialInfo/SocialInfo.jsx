@@ -1,48 +1,55 @@
-import Container from "@components/Common/Container/Container";
-import React from "react";
-import Viber from "@components/Common/SocialIcons/Viber";
-import Whatsapp from "@components/Common/SocialIcons/Whatsapp";
-import Telegram from "@components/Common/SocialIcons/Telegram";
-import Link from "next/link";
-import styles from "./Feedback.module.scss";
-import { unbounded } from "@/app/layout";
-import Logo from "@components/Common/Icons/Logo";
-import BlurLogo from "@components/Common/Icons/BlurLogo";
+import Container from '@components/Common/Container/Container';
+import React from 'react';
+import Whatsapp from '@components/Common/SocialIcons/Whatsapp';
+import Telegram from '@components/Common/SocialIcons/Telegram';
+import Link from 'next/link';
+import styles from './SocialInfo.module.scss';
+import { unbounded } from '@/app/layout';
+import Logo from '@components/Common/Icons/Logo';
+import BlurLogo from '@components/Common/Icons/BlurLogo';
 
 const links = [
   {
     icon: Whatsapp,
-    name: "WhatsApp",
-    to: "https://wa.me/380678696760",
+    name: 'WhatsApp',
+    to: 'https://wa.me/380678696760',
   },
   {
     icon: Telegram,
-    name: "Telegram",
-    to: "https://t.me/karmologforyou",
-  },
-  {
-    icon: Viber,
-    name: "Viber",
-    to: "viber://chat/?number=%2B380678696760",
+    name: 'Telegram',
+    to: 'https://t.me/karmologforyou',
   },
 ];
-function Feedback({ main }) {
+function SocialInfo() {
   return (
     <Container styled={styles.wrap} styledSection={styles.section}>
       <div className={styles.wrap_item}>
-        <h2
-          className={`${main ? styles.main_title : styles.title} ${
-            unbounded.className
-          }`}
-        >
-          Залишились питання?
+        <h2 className={`${styles.title} ${unbounded.className}`}>
+          Хочете дізнатися більше — отримайте ПОВНИЙ розбір своєї матриці долі на ОСОБИСТІЙ
+          консультації!
         </h2>
-        <div style={{ position: "relative" }}>
+        <div style={{ position: 'relative' }}>
           <p className={styles.description}>
-            Якщо у вас залишились питання щодо послуг, навчання або інших
-            важливих моментів, напишіть нам в будь-який зручний для вас
-            месенджер!
+            Ви лише за 1 годину спілкування зі мною отримаєте:
+            <span>- розуміння власного призначення,</span>
+            <span>-відповідь на будь-яке запитання, яке вас цікавить.</span>
           </p>
+          <p className={styles.description}>
+            Визначите: <span>- свої приховані таланти,</span>{' '}
+            <span>
+              - завдання, які ваша душа отримує в сумісності з партнером, дітьми, батьками,
+              начальником або другом тощо.
+            </span>
+          </p>
+          <div className={styles.additional_desc_wrap}>
+            <p className={`${styles.additional_desc} ${unbounded.className}`}>
+              Напишіть нам в будь-який месенджер — наші менеджери одразу запропонують час для вашої
+              консультації!
+            </p>
+            <p className={`${styles.additional_desc} ${unbounded.className}`}>
+              Досягнення вашої мети – ближче ніж вам здається!!
+            </p>
+          </div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="125"
@@ -58,7 +65,7 @@ function Feedback({ main }) {
           </svg>
         </div>
       </div>
-      <div style={{ position: "relative" }}>
+      <div style={{ position: 'relative' }} className={styles.links_wrapper}>
         <ul className={styles.list}>
           {links.map(({ icon: Icon, name, to }, index) => (
             <li key={index}>
@@ -81,4 +88,4 @@ function Feedback({ main }) {
   );
 }
 
-export default Feedback;
+export default SocialInfo;

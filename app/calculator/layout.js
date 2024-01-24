@@ -77,7 +77,7 @@
 // }
 
 const calculatorLayout = ({ children }) => {
-  return <>{children}</>;
+  return <main>{children}</main>;
 };
 
 export default calculatorLayout;
