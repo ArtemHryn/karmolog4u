@@ -5,7 +5,7 @@ import { open_Sans } from '@app/layout';
 import styles from './CompatibilityMatrix.module.scss';
 import PersonElement from './PersonElement';
 
-const CompatibilityMatrixForm = ({ setUsersInfo, setIsShowMatrix }) => {
+const CompatibilityMatrixForm = ({ setUsersInfo, setIsShowMatrix, usersInfo }) => {
   const router = useRouter();
 
   const {
@@ -15,10 +15,13 @@ const CompatibilityMatrixForm = ({ setUsersInfo, setIsShowMatrix }) => {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      info: [
-        { date: '', name: '' },
-        { date: '', name: '' },
-      ],
+      info:
+        usersInfo.length === 0
+          ? [
+              { date: '', name: '' },
+              { date: '', name: '' },
+            ]
+          : usersInfo,
     },
   });
   const { fields } = useFieldArray({
