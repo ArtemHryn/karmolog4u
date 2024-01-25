@@ -1,0 +1,26 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+  @media screen and (min-width: $min_tablet) {
+    gap: 140px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    gap: 160px;
+  }
+}
+
+.person_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  @media screen and (min-width: $min_tablet) {
+    gap: 96px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    flex-direction: row;
+    gap: 34px;
+  }
+}

@@ -6,6 +6,8 @@ import CompatibilityMatrixForm from '@components/Calculator/CompatibilityMatrix/
 import Container from '@components/Common/Container/Container';
 import CompatibilityMatrix from '@components/Calculator/CompatibilityMatrix/CompatibilityMatrix';
 
+import styles from './page.module.scss'
+
 const heroData = {
   links: [
     {
@@ -27,6 +29,8 @@ const heroData = {
   ],
 };
 
+
+
 function CompatibilityMatrixPage() {
   const [isShowMatrix, setIsShowMatrix] = useState(false);
   const [usersInfo, setUsersInfo] = useState([]);
@@ -38,7 +42,7 @@ function CompatibilityMatrixPage() {
         <CompatibilityMatrixForm setUsersInfo={setUsersInfo} setIsShowMatrix={setIsShowMatrix} />
       </Container>
       {isShowMatrix && (
-        <Container>
+        <Container styledSection={styles.matrix_wrapper}>
           <CompatibilityMatrix partners={usersInfo} />
         </Container>
       )}
