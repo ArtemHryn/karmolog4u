@@ -1,9 +1,21 @@
 @import '/styles/main.scss';
 
 .wrapper {
+  border-top: 1px solid $seconds_text_color;
+  border-bottom: 1px solid $seconds_text_color;
+  background: $matrix_bg_gradient;
+  @media screen and (min-width: $min_tablet) {
+    gap: 140px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    gap: 0px;
+  }
+}
+
+.person_container_wrapper {
   display: flex;
   flex-direction: column;
-  gap: 120px;
+  gap: 60px;
   @media screen and (min-width: $min_tablet) {
     gap: 140px;
   }
@@ -23,4 +35,8 @@
     flex-direction: row;
     gap: 34px;
   }
+}
+
+.result_container {
+  border-top: 1px solid $seconds_text_color;
 }

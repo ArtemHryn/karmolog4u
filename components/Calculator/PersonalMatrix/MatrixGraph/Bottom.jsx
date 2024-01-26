@@ -2,7 +2,7 @@ import Title from '@components/Common/Title/Title';
 
 import styles from './MatrixGraph.module.scss';
 
-const Bottom = ({ matrix }) => {
+const Bottom = ({ matrix, hideAdditionalKeys }) => {
   const {
     bottom1,
     bottomRight1,
@@ -25,24 +25,28 @@ const Bottom = ({ matrix }) => {
       <Title variant="span" styled={`${styles.out_key} ${styles.out_bottomLeft1}`}>
         {bottomLeft1}
       </Title>
-      <Title variant="span" styled={`${styles.middle_key} ${styles.middle_bottomRight2}`}>
-        {bottomRight2}
-      </Title>
       <Title variant="span" styled={`${styles.middle_key} ${styles.middle_bottom2}`}>
         {bottom2}
-      </Title>
-      <Title variant="span" styled={`${styles.middle_key} ${styles.middle_bottomLeft2}`}>
-        {bottomLeft2}
-      </Title>
-      <Title variant="span" styled={`${styles.inner_key} ${styles.inner_bottomRight3}`}>
-        {bottomRight3}
       </Title>
       <Title variant="span" styled={`${styles.inner_key} ${styles.inner_bottom3}`}>
         {bottom3}
       </Title>
-      <Title variant="span" styled={`${styles.inner_key} ${styles.inner_bottomLeft3}`}>
-        {bottomLeft3}
-      </Title>
+      {!hideAdditionalKeys && (
+        <>
+          <Title variant="span" styled={`${styles.middle_key} ${styles.middle_bottomRight2}`}>
+            {bottomRight2}
+          </Title>
+          <Title variant="span" styled={`${styles.middle_key} ${styles.middle_bottomLeft2}`}>
+            {bottomLeft2}
+          </Title>
+          <Title variant="span" styled={`${styles.inner_key} ${styles.inner_bottomRight3}`}>
+            {bottomRight3}
+          </Title>
+          <Title variant="span" styled={`${styles.inner_key} ${styles.inner_bottomLeft3}`}>
+            {bottomLeft3}
+          </Title>
+        </>
+      )}
     </>
   );
 };
