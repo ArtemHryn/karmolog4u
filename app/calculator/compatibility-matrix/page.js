@@ -8,6 +8,7 @@ import Container from '@components/Common/Container/Container';
 import CompatibilityMatrix from '@components/Calculator/CompatibilityMatrix/CompatibilityMatrix';
 
 import styles from './page.module.scss';
+import SocialInfo from '@components/Calculator/SocialInfo/SocialInfo';
 
 const heroData = {
   links: [
@@ -59,6 +60,7 @@ function CompatibilityMatrixPage() {
     setIsChecked(true);
   }, [searchParams]);
 
+  
   if (!isChecked) return null;
 
   return (
@@ -74,6 +76,7 @@ function CompatibilityMatrixPage() {
       {isShowMatrix && (
         <>
           <CompatibilityMatrix partners={usersInfo} />
+          <SocialInfo />
         </>
       )}
     </main>
