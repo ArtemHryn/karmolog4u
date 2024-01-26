@@ -29,9 +29,16 @@ const CompatibilityMatrix = ({ partners }) => {
     setResultMatrix(result);
   }, [partners]);
 
+  useEffect(() => {
+    const matrix = document.getElementById('compatibility-calculator');
+    if (matrix) {
+      matrix.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+
   if (partnersMatrix.length === 0) return null;
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} id="compatibility-calculator">
       <Container styled={styles.person_container_wrapper}>
         {partnersMatrix.map((partner, index) => (
           <div key={index} className={styles.person_wrapper}>
