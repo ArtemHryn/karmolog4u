@@ -38,7 +38,10 @@ function CompatibilityMatrixPage() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    if (!searchParams.get('date1')) return;
+    if (!searchParams.get('date1')) {
+      setIsChecked(true);
+      return;
+    }
     const users = [];
     searchParams.forEach((value, key) => {
       const index = key[key.length - 1];
@@ -69,9 +72,9 @@ function CompatibilityMatrixPage() {
         />
       </Container>
       {isShowMatrix && (
-        <Container styledSection={styles.matrix_wrapper}>
+        <>
           <CompatibilityMatrix partners={usersInfo} />
-        </Container>
+        </>
       )}
     </main>
   );

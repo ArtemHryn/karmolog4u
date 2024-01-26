@@ -4,7 +4,7 @@ export function checkNum(...nums) {
   }, 0);
   if (+result > 22) {
     return String(result)
-      .split("")
+      .split('')
       .reduce((acc, number) => {
         return acc + +number;
       }, 0);
@@ -12,25 +12,29 @@ export function checkNum(...nums) {
   return +result;
 }
 
-export const getPersonalGraph = ({ info, lifeMap }) => {
+export const getPersonalGraph = ({ info, lifeMap, isPartners }) => {
   const data = { ...info };
 
-  Object.keys(data).forEach((el) => {
-    if (el === "year") {
+  Object.keys(data).forEach(el => {
+    if (el === 'year') {
       data[el] = checkNum(checkNum(data[el]));
       return;
     }
     data[el] = checkNum(data[el]);
   });
 
-  data.bottom1 = checkNum(data.day, data.month, data.year);
-  data.center = checkNum(data.day, data.month, data.year, data.bottom1);
 
-  //самі верхні точки під 45 градусів(родовий квадрат)
-  data.topLeft1 = checkNum(data.day, data.month);
-  data.topRight1 = checkNum(data.month, data.year);
-  data.bottomRight1 = checkNum(data.bottom1, data.year);
-  data.bottomLeft1 = checkNum(data.bottom1, data.day);
+  if (!isPartners) {
+    data.bottom1 = checkNum(data.day, data.month, data.year);
+
+    //самі верхні точки під 45 градусів(родовий квадрат)
+    data.topLeft1 = checkNum(data.day, data.month);
+    data.topRight1 = checkNum(data.month, data.year);
+    data.bottomRight1 = checkNum(data.bottom1, data.year);
+    data.bottomLeft1 = checkNum(data.bottom1, data.day);
+}
+
+  data.center = checkNum(data.day, data.month, data.year, data.bottom1);
 
   //внутрішні основні точки
   data.bottom3 = checkNum(data.center, data.bottom1);
@@ -42,12 +46,7 @@ export const getPersonalGraph = ({ info, lifeMap }) => {
   data.right3 = checkNum(data.year, data.center);
   data.right2 = checkNum(data.year, data.right3);
 
-  data.center2 = checkNum(
-    data.topLeft1,
-    data.topRight1,
-    data.bottomLeft1,
-    data.bottomRight1
-  );
+  data.center2 = checkNum(data.topLeft1, data.topRight1, data.bottomLeft1, data.bottomRight1);
 
   //внутрішні точки під 45 градусів
   data.topLeft3 = checkNum(data.center2, data.topLeft1);
@@ -86,51 +85,40 @@ export const getPersonalGraph = ({ info, lifeMap }) => {
 };
 
 export const getLifeMap = ({ info }) => {
-  const {
-    sky,
-    earth,
-    personal,
-    man,
-    woman,
-    social,
-    spirit,
-    planet,
-    center,
-    center2,
-  } = info;
+  const { sky, earth, personal, man, woman, social, spirit, planet, center, center2 } = info;
 
   const data = {
     map: {
       personal: [
         {
-          name: "Небесне призначення",
+          name: 'Небесне призначення',
           key: sky,
         },
-        { name: "Земне призначення", key: earth },
-        { name: "Особисте призначення", key: personal },
+        { name: 'Земне призначення', key: earth },
+        { name: 'Особисте призначення', key: personal },
       ],
       social: [
-        { name: "Чоловіче родове призначення", key: man },
-        { name: "Жіноче родове призначення", key: woman },
-        { name: "Соціальне призначення", key: social },
+        { name: 'Чоловіче родове призначення', key: man },
+        { name: 'Жіноче родове призначення', key: woman },
+        { name: 'Соціальне призначення', key: social },
       ],
       spirit: [
-        { name: "Особисте призначення", key: personal },
-        { name: "Соціальне призначення", key: social },
-        { name: "Духовне призначення", key: spirit },
+        { name: 'Особисте призначення', key: personal },
+        { name: 'Соціальне призначення', key: social },
+        { name: 'Духовне призначення', key: spirit },
       ],
       planet: [
-        { name: "Соціальне призначення", key: social },
-        { name: "Духовне призначення", key: spirit },
-        { name: "Планетарне призначення", key: planet },
+        { name: 'Соціальне призначення', key: social },
+        { name: 'Духовне призначення', key: spirit },
+        { name: 'Планетарне призначення', key: planet },
       ],
     },
     extensions_list: {
-      title: "Ключ розширення",
+      title: 'Ключ розширення',
       extension: [
-        { name: "Зона комфорту", key: center },
-        { name: "Дар роду", key: center2 },
-        { name: "Особистий потенціал", key: checkNum(center, center2) },
+        { name: 'Зона комфорту', key: center },
+        { name: 'Дар роду', key: center2 },
+        { name: 'Особистий потенціал', key: checkNum(center, center2) },
       ],
     },
   };
@@ -159,73 +147,71 @@ export const getHealthMap = ({ info }) => {
     bottom1,
   } = info;
   const data = {
-    title: "Карта здоров’я",
-    columnName: ["Чакра", "Фізика", "Енергія", "Емоції"],
+    title: 'Карта здоров’я',
+    columnName: ['Чакра', 'Фізика', 'Енергія', 'Емоції'],
     chakraList: [
       {
-        chakraName: "Сахасрара",
+        chakraName: 'Сахасрара',
         physics: day,
         energy: month,
-        tip: "волосся, мозок, верхня частина черепа, шкіра голови",
+        tip: 'волосся, мозок, верхня частина черепа, шкіра голови',
       },
       {
-        chakraName: "Аджна",
+        chakraName: 'Аджна',
         physics: left2,
         energy: top2,
-        tip: "очі, вуха, обличчя, потилиця, верхня щелепа (зуби), тиск",
+        tip: 'очі, вуха, обличчя, потилиця, верхня щелепа (зуби), тиск',
       },
       {
-        chakraName: "Вішудха",
+        chakraName: 'Вішудха',
         physics: left3,
         energy: top3,
-        tip: "горло, нижня щелепа (зуби), щитовидка, плечі, руки, шийний відділ хребта",
+        tip: 'горло, нижня щелепа (зуби), щитовидка, плечі, руки, шийний відділ хребта',
       },
       {
-        chakraName: "Анахата",
+        chakraName: 'Анахата',
         physics: innerLeft,
         energy: innerTop,
-        tip: "серце, легені, бронхи, ребра, груди",
+        tip: 'серце, легені, бронхи, ребра, груди',
       },
       {
-        chakraName: "Маніпура",
+        chakraName: 'Маніпура',
         physics: center,
         energy: center,
-        tip: "середина хребта, шлунково-кишковий тракт",
+        tip: 'середина хребта, шлунково-кишковий тракт',
       },
       {
-        chakraName: "Шаманська чакра / кристал душі",
+        chakraName: 'Шаманська чакра / кристал душі',
         physics: innerRight,
         energy: innerBottom,
-        tip: "печінка, підшлункова, жовчний міхур, тонкий кишечник, надниркові залози",
+        tip: 'печінка, підшлункова, жовчний міхур, тонкий кишечник, надниркові залози',
       },
       {
-        chakraName: "Свадхістана",
+        chakraName: 'Свадхістана',
         physics: right3,
         energy: bottom3,
-        tip: "нирки, надниркові залози, статеві органи, поперек",
+        tip: 'нирки, надниркові залози, статеві органи, поперек',
       },
       {
-        chakraName: "Містище Душі",
+        chakraName: 'Містище Душі',
         physics: right2,
         energy: bottom2,
-        tip: "товстий кишечник, сечостатева система, анус",
+        tip: 'товстий кишечник, сечостатева система, анус',
       },
       {
-        chakraName: "Муладхара",
+        chakraName: 'Муладхара',
         physics: year,
         energy: bottom1,
-        tip: "ноги, криж",
+        tip: 'ноги, криж',
       },
       {
-        chakraName: "Пудсумок",
-        tip: "системи: кісткова, лімфатична, зайва вага",
+        chakraName: 'Пудсумок',
+        tip: 'системи: кісткова, лімфатична, зайва вага',
       },
     ],
   };
 
-  data.chakraList.forEach(
-    (el) => (el.emotion = checkNum(el.physics, el.energy))
-  );
+  data.chakraList.forEach(el => (el.emotion = checkNum(el.physics, el.energy)));
   data.chakraList[data.chakraList.length - 1].physics = checkNum(
     data.chakraList.reduce((acc, { physics }) => {
       return physics ? acc + physics : acc;
@@ -246,28 +232,10 @@ export const getHealthMap = ({ info }) => {
 };
 
 export const getPeriod = ({ info }) => {
-  const {
-    day,
-    topLeft1,
-    month,
-    topRight1,
-    year,
-    bottomRight1,
-    bottom1,
-    bottomLeft1,
-  } = info;
+  const { day, topLeft1, month, topRight1, year, bottomRight1, bottom1, bottomLeft1 } = info;
 
   const elements = [];
-  const arcanes = [
-    day,
-    topLeft1,
-    month,
-    topRight1,
-    year,
-    bottomRight1,
-    bottom1,
-    bottomLeft1,
-  ];
+  const arcanes = [day, topLeft1, month, topRight1, year, bottomRight1, bottom1, bottomLeft1];
   let arcaneIndex = 0;
   for (let i = 0; i < 80; i += 1.25) {
     if (i === 0 || i % 10 === 0) {
@@ -285,9 +253,7 @@ export const getPeriod = ({ info }) => {
         return;
       }
       if (element.age % 5 === 0 && element.age % 10 !== 0) {
-        element.arcane = checkNum(
-          array[index - 4].arcane + array[index + 4].arcane
-        );
+        element.arcane = checkNum(array[index - 4].arcane + array[index + 4].arcane);
       }
     } catch (error) {
       console.log(index);
@@ -301,9 +267,7 @@ export const getPeriod = ({ info }) => {
         return;
       }
       if (element.age % 2.5 === 0 && element.age % 5 !== 0) {
-        element.arcane = checkNum(
-          array[index - 2].arcane + array[index + 2].arcane
-        );
+        element.arcane = checkNum(array[index - 2].arcane + array[index + 2].arcane);
       }
     } catch (error) {
       console.log(index);
@@ -317,9 +281,7 @@ export const getPeriod = ({ info }) => {
         return;
       }
       if (element.age % 1.25 === 0 && element.age % 2.5 !== 0) {
-        element.arcane = checkNum(
-          array[index - 1].arcane + array[index + 1].arcane
-        );
+        element.arcane = checkNum(array[index - 1].arcane + array[index + 1].arcane);
       }
     } catch (error) {
       console.log(index);

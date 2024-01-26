@@ -1,0 +1,63 @@
+@import '/styles/main.scss';
+
+.main_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  @media screen and (min-width: $min_tablet) {
+    gap: 96px;
+  }
+}
+
+.lifemap_title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 40px;
+  @media screen and (min-width: $min_tablet) {
+    font-size: 28px;
+    margin-bottom: 48px;
+  }
+}
+
+.main_life_map_list {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  @media screen and (min-width: $min_tablet) {
+    gap: 60px;
+    align-items: center;
+  }
+}
+
+.second_life_map_list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  @media screen and (min-width: $min_tablet) {
+    width: 280px;
+  }
+}
+
+.second_life_map_list_item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.key {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+
+  border-radius: 50%;
+  border: 1px solid $accent_v2;
+
+  @include fontRegular(16px, 400, 22.4px);
+}
+
+.result_key {
+  color: #131313;
+  background-color: $additional_bg;
+}
