@@ -60,7 +60,7 @@ const SingleDateForm = ({ setDate, setName, setIsShowMatrix, name, date }) => {
                 id="date"
                 className={styles.date_input}
               />{' '}
-              {errors.date && <p>{errors.date.message}</p>}
+              {errors.date && <p className={styles.error}>{errors.date.message}</p>}
             </div>
           )}
         />

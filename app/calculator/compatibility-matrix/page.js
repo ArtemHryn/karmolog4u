@@ -7,7 +7,6 @@ import CompatibilityMatrixForm from '@components/Calculator/CompatibilityMatrix/
 import Container from '@components/Common/Container/Container';
 import CompatibilityMatrix from '@components/Calculator/CompatibilityMatrix/CompatibilityMatrix';
 
-import styles from './page.module.scss';
 import SocialInfo from '@components/Calculator/SocialInfo/SocialInfo';
 
 const heroData = {

@@ -2,7 +2,7 @@ import { Controller } from 'react-hook-form';
 
 import TextMaskInput from 'react-text-mask';
 
-import styles from './CompatibilityMatrix.module.scss';
+import styles from './CompatibilityMatrixForm.module.scss';
 
 const PersonElement = ({ index, register, control, errors }) => {
   const showError = !!errors && !!errors[index];
@@ -42,7 +42,7 @@ const PersonElement = ({ index, register, control, errors }) => {
               id="date"
               className={styles.date_input}
             />{' '}
-            {showError && <p>{errors[index].date.message}</p>}
+            {showError && <p className={styles.error}>{errors[index].date.message}</p>}
           </div>
         )}
       />

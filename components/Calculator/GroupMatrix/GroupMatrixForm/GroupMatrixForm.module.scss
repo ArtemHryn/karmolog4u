@@ -4,47 +4,31 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  justify-content: center;
   @media screen and (min-width: $min_tablet) {
     align-items: center;
   }
 }
 
-.person_wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.name_label {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-
-  @include fontRegular(12px, 500, 12px, $main_text_color);
-}
-
-.name_input {
-  display: flex;
-  height: 50px;
-  padding: 24px 28px;
-  align-items: center;
-  @include fontRegular(12px, 500, 12px, $main_text_color);
-  border-radius: 30px;
-  border: 1px solid #7e7e7e;
-  background-color: transparent;
-  &::placeholder {
-    @include fontRegular(16px, 400, 22.4px, $form_placeholder);
-  }
+.controller {
+  min-height: 91px;
   @media screen and (min-width: $min_tablet) {
-    width: 546px;
-    height: 60px;
+    min-height: 103px;
   }
   @media screen and (min-width: $min_desktop) {
-    width: 628px;
+    min-height: 106px;
+  }
+}
+
+.input_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  @media screen and (min-width: $min_tablet) {
+    align-items: center;
   }
 }
 .date_wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -75,6 +59,21 @@
   }
 }
 
+.close_btn {
+  position: absolute;
+  top: 58%;
+  right: 5%;
+  rotate: 45deg;
+  transition: all 250ms ease;
+  &:is(:hover, :focus) {
+    scale: 1.05;
+  }
+  & > svg {
+    width: 12px;
+    height: 12px;
+  }
+}
+
 .submit_btn {
   display: flex;
   width: 328px;
@@ -92,5 +91,31 @@
     width: 356px;
     height: 60px;
     font-size: 18px;
+  }
+}
+
+.add_more_btn {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  @include fontRegular(14px, 400, 19.6px);
+  transition: all 250ms ease;
+  & > svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  &:is(:hover, :focus) {
+    scale: 1.05;
+  }
+}
+
+.error {
+  font-size: 12px;
+  @media screen and (min-width: $min_tablet) {
+    font-size: 14px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    font-size: 16px;
   }
 }
