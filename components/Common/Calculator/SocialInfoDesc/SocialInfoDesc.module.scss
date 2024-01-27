@@ -1,0 +1,182 @@
+@import '../styles/main.scss';
+
+.section {
+  padding-bottom: 120px;
+  @media screen and (min-width: $min_tablet) {
+    padding-bottom: 160px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    padding-bottom: 180px;
+  }
+}
+
+.wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  @media screen and (min-width: $min_tablet) {
+    gap: 80px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    flex-direction: row;
+    // align-items: center;
+    gap: 192px;
+  }
+}
+
+.wrap_item {
+  @media screen and (min-width: $min_desktop) {
+    width: 677px;
+  }
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: $accent_v2;
+  @media screen and (min-width: $min_tablet) {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+.desc_wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.title {
+
+  color: $main_text_color;
+  @include fontRegular(14px, 400, 19.6px);
+  leading-trim: both;
+  text-edge: cap;
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(18px, 400, 25.2px);
+
+  }
+}
+
+.additional_desc_wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.additional_desc {
+  @include fontRegular(14px, 600, 19.6px, $seconds_text_color);
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(18px, 400, 25.2px, $seconds_text_color);
+  }
+}
+
+.links_wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 1;
+  position: relative;
+  margin: 0 auto;
+  @media screen and (min-width: $min_tablet) {
+    width: 356px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    width: 302px;
+  }
+}
+
+.link {
+  display: flex;
+  padding: 12px 20px;
+  gap: 16px;
+  align-items: center;
+  border-radius: 30px;
+  background-color: $black;
+  & > svg {
+    transition: all 0.3s ease;
+  }
+  transition: all 0.3s ease;
+  @include fontRegular(24px, 400, 28.8px);
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(28px, 400, 39.2px);
+  }
+  @media screen and (min-width: $min_desktop) {
+  }
+  &:hover,
+  &:focus {
+    color: $main_bg;
+    scale: 1.05;
+    background-color: $accent_v2;
+    & > svg {
+      fill: $main_bg;
+    }
+  }
+}
+
+.logo {
+  z-index: 0;
+  position: absolute;
+  width: 316px;
+  height: 316px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(207, 182, 145, 0.5);
+  filter: blur(4px);
+  @media screen and (min-width: $min_tablet) {
+    width: 368px;
+    height: 368px;
+  }
+}
+
+.blur {
+  filter: blur(4px);
+  width: 590px;
+  z-index: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @media screen and (min-width: $min_tablet) {
+    width: 450px;
+  }
+}
+
+.arrow {
+  display: none;
+  position: absolute;
+  bottom: 40%;
+
+  animation: arrow-move 3s infinite;
+  transform-origin: top left;
+  @media screen and (min-width: $min_desktop) {
+    left: 699px;
+    display: block;
+  }
+  @media screen and (min-width: $mac) {
+    left: 713px;
+  }
+  @media screen and (min-width: $big_pc) {
+    left: 697px;
+  }
+}
+@keyframes arrow-move {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

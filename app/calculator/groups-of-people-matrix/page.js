@@ -6,6 +6,7 @@ import CalculatorHero from '@components/Calculator/CalculatorHero/CalculatorHero
 import Container from '@components/Common/Container/Container';
 import GroupMatrixForm from '@components/Calculator/GroupMatrix/GroupMatrixForm/GroupMatrixForm';
 import GroupMatrix from '@components/Calculator/GroupMatrix/GroupMatrix';
+import SocialInfoDesc from '@components/Common/Calculator/SocialInfoDesc/SocialInfoDesc';
 
 const heroData = {
   links: [
@@ -28,6 +29,12 @@ const heroData = {
     'Лідерами думок не тільки народжуються – ними стають!',
   ],
 };
+
+const social = [
+  'Вирішили — вам точно в лідери?',
+  'Тоді на особистій консультації, всього за годину, ви з’ясуєте, чого вам не вистачає і які «родзинки» допоможуть саме ВАМ вести за собою та тримати натовп.',
+  'Не чекайте досвіду — ставайте кращим вже сьогодні!',
+];
 
 function GroupsOfPeopleMatrix() {
   const [isShowMatrix, setIsShowMatrix] = useState(false);
@@ -54,7 +61,6 @@ function GroupsOfPeopleMatrix() {
 
   if (!isChecked) return null;
 
-
   return (
     <main>
       <Container>
@@ -65,7 +71,12 @@ function GroupsOfPeopleMatrix() {
           setIsShowMatrix={setIsShowMatrix}
         />
       </Container>
-      {isShowMatrix && <GroupMatrix partners={usersInfo} />}
+      {isShowMatrix && (
+        <>
+          <GroupMatrix partners={usersInfo} />
+          <SocialInfoDesc socialList={social} />
+        </>
+      )}
     </main>
   );
 }

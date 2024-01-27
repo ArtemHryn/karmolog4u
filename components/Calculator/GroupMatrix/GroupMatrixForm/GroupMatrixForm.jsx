@@ -75,7 +75,11 @@ const GroupMatrixForm = ({ usersInfo, setUsersInfo, setIsShowMatrix }) => {
                     className={styles.date_input}
                   />{' '}
                   {index >= 3 && (
-                    <button className={`${styles.close_btn}`} onClick={() => remove(index)}>
+                    <button
+                      className={`${styles.close_btn}`}
+                      onClick={() => remove(index)}
+                      type="button"
+                    >
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="none">
                         <path d="M7 5V0H5V5H0V7H5V12H7V7H12V5H7Z" fill="#FDFDFD" />
                       </svg>
@@ -93,6 +97,7 @@ const GroupMatrixForm = ({ usersInfo, setUsersInfo, setIsShowMatrix }) => {
           <button
             className={`${styles.add_more_btn} ${open_Sans.className}`}
             onClick={() => append()}
+            type="button"
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="none">
               <path d="M7 5V0H5V5H0V7H5V12H7V7H12V5H7Z" fill="#FDFDFD" />

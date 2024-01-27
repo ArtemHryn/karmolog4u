@@ -6,8 +6,7 @@ import CalculatorHero from '@components/Calculator/CalculatorHero/CalculatorHero
 import CompatibilityMatrixForm from '@components/Calculator/CompatibilityMatrix/CompatibilityMatrixForm/CompatibilityMatrixForm';
 import Container from '@components/Common/Container/Container';
 import CompatibilityMatrix from '@components/Calculator/CompatibilityMatrix/CompatibilityMatrix';
-
-import SocialInfo from '@components/Calculator/SocialInfo/SocialInfo';
+import SocialInfoDesc from '@components/Common/Calculator/SocialInfoDesc/SocialInfoDesc';
 
 const heroData = {
   links: [
@@ -29,6 +28,11 @@ const heroData = {
     'У кожного тандему — є власний ресурс, важливо тільки знайти його та підсилювати — тоді успіх та взаєморозуміння вам гарантовані!',
   ],
 };
+
+const social = [
+  'Ну що, цікаво дізнатися наскільки ви ідеальна пара для стосунків чи партнерства — записуйтесь на особисту консультацію — відповіді поруч!',
+  '1 година – замість цілого життя, щоб дізнатися це «ваша» людина чи ні.',
+];
 
 function CompatibilityMatrixPage() {
   const [isShowMatrix, setIsShowMatrix] = useState(false);
@@ -59,7 +63,6 @@ function CompatibilityMatrixPage() {
     setIsChecked(true);
   }, [searchParams]);
 
-  
   if (!isChecked) return null;
 
   return (
@@ -75,7 +78,7 @@ function CompatibilityMatrixPage() {
       {isShowMatrix && (
         <>
           <CompatibilityMatrix partners={usersInfo} />
-          <SocialInfo />
+          <SocialInfoDesc socialList={social} />
         </>
       )}
     </main>
