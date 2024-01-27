@@ -10,6 +10,12 @@
   }
 }
 
+.person_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 .name_label {
   display: flex;
   flex-direction: column;

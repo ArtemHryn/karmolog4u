@@ -11,7 +11,6 @@ const ResultMatrix = ({ matrix }) => {
   useEffect(() => {
     if (!matrix) return;
     const map = getResultLifeMap({ info: matrix });
-    console.log(map);
     setLifeMap(map);
   }, [matrix]);
 

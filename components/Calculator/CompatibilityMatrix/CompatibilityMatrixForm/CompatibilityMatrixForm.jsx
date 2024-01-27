@@ -2,7 +2,7 @@ import { useRouter } from 'next/navigation';
 import { useForm, useFieldArray } from 'react-hook-form';
 import { open_Sans } from '@app/layout';
 
-import styles from './CompatibilityMatrix.module.scss';
+import styles from './CompatibilityMatrixForm.module.scss';
 import PersonElement from './PersonElement';
 
 const CompatibilityMatrixForm = ({ setUsersInfo, setIsShowMatrix, usersInfo }) => {
@@ -16,7 +16,7 @@ const CompatibilityMatrixForm = ({ setUsersInfo, setIsShowMatrix, usersInfo }) =
   } = useForm({
     defaultValues: {
       info:
-        usersInfo.length === 0
+        usersInfo && usersInfo.length === 0
           ? [
               { date: '', name: '' },
               { date: '', name: '' },
