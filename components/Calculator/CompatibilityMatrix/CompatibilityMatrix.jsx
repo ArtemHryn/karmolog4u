@@ -30,11 +30,13 @@ const CompatibilityMatrix = ({ partners }) => {
   }, [partners]);
 
   useEffect(() => {
+    if (!resultMatrix) return;
+
     const matrix = document.getElementById('compatibility-calculator');
     if (matrix) {
       matrix.scrollIntoView({ behavior: 'smooth' });
     }
-  });
+  }, [resultMatrix]);
 
   if (partnersMatrix.length === 0) return null;
   return (
