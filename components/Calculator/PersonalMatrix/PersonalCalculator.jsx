@@ -33,9 +33,11 @@ function PersonalCalculator({ date, name }) {
   }, [date]);
 
   useEffect(() => {
-    const matrix = document.getElementById('personal-calculator');
-    matrix.scrollIntoView({ behavior: 'smooth' });
-  });
+    const matrixId = document.getElementById('personal-calculator');
+    if (matrixId) {
+      matrixId.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [date, name]);
 
   if (!date) return;
 

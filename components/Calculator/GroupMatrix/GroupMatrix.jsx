@@ -25,10 +25,19 @@ const GroupMatrix = ({ partners }) => {
     setResultMatrix(result);
   }, [partners]);
 
+  useEffect(() => {
+    if (!resultMatrix) return;
+    
+    const matrixId = document.getElementById('group-calculator');
+    if (matrixId) {
+      matrixId.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [resultMatrix]);
+
   if (!resultMatrix) return null;
-  
+
   return (
-    <div>
+    <div id="group-calculator">
       <Container styledSection={styles.matrix_wrapper}>
         <ResultMatrix matrix={resultMatrix} />
       </Container>

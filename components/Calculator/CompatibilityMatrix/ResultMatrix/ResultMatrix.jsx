@@ -14,6 +14,7 @@ const ResultMatrix = ({ matrix }) => {
     setLifeMap(map);
   }, [matrix]);
 
+  
   return (
     <div className={styles.result_matrix_wrapper}>
       <MatrixGraph matrix={matrix} />

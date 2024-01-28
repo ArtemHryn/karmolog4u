@@ -42,6 +42,7 @@ function GroupsOfPeopleMatrix() {
   const [isChecked, setIsChecked] = useState(false);
 
   const searchParams = useSearchParams();
+
   useEffect(() => {
     if (!searchParams.get('date1')) {
       setIsChecked(true);
@@ -50,13 +51,25 @@ function GroupsOfPeopleMatrix() {
     const users = [];
     searchParams.forEach((value, key) => {
       const index = key[key.length - 1];
+
+      if (!key.includes('date')) return;
+      if (index - 1 !== users.length) return;
+
+      if (isNaN(parseInt(index))) {
+        return;
+      }
+
       if (key.includes('date')) {
         users[index - 1] = { date: value };
       }
     });
+    if (users.length <= 2) {
+      setIsChecked(true);
+      return;
+    }
     setUsersInfo(users);
-    setIsShowMatrix(true);
     setIsChecked(true);
+    setIsShowMatrix(true);
   }, [searchParams]);
 
   if (!isChecked) return null;
@@ -73,7 +86,7 @@ function GroupsOfPeopleMatrix() {
       </Container>
       {isShowMatrix && (
         <>
-          <GroupMatrix partners={usersInfo} />
+          <GroupMatrix partners={usersInfo} isShowMatrix={isShowMatrix} />
           <SocialInfoDesc socialList={social} />
         </>
       )}

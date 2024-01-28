@@ -49,6 +49,10 @@ function CompatibilityMatrixPage() {
     const users = [];
     searchParams.forEach((value, key) => {
       const index = key[key.length - 1];
+
+      if (isNaN(parseInt(index))) {
+        return;
+      }
       if (key.includes('date')) {
         users[index - 1] = { date: value };
       }
@@ -58,6 +62,10 @@ function CompatibilityMatrixPage() {
         users.splice(index - 1, 1, info);
       }
     });
+    if (users.length !== 2) {
+      setIsChecked(true);
+      return;
+    }
     setUsersInfo(users);
     setIsShowMatrix(true);
     setIsChecked(true);
