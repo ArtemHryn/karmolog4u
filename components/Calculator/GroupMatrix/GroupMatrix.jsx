@@ -27,7 +27,7 @@ const GroupMatrix = ({ partners }) => {
 
   useEffect(() => {
     if (!resultMatrix) return;
-    
+
     const matrixId = document.getElementById('group-calculator');
     if (matrixId) {
       matrixId.scrollIntoView({ behavior: 'smooth' });
@@ -39,7 +39,7 @@ const GroupMatrix = ({ partners }) => {
   return (
     <div id="group-calculator">
       <Container styledSection={styles.matrix_wrapper}>
-        <ResultMatrix matrix={resultMatrix} />
+        <ResultMatrix matrix={resultMatrix} title={'Сумісність групи'} />
       </Container>
     </div>
   );

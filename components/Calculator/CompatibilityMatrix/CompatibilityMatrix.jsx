@@ -50,7 +50,7 @@ const CompatibilityMatrix = ({ partners }) => {
         ))}
       </Container>
       <Container styledSection={styles.result_container}>
-        <ResultMatrix matrix={resultMatrix} />
+        <ResultMatrix matrix={resultMatrix} title={'Сумісність пари'} />
       </Container>
     </div>
   );

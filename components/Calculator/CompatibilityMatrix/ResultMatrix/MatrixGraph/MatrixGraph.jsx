@@ -9,10 +9,12 @@ import Center from '@components/Calculator/PersonalMatrix/MatrixGraph/Center';
 import InnerSq from '@components/Calculator/PersonalMatrix/MatrixGraph/InnerSq';
 import styles from './MatrixGraph.module.scss';
 
-const MatrixGraph = ({ matrix }) => {
+const MatrixGraph = ({ matrix, title }) => {
   return (
     <div>
-      <Title variant='h2' styled={styles.title}>Сумісність пари</Title>
+      <Title variant="h2" styled={styles.title}>
+        {title}
+      </Title>
       <div className={styles.graph_wrapper}>
         <MatrixGraphImg styled={styles.graph} />
         <Top matrix={matrix} hideAdditionalKeys={true} />
