@@ -5,7 +5,7 @@ import ResultLifeMap from './ResultLifeMap/ResultLifeMap';
 
 import styles from './ResultMatrix.module.scss';
 
-const ResultMatrix = ({ matrix }) => {
+const ResultMatrix = ({ matrix, title }) => {
   const [lifeMap, setLifeMap] = useState(null);
 
   useEffect(() => {
@@ -14,10 +14,9 @@ const ResultMatrix = ({ matrix }) => {
     setLifeMap(map);
   }, [matrix]);
 
-  
   return (
     <div className={styles.result_matrix_wrapper}>
-      <MatrixGraph matrix={matrix} />
+      <MatrixGraph matrix={matrix} title={title} />
       <ResultLifeMap maps={lifeMap} />
     </div>
   );
