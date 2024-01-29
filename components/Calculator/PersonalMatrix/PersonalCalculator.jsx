@@ -49,7 +49,7 @@ function PersonalCalculator({ date, name }) {
       </div>
       <div className={styles.maps_wrapper}>
         <HealthMap health={health} />
-        <PeriodMap period={period} />
+        <PeriodMap period={period} date={date} />
         <CurrentPeriod period={currentPeriod} />
       </div>
     </>

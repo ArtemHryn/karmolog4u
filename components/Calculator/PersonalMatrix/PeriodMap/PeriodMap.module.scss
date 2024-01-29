@@ -113,3 +113,20 @@
     width: 90px;
   }
 }
+
+.tip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  background-color: $tips_bg;
+  padding: 6px;
+  border-radius: 10px;
+  @include fontRegular(12px, 500, 12px);
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(18px, 400, 25.2px);
+    padding: 8px;
+    min-height: 40px;
+  }
+
+}
