@@ -1,8 +1,9 @@
 import Title from '@components/Common/Title/Title';
 
 import styles from './PeriodMap.module.scss';
+import PeriodMapElement from './PeriodMapElement';
 
-const PeriodMap = ({ period }) => {
+const PeriodMap = ({ period, date }) => {
   if (!period) return;
   return (
     <div className={styles.wrapper}>
@@ -37,19 +38,10 @@ const PeriodMap = ({ period }) => {
       </ul>
       <ul className={styles.period_table}>
         {period.map(el => (
-          <li key={el.age} className={styles.period_table_element}>
-            <p className={styles.period_table_text}>{el.age}</p>
-            <p className={styles.period_table_text}>{el.arcane}</p>
-          </li>
+          <PeriodMapElement key={el.age} age={el.age} arcane={el.arcane} date={date} />
         ))}
-        <li className={styles.period_table_element}>
-          <p className={styles.period_table_text}>80</p>
-          <p className={styles.period_table_text}>{period[0].arcane}</p>
-        </li>
-        <li className={styles.period_table_element}>
-          <p className={styles.period_table_text}></p>
-          <p className={styles.period_table_text}></p>
-        </li>
+        <PeriodMapElement age={'80'} arcane={period[0].arcane} date={date} />
+        <PeriodMapElement age={''} arcane={''} />
       </ul>
     </div>
   );
