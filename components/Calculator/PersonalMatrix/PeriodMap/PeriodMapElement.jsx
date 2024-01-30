@@ -25,7 +25,7 @@ const PeriodMapElement = ({ age, arcane, date }) => {
       {date && (
         <OverlayPanel ref={op}>
           <p className={styles.tip}>
-            {addMonthsToDate(date, age)} - {addMonthsToDate(date, age + 1.25)}
+            {addMonthsToDate(date, age)} - {addMonthsToDate(date, +age + 1.25)}
           </p>
         </OverlayPanel>
       )}
