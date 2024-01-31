@@ -1,10 +1,10 @@
 import Container from "@components/Common/Container/Container";
 import HeroNav from "@components/Common/HeroNav/HeroNav";
-import Title from "@components/Common/Title/Title";
 import Link from "next/link";
 import React from "react";
 import styles from "./page.module.scss";
 import CalculatorLogo from "@components/Calculator/CalculatorLogo/CalculatorLogo";
+import TitleNoStyles from "@components/Common/TitleNoStyles/TitleNoStyles";
 
 const links = [
   {
@@ -67,17 +67,17 @@ function Calculator() {
         <HeroNav linkNames={links} />
         <section className={styles.section}>
           <article>
-            <Title variant="h5" styled={styles.about}>
+            <TitleNoStyles variant="h5" styled={styles.about}>
               Безкоштовний калькулятор
-            </Title>
-            <Title variant="h1" styled={styles.title}>
+            </TitleNoStyles>
+            <TitleNoStyles variant="h1" styled={styles.title}>
               МАТРИЦІ ДОЛІ
-            </Title>
+            </TitleNoStyles>
           </article>
           <article>
-            <Title variant="h3" styled={styles.links_title}>
+            <TitleNoStyles variant="h3" styled={styles.links_title}>
               Яку матрицю бажаєте розрахувати?
-            </Title>
+            </TitleNoStyles>
             <ul className={styles.links_list}>
               {matrixLinks.map((links, index) => (
                 <li key={index}>
