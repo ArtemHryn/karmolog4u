@@ -1,68 +1,68 @@
-import Container from "@components/Common/Container/Container";
-import HeroNav from "@components/Common/HeroNav/HeroNav";
-import Link from "next/link";
-import React from "react";
-import styles from "./page.module.scss";
-import CalculatorLogo from "@components/Calculator/CalculatorLogo/CalculatorLogo";
-import TitleNoStyles from "@components/Common/TitleNoStyles/TitleNoStyles";
+import Container from '@components/Common/Container/Container';
+import HeroNav from '@components/Common/HeroNav/HeroNav';
+import Link from 'next/link';
+import React from 'react';
+import styles from '/components/Calculator/MainPage.module.scss';
+import CalculatorLogo from '@components/Calculator/CalculatorLogo/CalculatorLogo';
+import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
 
 const links = [
   {
-    href: "/calculator",
-    name: "Калькулятор",
+    href: '/calculator',
+    name: 'Калькулятор',
   },
 ];
 
 const matrixLinks = [
   {
-    href: "/calculator/personal-matrix-of-fade",
-    name: "Особисту матрицю",
+    href: '/calculator/personal-matrix-of-fade',
+    name: 'Особисту матрицю',
   },
   {
-    href: "/calculator/compatibility-matrix",
-    name: "Матрицю сумісності",
+    href: '/calculator/compatibility-matrix',
+    name: 'Матрицю сумісності',
   },
   {
-    href: "/calculator/nine-tribes-of-the-family-matrix",
-    name: "Матрицю “9 колін роду” ",
+    href: '/calculator/nine-tribes-of-the-family-matrix',
+    name: 'Матрицю “9 колін роду” ',
   },
   {
-    href: "/calculator/groups-of-people-matrix",
-    name: "Матрицю групи людей",
+    href: '/calculator/groups-of-people-matrix',
+    name: 'Матрицю групи людей',
   },
   {
-    href: "/calculator/matrix-of-the-year",
-    name: "Матрицю року",
+    href: '/calculator/matrix-of-the-year',
+    name: 'Матрицю року',
   },
   {
-    href: "/calculator/demon-victim-matrix",
-    name: "Матрицю “Демон жертва”",
+    href: '/calculator/demon-victim-matrix',
+    name: 'Матрицю “Демон жертва”',
   },
   {
-    href: "/calculator/matrix-of-holistic-power",
-    name: "Матрицю цілісної сили",
+    href: '/calculator/matrix-of-holistic-power',
+    name: 'Матрицю цілісної сили',
   },
   {
-    href: "/calculator/parents-and-children-matrix",
-    name: "Матрицю “Батьки та діти”",
+    href: '/calculator/parents-and-children-matrix',
+    name: 'Матрицю “Батьки та діти”',
   },
   {
-    href: "/calculator/matrix-sixteen-laws-of-karma",
-    name: "Матрицю “16 законів карми”",
+    href: '/calculator/matrix-sixteen-laws-of-karma',
+    name: 'Матрицю “16 законів карми”',
   },
   {
-    href: "/calculator/matrix-of-inner-karma",
-    name: "Матрицю внутрішньої карми",
+    href: '/calculator/matrix-of-inner-karma',
+    name: 'Матрицю внутрішньої карми',
   },
   {
-    href: "/calculator/matrix-of-consciousness",
-    name: "Матрицю свідомості",
+    href: '/calculator/matrix-of-consciousness',
+    name: 'Матрицю свідомості',
   },
 ];
 
 function Calculator() {
   return (
-    <main>
+    <>
       <Container styledSection={styles.container}>
         <HeroNav linkNames={links} />
         <section className={styles.section}>
@@ -88,15 +88,14 @@ function Calculator() {
               ))}
             </ul>
             <p className={styles.description}>
-              ❋ Калькулятор на 100% відповідає класичному обчисленню «Матриці
-              Долі» Наталії Ладіні
+              ❋ Калькулятор на 100% відповідає класичному обчисленню «Матриці Долі» Наталії Ладіні
             </p>
           </article>
           <CalculatorLogo styled={styles.logo_r} />
           <CalculatorLogo styled={styles.logo_l} />
         </section>
       </Container>
-    </main>
+    </>
   );
 }
 

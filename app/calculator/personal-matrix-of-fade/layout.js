@@ -1,5 +1,5 @@
-const personalMatrixOfFadeLayout = ({ children }) => {
+const PersonalMatrixOfFadeLayout = ({ children }) => {
   return <>{children}</>;
 };
 
-export default personalMatrixOfFadeLayout;
+export default PersonalMatrixOfFadeLayout;

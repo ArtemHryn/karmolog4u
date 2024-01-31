@@ -39,7 +39,7 @@ function PersonalCalculator({ date, name }) {
     }
   }, [date, name]);
 
-  if (!date) return;
+  if (!date) return null;
 
   return (
     <>

@@ -43,6 +43,8 @@ const CompatibilityMatrixForm = ({ setUsersInfo, setIsShowMatrix, usersInfo }) =
     });
   };
 
+
+
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       {fields.map((field, index) => (
