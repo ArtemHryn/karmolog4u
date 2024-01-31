@@ -1,0 +1,77 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 817px;
+  margin: 0 auto;
+  gap: 40px;
+  @media screen and (min-width: $min_tablet) {
+    gap: 48px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    gap: 52px;
+  }
+}
+
+.title {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  @include fontRegular(100px, 400, 100px, #fff);
+  width: 250px;
+  height: 200px;
+  @media screen and (min-width: $min_tablet) {
+    font-size: 160px;
+    width: 400px;
+    height: 406px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    gap: 52px;
+    width: 500px;
+    font-size: 200px;
+  }
+}
+
+.logo {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  @media screen and (min-width: $min_tablet) {
+    width: 600px;
+    height: 600px;
+  }
+}
+
+.text {
+  @include fontRegular(14px, 400, 19.6px, #fff, center);
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(16px, 400, 22.4px, #fff, center);
+  }
+}
+
+.link {
+  display: flex;
+  width: 328px;
+  height: 52px;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 30px;
+  background-color: $additional_bg;
+
+  @include fontRegular(16px, 600, 16px, $third_text_color);
+
+  @media screen and (min-width: $min_tablet) {
+    width: 356px;
+    height: 60px;
+    font-size: 18px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    width: 411px;
+  }
+}
