@@ -65,7 +65,11 @@
   background-color: $additional_bg;
 
   @include fontRegular(16px, 600, 16px, $third_text_color);
-
+  transition: all 250ms ease;
+  &:is(:hover, :focus) {
+    scale: 1.05;
+    background-color: $buttons_hover_color;
+  }
   @media screen and (min-width: $min_tablet) {
     width: 356px;
     height: 60px;

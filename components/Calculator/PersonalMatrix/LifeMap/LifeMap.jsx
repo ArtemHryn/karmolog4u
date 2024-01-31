@@ -2,7 +2,7 @@ import Title from '@components/Common/Title/Title';
 import styles from './LifeMap.module.scss';
 
 const LifeMap = ({ maps }) => {
-  if (!maps) return;
+  if (!maps) return null;
 
   const mapsList = Object.keys(maps.map);
   return (

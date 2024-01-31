@@ -4,7 +4,7 @@ import styles from './HealthMap.module.scss';
 import ChakraElement from './ChakraElement';
 
 const HealthMap = ({ health }) => {
-  if (!health) return;
+  if (!health) return null;
   return (
     <div className={styles.chakras_list}>
       <Title variant="h3" styled={styles.title}>

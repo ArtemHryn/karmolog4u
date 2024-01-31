@@ -4,7 +4,7 @@ import styles from './PeriodMap.module.scss';
 import PeriodMapElement from './PeriodMapElement';
 
 const PeriodMap = ({ period, date }) => {
-  if (!period) return;
+  if (!period) return null;
   return (
     <div className={styles.wrapper}>
       <Title variant="h3" styled={styles.title}>

@@ -47,7 +47,6 @@ export async function generateMetadata() {
         "max-snippet": -1,
       },
     },
-    themeColor: "black",
     twitter: {
       // card: "summary_large_image",
       title: "Сергій Скляренко - засновник кармотерапії, магістр психології",
@@ -75,6 +74,10 @@ export async function generateMetadata() {
     },
   };
 }
+
+export const viewport = {
+  themeColor: 'black',
+};
 
 const servicesLayout = ({ children }) => {
   return <>{children}</>;

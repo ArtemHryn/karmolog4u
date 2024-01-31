@@ -11,7 +11,7 @@ import Center from './Center';
 import InnerSq from './InnerSq';
 
 const MatrixGraph = ({ matrix, date, name }) => {
-  if (!matrix) return;
+  if (!matrix) return null;
   return (
     <div>
       <div className={styles.date_wrapper}>
