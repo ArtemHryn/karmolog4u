@@ -19,9 +19,14 @@ const SingleDateForm = ({ setDate, setName, setIsShowMatrix, name, date }) => {
     setName(data.name);
     setDate(data.date);
     setIsShowMatrix(true);
-    router.push(`/calculator/personal-matrix-of-fade?name=${data.name}&date=${data.date}`, {
-      scroll: false,
-    });
+    router.push(
+      `/calculator/personal-matrix-of-fade?${data.name ? `name=${data.name}&` : ''}date=${
+        data.date
+      }`,
+      {
+        scroll: false,
+      }
+    );
   };
 
   return (
