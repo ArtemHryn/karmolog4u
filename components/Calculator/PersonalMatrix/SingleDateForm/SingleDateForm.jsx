@@ -5,7 +5,7 @@ import TextMaskInput from 'react-text-mask';
 import styles from './SingleDateForm.module.scss';
 import { open_Sans } from '@app/layout';
 
-const SingleDateForm = ({ setDate, setName, setIsShowMatrix, name, date }) => {
+const SingleDateForm = ({ setDate, setName, setIsShowMatrix, name, date, redirectTo }) => {
   const router = useRouter();
 
   const {
@@ -19,14 +19,9 @@ const SingleDateForm = ({ setDate, setName, setIsShowMatrix, name, date }) => {
     setName(data.name);
     setDate(data.date);
     setIsShowMatrix(true);
-    router.push(
-      `/calculator/personal-matrix-of-fade?${data.name ? `name=${data.name}&` : ''}date=${
-        data.date
-      }`,
-      {
-        scroll: false,
-      }
-    );
+    router.push(`${redirectTo}?${data.name ? `name=${data.name}&` : ''}date=${data.date}`, {
+      scroll: false,
+    });
   };
 
   return (

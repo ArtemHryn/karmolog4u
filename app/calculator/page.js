@@ -88,7 +88,8 @@ function Calculator() {
               ))}
             </ul>
             <p className={styles.description}>
-              ❋ Калькулятор на 100% відповідає класичному обчисленню «Матриці Долі» Наталії Ладіні
+              ❋ Калькулятор на 100% відповідає класичному обчисленню &quot;Матриці Долі&quot;
+              Наталії Ладіні
             </p>
           </article>
           <CalculatorLogo styled={styles.logo_r} />

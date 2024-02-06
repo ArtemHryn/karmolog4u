@@ -1,10 +1,10 @@
 import Title from '@components/Common/Title/Title';
 
-import styles from './ResultLifeMap.module.scss'
+import styles from './ResultLifeMap.module.scss';
+import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
 
-const ResultLifeMap = ({ maps }) => {
+const ResultLifeMap = ({ maps, spiritLesson }) => {
   if (!maps) return;
-
   const mapsList = Object.keys(maps);
   return (
     <div>
@@ -25,6 +25,16 @@ const ResultLifeMap = ({ maps }) => {
           </li>
         ))}
       </ul>
+      {spiritLesson && (
+        <div className={styles.spirit_wrapper}>
+          <TitleNoStyles variant="h3" styled={styles.spirit_title}>
+            {spiritLesson.title}
+          </TitleNoStyles>
+          <TitleNoStyles variant="p" styled={styles.spirit_keys}>
+            {spiritLesson.keys.join(' - ')}
+          </TitleNoStyles>
+        </div>
+      )}
     </div>
   );
 };

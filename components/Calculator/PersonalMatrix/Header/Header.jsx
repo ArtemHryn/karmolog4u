@@ -47,15 +47,15 @@ const Header = ({ setDate, setName, setIsChecked, setIsShowMatrix, isChecked }) 
 
   return (
     <>
-      <div>
-        <CalculatorHero heroData={heroData} />
-      </div>
+      <CalculatorHero heroData={heroData} />
+
       <SingleDateForm
         setDate={setDate}
         setName={setName}
         setIsShowMatrix={setIsShowMatrix}
         name={linkName}
         date={dateRegex.test(linkDate) ? linkDate : ''}
+        redirectTo={'/calculator/personal-matrix-of-fade'}
       />
     </>
   );

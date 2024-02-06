@@ -1,14 +1,13 @@
-import React from 'react';
 import PersonalMatrix from '../PersonalMatrix';
 import Top from './Top';
-
-import styles from './MatrixGraph.module.scss';
 import Title from '@components/Common/Title/Title';
 import Left from './Left';
 import Right from './Right';
 import Bottom from './Bottom';
 import Center from './Center';
 import InnerSq from './InnerSq';
+
+import styles from './MatrixGraph.module.scss';
 
 const MatrixGraph = ({ matrix, date, name }) => {
   if (!matrix) return null;

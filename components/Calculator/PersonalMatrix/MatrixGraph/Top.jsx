@@ -2,7 +2,7 @@ import Title from '@components/Common/Title/Title';
 
 import styles from './MatrixGraph.module.scss';
 
-const Top = ({ matrix, hideAdditionalKeys }) => {
+const Top = ({ matrix, hideAdditionalKeys, hideInnerAdditionalKeys }) => {
   const { topLeft1, month, topRight1, topLeft2, top2, topRight2, topLeft3, top3, topRight3 } =
     matrix;
   return (
@@ -13,12 +13,17 @@ const Top = ({ matrix, hideAdditionalKeys }) => {
       <Title variant="span" styled={`${styles.out_key} ${styles.out_month}`}>
         {month}
       </Title>
-      <Title variant="span" styled={`${styles.middle_key} ${styles.middle_top2}`}>
-        {top2}
-      </Title>
-      <Title variant="span" styled={`${styles.inner_key} ${styles.inner_top3}`}>
-        {top3}
-      </Title>
+      {!hideInnerAdditionalKeys && (
+        <>
+          <Title variant="span" styled={`${styles.middle_key} ${styles.middle_top2}`}>
+            {top2}
+          </Title>
+          <Title variant="span" styled={`${styles.inner_key} ${styles.inner_top3}`}>
+            {top3}
+          </Title>
+        </>
+      )}
+
       <Title variant="span" styled={`${styles.out_key} ${styles.out_topRight1}`}>
         {topRight1}
       </Title>

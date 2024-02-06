@@ -26,7 +26,7 @@ function PersonalMatrixOfFade({}) {
               setName={setName}
               setIsShowMatrix={setIsShowMatrix}
               setIsChecked={setIsChecked}
-              isChecked={setIsChecked}
+              isChecked={isChecked}
             />
           </Suspense>
         </section>
