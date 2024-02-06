@@ -11,13 +11,14 @@ const ResultMatrix = ({ matrix, title }) => {
   useEffect(() => {
     if (!matrix) return;
     const map = getResultLifeMap({ info: matrix });
+
     setLifeMap(map);
   }, [matrix]);
 
   return (
     <div className={styles.result_matrix_wrapper}>
       <MatrixGraph matrix={matrix} title={title} />
-      <ResultLifeMap maps={lifeMap} />
+      <ResultLifeMap maps={lifeMap}  />
     </div>
   );
 };

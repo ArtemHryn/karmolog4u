@@ -61,3 +61,27 @@
   color: #131313;
   background-color: $additional_bg;
 }
+
+//духовний урок
+
+.spirit_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  margin-top: 60px;
+}
+
+.spirit_title {
+  @include fontRegular(24px, 400, 30px);
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(28px, 400, 39.2px);
+  }
+}
+
+.spirit_keys {
+  @include fontRegular(14px, 400, 19.6px);
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(18px, 400, 25.2px);
+  }
+}
