@@ -11,7 +11,7 @@ const heroData = {
     },
     {
       href: '/calculator/matrix-of-consciousness',
-      name: 'Розрахувати матрицю групи людей',
+      name: 'Розрахувати матрицю свідомості',
     },
   ],
   about: 'Онлайн-розрахунок',

@@ -51,7 +51,7 @@ const matrixLinks = [
     name: 'Матрицю “16 законів карми”',
   },
   {
-    href: '/calculator/matrix-of-inner-karma',
+    href: '/calculator/internal-karma-matrix',
     name: 'Матрицю внутрішньої карми',
   },
   {
