@@ -26,9 +26,11 @@ function SocialInfoDesc({ socialList }) {
       <div className={styles.wrap_item}>
         <div className={styles.desc_wrapper}>
           {socialList.map((el, index) => (
-            <p key={index} className={`${styles.title} ${unbounded.className}`}>
-              {el}
-            </p>
+            <p
+              key={index}
+              className={`${styles.title} ${unbounded.className}`}
+              dangerouslySetInnerHTML={{ __html: el }}
+            />
           ))}
           <div className={styles.additional_desc_wrap}>
             <p className={`${styles.additional_desc} ${unbounded.className}`}>
