@@ -39,7 +39,7 @@ const matrixLinks = [
     name: 'Матрицю “Демон жертва”',
   },
   {
-    href: '/calculator/matrix-of-holistic-power',
+    href: '/calculator/holistic-power-matrix',
     name: 'Матрицю цілісної сили',
   },
   {

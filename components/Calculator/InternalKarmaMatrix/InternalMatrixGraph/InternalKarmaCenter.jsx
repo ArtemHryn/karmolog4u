@@ -2,7 +2,7 @@ import Title from '@components/Common/Title/Title';
 
 import styles from './InternalMatrixGraph.module.scss';
 
-const InternalKarmaCenter = ({ matrix }) => {
+const InternalKarmaCenter = ({ matrix, hideCenter2 }) => {
   const { center, center2 } = matrix;
 
   return (
@@ -10,9 +10,11 @@ const InternalKarmaCenter = ({ matrix }) => {
       <Title variant="span" styled={`${styles.center} ${styles.center_main}`}>
         {center}
       </Title>
-      <Title variant="span" styled={`${styles.center} ${styles.center_additional}`}>
-        {center2}
-      </Title>
+      {!hideCenter2 && (
+        <Title variant="span" styled={`${styles.center} ${styles.center_additional}`}>
+          {center2}
+        </Title>
+      )}
     </>
   );
 };
