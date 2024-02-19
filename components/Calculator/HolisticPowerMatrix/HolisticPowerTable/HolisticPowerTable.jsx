@@ -2,7 +2,7 @@ import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
 
 import styles from './HolisticPowerTable.module.scss';
 
-const HolisticPowerTable = ({ table }) => {
+const HolisticPowerTables = ({ table }) => {
   if (Object.keys(table).length === 0) return null;
   return (
     <div className={styles.main_wrapper}>
@@ -23,4 +23,4 @@ const HolisticPowerTable = ({ table }) => {
   );
 };
 
-export default HolisticPowerTable;
+export default HolisticPowerTables;
