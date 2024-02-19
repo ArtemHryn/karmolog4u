@@ -4,9 +4,10 @@ import { Suspense, useState } from 'react';
 import ConsciousnessHero from '@components/Calculator/Consciousness/ConsciousnessHero/ConsciousnessHero';
 import Container from '@components/Common/Container/Container';
 import Consciousness from '@components/Calculator/Consciousness/Consciousness';
+import MoreCalculators from '@components/Calculator/MoreCalculators/MoreCalculators';
+import SocialInfoDesc from '@components/Common/Calculator/SocialInfoDesc/SocialInfoDesc';
 
 import styles from '@components/Calculator/Consciousness/Consciousness.module.scss';
-import SocialInfoDesc from '@components/Common/Calculator/SocialInfoDesc/SocialInfoDesc';
 
 const social = [
   'Заінтриговані чи не зрозуміло? — запишіться на особисту консультацію і ви вже ніколи не захочете повертати собі свідомість попереднього себе',
@@ -38,6 +39,7 @@ const MatrixOfConsciousness = () => {
           <Container styledSection={styles.matrix_wrapper}>
             <Consciousness date={date} name={name} />
           </Container>
+          <MoreCalculators date={date} name={name} />
           <SocialInfoDesc socialList={social} />
         </>
       )}

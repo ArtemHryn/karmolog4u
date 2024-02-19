@@ -5,6 +5,7 @@ import Container from '@components/Common/Container/Container';
 import CompatibilityMatrix from '@components/Calculator/CompatibilityMatrix/CompatibilityMatrix';
 import SocialInfoDesc from '@components/Common/Calculator/SocialInfoDesc/SocialInfoDesc';
 import CompatibilityHero from '@components/Calculator/CompatibilityMatrix/CompatibilityHero/CompatibilityHero';
+import MoreCalculators from '@components/Calculator/MoreCalculators/MoreCalculators';
 
 const social = [
   'Ну що, цікаво дізнатися наскільки ви ідеальна пара для стосунків чи партнерства — записуйтесь на особисту консультацію — відповіді поруч!',
@@ -32,6 +33,7 @@ function CompatibilityMatrixPage() {
       {isShowMatrix && (
         <>
           <CompatibilityMatrix partners={usersInfo} />
+          <MoreCalculators />
           <SocialInfoDesc socialList={social} />
         </>
       )}

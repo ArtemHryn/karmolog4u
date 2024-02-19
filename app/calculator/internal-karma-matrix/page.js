@@ -7,6 +7,7 @@ import InternalKarmaHero from '@components/Calculator/InternalKarmaMatrix/Intern
 import styles from '@components/Calculator/InternalKarmaMatrix/InternalKarmaMatrix.module.scss';
 import InternalKarmaMatrix from '@components/Calculator/InternalKarmaMatrix/InternalKarmaMatrix';
 import SocialInfoDesc from '@components/Common/Calculator/SocialInfoDesc/SocialInfoDesc';
+import MoreCalculators from '@components/Calculator/MoreCalculators/MoreCalculators';
 
 const social = [
   'Оновлення для вашої особистості вже готове — приходьте на персональну консультацію та отримайте  перезавантаження внутрішньої карми.',
@@ -37,6 +38,7 @@ const InternalKarmaPage = () => {
           <Container styledSection={styles.matrix_wrapper}>
             <InternalKarmaMatrix date={date} name={name} />
           </Container>
+          <MoreCalculators date={date} name={name} />
           <SocialInfoDesc socialList={social} />
         </>
       )}

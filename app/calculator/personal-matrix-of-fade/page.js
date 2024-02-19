@@ -8,7 +8,7 @@ import SocialInfo from '@components/Calculator/SocialInfo/SocialInfo';
 import Header from '@components/Calculator/PersonalMatrix/Header/Header';
 
 import styles from '/components/Calculator/PersonalMatrix/PersonalCalculator.module.scss';
-
+import MoreCalculators from '@components/Calculator/MoreCalculators/MoreCalculators';
 
 function PersonalMatrixOfFade({}) {
   const [isShowMatrix, setIsShowMatrix] = useState(false);
@@ -36,6 +36,7 @@ function PersonalMatrixOfFade({}) {
           <Container styledSection={styles.matrix_wrapper}>
             <PersonalCalculator date={date} name={name} />
           </Container>
+          <MoreCalculators date={date} name={name} />
           <SocialInfo />
         </>
       )}
