@@ -1,0 +1,134 @@
+@import '../styles/main.scss';
+
+.section {
+  border-bottom: 1px solid $accent_v2;
+}
+
+.show_list_btn {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  cursor: pointer;
+  margin-bottom: 40px;
+  @include fontRegular(18px, 400, 25.2px);
+  transition: all 250ms ease;
+  &:is(:hover, :focus) {
+    scale: 1.03;
+  }
+  @media screen and (min-width: $min_tablet) {
+    gap: 40px;
+    margin: 0 auto 80px;
+    font-size: 28px;
+  }
+  &_opened {
+    margin-bottom: 0;
+  }
+}
+
+.icon_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid $card_bg;
+  border-radius: 50%;
+  @media screen and (min-width: $min_tablet) {
+    width: 50px;
+    height: 50px;
+  }
+  @media screen and (min-width: $min_desktop) {
+  }
+}
+.icon {
+  width: 20px;
+  height: 20px;
+  transition: all 350ms ease;
+  @media screen and (min-width: $min_tablet) {
+    display: none;
+  }
+  &_active {
+    transform: rotateZ(180deg);
+  }
+}
+
+.icon_tab {
+  display: none;
+  @media screen and (min-width: $min_tablet) {
+    transition: all 350ms ease;
+    display: block;
+    width: 26px;
+    height: 26px;
+  }
+  &_active {
+    transform: rotateZ(180deg);
+  }
+}
+
+.active_part {
+  height: 100%;
+  &_hide {
+    height: 0;
+    overflow: hidden;
+  }
+}
+
+.title {
+  @include fontRegular(18px, 400, 25.2px, $main_text_color, center);
+  margin-bottom: 40px;
+  @media screen and (min-width: $min_tablet) {
+    margin-bottom: 48px;
+    font-size: 28px;
+  }
+  @media screen and (min-width: $min_desktop) {
+  }
+}
+
+.links_list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 28px;
+  @media screen and (min-width: $min_tablet) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-bottom: 36px;
+  }
+  @media screen and (min-width: $min_desktop) {
+  }
+}
+
+.links {
+  @include fontRegular(18px, 600, 25.2px, $third_text_color, center);
+  display: flex;
+  width: 328px;
+  height: 52px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  background-color: $accent_v2;
+  transition: all 0.3s ease;
+  @media screen and (min-width: $min_tablet) {
+    width: 356px;
+    height: 60px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    width: 410px;
+    height: 60px;
+  }
+  &:hover,
+  &:focus {
+    background-color: $buttons_hover_color;
+  }
+}
+
+.notification {
+  @include fontRegular(12px, 500, 16px);
+  @media screen and (min-width: $min_tablet) {
+    text-align: center;
+  }
+  @media screen and (min-width: $min_desktop) {
+  }
+}

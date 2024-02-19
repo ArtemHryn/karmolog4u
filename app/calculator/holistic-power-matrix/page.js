@@ -5,6 +5,7 @@ import HolisticPowerHero from '@components/Calculator/HolisticPowerMatrix/Holist
 import Container from '@components/Common/Container/Container';
 import SocialInfoDesc from '@components/Common/Calculator/SocialInfoDesc/SocialInfoDesc';
 import HolisticPowerMatrix from '@components/Calculator/HolisticPowerMatrix/HolisticPowerMatrix';
+import MoreCalculators from '@components/Calculator/MoreCalculators/MoreCalculators';
 
 import styles from '@components/Calculator/HolisticPowerMatrix/HolisticPowerMatrix.module.scss';
 
@@ -37,6 +38,7 @@ const HolisticPowerPage = () => {
           <Container styledSection={styles.matrix_wrapper}>
             <HolisticPowerMatrix date={date} name={name} />
           </Container>
+          <MoreCalculators date={date} name={name} />
           <SocialInfoDesc socialList={social} />
         </>
       )}
