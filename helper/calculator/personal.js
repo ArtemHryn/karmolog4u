@@ -12,7 +12,7 @@ export function checkNum(...nums) {
   return +result;
 }
 
-export const getPersonalGraph = ({ info, lifeMap, isPartners }) => {
+export const getPersonalGraph = ({ info, lifeMap, isPartners, skipCenter }) => {
   const data = { ...info };
 
   Object.keys(data).forEach(el => {
@@ -23,7 +23,6 @@ export const getPersonalGraph = ({ info, lifeMap, isPartners }) => {
     data[el] = checkNum(data[el]);
   });
 
-
   if (!isPartners) {
     data.bottom1 = checkNum(data.day, data.month, data.year);
 
@@ -32,9 +31,11 @@ export const getPersonalGraph = ({ info, lifeMap, isPartners }) => {
     data.topRight1 = checkNum(data.month, data.year);
     data.bottomRight1 = checkNum(data.bottom1, data.year);
     data.bottomLeft1 = checkNum(data.bottom1, data.day);
-}
+  }
 
-  data.center = checkNum(data.day, data.month, data.year, data.bottom1);
+  if (!skipCenter) {
+    data.center = checkNum(data.day, data.month, data.year, data.bottom1);
+  }
 
   //внутрішні основні точки
   data.bottom3 = checkNum(data.center, data.bottom1);

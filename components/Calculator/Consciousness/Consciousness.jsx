@@ -3,14 +3,15 @@ import { getPersonalGraph } from '@helper/calculator/personal';
 import { getResultLifeMap } from '@helper/calculator/compatibility';
 import ConsciousnessGraph from './ConsciousnessGraph/ConsciousnessGraph';
 import ResultLifeMap from '../CompatibilityMatrix/ResultMatrix/ResultLifeMap/ResultLifeMap';
-import { getConsciousness } from '@helper/calculator/consciousness';
+import { getConsciousness, getExtensionList } from '@helper/calculator/consciousness';
 
-import styles from './Consciousness.module.scss'
+import styles from './Consciousness.module.scss';
 
 const Consciousness = ({ date, name }) => {
   const [matrix, setMatrix] = useState({});
   const [map, setMap] = useState(null);
   const [spiritLesson, setSpiritLesson] = useState({});
+  const [extensionList, setExtensionList] = useState(null);
 
   useEffect(() => {
     if (!date) return;
@@ -32,9 +33,11 @@ const Consciousness = ({ date, name }) => {
     const consMatrix = getPersonalGraph({ info: newMatrix, isPartners: true, lifeMap: true });
     const mapResult = getResultLifeMap({ info: consMatrix });
     const spiritKeys = getConsciousness({ info: consMatrix });
+    const extension = getExtensionList({ info: consMatrix });
     setSpiritLesson(spiritKeys);
     setMatrix(consMatrix);
     setMap(mapResult);
+    setExtensionList(extension);
   }, [date]);
 
   useEffect(() => {
@@ -49,7 +52,7 @@ const Consciousness = ({ date, name }) => {
     <>
       <div id="matrix-of-consciousness" className={styles.consciousness_matrix_wrapper}>
         <ConsciousnessGraph matrix={matrix} date={date} name={name} />
-        <ResultLifeMap maps={map} spiritLesson={spiritLesson} />
+        <ResultLifeMap maps={map} spiritLesson={spiritLesson} extensionList={extensionList} />
       </div>
     </>
   );

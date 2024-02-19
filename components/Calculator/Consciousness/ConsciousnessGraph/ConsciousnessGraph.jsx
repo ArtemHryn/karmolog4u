@@ -6,6 +6,7 @@ import Title from '@components/Common/Title/Title';
 import ConsciousnessSvg from './ConsciousnessSvg';
 
 import styles from './ConsciousnessGraph.module.scss';
+import ConsciousnessCenter from './ConsciousnessCenter';
 
 const ConsciousnessGraph = ({ matrix, name, date }) => {
   if (!matrix) return null;
@@ -31,6 +32,7 @@ const ConsciousnessGraph = ({ matrix, name, date }) => {
         <Left matrix={matrix} hideAdditionalKeys />
         <Right matrix={matrix} hideAdditionalKeys />
         <Bottom matrix={matrix} hideAdditionalKeys hideInnerAdditionalKeys />
+        <ConsciousnessCenter matrix={matrix} />
       </div>
     </div>
   );
