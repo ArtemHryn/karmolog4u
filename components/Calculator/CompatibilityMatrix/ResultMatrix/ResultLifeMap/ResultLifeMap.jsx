@@ -1,7 +1,7 @@
-import Title from '@components/Common/Title/Title';
 import HolisticPowerTables from '@components/Calculator/HolisticPowerMatrix/HolisticPowerTable/HolisticPowerTable';
 import SpiritLesson from './SpiritLesson';
 import ExtensionList from './ExtensionList';
+import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
 
 import styles from './ResultLifeMap.module.scss';
 
@@ -11,9 +11,9 @@ const ResultLifeMap = ({ maps, spiritLesson, extensionList, holisticTable }) => 
   return (
     <div className={styles.main_wrapper}>
       <div>
-        <Title variant="h3" styled={styles.lifemap_title}>
+        <TitleNoStyles variant="h3" styled={styles.lifemap_title}>
           Карта життя
-        </Title>
+        </TitleNoStyles>
         <ul className={styles.main_life_map_list}>
           {mapsList.map(mapType => (
             <li key={mapType}>

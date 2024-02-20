@@ -15,6 +15,7 @@
   text-align: center;
   font-size: 24px;
   margin-bottom: 40px;
+  @include fontRegular(24px, 400, 30px, $main_text_color, center);
   @media screen and (min-width: $min_tablet) {
     font-size: 28px;
     margin-bottom: 48px;
@@ -86,7 +87,6 @@
     @include fontRegular(18px, 400, 25.2px);
   }
 }
-
 
 //ключ розширення
 
