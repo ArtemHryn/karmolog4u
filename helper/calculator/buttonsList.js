@@ -9,7 +9,7 @@ export const matrixLinks = [
     useDate: true,
   },
   {
-    href: '/calculator/nine-tribes-of-the-family-matrix',
+    href: '/calculator/nine-tribes-matrix',
     name: 'Матрицю “9 колін роду” ',
   },
   {

@@ -2,7 +2,7 @@ import Title from '@components/Common/Title/Title';
 
 import styles from './MatrixGraph.module.scss';
 
-const InnerSq = ({ matrix, hideSq }) => {
+const InnerSq = ({ matrix, hideSq, hideBalanceLine }) => {
   const { innerTop, innerLeft, innerRight, innerBottom, balance, love, money } = matrix;
   return (
     <>
@@ -22,15 +22,19 @@ const InnerSq = ({ matrix, hideSq }) => {
           </Title>
         </>
       )}
-      <Title variant="span" styled={`${styles.inner_key} ${styles.life_balance}`}>
-        {balance}
-      </Title>
-      <Title variant="span" styled={`${styles.inner_key} ${styles.life_love}`}>
-        {love}
-      </Title>
-      <Title variant="span" styled={`${styles.inner_key} ${styles.life_money}`}>
-        {money}
-      </Title>
+      {!hideBalanceLine && (
+        <>
+          <Title variant="span" styled={`${styles.inner_key} ${styles.life_balance}`}>
+            {balance}
+          </Title>
+          <Title variant="span" styled={`${styles.inner_key} ${styles.life_love}`}>
+            {love}
+          </Title>
+          <Title variant="span" styled={`${styles.inner_key} ${styles.life_money}`}>
+            {money}
+          </Title>
+        </>
+      )}
     </>
   );
 };

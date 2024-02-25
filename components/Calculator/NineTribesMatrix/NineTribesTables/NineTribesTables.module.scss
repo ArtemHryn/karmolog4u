@@ -1,0 +1,27 @@
+@import '/styles/main.scss';
+
+.title {
+  @include fontRegular(24px, 400, 30px, $main_text_color, center);
+  margin-bottom: 40px;
+  @media screen and (min-width: $min_tablet) {
+    font-size: 28px;
+    margin-bottom: 48px;
+  }
+}
+
+.tables_list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  @media screen and (min-width: $min_tablet) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 40px;
+    column-gap: 25px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    gap: 40px;
+    flex-wrap: nowrap;
+  }
+}

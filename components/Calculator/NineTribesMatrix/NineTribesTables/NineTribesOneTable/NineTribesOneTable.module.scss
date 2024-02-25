@@ -1,0 +1,104 @@
+@import '/styles/main.scss';
+
+.element {
+  border: 1px solid $matrix_table_border;
+  width: 328px;
+  @media screen and (min-width: $min_tablet) {
+    width: 355px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    width: 397px;
+  }
+}
+
+//column names
+.name_list {
+  display: flex;
+  background-color: $additional_bg;
+}
+
+.name_list_element {
+  border-bottom: 1px solid $matrix_table_border;
+  border-right: 1px solid $matrix_table_border;
+  &:last-child {
+    border-right: none;
+  }
+}
+
+.empty_box {
+  background-color: $additional_bg;
+  width: 29px;
+  @media screen and (min-width: $min_tablet) {
+    width: 38px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    width: 50px;
+  }
+}
+
+.name {
+  @include fontRegular(16px, 400, 22.4px, $third_text_color);
+  padding: 6px 4px;
+  width: 98px;
+  @media screen and (min-width: $min_tablet) {
+    font-size: 18px;
+    padding: 18px 6px;
+    width: 104px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    width: 114px;
+    padding: 18px 11px;
+  }
+}
+
+//arcanes list
+
+.arcanes_list_element {
+  display: flex;
+  height: 40px;
+  border-bottom: 1px solid $matrix_table_border;
+  &:last-child {
+    border-bottom: none;
+  }
+  @media screen and (min-width: $min_tablet) {
+    height: 52px;
+  }
+}
+
+.tribe_number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 31px;
+  border-right: 1px solid $matrix_table_border;
+  @include fontRegular(14px, 400, 19.6px);
+  &:last-child {
+    border-right: none;
+  }
+  @media screen and (min-width: $min_tablet) {
+    width: 40px;
+    font-size: 18px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    width: 51px;
+  }
+}
+
+.tribe_arcanes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 99px;
+  height: 100%;
+  border-right: 1px solid $matrix_table_border;
+  &:last-child {
+    border-right: none;
+  }
+  @media screen and (min-width: $min_tablet) {
+    width: 105px;
+    font-size: 18px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    width: 115px;
+  }
+}

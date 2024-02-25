@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import HolisticPowerGraph from './HolisticPowerGraph/HolisticPowerGraph';
-import HolisticPowerTables from './HolisticPowerTable/HolisticPowerTable';
 import { getHolisticPower, getHolisticPowerTable } from '@helper/calculator/holisticPower';
 
 import { getResultLifeMap } from '@helper/calculator/compatibility';
