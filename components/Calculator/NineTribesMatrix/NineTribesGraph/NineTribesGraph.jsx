@@ -1,17 +1,19 @@
 import Title from '@components/Common/Title/Title';
-import HolisticPowerSvg from './HolisticPowerSvg';
+import NineTribesSvg from './NineTribesSvg';
 import Top from '@components/Calculator/PersonalMatrix/MatrixGraph/Top';
 import Left from '@components/Calculator/PersonalMatrix/MatrixGraph/Left';
 import Right from '@components/Calculator/PersonalMatrix/MatrixGraph/Right';
 import Bottom from '@components/Calculator/PersonalMatrix/MatrixGraph/Bottom';
-import InternalKarmaCenter from '@components/Calculator/InternalKarmaMatrix/InternalMatrixGraph/InternalKarmaCenter';
+import Center from '@components/Calculator/PersonalMatrix/MatrixGraph/Center';
 
-import styles from './HolisticPowerGraph.module.scss';
+import styles from './NineTribesGraph.module.scss';
+import InnerSq from '@components/Calculator/PersonalMatrix/MatrixGraph/InnerSq';
+import HealthSqr from './HealthSqr';
 
-const HolisticPowerGraph = ({ matrix, name, date }) => {
+const NineTribesGraph = ({ matrix, name, date }) => {
   if (!matrix) return null;
   return (
-    <div>
+    <div className={styles.wrapper}>
       <div className={styles.date_wrapper}>
         {name ? (
           <Title variant="p" styled={styles.date_title}>
@@ -27,15 +29,17 @@ const HolisticPowerGraph = ({ matrix, name, date }) => {
         </Title>
       </div>
       <div className={styles.graph_wrapper}>
-        <HolisticPowerSvg styled={styles.graph} />
-        <Top matrix={matrix} hideAdditionalKeys hideInnerAdditionalKeys />
-        <Left matrix={matrix} hideAdditionalKeys />
-        <Right matrix={matrix} hideAdditionalKeys />
-        <Bottom matrix={matrix} hideAdditionalKeys hideInnerAdditionalKeys />
-        <InternalKarmaCenter matrix={matrix} />
+        <NineTribesSvg styled={styles.graph} />
+        <Top matrix={matrix} />
+        <Left matrix={matrix} />
+        <Right matrix={matrix} />
+        <Bottom matrix={matrix} />
+        <Center matrix={matrix} />
+        <InnerSq matrix={matrix} hideBalanceLine />
+        <HealthSqr matrix={matrix} />
       </div>
     </div>
   );
 };
 
-export default HolisticPowerGraph;
+export default NineTribesGraph;

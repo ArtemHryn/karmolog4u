@@ -4,7 +4,6 @@ import styles from './InternalMatrixGraph.module.scss';
 
 const InternalKarmaCenter = ({ matrix, hideCenter2 }) => {
   const { center, center2 } = matrix;
-
   return (
     <>
       <Title variant="span" styled={`${styles.center} ${styles.center_main}`}>

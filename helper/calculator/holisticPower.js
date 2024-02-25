@@ -27,6 +27,12 @@ export const getHolisticPower = ({ date }) => {
   finalMatrix.bottomLeft1 = checkNum(finalMatrix.topLeft1, finalMatrix.day);
   finalMatrix.bottom1 = checkNum(finalMatrix.month, finalMatrix.center);
   finalMatrix.bottomRight1 = checkNum(finalMatrix.topRight1, finalMatrix.year);
+  finalMatrix.center2 = checkNum(
+    finalMatrix.topLeft1,
+    finalMatrix.topRight1,
+    finalMatrix.bottomLeft1,
+    finalMatrix.bottomRight1
+  );
 
   return finalMatrix;
 };

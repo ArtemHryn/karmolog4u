@@ -19,6 +19,8 @@ const HolisticPowerSvg = ({ styled }) => {
       <rect x="0.5" y="283.5" width="54" height="54" rx="27" stroke="#CFB691" />
       <rect x="281.5" y="280.5" width="59" height="59" rx="29.5" fill="#101010" />
       <rect x="281.5" y="280.5" width="59" height="59" rx="29.5" stroke="#CFB691" />
+      <rect x="341.5" y="287.5" width="43" height="43" rx="21.5" fill="#101010" />
+      <rect x="341.5" y="287.5" width="43" height="43" rx="21.5" stroke="#CFB691" />
       <rect x="283.5" y="562.5" width="54" height="54" rx="27" fill="#101010" />
       <rect x="283.5" y="562.5" width="54" height="54" rx="27" stroke="#CFB691" />
       <rect x="284.5" y="0.5" width="54" height="54" rx="27" fill="#101010" />
