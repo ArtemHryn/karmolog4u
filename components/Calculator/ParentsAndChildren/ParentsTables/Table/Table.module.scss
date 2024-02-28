@@ -1,0 +1,117 @@
+@import '/styles/main.scss';
+
+.table_el {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  @media screen and (min-width: $min_tablet) {
+    gap: 48px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    width: 627px;
+  }
+}
+
+.title {
+  @include fontRegular(24px, 400, 30px, $main_text_color, center);
+  @media screen and (min-width: $min_tablet) {
+    font-size: 28px;
+  }
+}
+
+.column_names_list {
+  display: flex;
+  background-color: $additional_bg;
+  border: 1px solid $matrix_table_border;
+}
+
+.column_names_element {
+  height: 44px;
+  width: 76px;
+  border-right: 1px solid $matrix_table_border;
+
+  &:first-child {
+    width: 44px;
+  }
+  &:last-child {
+    width: 130px;
+    border-right: none;
+    padding: 0 2px;
+  }
+  @media screen and (min-width: $min_tablet) {
+    height: 50px;
+    width: 172px;
+    &:first-child {
+      width: 90px;
+    }
+    &:last-child {
+      width: 199px;
+    }
+  }
+}
+
+.column_name_text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  @include fontRegular(14px, 400, 19.6px, $third_text_color, center);
+  &_mob {
+    @media screen and (min-width: $min_tablet) {
+      display: none;
+    }
+  }
+  &_tablet {
+    display: none;
+    @media screen and (min-width: $min_tablet) {
+      display: flex;
+    }
+  }
+  @media screen and (min-width: $min_tablet) {
+    font-size: 18px;
+  }
+}
+
+//arcanes
+
+.arcanes_list {
+  border: 1px solid $matrix_table_border;
+  border-top: none;
+}
+
+.arcanes_list_element {
+  display: flex;
+  border-bottom: 1px solid $matrix_table_border;
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.arcane_text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  width: 76px;
+  border-right: 1px solid $matrix_table_border;
+  @include fontRegular(14px, 400, 19.6px);
+
+  &:first-child {
+    width: 44px;
+  }
+  &:last-child {
+    width: 130px;
+    border-right: none;
+  }
+  @media screen and (min-width: $min_tablet) {
+    font-size: 18px;
+    height: 37px;
+    width: 172px;
+    &:first-child {
+      width: 90px;
+    }
+    &:last-child {
+      width: 199px;
+    }
+  }
+}

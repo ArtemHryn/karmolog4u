@@ -1,0 +1,181 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  @media screen and (min-width: $min_desktop) {
+    width: 618px;
+  }
+}
+
+.date_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.date_title {
+  text-align: center;
+  font-size: 24px !important;
+  font-weight: 400 !important;
+  line-height: 24px !important;
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(28px, 400, 39.2px);
+    font-size: 28px !important;
+    line-height: 39.2px !important;
+  }
+}
+
+.date {
+  @include fontRegular(18px, 400, 25.2px, $seconds_text_color);
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  line-height: 25.2px !important;
+  color: $seconds_text_color;
+}
+
+.graph_wrapper {
+  position: relative;
+
+  @media screen and (min-width: $min_tablet) {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.graph {
+  width: 328px;
+  height: 413px;
+  @media screen and (min-width: $min_tablet) {
+    width: 618px;
+    height: 716px;
+  }
+}
+
+.inner_sqr {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  @include fontRegular(10px, 700, 28px, $seconds_text_color);
+  &_innerTopLeft {
+    top: 33.9%;
+    left: 31.2%;
+  }
+  &_innerTop {
+    top: 28.4%;
+    right: 46%;
+  }
+  &_innerLeft {
+    top: 46%;
+    left: 25.3%;
+  }
+  &_innerBottomLeft {
+    bottom: 35%;
+    left: 31.2%;
+  }
+  @media screen and (min-width: $min_tablet) {
+    width: 30px;
+    font-size: 16px;
+    &_innerTopLeft {
+      top: 34%;
+      left: 35.2%;
+    }
+    &_innerTop {
+      top: 27.7%;
+      right: 47.7%;
+    }
+    &_innerLeft {
+      top: 47.1%;
+      left: 30.1%;
+    }
+    &_innerBottomLeft {
+      bottom: 33%;
+      left: 35.2%;
+    }
+  }
+  @media screen and (min-width: $min_desktop) {
+    &_innerTopLeft {
+      top: 33.9%;
+      left: 32.4%;
+    }
+    &_innerTop {
+      top: 27.6%;
+      right: 47.2%;
+    }
+    &_innerLeft {
+      top: 47.1%;
+      left: 26.4%;
+    }
+    &_innerBottomLeft {
+      bottom: 33%;
+      left: 32.3%;
+    }
+  }
+}
+
+.additional_parents_points {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 17px;
+  @include fontRegular(10px, 700, 28px, $seconds_text_color);
+  &_parentsAddit1 {
+    top: 28.6%;
+    left: 34%;
+  }
+  &_parentsAddit2 {
+    top: 37.7%;
+    left: 22.4%;
+  }
+  &_parentsAddit3 {
+    bottom: 38.9%;
+    left: 30%;
+    justify-content: flex-start;
+  }
+  &_parentsAddit4 {
+    bottom: 30.2%;
+    left: 40.8%;
+    justify-content: flex-start;
+  }
+  @media screen and (min-width: $min_tablet) {
+    width: 30px;
+    font-size: 16px;
+    &_parentsAddit1 {
+      top: 28%;
+      left: 36.6%;
+    }
+    &_parentsAddit2 {
+      top: 38%;
+      left: 27.2%;
+    }
+    &_parentsAddit3 {
+      bottom: 37.4%;
+      left: 33.2%;
+    }
+    &_parentsAddit4 {
+      bottom: 28.2%;
+      left: 42%;
+    }
+  }
+  @media screen and (min-width: $min_desktop) {
+    &_parentsAddit1 {
+      top: 28%;
+      left: 34.2%;
+    }
+    &_parentsAddit2 {
+      top: 38%;
+      left: 22.8%;
+    }
+    &_parentsAddit3 {
+      bottom: 37.5%;
+      left: 30.2%;
+    }
+    &_parentsAddit4 {
+      bottom: 28.1%;
+      left: 41%;
+    }
+  }
+}
