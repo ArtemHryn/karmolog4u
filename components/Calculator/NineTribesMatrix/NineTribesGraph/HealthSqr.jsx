@@ -2,7 +2,7 @@ import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
 
 import styles from './NineTribesGraph.module.scss';
 
-const HealthSqr = ({ matrix }) => {
+const HealthSqr = ({ matrix, hideTR, hideBR }) => {
   const { healthTopLeft, healthTopRight, healthBottomRight, healthBottomLeft } = matrix;
   return (
     <>
@@ -12,18 +12,22 @@ const HealthSqr = ({ matrix }) => {
       >
         {healthTopLeft}
       </TitleNoStyles>
-      <TitleNoStyles
-        variant="span"
-        styled={`${styles.health_sqr} ${styles.health_sqr_innerTopRight}`}
-      >
-        {healthTopRight}
-      </TitleNoStyles>
-      <TitleNoStyles
-        variant="span"
-        styled={`${styles.health_sqr} ${styles.health_sqr_innerBottomRight}`}
-      >
-        {healthBottomRight}
-      </TitleNoStyles>
+      {!hideTR && (
+        <TitleNoStyles
+          variant="span"
+          styled={`${styles.health_sqr} ${styles.health_sqr_innerTopRight}`}
+        >
+          {healthTopRight}
+        </TitleNoStyles>
+      )}
+      {!hideBR && (
+        <TitleNoStyles
+          variant="span"
+          styled={`${styles.health_sqr} ${styles.health_sqr_innerBottomRight}`}
+        >
+          {healthBottomRight}
+        </TitleNoStyles>
+      )}
       <TitleNoStyles
         variant="span"
         styled={`${styles.health_sqr} ${styles.health_sqr_innerBottomLeft}`}

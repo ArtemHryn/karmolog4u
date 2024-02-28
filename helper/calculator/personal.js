@@ -19,6 +19,7 @@ export const getPersonalGraph = ({
   skipCenter,
   healthSqr,
   isGeneric,
+  parents,
 }) => {
   const data = { ...info };
 
@@ -138,7 +139,16 @@ export const getPersonalGraph = ({
     data.motherEarth8 = checkNum(data.left2, data.bottomLeft2);
     data.motherEarth9 = checkNum(data.day, data.bottomLeft1);
   }
+  if (parents) {
+    data.innerTopLeft = checkNum(data.top3, data.left3);
+    data.innerBottomLeft = checkNum(data.bottom3, data.left3);
 
+    //additional points from numeric from top
+    data.parentsAddit1 = checkNum(data.top3, data.innerTopLeft)
+    data.parentsAddit2 = checkNum(data.left3, data.innerTopLeft)
+    data.parentsAddit3 = checkNum(data.left3, data.innerBottomLeft)
+    data.parentsAddit4 = checkNum(data.bottom3, data.innerBottomLeft)
+  }
   return data;
 };
 
