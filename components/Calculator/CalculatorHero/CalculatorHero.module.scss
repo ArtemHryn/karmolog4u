@@ -44,6 +44,7 @@
 
 .desc {
   white-space: pre-line;
+  
   @include fontRegular(14px, 400, 19.6px, $seconds_text_color, center);
   &:not(:last-of-type) {
     margin-bottom: 24px;
