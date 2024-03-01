@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
+import TitleNoStyles from "@components/Common/TitleNoStyles/TitleNoStyles";
 
 import styles from "../PatentedMethods.module.scss";
-import Title from "@components/Common/Title/Title";
 
 const slides = [
   {
@@ -58,9 +58,9 @@ const Slider = () => {
         {slides.map((el) => (
           <SwiperSlide key={el.name}>
             <div className={styles.wrapper}>
-              <Title variant="p" styled={styles.text}>
+              <TitleNoStyles variant="p" styled={styles.text}>
                 {el.name}
-              </Title>
+              </TitleNoStyles>
               <Link
                 href={el.link}
                 className={styles.button_link}
