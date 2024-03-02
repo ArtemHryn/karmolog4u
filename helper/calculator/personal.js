@@ -104,40 +104,40 @@ export const getPersonalGraph = ({
     data.fatherSpirit2 = checkNum(data.top2, data.topLeft2);
     data.fatherSpirit3 = checkNum(data.top3, data.topLeft3);
     data.fatherSpirit4 = checkNum(data.innerTop, data.healthTopLeft);
-    data.fatherSpirit6 = checkNum(data.innerBottom, data.healthBottomRight);
-    data.fatherSpirit7 = checkNum(data.bottom3, data.bottomRight3);
-    data.fatherSpirit8 = checkNum(data.bottom2, data.bottomRight2);
-    data.fatherSpirit9 = checkNum(data.bottom1, data.bottomRight1);
+    data.fatherSpirit6 = checkNum(data.bottom3, data.bottomRight3);
+    data.fatherSpirit7 = checkNum(data.bottom1, data.bottomRight1);
+    data.fatherSpirit8 = checkNum(data.innerBottom, data.healthBottomRight);
+    data.fatherSpirit9 = checkNum(data.bottom2, data.bottomRight2);
 
     //father earth line
     data.fatherEarth1 = checkNum(data.day, data.topLeft1);
     data.fatherEarth2 = checkNum(data.left2, data.topLeft2);
     data.fatherEarth3 = checkNum(data.left3, data.topLeft3);
     data.fatherEarth4 = checkNum(data.innerLeft, data.healthTopLeft);
-    data.fatherEarth6 = checkNum(data.innerRight, data.healthBottomRight);
-    data.fatherEarth7 = checkNum(data.right3, data.bottomRight3);
-    data.fatherEarth8 = checkNum(data.right2, data.bottomRight2);
-    data.fatherEarth9 = checkNum(data.year, data.bottomRight1);
+    data.fatherEarth6 = checkNum(data.right3, data.bottomRight3);
+    data.fatherEarth7 = checkNum(data.year, data.bottomRight1);
+    data.fatherEarth8 = checkNum(data.innerRight, data.healthBottomRight);
+    data.fatherEarth9 = checkNum(data.right2, data.bottomRight2);
 
     //mother spirit line
     data.motherSpirit1 = checkNum(data.month, data.topRight1);
     data.motherSpirit2 = checkNum(data.top2, data.topRight2);
     data.motherSpirit3 = checkNum(data.top3, data.topRight3);
     data.motherSpirit4 = checkNum(data.innerTop, data.healthTopRight);
-    data.motherSpirit6 = checkNum(data.innerBottom, data.healthBottomLeft);
-    data.motherSpirit7 = checkNum(data.bottom3, data.bottomLeft3);
-    data.motherSpirit8 = checkNum(data.bottom2, data.bottomLeft2);
-    data.motherSpirit9 = checkNum(data.bottom1, data.bottomLeft1);
+    data.motherSpirit6 = checkNum(data.bottom3, data.bottomLeft3);
+    data.motherSpirit7 = checkNum(data.bottom1, data.bottomLeft1);
+    data.motherSpirit8 = checkNum(data.innerBottom, data.healthBottomLeft);
+    data.motherSpirit9 = checkNum(data.bottom2, data.bottomLeft2);
 
     //mother earth line
-    data.motherEarth1 = checkNum(data.year, data.topRight1);
-    data.motherEarth2 = checkNum(data.right2, data.topRight2);
-    data.motherEarth3 = checkNum(data.right3, data.topRight3);
-    data.motherEarth4 = checkNum(data.innerRight, data.healthTopRight);
-    data.motherEarth6 = checkNum(data.innerLeft, data.healthBottomLeft);
-    data.motherEarth7 = checkNum(data.left3, data.bottomLeft3);
-    data.motherEarth8 = checkNum(data.left2, data.bottomLeft2);
-    data.motherEarth9 = checkNum(data.day, data.bottomLeft1);
+    data.motherEarth1 = checkNum(data.day, data.bottomLeft1);
+    data.motherEarth2 = checkNum(data.left2, data.bottomLeft2);
+    data.motherEarth3 = checkNum(data.left3, data.bottomLeft3);
+    data.motherEarth4 = checkNum(data.innerLeft, data.healthBottomLeft);
+    data.motherEarth6 = checkNum(data.right3, data.topRight3);
+    data.motherEarth7 = checkNum(data.year, data.topRight1);
+    data.motherEarth8 = checkNum(data.innerRight, data.healthTopRight);
+    data.motherEarth9 = checkNum(data.right2, data.topRight2);
   }
   if (parents) {
     data.innerTopLeft = checkNum(data.top3, data.left3);
