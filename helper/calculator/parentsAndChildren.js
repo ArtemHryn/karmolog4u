@@ -33,7 +33,7 @@ const getArcanesList = (info, isChildren) => {
     right2,
     year,
   } = info;
-  const age = ['0', '0.5', '5', '7.5', '10', '12.5', '15', '17.5', '20'].reverse();
+  const age = ['0', '2.5', '5', '7.5', '10', '12.5', '15', '17.5', '20'].reverse();
 
   const data = [
     { column1: month, column2: bottom1 },

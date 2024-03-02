@@ -57,41 +57,50 @@ const getFatherArcanesList = info => {
   } = info;
 
   const data = [
+    //1
     {
       column1: `${month}, ${topLeft1}, ${fatherSpirit1}`,
       column2: `${day}, ${topLeft1}, ${fatherEarth1}`,
     },
+    //2
     {
       column1: `${top2}, ${topLeft2}, ${fatherSpirit2}`,
       column2: `${left2}, ${topLeft2}, ${fatherEarth2}`,
     },
+    //3
     {
       column1: `${top3}, ${topLeft3}, ${fatherSpirit3}`,
       column2: `${left3}, ${topLeft3}, ${fatherEarth3}`,
     },
+    //4
     {
       column1: `${innerTop}, ${healthTopLeft}, ${fatherSpirit4}`,
       column2: `${innerLeft}, ${healthTopLeft}, ${fatherEarth4}`,
     },
+    //5
     {
       column1: `${center}, ${center2}, ${checkNum(center2 + center)}`,
       column2: `${center}, ${center2}, ${checkNum(center2 + center)}`,
     },
+    //6
     {
-      column1: `${innerBottom}, ${healthBottomRight}, ${fatherSpirit6}`,
-      column2: `${innerRight}, ${healthBottomRight}, ${fatherEarth6}`,
+      column1: `${bottom3}, ${bottomRight3}, ${fatherSpirit6}`,
+      column2: `${right3}, ${bottomRight3}, ${fatherEarth6}`,
     },
+    //7
     {
-      column1: `${bottom3}, ${bottomRight3}, ${fatherSpirit7}`,
-      column2: `${right3}, ${bottomRight3}, ${fatherEarth7}`,
+      column1: `${bottom1}, ${bottomRight1}, ${fatherSpirit7}`,
+      column2: `${year}, ${bottomRight1}, ${fatherEarth7}`,
     },
+    //8
     {
-      column1: `${bottom2}, ${bottomRight2}, ${fatherSpirit8}`,
-      column2: `${right2}, ${bottomRight2}, ${fatherEarth8}`,
+      column1: `${innerBottom}, ${healthBottomRight}, ${fatherSpirit8}`,
+      column2: `${innerRight}, ${healthBottomRight}, ${fatherEarth8}`,
     },
+    //9
     {
-      column1: `${bottom1}, ${bottomRight1}, ${fatherSpirit9}`,
-      column2: `${year}, ${bottomRight1}, ${fatherEarth9}`,
+      column1: `${bottom2}, ${bottomRight2}, ${fatherSpirit9}`,
+      column2: `${right2}, ${bottomRight2}, ${fatherEarth9}`,
     },
   ];
 
@@ -145,43 +154,50 @@ const getMotherArcanesList = info => {
     year,
   } = info;
   const data = [
+    //1
     {
       column1: `${month}, ${topRight1}, ${motherSpirit1}`,
-      column2: `${day}, ${bottomLeft1}, ${motherEarth9}`,
+      column2: `${day}, ${bottomLeft1}, ${motherEarth1}`,
     },
+    //2
     {
       column1: `${top2}, ${topRight2}, ${motherSpirit2}`,
-      column2: `${left2}, ${bottomLeft2}, ${motherEarth8}`,
+      column2: `${left2}, ${bottomLeft2}, ${motherEarth2}`,
     },
+    //3
     {
       column1: `${top3}, ${topRight3}, ${motherSpirit3}`,
-      column2: `${left3}, ${bottomLeft3}, ${motherEarth7}`,
+      column2: `${left3}, ${bottomLeft3}, ${motherEarth3}`,
     },
+    //4
     {
       column1: `${innerTop}, ${healthTopRight}, ${motherSpirit4}`,
-      column2: `${innerLeft}, ${healthBottomLeft}, ${motherEarth6}`,
+      column2: `${innerLeft}, ${healthBottomLeft}, ${motherEarth4}`,
     },
+    //5
     {
       column1: `${center}, ${center2}, ${checkNum(center + center2)}`,
       column2: `${center}, ${center2}, ${checkNum(center + center2)}`,
     },
+    //6
     {
-      column1: `${innerBottom}, ${healthBottomLeft}, ${motherSpirit6}`,
-      column2: `${innerRight}, ${healthTopRight}, ${motherEarth4}`,
+      column1: `${bottom3}, ${bottomLeft3}, ${motherSpirit6}`,
+      column2: `${right3}, ${topRight3}, ${motherEarth6}`,
     },
+    //7
     {
-      column1: `${bottom3}, ${bottomLeft3}, ${motherSpirit7}`,
-      column2: `${right3}, ${topRight3}, ${motherEarth3}`,
+      column1: `${bottom1}, ${bottomLeft1}, ${motherSpirit7}`,
+      column2: `${year}, ${topRight1}, ${motherEarth7}`,
     },
+    //8
     {
-      column1: `${bottom2}, ${bottomLeft2}, ${motherSpirit8}`,
-
-      column2: `${right2}, ${topRight2}, ${motherEarth2}`,
+      column1: `${innerBottom}, ${healthBottomLeft}, ${motherSpirit8}`,
+      column2: `${innerRight}, ${healthTopRight}, ${motherEarth8}`,
     },
+    //9
     {
-      column1: `${bottom1}, ${bottomLeft1}, ${motherSpirit9}`,
-
-      column2: `${year}, ${topRight1}, ${motherEarth1}`,
+      column1: `${bottom2}, ${bottomLeft2}, ${motherSpirit9}`,
+      column2: `${right2}, ${topRight2}, ${motherEarth9}`,
     },
   ];
 
@@ -216,7 +232,7 @@ export const getGenericTables = ({ info }) => {
       arcanes: getMotherArcanesList(info),
     },
     table3: {
-      columnNames: ['Духовний урок роду батька', 'Земний урок роду матері', 'Ключ прими- рення'],
+      columnNames: ['Цілісний ключ рода батька', 'Цілісний ключ рода матері', 'Ключ прими- рення'],
     },
   };
 

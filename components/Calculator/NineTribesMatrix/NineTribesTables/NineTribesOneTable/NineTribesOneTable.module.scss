@@ -42,12 +42,12 @@
   width: 98px;
   @media screen and (min-width: $min_tablet) {
     font-size: 18px;
-    padding: 18px 6px;
+    padding: 18px 5px;
     width: 104px;
   }
   @media screen and (min-width: $min_desktop) {
     width: 114px;
-    padding: 18px 11px;
+    padding: 18px 10px;
   }
 }
 
