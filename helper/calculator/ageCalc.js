@@ -9,8 +9,7 @@ export const ageCalculator = (day, month, year) => {
 };
 
 export const getCurrentPeriod = (age, table) => {
-  const currentAge = age.years + age.months / 12;
-
+  const currentAge = age.years ? age.years : 0 + (age.months ? age.months : 0) / 12;
   const lessThanCurrentAgeTable = table.filter(el => el.age < currentAge);
   return lessThanCurrentAgeTable[lessThanCurrentAgeTable.length - 1];
 };
