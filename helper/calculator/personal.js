@@ -324,7 +324,7 @@ export const getPeriod = ({ info }) => {
         element.arcane = checkNum(array[index - 4].arcane + array[index + 4].arcane);
       }
     } catch (error) {
-      console.log(index);
+      console.log(index, ' error');
     }
   });
 
@@ -338,7 +338,7 @@ export const getPeriod = ({ info }) => {
         element.arcane = checkNum(array[index - 2].arcane + array[index + 2].arcane);
       }
     } catch (error) {
-      console.log(index);
+      console.log(index, ' error');
     }
   });
 
@@ -352,7 +352,7 @@ export const getPeriod = ({ info }) => {
         element.arcane = checkNum(array[index - 1].arcane + array[index + 1].arcane);
       }
     } catch (error) {
-      console.log(index);
+      console.log(index, ' error');
     }
   });
 
