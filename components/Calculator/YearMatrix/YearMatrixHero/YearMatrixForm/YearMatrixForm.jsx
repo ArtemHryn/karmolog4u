@@ -3,9 +3,10 @@ import { useRouter } from 'next/navigation';
 import { Controller, useForm } from 'react-hook-form';
 import TextMaskInput from 'react-text-mask';
 import { Dropdown } from 'primereact/dropdown';
+import { ageCalculator, getCurrentAgeInPeriod, getRoute } from '@helper/calculator/ageCalc';
+import { open_Sans } from '@app/layout';
 
 import styles from './YearMatrixForm.module.scss';
-import { open_Sans } from '@app/layout';
 import './period.scss';
 
 const getPeriods = () => {
@@ -47,14 +48,9 @@ const YearMatrixForm = ({
     setDate(data.date);
     setPeriod(data.period);
     setIsShowMatrix(true);
-    router.push(
-      `${redirectTo}?${data.name ? `name=${data.name}&` : ''}date=${data.date}&${
-        data.period || data.period === 0 ? `period=${data.period}` : ''
-      }`,
-      {
-        scroll: false,
-      }
-    );
+    router.push(getRoute(data.name, data.date, data.period, redirectTo), {
+      scroll: false,
+    });
   };
 
   useEffect(() => {
@@ -63,7 +59,16 @@ const YearMatrixForm = ({
       setValue('period', periodItem.value);
       return;
     }
-  }, [getValues, period, setValue]);
+
+    if (!period && !!date) {
+      const [day, month, year] = date.split('.');
+      const calculatedPeriod = getCurrentAgeInPeriod(ageCalculator(day, month, year), periodList);
+      setValue('period', calculatedPeriod.value);
+      router.push(getRoute(name, date, calculatedPeriod.value, redirectTo), {
+        scroll: false,
+      });
+    }
+  }, [date, getValues, name, period, redirectTo, router, setValue]);
 
   return (
     <article>
