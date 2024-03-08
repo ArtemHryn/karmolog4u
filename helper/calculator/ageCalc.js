@@ -9,20 +9,21 @@ export const ageCalculator = (day, month, year) => {
 };
 
 export const getCurrentPeriod = (age, table) => {
-  const currentAge = age.years ? age.years : 0 + (age.months ? age.months : 0) / 12;
-  const lessThanCurrentAgeTable = table.filter(el => el.age < currentAge);
+  const currentAge =
+    (age.years ? age.years : 0) + parseFloat(((age.months ? age.months : 0) / 12).toFixed(2));
+  const lessThanCurrentAgeTable = table.filter(el => el.age <= currentAge);
   return lessThanCurrentAgeTable[lessThanCurrentAgeTable.length - 1];
 };
 
 export const getCurrentAgeInPeriod = (age, table) => {
-  const currentAge = (age.years ? age.years : 0) + (age.months ? age.months : 0) / 12;
-  const lessThanCurrentAgeTable = table.filter(el => el.value < currentAge);
+  const currentAge =
+    (age.years ? age.years : 0) + parseFloat(((age.months ? age.months : 0) / 12).toFixed(2));
+  const lessThanCurrentAgeTable = table.filter(el => el.value <= currentAge);
   return lessThanCurrentAgeTable[lessThanCurrentAgeTable.length - 1];
 };
 
-
-  export const getRoute = (name, date, period, redirectTo) => {
-    return `${redirectTo}?${name ? `name=${name}&` : ''}date=${date}&${
-      period || period === 0 ? `period=${period}` : ''
-    }`;
-  };
+export const getRoute = (name, date, period, redirectTo) => {
+  return `${redirectTo}?${name ? `name=${name}&` : ''}date=${date}&${
+    period || period === 0 ? `period=${period}` : ''
+  }`;
+};
