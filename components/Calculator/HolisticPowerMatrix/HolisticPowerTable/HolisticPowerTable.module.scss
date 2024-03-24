@@ -5,17 +5,17 @@
   flex-direction: column;
   gap: 40px;
   align-items: center;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 48px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     justify-content: center;
   }
 }
 
 .title {
   @include fontRegular(24px, 400, 30px, $main_text_color, center);
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     font-size: 28px;
   }
 }
@@ -41,7 +41,7 @@
   padding: 0px 59px 0px 12px;
   border-right: 0.5px solid rgb(126, 126, 126);
   @include fontRegular(14px, 400, 19.6px);
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     font-size: 16px;
     width: 340px;
     padding-right: 0px;
@@ -60,7 +60,7 @@
   &:last-child {
     border: none;
   }
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     font-size: 16px;
     width: 59px;
   }

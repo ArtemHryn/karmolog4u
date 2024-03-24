@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   gap: 60px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 96px;
   }
 }
@@ -13,7 +13,7 @@
   text-align: center;
   font-size: 24px;
   margin-bottom: 40px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     font-size: 28px;
     margin-bottom: 48px;
   }
@@ -23,7 +23,7 @@
   display: flex;
   flex-direction: column;
   gap: 48px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 60px;
     flex-wrap: wrap;
     flex-direction: row;
@@ -35,7 +35,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 280px;
   }
 }
@@ -70,7 +70,7 @@
   margin-bottom: 40px;
   font-size: 24px;
   text-align: center;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     font-size: 28px;
   }
 }
@@ -81,10 +81,10 @@
   justify-content: center;
   column-gap: 100px;
   row-gap: 36px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     justify-content: space-around;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     flex-wrap: nowrap;
     gap: 0px;
     justify-content: space-between;
@@ -110,7 +110,7 @@
   border: 2px solid $accent_v2;
   @include fontRegular(16px, 400, 22.4px);
 
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 46px;
     height: 46px;
     @include fontRegular(20px, 400, 28px);
@@ -120,7 +120,7 @@
 .extension_name {
   @include fontRegular(16px, 400, 22.4px);
   text-align: center;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(20px, 400, 28px);
   }
 }

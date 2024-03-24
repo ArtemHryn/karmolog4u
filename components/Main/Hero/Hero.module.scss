@@ -1,4 +1,4 @@
-@import "/styles/main.scss";
+@import '/styles/main.scss';
 
 .styled_section {
   overflow: hidden;
@@ -9,7 +9,7 @@
   @include fontRegular(14px, 400, 19.5px);
   max-width: 242px;
   margin-bottom: 32px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(18px, 400, 25.2px);
     max-width: 100%;
     margin-bottom: 20px;
@@ -21,18 +21,18 @@
   text-transform: uppercase;
   margin-bottom: 48px;
 
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(56px, 400, 56px);
     margin-bottom: 24px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     display: none;
   }
 }
 
 .author2 {
   display: none;
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     display: block;
     @include fontRegular(94px, 400, 94px);
     margin-bottom: 60px;
@@ -42,32 +42,32 @@
 .text_description {
   @include fontRegular(16px, 400, 22.4px);
   margin-bottom: 44px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(20px, 400, 28px);
     margin-bottom: 80px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
   }
 }
 
 .additional_text_description {
   margin-bottom: 24px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     margin-bottom: 32px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     max-width: 628px;
   }
 }
 
 .hero_img {
   display: none;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     display: block;
     width: 360px;
     height: 516px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     width: 497px;
     height: 694px;
   }
@@ -78,14 +78,14 @@
   align-items: center;
 
   margin-bottom: 55px;
-  @media screen and (min-width: $min_tablet) {
-    background-image: url("../../../public//assets/images/Vector.svg");
+  @media all and (min-width: $min_tablet) {
+    background-image: url('../../../public//assets/images/Vector.svg');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: 105% 50%;
     background-size: 75%;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     background-position: 100% 50%;
     background-size: 684px 684px;
   }

@@ -71,7 +71,7 @@ export const getParentsAndChildrenTables = ({ info }) => {
       arcanes: getArcanesList(info, false),
     },
     {
-      title: 'Віддача кармічного боргу дитині',
+      title: 'Ключі зцілення внутрішньої дитини',
       columnNames: getColumnNames(true),
       arcanes: getArcanesList(info, true),
     },

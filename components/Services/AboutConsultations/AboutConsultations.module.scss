@@ -1,4 +1,4 @@
-@import "/styles/main.scss";
+@import '/styles/main.scss';
 
 .section {
   overflow: visible;
@@ -6,7 +6,7 @@
 
 .container {
   position: relative;
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     display: flex;
     gap: 140px;
   }
@@ -17,11 +17,11 @@
   flex-direction: column;
   gap: 112px;
   margin-bottom: 24px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 140px;
     margin-bottom: 32px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     flex: 1;
     gap: 160px;
   }
@@ -31,24 +31,24 @@
   @include fontRegular(28px, 400, 39.2px);
   margin-bottom: 40px;
 
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(36px, 400, 36px);
     margin-bottom: 48px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     margin-bottom: 60px;
   }
 }
 
 .description {
   @include fontRegular(16px, 400, 22.4px);
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(18px, 400, 25.2px);
   }
 }
 
 .img {
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     width: 519px;
     height: auto;
     flex: 1;
@@ -57,7 +57,7 @@
 
 .spot {
   display: none;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     position: absolute;
     display: block;
 
@@ -76,7 +76,7 @@
 
     filter: blur(125px);
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     top: 5%;
     right: 4%;
   }
@@ -84,7 +84,7 @@
 
 .spot2 {
   display: none;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     position: absolute;
     display: block;
 
@@ -103,7 +103,7 @@
 
     filter: blur(125px);
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     top: 65%;
     left: 34%;
   }

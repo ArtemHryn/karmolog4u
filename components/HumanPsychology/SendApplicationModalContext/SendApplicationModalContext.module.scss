@@ -1,4 +1,4 @@
-@import "/styles/main.scss";
+@import '/styles/main.scss';
 
 .modal_container {
   display: flex;
@@ -21,7 +21,7 @@
   &::-webkit-scrollbar-track {
     background-color: transparent; /* Колір треку скролбара */
   }
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     padding: 50px;
     max-width: 510px;
     max-height: 90vh;
@@ -33,7 +33,7 @@
   line-height: 1.4 !important;
   text-align: center !important;
   margin-bottom: 40px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     font-size: 18px !important;
   }
 }
@@ -57,14 +57,14 @@
   &::-webkit-scrollbar-track {
     background-color: transparent; /* Колір треку скролбара */
   }
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 28px;
   }
 }
 
 .form_title {
   @include fontRegular(14px, 400, 19.6px);
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(18px, 500, 25.2px);
   }
 }
@@ -76,7 +76,7 @@
   flex-direction: column;
   max-width: 100%;
   min-height: 85px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     height: 81px;
   }
 }
@@ -102,7 +102,7 @@
       opacity: 1;
     }
   }
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     height: 60px;
   }
 }
@@ -130,7 +130,7 @@
       opacity: 1;
     }
   }
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     height: 160px;
     &:focus + label,
     &:not(:placeholder-shown) + label {
@@ -150,7 +150,7 @@
   transform: translate(15px, -31px);
   transition: transform 250ms ease;
   @include fontRegular(14px, 500, 14px);
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     transform: translate(15px, -25px);
   }
 }
@@ -179,7 +179,7 @@
   height: 50px !important;
   color: $main_text_color !important;
   box-shadow: none !important;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     height: 60px !important;
   }
 }
@@ -203,7 +203,7 @@
   align-items: center;
   gap: 8px;
   margin-bottom: 24px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 12px;
   }
 }
@@ -268,7 +268,7 @@
   & > a {
     text-decoration: underline;
   }
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(12px, 500, 12px);
   }
 }
@@ -291,7 +291,7 @@
   &:not(:disabled):is(:hover, :focus) {
     background-color: #fdfdfd;
   }
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     height: 60px;
     @include fontRegular(18px, 600, 18px, #101010);
   }
@@ -312,7 +312,7 @@
 
   border-radius: 30px;
   background: #131313;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 510px;
   }
 }

@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import ParentsAndChildrenGraph from './ParentsAndChildrenGraph/ParentsAndChildrenGraph';
 import { getPersonalGraph } from '@helper/calculator/personal';
 import { getParentsAndChildrenTables } from '@helper/calculator/parentsAndChildren';
+import ParentsTables from './ParentsTables/ParentsTables';
 
 import styles from './ParentsAndChildren.module.scss';
-import ParentsTables from './ParentsTables/ParentsTables';
 
 const ParentsAndChildren = ({ date, name }) => {
   const [matrix, setMatrix] = useState(null);

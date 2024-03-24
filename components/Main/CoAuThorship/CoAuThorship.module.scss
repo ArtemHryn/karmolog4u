@@ -1,4 +1,4 @@
-@import "/styles/main.scss";
+@import '/styles/main.scss';
 
 .section {
   overflow: visible;
@@ -6,7 +6,7 @@
 
 .container {
   position: relative;
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     display: flex;
     justify-content: space-between;
     flex-direction: row-reverse;
@@ -17,10 +17,10 @@
 .header {
   @include fontRegular(24px, 400, 24px, $main_text_color, center);
   margin-bottom: 42px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(36px, 400, 36px, $main_text_color, center);
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     @include fontRegular(36px, 400, 36px);
   }
 }
@@ -29,18 +29,18 @@
   @include fontRegular(16px, 400, 22.4px, $main_text_color, center);
   margin-bottom: 48px;
   text-wrap: balance;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(18px, 400, 25.2px, $main_text_color, center);
     margin-bottom: 60px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     @include fontRegular(18px, 400, 25.2px);
   }
 }
 
 .arrow {
   display: none;
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     width: 120px;
     height: 74px;
     display: block;
@@ -63,7 +63,7 @@
 
 .spot {
   display: none;
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     position: absolute;
     display: block;
 

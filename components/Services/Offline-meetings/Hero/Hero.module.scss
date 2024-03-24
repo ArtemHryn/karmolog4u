@@ -1,13 +1,13 @@
-@import "/styles/main.scss";
+@import '/styles/main.scss';
 
 .container {
   position: relative;
   display: grid;
   gap: 24px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 32px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     grid-template-columns: 1fr 519px;
   }
 }
@@ -18,10 +18,10 @@
 
 .title {
   @include fontRegular(28px, 400, 39.2px);
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(36px, 400, 36px);
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     grid-column: 1;
     grid-row: 1;
 
@@ -35,10 +35,10 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 24px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     grid-column: 1;
     grid-row: 2;
   }
@@ -46,13 +46,13 @@
 
 .text {
   @include fontRegular(16px, 400, 22.4px);
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(18px, 400, 25.2px);
   }
 }
 
 .img {
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     grid-column: 2;
     grid-row: 1 / span 2;
   }
@@ -60,7 +60,7 @@
 
 .spot {
   display: none;
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     position: absolute;
     display: block;
 

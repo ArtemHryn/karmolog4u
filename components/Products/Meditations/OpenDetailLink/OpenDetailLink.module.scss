@@ -1,4 +1,4 @@
-@import "/styles/main.scss";
+@import '/styles/main.scss';
 
 .link_to_details {
   transition: scale 250ms ease;
@@ -14,10 +14,10 @@
   height: 205px;
   border-radius: 30px;
   background-image: linear-gradient(270deg, #cfb691 -135.76%, #000 102.98%);
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     height: 223px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     height: 190px;
   }
 }
@@ -41,11 +41,11 @@
   width: 328px;
   height: 205px;
   border-radius: 30px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     height: 223px;
     width: 356px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     height: 190px;
     width: 302px;
   }

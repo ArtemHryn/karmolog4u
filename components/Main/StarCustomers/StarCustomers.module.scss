@@ -1,5 +1,5 @@
 // @import "swiper/scss/pagination";
-@import "./styles/main.scss";
+@import './styles/main.scss';
 
 .title {
   margin-bottom: 48px;
@@ -7,11 +7,11 @@
   @include fontRegular(40px, 400, 48px);
   leading-trim: both;
   text-edge: cap;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(48px, 400, 57.6px);
     margin-bottom: 60px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     margin-bottom: 80px;
     @include fontRegular(64px, 400, 89.6px);
   }
@@ -29,11 +29,11 @@
   transition-property: background-color;
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     padding: 40px 58px;
     width: 356px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     padding: 40px 31px;
     width: 302px;
   }
@@ -55,7 +55,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 32px;
   }
 }
@@ -65,7 +65,7 @@
   display: flex;
   gap: 12px;
   @include fontRegular(14px, 400, 22.4px);
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(18px, 400, 25.2px);
   }
   transition-property: color;
@@ -94,14 +94,14 @@
 .text {
   color: $main_text_color;
   @include fontRegular(14px, 400, 22.4px);
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(18px, 400, 25.2px);
   }
 }
 
 .pagination {
   opacity: 1 !important;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 16px;
     height: 16px;
   }
@@ -109,7 +109,7 @@
 
 .custom_swiper {
   padding-bottom: 20px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     padding-bottom: 40px;
   }
 }

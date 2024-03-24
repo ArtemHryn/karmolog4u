@@ -1,4 +1,4 @@
-@import "/styles/main.scss";
+@import '/styles/main.scss';
 
 .list {
   display: flex;
@@ -6,7 +6,7 @@
   flex-wrap: wrap;
   gap: 6px;
   margin-bottom: 44px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 10px;
     margin-bottom: 60px;
   }
@@ -15,7 +15,7 @@
   display: flex;
   align-items: center;
   gap: 5px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 10px;
   }
 }
@@ -27,7 +27,7 @@
     color: $seconds_text_color;
   }
 
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(16px, 400, 22.4px, $main_text_color);
   }
 }

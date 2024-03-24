@@ -13,7 +13,7 @@
   font-size: 24px !important;
   font-weight: 400 !important;
   line-height: 24px !important;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(28px, 400, 39.2px);
     font-size: 28px !important;
     line-height: 39.2px !important;
@@ -31,7 +31,7 @@
 .graph_wrapper {
   position: relative;
 
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     display: flex;
     justify-content: center;
   }
@@ -40,12 +40,11 @@
 .graph {
   width: 328px;
   height: 413px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 618px;
     height: 716px;
   }
 }
-
 
 //center
 
@@ -69,7 +68,7 @@
     left: 57.6%;
     font-size: 10px !important;
   }
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 40px;
     font-size: 22px !important;
     &_main {
@@ -82,7 +81,7 @@
       font-size: 16px !important;
     }
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     &_main {
       top: 48.4%;
       left: 47.2%;

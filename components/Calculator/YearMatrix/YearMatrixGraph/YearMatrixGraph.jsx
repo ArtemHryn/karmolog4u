@@ -6,7 +6,9 @@ import Right from '@components/Calculator/PersonalMatrix/MatrixGraph/Right';
 import Bottom from '@components/Calculator/PersonalMatrix/MatrixGraph/Bottom';
 import Center from '@components/Calculator/PersonalMatrix/MatrixGraph/Center';
 
-import styles from './YearMatrixGraph.module.scss'
+import styles from './YearMatrixGraph.module.scss';
+import Balance from './Balance';
+import YearPoints from './YearPoints';
 
 const YearMatrixGraph = ({ matrix, name, date }) => {
   if (!matrix) return null;
@@ -34,6 +36,8 @@ const YearMatrixGraph = ({ matrix, name, date }) => {
         <Right matrix={matrix} />
         <Bottom matrix={matrix} hideAdditionalKeys />
         <Center matrix={matrix} hideCenter2 />
+        <Balance matrix={matrix} />
+        <YearPoints matrix={matrix} />
       </div>
     </div>
   );

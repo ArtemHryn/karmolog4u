@@ -1,7 +1,7 @@
 @import '/styles/main.scss';
 
 .wrapper {
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     grid-area: 4 / 1 / 5 / 2;
   }
 }
@@ -10,7 +10,7 @@
   font-size: 24px;
   text-align: center;
   margin-bottom: 40px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     font-size: 28px;
     margin-bottom: 48px;
   }
@@ -33,7 +33,7 @@
   border-radius: 50%;
   border: 2px solid $accent_v2;
   @include fontRegular(16px, 400, 22.4px);
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(20px, 400, 28px);
     width: 46px;
     height: 46px;

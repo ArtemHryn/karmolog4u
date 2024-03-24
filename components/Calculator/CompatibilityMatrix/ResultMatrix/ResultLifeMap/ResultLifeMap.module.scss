@@ -6,7 +6,7 @@
   gap: 60px;
   justify-content: center;
   flex-grow: 1;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 96px;
   }
 }
@@ -15,7 +15,7 @@
   font-size: 24px;
   margin-bottom: 40px;
   @include fontRegular(24px, 400, 30px, $main_text_color, center);
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     font-size: 28px;
     margin-bottom: 48px;
   }
@@ -25,7 +25,7 @@
   display: flex;
   flex-direction: column;
   gap: 48px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 60px;
     align-items: center;
   }
@@ -35,7 +35,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 280px;
   }
 }
@@ -75,14 +75,14 @@
 
 .spirit_title {
   @include fontRegular(24px, 400, 30px);
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(28px, 400, 39.2px);
   }
 }
 
 .spirit_keys {
   @include fontRegular(14px, 400, 19.6px);
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(18px, 400, 25.2px);
   }
 }
@@ -93,7 +93,7 @@
   margin-bottom: 40px;
   font-size: 24px;
   text-align: center;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     font-size: 28px;
   }
 }
@@ -104,10 +104,10 @@
   justify-content: center;
   column-gap: 100px;
   row-gap: 36px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     justify-content: space-around;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     flex-wrap: nowrap;
     gap: 0px;
     justify-content: space-between;
@@ -133,7 +133,7 @@
   border: 2px solid $accent_v2;
   @include fontRegular(16px, 400, 22.4px);
 
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 46px;
     height: 46px;
     @include fontRegular(20px, 400, 28px);
@@ -143,7 +143,7 @@
 .extension_name {
   @include fontRegular(16px, 400, 22.4px);
   text-align: center;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(20px, 400, 28px);
   }
 }

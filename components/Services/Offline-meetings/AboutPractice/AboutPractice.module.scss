@@ -1,12 +1,12 @@
-@import "/styles/main.scss";
+@import '/styles/main.scss';
 
 .title {
   margin-bottom: 40px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     margin-bottom: 48px;
     text-wrap: balance;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     margin-bottom: 60px;
   }
 }
@@ -15,15 +15,15 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 24px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     flex-direction: row;
   }
   &_first {
     margin-bottom: 20px;
-    @media screen and (min-width: $min_tablet) {
+    @media all and (min-width: $min_tablet) {
       margin-bottom: 24px;
     }
   }
@@ -36,16 +36,16 @@
   border: 1px solid $seconds_text_color;
   background-color: #000;
   gap: 16px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     padding: 30px 56px;
     gap: 32px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     flex: 1;
   }
   &_result {
     flex-direction: column;
-    @media screen and (min-width: $min_tablet) {
+    @media all and (min-width: $min_tablet) {
       gap: 24px;
     }
   }
@@ -62,13 +62,13 @@
 
   @include fontRegular(24px, 400, 24px, $third_text_color);
 
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 52px;
     height: 52px;
     @include fontRegular(32px, 400, 32px, $third_text_color);
   }
-  @media screen and (min-width: $min_desktop) {
-    flex: 1
+  @media all and (min-width: $min_desktop) {
+    flex: 1;
   }
 }
 
@@ -77,11 +77,11 @@
 
   @include fontRegular(16px, 400, 22.4px);
 
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 100%;
     @include fontRegular(18px, 400, 25.2px);
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     width: 426px;
     text-wrap: balance;
   }
@@ -89,8 +89,7 @@
 
 .step_text_title {
   @include fontRegular(24px, 400, 24px, $seconds_text_color);
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(28px, 400, 39.2px, $seconds_text_color);
   }
-
 }

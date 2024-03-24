@@ -1,20 +1,20 @@
-@import "/styles/main.scss";
+@import '/styles/main.scss';
 
 .container {
   display: grid;
   gap: 24px;
 
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 32px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     gap: 0px;
     align-items: center;
   }
 }
 
 .title {
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     grid-column: 2;
     grid-row: 1;
   }
@@ -22,7 +22,7 @@
 
 .text {
   @include fontRegular(16px, 400, 22.4px);
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(18px, 400, 25.2px);
   }
 }
@@ -30,7 +30,7 @@
 .text_container {
   display: grid;
   gap: 24px;
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     grid-column: 2;
     grid-row: 2;
   }
@@ -39,13 +39,13 @@
 .list {
   list-style: disc;
   padding-left: 20px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     padding-left: 24px;
   }
 }
 
 .img {
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     width: 519px;
     height: 400px;
     object-fit: contain;

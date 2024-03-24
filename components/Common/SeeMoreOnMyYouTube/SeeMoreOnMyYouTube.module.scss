@@ -1,8 +1,8 @@
-@import "/styles/main.scss";
+@import '/styles/main.scss';
 
 .inner_topic_container {
   position: relative;
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     display: flex;
     flex-direction: column;
   }
@@ -12,7 +12,7 @@
   @include fontRegular(24px, 400, 24px);
   margin-bottom: 28px;
 
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(28px, 400, 39.2px);
     margin-bottom: 40px;
   }
@@ -37,7 +37,7 @@
   &:focus {
     scale: 1.05;
   }
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 356px;
     @include fontRegular(32px, 400, 32px);
   }
@@ -47,7 +47,7 @@
   width: 24px;
   height: 24px;
   fill: $buttons_color;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 48px;
     height: 48px;
   }
@@ -55,7 +55,7 @@
 
 .spot {
   display: none;
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     position: absolute;
     display: block;
 

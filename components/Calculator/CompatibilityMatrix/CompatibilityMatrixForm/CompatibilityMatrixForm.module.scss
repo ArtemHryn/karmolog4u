@@ -5,7 +5,7 @@
   flex-direction: column;
   gap: 16px;
   justify-content: center;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     align-items: center;
   }
 }
@@ -36,11 +36,11 @@
   &::placeholder {
     @include fontRegular(16px, 400, 22.4px, $form_placeholder);
   }
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 546px;
     height: 60px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     width: 628px;
   }
 }
@@ -66,11 +66,11 @@
   &::placeholder {
     @include fontRegular(16px, 400, 22.4px, $form_placeholder);
   }
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 546px;
     height: 60px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     width: 628px;
   }
 }
@@ -88,7 +88,7 @@
   &:is(:hover, :focus) {
     background-color: $buttons_hover_color;
   }
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 356px;
     height: 60px;
     font-size: 18px;
@@ -97,10 +97,10 @@
 
 .error {
   font-size: 12px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     font-size: 14px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     font-size: 16px;
   }
 }

@@ -4,11 +4,11 @@
   display: flex;
   flex-direction: column;
   gap: 60px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 627px;
     margin: 0 auto;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     width: 100%;
     flex-direction: row;
     gap: 25px;

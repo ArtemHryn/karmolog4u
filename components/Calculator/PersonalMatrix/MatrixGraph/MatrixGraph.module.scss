@@ -13,7 +13,7 @@
   font-size: 24px !important;
   font-weight: 400 !important;
   line-height: 24px !important;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(28px, 400, 39.2px);
     font-size: 28px !important;
     line-height: 39.2px !important;
@@ -31,7 +31,7 @@
 .graph_wrapper {
   position: relative;
 
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     display: flex;
     justify-content: center;
   }
@@ -39,7 +39,7 @@
 .graph {
   width: 328px;
   height: 413px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 618px;
     height: 716px;
   }
@@ -58,7 +58,7 @@
   line-height: 28px !important;
   text-align: center;
   color: $seconds_text_color !important;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 35px;
     font-size: 20px !important;
   }
@@ -75,7 +75,7 @@
   line-height: 28px !important;
   text-align: center;
   color: $seconds_text_color !important;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 30px;
     font-size: 16px !important;
   }
@@ -92,7 +92,7 @@
   line-height: 28px !important;
   text-align: center;
   color: $seconds_text_color !important;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 30px;
     font-size: 16px !important;
   }
@@ -131,7 +131,7 @@
     bottom: 21.8%;
     left: 13.7%;
   }
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     &_day {
       top: 48.2%;
       left: 9.4%;
@@ -165,7 +165,7 @@
       left: 21.2%;
     }
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     &_day {
       top: 48.5%;
       left: 1.6%;
@@ -234,7 +234,7 @@
     bottom: 26%;
     left: 20%;
   }
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     &_left2 {
       top: 48.2%;
       left: 16.5%;
@@ -268,7 +268,7 @@
       left: 26.2%;
     }
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     &_left2 {
       top: 48.2%;
       left: 10.1%;
@@ -337,7 +337,7 @@
     bottom: 30%;
     left: 25.5%;
   }
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     &_left3 {
       top: 48.2%;
       left: 22%;
@@ -371,7 +371,7 @@
       left: 30%;
     }
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     &_left3 {
       top: 48.2%;
       left: 16.8%;
@@ -420,13 +420,13 @@
   color: $seconds_text_color !important;
   top: 46.5%;
   left: 45.8%;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 40px;
     font-size: 22px !important;
     top: 48.2%;
     left: 47.5%;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     top: 48.4%;
     left: 47.2%;
   }
@@ -446,14 +446,14 @@
   top: 46.2%;
   left: 54.9%;
   color: $seconds_text_color !important;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 40px;
     font-size: 16px !important;
 
     top: 48.2%;
     left: 54.7%;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     top: 48.2%;
     left: 55.6%;
   }
@@ -488,7 +488,7 @@
     bottom: 28.8%;
     right: 38.1%;
   }
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     &_innerTop {
       top: 28.6%;
       left: 48.1%;
@@ -518,7 +518,7 @@
       right: 40.5%;
     }
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     &_innerTop {
       top: 28.8%;
       left: 48%;

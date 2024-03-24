@@ -1,4 +1,4 @@
-@import "/styles/main.scss";
+@import '/styles/main.scss';
 
 .btn {
   position: fixed;
@@ -22,9 +22,9 @@
   &:is(:hover, :focus) {
     scale: 1.05;
   }
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     bottom: 40px;
     right: 5%;
     width: 72px;

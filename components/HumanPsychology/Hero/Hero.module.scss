@@ -1,16 +1,16 @@
-@import "/styles/main.scss";
+@import '/styles/main.scss';
 
 .section {
-  padding-bottom: 0px
+  padding-bottom: 0px;
 }
 
 .title {
   @include fontRegular(32px, 400, 44.8px, $main_text_color, center);
   text-wrap: balance;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(48px, 400, 48px, $main_text_color, center);
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     @include fontRegular(64px, 400, 89.6px, $main_text_color, center);
   }
 }

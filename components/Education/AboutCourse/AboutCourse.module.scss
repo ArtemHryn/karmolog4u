@@ -1,4 +1,4 @@
-@import "/styles/main.scss";
+@import '/styles/main.scss';
 
 .section {
   overflow: visible;
@@ -8,10 +8,10 @@
   position: relative;
   display: grid;
   gap: 24px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 32px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     gap: 0px;
     column-gap: 133px;
     align-items: center;
@@ -19,7 +19,7 @@
 }
 
 .title {
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     grid-column: 2;
     grid-row: 1;
   }
@@ -27,7 +27,7 @@
 
 .img {
   border-radius: 30px;
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     object-fit: contain;
     grid-column: 1;
     grid-row: 1 / span 2;
@@ -45,12 +45,12 @@
   &_more {
     max-height: 1500px;
   }
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     margin-bottom: 0px;
     max-height: 100%;
     overflow: visible;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     grid-column: 2;
     grid-row: 2;
   }
@@ -65,14 +65,14 @@
   text-decoration-line: underline;
   width: 100%;
   padding: 8px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     display: none;
   }
 }
 
 .spot {
   display: none;
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     position: absolute;
     display: block;
 
@@ -95,7 +95,7 @@
 
 .spot2 {
   display: none;
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     position: absolute;
     display: block;
 

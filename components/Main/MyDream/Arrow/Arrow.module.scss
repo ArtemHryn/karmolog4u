@@ -1,20 +1,20 @@
-@import "/styles/main.scss";
+@import '/styles/main.scss';
 .arrow {
   position: absolute;
   top: 85%;
   right: 9%;
   animation: pulse 3s infinite;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     display: none;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
   }
 }
 
 .arrow_tab {
   display: none;
   position: absolute;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 180px;
     height: 190px;
     display: block;
@@ -22,7 +22,7 @@
     right: 16%;
     animation: biggerPulse 3s infinite;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     width: 240px;
     height: 190px;
     top: 86%;

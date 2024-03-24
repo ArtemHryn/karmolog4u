@@ -20,6 +20,7 @@ export const getPersonalGraph = ({
   healthSqr,
   isGeneric,
   parents,
+  yearMatrix,
 }) => {
   const data = { ...info };
 
@@ -144,10 +145,20 @@ export const getPersonalGraph = ({
     data.innerBottomLeft = checkNum(data.bottom3, data.left3);
 
     //additional points from numeric from top
-    data.parentsAddit1 = checkNum(data.top3, data.innerTopLeft)
-    data.parentsAddit2 = checkNum(data.left3, data.innerTopLeft)
-    data.parentsAddit3 = checkNum(data.left3, data.innerBottomLeft)
-    data.parentsAddit4 = checkNum(data.bottom3, data.innerBottomLeft)
+    data.parentsAddit1 = checkNum(data.top3, data.innerTopLeft);
+    data.parentsAddit2 = checkNum(data.left3, data.innerTopLeft);
+    data.parentsAddit3 = checkNum(data.left3, data.innerBottomLeft);
+    data.parentsAddit4 = checkNum(data.bottom3, data.innerBottomLeft);
+  }
+  if (yearMatrix) {
+    data.JanFeb = checkNum(data.day, data.topLeft1);
+    data.FebMar = checkNum(data.topLeft1, data.month);
+    data.AprMay = checkNum(data.month, data.topRight1);
+    data.MayJun = checkNum(data.topRight1, data.year);
+    data.JulAug = checkNum(data.year, data.bottomRight1);
+    data.AugSep = checkNum(data.bottomRight1, data.bottom1);
+    data.OctNov = checkNum(data.bottom1, data.bottomLeft1);
+    data.NovDec = checkNum(data.bottomLeft1, data.month);
   }
   return data;
 };

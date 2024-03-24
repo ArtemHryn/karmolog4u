@@ -1,7 +1,7 @@
 @import '/styles/main.scss';
 
 .wrapper {
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     width: 618px;
   }
 }
@@ -19,7 +19,7 @@
   font-size: 24px !important;
   font-weight: 400 !important;
   line-height: 24px !important;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(28px, 400, 39.2px);
     font-size: 28px !important;
     line-height: 39.2px !important;
@@ -37,7 +37,7 @@
 .graph_wrapper {
   position: relative;
 
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     display: flex;
     justify-content: center;
   }
@@ -46,8 +46,173 @@
 .graph {
   width: 328px;
   height: 413px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 618px;
     height: 716px;
+  }
+}
+
+//points
+
+.inner_key {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  line-height: 28px !important;
+  text-align: center;
+  color: $seconds_text_color !important;
+  @media all and (min-width: $min_tablet) {
+    width: 30px;
+    font-size: 16px !important;
+  }
+}
+
+.life {
+  &_money {
+    bottom: 40.5%;
+    right: 22.7%;
+  }
+  &_balance {
+    bottom: 34.4%;
+    right: 30.8%;
+  }
+  &_love {
+    bottom: 28.5%;
+    right: 38.4%;
+  }
+  @media all and (min-width: $min_tablet) {
+    &_money {
+      bottom: 40.6%;
+      right: 27.6%;
+    }
+    &_balance {
+      bottom: 33.8%;
+      right: 34.4%;
+    }
+    &_love {
+      bottom: 27.4%;
+      right: 40.8%;
+    }
+  }
+  @media all and (min-width: $min_desktop) {
+    &_money {
+      bottom: 40.6%;
+      right: 23.4%;
+    }
+    &_balance {
+      bottom: 33.8%;
+      right: 31.5%;
+    }
+    &_love {
+      bottom: 27.6%;
+      right: 39.1%;
+    }
+  }
+}
+
+.year_point {
+  &_janfeb {
+    top: 35.5%;
+    left: 15.2%;
+  }
+  &_febmar {
+    top: 21%;
+    left: 33.8%;
+  }
+  &_aprmay {
+    top: 21%;
+    right: 32.8%;
+  }
+  &_mayjun {
+    top: 35.5%;
+    right: 14.4%;
+  }
+  &_julaug {
+    bottom: 35.7%;
+    right: 14.4%;
+  }
+  &_augsep {
+    bottom: 22%;
+    right: 32.4%;
+  }
+  &_octnov {
+    bottom: 21.8%;
+    left: 32.7%;
+  }
+  &_novdec {
+    bottom: 36.3%;
+    left: 15%;
+  }
+  @media all and (min-width: $min_tablet) {
+    &_janfeb {
+      top: 36.5%;
+      left: 21.3%;
+    }
+    &_febmar {
+      top: 20.6%;
+      left: 37%;
+    }
+    &_aprmay {
+      top: 20.7%;
+      right: 36%;
+    }
+    &_mayjun {
+      top: 36.4%;
+      right: 20.5%;
+    }
+    &_julaug {
+      bottom: 35.1%;
+      right: 20.5%;
+    }
+    &_augsep {
+      bottom: 20.2%;
+      right: 35.7%;
+    }
+    &_octnov {
+      bottom: 20%;
+      left: 36.2%;
+    }
+    &_novdec {
+      bottom: 36%;
+      left: 21.2%;
+    }
+  }
+  @media all and (min-width: $min_desktop) {
+    &_janfeb {
+      top: 36.5%;
+      left: 15.9%;
+    }
+    &_febmar {
+      top: 20.6%;
+      left: 34.5%;
+    }
+    &_aprmay {
+      top: 20.7%;
+      right: 33.4%;
+    }
+    &_mayjun {
+      top: 36.5%;
+      right: 15%;
+    }
+    &_julaug {
+      bottom: 35.1%;
+      right: 15%;
+    }
+    &_augsep {
+      bottom: 20.2%;
+      right: 33%;
+    }
+    &_octnov {
+      bottom: 20%;
+      left: 33.4%;
+    }
+    &_novdec {
+      bottom: 36%;
+      left: 15.6%;
+    }
   }
 }

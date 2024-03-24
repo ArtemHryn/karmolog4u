@@ -1,13 +1,13 @@
-@import "../styles/main.scss";
+@import '../styles/main.scss';
 
 .links_wrap {
   display: flex;
   flex-direction: column;
   gap: 32px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 44px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     flex-direction: row;
     align-items: center;
     gap: 11px;
@@ -20,7 +20,7 @@
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   @include fontRegular(16px, 600, 22.4px);
   display: block;
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     @include fontRegular(18px, 600, 22.4px);
     padding: 8px;
     &:hover {
@@ -31,7 +31,7 @@
 
 .dropdown_wrap {
   position: relative;
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     &:hover .dropdown_list {
       opacity: 1;
       pointer-events: all;
@@ -48,7 +48,7 @@
 
 .dropdown_button {
   font-family: inherit;
-  @media screen and (max-width: $min_desktop) {
+  @media all and (max-width: $min_desktop) {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -62,7 +62,7 @@
   transition-property: transform;
   transition-duration: 350ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     display: none;
   }
 }
@@ -75,7 +75,7 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  @media screen and (max-width: 1279.5px) {
+  @media all and (max-width: 1279.5px) {
     overflow: hidden;
     max-height: 0;
     opacity: 0;
@@ -85,7 +85,7 @@
     pointer-events: none;
   }
 
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     border-radius: 30px;
     padding: 20px;
     opacity: 0;
@@ -103,7 +103,7 @@
 }
 
 .dropdown_open {
-  @media screen and (max-width: $min_desktop) {
+  @media all and (max-width: $min_desktop) {
     max-height: 200px;
     opacity: 1;
     pointer-events: all;
@@ -117,10 +117,10 @@
   padding: 8px;
   &:first-child {
     margin-top: 20px;
-    @media screen and (min-width: $min_tablet) {
+    @media all and (min-width: $min_tablet) {
       margin-top: 24px;
     }
-    @media screen and (min-width: $min_desktop) {
+    @media all and (min-width: $min_desktop) {
       margin-top: 0px;
     }
   }
