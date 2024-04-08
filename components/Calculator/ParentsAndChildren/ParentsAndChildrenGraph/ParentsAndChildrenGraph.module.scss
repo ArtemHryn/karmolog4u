@@ -60,7 +60,7 @@
   width: 24px;
   @include fontRegular(10px, 700, 28px, $seconds_text_color);
   &_innerTopLeft {
-    top: 33.9%;
+    top: 34%;
     left: 31.2%;
   }
   &_innerTop {
@@ -72,7 +72,7 @@
     left: 25.3%;
   }
   &_innerBottomLeft {
-    bottom: 35%;
+    bottom: 34.8%;
     left: 31.2%;
   }
   @media all and (min-width: $min_tablet) {
