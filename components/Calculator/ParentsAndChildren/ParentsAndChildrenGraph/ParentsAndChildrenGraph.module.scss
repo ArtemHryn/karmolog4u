@@ -58,26 +58,27 @@
   align-items: center;
   justify-content: center;
   width: 24px;
-  @include fontRegular(10px, 700, 28px, $seconds_text_color);
+  @include fontRegular(10px, 700, 14px, $seconds_text_color);
   &_innerTopLeft {
-    top: 34%;
+    top: 35.7%;
     left: 31.2%;
   }
   &_innerTop {
-    top: 28.4%;
+    top: 30%;
     right: 46%;
   }
   &_innerLeft {
-    top: 46%;
+    top: 47.8%;
     left: 25.3%;
   }
   &_innerBottomLeft {
-    bottom: 34.8%;
+    bottom: 36.8%;
     left: 31.2%;
   }
   @media all and (min-width: $min_tablet) {
     width: 30px;
     font-size: 16px;
+    line-height: 2.8;
     &_innerTopLeft {
       top: 34%;
       left: 35.2%;
