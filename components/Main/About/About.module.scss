@@ -7,85 +7,110 @@
 .container {
   display: grid;
   position: relative;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(5, 1fr);
     gap: 24px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     grid-template-rows: repeat(2, 1fr);
     place-items: center;
+  }
+}
+
+.greeting_wrapper {
+  @media all and (min-width: $min_tablet) {
+    grid-area: 1 / 2 / 3 / 3;
+    align-self: end;
+  }
+  @media all and (min-width: $min_desktop) {
+    grid-area: 1 / 2 / 2 / 3;
+    margin-bottom: 36px;
   }
 }
 
 .headerText {
   @include fontRegular(40px, 400, 40px);
   margin-bottom: 48px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(48px, 400, 48px);
     display: flex;
     align-items: center;
     justify-content: center;
-    grid-area: 2 / 2 / 3 / 3;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     @include fontRegular(64px, 400, 89.6px);
-    grid-area: 1 / 2 / 3 / 3;
     align-items: flex-end;
-    margin-bottom: 0;
+    margin-bottom: 60px;
   }
 }
 
 .additional_title1 {
   @include fontRegular(18px, 400, 25.2px);
   margin-bottom: 8px;
+  @media all and (min-width: $min_desktop) {
+    font-size: 14px;
+  }
 }
 
 .additional_title2 {
   @include fontRegular(16px, 400, 22.4px);
-  @media screen and (min-width: $min_tablet) {
+  margin-bottom: 60px;
+  @media all and (min-width: $min_tablet) {
     font-size: 18px;
+    margin-bottom: 36px;
+  }
+  @media all and (min-width: $min_desktop) {
+    margin-bottom: 0;
+    font-size: 14px;
+    text-wrap: balance;
   }
 }
 
 .img {
   object-fit: contain;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 325px;
     height: 430px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     width: 443px;
-    height: 586px;
+    height: 589px;
   }
 }
 .about_us_header_container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     grid-area: 1 / 1 / 5 / 2;
   }
-  @media screen and (min-width: $min_desktop) {
-    grid-area: 1 / 1 / 7 / 2;
+  @media all and (min-width: $min_desktop) {
+    grid-area: 1 / 1 / 3 / 2;
+    align-self: end;
   }
 }
 
 .about_us {
-  @include fontRegular(16px, 400, 22.4px);
   padding: 38px 26px 54px;
   border-radius: 30px;
   background-image: $under_photo_gradient;
 
   margin-bottom: 16px;
-  @media screen and (min-width: $min_tablet) {
-    transform: translateY(-16px);
+  @media all and (min-width: $min_tablet) {
+    transform: translateY(-15px);
     @include fontRegular(18px, 400, 25.2px);
     margin-bottom: 0px;
+    padding: 40px;
   }
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_desktop) {
     transform: translateY(-20px);
+    padding-bottom: 54px;
   }
+}
+
+.about_us_text {
+  @include fontRegular(18px, 400, 25.2px);
 }
 
 .about_us_facts_container {
@@ -93,16 +118,15 @@
   flex-direction: column;
   flex-wrap: wrap;
   gap: 16px;
-  @media screen and (min-width: $min_tablet) {
-    grid-area: 3 / 1 / 6 / 3;
+  @media all and (min-width: $min_tablet) {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-area: 3 / 1 / 6 / 3;
     gap: 24px;
   }
-  @media screen and (min-width: $min_desktop) {
-    grid-area: 3 / 2 / 7 / 3;
-    grid-template-rows: repeat(2, 1fr);
+  @media all and (min-width: $min_desktop) {
+    grid-area: 2 / 2 / 3 / 3;
+    display: flex;
+    flex-direction: row;
   }
 }
 
@@ -118,73 +142,66 @@
 
   border-radius: 30px;
   background-color: #000;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 356px;
-    height: 230px;
-    gap: 40px;
+    height: 258px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
+    width: 301px;
+    height: 225px;
   }
 }
 
 .about_us_fact_title {
   @include fontRegular(28px, 400, 39.2px, $seconds_text_color);
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(36px, 400, 36px, $seconds_text_color);
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
   }
 }
 
 .about_us_fact_description {
   @include fontRegular(16px, 400, 22.4px, $main_text_color, center);
-  max-width: 217px;
-  text-wrap: balance;
+  max-width: 229px;
 }
 
 .about_us_fact1 {
   grid-area: 1 / 2 / 2 / 3;
-  @media screen and (min-width: $min_desktop) {
-    grid-area: 1 / 1 / 2 / 2;
+  @media all and (min-width: $min_desktop) {
   }
 }
 .about_us_fact2 {
   grid-area: 2 / 2 / 3 / 3;
-  @media screen and (min-width: $min_desktop) {
-    grid-area: 1 / 2 / 2 / 3;
+  @media all and (min-width: $min_desktop) {
   }
 }
 .about_us_fact3 {
   grid-area: 3 / 2 / 4 / 3;
-  @media screen and (min-width: $min_desktop) {
-    grid-area: 2 / 1 / 3 / 2;
-  }
 }
 .about_us_fact4 {
+  border: 1px solid $accent_v2;
   grid-area: 3 / 1 / 4 / 2;
-  @media screen and (min-width: $min_desktop) {
-    grid-area: 2 / 2 / 3 / 3;
-  }
 }
 
 .spot {
   display: none;
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     position: absolute;
     display: block;
 
     top: 13%;
     left: 15%;
 
-    width: 227px;
-    height: 287px;
+    width: 357px;
+    height: 307px;
     transform: rotate(-90deg);
 
     border-radius: 287px;
     background-image: linear-gradient(
       180deg,
-      rgba(207, 182, 145, 0.4) 7%,
-      rgba(207, 182, 145, 0.4) 45.14%
+      rgba(207, 182, 145, 0.5) 7%,
+      rgba(207, 182, 145, 0.5) 45.14%
     );
 
     filter: blur(105px);

@@ -1,12 +1,12 @@
-import Image from "next/image";
-import Container from "@components/Common/Container/Container";
-import Arrow from "./Arrow/Arrow";
+import Image from 'next/image';
+import Container from '@components/Common/Container/Container';
+import Arrow from './Arrow/Arrow';
 
-import styles from "./MyDream.module.scss";
-import { open_Sans, unbounded } from "@app/layout";
-import Link from "next/link";
-import ArrowTab from "./Arrow/ArrowTab";
-import Circles from "./Circles/Circles";
+import styles from './MyDream.module.scss';
+import { open_Sans, unbounded } from '@app/layout';
+import Link from 'next/link';
+import ArrowTab from './Arrow/ArrowTab';
+import Circles from './Circles/Circles';
 
 const MyDream = () => {
   return (
@@ -14,7 +14,7 @@ const MyDream = () => {
       <div className={styles.spot} />
       <div className={styles.spot2} />
 
-      <div style={{ position: "relative" }}>
+      <div style={{ position: 'relative' }}>
         <Circles />
         <h1 className={`${styles.section_title} ${unbounded.className}`}>
           МОЯ ЗАПОВІТНА МРІЯ - ГЛОБАЛЬНА ТРАНСФОРМАЦІЯ ЛЮДСТВА
@@ -24,9 +24,6 @@ const MyDream = () => {
       </div>
       <div className={styles.container}>
         <div className={styles.text_container}>
-          <h2 className={`${styles.additional_title} ${unbounded.className}`}>
-            Що зроблено для реалізації мрії?
-          </h2>
           <Image
             src="/assets/images/studentsMob.webp"
             width={328}
@@ -35,24 +32,17 @@ const MyDream = () => {
             className={styles.img}
           />
           <p className={styles.text_description}>
-            Я об’єднав учнів для трансформації людей.{" "}
-            <span>
-              Мої учні з усього світу створюють власні медитації та несуть
-              користь у цей світ.
-            </span>
+            Але мріяти то далеко не все, головне прагнути й працювати, саме тому для
+            реалізації  мрії такого глобального масштабу об’єдналися мої учні з усього світу, які
+            створюють власні медитації по 22 енергіям, завдяки яким роблять світ кращим, а людей
+            щасливішими
           </p>
-          <Link
-            href="/products/meditations"
-            className={`${styles.link} ${open_Sans.className}`}
-          >
+          <Link href="/products/meditations" className={`${styles.link} ${open_Sans.className}`}>
             Медитації по 22 енергіям
           </Link>
         </div>
         <picture>
-          <source
-            srcSet="/assets/images/studentsDesk.webp"
-            media="(min-width: 1280px)"
-          />
+          <source srcSet="/assets/images/studentsDesk.webp" media="(min-width: 1280px)" />
           <Image
             src="/assets/images/studentsTab.webp"
             width={261}

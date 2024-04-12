@@ -1,8 +1,7 @@
-@import "/styles/main.scss";
+@import '/styles/main.scss';
 
 .title {
   @include fontRegular(24px, 400, 24px, $main_text_color, center);
-  text-wrap: balance;
   margin-bottom: 42px;
 
   @media screen and (min-width: $min_tablet) {
@@ -12,11 +11,9 @@
 
 .description {
   @include fontRegular(15px, 400, 22.4px, $main_text_color, center);
-  text-wrap: balance;
   margin-bottom: 48px;
   @media screen and (min-width: $min_tablet) {
     @include fontRegular(18px, 400, 25.2px, $main_text_color, center);
-    text-wrap: wrap;
   }
   @media screen and (min-width: $min_desktop) {
     text-wrap: balance;

@@ -1,20 +1,20 @@
-import Link from "next/link";
-import Container from "@components/Common/Container/Container";
-import Instagram from "@components/Common/SocialIcons/Instagram";
-import Telegram from "@components/Common/SocialIcons/Telegram";
-import TikTok from "@components/Common/SocialIcons/TikTok";
-import YouTube from "@components/Common/SocialIcons/YouTube";
-import { unbounded } from "@app/layout";
+import Link from 'next/link';
+import Container from '@components/Common/Container/Container';
+import Instagram from '@components/Common/SocialIcons/Instagram';
+import Telegram from '@components/Common/SocialIcons/Telegram';
+import TikTok from '@components/Common/SocialIcons/TikTok';
+import YouTube from '@components/Common/SocialIcons/YouTube';
+import { unbounded } from '@app/layout';
 
-import styles from "./AboutPeopleOnTheWay.module.scss";
+import styles from './AboutPeopleOnTheWay.module.scss';
 
 const YOUTUBE_SUB =
-  "https://youtube.googleapis.com/youtube/v3/channels?part=statistics&id=UC2GVkvJoRHgeX6hYF9iuWKA&key=AIzaSyASnlbbidn7c9fl4YjaaOpsiI1PAOE1jAI";
+  'https://youtube.googleapis.com/youtube/v3/channels?part=statistics&id=UC2GVkvJoRHgeX6hYF9iuWKA&key=AIzaSyASnlbbidn7c9fl4YjaaOpsiI1PAOE1jAI';
 
 async function getYoutubeSub() {
-  const res = await fetch(YOUTUBE_SUB, { cache: "no-store" });
+  const res = await fetch(YOUTUBE_SUB, { cache: 'no-store' });
   if (!res.ok) {
-    return "8,8 тис.";
+    return '8,8 тис.';
   }
   return res.json();
 }
@@ -24,23 +24,22 @@ const AboutPeopleOnTheWay = async () => {
   const setYoutubeSubs = () => {
     const subs = data.items[0].statistics.subscriberCount;
     const subsInThousands = Math.ceil(subs / 100) / 10;
-    return `${subsInThousands.toString().replace(".", ",")} тис.`;
+    return `${subsInThousands.toString().replace('.', ',')} тис.`;
   };
 
   return (
     <Container>
       <h2 className={`${styles.title} ${unbounded.className}`}>
-        Люди, які вже на шляху до трансформації
+        Для тих, хто вже на шляху трансформації
       </h2>
       <p className={`${styles.description}`}>
-        Створено у вільному доступі інформаційні канали, які вже сьогодні
-        допомагають людям знаходити відповіді на свої питання і покращувати своє
-        життя
+        Cпеціально створено доступні інформаційні канали, які вже сьогодні допомагають, підтримують
+        та супроводжують кожного у ваших трансформаціях
       </p>
       <ul className={styles.socialList}>
         <li>
           <Link
-            href={"https://www.tiktok.com/@karmologist"}
+            href={'https://www.tiktok.com/@karmologist'}
             className={`${styles.socialText} ${unbounded.className}`}
             target="_blank"
             rel="noreferrer noopener"
@@ -51,9 +50,7 @@ const AboutPeopleOnTheWay = async () => {
         </li>
         <li>
           <Link
-            href={
-              "https://www.instagram.com/karmolog4u/?igshid=MzRlODBiNWFlZA%3D%3D"
-            }
+            href={'https://www.instagram.com/karmolog4u/?igshid=MzRlODBiNWFlZA%3D%3D'}
             className={`${styles.socialText} ${unbounded.className}`}
             target="_blank"
             rel="noreferrer noopener"
@@ -63,7 +60,7 @@ const AboutPeopleOnTheWay = async () => {
         </li>
         <li>
           <Link
-            href={"https://www.youtube.com/@karmolog4u"}
+            href={'https://www.youtube.com/@karmolog4u'}
             className={`${styles.socialText} ${unbounded.className}`}
             target="_blank"
             rel="noreferrer noopener"
@@ -74,7 +71,7 @@ const AboutPeopleOnTheWay = async () => {
         </li>
         <li>
           <Link
-            href={"https://t.me/karmolog4u"}
+            href={'https://t.me/karmolog4u'}
             className={`${styles.socialText} ${unbounded.className}`}
             target="_blank"
             rel="noreferrer noopener"

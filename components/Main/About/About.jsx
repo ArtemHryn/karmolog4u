@@ -22,7 +22,7 @@ const About = () => {
     <Container styled={styled.container} styledSection={styled.section}>
       <div className={styled.spot} />
 
-      <div>
+      <div className={styled.greeting_wrapper}>
         <h1 className={`${styled.headerText} ${unbounded.className}`}>Я - Сергій Скляренко</h1>
         <p className={styled.additional_title1}>Познайомимось!</p>
         <p className={styled.additional_title2}>
@@ -43,7 +43,7 @@ const About = () => {
           {text.map((el, index) => (
             <li key={index}>
               {' '}
-              <p>{el}</p>
+              <p className={styled.about_us_text}>{el}</p>
             </li>
           ))}
         </ul>
@@ -54,23 +54,24 @@ const About = () => {
             {new Date().getMonth() > 4 ? years : years - 1} років
           </p>
           <p className={styled.about_us_fact_description}>
-            консультантської практики у методі “Матриця долі”
+            постійного консультування у методі “Матриця долі” та ТИСЯЧІ задоволених клієнтів, з
+            отриманим результатом
           </p>
         </div>
         <div className={`${styled.about_us_fact} ${styled.about_us_fact2}`}>
-          <p className={`${styled.about_us_fact_title} ${unbounded.className}`}>15 000+</p>
-          <p className={styled.about_us_fact_description}>особистих консультацій</p>
-        </div>
-        <div className={`${styled.about_us_fact} ${styled.about_us_fact3}`}>
-          <p className={`${styled.about_us_fact_title} ${unbounded.className}`}>600+</p>
+          <p className={`${styled.about_us_fact_title} ${unbounded.className}`}>1000</p>
           <p className={styled.about_us_fact_description}>
             випускників школи “Студія трансформації Сергія Скляренка”
           </p>
         </div>
+        <div className={`${styled.about_us_fact} ${styled.about_us_fact3}`}>
+          <p className={`${styled.about_us_fact_title} ${unbounded.className}`}>15000+</p>
+          <p className={styled.about_us_fact_description}>особистих консультацій</p>
+        </div>
         <div className={`${styled.about_us_fact} ${styled.about_us_fact4}`}>
           <p className={styled.about_us_fact_description}>
-            Сертифікація школи “Студія трансформації Сергія Скляренка” офіційно підтверджена автором
-            методу “Матриця долі” Наталією Ладіні
+            Важливо — сертифікація школи “Студія трансформації Сергія Скляренка”
+            офіційно підтверджена автором методу «Матриця долі» Наталією Ладіні
           </p>
         </div>
       </div>

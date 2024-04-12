@@ -1,4 +1,4 @@
-@import "../../../styles/main.scss";
+@import '../../../styles/main.scss';
 
 .drop_btn {
   width: 100%;
@@ -65,6 +65,9 @@
     margin-top: 32px;
     margin-bottom: 10px;
     @include fontRegular(16px, 400, 22.4px);
+  }
+  & > a {
+    text-decoration: underline;
   }
 }
 
