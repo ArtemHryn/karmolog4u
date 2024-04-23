@@ -22,7 +22,7 @@ export const matrixLinks = [
     name: 'Матрицю року',
   },
   {
-    href: '/calculator/demon-victim-matrix',
+    href: '/calculator/demon-matrix',
     name: 'Матрицю “Демон жертва”',
   },
   {
