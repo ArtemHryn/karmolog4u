@@ -4,9 +4,8 @@ import { OverlayPanel } from 'primereact/overlaypanel';
 
 import styles from './PeriodMap.module.scss';
 
-const PeriodMapElement = ({ age, arcane, date }) => {
+const PeriodMapElement = ({ age, arcane, date, currentAge }) => {
   const op = useRef(null);
-
   const addMonthsToDate = (dateString, yearsToAdd) => {
     const [day, month, year] = dateString.split('.');
     const date = new Date(year, month - 1, day);
@@ -16,7 +15,9 @@ const PeriodMapElement = ({ age, arcane, date }) => {
 
   return (
     <li
-      className={styles.period_table_element}
+      className={`${styles.period_table_element} ${
+        age <= currentAge && currentAge < age + 1.25 ? styles.active_period : ''
+      }`}
       onMouseEnter={e => date && op.current.toggle(e)}
       onMouseLeave={e => date && op.current.toggle(e)}
     >
