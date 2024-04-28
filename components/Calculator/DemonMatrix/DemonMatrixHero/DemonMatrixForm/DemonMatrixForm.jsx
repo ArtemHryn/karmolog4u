@@ -7,7 +7,6 @@ import styles from './DemonMatrixForm.module.scss';
 
 const DemonMatrixForm = ({ setDate, setName, setIsShowMatrix, name, date, redirectTo, code }) => {
   const router = useRouter();
-
   const {
     register,
     handleSubmit,

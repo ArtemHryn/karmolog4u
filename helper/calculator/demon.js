@@ -49,7 +49,7 @@ const demon15 = {
 };
 
 export const getStaticDemonMatrix = number => {
-  switch (number) {
+  switch (number.toString()) {
     case '12':
       return getPersonalGraph({ info: demon12, isPartners: true, skipCenter: true });
     case '13':

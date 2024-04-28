@@ -49,7 +49,7 @@ const DemonMatrixHero = ({
     }
     if (linkDate) {
       setDate(linkDate);
-      setCode(linkCode);
+      setCode(linkCode ? linkCode : 12);
       setIsShowMatrix(true);
     }
     setIsChecked(true);
