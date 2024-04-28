@@ -6,10 +6,13 @@ import DemonMatrixGraph from './DemonMatrixGraph/DemonMatrixGraph';
 import ResultLifeMap from '../CompatibilityMatrix/ResultMatrix/ResultLifeMap/ResultLifeMap';
 
 import styles from './DemonMatrix.module.scss';
+import { getConsciousness } from '@helper/calculator/consciousness';
 
 const DemonMatrix = ({ date, name, code }) => {
   const [matrix, setMatrix] = useState({});
   const [map, setMap] = useState(null);
+  const [spiritLesson, setSpiritLesson] = useState({});
+
   useEffect(() => {
     if (!date || !code) return;
     const [day, month, year] = date.split('.');
@@ -19,7 +22,8 @@ const DemonMatrix = ({ date, name, code }) => {
       partners: [{ matrix: demonStaticMatrix }, { matrix: personalMatrix }],
     });
     const resultMap = getResultLifeMap({ info: result });
-
+    const spiritKeys = getConsciousness({ info: result });
+    setSpiritLesson(spiritKeys);
     setMatrix(result);
     setMap(resultMap);
   }, [code, date]);
@@ -34,7 +38,7 @@ const DemonMatrix = ({ date, name, code }) => {
   return (
     <div id="demon-matrix" className={styles.demon_matrix_wrapper}>
       <DemonMatrixGraph matrix={matrix} date={date} code={code} />
-      <ResultLifeMap maps={map} />
+      <ResultLifeMap maps={map} spiritLesson={spiritLesson} />
     </div>
   );
 };

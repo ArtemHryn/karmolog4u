@@ -114,6 +114,10 @@
   }
 }
 
+.active_period {
+  animation: jump 3.3s ease-in-out infinite;
+}
+
 .tip {
   display: flex;
   align-items: center;
@@ -128,5 +132,16 @@
     padding: 8px;
     min-height: 40px;
   }
+}
 
+@keyframes jump {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

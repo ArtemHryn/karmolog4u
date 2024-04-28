@@ -23,7 +23,6 @@ const SixteenLawsPeriods = ({ periods, age }) => {
     if (age === undefined || age === null) return;
     const getCurrentPeriod = age => {
       const periods = getPeriods();
-      console.log(periods);
       const currentPeriod = periods.find(el => {
         const [from, to] = el.years.split(' - ');
         return +from <= age && age < +to;
