@@ -1,0 +1,36 @@
+@import '/styles/main.scss';
+
+.result_list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  @media all and (min-width: $min_tablet) {
+    gap: 40px;
+  }
+  @media all and (min-width: $min_desktop) {
+    justify-content: center;
+  }
+}
+
+.result_item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  @media all and (min-width: $min_tablet) {
+    gap: 20px;
+  }
+}
+
+.result_name {
+  @include fontRegular(14px, 400, 19.6px, $main_text_color, center);
+  @media all and (min-width: $min_tablet) {
+    font-size: 18px;
+  }
+}
+
+.result_key {
+  @include fontRegular(14px, 400, 19.6px, $seconds_text_color, center);
+  @media all and (min-width: $min_tablet) {
+    font-size: 18px;
+  }
+}

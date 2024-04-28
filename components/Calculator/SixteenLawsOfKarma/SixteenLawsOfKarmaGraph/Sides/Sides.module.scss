@@ -1,0 +1,625 @@
+@import '/styles/main.scss';
+
+.out_key {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  line-height: 1.75 !important;
+  text-align: center;
+  color: $seconds_text_color !important;
+  @media all and (min-width: $min_tablet) {
+    width: 35px;
+    font-size: 20px !important;
+  }
+  @media all and (min-width: $min_desktop) {
+    width: 35px;
+    font-size: 20px !important;
+  }
+}
+
+.middle_key {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  line-height: 28px !important;
+  text-align: center;
+  color: $seconds_text_color !important;
+  @media all and (min-width: $min_tablet) {
+    width: 30px;
+    font-size: 18px !important;
+  }
+}
+
+.inner_key {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  line-height: 28px !important;
+  text-align: center;
+  color: $seconds_text_color !important;
+  @media all and (min-width: $min_tablet) {
+    width: 30px;
+    font-size: 16px !important;
+  }
+}
+
+.out {
+  &_day {
+    top: 46.4%;
+    left: -0.5%;
+  }
+  &_topLeft1 {
+    top: 21.2%;
+    left: 12.6%;
+  }
+  &_month {
+    top: 10.8%;
+    left: 45%;
+  }
+  &_topRight1 {
+    top: 21.6%;
+    right: 13.4%;
+  }
+  &_year {
+    top: 46.6%;
+    right: -0.5%;
+  }
+  &_bottomRight1 {
+    bottom: 22.5%;
+    right: 13.8%;
+  }
+  &_bottom1 {
+    bottom: 11.6%;
+    right: 45.7%;
+  }
+  &_bottomLeft1 {
+    bottom: 22.5%;
+    left: 13%;
+  }
+  @media all and (min-width: $min_tablet) {
+    &_day {
+      top: 47.3%;
+      left: 9.2%;
+    }
+    &_topLeft1 {
+      top: 19.8%;
+      left: 20.2%;
+    }
+    &_month {
+      top: 8.2%;
+      left: 47.4%;
+    }
+    &_topRight1 {
+      top: 20.2%;
+      right: 20.7%;
+    }
+    &_year {
+      top: 47.4%;
+      right: 9%;
+    }
+    &_bottomRight1 {
+      bottom: 20%;
+      right: 21%;
+    }
+    &_bottom1 {
+      bottom: 8%;
+      right: 47.8%;
+    }
+    &_bottomLeft1 {
+      bottom: 20%;
+      left: 20.4%;
+    }
+  }
+  @media all and (min-width: $min_desktop) {
+    &_day {
+      top: 47.5%;
+      left: 1.4%;
+    }
+    &_topLeft1 {
+      top: 19.8%;
+      left: 14.6%;
+    }
+    &_month {
+      top: 8.3%;
+      left: 47.2%;
+    }
+    &_topRight1 {
+      top: 20.3%;
+      right: 15.2%;
+    }
+    &_year {
+      top: 47.5%;
+      right: 1.1%;
+    }
+    &_bottomRight1 {
+      bottom: 19.8%;
+      right: 15.4%;
+    }
+    &_bottom1 {
+      bottom: 8%;
+      right: 47.4%;
+    }
+    &_bottomLeft1 {
+      bottom: 20%;
+      left: 14.9%;
+    }
+  }
+}
+
+.middle {
+  &_left2 {
+    top: 45.8%;
+    left: 8.4%;
+  }
+  &_topLeft2 {
+    top: 25.1%;
+    left: 19.4%;
+  }
+  &_top2 {
+    top: 16.55%;
+    left: 46%;
+  }
+  &_topRight2 {
+    top: 25.4%;
+    right: 20.3%;
+  }
+  &_right2 {
+    top: 46.2%;
+    right: 8.5%;
+  }
+  &_bottomRight2 {
+    bottom: 26.7%;
+    right: 20.3%;
+  }
+  &_bottom2 {
+    bottom: 17.6%;
+    right: 46.3%;
+  }
+  &_bottomLeft2 {
+    bottom: 26.8%;
+    left: 19.5%;
+  }
+  @media all and (min-width: $min_tablet) {
+    &_left2 {
+      top: 47.8%;
+      left: 16.3%;
+    }
+    &_topLeft2 {
+      top: 24.8%;
+      left: 25.7%;
+    }
+    &_top2 {
+      top: 15.7%;
+      left: 47.7%;
+    }
+    &_topRight2 {
+      top: 25.3%;
+      right: 26.1%;
+    }
+    &_right2 {
+      top: 48%;
+      right: 16.2%;
+    }
+    &_bottomRight2 {
+      bottom: 25.4%;
+      right: 26.2%;
+    }
+    &_bottom2 {
+      bottom: 15.7%;
+      right: 48%;
+    }
+    &_bottomLeft2 {
+      bottom: 25.5%;
+      left: 25.6%;
+    }
+  }
+  @media all and (min-width: $min_desktop) {
+    &_left2 {
+      top: 47.9%;
+      left: 10%;
+    }
+    &_topLeft2 {
+      top: 25%;
+      left: 21%;
+    }
+    &_top2 {
+      top: 15.7%;
+      left: 47.5%;
+    }
+    &_topRight2 {
+      top: 25.4%;
+      right: 21.5%;
+    }
+    &_right2 {
+      top: 48%;
+      right: 9.8%;
+    }
+    &_bottomRight2 {
+      bottom: 25.4%;
+      right: 21.6%;
+    }
+    &_bottom2 {
+      bottom: 15.5%;
+      right: 47.6%;
+    }
+    &_bottomLeft2 {
+      bottom: 25.4%;
+      left: 21.1%;
+    }
+  }
+}
+
+.inner {
+  &_left3 {
+    top: 45.8%;
+    left: 16.2%;
+  }
+  &_topLeft3 {
+    top: 29%;
+    left: 25.1%;
+  }
+  &_top3 {
+    top: 22%;
+    left: 46.8%;
+  }
+  &_topRight3 {
+    top: 29.2%;
+    right: 25.9%;
+  }
+  &_right3 {
+    top: 46%;
+    right: 16.2%;
+  }
+  &_bottomRight3 {
+    bottom: 30.8%;
+    right: 26%;
+  }
+  &_bottom3 {
+    bottom: 23.2%;
+    right: 47.2%;
+  }
+  &_bottomLeft3 {
+    bottom: 30.8%;
+    left: 25.1%;
+  }
+  @media all and (min-width: $min_tablet) {
+    &_left3 {
+      top: 48%;
+      left: 22.1%;
+    }
+    &_topLeft3 {
+      top: 29.4%;
+      left: 29.6%;
+    }
+    &_top3 {
+      top: 21.8%;
+      left: 47.9%;
+    }
+    &_topRight3 {
+      top: 29.6%;
+      right: 30.3%;
+    }
+    &_right3 {
+      top: 48%;
+      right: 22%;
+    }
+    &_bottomRight3 {
+      bottom: 29.6%;
+      right: 30.3%;
+    }
+    &_bottom3 {
+      bottom: 21.5%;
+      right: 48.1%;
+    }
+    &_bottomLeft3 {
+      bottom: 29.7%;
+      left: 29.7%;
+    }
+  }
+  @media all and (min-width: $min_desktop) {
+    &_left3 {
+      top: 47.9%;
+      left: 16.9%;
+    }
+    &_topLeft3 {
+      top: 29.4%;
+      left: 25.8%;
+    }
+    &_top3 {
+      top: 21.8%;
+      left: 47.5%;
+    }
+    &_topRight3 {
+      top: 29.6%;
+      right: 26.5%;
+    }
+    &_right3 {
+      top: 48%;
+      right: 16.6%;
+    }
+    &_bottomRight3 {
+      bottom: 29.6%;
+      right: 26.4%;
+    }
+    &_bottom3 {
+      bottom: 21.4%;
+      right: 47.7%;
+    }
+    &_bottomLeft3 {
+      bottom: 29.7%;
+      left: 25.9%;
+    }
+  }
+}
+
+.center {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  line-height: 28px !important;
+  text-align: center;
+  color: $seconds_text_color !important;
+  top: 46%;
+  left: 45%;
+  @media all and (min-width: $min_tablet) {
+    width: 40px;
+    font-size: 22px !important;
+    top: 48.2%;
+    left: 47%;
+  }
+  @media all and (min-width: $min_desktop) {
+    top: 48.4%;
+    left: 46.5%;
+  }
+}
+
+.center2 {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  font-size: 10px !important;
+
+  font-weight: 700 !important;
+  line-height: 28px !important;
+  text-align: center;
+  top: 45.8%;
+  left: 54.4%;
+  color: $seconds_text_color !important;
+  @media all and (min-width: $min_tablet) {
+    width: 40px;
+    font-size: 16px !important;
+
+    top: 48.1%;
+    left: 54.2%;
+  }
+  @media all and (min-width: $min_desktop) {
+    top: 48.2%;
+    left: 55%;
+  }
+}
+
+.addition_keys {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  @include fontRegular(10px, 400, 14px);
+  &_lawsLeft1 {
+    top: 44.3%;
+    left: 6.5%;
+  }
+  &_lawsLeft2 {
+    top: 44.5%;
+    left: 14%;
+  }
+  &_lawsTopLeft1 {
+    top: 22.5%;
+    left: 21.5%;
+  }
+  &_lawsTopLeft2 {
+    top: 27%;
+    left: 26.7%;
+  }
+  &_lawsTop1 {
+    top: 15.7%;
+    left: 52.5%;
+  }
+  &_lawsTop2 {
+    top: 21.5%;
+    left: 52.5%;
+  }
+  &_lawsTopRight1 {
+    top: 27.5%;
+    right: 16.2%;
+  }
+  &_lawsTopRight2 {
+    top: 31.5%;
+    right: 21.8%;
+  }
+  &_lawsRight1 {
+    top: 44.5%;
+    right: 6.5%;
+  }
+  &_lawsRight2 {
+    top: 44.5%;
+    right: 14%;
+  }
+  &_lawsBottomRight1 {
+    bottom: 28.5%;
+    right: 16.5%;
+  }
+  &_lawsBottomRight2 {
+    bottom: 32.5%;
+    right: 21.8%;
+  }
+  &_lawsBottom1 {
+    bottom: 16.5%;
+    right: 43.5%;
+  }
+  &_lawsBottom2 {
+    bottom: 22.5%;
+    right: 43.7%;
+  }
+  &_lawsBottomLeft1 {
+    bottom: 24%;
+    left: 21.6%;
+  }
+  &_lawsBottomLeft2 {
+    bottom: 28.5%;
+    left: 26%;
+  }
+  @media all and (min-width: $min_tablet) {
+    font-size: 14px;
+    &_lawsLeft1 {
+      top: 44.9%;
+      left: 14.3%;
+    }
+    &_lawsLeft2 {
+      top: 44.9%;
+      left: 20.4%;
+    }
+    &_lawsTopLeft1 {
+      top: 21.2%;
+      left: 26.5%;
+    }
+    &_lawsTopLeft2 {
+      top: 26.3%;
+      left: 30.9%;
+    }
+    &_lawsTop1 {
+      top: 13%;
+      left: 52.3%;
+    }
+    &_lawsTop2 {
+      top: 19.5%;
+      left: 51.8%;
+    }
+    &_lawsTopRight1 {
+      top: 25.7%;
+      right: 22.6%;
+    }
+    &_lawsTopRight2 {
+      top: 30.3%;
+      right: 27.8%;
+    }
+    &_lawsRight1 {
+      top: 45.2%;
+      right: 14.2%;
+    }
+    &_lawsRight2 {
+      top: 45.3%;
+      right: 20.5%;
+    }
+    &_lawsBottomRight1 {
+      bottom: 26%;
+      right: 23%;
+    }
+    &_lawsBottomRight2 {
+      bottom: 30.5%;
+      right: 27.2%;
+    }
+    &_lawsBottom1 {
+      bottom: 13.2%;
+      right: 45.6%;
+    }
+    &_lawsBottom2 {
+      bottom: 19.6%;
+      right: 46%;
+    }
+    &_lawsBottomLeft1 {
+      bottom: 26%;
+      left: 22.4%;
+    }
+    &_lawsBottomLeft2 {
+      bottom: 30.5%;
+      left: 26.9%;
+    }
+  }
+  @media all and (min-width: $min_desktop) {
+    font-size: 16px;
+
+    &_lawsLeft1 {
+      top: 44.7%;
+      left: 7.3%;
+    }
+    &_lawsLeft2 {
+      top: 44.9%;
+      left: 15%;
+    }
+    &_lawsTopLeft1 {
+      top: 21%;
+      left: 22.5%;
+    }
+    &_lawsTopLeft2 {
+      top: 26%;
+      left: 27.9%;
+    }
+    &_lawsTop1 {
+      top: 12.9%;
+      left: 53%;
+    }
+    &_lawsTop2 {
+      top: 19.4%;
+      left: 52.8%;
+    }
+    &_lawsTopRight1 {
+      top: 21.2%;
+      right: 23%;
+    }
+    &_lawsTopRight2 {
+      top: 26%;
+      right: 28.2%;
+    }
+    &_lawsRight1 {
+      top: 45%;
+      right: 7.4%;
+    }
+    &_lawsRight2 {
+      top: 45.1%;
+      right: 15.1%;
+    }
+    &_lawsBottomRight1 {
+      bottom: 26%;
+      right: 17.7%;
+    }
+    &_lawsBottomRight2 {
+      bottom: 30.2%;
+      right: 23%;
+    }
+    &_lawsBottom1 {
+      bottom: 13%;
+      right: 44.6%;
+    }
+    &_lawsBottom2 {
+      bottom: 19.4%;
+      right: 45.4%;
+    }
+    &_lawsBottomLeft1 {
+      bottom: 21.3%;
+      left: 22.4%;
+    }
+    &_lawsBottomLeft2 {
+      bottom: 26.3%;
+      left: 27.2%;
+    }
+  }
+}

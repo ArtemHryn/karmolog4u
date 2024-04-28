@@ -10,9 +10,9 @@ import SixteenLawsOfKarmaMatrix from '@components/Calculator/SixteenLawsOfKarma/
 import styles from '@components/Calculator/SixteenLawsOfKarma/SixteenLawsOfKarmaMatrix.module.scss';
 
 const social = [
-  'Стукаєтесь у всі двері, а результату нуль – можливо не там шукаєте причину.',
-  'Все, що відбувається в вашому житті не є випадковим, а лише результат причино-наслідкових історій минулого і сьогодення.',
-  'З розрахунком та пропрацюванням Матриці ”16 законів карми”, ви дізнаєтесь повний сценарій власного життя та свою кармічну історію, і як результат, отримаєте можливість перейти в ”нові вібрації Всесвіту”. Позбавитеся негативного впливу й крокуватимете по життю в нових енергіях — без ”кармічних боргів”.',
+  'Хочете розібратися з особистими «кармінними боргами» і не відпрацьовувати карму пращурів — тоді чекаємо на особистій консультації, де ви отримаєте:',
+  '- розуміння чому і звідки події, які відбуваються з вами; <br/> - підказки «хто винен» і «що з цим робити; <br/>- навички, щоб переписувати кармічну історію та <br/>- «пароль» до власного життя.',
+  'Ви ще так багато про себе не знаєте – нумо знайомитись!',
 ];
 
 const SixteenLawsOfKarmaPage = () => {
@@ -36,7 +36,7 @@ const SixteenLawsOfKarmaPage = () => {
       {isChecked && isShowMatrix && (
         <>
           <Container styledSection={styles.matrix_wrapper}>
-            <SixteenLawsOfKarmaMatrix />
+            <SixteenLawsOfKarmaMatrix date={date} name={name} />
           </Container>
           <MoreCalculators date={date} name={name} />
           <SocialInfoDesc socialList={social} />
