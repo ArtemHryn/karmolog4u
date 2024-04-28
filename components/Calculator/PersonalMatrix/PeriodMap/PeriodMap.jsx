@@ -15,7 +15,7 @@ const PeriodMap = ({ period, date }) => {
       (ageObj.years ? ageObj.years : 0) +
       parseFloat(((ageObj.months ? ageObj.months : 0) / 12).toFixed(2));
     setAge(currentAge);
-  });
+  }, [date]);
 
   if (!period) return null;
 
