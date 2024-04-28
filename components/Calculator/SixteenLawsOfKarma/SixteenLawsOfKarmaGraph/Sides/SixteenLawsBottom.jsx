@@ -1,8 +1,8 @@
 import Title from '@components/Common/Title/Title';
 
-import styles from './MatrixGraph.module.scss';
+import styles from './Sides.module.scss'
 
-const Bottom = ({ matrix, hideAdditionalKeys, hideInnerAdditionalKeys, showThirdKey }) => {
+const SixteenLawsBottom = ({ matrix, hideAdditionalKeys, hideInnerAdditionalKeys }) => {
   const {
     bottom1,
     bottomRight1,
@@ -25,19 +25,6 @@ const Bottom = ({ matrix, hideAdditionalKeys, hideInnerAdditionalKeys, showThird
       <Title variant="span" styled={`${styles.out_key} ${styles.out_bottomLeft1}`}>
         {bottomLeft1}
       </Title>
-      {showThirdKey && (
-        <>
-          <Title variant="span" styled={`${styles.inner_key} ${styles.inner_bottom3}`}>
-            {bottom3}
-          </Title>
-          <Title variant="span" styled={`${styles.inner_key} ${styles.inner_bottomRight3}`}>
-            {bottomRight3}
-          </Title>
-          <Title variant="span" styled={`${styles.inner_key} ${styles.inner_bottomLeft3}`}>
-            {bottomLeft3}
-          </Title>
-        </>
-      )}
       {!hideInnerAdditionalKeys && (
         <>
           <Title variant="span" styled={`${styles.middle_key} ${styles.middle_bottom2}`}>
@@ -69,4 +56,4 @@ const Bottom = ({ matrix, hideAdditionalKeys, hideInnerAdditionalKeys, showThird
   );
 };
 
-export default Bottom;
+export default SixteenLawsBottom;

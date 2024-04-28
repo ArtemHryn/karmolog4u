@@ -1,0 +1,281 @@
+@import '/styles/main.scss';
+
+.circle_el {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  @include fontRegular(10px, 500, 14px, $main_text_color, center);
+  &_o1 {
+    top: 34%;
+    left: 5.5%;
+    rotate: -65deg;
+  }
+  &_o2 {
+    top: 15.6%;
+    left: 30%;
+    rotate: -18deg;
+  }
+  &_o3 {
+    top: 16%;
+    right: 28%;
+    rotate: 18deg;
+  }
+  &_o4 {
+    top: 34%;
+    right: 5.5%;
+    rotate: 65deg;
+  }
+  &_o5 {
+    bottom: 34%;
+    right: 5.5%;
+    rotate: -65deg;
+  }
+  &_o6 {
+    bottom: 17%;
+    right: 28%;
+    rotate: -25deg;
+  }
+  &_o7 {
+    bottom: 17%;
+    left: 29%;
+    rotate: 25deg;
+  }
+  &_o8 {
+    bottom: 34%;
+    left: 5.5%;
+    rotate: 65deg;
+  }
+  @media all and (min-width: $min_tablet) {
+    font-size: 18px;
+    &_o1 {
+      top: 34%;
+      left: 14%;
+      rotate: -65deg;
+    }
+    &_o2 {
+      top: 13%;
+      left: 35%;
+      rotate: -18deg;
+    }
+    &_o3 {
+      top: 13.5%;
+      right: 33%;
+      rotate: 18deg;
+    }
+    &_o4 {
+      top: 34%;
+      right: 14%;
+      rotate: 65deg;
+    }
+    &_o5 {
+      bottom: 34%;
+      right: 14%;
+      rotate: -65deg;
+    }
+    &_o6 {
+      bottom: 13%;
+      right: 33.5%;
+      rotate: -25deg;
+    }
+    &_o7 {
+      bottom: 13%;
+      left: 34.5%;
+      rotate: 25deg;
+    }
+    &_o8 {
+      bottom: 33%;
+      left: 14%;
+      rotate: 65deg;
+    }
+  }
+  @media all and (min-width: $min_desktop) {
+    &_o1 {
+      top: 34%;
+      left: 7%;
+      rotate: -65deg;
+    }
+    &_o2 {
+      top: 13%;
+      left: 32%;
+      rotate: -18deg;
+    }
+    &_o3 {
+      top: 13.5%;
+      right: 30%;
+      rotate: 18deg;
+    }
+    &_o4 {
+      top: 34%;
+      right: 7%;
+      rotate: 65deg;
+    }
+    &_o5 {
+      bottom: 34%;
+      right: 7%;
+      rotate: -65deg;
+    }
+    &_o6 {
+      bottom: 13%;
+      right: 30.5%;
+      rotate: -25deg;
+    }
+    &_o7 {
+      bottom: 13%;
+      left: 30.5%;
+      rotate: 25deg;
+    }
+    &_o8 {
+      bottom: 33%;
+      left: 7%;
+      rotate: 65deg;
+    }
+  }
+}
+
+.circle_el_inner {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  @include fontRegular(10px, 500, 14px, $main_text_color, center);
+  &_i1 {
+    top: 38%;
+    left: 17.8%;
+    rotate: -65deg;
+  }
+  &_i2 {
+    top: 25%;
+    left: 34%;
+    rotate: -25deg;
+  }
+  &_i3 {
+    top: 25%;
+    right: 33%;
+    rotate: 25deg;
+  }
+  &_i4 {
+    top: 38%;
+    right: 16.8%;
+    rotate: 65deg;
+  }
+  &_i5 {
+    bottom: 39%;
+    right: 16.8%;
+    rotate: -65deg;
+  }
+  &_i8 {
+    bottom: 39%;
+    left: 17%;
+    rotate: 65deg;
+  }
+  &_i7 {
+    bottom: 25.8%;
+    left: 34.5%;
+    rotate: 25deg;
+  }
+  &_i6 {
+    bottom: 25.4%;
+    right: 33.8%;
+    rotate: -25deg;
+  }
+  @media all and (min-width: $min_tablet) {
+    font-size: 18px;
+    &_i1 {
+      top: 38%;
+      left: 24%;
+      rotate: -65deg;
+    }
+    &_i2 {
+      top: 23%;
+      left: 39%;
+      rotate: -25deg;
+    }
+    &_i3 {
+      top: 23.5%;
+      right: 37%;
+      rotate: 25deg;
+    }
+    &_i4 {
+      top: 37.8%;
+      right: 23.2%;
+      rotate: 65deg;
+    }
+    &_i5 {
+      bottom: 37.5%;
+      right: 23.5%;
+      rotate: -65deg;
+    }
+    &_i6 {
+      bottom: 23%;
+      right: 37.4%;
+      rotate: -25deg;
+    }
+    &_i7 {
+      bottom: 22.7%;
+      left: 39%;
+      rotate: 25deg;
+    }
+    &_i8 {
+      bottom: 38%;
+      left: 24.2%;
+      rotate: 65deg;
+    }
+  }
+  @media all and (min-width: $min_desktop) {
+    &_i1 {
+      top: 38%;
+      left: 19.2%;
+      rotate: -65deg;
+    }
+    &_i2 {
+      top: 23%;
+      left: 36.5%;
+      rotate: -25deg;
+    }
+    &_i3 {
+      top: 23.2%;
+      right: 35%;
+      rotate: 25deg;
+    }
+    &_i4 {
+      top: 37.8%;
+      right: 18.5%;
+      rotate: 65deg;
+    }
+    &_i5 {
+      bottom: 37.5%;
+      right: 18.4%;
+      rotate: -65deg;
+    }
+    &_i6 {
+      bottom: 22.8%;
+      right: 35.4%;
+      rotate: -25deg;
+    }
+    &_i7 {
+      bottom: 22.7%;
+      left: 36.5%;
+      rotate: 25deg;
+    }
+    &_i8 {
+      bottom: 38%;
+      left: 19.2%;
+      rotate: 65deg;
+    }
+  }
+}
+
+.center2 {
+  top: 46.5%;
+  left: 54%;
+  @media all and (min-width: $min_tablet) {
+    top: 47%;
+  }
+  @media all and (min-width: $min_desktop) {
+    top: 47%;
+    left: 55%;
+  }
+}

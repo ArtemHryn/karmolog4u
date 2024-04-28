@@ -34,7 +34,7 @@ export const matrixLinks = [
     name: 'Матрицю “Батьки та діти”',
   },
   {
-    href: '/calculator/matrix-sixteen-laws-of-karma',
+    href: '/calculator/sixteen-laws-of-karma-matrix',
     name: 'Матрицю “16 законів карми”',
   },
   {

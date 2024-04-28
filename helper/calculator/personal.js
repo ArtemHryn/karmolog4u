@@ -21,6 +21,7 @@ export const getPersonalGraph = ({
   isGeneric,
   parents,
   yearMatrix,
+  sixteenLaws,
 }) => {
   const data = { ...info };
 
@@ -160,6 +161,62 @@ export const getPersonalGraph = ({
     data.OctNov = checkNum(data.bottom1, data.bottomLeft1);
     data.NovDec = checkNum(data.bottomLeft1, data.month);
   }
+  if (sixteenLaws) {
+    const laws = {};
+    const outer = {};
+    const inner = {};
+    laws.lawsLeft1 = checkNum(data.day, data.left2);
+    laws.lawsLeft2 = checkNum(data.left2, data.left3);
+    laws.lawsTopLeft1 = checkNum(data.topLeft1, data.topLeft2);
+    laws.lawsTopLeft2 = checkNum(data.topLeft2, data.topLeft3);
+    laws.lawsTop1 = checkNum(data.month, data.top2);
+    laws.lawsTop2 = checkNum(data.top2, data.top3);
+    laws.lawsTopRight1 = checkNum(data.topRight1, data.topRight2);
+    laws.lawsTopRight2 = checkNum(data.topRight2, data.topRight3);
+    laws.lawsRight1 = checkNum(data.year, data.right2);
+    laws.lawsRight2 = checkNum(data.right2, data.right3);
+    laws.lawsBottomRight1 = checkNum(data.bottomRight1, data.bottomRight2);
+    laws.lawsBottomRight2 = checkNum(data.bottomRight2, data.bottomRight3);
+    laws.lawsBottom1 = checkNum(data.bottom1, data.bottom2);
+    laws.lawsBottom2 = checkNum(data.bottom2, data.bottom3);
+    laws.lawsBottomLeft1 = checkNum(data.bottomLeft1, data.bottomLeft2);
+    laws.lawsBottomLeft2 = checkNum(data.bottomLeft2, data.bottomLeft3);
+    data.laws = laws;
+
+    //outer sixteen laws circle
+    outer.o1 = checkNum(data.day, data.topLeft1);
+    outer.o2 = checkNum(data.topLeft1, data.month);
+    outer.o3 = checkNum(data.month, data.topRight1);
+    outer.o4 = checkNum(data.topRight1, data.year);
+    outer.o5 = checkNum(data.year, data.bottomRight1);
+    outer.o6 = checkNum(data.bottomRight1, data.bottom1);
+    outer.o7 = checkNum(data.bottom1, data.bottomLeft1);
+    outer.o8 = checkNum(data.bottomLeft1, data.day);
+
+    inner.i1 = checkNum(data.left3, data.topLeft3);
+    inner.i2 = checkNum(data.topLeft3, data.top3);
+    inner.i3 = checkNum(data.top3, data.topRight3);
+    inner.i4 = checkNum(data.topRight3, data.right3);
+    inner.i5 = checkNum(data.right3, data.bottomRight3);
+    inner.i6 = checkNum(data.bottomRight3, data.bottom3);
+    inner.i7 = checkNum(data.bottom3, data.bottomLeft3);
+    inner.i8 = checkNum(data.bottomLeft3, data.left3);
+    const outerSixteenCircleResult = Object.keys(outer).reduce((acc, el) => {
+      return acc + outer[el];
+    }, 0);
+    const innerSixteenCircleResult = Object.keys(inner).reduce((acc, el) => {
+      return acc + inner[el];
+    }, 0);
+    data.outerSixteenCircleResult = checkNum(outerSixteenCircleResult);
+    data.innerSixteenCircleResult = checkNum(innerSixteenCircleResult);
+    data.finalSixteenCircleResult = checkNum(
+      data.outerSixteenCircleResult,
+      data.innerSixteenCircleResult
+    );
+    data.outer = outer;
+    data.inner = inner;
+  }
+
   return data;
 };
 

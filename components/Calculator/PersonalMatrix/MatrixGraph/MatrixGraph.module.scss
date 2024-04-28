@@ -1,33 +1,5 @@
 @import '/styles/main.scss';
 
-.date_wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-}
-
-.date_title {
-  text-align: center;
-  font-size: 24px !important;
-  font-weight: 400 !important;
-  line-height: 24px !important;
-  @media all and (min-width: $min_tablet) {
-    @include fontRegular(28px, 400, 39.2px);
-    font-size: 28px !important;
-    line-height: 39.2px !important;
-  }
-}
-
-.date {
-  @include fontRegular(18px, 400, 25.2px, $seconds_text_color);
-  font-size: 18px !important;
-  font-weight: 400 !important;
-  line-height: 25.2px !important;
-  color: $seconds_text_color;
-}
-
 .graph_wrapper {
   position: relative;
 

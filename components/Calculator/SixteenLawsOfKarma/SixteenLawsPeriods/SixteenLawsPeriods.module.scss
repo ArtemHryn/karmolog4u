@@ -1,0 +1,44 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  @media screen and (min-width: $min_desktop) {
+    width: 519px;
+  }
+}
+
+.text_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.text {
+  @include fontRegular(14px, 400, 19.6px, $main_text_color, center);
+  @media all and (min-width: $min_tablet) {
+    font-size: 16px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    text-align: left;
+  }
+}
+
+.selector_wrapper {
+  margin-bottom: 40px;
+  @media all and (min-width: $min_tablet) {
+    width: 546px;
+    margin-inline: auto;
+    margin-bottom: 60px;
+  }
+  @media all and (min-width: $min_desktop) {
+    width: 519px;
+  }
+}
+.selector_text {
+  @include fontRegular(14px, 400, 19.6px, $main_text_color);
+  margin-bottom: 8px;
+  @media all and (min-width: $min_tablet) {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+}
