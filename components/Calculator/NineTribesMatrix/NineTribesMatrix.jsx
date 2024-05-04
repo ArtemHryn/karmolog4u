@@ -1,14 +1,12 @@
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import NineTribesGraph from './NineTribesGraph/NineTribesGraph';
 import NineTribesTables from './NineTribesTables/NineTribesTables';
 import { getPersonalGraph } from '@helper/calculator/personal';
-import { getGenericTables } from '@helper/calculator/generic';
-import { open_Sans } from '@app/layout';
+import { getGenericTables, getKneelingTable } from '@helper/calculator/generic';
 
 import styles from './NineTribesMatrix.module.scss';
 
-const NineTribesMatrix = ({ date, name }) => {
+const NineTribesMatrix = ({ date, name, setKneeling }) => {
   const [matrix, setMatrix] = useState({});
   const [tables, setTables] = useState({});
 
@@ -21,9 +19,11 @@ const NineTribesMatrix = ({ date, name }) => {
       isGeneric: true,
     });
     const tablesList = getGenericTables({ info: result });
+    const kneelingTable = getKneelingTable({ info: tablesList.table3.arcanes });
     setMatrix(result);
     setTables(tablesList);
-  }, [date]);
+    setKneeling(kneelingTable);
+  }, [date, setKneeling]);
 
   useEffect(() => {
     const matrixId = document.getElementById('nine-tribes');
@@ -38,14 +38,7 @@ const NineTribesMatrix = ({ date, name }) => {
     <div id="nine-tribes" className={styles.nine_tribes_matrix}>
       <NineTribesGraph matrix={matrix} date={date} name={name} />
       <NineTribesTables tables={tables} />
-      <Link
-        href={'/assets/chamoline_template.pdf'}
-        target="_blank"
-        download
-        className={`${styles.download_btn} ${open_Sans.className}`}
-      >
-        Завантажити шаблон ромашки
-      </Link>
+
     </div>
   );
 };

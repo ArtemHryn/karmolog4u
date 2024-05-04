@@ -1,7 +1,7 @@
 @import '/styles/main.scss';
 
 .wrapper {
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     width: 519px;
   }
 }
@@ -18,7 +18,7 @@
   @media all and (min-width: $min_tablet) {
     font-size: 16px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     text-align: left;
   }
 }

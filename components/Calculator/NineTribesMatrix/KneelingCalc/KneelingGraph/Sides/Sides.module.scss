@@ -1,0 +1,86 @@
+@import '/styles/main.scss';
+
+.arcane {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  @include fontRegular(12px, 700, 24px, $seconds_text_color, center);
+  &_topLeft1 {
+    top: 16.2%;
+    left: 17%;
+  }
+  &_month {
+    top: 4.3%;
+    left: 47.3%;
+  }
+  &_topRight1 {
+    top: 16.3%;
+    right: 16.2%;
+  }
+  &_day {
+    top: 46.1%;
+    left: 4.5%;
+  }
+  &_center {
+    top: 46%;
+    left: 47.1%;
+  }
+  &_year {
+    top: 46%;
+    right: 3.4%;
+  }
+  &_bottomLeft1 {
+    bottom: 17.4%;
+    left: 16.8%;
+  }
+  &_bottom1 {
+    bottom: 5%;
+    right: 46.7%;
+  }
+  &_bottomRight1 {
+    bottom: 17.3%;
+    right: 16.2%;
+  }
+  @media all and (min-width: $min_tablet) {
+    width: 26px;
+    font-size: 20px;
+    &_topLeft1 {
+      top: 16%;
+      left: 22.4%;
+    }
+    &_month {
+      top: 3.4%;
+      left: 48.6%;
+    }
+    &_topRight1 {
+      top: 16%;
+      right: 21.6%;
+    }
+    &_day {
+      top: 46.3%;
+      left: 11.4%;
+    }
+    &_center {
+      top: 46.2%;
+      left: 48.5%;
+    }
+    &_year {
+      top: 46.5%;
+      right: 10.5%;
+    }
+    &_bottomLeft1 {
+      bottom: 17.1%;
+      left: 22.3%;
+    }
+    &_bottom1 {
+      bottom: 4.5%;
+      right: 47.9%;
+    }
+    &_bottomRight1 {
+      bottom: 17.1%;
+      right: 21.6%;
+    }
+  }
+}

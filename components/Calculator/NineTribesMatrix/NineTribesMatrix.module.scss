@@ -18,22 +18,3 @@
   }
 }
 
-.download_btn {
-  width: 328px;
-  height: 52px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-
-  border-radius: 30px;
-  background: $buttons_color;
-
-  @include fontRegular(16px, 600, 16px, $third_text_color);
-  @media all and (min-width: $min_tablet) {
-    width: 556px;
-    height: 60px;
-    font-size: 18px;
-  }
-}

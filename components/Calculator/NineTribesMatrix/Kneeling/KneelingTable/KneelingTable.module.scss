@@ -1,0 +1,133 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  overflow-x: scroll;
+  scrollbar-width: none;
+}
+
+.column_name_list {
+  display: flex;
+  border: 1px solid $matrix_table_border;
+  width: 734px;
+  margin: 0 auto;
+  @media all and (min-width: $min_tablet) {
+    width: 960px;
+  }
+  @media all and (min-width: $min_desktop) {
+  }
+}
+
+.column_name_element {
+  background-color: $additional_bg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 31px;
+  width: 190px;
+  border-left: 1px solid $matrix_table_border;
+  &:first-child {
+    width: 48px;
+    border-left: none;
+  }
+  &:nth-child(2) {
+    width: 114px;
+  }
+
+  &:first-child > p {
+    font-size: 0px;
+  }
+  @media all and (min-width: $min_tablet) {
+    height: 45px;
+    width: 220px;
+    &:first-child > p {
+      font-size: 18px;
+    }
+    &:first-child {
+      width: 184px;
+    }
+    &:nth-child(2) {
+      width: 129px;
+    }
+  }
+  @media all and (min-width: $min_desktop) {
+  }
+}
+
+.column_name_text {
+  @include fontRegular(16px, 400, 22.4px, $third_text_color, center);
+  @media all and (min-width: $min_tablet) {
+    font-size: 18px;
+  }
+  @media all and (min-width: $min_desktop) {
+  }
+}
+
+//values
+
+.arrow {
+  width: 14px;
+  height: 10px;
+}
+
+.values_list {
+  width: 734px;
+  border: 1px solid $matrix_table_border;
+  margin: 0 auto;
+  @media all and (min-width: $min_tablet) {
+    width: 960px;
+  }
+  @media all and (min-width: $min_desktop) {
+  }
+}
+
+.values_element {
+  display: flex;
+  border-bottom: 1px solid $matrix_table_border;
+  height: 36px;
+  @media all and (min-width: $min_tablet) {
+    height: 45px;
+  }
+  @media all and (min-width: $min_desktop) {
+  }
+}
+
+.values_text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 100%;
+  @include fontRegular(14px, 400, 19.6px, $main_text_color, center);
+  border-right: 1px solid $matrix_table_border;
+  @media all and (min-width: $min_tablet) {
+    font-size: 18px;
+  }
+  @media all and (min-width: $min_desktop) {
+  }
+}
+
+.values_index {
+  width: 48.5px;
+  @media all and (min-width: $min_tablet) {
+    width: 184px;
+  }
+  @media all and (min-width: $min_desktop) {
+  }
+}
+
+.values_knee {
+  width: 114px;
+  @media all and (min-width: $min_tablet) {
+    width: 130px;
+  }
+  @media all and (min-width: $min_desktop) {
+  }
+}
+.values_column {
+  width: 190px;
+  @media all and (min-width: $min_tablet) {
+    width: 220px;
+  }
+  @media all and (min-width: $min_desktop) {
+  }
+}

@@ -39,6 +39,10 @@ const SixteenLawsPeriods = ({ periods, age }) => {
           Відпрацювання рекомендовано починати з тієї лінії, в якому віці ви знаходитесь.
         </p>
         <p className={styles.text}>З кожним етапом потрібно працювати тричі.</p>
+        <p className={styles.text}>
+          Для відпрацювання і отримання результату відповідної карми розглядається період 5 років до
+          і 5 років після.
+        </p>
       </div>
       <div className={styles.selector_wrapper}>
         <p className={styles.selector_text}>Виберіть період</p>
