@@ -27,7 +27,7 @@ const KneelingCalc = ({ kneeling }) => {
         Розрахунок матриці колінопоклоніння
       </TitleNoStyles>
       <div className={styles.selector_wrapper}>
-        <p className={styles.selector_text}>Виберіть період</p>
+        <p className={styles.selector_text}>Виберіть коліно</p>
         <Dropdown
           value={periodEl}
           onChange={e => setPeriodEl(e.value)}
