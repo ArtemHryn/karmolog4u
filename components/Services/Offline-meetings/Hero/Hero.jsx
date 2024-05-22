@@ -1,29 +1,26 @@
-import Container from "@components/Common/Container/Container";
-import Image from "next/image";
+import Image from 'next/image';
+import Container from '@components/Common/Container/Container';
 
-import styles from "./Hero.module.scss";
-import { unbounded } from "@app/layout";
+import Title from '@components/Common/Title/Title';
+import styles from './Hero.module.scss';
 
-const OfflineMeetingsHero = ({ title, text, img }) => {
+const OfflineMeetingsHero = ({ title, text, img, imgDesk }) => {
   return (
-    <Container styled={styles.container} styledSection={styles.section}>
-      <div className={styles.spot} />
-
-      <h1 className={`${styles.title} ${unbounded.className}`}>{title}</h1>
-      <Image
-        src={img}
-        alt="Сергій Скляренко з дощечками для цвяхостояння"
-        width={736}
-        height={440}
-        className={styles.img}
-      />
-      <ul className={styles.text_list}>
-        {text.map((el) => (
-          <li key={el}>
-            <p className={styles.text}>{el}</p>
-          </li>
-        ))}
-      </ul>
+    <Container>
+      <Title styled={`${styles.title}`}>{title}</Title>
+      <div className={styles.wrapper}>
+        <ul className={styles.text_list}>
+          {text.map(el => (
+            <li key={el}>
+              <p className={styles.text} dangerouslySetInnerHTML={{ __html: el }} />
+            </li>
+          ))}
+        </ul>
+        <picture className={styles.img}>
+          {imgDesk && <source srcSet={imgDesk} media="(min-width: 1280px)" />}
+          <Image src={img} alt="Сергій Скляренко" width={736} height={440} className={styles.img} />
+        </picture>
+      </div>
     </Container>
   );
 };

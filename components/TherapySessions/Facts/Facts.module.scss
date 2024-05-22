@@ -1,20 +1,9 @@
 @import '/styles/main.scss';
 
-.container {
-  position: relative;
-}
-.section {
-  overflow: visible;
-  @media screen and (min-width: $min_desktop) {
-    padding-bottom: 160px;
-  }
-}
-
 .title {
-  @include fontRegular(28px, 400, 39.2px, $main_text_color, center);
   margin-bottom: 40px;
+  text-align: center !important;
   @media screen and (min-width: $min_tablet) {
-    font-size: 36px;
     margin-bottom: 48px;
   }
   @media screen and (min-width: $min_desktop) {
@@ -22,29 +11,32 @@
   }
 }
 
-.wrap {
+.facts_list {
   display: flex;
   flex-direction: column;
   gap: 16px;
   @media screen and (min-width: $min_desktop) {
     flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 24px;
   }
 }
 
-.text_wrapper {
+.facts_item {
   display: flex;
-  flex-direction: column;
-  gap: 24px;
-  border-radius: 30px;
+  align-items: center;
+  gap: 10px;
   background-color: $card_bg_v2;
-  padding: 24px;
-  @media screen and (min-width: $min_tablet) {
-    padding: 50px;
-  }
+  padding: 20px 24px;
+  border-radius: 30px;
   @media screen and (min-width: $min_desktop) {
-    padding: 64px 54px;
-    max-width: 737px;
+    width: 628px;
   }
+}
+
+.rhomb_svg {
+  width: 24px;
+  height: 24px;
 }
 
 .text {

@@ -1,20 +1,18 @@
 @import '/styles/main.scss';
 
-.container {
-  position: relative;
-}
-.section {
-  overflow: visible;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   @media screen and (min-width: $min_desktop) {
-    padding-bottom: 160px;
+    flex-direction: row-reverse;
   }
 }
 
 .title {
-  @include fontRegular(28px, 400, 39.2px, $main_text_color, center);
   margin-bottom: 40px;
+  text-align: center !important;
   @media screen and (min-width: $min_tablet) {
-    font-size: 36px;
     margin-bottom: 48px;
   }
   @media screen and (min-width: $min_desktop) {
@@ -22,34 +20,36 @@
   }
 }
 
-.wrap {
+.article {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  @media screen and (min-width: $min_desktop) {
-    flex-direction: row;
-  }
-}
-
-.text_wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+  gap: 20px;
+  padding: 24px;
   border-radius: 30px;
   background-color: $card_bg_v2;
-  padding: 24px;
+  & > p {
+    @include fontRegular(16px, 400, 22.4px);
+  }
   @media screen and (min-width: $min_tablet) {
     padding: 50px;
+    & > p {
+      font-size: 18px;
+    }
   }
   @media screen and (min-width: $min_desktop) {
     padding: 64px 54px;
-    max-width: 737px;
+    width: 737px;
   }
 }
 
-.text {
-  @include fontRegular(16px, 400, 22.4px);
+.img {
+  height: 188px;
+  object-fit: cover;
+  border-radius: 30px;
   @media screen and (min-width: $min_tablet) {
-    font-size: 18px;
+    height: 328px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    width: 519px;
   }
 }

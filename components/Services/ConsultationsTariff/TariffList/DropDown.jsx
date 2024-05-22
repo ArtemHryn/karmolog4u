@@ -1,11 +1,12 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 import { open_Sans, unbounded } from "@app/layout";
 
-import styles from "./TariffList.module.scss";
 import ActiveDropDown from "./ActiveDropDown";
 import ToggleArrow from "@components/Common/Icons/ConsultationsIcons/ToggleArrow";
-import Link from "next/link";
+
+import styles from "./TariffList.module.scss";
 
 const DropDown = ({ tariff }) => {
   const [isOpen, setIsOpen] = useState(false);

@@ -1,10 +1,13 @@
-@import "/styles/main.scss";
+@import '/styles/main.scss';
 
 .title {
-  @include fontRegular(28px, 400, 39.2px);
   margin-bottom: 40px;
+  text-align: center !important;
   @media screen and (min-width: $min_tablet) {
-    @include fontRegular(36px, 400, 36px);
+    margin-bottom: 48px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    margin-bottom: 60px;
   }
 }
 
@@ -15,5 +18,4 @@
     @include fontRegular(18px, 400, 25.2px);
     margin-bottom: 40px;
   }
-
 }
