@@ -8,7 +8,9 @@
 
 .graph_wrapper {
   position: relative;
-
+  @media all and (max-width: $min_mobile) {
+    width: 328px;
+  }
   @media all and (min-width: $min_tablet) {
     display: flex;
     justify-content: center;
@@ -18,6 +20,9 @@
 .graph {
   width: 328px;
   height: 413px;
+  @media all and (max-width: $min_mobile) {
+    width: 328px;
+  }
   @media all and (min-width: $min_tablet) {
     width: 618px;
     height: 716px;

@@ -40,12 +40,13 @@
 }
 
 .p-dropdown-item {
-  padding: 8px 0;
+  padding: 8px 10px;
   &[aria-selected='true'] {
     border: 1px solid $matrix_table_border;
     border-radius: 30px;
   }
   @media screen and (min-width: $min_tablet) {
+    padding: 8px 0;
     display: flex;
     align-items: center;
     justify-content: center;
