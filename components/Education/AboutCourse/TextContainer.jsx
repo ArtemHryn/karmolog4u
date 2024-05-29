@@ -7,7 +7,7 @@ import styles from "./AboutCourse.module.scss";
 const TextContainer = ({ text }) => {
   const [showMore, setShowMore] = useState(false);
   return (
-    <div>
+    <div className={styles.text_wrapper}>
       <div
         className={`${styles.text_container} ${
           showMore ? styles.text_container_more : ""

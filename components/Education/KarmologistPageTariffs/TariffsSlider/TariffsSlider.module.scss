@@ -54,7 +54,7 @@
   background-color: $card_bg_v2;
   z-index: 2;
   @media screen and (min-width: $min_tablet) {
-    padding: 40px 70px;
+    padding: 40px 48px;
   }
   @media screen and (min-width: $min_desktop) {
   }
@@ -90,6 +90,7 @@
     max-width: 281px;
   }
   @media screen and (min-width: $min_desktop) {
+    flex-shrink: 0;
   }
 }
 
