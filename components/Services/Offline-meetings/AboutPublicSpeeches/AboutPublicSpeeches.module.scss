@@ -1,0 +1,62 @@
+@import '/styles/main.scss';
+
+.container {
+  display: grid;
+  gap: 24px;
+
+  @media all and (min-width: $min_tablet) {
+    gap: 32px;
+  }
+  @media all and (min-width: $min_desktop) {
+    gap: 0px;
+    align-items: center;
+  }
+}
+.title {
+  @include fontRegular(28px, 400, 39.2px);
+  @media all and (min-width: $min_tablet) {
+    @include fontRegular(36px, 400, 36px);
+  }
+  @media all and (min-width: $min_desktop) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  @media all and (min-width: $min_desktop) {
+    grid-column: 2;
+    grid-row: 2;
+    gap: 32px;
+    align-self: self-end;
+  }
+}
+
+.text {
+  @include fontRegular(16px, 400, 22.4px);
+  @media all and (min-width: $min_tablet) {
+    @include fontRegular(18px, 400, 25.2px);
+  }
+}
+
+.img {
+  @media all and (min-width: $min_desktop) {
+    width: 519px;
+    height: 562px;
+    object-fit: contain;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    margin-right: 133px;
+  }
+}
+
+.img_in_list {
+  display: none;
+  @media all and (min-width: $min_desktop) {
+    display: block;
+    padding-top: 36px;
+  }
+}

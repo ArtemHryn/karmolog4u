@@ -1,4 +1,4 @@
-@import "/styles/main.scss";
+@import '/styles/main.scss';
 
 .section {
   overflow: visible;
@@ -11,10 +11,10 @@
 .title {
   text-align: center;
   margin-bottom: 40px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     margin-bottom: 48px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     margin-bottom: 60px;
   }
 }
@@ -23,10 +23,10 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 24px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     flex-direction: row;
   }
 }
@@ -38,17 +38,17 @@
   background-color: #2e2e2e;
   border-radius: 30px;
   gap: 24px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     padding: 60px 54px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     width: 737px;
   }
 }
 
 .text {
   @include fontRegular(16px, 400, 22.4px);
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(18px, 400, 25.2px);
   }
 }
@@ -69,7 +69,7 @@
     background-color: #fdfdfd;
     scale: 1.05;
   }
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 411px;
     height: 60px;
     @include fontRegular(18px, 600, 18px, #101010);
@@ -77,14 +77,14 @@
 }
 
 .img {
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     width: 519px;
   }
 }
 
 .spot {
   display: none;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     position: absolute;
     display: block;
 
@@ -104,7 +104,7 @@
 
     filter: blur(125px);
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     right: 12%;
     top: -12%;
   }

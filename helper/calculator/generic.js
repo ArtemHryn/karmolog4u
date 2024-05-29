@@ -239,3 +239,34 @@ export const getGenericTables = ({ info }) => {
   data.table3.arcanes = getTotalArcanesList(data.table1.arcanes, data.table2.arcanes);
   return data;
 };
+
+const getKneelingColumnNames = () => {
+  return [
+    'Колінопоклоніння',
+    'Коліно роду',
+    'Ключ  примирення',
+    'Ключ  примирення',
+    'Ключ колінопоклоніння',
+  ];
+};
+
+const getFinalKneelingColumn = columns => {
+  columns.forEach(el => {
+    const [from1, from2, from3] = el.column1.split(', ');
+    const [to1, to2, to3] = el.column2.split(', ');
+    el.column3 = `${checkNum(from1, to1)}, ${checkNum(from2, to2)}, ${checkNum(from3, to3)}`;
+  });
+};
+
+export const getKneelingTable = ({ info }) => {
+  const data = { arcanes: [], columnNames: getKneelingColumnNames() };
+  info.forEach((el, index) => {
+    if (index === 8) {
+      data.arcanes.push({ column1: el.column3, column2: info[0].column3 });
+      return;
+    }
+    data.arcanes.push({ column1: info[index + 1].column3, column2: el.column3 });
+  });
+  getFinalKneelingColumn(data.arcanes);
+  return data;
+};

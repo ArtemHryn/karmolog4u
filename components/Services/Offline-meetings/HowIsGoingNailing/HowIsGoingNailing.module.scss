@@ -1,10 +1,10 @@
-@import "/styles/main.scss";
+@import '/styles/main.scss';
 
 .title {
   @include fontRegular(24px, 400, 24px);
   margin-bottom: 28px;
 
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(28px, 400, 39.2px);
     margin-bottom: 40px;
   }
@@ -15,10 +15,10 @@
   flex-direction: column;
   gap: 24px;
   margin-bottom: 60px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     margin-bottom: 80px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     flex-direction: row;
   }
 }
@@ -27,7 +27,7 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
@@ -35,18 +35,16 @@
   }
 }
 
-
 .video {
   max-width: 328px;
   max-height: 182px;
   border-radius: 30px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     max-width: 736px;
     max-height: 410px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     max-width: 628px;
     max-height: 350px;
   }
 }
-

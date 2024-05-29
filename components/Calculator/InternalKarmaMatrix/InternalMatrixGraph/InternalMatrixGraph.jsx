@@ -1,4 +1,3 @@
-import Title from '@components/Common/Title/Title';
 import InternalMatrixSvg from './InternalMatrixSvg';
 import Top from '@components/Calculator/PersonalMatrix/MatrixGraph/Top';
 import Left from '@components/Calculator/PersonalMatrix/MatrixGraph/Left';
@@ -9,26 +8,14 @@ import InternalKarmaCenter from './InternalKarmaCenter';
 import styles from './InternalMatrixGraph.module.scss';
 import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
 import { checkNum } from '@helper/calculator/personal';
+import CalcDateTitle from '@components/Common/CalcDateTitle/CalcDateTitle';
 
 const InternalMatrixGraph = ({ matrix, name, date }) => {
   if (!matrix) return null;
   const { center, center2 } = matrix;
   return (
     <div className={styles.main_wrapper}>
-      <div className={styles.date_wrapper}>
-        {name ? (
-          <Title variant="p" styled={styles.date_title}>
-            {name}
-          </Title>
-        ) : (
-          <Title variant="p" styled={styles.date_title}>
-            Дата народження:
-          </Title>
-        )}
-        <Title variant="p" styled={styles.date}>
-          {date}
-        </Title>
-      </div>
+      <CalcDateTitle name={name} date={date} />
       <div className={styles.graph_wrapper}>
         <InternalMatrixSvg styled={styles.graph} />
         <Top matrix={matrix} hideAdditionalKeys hideInnerAdditionalKeys />

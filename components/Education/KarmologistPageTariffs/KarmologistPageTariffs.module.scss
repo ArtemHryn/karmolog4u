@@ -1,12 +1,12 @@
-@import "/styles/main.scss";
+@import '/styles/main.scss';
 
 .title {
   margin-bottom: 40px;
   text-align: center;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     margin-bottom: 48px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     margin-bottom: 60px;
   }
 }
@@ -14,12 +14,12 @@
 .warning {
   margin-bottom: 37px;
   @include fontRegular(16px, 400, 22.4px, $main_text_color, center);
-  
-  @media screen and (min-width: $min_tablet) {
+
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(18px, 400, 25.2px, $main_text_color, center);
     margin-bottom: 50px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     margin-bottom: 58px;
   }
 }

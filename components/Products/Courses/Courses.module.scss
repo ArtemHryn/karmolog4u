@@ -1,6 +1,5 @@
 @import '/styles/main.scss';
 
-
 //checkboxes
 
 .list {
@@ -9,13 +8,13 @@
   column-gap: 4px;
   row-gap: 12px;
   margin-bottom: 40px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     grid-template-columns: repeat(3, 1fr);
     column-gap: 24px;
     place-items: center;
     margin-bottom: 48px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     width: 80%;
     margin-bottom: 60px;
   }
@@ -25,7 +24,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 12px;
   }
 }
@@ -87,23 +86,23 @@
 .text {
   @include fontRegular(14px, 400, 19.6px);
   text-wrap: balance;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(16px, 400, 22.4px);
   }
 }
 
-//courses list 
+//courses list
 
 .courses_list {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   row-gap: 40px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 24px;
     row-gap: 52px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     row-gap: 87px;
     grid-template-columns: repeat(4, 1fr);
   }

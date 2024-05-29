@@ -1,4 +1,4 @@
-@import "/styles/main.scss";
+@import '/styles/main.scss';
 
 .section {
   padding-bottom: 0px !important;
@@ -15,7 +15,7 @@
   padding-bottom: 24px;
   transition: color 0.3s ease;
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 0;
     display: block;
@@ -35,7 +35,7 @@
   &:focus::after {
     transform: scaleX(1);
   }
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(18px, 600, 18px);
   }
 }
@@ -47,10 +47,10 @@
     background-color: $buttons_color;
   }
 
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     color: $buttons_hover_color;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     color: $buttons_hover_color;
   }
 }

@@ -1,4 +1,4 @@
-@import "/styles/main.scss";
+@import '/styles/main.scss';
 
 .wrap {
   margin-top: auto;
@@ -6,10 +6,10 @@
   flex-direction: column;
 
   gap: 28px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     max-width: 192px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     width: 408px;
     max-width: 408px;
   }
@@ -22,7 +22,7 @@
 .list {
   display: flex;
   gap: 16px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 24px;
     flex-wrap: wrap;
   }
@@ -37,7 +37,7 @@
   background-color: $black;
   border-radius: 50%;
   transition: all 0.3s ease;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 48px;
     height: 48px;
   }
@@ -51,5 +51,4 @@
   width: 20px;
   height: 20px;
   fill: $main_text_color;
-
 }

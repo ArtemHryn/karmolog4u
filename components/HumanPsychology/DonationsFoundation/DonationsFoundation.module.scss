@@ -1,4 +1,4 @@
-@import "/styles/main.scss";
+@import '/styles/main.scss';
 
 .section {
   overflow: visible;
@@ -9,17 +9,17 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 24px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     gap: 60px;
   }
 }
 
 .title {
   @include fontRegular(28px, 400, 39.2px, $main_text_color, center);
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(36px, 400, 43.2px, $main_text_color, center);
   }
 }
@@ -28,10 +28,10 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 24px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     flex-direction: row;
   }
 }
@@ -44,10 +44,10 @@
 
   border-radius: 30px;
   background-color: $card_bg_v2;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     padding: 60px 54px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     padding: 54px 54.5px;
     width: 737px;
   }
@@ -58,16 +58,16 @@
   & > a {
     text-decoration: underline;
   }
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(18px, 400, 25.2px, $main_text_color);
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     @include fontRegular(18px, 400, 25.2px, $main_text_color);
   }
 }
 
 .img {
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     display: block;
     flex-basis: 519px;
   }
@@ -75,7 +75,7 @@
 
 .spot {
   display: none;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     display: block;
     width: 227px;
     height: 287px;
@@ -92,7 +92,7 @@
     filter: blur(125px);
     z-index: -1;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     left: 218px;
     top: -43px;
   }

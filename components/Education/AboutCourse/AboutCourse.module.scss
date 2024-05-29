@@ -1,5 +1,4 @@
 @import '/styles/main.scss';
-
 .title {
   text-align: center !important;
   margin-bottom: 40px;
@@ -18,7 +17,7 @@
 
 .img {
   border-radius: 30px;
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     object-fit: contain;
     width: 519px;
   }
@@ -48,7 +47,7 @@
   &_more {
     max-height: 2500px;
   }
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     margin-bottom: 0px;
     max-height: 100%;
     overflow: visible;
@@ -64,7 +63,7 @@
   text-decoration-line: underline;
   width: 100%;
   padding: 8px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     display: none;
   }
 }

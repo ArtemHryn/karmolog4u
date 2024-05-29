@@ -10,11 +10,11 @@
 
 .title {
   margin-bottom: 40px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     margin-bottom: 48px;
     text-align: center !important;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     margin-bottom: 60px;
   }
 }
@@ -25,10 +25,10 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 24px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     flex-direction: row;
   }
 }
@@ -44,10 +44,10 @@
   border-radius: 30px;
   border: 1px solid $seconds_text_color;
   background-color: $black;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     padding: 40px 37px 40px 140px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     padding: 40px 37px 30px 60px;
     width: calc((100% - 48px) / 3);
   }
@@ -63,7 +63,7 @@
   @include fontRegular(16px, 600, 16px, $main_text_color, right);
   white-space: nowrap;
   min-width: 26px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     font-size: 18px;
   }
 }
@@ -82,24 +82,24 @@
 
 .warning_margin {
   margin-bottom: 24px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     margin-bottom: 32px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     margin-bottom: 40px;
   }
 }
 
 .warning {
   @include fontRegular(16px, 400, 22.4px);
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     text-wrap: balance;
   }
 }
 
 .spot {
   display: none;
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     position: absolute;
     display: block;
 
@@ -122,7 +122,7 @@
 
 .spot2 {
   display: none;
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     position: absolute;
     display: block;
 

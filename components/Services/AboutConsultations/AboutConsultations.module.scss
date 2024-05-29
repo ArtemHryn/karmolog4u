@@ -15,11 +15,10 @@
   @media screen and (min-width: $min_tablet) {
     margin-bottom: 48px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     margin-bottom: 60px;
   }
 }
-
 
 .article {
   display: flex;
@@ -44,7 +43,7 @@
 }
 
 .img {
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     width: 519px;
     height: auto;
     flex: 1;

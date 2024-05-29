@@ -1,7 +1,7 @@
-@import "/styles/main.scss";
+@import '/styles/main.scss';
 
 .box {
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,7 +9,7 @@
 }
 
 .text_wrapper {
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     flex: 1;
   }
 }
@@ -18,11 +18,11 @@
   @include fontRegular(32px, 400, 44.8px);
   margin-bottom: 28px;
 
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(48px, 400, 48px);
     margin-bottom: 44px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     @include fontRegular(64px, 400, 89.6px);
     margin-bottom: 48px;
   }
@@ -49,13 +49,13 @@
     scale: 1.05;
     background-color: $buttons_hover_color;
   }
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 356px;
     height: 60px;
     @include fontRegular(18px, 600, 18px, $third_text_color);
     margin-bottom: 24px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     width: 411px;
     margin-bottom: 0px;
   }
@@ -63,7 +63,7 @@
 
 .img {
   border-radius: 30px;
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     width: 519px;
     min-height: 300px;
   }

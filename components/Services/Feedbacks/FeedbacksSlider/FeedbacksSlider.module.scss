@@ -1,4 +1,4 @@
-@import "/styles/main.scss";
+@import '/styles/main.scss';
 
 @keyframes increaseText {
   from {
@@ -22,22 +22,22 @@
 .swiper {
   position: relative;
   padding-bottom: 20px !important;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     padding-bottom: 40px !important;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     overflow: visible !important;
   }
 }
 
 .slide {
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     width: 70% !important;
   }
 }
 .pagination {
   opacity: 1 !important;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     --swiper-pagination-bullet-width: 16px;
     --swiper-pagination-bullet-height: 16px;
     width: var(--swiper-pagination-bullet-width);
@@ -60,12 +60,12 @@
   border-radius: 30px;
   background-color: #000;
   border: 1px solid $seconds_text_color;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     flex-direction: row;
     padding: 26px 50px;
     min-height: 420px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     min-height: 343px;
   }
 }
@@ -73,7 +73,7 @@
 .card_text_container {
   display: flex;
   flex-direction: column;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     order: 2;
   }
 }
@@ -82,7 +82,7 @@
   @include fontRegular(24px, 400, 24px);
   margin-right: auto;
   margin-bottom: 24px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(30px, 400, 30px);
   }
 }
@@ -91,7 +91,7 @@
   @include fontRegular(14px, 400, 19.6px);
   transition: all 1550ms ease;
 
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(16px, 400, 22.4px);
   }
 }
@@ -104,7 +104,7 @@
   text-overflow: ellipsis;
   max-height: 350px;
   margin-bottom: 28px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     -webkit-line-clamp: 9;
     max-height: 210px;
   }
@@ -115,12 +115,11 @@
   max-height: 1500px;
 }
 
-
 .show_more_btn {
   @include fontRegular(16px, 400, 22.4px);
   margin: 0 auto;
   text-decoration: underline;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     margin: 0;
   }
 }
@@ -129,7 +128,7 @@
 
 .btn_container {
   display: none;
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     position: absolute;
     top: -103px;
     right: 10%;

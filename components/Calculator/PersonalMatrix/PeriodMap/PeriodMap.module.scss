@@ -114,6 +114,10 @@
   }
 }
 
+.active_period {
+  border: 2px solid $additional_bg;
+}
+
 .tip {
   display: flex;
   align-items: center;
@@ -128,5 +132,4 @@
     padding: 8px;
     min-height: 40px;
   }
-
 }

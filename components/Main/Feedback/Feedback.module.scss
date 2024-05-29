@@ -1,11 +1,11 @@
-@import "../styles/main.scss";
+@import '../styles/main.scss';
 
 .section {
   padding-bottom: 120px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     padding-bottom: 160px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     padding-bottom: 180px;
   }
 }
@@ -15,10 +15,10 @@
   display: flex;
   flex-direction: column;
   gap: 60px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 80px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     flex-direction: row;
     // align-items: center;
     gap: 192px;
@@ -26,7 +26,7 @@
 }
 
 .wrap_item {
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     width: 677px;
   }
 }
@@ -35,7 +35,7 @@
   width: 24px;
   height: 24px;
   fill: $accent_v2;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 45px;
     height: 45px;
   }
@@ -47,11 +47,11 @@
   @include fontRegular(40px, 400, 48px);
   leading-trim: both;
   text-edge: cap;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(48px, 400, 57.6px);
     margin-bottom: 60px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     margin-bottom: 80px;
     @include fontRegular(64px, 400, 89.6px);
   }
@@ -63,18 +63,18 @@
   @include fontRegular(28px, 400, 39.2px);
   leading-trim: both;
   text-edge: cap;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(36px, 400, 43.2px);
     margin-bottom: 48px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     margin-bottom: 60px;
   }
 }
 
 .description {
   @include fontRegular(16px, 400, 22.4px);
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(18px, 400, 25.2px);
   }
 }
@@ -92,10 +92,10 @@
   z-index: 1;
   position: relative;
   margin: 0 auto;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 356px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     width: 302px;
   }
 }
@@ -112,10 +112,10 @@
   }
   transition: all 0.3s ease;
   @include fontRegular(24px, 400, 28.8px);
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(28px, 400, 39.2px);
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
   }
   &:hover,
   &:focus {
@@ -138,7 +138,7 @@
   transform: translate(-50%, -50%);
   color: rgba(207, 182, 145, 0.5);
   filter: blur(4px);
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 368px;
     height: 368px;
   }
@@ -152,7 +152,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 450px;
   }
 }
@@ -164,14 +164,14 @@
 
   animation: arrow-move 3s infinite;
   transform-origin: top left;
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     left: 699px;
     display: block;
   }
-  @media screen and (min-width: $mac) {
+  @media all and (min-width: $mac) {
     left: 713px;
   }
-  @media screen and (min-width: $big_pc) {
+  @media all and (min-width: $big_pc) {
     left: 697px;
   }
 }

@@ -1,4 +1,4 @@
-@import "/styles/main.scss";
+@import '/styles/main.scss';
 
 .modal_container {
   display: flex;
@@ -10,7 +10,7 @@
   border-radius: 30px;
   background-color: #131313;
   overflow-y: auto;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     padding: 50px;
     max-width: 510px;
   }
@@ -19,7 +19,7 @@
 .title {
   @include fontRegular(24px, 400, 24px);
   margin-bottom: 32px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(28px, 400, 39.2px);
   }
 }
@@ -32,7 +32,7 @@
   border-bottom: 1px solid $additional_bg;
   gap: 16px;
   margin-bottom: 20px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     margin-bottom: 24px;
   }
 }
@@ -48,7 +48,7 @@
 .warning {
   @include fontRegular(10px, 500, 10px);
   margin-bottom: 40px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(12px, 500, 12px);
   }
 }
@@ -59,14 +59,14 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 28px;
   }
 }
 
 .form_title {
   @include fontRegular(14px, 400, 19.6px);
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(18px, 500, 25.2px);
   }
 }
@@ -78,7 +78,7 @@
   flex-direction: column;
   max-width: 100%;
   height: 70px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     height: 81px;
   }
 }
@@ -96,7 +96,7 @@
   &:not(:placeholder-shown) + label {
     transform: translate(0%, -400%);
   }
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     height: 60px;
     &:focus + label,
     &:not(:placeholder-shown) + label {
@@ -123,7 +123,7 @@
   border-radius: 30px !important;
   border: 1px solid #7e7e7e !important;
   box-shadow: none !important;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     height: 60px !important;
   }
 }
@@ -168,7 +168,7 @@
   height: 50px !important;
   color: $main_text_color !important;
   box-shadow: none !important;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     height: 60px !important;
   }
 }
@@ -192,7 +192,7 @@
   align-items: center;
   gap: 8px;
   margin-bottom: 24px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 12px;
   }
 }
@@ -257,7 +257,7 @@
   & > a {
     text-decoration: underline;
   }
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(12px, 500, 12px);
   }
 }
@@ -266,7 +266,7 @@
   display: flex;
   gap: 16px;
   @include fontRegular(14px, 400, 19.6px);
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(18px, 400, 25.2px);
   }
 }
@@ -286,7 +286,7 @@
   &:disabled {
     opacity: 0.3;
   }
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     height: 60px;
     @include fontRegular(18px, 600, 18px);
   }

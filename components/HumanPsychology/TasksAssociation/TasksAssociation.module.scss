@@ -1,4 +1,4 @@
-@import "/styles/main.scss";
+@import '/styles/main.scss';
 
 .section {
   overflow: visible;
@@ -11,10 +11,10 @@
 .title {
   text-align: center;
   margin-bottom: 40px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     margin-bottom: 48px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     margin-bottom: 60px;
   }
 }
@@ -25,10 +25,10 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 24px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     flex-direction: row;
   }
 }
@@ -37,10 +37,10 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 24px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     width: (calc((100% - 24px) / 2));
   }
 }
@@ -49,12 +49,12 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 24px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
   }
 }
 
@@ -74,7 +74,7 @@
     background-color: #fdfdfd;
   }
 
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     padding: 51.5px 40px;
     &_gold {
       flex-direction: column;
@@ -91,7 +91,7 @@
       padding: 41px 40px;
     }
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     padding: 51.5px 34px;
     &_gold {
       padding: 41px 40px;
@@ -112,7 +112,7 @@
   &_dark {
     color: #2e2e2e;
   }
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 100%;
     max-width: 506px;
     @include fontRegular(16px, 600, 16px);
@@ -120,7 +120,7 @@
       color: #2e2e2e;
     }
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     max-width: 409px;
   }
 }
@@ -128,17 +128,17 @@
 .icon {
   width: 40px;
   height: 40px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 86px;
     height: 86px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
   }
 }
 
 .spot {
   display: none;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     position: absolute;
     display: block;
 
@@ -158,7 +158,7 @@
 
     filter: blur(125px);
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     left: 10%;
   }
 }

@@ -22,7 +22,7 @@ export const matrixLinks = [
     name: 'Матрицю року',
   },
   {
-    href: '/calculator/demon-victim-matrix',
+    href: '/calculator/demon-matrix',
     name: 'Матрицю “Демон жертва”',
   },
   {
@@ -34,7 +34,7 @@ export const matrixLinks = [
     name: 'Матрицю “Батьки та діти”',
   },
   {
-    href: '/calculator/matrix-sixteen-laws-of-karma',
+    href: '/calculator/sixteen-laws-of-karma-matrix',
     name: 'Матрицю “16 законів карми”',
   },
   {

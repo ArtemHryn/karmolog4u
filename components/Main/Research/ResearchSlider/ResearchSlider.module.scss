@@ -1,6 +1,4 @@
-@import "/styles/main.scss";
-
-
+@import '/styles/main.scss';
 
 .swiper_container {
   transform: translateY(-10px);
@@ -11,11 +9,11 @@
   opacity: 1 !important;
   width: 10px;
   height: 10px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 16px !important;
     height: 16px !important;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     .swiper > .swiper-pagination {
       display: none !important;
     }
@@ -38,11 +36,11 @@
   padding: 18px 15px;
   background: #000;
   margin-bottom: 30px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     padding: 18px 29px;
     margin-bottom: 50px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     padding: 18px 56.5px;
   }
 }
@@ -76,7 +74,7 @@
 .slider_button {
   position: absolute;
   display: none;
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     display: block;
 
     top: 50%;
@@ -104,5 +102,3 @@
   height: 24px;
   fill: $third_text_color;
 }
-
-

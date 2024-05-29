@@ -7,11 +7,11 @@
   align-items: center;
   gap: 10px;
   @include fontRegular(14px, 400, 19.6px);
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     justify-content: space-between;
     @include fontRegular(18px, 400, 25.2px);
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     gap: 0px;
     min-height: 51px;
   }
@@ -19,7 +19,7 @@
 
 .drop_btn_text {
   max-width: 260px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     max-width: 500px;
   }
 }
@@ -32,7 +32,7 @@
   transition-property: transform;
   transition-duration: 350ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 38px;
     height: 38px;
   }
@@ -61,7 +61,7 @@
 .drop_content {
   margin-top: 20px;
   @include fontRegular(14px, 400, 19.6px);
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     margin-top: 32px;
     margin-bottom: 10px;
     @include fontRegular(16px, 400, 22.4px);
@@ -75,7 +75,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 24px;
   }
 }
@@ -84,10 +84,10 @@
   border-radius: 30px;
   background-color: $black;
   padding: 16px 10px 16px 18px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     padding: 20px 46px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     padding: 20px 34px;
     width: 626px;
   }
@@ -99,11 +99,11 @@
   @include fontRegular(40px, 400, 48px);
   leading-trim: both;
   text-edge: cap;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(48px, 400, 57.6px);
     margin-bottom: 60px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     margin-bottom: 80px;
     @include fontRegular(64px, 400, 89.6px);
   }
@@ -115,11 +115,11 @@
   @include fontRegular(28px, 400, 39.2px);
   leading-trim: both;
   text-edge: cap;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(36px, 400, 43.2px);
     margin-bottom: 48px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     margin-bottom: 60px;
   }
 }
@@ -128,10 +128,10 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 24px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     flex-direction: row;
   }
 }

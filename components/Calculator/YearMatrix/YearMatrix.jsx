@@ -25,6 +25,7 @@ const YearMatrix = ({ date, name, period }) => {
       isPartners: true,
       lifeMap: true,
       skipCenter: true,
+      yearMatrix: true,
     });
     const mapResult = getResultLifeMap({ info: finalMatrix });
     const spiritKeys = getConsciousness({ info: finalMatrix });

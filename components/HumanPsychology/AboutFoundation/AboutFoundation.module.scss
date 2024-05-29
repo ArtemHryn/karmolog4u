@@ -1,13 +1,13 @@
-@import "/styles/main.scss";
+@import '/styles/main.scss';
 
 .container {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 24px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     gap: 60px;
   }
 }
@@ -16,10 +16,10 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 24px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     flex-direction: row;
     &:last-child {
       flex-direction: row-reverse;
@@ -35,10 +35,10 @@
 
   border-radius: 30px;
   background-color: $card_bg;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     padding: 60px 54px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     padding: 64px 54.5px;
     width: 737px;
     &:first-child {
@@ -52,16 +52,16 @@
   & > a {
     text-decoration: underline;
   }
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(18px, 400, 25.2px, $section_color);
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     @include fontRegular(18px, 400, 25.2px, $section_color);
   }
 }
 
 .img {
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     display: block;
     flex-basis: 519px;
   }

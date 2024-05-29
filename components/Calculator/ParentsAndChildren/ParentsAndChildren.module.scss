@@ -7,10 +7,15 @@
 }
 
 .parents_and_children_matrix {
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 90px;
   }
+}
+
+.children_container {
+  background: $matrix_bg_gradient;
+  border-bottom: 1px solid $seconds_text_color;
 }

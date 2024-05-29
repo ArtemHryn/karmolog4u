@@ -1,4 +1,4 @@
-@import "/styles//main.scss";
+@import '/styles//main.scss';
 
 .section {
   overflow: visible;
@@ -12,7 +12,7 @@
   display: flex;
   align-items: center;
   gap: 24px;
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     gap: 102px;
   }
 }
@@ -26,12 +26,21 @@
   z-index: 2;
   @include fontRegular(28px, 400, 39.2px, $main_text_color, center);
   margin-bottom: 80px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(48px, 400, 48px, $main_text_color, center);
     margin-bottom: 100px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     @include fontRegular(64px, 400, 89.6px, $main_text_color, center);
+  }
+}
+
+.additional_title {
+  @include fontRegular(24px, 400, 24px);
+  margin-bottom: 24px;
+  @media screen and (min-width: $min_tablet) {
+    @include fontRegular(32px, 400, 32px);
+    margin-bottom: 42px;
   }
 }
 
@@ -39,22 +48,22 @@
   width: 328px;
   height: 152px;
   margin-bottom: 24px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     display: none;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
   }
 }
 
 .imgTab {
   display: none;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     flex: 1;
     display: block;
     width: 261px;
     height: 281px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     width: 519px;
     height: 240px;
   }
@@ -63,10 +72,19 @@
 .text_description {
   @include fontRegular(16px, 400, 22.4px);
   margin-bottom: 32px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(18px, 400, 25.2px);
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
+  }
+
+  & > span {
+    @media screen and (min-width: $min_tablet) {
+      display: block;
+    }
+    @media screen and (min-width: $min_desktop) {
+      display: inline;
+    }
   }
 }
 
@@ -85,19 +103,19 @@
     background: $buttons_hover_color;
     scale: 1.05;
   }
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 356px;
     height: 60px;
     @include fontRegular(18px, 600, 18px, $third_text_color);
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     width: 411px;
   }
 }
 
 .spot {
   display: none;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     position: absolute;
     display: block;
 
@@ -121,7 +139,7 @@
 
 .spot2 {
   display: none;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     position: absolute;
     display: block;
 

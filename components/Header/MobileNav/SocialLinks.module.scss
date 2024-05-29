@@ -1,4 +1,4 @@
-@import "/styles/main.scss";
+@import '/styles/main.scss';
 
 .wrap {
   margin-top: auto;
@@ -9,7 +9,7 @@
 
 .title {
   @include fontRegular(16px, 400, 22.4px);
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(18px, 600, 22.4px);
   }
 }
@@ -17,7 +17,7 @@
 .list {
   display: flex;
   gap: 10px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 14px;
   }
 }
@@ -31,7 +31,7 @@
   background-color: $black;
   border-radius: 50%;
   transition: all 0.3s ease;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 48px;
     height: 48px;
   }
@@ -45,7 +45,7 @@
   width: 18px;
   height: 18px;
   fill: $main_text_color;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 19px;
     height: 19px;
   }

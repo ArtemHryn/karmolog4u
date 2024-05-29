@@ -1,4 +1,4 @@
-@import "/styles/main.scss";
+@import '/styles/main.scss';
 
 .section {
   overflow: visible;
@@ -11,10 +11,10 @@
 .title {
   text-align: center;
   margin-bottom: 40px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     margin-bottom: 48px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     margin-bottom: 60px;
   }
 }
@@ -25,7 +25,7 @@
   & > a {
     text-decoration: underline;
   }
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(18px, 400, 25.2px);
     margin-bottom: 24px;
   }
@@ -43,12 +43,12 @@
     line-height: 1;
   }
 
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(18px, 400, 25.2px, #101010);
     padding: 30px 51.5px;
     margin-bottom: 24px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     padding: 30px 77px;
   }
 }
@@ -57,10 +57,10 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     gap: 24px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     flex-direction: row;
   }
 }
@@ -71,10 +71,10 @@
   border-radius: 30px;
   background: #2e2e2e;
   overflow: hidden;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     padding: 50px 51.5px;
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     width: calc((100% - 24px) / 2);
     padding: 50px 71.5px;
   }
@@ -82,7 +82,7 @@
 
 .mission_text {
   @include fontRegular(14px, 400, 19.6px, #fdfdfd);
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     @include fontRegular(16px, 400, 22.4px, #fdfdfd);
   }
 }
@@ -101,7 +101,7 @@
   background-color: #cfb691;
   clip-path: polygon(100% 0, 0% 100%, 100% 100%);
   @include fontRegular(24px, 400, 24px, #101010);
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     width: 135px;
     height: 85px;
     padding-right: 28px;
@@ -111,7 +111,7 @@
 
 .spot {
   display: none;
-  @media screen and (min-width: $min_tablet) {
+  @media all and (min-width: $min_tablet) {
     position: absolute;
     display: block;
     right: 5%;
@@ -128,7 +128,7 @@
 
     filter: blur(125px);
   }
-  @media screen and (min-width: $min_desktop) {
+  @media all and (min-width: $min_desktop) {
     right: 10%;
     top: -4%;
   }
