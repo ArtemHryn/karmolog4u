@@ -1,38 +1,18 @@
 @import '/styles/main.scss';
 
-.section {
-  overflow: visible;
-}
-
-.container {
-  position: relative;
-  @media all and (min-width: $min_desktop) {
-    display: flex;
-    gap: 140px;
-  }
-}
-
-.text_wrapper {
+.wrapper {
   display: flex;
   flex-direction: column;
-  gap: 112px;
-  margin-bottom: 24px;
-  @media all and (min-width: $min_tablet) {
-    gap: 140px;
-    margin-bottom: 32px;
-  }
-  @media all and (min-width: $min_desktop) {
-    flex: 1;
-    gap: 160px;
+  gap: 16px;
+  @media screen and (min-width: $min_desktop) {
+    flex-direction: row;
   }
 }
 
 .title {
-  @include fontRegular(28px, 400, 39.2px);
   margin-bottom: 40px;
-
-  @media all and (min-width: $min_tablet) {
-    @include fontRegular(36px, 400, 36px);
+  text-align: center !important;
+  @media screen and (min-width: $min_tablet) {
     margin-bottom: 48px;
   }
   @media all and (min-width: $min_desktop) {
@@ -40,10 +20,25 @@
   }
 }
 
-.description {
-  @include fontRegular(16px, 400, 22.4px);
-  @media all and (min-width: $min_tablet) {
-    @include fontRegular(18px, 400, 25.2px);
+.article {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px;
+  border-radius: 30px;
+  background-color: $card_bg_v2;
+  & > p {
+    @include fontRegular(16px, 400, 22.4px);
+  }
+  @media screen and (min-width: $min_tablet) {
+    padding: 50px;
+    & > p {
+      font-size: 18px;
+    }
+  }
+  @media screen and (min-width: $min_desktop) {
+    padding: 64px 54px;
+    width: 737px;
   }
 }
 
@@ -52,59 +47,5 @@
     width: 519px;
     height: auto;
     flex: 1;
-  }
-}
-
-.spot {
-  display: none;
-  @media all and (min-width: $min_tablet) {
-    position: absolute;
-    display: block;
-
-    top: 5%;
-    left: 4%;
-
-    width: 221px;
-    height: 280px;
-
-    border-radius: 280px;
-    background: linear-gradient(
-      180deg,
-      rgba(207, 182, 145, 0.4) 0%,
-      rgba(207, 182, 145, 0.4) 45.14%
-    );
-
-    filter: blur(125px);
-  }
-  @media all and (min-width: $min_desktop) {
-    top: 5%;
-    right: 4%;
-  }
-}
-
-.spot2 {
-  display: none;
-  @media all and (min-width: $min_tablet) {
-    position: absolute;
-    display: block;
-
-    top: 35%;
-    right: 0%;
-
-    width: 221px;
-    height: 280px;
-
-    border-radius: 280px;
-    background: linear-gradient(
-      180deg,
-      rgba(207, 182, 145, 0.4) 0%,
-      rgba(207, 182, 145, 0.4) 45.14%
-    );
-
-    filter: blur(125px);
-  }
-  @media all and (min-width: $min_desktop) {
-    top: 65%;
-    left: 34%;
   }
 }

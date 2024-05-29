@@ -1,0 +1,47 @@
+@import '/styles/main.scss';
+
+.title {
+  margin-bottom: 40px;
+  text-align: center !important;
+  @media screen and (min-width: $min_tablet) {
+    margin-bottom: 48px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    margin-bottom: 60px;
+  }
+}
+
+.facts_list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  @media screen and (min-width: $min_desktop) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 24px;
+  }
+}
+
+.facts_item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: $card_bg_v2;
+  padding: 20px 24px;
+  border-radius: 30px;
+  @media screen and (min-width: $min_desktop) {
+    width: 628px;
+  }
+}
+
+.rhomb_svg {
+  width: 24px;
+  height: 24px;
+}
+
+.text {
+  @include fontRegular(16px, 400, 22.4px);
+  @media screen and (min-width: $min_tablet) {
+    font-size: 18px;
+  }
+}

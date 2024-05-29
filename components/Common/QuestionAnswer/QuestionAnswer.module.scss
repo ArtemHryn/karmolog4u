@@ -66,6 +66,9 @@
     margin-bottom: 10px;
     @include fontRegular(16px, 400, 22.4px);
   }
+  & > a {
+    text-decoration: underline;
+  }
 }
 
 .list {

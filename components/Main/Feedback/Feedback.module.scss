@@ -79,6 +79,12 @@
   }
 }
 
+.list_wrapper{
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
 .list {
   display: flex;
   flex-direction: column;

@@ -69,6 +69,15 @@
 }
 .column2_text {
   @include fontRegular(16px, 400, 22.4px);
+  @media screen and (min-width: $min_desktop) {
+    max-width: 210px;
+  }
+}
+
+.column2_text_extended {
+  @media screen and (min-width: $min_tablet) {
+    max-width: 493px;
+  }
 }
 
 .warning_margin {

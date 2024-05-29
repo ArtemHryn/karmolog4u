@@ -38,7 +38,7 @@
 .additional_title {
   @include fontRegular(24px, 400, 24px);
   margin-bottom: 24px;
-  @media all and (min-width: $min_tablet) {
+  @media screen and (min-width: $min_tablet) {
     @include fontRegular(32px, 400, 32px);
     margin-bottom: 42px;
   }
@@ -74,16 +74,15 @@
   margin-bottom: 32px;
   @media all and (min-width: $min_tablet) {
     @include fontRegular(18px, 400, 25.2px);
-    text-wrap: balance;
   }
   @media all and (min-width: $min_desktop) {
   }
 
   & > span {
-    @media all and (min-width: $min_tablet) {
+    @media screen and (min-width: $min_tablet) {
       display: block;
     }
-    @media all and (min-width: $min_desktop) {
+    @media screen and (min-width: $min_desktop) {
       display: inline;
     }
   }

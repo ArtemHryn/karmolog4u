@@ -1,12 +1,12 @@
-import { unbounded } from "@app/layout";
 import Container from "../../Common/Container/Container";
+import Title from "@components/Common/Title/Title";
 
 import styles from "./ServicesForYouIf.module.scss";
 
 const ServicesForYouIf = ({ title, listOfReasons }) => {
   return (
     <Container>
-      <h1 className={`${styles.title} ${unbounded.className}`} >{title}</h1>
+      <Title styled={`${styles.title}`} >{title}</Title>
       <ul className={styles.reasons_list}>
         {listOfReasons.map(({ text, icon: Icon }) => (
           <li key={text} className={styles.reason_list_item}>

@@ -1,16 +1,12 @@
-import AlarmClock from "@components/Common/Icons/ConsultationsIcons/AlarmClock";
-import { open_Sans } from "@app/layout";
+import AlarmClock from '@components/Common/Icons/ConsultationsIcons/AlarmClock';
+import { open_Sans } from '@app/layout';
 
-import styles from "./TariffList.module.scss";
+import styles from './TariffList.module.scss';
 
 const ActiveDropDown = ({ isOpen, setIsOpen, description, time }) => {
   return (
-    <div
-      className={`${styles.description_wrapper} ${
-        isOpen ? "" : styles.is_hidden
-      }`}
-    >
-      <p className={styles.description}>{description}</p>
+    <div className={`${styles.description_wrapper} ${isOpen ? '' : styles.is_hidden}`}>
+      <p className={styles.description} dangerouslySetInnerHTML={{ __html: description }} />
       <p className={styles.time}>
         {isOpen && <AlarmClock styled={styles.icon} />} : {time}
       </p>

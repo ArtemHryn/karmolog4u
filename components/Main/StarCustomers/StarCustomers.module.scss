@@ -23,6 +23,7 @@
   border-radius: 30px;
   background-color: $black;
   width: 328px;
+  min-height: 559px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -32,16 +33,15 @@
   @media all and (min-width: $min_tablet) {
     padding: 40px 58px;
     width: 356px;
+    min-height: 669px;
   }
   @media all and (min-width: $min_desktop) {
     padding: 40px 31px;
     width: 302px;
+    
   }
 }
 
-.card_open {
-  background-color: transparent;
-}
 
 .image {
   width: 240px;

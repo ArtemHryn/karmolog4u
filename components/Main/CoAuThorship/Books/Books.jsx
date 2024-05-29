@@ -1,22 +1,22 @@
-"use client";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
-import BookSlide from "./BookSlide";
+'use client';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper';
+import BookSlide from './BookSlide';
 
-import styles from "./Books.module.scss";
+import styles from './Books.module.scss';
 
 export const books = [
   {
     id: 1,
-    image: "/assets/images/book1.webp",
-    text: "“Технології тренінгу: улюблений  “складний” учасник”",
-    link: "#",
+    image: '/assets/images/book1.webp',
+    text: '“Філософія 22 енергій світостворення”',
+    link: '#',
   },
   {
     id: 2,
-    image: "/assets/images/book2.webp",
-    text: "“Тренінгові вправи для початківців та професіоналів”",
-    link: "#",
+    image: '/assets/images/book2.webp',
+    text: '“Технології тренінгу: улюблений  “складний” учасник”',
+    link: '#',
   },
 ];
 
@@ -36,8 +36,8 @@ const Books = () => {
         pagination={pagination}
         centeredSlides={true}
         style={{
-          "--swiper-pagination-bullet-inactive-color": "#454545;",
-          "--swiper-pagination-color": "#CFB691",
+          '--swiper-pagination-bullet-inactive-color': '#454545;',
+          '--swiper-pagination-color': '#CFB691',
         }}
         breakpoints={{
           360: {
@@ -50,7 +50,7 @@ const Books = () => {
           },
         }}
       >
-        {books.map((book) => (
+        {books.map(book => (
           <SwiperSlide key={book.id}>
             <BookSlide book={book} />
           </SwiperSlide>

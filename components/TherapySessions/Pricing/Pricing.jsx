@@ -1,22 +1,20 @@
-import Container from "@components/Common/Container/Container";
-import React from "react";
-import { unbounded } from "@app/layout";
-import styles from "./Pricing.module.scss";
-import Card from "./Card";
+import Link from 'next/link';
+import Container from '@components/Common/Container/Container';
+import Card from './Card';
+import Title from '@components/Common/Title/Title';
+
+import styles from './Pricing.module.scss';
 
 function Pricing({ content, accTitle }) {
   return (
     <Container>
       <section className={styles.section}>
-        <h2 className={`${styles.title} ${unbounded.className}`}>
-          Тарифи і оплата
-          <span className={styles.title_accent}>
-           {accTitle}
-          </span>
-        </h2>
+        <Title styled={`${styles.title}`}>
+          Прайс та оплата
+          <span className={styles.title_accent}>{accTitle}</span>
+        </Title>
         <p className={styles.desc}>
-          *Оплата можлива в два платежі. Послуги надаються згідно з договором
-          оферти
+          *Можлива оплата частинами. Послуги надаються за <Link href={'#'}>договором оферти</Link>
         </p>
       </section>
       <div>

@@ -1,5 +1,4 @@
 import Container from "@components/Common/Container/Container";
-import React from "react";
 import styles from "./EduPricing.module.scss";
 import Title from "@components/Common/Title/Title";
 import Link from "next/link";

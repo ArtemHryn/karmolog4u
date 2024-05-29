@@ -53,8 +53,9 @@
   border-radius: 30px;
   background-color: $card_bg_v2;
   z-index: 2;
-  @media all and (min-width: $min_tablet) {
-    padding: 40px 70px;
+  @media screen and (min-width: $min_tablet) {
+    padding: 40px 48px;
+
   }
   @media all and (min-width: $min_desktop) {
   }
@@ -89,7 +90,8 @@
     @include fontRegular(16px, 400, 22.4px, $main_text_color);
     max-width: 281px;
   }
-  @media all and (min-width: $min_desktop) {
+  @media screen and (min-width: $min_desktop) {
+    flex-shrink: 0;
   }
 }
 

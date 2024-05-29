@@ -2,8 +2,12 @@
 
 .title {
   margin-bottom: 40px;
-  @media all and (min-width: $min_tablet) {
+  text-align: center !important;
+  max-width: 280px;
+  margin-inline: auto;
+  @media screen and (min-width: $min_tablet) {
     margin-bottom: 60px;
+    max-width: 95%;
   }
   @media all and (min-width: $min_desktop) {
   }

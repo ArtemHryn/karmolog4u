@@ -1,27 +1,17 @@
 @import '/styles/main.scss';
-
-.section {
-  overflow: visible;
-}
-
-.container {
-  position: relative;
-  display: grid;
-  gap: 24px;
-  @media all and (min-width: $min_tablet) {
-    gap: 32px;
-  }
-  @media all and (min-width: $min_desktop) {
-    gap: 0px;
-    column-gap: 133px;
-    align-items: center;
-  }
-}
-
 .title {
-  @media all and (min-width: $min_desktop) {
-    grid-column: 2;
-    grid-row: 1;
+  text-align: center !important;
+  margin-bottom: 40px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 36px;
+  @media screen and (min-width: $min_desktop) {
+    flex-direction: row-reverse;
+    gap: 24px;
   }
 }
 
@@ -29,8 +19,20 @@
   border-radius: 30px;
   @media all and (min-width: $min_desktop) {
     object-fit: contain;
-    grid-column: 1;
-    grid-row: 1 / span 2;
+    width: 519px;
+  }
+}
+
+.text_wrapper {
+  background-color: $card_bg_v2;
+  border-radius: 30px;
+  padding: 24px;
+  @media screen and (min-width: $min_tablet) {
+    padding: 50px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    width: 737px;
+    padding: 64px 54px;
   }
 }
 
@@ -39,20 +41,16 @@
   flex-direction: column;
   gap: 16px;
   overflow: hidden;
-  max-height: 420px;
+  max-height: 424px;
   margin-bottom: 16px;
   transition: max-height 750ms ease;
   &_more {
-    max-height: 1500px;
+    max-height: 2500px;
   }
   @media all and (min-width: $min_tablet) {
     margin-bottom: 0px;
     max-height: 100%;
     overflow: visible;
-  }
-  @media all and (min-width: $min_desktop) {
-    grid-column: 2;
-    grid-row: 2;
   }
 }
 
@@ -70,48 +68,54 @@
   }
 }
 
-.spot {
-  display: none;
-  @media all and (min-width: $min_desktop) {
-    position: absolute;
-    display: block;
+//test box
 
-    top: 20%;
-    left: 42%;
-
-    width: 221px;
-    height: 280px;
-
-    border-radius: 270px;
-    background: linear-gradient(
-      180deg,
-      rgba(206, 180, 144, 0.4) 0%,
-      rgba(207, 182, 145, 0.4) 45.14%
-    );
-
-    filter: blur(105px);
+.test_box {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  border-radius: 30px;
+  background-color: $card_bg_v2;
+  padding: 24px 28px;
+  @media screen and (min-width: $min_tablet) {
+    padding: 30px 50px;
+    align-items: center;
+  }
+  @media screen and (min-width: $min_desktop) {
+    flex-direction: row;
+    padding: 28px 24px;
   }
 }
 
-.spot2 {
-  display: none;
-  @media all and (min-width: $min_desktop) {
-    position: absolute;
-    display: block;
+.test_text {
+  @include fontRegular(16px, 400, 22.4px, $main_text_color, center);
+  text-wrap: balance;
+  & > span {
+    font-weight: 600;
+  }
+  @media screen and (min-width: $min_tablet) {
+    font-size: 18px;
+    text-wrap: wrap;
+  }
+}
 
-    top: 46%;
-    right: 7%;
-
-    width: 221px;
-    height: 280px;
-
-    border-radius: 280px;
-    background: linear-gradient(
-      180deg,
-      rgba(206, 180, 144, 0.4) 0%,
-      rgba(207, 182, 145, 0.4) 45.14%
-    );
-
-    filter: blur(105px);
+.test_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 52px;
+  background-color: $buttons_color;
+  border-radius: 30px;
+  @include fontRegular(16px, 600, 22.4px, $third_text_color, center);
+  transition: all 250ms ease;
+  &:is(:hover, :focus) {
+    background-color: $buttons_hover_color;
+  }
+  @media screen and (min-width: $min_tablet) {
+    font-size: 18px;
+    width: 410px;
+    height: 60px;
+    flex-shrink: 0;
   }
 }

@@ -11,10 +11,10 @@
 }
 
 .title {
-  @include fontRegular(28px, 400, 39.2px);
+  @include fontRegular(28px, 400, 39.2px, $main_text_color, center);
   margin-bottom: 40px;
-  @media all and (min-width: $min_tablet) {
-    @include fontRegular(36px, 400, 43.2px);
+  @media screen and (min-width: $min_tablet) {
+    font-size: 36px;
     margin-bottom: 48px;
   }
   @media all and (min-width: $min_desktop) {
@@ -25,53 +25,31 @@
 .wrap {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  @media all and (min-width: $min_desktop) {
+  gap: 16px;
+  @media screen and (min-width: $min_desktop) {
     flex-direction: row;
   }
 }
 
-.wrap_item {
-  width: 100%;
-  @include fontRegular(16px, 400, 22.4px, $main_text_color);
-  leading-trim: both;
-  text-edge: cap;
-  @media all and (min-width: $min_tablet) {
-    @include fontRegular(18px, 400, 25.2px, $main_text_color);
+.text_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border-radius: 30px;
+  background-color: $card_bg_v2;
+  padding: 24px;
+  @media screen and (min-width: $min_tablet) {
+    padding: 50px;
+  }
+  @media screen and (min-width: $min_desktop) {
+    padding: 64px 54px;
+    max-width: 737px;
   }
 }
 
-.blur {
-  display: none;
-  @media all and (min-width: $min_tablet) {
-    display: block;
-    width: 287px;
-    height: 227px;
-    position: absolute;
-    right: 0px;
-    top: 0px;
-    border-radius: 287px;
-    background-image: linear-gradient(
-      180deg,
-      rgba(207, 182, 145, 0.4) 7%,
-      rgba(207, 182, 145, 0.4) 45.14%
-    );
-    filter: blur(125px);
-  }
-  @media all and (min-width: $min_desktop) {
-    left: 80px;
-    right: auto;
-  }
-}
-
-.blur_pos {
-  display: none;
-  @media all and (min-width: $min_desktop) {
-    display: block;
-    position: absolute;
-    right: 80px;
-    bottom: 0px;
-    left: auto;
-    top: auto;
+.text {
+  @include fontRegular(16px, 400, 22.4px);
+  @media screen and (min-width: $min_tablet) {
+    font-size: 18px;
   }
 }

@@ -25,13 +25,20 @@
   }
 }
 
+.description_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 48px;
+  @media all and (min-width: $min_tablet) {
+    margin-bottom: 60px;
+  }
+}
+
 .description {
   @include fontRegular(16px, 400, 22.4px, $main_text_color, center);
-  margin-bottom: 48px;
-  text-wrap: balance;
-  @media all and (min-width: $min_tablet) {
+  @media screen and (min-width: $min_tablet) {
     @include fontRegular(18px, 400, 25.2px, $main_text_color, center);
-    margin-bottom: 60px;
   }
   @media all and (min-width: $min_desktop) {
     @include fontRegular(18px, 400, 25.2px);
