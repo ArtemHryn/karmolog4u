@@ -2,7 +2,7 @@ import AboutFoundation from "@components/HumanPsychology/AboutFoundation/AboutFo
 import CollaborativeSuccessFoundation from "@components/HumanPsychology/CollaborativeSuccessFoundation/CollaborativeSuccessFoundation";
 import DonationsFoundation from "@components/HumanPsychology/DonationsFoundation/DonationsFoundation";
 import Hero from "@components/HumanPsychology/Hero/Hero";
-import MyHistoryFoundation from "@components/HumanPsychology/MyHistoryFoundation/MyHistoryFoundation";
+// import MyHistoryFoundation from "@components/HumanPsychology/MyHistoryFoundation/MyHistoryFoundation";
 import RecommendationFoundation from "@components/HumanPsychology/RecommendationFoundation/RecommendationFoundation";
 import Feedback from "@components/Main/Feedback/Feedback";
 
@@ -18,9 +18,9 @@ const CharitableFoundationPage = () => {
     <>
       <Hero links={links} title={"БЛАГОДІЙНИЙ ФОНД"} />
       <AboutFoundation />
-      <MyHistoryFoundation />
-      <DonationsFoundation />
       <RecommendationFoundation />
+      <DonationsFoundation />
+      {/* <MyHistoryFoundation /> */}
       <CollaborativeSuccessFoundation />
       <Feedback />
     </>

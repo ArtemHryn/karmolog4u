@@ -1,30 +1,25 @@
-import Container from "@components/Common/Container/Container";
-import Image from "next/image";
-import React from "react";
+import Container from '@components/Common/Container/Container';
+import Image from 'next/image';
+import React from 'react';
 
-import styles from "./RecommendationFoundation.module.scss";
-import Title from "@components/Common/Title/Title";
-import ArrowRight from "@components/Common/Icons/HumanPsychologyIcons/ArrowRight";
+import styles from './RecommendationFoundation.module.scss';
+import Title from '@components/Common/Title/Title';
+import ArrowRight from '@components/Common/Icons/HumanPsychologyIcons/ArrowRight';
 
 function RecommendationFoundation() {
   return (
     <Container styled={styles.container} styledSection={styles.section}>
       <Title styled={styles.title} variant="h2">
-        Рекомендації по внесенню благодійного внеску в фонд ГО “Психологія
-        людської долі”
+        Рекомендації по внесенню благодійного внеску в фонд ГО “Психологія людської долі”
       </Title>
-      <section className={styles.section}>
+      <div className={styles.section}>
         <picture className={styles.img}>
           <source
-            srcSet={
-              "/assets/images/humanPsychology/recommendation_foundation_desc.webp"
-            }
+            srcSet={'/assets/images/humanPsychology/recommendation_foundation_desc.webp'}
             media="(min-width: 1280px)"
           />
           <Image
-            src={
-              "/assets/images/humanPsychology/recommendation_foundation.webp"
-            }
+            src={'/assets/images/humanPsychology/recommendation_foundation.webp'}
             width={736}
             height={360}
             alt="Сергій Скляренко"
@@ -34,24 +29,17 @@ function RecommendationFoundation() {
         </picture>
         <article className={styles.article}>
           <p className={styles.text}>
-            1. Сформулюйте чіткий намір на що саме ви хочете направити енергію
-            через грошовий відкуп (це може бути будь-який ваш особистий намір,
-            бажання)
+            Щоб зробити благодійний внесок, сформулюйте чіткий намір, відправте суму на рахунок
+            фонду та порадійте за тих, хто отримає допомогу.
           </p>
           <p className={styles.text}>
-            2. Відправте суму, якою ви готові поділитися від щирого серця, на
-            реквізити благодійного фонду ГО “Психологія людської долі”. Сума
-            вашого вкладу = енергія, яку ви вкладаєте в реалізацію свого наміру
-          </p>
-          <p className={styles.text}>
-            3. В момент переказу коштів порадійте за того, хто їх отримає.
-            Абсолютно всі збори, які підтримує ГО “Психологія людської долі”,
-            100% перевірені членами правління ГО “Психологія людської долі”.
-            Зібрані кошти гарантовано направляються за цільовим призначенням
+            Ми гарантуємо, що зібрані кошти будуть направлені за цільовим призначенням, адже
+            абсолютно всі збори, які підтримує наша ГО, 100% перевірені членами правління ГО
+            “Психологія людської долі”.
           </p>
         </article>
-      </section>
-      <section className={`${styles.section}`}>
+      </div>
+      <div className={`${styles.section}`}>
         <article className={styles.article_thanks}>
           <Title variant="h5" styled={styles.title_thanks}>
             ЗРОБИТИ БЛАГОДІЙНИЙ ВНЕСОК
@@ -64,7 +52,7 @@ function RecommendationFoundation() {
         <article className={styles.article_thanks}>
           <p className={styles.text_thanks}>Щиро дякуємо вам за довіру!</p>
         </article>
-      </section>
+      </div>
       <div className={styles.spot} />
     </Container>
   );

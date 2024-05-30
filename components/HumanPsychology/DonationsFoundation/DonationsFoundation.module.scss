@@ -33,6 +33,21 @@
   }
   @media all and (min-width: $min_desktop) {
     flex-direction: row;
+    &:last-child {
+      flex-direction: row-reverse;
+    }
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  @media all and (min-width: $min_tablet) {
+    gap: 24px;
+  }
+  @media all and (min-width: $min_desktop) {
+    gap: 60px;
   }
 }
 
@@ -95,5 +110,12 @@
   @media all and (min-width: $min_desktop) {
     left: 218px;
     top: -43px;
+  }
+}
+
+.hide_img {
+  display: none;
+  @media all and (min-width: $min_desktop) {
+    display: block;
   }
 }
