@@ -34,7 +34,7 @@
   padding: 24px;
 
   border-radius: 30px;
-  background-color: $card_bg;
+  background-color: $card_bg_v2;
   @media all and (min-width: $min_tablet) {
     padding: 60px 54px;
   }
@@ -45,15 +45,12 @@
 }
 
 .text {
-  @include fontRegular(16px, 400, 22.4px, $section_color);
+  @include fontRegular(16px, 400, 22.4px);
   & > a {
     text-decoration: underline;
   }
   @media all and (min-width: $min_tablet) {
-    @include fontRegular(18px, 400, 25.2px, $section_color);
-  }
-  @media all and (min-width: $min_desktop) {
-    @include fontRegular(18px, 400, 25.2px, $section_color);
+    font-size: 18px;
   }
 }
 

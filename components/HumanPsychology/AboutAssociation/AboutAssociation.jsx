@@ -1,25 +1,21 @@
-import Image from "next/image";
-import Link from "next/link";
-import Container from "@components/Common/Container/Container";
+import Image from 'next/image';
+import Link from 'next/link';
+import Container from '@components/Common/Container/Container';
 
-import styles from "./AboutAssociation.module.scss";
+import styles from './AboutAssociation.module.scss';
 
 const AboutAssociation = () => {
   return (
     <Container styled={styles.container}>
-      <h1 className="visually-hidden">
-        АСОЦІАЦІЯ “КАРМОТЕРАПІЇ ТА ПСИХОЛОГІЇ”
-      </h1>
+      <h1 className="visually-hidden">АСОЦІАЦІЯ “КАРМОТЕРАПІЇ ТА ПСИХОЛОГІЇ”</h1>
       <div className={styles.card_wrapper}>
         <picture className={styles.img}>
           <source
-            srcSet={
-              "/assets/images/humanPsychology/about_association_desc.webp"
-            }
+            srcSet={'/assets/images/humanPsychology/about_association_desc.webp'}
             media="(min-width: 1280px)"
           />
           <Image
-            src={"/assets/images/humanPsychology/about_association.webp"}
+            src={'/assets/images/humanPsychology/about_association.webp'}
             width={736}
             height={520}
             alt="Сергій Скляренко"
@@ -29,36 +25,31 @@ const AboutAssociation = () => {
         </picture>
         <div className={styles.text_wrapper}>
           <p className={styles.text}>
-            Кожен день я роблю впевнені кроки до своєї заповітної мрії, яка
-            стала для мене справжнім стилем життя – глобальна трансформація
-            людства. Це та мрія, яка надихає мене до дій, яка мотивує мене і дає
-            наснаги на нові звершення.
+            Кожна успішна й обізнана людина має прагнути не тільки змінити своє життя, а ще й
+             зробити щось соціально важливе для інших. Отже моя місія, а відповідно й мета —
+            глобальна трансформація людства.
           </p>
           <p className={styles.text}>
-            Саме тому я вирішив створити організацію та асоціацію, які
-            об’єднають справжніх професіоналів своєї справи. Члени Асоціації
-            згуртовані єдиною ціллю та бажанням: допомогти і підтримати тих,
-            кому це справді потрібно.
+            Задача не з легких, й так, достатньо амбітна, але ж  не під силу ми й не отримуємо —
+            тому, своєю щоденною роботою я, разом  з моїми однодумцями, друзями, колегами, наближаю
+            досягнення цієї мети.
           </p>
           <p className={styles.text}>
-            Діяльність членів Асоціації спрямована на те, щоб проводити
-            благодійну професійну діяльність задля глобальної трансформації
-            людства в форматі особистої психологічної підтримки, організації
-            колективних семінарів, тренінгів та інших науково-практичних
-            заходів, благодійних зборів
+            Для кожного, хто цього потребує, щоб прискорити процеси й допомогти ще більшій кількості
+            людей, я власне й  ініціював та створив громадську організацію та Асоціацію, які
+            об&apos;єднують однодумців та фахівців найвищого класу.  Члени Асоціації  мають одну
+            спільну ціль — надати потрібну допомогу та вчасно підтримати.
           </p>
         </div>
       </div>
       <div className={styles.card_wrapper}>
         <picture className={styles.img}>
           <source
-            srcSet={
-              "/assets/images/humanPsychology/about_association_2_desc.webp"
-            }
+            srcSet={'/assets/images/humanPsychology/about_association_2_desc.webp'}
             media="(min-width: 1280px)"
           />
           <Image
-            src={"/assets/images/humanPsychology/about_association_2.webp"}
+            src={'/assets/images/humanPsychology/about_association_2.webp'}
             width={736}
             height={520}
             alt="Сергій Скляренко"
@@ -68,23 +59,28 @@ const AboutAssociation = () => {
         </picture>
         <div className={styles.text_wrapper}>
           <p className={styles.text}>
-            Асоціація &#34;Кармотерапії та психології&#34; - це об&apos;єднання
-            експертів галузі психології та суміжних напрямків.
+            Діяльність учасників Асоціації направлена на здійснення благодійної професійної
+            допомоги, спрямованої на глобальну трансформацію людства.
           </p>
           <p className={styles.text}>
-            А це означає, що кожен член Асоціації приймає та підтримує методичні
-            посібники та підходи методу &#34;Кармотерапія&#34; та має на меті
-            головну ціль - бути двигуном глобальної трансформації людства.
+            Ми реалізуємо це шляхом особистої психологічної підтримки, організації колективних
+            семінарів, тренінгів та інших науково-практичних заходів, а також благодійних зборів.
           </p>
           <p className={styles.text}>
-            * ознайомитись з положенням про асоціацію і ГО можливо{" "}
+            Асоціація “Кармотерапії та психології” - це об&apos;єднання експертів у галузі
+            психології та суміжних галузей.
+          </p>
+          <p className={styles.text}>
+            До того, кожен учасник нашої Асоціації приймає та підтримує метод “Кармотерапія” та має
+            за мету стати “провідником” глобальної трансформації людства.
+          </p>
+          <p className={styles.text}>Зміни відбуваються з нашою допомогою, але всередині Вас!</p>
+          <p className={styles.text}>
             <Link
-              href={
-                "https://drive.google.com/drive/folders/1--EQIuMjzA7NDUAAliB9Yi_vAUEcuzU7"
-              }
+              href={'https://drive.google.com/drive/folders/1--EQIuMjzA7NDUAAliB9Yi_vAUEcuzU7'}
               target="_blank"
             >
-              тут
+              * Ознайомитись з положенням про Асоціацію та ГО детальніше
             </Link>
           </p>
         </div>

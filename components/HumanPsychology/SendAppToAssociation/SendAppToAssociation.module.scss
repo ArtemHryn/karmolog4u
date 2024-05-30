@@ -48,6 +48,9 @@
 
 .text {
   @include fontRegular(16px, 400, 22.4px);
+  &_bold {
+    font-weight: 600;
+  }
   @media all and (min-width: $min_tablet) {
     @include fontRegular(18px, 400, 25.2px);
   }
