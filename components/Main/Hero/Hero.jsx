@@ -2,9 +2,10 @@ import Image from 'next/image';
 import Marquees from './Marquees/Marquees';
 import VideoButton from './VideoButton/VideoButton';
 import Container from '@components/Common/Container/Container';
+import { unbounded } from '@/app/layout';
 
 import styled from './Hero.module.scss';
-import { unbounded } from '@/app/layout';
+import BackgroundLogo from './BackgroundLogo/BackgroundLogo';
 
 const Hero = () => {
   return (
@@ -32,17 +33,20 @@ const Hero = () => {
             <VideoButton />
           </div>
         </div>
-        <picture className={styled.hero_img}>
-          <source srcSet={'/assets/images/SergiyHeroDesk.webp'} media="(min-width: 1280px)" />
-          <Image
-            src="/assets/images/SergiyHero.webp"
-            width={360}
-            height={680}
-            alt="Сергій Скляренко"
-            className={styled.hero_img}
-            priority={true}
-          />
-        </picture>
+        <div className={styled.wrapper}>
+          <BackgroundLogo />
+          <picture className={styled.hero_img}>
+            <source srcSet={'/assets/images/SergiyHeroDesk.webp'} media="(min-width: 1280px)" />
+            <Image
+              src="/assets/images/SergiyHero.webp"
+              width={360}
+              height={680}
+              alt="Сергій Скляренко"
+              className={styled.hero_img}
+              priority={true}
+            />
+          </picture>
+        </div>
       </div>
       <Marquees />
     </Container>

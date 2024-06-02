@@ -59,16 +59,23 @@
   }
 }
 
+.wrapper {
+  position: relative;
+}
+
 .hero_img {
   display: none;
   @media all and (min-width: $min_tablet) {
+    position: relative;
+    z-index: 2;
     display: block;
-    width: 360px;
-    height: 680px;
+    width: 455px;
+    height: 562px;
+    bottom: -10%;
   }
   @media all and (min-width: $min_desktop) {
-    width: 497px;
-    height: 801px;
+    width: 607px;
+    height: 750px;
   }
 }
 
@@ -76,20 +83,7 @@
   display: flex;
   align-items: center;
 
-  margin-bottom: 55px;
-  @media screen and (min-width: $min_tablet) {
-    gap: 20px;
-    background-image: url('../../../public//assets/images/Vector.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: 105% 50%;
-    background-size: 70%;
-    backdrop-filter: blur(40px);
-  }
-  @media all and (min-width: $min_desktop) {
-    background-position: 100% 50%;
-    background-size: 684px 684px;
-  }
+  margin-bottom: 100px;
 }
 
 .text_wrapper {
@@ -97,6 +91,60 @@
     width: 356px;
   }
   @media screen and (min-width: $min_desktop) {
-    width: 100%;
+    width: 737px;
   }
 }
+
+@keyframes scaleDown {
+  0% {
+    transform: scale(2) translate(20%);
+    filter: blur(0px);
+  }
+  15% {
+    transform: scale(2) translate(20%);
+    filter: blur(0px);
+  }
+  30% {
+    transform: scale(1.1) translate(0%);
+    filter: blur(0px);
+  }
+  40% {
+    transform: scale(1.1);
+    filter: blur(6px);
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+  60% {
+    transform: scale(1.06);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.04);
+    filter: blur(6px);
+  }
+  100% {
+    transform: scale(1.2) translate(0%);
+    filter: blur(0px);
+  }
+}
+
+.bg_logo {
+  display: none;
+  z-index: 1;
+  position: absolute;
+  animation: scaleDown 9s forwards;
+  @media screen and (min-width: $min_tablet) {
+    display: block;
+    width: 675px;
+    top: -10%;
+    right: -17%;
+  }
+  @media screen and (min-width: $min_desktop) {
+    width: 794px;
+    top: 0%;
+    right: -10%;
+  }
+}
+

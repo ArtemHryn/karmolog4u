@@ -70,10 +70,12 @@
 .img {
   object-fit: contain;
   @media all and (min-width: $min_tablet) {
+    transform: translateY(-15px);
     width: 325px;
     height: 430px;
   }
   @media all and (min-width: $min_desktop) {
+    transform: translateY(-20px);
     width: 443px;
     height: 589px;
   }
