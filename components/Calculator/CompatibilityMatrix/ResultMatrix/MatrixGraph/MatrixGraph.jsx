@@ -7,6 +7,7 @@ import Right from '@components/Calculator/PersonalMatrix/MatrixGraph/Right';
 import Bottom from '@components/Calculator/PersonalMatrix/MatrixGraph/Bottom';
 import Center from '@components/Calculator/PersonalMatrix/MatrixGraph/Center';
 import InnerSq from '@components/Calculator/PersonalMatrix/MatrixGraph/InnerSq';
+
 import styles from './MatrixGraph.module.scss';
 
 const MatrixGraph = ({ matrix, title }) => {
@@ -23,6 +24,9 @@ const MatrixGraph = ({ matrix, title }) => {
         <Bottom matrix={matrix} hideAdditionalKeys={true} />
         <Center matrix={matrix} hideCenter2={true} />
         <InnerSq matrix={matrix} hideSq={true} />
+        <Title variant="span" styled={`${styles.inner_key}`}>
+          {matrix.innerTop}
+        </Title>
       </div>
     </div>
   );
