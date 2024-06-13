@@ -73,7 +73,6 @@
   align-items: center;
   background-color: $buttons_color;
   border-radius: 30px;
-  //   margin-bottom: 16px;
   @include fontRegular(16px, 600, 16px, $third_text_color);
   transition: all 0.3s ease;
   &:hover,
@@ -81,13 +80,6 @@
     scale: 1.05;
     background-color: $buttons_hover_color;
   }
-  //   @media all and (min-width: $min_tablet) {
-  //     @include fontRegular(18px, 600, 18px);
-  //     margin-bottom: 24px;
-  //   }
-  //   @media all and (min-width: $min_desktop) {
-  //     margin-bottom: 0px;
-  //   }
 }
 
 .card_price_wrap {
@@ -98,10 +90,6 @@
 
 .card_price {
   @include fontRegular(28px, 400, 39.2px, $main_text_color);
-
-  //   @media all and (min-width: $min_tablet) {
-  //     @include fontRegular(18px, 400, 25.2px, $section_color);
-  //   }
   @media all and (min-width: $min_desktop) {
     @include fontRegular(32px, 400, 38.4px, $main_text_color);
   }
@@ -113,9 +101,7 @@
   @media all and (min-width: $min_tablet) {
     @include fontRegular(18px, 400, 25.2px, $main_text_color);
   }
-  //   @media all and (min-width: $min_desktop) {
-  //     @include fontRegular(28px, 400, 39.2px, $section_color);
-  //   }
+
 }
 
 .info {
@@ -144,7 +130,7 @@
   }
   @media all and (min-width: $min_desktop) {
     height: 125px;
-    padding: 0 50px;
+    padding: 0 41px;
     width: 100%;
     min-width: 411px;
   }

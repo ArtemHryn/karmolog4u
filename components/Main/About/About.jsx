@@ -1,13 +1,13 @@
 import Image from 'next/image';
 import Container from '@components/Common/Container/Container';
+import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
 
 import styled from './About.module.scss';
-import { unbounded } from '@app/layout';
 
 const text = [
   '✓ Психотерапевт. Магістр психології',
   '✓ Президент Асоціації "Кармотерапії та психології"',
-  '✓ Голова ГО "Психологія людської долі""',
+  '✓ Голова ГО "Психологія людської долі"',
   '✓ Член асоціації психосинтезу України',
   '✓ Член Центру українсько-європейського наукового співробітництва',
   '✓ Автор та засновник запатентованого виду психотерапії "Кармотерапія"',
@@ -23,8 +23,10 @@ const About = () => {
       <div className={styled.spot} />
 
       <div className={styled.greeting_wrapper}>
-        <h1 className={`${styled.headerText} ${unbounded.className}`}>Я - Сергій Скляренко</h1>
-        <p className={styled.additional_title1}>Познайомимось!</p>
+        <TitleNoStyles variant="p" styled={`${styled.headerText}`}>
+          Я - Сергій Скляренко
+        </TitleNoStyles>
+        <TitleNoStyles styled={styled.additional_title1}>Познайомимось!</TitleNoStyles>
         <p className={styled.additional_title2}>
           Мене звати Сергій Скляренко і я відомий, як провідний кармолог України, який має понад{' '}
           {new Date().getMonth() > 4 ? years + ' ' : years - 1 + ' '}
@@ -50,28 +52,28 @@ const About = () => {
       </div>
       <div className={`${styled.about_us_facts_container}`}>
         <div className={`${styled.about_us_fact} ${styled.about_us_fact1}`}>
-          <p className={`${styled.about_us_fact_title} ${unbounded.className}`}>
+          <TitleNoStyles variant='p' styled={`${styled.about_us_fact_title}`}>
             {new Date().getMonth() > 4 ? years : years - 1} років
-          </p>
+          </TitleNoStyles>
           <p className={styled.about_us_fact_description}>
             постійного консультування у методі “Матриця долі” та ТИСЯЧІ задоволених клієнтів, з
             отриманим результатом
           </p>
         </div>
         <div className={`${styled.about_us_fact} ${styled.about_us_fact2}`}>
-          <p className={`${styled.about_us_fact_title} ${unbounded.className}`}>1000</p>
+          <TitleNoStyles variant='p' styled={`${styled.about_us_fact_title}`}>1000</TitleNoStyles>
           <p className={styled.about_us_fact_description}>
             випускників школи “Студія трансформації Сергія Скляренка”
           </p>
         </div>
         <div className={`${styled.about_us_fact} ${styled.about_us_fact3}`}>
-          <p className={`${styled.about_us_fact_title} ${unbounded.className}`}>15000+</p>
+          <TitleNoStyles variant='p' styled={`${styled.about_us_fact_title}`}>15000+</TitleNoStyles>
           <p className={styled.about_us_fact_description}>особистих консультацій</p>
         </div>
         <div className={`${styled.about_us_fact} ${styled.about_us_fact4}`}>
           <p className={styled.about_us_fact_description}>
             Важливо — сертифікація школи “Студія трансформації Сергія Скляренка”
-            офіційно підтверджена автором методу «Матриця долі» Наталією Ладіні
+            офіційно підтверджена автором методу “Матриця долі” Наталією Ладіні
           </p>
         </div>
       </div>

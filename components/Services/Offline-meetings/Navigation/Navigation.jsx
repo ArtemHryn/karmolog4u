@@ -2,7 +2,7 @@ import Container from "@components/Common/Container/Container";
 import NavLinks from "./NavLinks";
 import InternalNavTitle from "@components/Common/InternalNavTitle/InternalNavTitle";
 
-const links = [{ href: "/offline-meetings", name: "Офлайн зустрічі" }];
+const links = [{ href: "/offline-meetings", name: "Офлайн-зустрічі" }];
 
 const Navigation = () => {
   return (

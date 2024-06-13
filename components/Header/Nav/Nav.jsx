@@ -9,7 +9,7 @@ const links = [
     links: [
       { name: "Терапевтичні сесії", link: "/therapy-sessions" },
       { name: "Консультація з матриці долі", link: "/consultations" },
-      { name: "Офлайн зустрічі", link: "/offline-meetings" },
+      { name: "Офлайн-зустрічі", link: "/offline-meetings" },
     ],
     id: 12,
   },

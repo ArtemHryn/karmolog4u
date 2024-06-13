@@ -14,7 +14,7 @@ function Pricing({ content, accTitle }) {
           <span className={styles.title_accent}>{accTitle}</span>
         </Title>
         <p className={styles.desc}>
-          *Можлива оплата частинами. Послуги надаються за <Link href={'#'}>договором оферти</Link>
+          *Можлива оплата частинами. Послуги надаються за <Link href={'#'}>договором оферти</Link>.
         </p>
       </section>
       <div>
