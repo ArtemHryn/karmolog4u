@@ -45,4 +45,5 @@ export const matrixLinks = [
     href: '/calculator/matrix-of-consciousness',
     name: 'Матрицю свідомості',
   },
+  { href: '/calculator/matrix-of-soul', name: 'Матрицю душі' },
 ];

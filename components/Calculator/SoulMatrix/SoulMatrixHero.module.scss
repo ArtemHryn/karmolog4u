@@ -1,0 +1,14 @@
+@import '/styles/main.scss';
+
+.matrix_wrapper {
+  border-top: 1px solid $seconds_text_color;
+  border-bottom: 1px solid $seconds_text_color;
+  background: $matrix_bg_gradient;
+}
+
+.soul_matrix_wrapper {
+  @media all and (min-width: $min_desktop) {
+    display: flex;
+    gap: 34px;
+  }
+}
