@@ -2,9 +2,9 @@ import Link from 'next/link';
 import Container from '@components/Common/Container/Container';
 import Title from '@components/Common/Title/Title';
 
-import { open_Sans, unbounded } from '@app/layout';
 
 import styles from './AccessToTheCourse.module.scss';
+import { open_Sans, unbounded } from '@app/[locale]/layout';
 
 const AccessToTheCourse = () => {
   return (
