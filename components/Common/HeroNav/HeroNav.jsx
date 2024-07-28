@@ -1,26 +1,26 @@
-import Link from "next/link";
-import HeroNavArrow from "../Icons/HeroNavArrow";
+import Link from 'next/link';
+import HeroNavArrow from '../Icons/HeroNavArrow';
 
-import styles from "./HeroNav.module.scss";
-import { open_Sans } from "@app/layout";
+import styles from './HeroNav.module.scss';
+import { open_Sans } from '@app/[locale]/layout';
+import { useLocale, useTranslations } from 'next-intl';
 
 const HeroNav = ({ linkNames }) => {
+  const locale = useLocale();
+  const t = useTranslations('Common.HeroNav');
   return (
     <ul className={styles.list}>
       <li className={styles.list_item}>
-        <Link
-          href="/"
-          className={`${styles.link} ${open_Sans} ${styles.link_to_main}`}
-        >
-          Головна
+        <Link href="/" className={`${styles.link} ${open_Sans} ${styles.link_to_main}`}>
+          {t('main')}
         </Link>
       </li>
-      {linkNames.map((link) =>
+      {linkNames.map(link =>
         !link ? null : (
           <li key={link.name} className={styles.list_item}>
             <HeroNavArrow styled={styles.arrow} />
             <Link href={link.href} className={`${styles.link} ${open_Sans}`}>
-              {link.name}
+              {typeof link.name === 'object' ? link.name[locale] : link.name}
             </Link>
           </li>
         )

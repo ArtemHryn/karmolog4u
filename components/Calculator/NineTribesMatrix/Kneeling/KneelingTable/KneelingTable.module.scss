@@ -54,9 +54,10 @@
 }
 
 .column_name_text {
-  @include fontRegular(16px, 400, 22.4px, $third_text_color, center);
+  @include fontRegular(16px, 400, 16px, $third_text_color, center);
   @media all and (min-width: $min_tablet) {
     font-size: 18px;
+    line-height: 1.4;
   }
   @media all and (min-width: $min_desktop) {
   }

@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useLocale } from 'next-intl';
 
 import { matrixLinks } from '@helper/calculator/buttonsList';
 
@@ -8,6 +9,8 @@ import styles from './MoreCalculators.module.scss';
 
 const ButtonsList = ({ date, name }) => {
   const pathname = usePathname();
+  const locale = useLocale();
+
   return (
     <ul className={styles.links_list}>
       {matrixLinks.map((links, index) =>
@@ -21,7 +24,7 @@ const ButtonsList = ({ date, name }) => {
               }
               className={styles.links}
             >
-              {links.name}
+              {links.name[locale]}
             </Link>
           </li>
         )

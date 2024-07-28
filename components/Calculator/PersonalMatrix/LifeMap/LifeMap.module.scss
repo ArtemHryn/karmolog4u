@@ -36,6 +36,9 @@
   flex-direction: column;
   gap: 20px;
   @media all and (min-width: $min_tablet) {
+    width: 311px;
+  }
+  @media all and (min-width: $min_desktop) {
     width: 280px;
   }
 }
@@ -57,6 +60,13 @@
   border: 1px solid $accent_v2;
 
   @include fontRegular(16px, 400, 22.4px);
+}
+
+.map_name_el {
+  @include fontRegular(14px, 400, 19.6px);
+  @media all and (min-width: $min_tablet) {
+    font-size: 16px;
+  }
 }
 
 .result_key {

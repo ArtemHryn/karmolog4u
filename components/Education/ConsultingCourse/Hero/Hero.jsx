@@ -1,15 +1,14 @@
-import Container from "@components/Common/Container/Container";
-import HeroNav from "@components/Common/HeroNav/HeroNav";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
-import styles from "./Hero.module.scss";
-import { open_Sans } from "@app/layout";
-import Title from "@components/Common/Title/Title";
+import Container from '@components/Common/Container/Container';
+import HeroNav from '@components/Common/HeroNav/HeroNav';
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
+import styles from './Hero.module.scss';
+import { open_Sans } from '@app/[locale]/layout';
 
-const linkNames = [
-  { href: "/consulting-course", name: "Консультантський курс" },
-];
+import Title from '@components/Common/Title/Title';
+
+const linkNames = [{ href: '/consulting-course', name: 'Консультантський курс' }];
 
 function Hero() {
   return (
@@ -31,8 +30,8 @@ function Hero() {
             <source srcSet={img.imgDesk} media="(min-width: 1280px)" />
           )} */}
         <Image
-          src={"/assets/images/consultingCourse/Hero.webp"}
-          alt={""}
+          src={'/assets/images/consultingCourse/Hero.webp'}
+          alt={''}
           width={1280}
           height={920}
           className={styles.img}

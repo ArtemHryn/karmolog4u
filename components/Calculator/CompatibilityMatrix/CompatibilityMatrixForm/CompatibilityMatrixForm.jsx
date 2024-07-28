@@ -1,13 +1,14 @@
 import { useRouter } from 'next/navigation';
 import { useForm, useFieldArray } from 'react-hook-form';
-import { open_Sans } from '@app/layout';
+import { open_Sans } from '@app/[locale]/layout';
 
 import styles from './CompatibilityMatrixForm.module.scss';
 import PersonElement from './PersonElement';
+import { useTranslations } from 'next-intl';
 
 const CompatibilityMatrixForm = ({ setUsersInfo, setIsShowMatrix, usersInfo }) => {
   const router = useRouter();
-
+const t = useTranslations('Calculator.personal');
   const {
     register,
     control,
@@ -43,8 +44,6 @@ const CompatibilityMatrixForm = ({ setUsersInfo, setIsShowMatrix, usersInfo }) =
     });
   };
 
-
-
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       {fields.map((field, index) => (
@@ -57,7 +56,7 @@ const CompatibilityMatrixForm = ({ setUsersInfo, setIsShowMatrix, usersInfo }) =
         />
       ))}
       <button type="submit" className={`${styles.submit_btn} ${open_Sans.className}`}>
-        Розрахувати матрицю
+        {t('calc_button')}
       </button>
     </form>
   );

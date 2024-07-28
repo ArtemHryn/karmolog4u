@@ -1,4 +1,4 @@
-import { unbounded } from "@app/layout";
+import { unbounded } from "@app/[locale]/layout";
 import styles from "./Title.module.scss";
 
 const Title = ({ children, styled, variant = "h1" }) => {

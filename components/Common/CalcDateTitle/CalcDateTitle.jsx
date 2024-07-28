@@ -1,8 +1,10 @@
+import { useTranslations } from "next-intl";
 import Title from "../Title/Title";
 
 import styles from './CalcDateTitle.module.scss'
 
 const CalcDateTitle = ({ name, date }) => {
+  const t = useTranslations('Calculator.personal');
   return (
     <div className={styles.date_wrapper}>
       {name ? (
@@ -11,7 +13,7 @@ const CalcDateTitle = ({ name, date }) => {
         </Title>
       ) : (
         <Title variant="p" styled={styles.date_title}>
-          Дата народження:
+          {t('b_date')}:
         </Title>
       )}
       <Title variant="p" styled={styles.date}>

@@ -9,6 +9,7 @@ import Center from '@components/Calculator/PersonalMatrix/MatrixGraph/Center';
 import InnerSq from '@components/Calculator/PersonalMatrix/MatrixGraph/InnerSq';
 
 import styles from './MatrixGraph.module.scss';
+import GraphText from '@components/Calculator/PersonalMatrix/MatrixGraph/GraphText';
 
 const MatrixGraph = ({ matrix, title }) => {
   return (
@@ -18,6 +19,7 @@ const MatrixGraph = ({ matrix, title }) => {
       </Title>
       <div className={styles.graph_wrapper}>
         <MatrixGraphImg styled={styles.graph} />
+        <GraphText earthStyled={styles.earth} />
         <Top matrix={matrix} hideAdditionalKeys={true} />
         <Left matrix={matrix} />
         <Right matrix={matrix} />

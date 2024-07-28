@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { open_Sans } from "@app/layout";
 import Logo from "@components/Common/Icons/Logo";
+import { open_Sans } from "@app/[locale]/layout";
 
-import "swiper/css";
 
 import styles from "./ResearchSlider.module.scss";
 import Button from "./Button";
+
+import "swiper/css";
 
 const ResearchSlideElement = ({ card, index }) => {
   return (

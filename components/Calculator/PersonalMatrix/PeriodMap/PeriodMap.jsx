@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import Title from '@components/Common/Title/Title';
 import { ageCalculator } from '@helper/calculator/ageCalc';
 import PeriodMapElement from './PeriodMapElement';
@@ -7,6 +8,7 @@ import styles from './PeriodMap.module.scss';
 
 const PeriodMap = ({ period, date }) => {
   const [age, setAge] = useState(null);
+  const t = useTranslations('Calculator.personal');
   useEffect(() => {
     if (!date) return;
     const [day, month, year] = date.split('.');
@@ -22,31 +24,31 @@ const PeriodMap = ({ period, date }) => {
   return (
     <div className={styles.wrapper}>
       <Title variant="h3" styled={styles.title}>
-        Карта року
+        {t('period_map')}
       </Title>
       <ul className={styles.name_list}>
         <li className={styles.name_list_element}>
           <Title variant="p" styled={styles.column_name}>
-            Рік
+            {t('year')}
           </Title>
           <Title variant="p" styled={styles.column_name}>
-            Енергія
-          </Title>
-        </li>
-        <li className={styles.name_list_element}>
-          <Title variant="p" styled={styles.column_name}>
-            Рік
-          </Title>
-          <Title variant="p" styled={styles.column_name}>
-            Енергія
+            {t('energy')}
           </Title>
         </li>
         <li className={styles.name_list_element}>
           <Title variant="p" styled={styles.column_name}>
-            Рік
+            {t('year')}
           </Title>
           <Title variant="p" styled={styles.column_name}>
-            Енергія
+            {t('energy')}
+          </Title>
+        </li>
+        <li className={styles.name_list_element}>
+          <Title variant="p" styled={styles.column_name}>
+            {t('year')}
+          </Title>
+          <Title variant="p" styled={styles.column_name}>
+            {t('energy')}
           </Title>
         </li>
       </ul>

@@ -2,10 +2,10 @@ import Image from 'next/image';
 import Marquees from './Marquees/Marquees';
 import VideoButton from './VideoButton/VideoButton';
 import Container from '@components/Common/Container/Container';
-import { unbounded } from '@/app/layout';
 
 import styled from './Hero.module.scss';
 import BackgroundLogo from './BackgroundLogo/BackgroundLogo';
+import { unbounded } from '@app/[locale]/layout';
 
 const Hero = () => {
   return (

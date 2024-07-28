@@ -2,7 +2,8 @@
 import React, { useState } from "react";
 import styles from "./QuestionAnswer.module.scss";
 import ArrowDownV2 from "@components/Common/Icons/ArrowDownV2";
-import { unbounded } from "@/app/layout";
+import { unbounded } from "@app/[locale]/layout";
+
 
 function Dropdown({ q, a }) {
   const [open, setOpen] = useState(null);

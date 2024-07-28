@@ -1,10 +1,10 @@
+import { useLocale, useTranslations } from 'next-intl';
+import { unbounded } from '@app/[locale]/layout';
 import Container from '@components/Common/Container/Container';
-import React from 'react';
 import Whatsapp from '@components/Common/SocialIcons/Whatsapp';
 import Telegram from '@components/Common/SocialIcons/Telegram';
 import Link from 'next/link';
 import styles from './SocialInfoDesc.module.scss';
-import { unbounded } from '@/app/layout';
 import Logo from '@components/Common/Icons/Logo';
 import BlurLogo from '@components/Common/Icons/BlurLogo';
 
@@ -21,11 +21,16 @@ const links = [
   },
 ];
 function SocialInfoDesc({ socialList }) {
+  const t = useTranslations('Calculator.Social_info');
+  const locale = useLocale();
+
+  const listToRender = Array.isArray(socialList) ? socialList : socialList[locale];
+
   return (
     <Container styled={styles.wrap} styledSection={styles.section}>
       <div className={styles.wrap_item}>
         <div className={styles.desc_wrapper}>
-          {socialList.map((el, index) => (
+          {listToRender.map((el, index) => (
             <p
               key={index}
               className={`${styles.title} ${unbounded.className}`}
@@ -33,12 +38,9 @@ function SocialInfoDesc({ socialList }) {
             />
           ))}
           <div className={styles.additional_desc_wrap}>
+            <p className={`${styles.additional_desc} ${unbounded.className}`}>{t('contact_us')}</p>
             <p className={`${styles.additional_desc} ${unbounded.className}`}>
-              Напишіть нам в будь-який месенджер — наші менеджери одразу запропонують час для вашої
-              консультації!
-            </p>
-            <p className={`${styles.additional_desc} ${unbounded.className}`}>
-              Досягнення вашої мети – ближче ніж вам здається!!
+              {t('reach_your_goal')}
             </p>
           </div>
           <svg

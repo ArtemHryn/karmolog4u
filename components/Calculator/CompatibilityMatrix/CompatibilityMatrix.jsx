@@ -7,10 +7,12 @@ import styles from './CompatibilityMatrix.module.scss';
 import { getCompatibilityGraph } from '@helper/calculator/compatibility';
 import ResultMatrix from './ResultMatrix/ResultMatrix';
 import Container from '@components/Common/Container/Container';
+import { useTranslations } from 'next-intl';
 
 const CompatibilityMatrix = ({ partners }) => {
   const [partnersMatrix, setPartnersMatrix] = useState([]);
   const [resultMatrix, setResultMatrix] = useState(null);
+  const t = useTranslations('Calculator.compatibility');
 
   useEffect(() => {
     if (partners.length === 0) return;
@@ -50,7 +52,7 @@ const CompatibilityMatrix = ({ partners }) => {
         ))}
       </Container>
       <Container styledSection={styles.result_container}>
-        <ResultMatrix matrix={resultMatrix} title={'Сумісність пари'} />
+        <ResultMatrix matrix={resultMatrix} title={t('result_title')} />
       </Container>
     </div>
   );

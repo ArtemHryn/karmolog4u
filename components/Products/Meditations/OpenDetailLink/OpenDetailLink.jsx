@@ -1,13 +1,14 @@
-"use client";
+'use client';
 
-import { useParams, usePathname } from "next/navigation";
-import Image from "next/image";
-import Link from "next/link";
-import Youtube from "react-youtube";
-import { open_Sans, unbounded } from "@app/layout";
-import Logo from "@components/Common/Icons/Logo";
+import { useParams, usePathname } from 'next/navigation';
+import Image from 'next/image';
+import Link from 'next/link';
+import Youtube from 'react-youtube';
+import { open_Sans, unbounded } from '@app/[locale]/layout';
 
-import styles from "./OpenDetailLink.module.scss";
+import Logo from '@components/Common/Icons/Logo';
+
+import styles from './OpenDetailLink.module.scss';
 
 const OpenDetailLink = ({ card }) => {
   const { video, isWaiting, name, img, cardName, id } = card;
@@ -19,17 +20,17 @@ const OpenDetailLink = ({ card }) => {
     if (!cardName) return;
     const classNameToAdd = `${open_Sans.className}`;
 
-    const tempDiv = document.createElement("div");
+    const tempDiv = document.createElement('div');
     tempDiv.innerHTML = cardName;
 
-    const spanElement = tempDiv.querySelector("span");
+    const spanElement = tempDiv.querySelector('span');
     spanElement.classList.add(classNameToAdd);
     return tempDiv.innerHTML;
   };
 
   return (
     <>
-      {" "}
+      {' '}
       {isWaiting || cardName ? (
         <div className={styles.waiting_card}>
           {cardName ? (
@@ -45,11 +46,7 @@ const OpenDetailLink = ({ card }) => {
         <Youtube videoId={video} iframeClassName={styles.video} />
       ) : (
         <Link
-          href={
-            params.id
-              ? `${pathname.replace(`${params.id}`, `${id}`)}`
-              : `${pathname}/${id}`
-          }
+          href={params.id ? `${pathname.replace(`${params.id}`, `${id}`)}` : `${pathname}/${id}`}
           className={styles.link_to_details}
         >
           <Image src={img} alt={name} width={356} height={223} />

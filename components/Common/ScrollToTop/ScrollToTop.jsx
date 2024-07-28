@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 import styles from "./ScrollToTop.module.scss";
-import { open_Sans } from "@app/layout";
+import { open_Sans } from "@app/[locale]/layout";
 
 const ScrollToTop = () => {
   const [showButton, setShowButton] = useState(false);

@@ -1,5 +1,5 @@
 import Container from '@components/Common/Container/Container';
-import { unbounded } from '@app/layout';
+import { unbounded } from '@app/[locale]/layout';
 
 import styles from './AboutPractice.module.scss';
 import Title from '@components/Common/Title/Title';

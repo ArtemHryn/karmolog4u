@@ -1,13 +1,16 @@
+import { useLocale } from 'next-intl';
 import styles from './NineTribesOneTable.module.scss';
 
 const NineTribesOneTable = ({ table }) => {
+  const locale = useLocale();
+  const columns = Array.isArray(table.columnNames) ? table.columnNames : table.columnNames[locale];
   return (
     <li className={styles.element}>
       <ul className={styles.name_list}>
         <li className={styles.name_list_element}>
           <p className={styles.empty_box}></p>
         </li>
-        {table.columnNames.map(el => (
+        {columns.map(el => (
           <li key={el} className={styles.name_list_element}>
             <p className={styles.name}>{el}</p>
           </li>

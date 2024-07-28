@@ -6,6 +6,7 @@ import Bottom from './Bottom';
 import Center from './Center';
 import InnerSq from './InnerSq';
 import CalcDateTitle from '@components/Common/CalcDateTitle/CalcDateTitle';
+import GraphText from './GraphText';
 
 import styles from './MatrixGraph.module.scss';
 
@@ -16,6 +17,7 @@ const MatrixGraph = ({ matrix, date, name }) => {
       <CalcDateTitle name={name} date={date} />
       <div className={styles.graph_wrapper}>
         <PersonalMatrix styled={styles.graph} />
+        <GraphText />
         <Top matrix={matrix} />
         <Left matrix={matrix} />
         <Right matrix={matrix} />
