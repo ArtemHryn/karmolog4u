@@ -1,8 +1,8 @@
-import { unbounded } from "@app/layout";
-import HeroNavArrow from "@components/Common/Icons/HeroNavArrow";
+import { unbounded } from '@app/[locale]/layout';
+import HeroNavArrow from '@components/Common/Icons/HeroNavArrow';
 
-import styles from "./TariffsSlider.module.scss";
-import Link from "next/link";
+import styles from './TariffsSlider.module.scss';
+import Link from 'next/link';
 
 const Card = ({ card, link }) => {
   return (
@@ -14,15 +14,12 @@ const Card = ({ card, link }) => {
       />
       <div className={styles.wrapper}>
         <ul className={styles.list}>
-          {card.aboutCourse.map((el) => (
+          {card.aboutCourse.map(el => (
             <li key={el} className={styles.list_text_element}>
               <p className={styles.icon}>
                 <HeroNavArrow />
               </p>
-              <p
-                className={styles.list_text}
-                dangerouslySetInnerHTML={{ __html: el }}
-              />
+              <p className={styles.list_text} dangerouslySetInnerHTML={{ __html: el }} />
             </li>
           ))}
         </ul>

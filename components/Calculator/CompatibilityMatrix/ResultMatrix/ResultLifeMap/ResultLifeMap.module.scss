@@ -38,6 +38,9 @@
   @media all and (min-width: $min_tablet) {
     width: 280px;
   }
+  @media all and (min-width: $min_desktop) {
+    width: 311px;
+  }
 }
 
 .second_life_map_list_item {

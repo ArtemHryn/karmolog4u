@@ -1,49 +1,49 @@
 export const matrixLinks = [
   {
     href: '/calculator/personal-matrix-of-fade',
-    name: 'Особисту матрицю',
+    name: { uk: 'Особисту матрицю', ru: 'Личную матрицу' },
   },
   {
     href: '/calculator/compatibility-matrix',
-    name: 'Матрицю сумісності',
+    name: { uk: 'Матрицю сумісності', ru: 'Матрицу совместимости' },
     useDate: true,
   },
   {
     href: '/calculator/nine-tribes-matrix',
-    name: 'Матрицю “9 колін роду” ',
+    name: { uk: 'Матрицю “9 колін роду”', ru: 'Матрицу "9 колен рода"' },
   },
   {
     href: '/calculator/groups-of-people-matrix',
-    name: 'Матрицю групи людей',
+    name: { uk: 'Матрицю групи людей', ru: 'Матрицу группы людей' },
     useDate: true,
   },
   {
     href: '/calculator/matrix-of-the-year',
-    name: 'Матрицю року',
+    name: { uk: 'Матрицю року', ru: 'Матрицу года' },
   },
   {
     href: '/calculator/demon-matrix',
-    name: 'Матрицю “Демон жертва”',
+    name: { uk: 'Матрицю “Демон жертва”', ru: 'Матрицу "Демон жертва"' },
   },
   {
     href: '/calculator/holistic-power-matrix',
-    name: 'Матрицю цілісної сили',
+    name: { uk: 'Матрицю цілісної сили', ru: 'Матрицу целостной силы' },
   },
   {
     href: '/calculator/parents-and-children-matrix',
-    name: 'Матрицю “Батьки та діти”',
+    name: { uk: 'Матрицю “Батьки та діти”', ru: 'Матрицу "Родители и дети"' },
   },
   {
     href: '/calculator/sixteen-laws-of-karma-matrix',
-    name: 'Матрицю “16 законів карми”',
+    name: { uk: 'Матрицю “16 законів карми”', ru: 'Матрицу "16 законов кармы"' },
   },
   {
     href: '/calculator/internal-karma-matrix',
-    name: 'Матрицю внутрішньої карми',
+    name: { uk: 'Матрицю внутрішньої карми', ru: 'Матрицу внутренней кармы' },
   },
   {
     href: '/calculator/matrix-of-consciousness',
-    name: 'Матрицю свідомості',
+    name: { uk: 'Матрицю свідомості', ru: 'Матрицу сознания' },
   },
-  { href: '/calculator/matrix-of-soul', name: 'Матрицю душі' },
+  { href: '/calculator/matrix-of-soul', name: { uk: 'Матрицю душі', ru: 'Матрицу души' } },
 ];

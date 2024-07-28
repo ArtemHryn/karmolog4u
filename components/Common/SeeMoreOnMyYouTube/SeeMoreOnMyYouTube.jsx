@@ -1,9 +1,9 @@
 import Link from 'next/link';
 
 import YouTube from '../SocialIcons/YouTube';
-import { unbounded } from '@app/layout';
+import { unbounded } from '@app/[locale]/layout';
 
-import styles from './SeeMoreOnMyYouTube.module.scss'
+import styles from './SeeMoreOnMyYouTube.module.scss';
 
 const SeeMoreOnMyYouTube = () => {
   return (
@@ -14,7 +14,7 @@ const SeeMoreOnMyYouTube = () => {
         Більше відео ви можете переглянути на моєму YouTube каналі
       </h2>
       <Link
-        href={"https://www.youtube.com/@karmolog4u"}
+        href={'https://www.youtube.com/@karmolog4u'}
         target="_blank"
         rel="noreferrer noopener"
         className={`${styles.link} ${unbounded.className}`}
@@ -23,6 +23,6 @@ const SeeMoreOnMyYouTube = () => {
       </Link>
     </div>
   );
-}
+};
 
-export default SeeMoreOnMyYouTube
+export default SeeMoreOnMyYouTube;

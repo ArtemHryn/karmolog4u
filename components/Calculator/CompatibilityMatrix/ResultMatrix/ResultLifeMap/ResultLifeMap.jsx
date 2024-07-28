@@ -4,24 +4,27 @@ import ExtensionList from './ExtensionList';
 import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
 
 import styles from './ResultLifeMap.module.scss';
+import { useLocale, useTranslations } from 'next-intl';
 
 const ResultLifeMap = ({ maps, spiritLesson, extensionList, holisticTable }) => {
+  const t = useTranslations('Calculator.personal');
+  const locale = useLocale();
   if (!maps) return;
   const mapsList = Object.keys(maps);
   return (
     <div className={styles.main_wrapper}>
       <div>
         <TitleNoStyles variant="h3" styled={styles.lifemap_title}>
-          Карта життя
+          {t('life_map')}
         </TitleNoStyles>
         <ul className={styles.main_life_map_list}>
           {mapsList.map(mapType => (
             <li key={mapType}>
               <ul className={styles.second_life_map_list}>
                 {maps[mapType].map((el, index) => (
-                  <li key={el.name} className={styles.second_life_map_list_item}>
+                  <li key={el.name[locale]} className={styles.second_life_map_list_item}>
                     <p className={`${styles.key} ${index === 2 && styles.result_key}`}>{el.key}</p>
-                    <p>{el.name}</p>
+                    <p>{el.name[locale]}</p>
                   </li>
                 ))}
               </ul>

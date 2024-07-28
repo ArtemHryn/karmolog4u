@@ -1,18 +1,18 @@
-"use client";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
+'use client';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
-import styles from "./Navigation.module.scss";
-import { unbounded } from "@app/layout";
+import styles from './Navigation.module.scss';
+import { unbounded } from '@app/[locale]/layout';
 
 const navLinks = [
-  { name: "Цвяхостояння", link: "nailing" },
-  { name: "Ретрит", link: "retreat" },
-  { name: "Публічні виступи", link: "public-speeches" },
+  { name: 'Цвяхостояння', link: 'nailing' },
+  { name: 'Ретрит', link: 'retreat' },
+  { name: 'Публічні виступи', link: 'public-speeches' },
 ];
 
 const NavLinks = () => {
-  const fullRoute = usePathname().split("/");
+  const fullRoute = usePathname().split('/');
   const currentRoute = fullRoute[fullRoute.length - 1];
   return (
     <ul className={styles.nav_links_list}>
@@ -21,7 +21,7 @@ const NavLinks = () => {
           <Link
             href={link}
             className={`${styles.nav_link} ${unbounded.className} ${
-              link === currentRoute ? styles.nav_link_active : ""
+              link === currentRoute ? styles.nav_link_active : ''
             }`}
           >
             {name}

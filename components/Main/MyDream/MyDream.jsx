@@ -1,12 +1,12 @@
+import Link from 'next/link';
 import Image from 'next/image';
 import Container from '@components/Common/Container/Container';
 import Arrow from './Arrow/Arrow';
-
-import styles from './MyDream.module.scss';
-import { open_Sans, unbounded } from '@app/layout';
-import Link from 'next/link';
+import { open_Sans, unbounded } from '@app/[locale]/layout';
 import ArrowTab from './Arrow/ArrowTab';
 import Circles from './Circles/Circles';
+
+import styles from './MyDream.module.scss';
 
 const MyDream = () => {
   return (

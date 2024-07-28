@@ -16,6 +16,67 @@
   }
 }
 
+//lines
+
+.lines {
+  position: absolute;
+  @include fontRegular(8px, 500, 11px);
+  @media all and (min-width: $min_tablet) {
+    font-size: 12px;
+  }
+}
+
+.sky {
+  top: 36%;
+  left: 48%;
+  rotate: 270deg;
+  @media all and (min-width: $min_tablet) {
+    top: 37%;
+    left: 48%;
+  }
+}
+
+.earth {
+  top: 43.5%;
+  right: 25%;
+  @media all and (min-width: $min_tablet) {
+    top: 44.5%;
+    right: 32%;
+  }
+  @media all and (min-width: $min_desktop) {
+    top: 44.5%;
+    right: 27%;
+  }
+}
+
+.father {
+  top: 40%;
+  left: 27%;
+  rotate: 45deg;
+  @media all and (min-width: $min_tablet) {
+    top: 39%;
+    left: 32%;
+  }
+  @media all and (min-width: $min_desktop) {
+    top: 38%;
+    left: 32%;
+  }
+}
+
+.mother {
+  bottom: 38.5%;
+  left: 29%;
+  rotate: 315deg;
+  @media all and (min-width: $min_tablet) {
+    bottom: 40%;
+    left: 31.5%;
+  }
+  @media all and (min-width: $min_desktop) {
+    bottom: 38%;
+    left: 31.5%;
+  }
+}
+
 // circles
 
 .out_key {

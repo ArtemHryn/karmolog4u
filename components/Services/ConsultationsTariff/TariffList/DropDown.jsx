@@ -1,12 +1,12 @@
-"use client";
-import { useState } from "react";
-import Link from "next/link";
-import { open_Sans, unbounded } from "@app/layout";
+'use client';
+import { useState } from 'react';
+import Link from 'next/link';
+import { open_Sans, unbounded } from '@app/[locale]/layout';
 
-import ActiveDropDown from "./ActiveDropDown";
-import ToggleArrow from "@components/Common/Icons/ConsultationsIcons/ToggleArrow";
+import ActiveDropDown from './ActiveDropDown';
+import ToggleArrow from '@components/Common/Icons/ConsultationsIcons/ToggleArrow';
 
-import styles from "./TariffList.module.scss";
+import styles from './TariffList.module.scss';
 
 const DropDown = ({ tariff }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,16 +16,14 @@ const DropDown = ({ tariff }) => {
     <article className={styles.tariff}>
       <button
         aria-label="Toggle more details"
-        onClick={() => setIsOpen((prev) => !prev)}
-        className={`${styles.toggle_btn} ${
-          isOpen ? styles.toggle_btn_open : ""
-        }`}
+        onClick={() => setIsOpen(prev => !prev)}
+        className={`${styles.toggle_btn} ${isOpen ? styles.toggle_btn_open : ''}`}
       >
         <ToggleArrow styled={styles.icon_arrow} />
       </button>
       <p
         className={`${styles.tariff_title} ${unbounded.className} ${
-          isPerHour ? styles.tariff_title_per_hour : ""
+          isPerHour ? styles.tariff_title_per_hour : ''
         }`}
       >
         {title}
@@ -33,9 +31,7 @@ const DropDown = ({ tariff }) => {
 
       <button
         aria-label="Open more details"
-        className={`${styles.details_btn} ${open_Sans.className} ${
-          isOpen ? styles.is_hidden : ""
-        }`}
+        className={`${styles.details_btn} ${open_Sans.className} ${isOpen ? styles.is_hidden : ''}`}
         onClick={() => setIsOpen(true)}
       >
         Детальніше про послугу
@@ -51,10 +47,10 @@ const DropDown = ({ tariff }) => {
       </div>
       <p className={`${styles.price} ${unbounded.className}`}>
         {price}
-        <span>{isPerHour ? "/година" : ""}</span>
+        <span>{isPerHour ? '/година' : ''}</span>
       </p>
       <Link
-        href={"consultations/dialog"}
+        href={'consultations/dialog'}
         aria-label="Записатися"
         className={`${styles.btn} ${open_Sans.className}`}
       >

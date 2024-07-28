@@ -4,10 +4,11 @@ import Viber from '@components/Common/SocialIcons/Viber';
 import Whatsapp from '@components/Common/SocialIcons/Whatsapp';
 import Telegram from '@components/Common/SocialIcons/Telegram';
 import Link from 'next/link';
-import styles from './Feedback.module.scss';
-import { unbounded } from '@/app/layout';
 import Logo from '@components/Common/Icons/Logo';
 import BlurLogo from '@components/Common/Icons/BlurLogo';
+
+import styles from './Feedback.module.scss';
+import { unbounded } from '@app/[locale]/layout';
 
 const links = [
   {

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Container from '@components/Common/Container/Container';
 import Title from '@components/Common/Title/Title';
-import { open_Sans } from '@app/layout';
+import { open_Sans } from '@app/[locale]/layout';
 //icons
 import GraduationCap from '@components/Common/Icons/PshychoIcons/GraduationCap';
 import ChatArrowGrow from '@components/Common/Icons/PshychoIcons/ChatArrowGrow';

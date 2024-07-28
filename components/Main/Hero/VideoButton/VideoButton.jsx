@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
-import { open_Sans } from "@/app/layout";
 // import YouTube from "react-youtube";
 
 import styles from "./VideoButton.module.scss";
+import { open_Sans } from "@app/[locale]/layout";
 
 const VideoButton = () => {
   const [showVideo, setShowVideo] = useState(false);

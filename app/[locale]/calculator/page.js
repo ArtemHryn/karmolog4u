@@ -1,12 +1,12 @@
+import { useLocale, useTranslations } from 'next-intl';
+import Link from 'next/link';
 import Container from '@components/Common/Container/Container';
 import HeroNav from '@components/Common/HeroNav/HeroNav';
-import Link from 'next/link';
-import React from 'react';
-import styles from '/components/Calculator/MainPage.module.scss';
 import CalculatorLogo from '@components/Calculator/CalculatorLogo/CalculatorLogo';
 import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
 
 import { matrixLinks } from '@helper/calculator/buttonsList';
+import styles from '/components/Calculator/MainPage.module.scss';
 
 const links = [
   {
@@ -16,6 +16,8 @@ const links = [
 ];
 
 function Calculator() {
+  const t = useTranslations('Calculator.More');
+  const locale = useLocale();
   return (
     <>
       <Container styledSection={styles.container}>
@@ -23,29 +25,26 @@ function Calculator() {
         <section className={styles.section}>
           <article>
             <TitleNoStyles variant="h5" styled={styles.about}>
-              Безкоштовний калькулятор
+              {t('free_calculator')}
             </TitleNoStyles>
             <TitleNoStyles variant="h1" styled={styles.title}>
-              МАТРИЦІ ДОЛІ
+              {t('matrix')}
             </TitleNoStyles>
           </article>
           <article>
             <TitleNoStyles variant="h3" styled={styles.links_title}>
-              Яку матрицю бажаєте розрахувати?
+              {t('what_matrix')}
             </TitleNoStyles>
             <ul className={styles.links_list}>
               {matrixLinks.map((links, index) => (
                 <li key={index}>
                   <Link href={links.href} className={styles.links}>
-                    {links.name}
+                    {links.name[locale]}
                   </Link>
                 </li>
               ))}
             </ul>
-            <p className={styles.description}>
-              ❋ Калькулятор на 100% відповідає класичному обчисленню &quot;Матриці Долі&quot;
-              Наталії Ладіні
-            </p>
+            <p className={styles.description}>{t('about_calc')}</p>
           </article>
           <CalculatorLogo styled={styles.logo_r} />
           <CalculatorLogo styled={styles.logo_l} />

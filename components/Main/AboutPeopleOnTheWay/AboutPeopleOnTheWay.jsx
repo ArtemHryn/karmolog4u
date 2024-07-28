@@ -4,9 +4,9 @@ import Instagram from '@components/Common/SocialIcons/Instagram';
 import Telegram from '@components/Common/SocialIcons/Telegram';
 import TikTok from '@components/Common/SocialIcons/TikTok';
 import YouTube from '@components/Common/SocialIcons/YouTube';
-import { unbounded } from '@app/layout';
 
 import styles from './AboutPeopleOnTheWay.module.scss';
+import { unbounded } from '@app/[locale]/layout';
 
 const YOUTUBE_SUB =
   'https://youtube.googleapis.com/youtube/v3/channels?part=statistics&id=UC2GVkvJoRHgeX6hYF9iuWKA&key=AIzaSyASnlbbidn7c9fl4YjaaOpsiI1PAOE1jAI';

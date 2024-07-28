@@ -1,15 +1,17 @@
 import { useState } from 'react';
-import { unbounded } from '@app/layout';
+import { useTranslations } from 'next-intl';
+import { unbounded } from '@app/[locale]/layout';
 import Container from '@components/Common/Container/Container';
-
-import styles from './MoreCalculators.module.scss';
 import Arrow from './Arrow';
 import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
 import ArrowTab from './ArrowTab';
 import ButtonsList from './ButtonsList';
 
+import styles from './MoreCalculators.module.scss';
+
 const MoreCalculators = ({ date, name }) => {
   const [showButtons, setShowButtons] = useState(false);
+  const t = useTranslations('Calculator.More');
   return (
     <Container styledSection={styles.section}>
       <button
@@ -18,18 +20,16 @@ const MoreCalculators = ({ date, name }) => {
         }`}
         onClick={() => setShowButtons(prev => !prev)}
       >
-        Більше Калькуляторів{' '}
+        {t('more_calculators')}
         <span className={styles.icon_wrapper}>
           <Arrow styled={`${styles.icon} ${showButtons ? styles.icon_active : ''}`} />
           <ArrowTab styled={`${styles.icon_tab} ${showButtons ? styles.icon_tab_active : ''}`} />
         </span>
       </button>
       <div className={`${showButtons ? styles.active_part : styles.active_part_hide}`}>
-        <TitleNoStyles styled={styles.title}>Яку матрицю бажаєте розрахувати?</TitleNoStyles>
+        <TitleNoStyles styled={styles.title}>{t('what_matrix')}</TitleNoStyles>
         <ButtonsList date={date} name={name} />
-        <h2 className={styles.notification}>
-          {'❋ Калькулятор на 100% відповідає класичному обчисленню "Матриці Долі" Наталії Ладіні'}
-        </h2>
+        <h2 className={styles.notification}>{t('about_calc')}</h2>
       </div>
     </Container>
   );

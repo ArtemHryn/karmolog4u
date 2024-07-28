@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import Container from '@components/Common/Container/Container';
 import styles from './Research.module.scss';
-import { unbounded } from '@app/layout';
 import ResearchSlider from './ResearchSlider/ResearchSlider';
+import { unbounded } from '@app/[locale]/layout';
 
 const Research = () => {
   return (

@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { useState } from "react";
-import { unbounded } from "@app/layout";
 
 import styles from "./FeedbacksSlider.module.scss";
+import { unbounded } from "@app/[locale]/layout";
 
 const Card = ({ card, index }) => {
   const [showMore, setShowMore] = useState(false);

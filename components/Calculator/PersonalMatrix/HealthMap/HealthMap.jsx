@@ -2,16 +2,19 @@ import Title from '@components/Common/Title/Title';
 
 import styles from './HealthMap.module.scss';
 import ChakraElement from './ChakraElement';
+import { useLocale, useTranslations } from 'next-intl';
 
 const HealthMap = ({ health }) => {
+  const locale = useLocale();
+  const t = useTranslations('Calculator.personal');
   if (!health) return null;
   return (
     <div className={styles.chakras_list}>
       <Title variant="h3" styled={styles.title}>
-        {health.title}
+        {t('health_map')}
       </Title>
       <ul className={styles.chakraname_list}>
-        {health.columnName.map(el => (
+        {health.columnName[locale].map(el => (
           <li key={el} className={styles.chakraname_list_item}>
             <Title variant="p" styled={styles.chakraname_text}>
               {el}

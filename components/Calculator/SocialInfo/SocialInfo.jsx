@@ -4,9 +4,10 @@ import Whatsapp from '@components/Common/SocialIcons/Whatsapp';
 import Telegram from '@components/Common/SocialIcons/Telegram';
 import Link from 'next/link';
 import styles from './SocialInfo.module.scss';
-import { unbounded } from '@/app/layout';
 import Logo from '@components/Common/Icons/Logo';
 import BlurLogo from '@components/Common/Icons/BlurLogo';
+import { unbounded } from '@app/[locale]/layout';
+import { useTranslations } from 'next-intl';
 
 const links = [
   {
@@ -21,33 +22,18 @@ const links = [
   },
 ];
 function SocialInfo() {
+  const t = useTranslations('Calculator.Social_info');
   return (
     <Container styled={styles.wrap} styledSection={styles.section}>
       <div className={styles.wrap_item}>
-        <h2 className={`${styles.title} ${unbounded.className}`}>
-          Хочете дізнатися більше — отримайте ПОВНИЙ розбір своєї матриці долі на ОСОБИСТІЙ
-          консультації!
-        </h2>
+        <h2 className={`${styles.title} ${unbounded.className}`}>{t('title')}</h2>
         <div style={{ position: 'relative' }}>
-          <p className={styles.description}>
-            Ви лише за 1 годину спілкування зі мною отримаєте:
-            <span>- розуміння власного призначення,</span>
-            <span>- відповідь на будь-яке запитання, яке вас цікавить.</span>
-          </p>
-          <p className={styles.description}>
-            Визначите: <span>- свої приховані таланти,</span>{' '}
-            <span>
-              - завдання, які ваша душа отримує в сумісності з партнером, дітьми, батьками,
-              начальником або другом тощо.
-            </span>
-          </p>
+          <p className={styles.description} dangerouslySetInnerHTML={{ __html: t.raw('info1') }} />
+          <p className={styles.description} dangerouslySetInnerHTML={{ __html: t.raw('info2') }} />
           <div className={styles.additional_desc_wrap}>
+            <p className={`${styles.additional_desc} ${unbounded.className}`}>{t('contact_us')}</p>
             <p className={`${styles.additional_desc} ${unbounded.className}`}>
-              Напишіть нам в будь-який месенджер — наші менеджери одразу запропонують час для вашої
-              консультації!
-            </p>
-            <p className={`${styles.additional_desc} ${unbounded.className}`}>
-              Досягнення вашої мети – ближче ніж вам здається!!
+              {t('reach_your_goal')}
             </p>
           </div>
           <svg

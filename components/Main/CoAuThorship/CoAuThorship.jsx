@@ -1,10 +1,10 @@
 import Container from '@components/Common/Container/Container';
 import Books from './Books/Books';
-import { unbounded } from '@app/layout';
-
-import styles from './CoAuThorship.module.scss';
 import BooksTab from './Books/BooksTab';
 import BooksArrow from '@components/Common/Icons/BooksArrow';
+import { unbounded } from '@app/[locale]/layout';
+
+import styles from './CoAuThorship.module.scss';
 
 const CoAuThorship = () => {
   return (

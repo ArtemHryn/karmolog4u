@@ -1,10 +1,11 @@
-import Image from "next/image";
-import Container from "@components/Common/Container/Container";
-import HeroNav from "@components/Common/HeroNav/HeroNav";
+import Image from 'next/image';
+import Container from '@components/Common/Container/Container';
+import HeroNav from '@components/Common/HeroNav/HeroNav';
 
-import styles from "./Hero.module.scss";
-import { open_Sans, unbounded } from "@app/layout";
-import Link from "next/link";
+import styles from './Hero.module.scss';
+import { open_Sans, unbounded } from '@app/[locale]/layout';
+
+import Link from 'next/link';
 
 const Hero = ({ linkNames = [], title, img }) => {
   return (
@@ -21,16 +22,8 @@ const Hero = ({ linkNames = [], title, img }) => {
           </Link>
         </div>
         <picture className={styles.img}>
-          {img.imgDesk && (
-            <source srcSet={img.imgDesk} media="(min-width: 1280px)" />
-          )}
-          <Image
-            src={img.img}
-            alt={img.alt}
-            width={1280}
-            height={920}
-            className={styles.img}
-          />
+          {img.imgDesk && <source srcSet={img.imgDesk} media="(min-width: 1280px)" />}
+          <Image src={img.img} alt={img.alt} width={1280} height={920} className={styles.img} />
         </picture>
       </div>
     </Container>

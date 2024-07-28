@@ -7,10 +7,16 @@ import SocialInfoDesc from '@components/Common/Calculator/SocialInfoDesc/SocialI
 import CompatibilityHero from '@components/Calculator/CompatibilityMatrix/CompatibilityHero/CompatibilityHero';
 import MoreCalculators from '@components/Calculator/MoreCalculators/MoreCalculators';
 
-const social = [
-  'Ну що, цікаво дізнатися наскільки ви ідеальна пара для стосунків чи партнерства — записуйтесь на особисту консультацію — відповіді поруч!',
-  '1 година – замість цілого життя, щоб дізнатися це "ваша" людина чи ні.',
-];
+const social = {
+  uk: [
+    'Ну що, цікаво дізнатися наскільки ви ідеальна пара для стосунків чи партнерства — записуйтесь на особисту консультацію — відповіді поруч!',
+    '1 година – замість цілого життя, щоб дізнатися це "ваша" людина чи ні.',
+  ],
+  ru: [
+    'Ну что, интересно узнать насколько вы идеальная пара для отношений или партнерства — записывайтесь на персональную консультацию — ответы совсем рядом!',
+    '1 час — вместо целой жизни, чтобы узнать это "ваш" человек или нет.',
+  ],
+};
 
 function CompatibilityMatrixPage() {
   const [isShowMatrix, setIsShowMatrix] = useState(false);

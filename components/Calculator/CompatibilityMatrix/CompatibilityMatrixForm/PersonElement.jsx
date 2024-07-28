@@ -1,15 +1,17 @@
 import { Controller } from 'react-hook-form';
-
+import { useTranslations } from 'next-intl';
 import TextMaskInput from 'react-text-mask';
+
 
 import styles from './CompatibilityMatrixForm.module.scss';
 
 const PersonElement = ({ index, register, control, errors }) => {
+  const t = useTranslations('Calculator.personal');
   const showError = !!errors && !!errors[index];
   return (
     <div className={styles.person_wrapper}>
       <label className={styles.name_label}>
-        Ваше ім’я
+        {t('form_name')}
         <input
           type="text"
           placeholder="Ім’я"
@@ -21,16 +23,16 @@ const PersonElement = ({ index, register, control, errors }) => {
         name={`info.${index}.date`}
         control={control}
         rules={{
-          required: { value: true, message: 'Введіть дату народження' },
+          required: { value: true, message: t('empty_d_date_error') },
           pattern: {
             value: /^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[0-2])\.\d{4}$/,
-            message: 'Введіть дату в форматі дд.мм.рррр',
+            message: t('incorrect_d_date_error'),
           },
         }}
         render={({ field }) => (
           <div className={styles.date_wrapper}>
             <label htmlFor="date" className={styles.date_label}>
-              Дата народження
+              {t('b_date')}
             </label>
             <TextMaskInput
               value={field.value}
@@ -38,7 +40,7 @@ const PersonElement = ({ index, register, control, errors }) => {
               mask={[/\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/]}
               type="text"
               guide={false}
-              placeholder="дд.мм.рррр"
+              placeholder={t('b_date_placeholder')}
               id="date"
               className={styles.date_input}
             />{' '}

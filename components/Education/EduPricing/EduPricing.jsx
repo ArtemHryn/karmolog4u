@@ -1,8 +1,8 @@
-import Container from "@components/Common/Container/Container";
-import styles from "./EduPricing.module.scss";
-import Title from "@components/Common/Title/Title";
-import Link from "next/link";
-import { open_Sans } from "@app/layout";
+import Container from '@components/Common/Container/Container';
+import styles from './EduPricing.module.scss';
+import Title from '@components/Common/Title/Title';
+import Link from 'next/link';
+import { open_Sans } from '@app/[locale]/layout';
 
 function EduPricing({ card, addInfo = [], desc, link }) {
   return (
@@ -28,10 +28,7 @@ function EduPricing({ card, addInfo = [], desc, link }) {
               </Title>
             </div>
           </div>
-          <Link
-            href={link}
-            className={`${styles.button} ${open_Sans.className}`}
-          >
+          <Link href={link} className={`${styles.button} ${open_Sans.className}`}>
             Записатися
           </Link>
         </div>
