@@ -6,10 +6,11 @@ import TextMaskInput from 'react-text-mask';
 import { open_Sans } from '@app/[locale]/layout';
 
 import styles from './GroupMatrixForm.module.scss';
+import { useTranslations } from 'next-intl';
 
 const GroupMatrixForm = ({ usersInfo, setUsersInfo, setIsShowMatrix }) => {
   const router = useRouter();
-
+  const t = useTranslations('Calculator.group');
   const {
     control,
     handleSubmit,
@@ -53,7 +54,7 @@ const GroupMatrixForm = ({ usersInfo, setUsersInfo, setIsShowMatrix }) => {
               name={`info.${index}.date`}
               control={control}
               rules={{
-                required: { value: true, message: 'Введіть дату народження' },
+                required: { value: true, message: t('empty_d_date_error') },
                 pattern: {
                   value: /^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[0-2])\.\d{4}$/,
                   message: 'Введіть дату в форматі дд.мм.рррр',
@@ -62,7 +63,7 @@ const GroupMatrixForm = ({ usersInfo, setUsersInfo, setIsShowMatrix }) => {
               render={({ field }) => (
                 <div className={styles.date_wrapper}>
                   <label htmlFor="date" className={styles.date_label}>
-                    Дата народження
+                    {t('b_date')}
                   </label>
                   <TextMaskInput
                     value={field.value}
@@ -70,7 +71,7 @@ const GroupMatrixForm = ({ usersInfo, setUsersInfo, setIsShowMatrix }) => {
                     mask={[/\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/]}
                     type="text"
                     guide={false}
-                    placeholder="дд.мм.рррр"
+                    placeholder={t('b_date_placeholder')}
                     id="date"
                     className={styles.date_input}
                   />{' '}
@@ -102,12 +103,12 @@ const GroupMatrixForm = ({ usersInfo, setUsersInfo, setIsShowMatrix }) => {
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="none">
               <path d="M7 5V0H5V5H0V7H5V12H7V7H12V5H7Z" fill="#FDFDFD" />
             </svg>
-            додати ще 1 людину до розрахунку
+            {t('add_more')}
           </button>
         )}
       </div>
       <button type="submit" className={`${styles.submit_btn} ${open_Sans.className}`}>
-        Розрахувати матрицю
+        {t('calc_button')}
       </button>
     </form>
   );

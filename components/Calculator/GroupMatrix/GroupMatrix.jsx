@@ -5,10 +5,11 @@ import { getLifeMap, getPersonalGraph } from '@helper/calculator/personal';
 import { getCompatibilityGraph } from '@helper/calculator/compatibility';
 
 import styles from './GroupMatrix.module.scss';
+import { useTranslations } from 'next-intl';
 
 const GroupMatrix = ({ partners }) => {
   const [resultMatrix, setResultMatrix] = useState(null);
-
+  const t = useTranslations('Calculator.group');
   useEffect(() => {
     if (partners.length === 0) return;
     const matrix = [];
@@ -39,7 +40,7 @@ const GroupMatrix = ({ partners }) => {
   return (
     <div id="group-calculator">
       <Container styledSection={styles.matrix_wrapper}>
-        <ResultMatrix matrix={resultMatrix} title={'Сумісність групи'} />
+        <ResultMatrix matrix={resultMatrix} title={t('result_title')} />
       </Container>
     </div>
   );
