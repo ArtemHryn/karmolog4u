@@ -4,9 +4,11 @@ import TextMaskInput from 'react-text-mask';
 import { open_Sans } from '@app/[locale]/layout';
 
 import styles from './DemonMatrixForm.module.scss';
+import { useTranslations } from 'next-intl';
 
 const DemonMatrixForm = ({ setDate, setName, setIsShowMatrix, name, date, redirectTo, code }) => {
   const router = useRouter();
+  const t = useTranslations('Calculator.demon');
   const {
     register,
     handleSubmit,
@@ -42,10 +44,10 @@ const DemonMatrixForm = ({ setDate, setName, setIsShowMatrix, name, date, redire
     <article>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <label className={styles.name_label}>
-          Ваше ім’я
+          {t('form_name')}
           <input
             type="text"
-            placeholder="Ім’я"
+            placeholder={t('form_name_placeholder')}
             {...register('name')}
             className={styles.name_input}
           />
@@ -54,16 +56,16 @@ const DemonMatrixForm = ({ setDate, setName, setIsShowMatrix, name, date, redire
           name="date"
           control={control}
           rules={{
-            required: { value: true, message: 'Введіть дату народження' },
+            required: { value: true, message: t('empty_d_date_error') },
             pattern: {
               value: /^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[0-2])\.\d{4}$/,
-              message: 'Введіть дату в форматі дд.мм.рррр',
+              message: t('incorrect_d_date_error'),
             },
           }}
           render={({ field }) => (
             <div className={styles.date_wrapper}>
               <label htmlFor="date" className={styles.date_label}>
-                Дата народження
+                {t('b_date')}
               </label>
               <TextMaskInput
                 value={field.value}
@@ -71,7 +73,7 @@ const DemonMatrixForm = ({ setDate, setName, setIsShowMatrix, name, date, redire
                 mask={[/\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/]}
                 type="text"
                 guide={false}
-                placeholder="дд.мм.рррр"
+                placeholder={t('b_date_placeholder')}
                 id="date"
                 className={styles.date_input}
               />{' '}
@@ -80,7 +82,7 @@ const DemonMatrixForm = ({ setDate, setName, setIsShowMatrix, name, date, redire
           )}
         />
         <div className={styles.code}>
-          <p className={styles.checkbox_title}>Я хочу розрахувати...</p>
+          <p className={styles.checkbox_title}>{t('code_checkbox_title')}...</p>
           <div className={styles.checkbox_list}>
             {[12, 13, 14, 15].map(index => (
               <div key={index} className={styles.main_check_wrapper}>
@@ -105,7 +107,7 @@ const DemonMatrixForm = ({ setDate, setName, setIsShowMatrix, name, date, redire
           </div>
         </div>
         <button type="submit" className={`${styles.submit_btn} ${open_Sans.className}`}>
-          Розрахувати матрицю
+          {t('calc_button')}
         </button>
       </form>
     </article>
