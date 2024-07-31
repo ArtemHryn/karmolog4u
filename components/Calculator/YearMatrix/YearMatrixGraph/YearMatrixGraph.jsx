@@ -9,6 +9,7 @@ import YearPoints from './YearPoints';
 import CalcDateTitle from '@components/Common/CalcDateTitle/CalcDateTitle';
 
 import styles from './YearMatrixGraph.module.scss';
+import Months from './Months';
 
 const YearMatrixGraph = ({ matrix, name, date }) => {
   if (!matrix) return null;
@@ -18,6 +19,7 @@ const YearMatrixGraph = ({ matrix, name, date }) => {
       <CalcDateTitle name={name} date={date} />
       <div className={styles.graph_wrapper}>
         <YearMatrixSvg styled={styles.graph} />
+        <Months />
         <Top matrix={matrix} hideAdditionalKeys />
         <Left matrix={matrix} />
         <Right matrix={matrix} />

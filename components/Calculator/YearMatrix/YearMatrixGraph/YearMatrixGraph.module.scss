@@ -193,3 +193,185 @@
     }
   }
 }
+
+//months
+
+.month {
+  position: absolute;
+  @include fontRegular(8px, 500, 11px, $main_text_color, center);
+  height: 10px;
+  width: 40px;
+  @media all and (min-width: $min_tablet) {
+    font-size: 16px;
+    height: 20px;
+    width: 80px;
+  }
+}
+
+.jan {
+  top: 41%;
+  left: 4%;
+  rotate: -45deg;
+  @media all and (min-width: $min_tablet) {
+    top: 42%;
+    left: 11%;
+  }
+  @media all and (min-width: $min_desktop) {
+    top: 41.5%;
+    left: 4%;
+  }
+}
+
+.feb {
+  top: 29%;
+  left: 19.5%;
+  rotate: -45deg;
+  @media all and (min-width: $min_tablet) {
+    top: 27.5%;
+    left: 25%;
+  }
+  @media all and (min-width: $min_desktop) {
+    top: 28%;
+    left: 19.5%;
+  }
+}
+
+.mar {
+  top: 16.5%;
+  left: 36%;
+  rotate: -45deg;
+  @media all and (min-width: $min_tablet) {
+    top: 14.4%;
+    left: 37.5%;
+  }
+  @media all and (min-width: $min_desktop) {
+    top: 15%;
+    left: 34.5%;
+  }
+}
+
+.apr {
+  top: 17%;
+  right: 35%;
+  rotate: 45deg;
+  @media all and (min-width: $min_tablet) {
+    top: 14.4%;
+    right: 37.5%;
+  }
+  @media all and (min-width: $min_desktop) {
+    top: 15%;
+    right: 34.5%;
+  }
+}
+
+.may {
+  top: 29%;
+  right: 19.5%;
+  rotate: 45deg;
+  @media all and (min-width: $min_tablet) {
+    top: 28%;
+    right: 24.5%;
+  }
+  @media all and (min-width: $min_desktop) {
+    top: 28%;
+    right: 19.5%;
+  }
+}
+
+.jun {
+  top: 41%;
+  right: 4%;
+  rotate: 45deg;
+  @media all and (min-width: $min_tablet) {
+    top: 41%;
+    right: 11.2%;
+  }
+  @media all and (min-width: $min_desktop) {
+    top: 41%;
+    right: 4%;
+  }
+}
+
+.jul {
+  bottom: 42%;
+  right: 4.5%;
+  rotate: -45deg;
+  @media all and (min-width: $min_tablet) {
+    bottom: 41%;
+    right: 12%;
+  }
+  @media all and (min-width: $min_desktop) {
+    bottom: 41.5%;
+    right: 4.5%;
+  }
+}
+
+.aug {
+  bottom: 30.5%;
+  right: 20%;
+  rotate: -45deg;
+  @media all and (min-width: $min_tablet) {
+    bottom: 28%;
+    right: 24.5%;
+  }
+  @media all and (min-width: $min_desktop) {
+    bottom: 27.5%;
+    right: 20%;
+  }
+}
+
+.sep {
+  bottom: 18.5%;
+  right: 35.5%;
+  rotate: -45deg;
+  @media all and (min-width: $min_tablet) {
+    bottom: 15%;
+    right: 37%;
+  }
+  @media all and (min-width: $min_desktop) {
+    bottom: 15%;
+    right: 34.5%;
+  }
+}
+
+.oct {
+  bottom: 18.8%;
+  right: 52%;
+  rotate: 45deg;
+  @media all and (min-width: $min_tablet) {
+    bottom: 15%;
+    right: 51%;
+  }
+  @media all and (min-width: $min_desktop) {
+    bottom: 15%;
+    right: 52%;
+  }
+}
+
+.nov {
+  bottom: 30.5%;
+  left: 20%;
+  rotate: 45deg;
+  @media all and (min-width: $min_tablet) {
+    bottom: 28%;
+    left: 25%;
+  }
+  @media all and (min-width: $min_desktop) {
+    bottom: 28%;
+    left: 20%;
+  }
+}
+
+.dec {
+  bottom: 43%;
+  left: 4.5%;
+  rotate: 45deg;
+  @media all and (min-width: $min_tablet) {
+    bottom: 41.5%;
+    left: 12%;
+  }
+  @media all and (min-width: $min_desktop) {
+    bottom: 41.5%;
+    left: 4.5%;
+  }
+}
