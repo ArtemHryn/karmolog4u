@@ -42,9 +42,15 @@ export const getHolisticPowerTable = ({ info }) => {
     info;
 
   const table = [
-    { name: 'Ключ розширення зовнішньої карми', keys: [topLeft1, month, topRight1] },
-    { name: 'Ключ розширення внутрішньої карми', keys: [day, center, year] },
-    { name: 'Підсумок', keys: [bottomLeft1, bottom1, bottomRight1] },
+    {
+      name: { uk: 'Ключ розширення зовнішньої карми', ru: 'Ключ расширения внешней кармы' },
+      keys: [topLeft1, month, topRight1],
+    },
+    {
+      name: { uk: 'Ключ розширення внутрішньої карми', ru: 'Ключ расширения внутренней кармы' },
+      keys: [day, center, year],
+    },
+    { name: { uk: 'Підсумок', ru: 'Итог' }, keys: [bottomLeft1, bottom1, bottomRight1] },
   ];
   return table;
 };
