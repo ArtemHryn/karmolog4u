@@ -8,6 +8,7 @@ import { open_Sans } from '@app/[locale]/layout';
 
 import styles from './YearMatrixForm.module.scss';
 import './period.scss';
+import { useTranslations } from 'next-intl';
 
 const getPeriods = () => {
   const periods = [];
@@ -31,7 +32,7 @@ const YearMatrixForm = ({
   period,
 }) => {
   const router = useRouter();
-
+  const t = useTranslations('Calculator.year');
   const {
     register,
     handleSubmit,
@@ -74,10 +75,10 @@ const YearMatrixForm = ({
     <article>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <label className={styles.name_label}>
-          Ваше ім’я
+          {t('form_name')}
           <input
             type="text"
-            placeholder="Ім’я"
+            placeholder={t('form_name_placeholder')}
             {...register('name')}
             className={styles.name_input}
           />
@@ -86,16 +87,16 @@ const YearMatrixForm = ({
           name="date"
           control={control}
           rules={{
-            required: { value: true, message: 'Введіть дату народження' },
+            required: { value: true, message: t('empty_d_date_error') },
             pattern: {
               value: /^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[0-2])\.\d{4}$/,
-              message: 'Введіть дату в форматі дд.мм.рррр',
+              message: t('incorrect_d_date_error'),
             },
           }}
           render={({ field }) => (
             <div className={styles.date_wrapper}>
               <label htmlFor="date" className={styles.date_label}>
-                Дата народження
+                {t('b_date')}
               </label>
               <TextMaskInput
                 value={field.value}
@@ -103,7 +104,7 @@ const YearMatrixForm = ({
                 mask={[/\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/]}
                 type="text"
                 guide={false}
-                placeholder="дд.мм.рррр"
+                placeholder={t('b_date_placeholder')}
                 id="date"
                 className={styles.date_input}
               />{' '}
@@ -122,13 +123,13 @@ const YearMatrixForm = ({
                 onChange={e => setValue('period', e.value)}
                 options={periodList}
                 optionLabel="period"
-                placeholder="Період року"
+                placeholder={t('period')}
               />
             </div>
           )}
         />
         <button type="submit" className={`${styles.submit_btn} ${open_Sans.className}`}>
-          Розрахувати матрицю
+          {t('calc_button')}
         </button>
       </form>
     </article>

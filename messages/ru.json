@@ -30,7 +30,10 @@
       "energy": "Энергия",
       "current_period": "Ключ текущего года"
     },
-    "compatibility": { "result_title": "Совместимость пары" },
+    "compatibility": {
+      "result_title": "Совместимость пары",
+      "spirit_lesson_title": "Духовный урок"
+    },
     "nine_tribes": {
       "nine_tribes_table_title": "Ключи 9 колен рода",
       "kneeling_table_title": "Расчет Коленопреклонения",
@@ -48,6 +51,30 @@
       "calc_button": "Рассчитать матрицу",
       "add_more": "добавить еще 1 человека к расчету",
       "result_title": "Совместимость группы"
+    },
+    "year": {
+      "form_name": "Ваше имя",
+      "form_name_placeholder": "Имя",
+      "b_date": "Дата рождения",
+      "empty_d_date_error": "Введите дату рождения",
+      "incorrect_d_date_error": "Введите дату в формате дд.мм.гггг",
+      "b_date_placeholder": "дд.мм.гггг",
+      "period": "Период года",
+      "calc_button": "Рассчитать матрицу",
+      "months": {
+        "jan": "январь",
+        "feb": "февраль",
+        "mar": "март",
+        "apr": "апрель",
+        "may": "май",
+        "jun": "июнь",
+        "jul": "июль",
+        "aug": "август",
+        "sep": "сентябрь",
+        "oct": "октябрь",
+        "nov": "ноябрь",
+        "dec": "декабрь"
+      }
     },
     "Social_info": {
       "title": "Хотите узнать больше — получите ПОЛНЫЙ разбор своей матрицы судьбы на ПЕРСОНАЛЬНОЙ консультации!",
