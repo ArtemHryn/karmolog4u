@@ -1,7 +1,10 @@
 import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
 import styles from './Table.module.scss';
+import { useLocale, useTranslations } from 'next-intl';
 
 const TableColumnNames = ({ table, isChildren }) => {
+  const locale = useLocale();
+  const t = useTranslations('Calculator.parents');
   return (
     <ul className={styles.column_names_list}>
       {isChildren && (
@@ -11,18 +14,18 @@ const TableColumnNames = ({ table, isChildren }) => {
               variant="p"
               styled={`${styles.column_name_text} ${styles.column_name_text_mob}`}
             >
-              Міс.
+              {t('month_short')}
             </TitleNoStyles>
             <TitleNoStyles
               variant="p"
               styled={`${styles.column_name_text} ${styles.column_name_text_tablet}`}
             >
-              Місяць
+              {t('month')}
             </TitleNoStyles>
           </li>
         </>
       )}
-      {table.columnNames.map(el => (
+      {table.columnNames[locale].map(el => (
         <li key={el} className={styles.column_names_element}>
           <TitleNoStyles variant="p" styled={styles.column_name_text}>
             {el}
