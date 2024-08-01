@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import SixteenWorkingCornersSvg from './SixteenWorkingCornersSvg';
 import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
 
@@ -12,12 +13,11 @@ import styles from './SixteenWorkingCornersGraph.module.scss';
 import SixteenLawsCenter2 from './Circles/Center';
 
 const SixteenWorkingCornersGraph = ({ matrix }) => {
+  const t = useTranslations('Calculator.sixteen_laws');
   if (!matrix) return null;
   return (
     <div>
-      <TitleNoStyles styled={styles.title}>
-        Після відпрацювання кармічних кутів, матриця стає огранена немов діамант
-      </TitleNoStyles>
+      <TitleNoStyles styled={styles.title}>{t('working_corners_graph')}</TitleNoStyles>
       <div className={styles.graph_wrapper}>
         <SixteenWorkingCornersSvg styled={styles.graph} />
         <Top matrix={matrix} hideInnerAdditionalKeys hideAdditionalKeys showThirdKey />
