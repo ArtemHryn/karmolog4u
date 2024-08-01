@@ -1,13 +1,13 @@
 import { checkNum } from './personal';
 
 const getColumnNames = isChildren => {
-  const data = [
-    'Верхній свій',
-    'Нижній світ',
-    `${!isChildren ? 'Ключ виношування' : 'Ключ зцілення'}`,
-  ];
+  const data = {
+    uk: ['Верхній світ', 'Нижній світ', `${!isChildren ? 'Ключ виношування' : 'Ключ зцілення'}`],
+    ru: ['Верхний мир', 'Нижний мир', `${!isChildren ? 'Ключ вынашивания' : 'Ключ исцеления'}`],
+  };
   if (isChildren) {
-    data.unshift('Роки');
+    data.uk.unshift('Роки');
+    data.ru.unshift('Годы');
   }
   return data;
 };
@@ -66,12 +66,12 @@ const getArcanesList = (info, isChildren) => {
 export const getParentsAndChildrenTables = ({ info }) => {
   const data = [
     {
-      title: 'Ключі виношування дитини',
+      title: { uk: 'Ключі виношування дитини', ru: 'Ключи вынашивания ребенка' },
       columnNames: getColumnNames(false),
       arcanes: getArcanesList(info, false),
     },
     {
-      title: 'Ключі зцілення внутрішньої дитини',
+      title: { uk: 'Ключі зцілення внутрішньої дитини', ru: 'Ключи исцеления внутреннего ребенка' },
       columnNames: getColumnNames(true),
       arcanes: getArcanesList(info, true),
     },

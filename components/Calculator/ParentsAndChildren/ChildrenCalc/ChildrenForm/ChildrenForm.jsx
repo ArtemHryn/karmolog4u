@@ -5,8 +5,10 @@ import { getPersonalGraph } from '@helper/calculator/personal';
 import { getParentsAndChildrenTables } from '@helper/calculator/parentsAndChildren';
 
 import styles from './ChildrenForm.module.scss';
+import { useTranslations } from 'next-intl';
 
 const ChildrenForm = ({ setTable, setShowTable }) => {
+  const t = useTranslations('Calculator.personal');
   const {
     handleSubmit,
     control,
@@ -30,16 +32,16 @@ const ChildrenForm = ({ setTable, setShowTable }) => {
         name="date"
         control={control}
         rules={{
-          required: { value: true, message: 'Введіть дату народження' },
+          required: { value: true, message: t('empty_d_date_error') },
           pattern: {
             value: /^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[0-2])\.\d{4}$/,
-            message: 'Введіть дату в форматі дд.мм.рррр',
+            message: t('incorrect_d_date_error'),
           },
         }}
         render={({ field }) => (
           <div className={styles.date_wrapper}>
             <label htmlFor="date" className={styles.date_label}>
-              Дата народження
+              {t('b_date')}
             </label>
             <TextMaskInput
               value={field.value}
@@ -47,7 +49,7 @@ const ChildrenForm = ({ setTable, setShowTable }) => {
               mask={[/\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/]}
               type="text"
               guide={false}
-              placeholder="дд.мм.рррр"
+              placeholder={t('b_date_placeholder')}
               id="date"
               className={styles.date_input}
             />{' '}
@@ -56,7 +58,7 @@ const ChildrenForm = ({ setTable, setShowTable }) => {
         )}
       />
       <button type="submit" className={`${styles.submit_btn} ${open_Sans.className}`}>
-        Розрахувати матрицю
+        {t('calc_button')}
       </button>
     </form>
   );
