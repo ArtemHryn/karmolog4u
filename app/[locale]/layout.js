@@ -19,12 +19,11 @@ export const unbounded = Unbounded({
 });
 
 export default async function RootLayout({ children, params }) {
-  const locale = getLocale();
+  const locale = await getLocale();
   const messages = await getMessages();
   // Show a 404 error if the user requests an unknown locale
-
   return (
-    <html lang="uk">
+    <html lang={locale}>
       <body className={open_Sans.className}>
         <NextIntlClientProvider messages={messages}>
           <Header />
