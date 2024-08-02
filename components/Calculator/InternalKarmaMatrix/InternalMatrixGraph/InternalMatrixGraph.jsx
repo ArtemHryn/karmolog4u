@@ -9,8 +9,10 @@ import styles from './InternalMatrixGraph.module.scss';
 import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
 import { checkNum } from '@helper/calculator/personal';
 import CalcDateTitle from '@components/Common/CalcDateTitle/CalcDateTitle';
+import { useTranslations } from 'next-intl';
 
 const InternalMatrixGraph = ({ matrix, name, date }) => {
+  const t = useTranslations('Calculator.internal');
   if (!matrix) return null;
   const { center, center2 } = matrix;
   return (
@@ -25,10 +27,7 @@ const InternalMatrixGraph = ({ matrix, name, date }) => {
         <InternalKarmaCenter matrix={matrix} />
       </div>
       <div className={styles.info_wrapper}>
-        <p className={styles.info_text}>
-          У матриці внутрішньої карми необхідно розрахувати ключ розширення, який є сумою точки зони
-          комфорту і точки дару роду:{' '}
-        </p>
+        <p className={styles.info_text}>{t('under_graph_text')}:</p>
         <TitleNoStyles variant="p" styled={styles.info_text}>
           {center} + {center2} = {checkNum(center, center2)}
         </TitleNoStyles>
