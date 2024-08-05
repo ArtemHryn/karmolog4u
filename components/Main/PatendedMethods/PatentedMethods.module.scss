@@ -50,7 +50,7 @@
   align-items: center;
   justify-content: space-between;
 
-  padding: 39px 68px;
+  padding: 39px 48px;
   border-radius: 30px;
   border: 1px solid $buttons_color;
   background: #000;
@@ -60,6 +60,7 @@
   }
   @media all and (min-width: $min_desktop) {
     width: 302px;
+    padding: 39px 33px;
   }
 }
 

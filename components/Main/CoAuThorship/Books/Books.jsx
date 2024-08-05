@@ -9,14 +9,20 @@ export const books = [
   {
     id: 1,
     image: '/assets/images/book1.webp',
-    text: '“Філософія 22 енергій світостворення”',
-    link: '#',
+    text: {
+      uk: '"Філософія 22 енергій світостворення"',
+      ru: '"Философия 22 энергий миротворчества"',
+    },
+    link: 'https://karmolog4u.vercel.app/products/guides-and-books/2',
   },
   {
     id: 2,
     image: '/assets/images/book2.webp',
-    text: '“Технології тренінгу: улюблений  “складний” учасник”',
-    link: '#',
+    text: {
+      uk: '"Технології тренінгу: улюблений  “складний” учасник"',
+      ru: '"Технологии тренинга: любимый "сложный" участник"',
+    },
+    link: 'https://karmolog4u.vercel.app/products/guides-and-books/3',
   },
 ];
 

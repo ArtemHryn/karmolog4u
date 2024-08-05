@@ -5,26 +5,19 @@ import BooksArrow from '@components/Common/Icons/BooksArrow';
 import { unbounded } from '@app/[locale]/layout';
 
 import styles from './CoAuThorship.module.scss';
+import { useTranslations } from 'next-intl';
 
 const CoAuThorship = () => {
+  const t = useTranslations('Main.CoAuThorship');
   return (
     <Container styled={styles.container} styledSection={styles.section}>
       <div className={styles.spot} />
       <div>
-        <h1 className={`${styles.header} ${unbounded.className}`}>Мої книжки</h1>
+        <h1 className={`${styles.header} ${unbounded.className}`}>{t('title')}</h1>
         <div className={styles.description_wrapper}>
-          <p className={styles.description}>
-            Завдяки моєму авторству та співавторству у різних публікаціях я маю змогу доносити
-            важливу інформацію більшій кількості людей, а ви — отримати її вже сьогодні.
-          </p>
-          <p className={styles.description}>
-            Моїм доробком наразі є авторська книжка “Філософія 22 енергій світотворення”, а також
-            співавторство у декількох книжках-тренінгах, які вже допомагають початківцям та
-            професіоналам у роботі з клієнтами.
-          </p>
-          <p className={styles.description}>
-            Ну і звісно я продовжую працювати, то ж зовсім скоро розповім вам про новинки.
-          </p>
+          <p className={styles.description}>{t('description1')}</p>
+          <p className={styles.description}>{t('description2')}</p>
+          <p className={styles.description}>{t('description3')}</p>
         </div>
         <BooksArrow styled={styles.arrow} />
       </div>

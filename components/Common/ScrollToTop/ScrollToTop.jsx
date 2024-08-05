@@ -1,12 +1,14 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-import styles from "./ScrollToTop.module.scss";
-import { open_Sans } from "@app/[locale]/layout";
+import styles from './ScrollToTop.module.scss';
+import { open_Sans } from '@app/[locale]/layout';
+import { useTranslations } from 'next-intl';
 
 const ScrollToTop = () => {
   const [showButton, setShowButton] = useState(false);
+  const t = useTranslations('Common.ScrollToTop');
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 300) {
@@ -16,9 +18,9 @@ const ScrollToTop = () => {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return showButton ? (
@@ -34,7 +36,7 @@ const ScrollToTop = () => {
           fill="#FDFDFD"
         />
       </svg>
-      <span className={open_Sans.className}>вгору</span>
+      <span className={open_Sans.className}>{t('button')}</span>
     </button>
   ) : null;
 };

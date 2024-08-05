@@ -1,8 +1,10 @@
 import Instagram from '@components/Common/SocialIcons/Instagram';
 import Image from 'next/image';
 import styles from './StarCustomers.module.scss';
+import { useLocale } from 'next-intl';
 
 function Card({ item }) {
+  const locale = useLocale();
   return (
     <div className={`${styles.card}`}>
       <Image
@@ -18,7 +20,7 @@ function Card({ item }) {
           <Instagram styled={styles.icon} />
           <p>{item.owner}</p>
         </a>
-        <p className={styles.text}>{item.feedback}</p>
+        <p className={styles.text}>{item.feedback[locale]}</p>
       </div>
     </div>
   );

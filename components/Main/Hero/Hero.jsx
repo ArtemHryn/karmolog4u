@@ -2,34 +2,29 @@ import Image from 'next/image';
 import Marquees from './Marquees/Marquees';
 import VideoButton from './VideoButton/VideoButton';
 import Container from '@components/Common/Container/Container';
+import { unbounded } from '@app/[locale]/layout';
+import BackgroundLogo from './BackgroundLogo/BackgroundLogo';
 
 import styled from './Hero.module.scss';
-import BackgroundLogo from './BackgroundLogo/BackgroundLogo';
-import { unbounded } from '@app/[locale]/layout';
+import { useTranslations } from 'next-intl';
 
 const Hero = () => {
+  const t = useTranslations('Main.Hero');
   return (
     <Container styledSection={styled.styled_section}>
-      <p className={styled.text}>Ваш провідник в щасливе та гармонійне життя</p>
-      <h1 className={`${styled.author} ${unbounded.className}`}>СЕРГІЙ СКЛЯРЕНКО</h1>
+      <p className={styled.text}>{t('announcement')}</p>
+      <h1 className={`${styled.author} ${unbounded.className}`}>{t('author')}</h1>
       <div className={styled.description_container}>
         <div>
-          <h1 className={`${styled.author2} ${unbounded.className}`}>СЕРГІЙ СКЛЯРЕНКО</h1>
+          <h1 className={`${styled.author2} ${unbounded.className}`}>{t('author')}</h1>
           <div className={styled.text_wrapper}>
             <p className={`${styled.text_description} ${styled.additional_text_description}`}>
-              Саме тут ви знайдете створене для вас унікальне середовище — простір енергетичної
-              сили, спроєктований для вашої користі. А також, потужні інструменти — для кожного, хто
-              прагне глобальних трансформацій на шляху до свідомого, забезпеченого, гармонійного та
-              щасливого життя.
+              {t('description1')}
             </p>
             <p className={`${styled.text_description} ${styled.additional_text_description}`}>
-              Моя мета  — допомогти вам відкрити нові можливості й знайти власний шлях до омріяного
-              буття.
+              {t('description2')}
             </p>
-            <p className={`${styled.text_description}`}>
-              {' '}
-              З любов&apos;ю та готовністю допомагати!
-            </p>
+            <p className={`${styled.text_description}`}> {t('description3')}</p>
             <VideoButton />
           </div>
         </div>
