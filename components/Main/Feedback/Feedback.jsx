@@ -1,14 +1,14 @@
+import { useTranslations } from 'next-intl';
 import Container from '@components/Common/Container/Container';
-import React from 'react';
 import Viber from '@components/Common/SocialIcons/Viber';
 import Whatsapp from '@components/Common/SocialIcons/Whatsapp';
 import Telegram from '@components/Common/SocialIcons/Telegram';
 import Link from 'next/link';
 import Logo from '@components/Common/Icons/Logo';
 import BlurLogo from '@components/Common/Icons/BlurLogo';
+import { unbounded } from '@app/[locale]/layout';
 
 import styles from './Feedback.module.scss';
-import { unbounded } from '@app/[locale]/layout';
 
 const links = [
   {
@@ -29,22 +29,19 @@ const links = [
 ];
 
 function Feedback({ main }) {
+  const t = useTranslations('Main.Feedback');
   return (
     <Container styled={styles.wrap} styledSection={styles.section}>
       <div className={styles.wrap_item}>
         <h2 className={`${main ? styles.main_title : styles.title} ${unbounded.className}`}>
-          Залишились питання?
+          {t('title')}
         </h2>
         <div style={{ position: 'relative' }}>
           <p className={styles.description}>
-            Якщо у вас залишились питання, а ми точно знаємо, що здебільшого вони виникають,
-            стосовно послуг, навчання чи інших важливих моментів, будь ласка, звертайтеся до нас у
-            будь-який зручний для вас месенджер і ми обов&apos;язково спробуємо надати відповіді
-            найближчим часом!
+            {t('description1')}
             <br />
             <br />
-            Також слідкуйте за нашими соціальними мережами, де ми постійно ділимося цікавою й
-            корисною інформацією та відповідаємо на ваші запити.
+            {t('description2')}
           </p>
           <svg
             xmlns="http://www.w3.org/2000/svg"

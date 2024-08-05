@@ -1,12 +1,14 @@
-"use client";
-import { useState } from "react";
+'use client';
+import { useState } from 'react';
 // import YouTube from "react-youtube";
 
-import styles from "./VideoButton.module.scss";
-import { open_Sans } from "@app/[locale]/layout";
+import styles from './VideoButton.module.scss';
+import { open_Sans } from '@app/[locale]/layout';
+import { useTranslations } from 'next-intl';
 
 const VideoButton = () => {
   const [showVideo, setShowVideo] = useState(false);
+  const t = useTranslations('Main.Hero');
   return (
     <>
       <button
@@ -14,7 +16,7 @@ const VideoButton = () => {
         className={`${styles.button} ${open_Sans.className}`}
         onClick={() => setShowVideo(true)}
       >
-        Поринути у Всесвіт
+        {t('button')}
       </button>
 
       {showVideo && (

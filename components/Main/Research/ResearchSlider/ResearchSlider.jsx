@@ -1,39 +1,57 @@
-"use client";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
-import ResearchSlideElement from "./ResearchSlideElement";
+'use client';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper';
+import ResearchSlideElement from './ResearchSlideElement';
 
-import styles from "./ResearchSlider.module.scss";
+import styles from './ResearchSlider.module.scss';
 
 //Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 //research info
 const researchBlock = [
   {
-    text: "“Психологічний аналіз особливостей формування асертивної поведінки психологів-консультантів в умовах воєнного стану”",
-    file: "http://habitus.od.ua/journals/2023/50-2023/22.pdf",
+    text: {
+      uk: '"Психологічний аналіз особливостей формування асертивної поведінки психологів-консультантів в умовах воєнного стану"',
+      ru: '"Психологический анализ особенностей формирования ассертивного поведения психологов-консультантов в условиях военного положения"',
+    },
+    file: 'http://habitus.od.ua/journals/2023/50-2023/22.pdf',
   },
   {
-    text: "“Феномен розвитку емпатії особистості у період дорослішання: соціально-психологічний аспект”",
-    file: "http://visnyk.nuou.org.ua/article/view/235113/237965",
+    text: {
+      uk: '"Феномен розвитку емпатії особистості у період дорослішання: соціально-психологічний аспект"',
+      ru: '"Феномен развития эмпатии личности в период взросления: социально-психологический аспект"',
+    },
+    file: 'http://visnyk.nuou.org.ua/article/view/235113/237965',
   },
   {
-    text: "“Роль асертивності в професійному становленні психолога-консультанта в умовах соціальних викликів”",
-    file: "http://perspectives.pp.ua/index.php/pis/article/view/5208/5238",
+    text: {
+      uk: '"Роль асертивності в професійному становленні психолога-консультанта в умовах соціальних викликів"',
+      ru: '"Роль ассертивности в профессиональном становлении психолога-консультанта в условиях социальных вызовов"',
+    },
+    file: 'http://perspectives.pp.ua/index.php/pis/article/view/5208/5238',
   },
   {
-    text: "“Психологічні особливості емпатії особистості у період дорослішання”",
-    file: "/assets/Збірник 7_2020.pdf",
+    text: {
+      uk: '"Психологічні особливості емпатії особистості у період дорослішання"',
+      ru: '"Психологические особенности эмпатии личности в период взросления"',
+    },
+    file: '/assets/Збірник 7_2020.pdf',
   },
   {
-    text: "“The Development of Assertiveness of the Individual as a Subject of Communication”",
-    file: "https://lumenpublishing.com/journals/index.php/rrem/article/view/5175/4293",
+    text: {
+      uk: '"The Development of Assertiveness of the Individual as a Subject of Communication"',
+      ru: '"The Development of Assertiveness of the Individual as a Subject of Communication"',
+    },
+    file: 'https://lumenpublishing.com/journals/index.php/rrem/article/view/5175/4293',
   },
   {
-    text: "“Медитація як психологічна практика роботи з духом”",
-    file: "http://perspectives.pp.ua/index.php/np/article/view/4930/4957",
+    text: {
+      uk: '"Медитація як психологічна практика роботи з духом"',
+      ru: '"Медитация как психологическая практика работы с духом"',
+    },
+    file: 'http://perspectives.pp.ua/index.php/np/article/view/4930/4957',
   },
 ];
 
@@ -52,8 +70,8 @@ const ResearchSlider = () => {
         spaceBetween={24}
         pagination={pagination}
         style={{
-          "--swiper-pagination-bullet-inactive-color": "#454545;",
-          "--swiper-pagination-color": "#CFB691",
+          '--swiper-pagination-bullet-inactive-color': '#454545;',
+          '--swiper-pagination-color': '#CFB691',
         }}
         breakpoints={{
           360: {

@@ -1,14 +1,16 @@
-import Container from "@components/Common/Container/Container";
-import Title from "@components/Common/Title/Title";
-import Slider from "./Slider/Slider";
+import Container from '@components/Common/Container/Container';
+import Title from '@components/Common/Title/Title';
+import Slider from './Slider/Slider';
 
-import styles from "./PatentedMethods.module.scss";
+import styles from './PatentedMethods.module.scss';
+import { useTranslations } from 'next-intl';
 
 const PatentedMethods = () => {
+  const t = useTranslations('Main.PatentedMethods');
   return (
     <Container styled={styles.container}>
       <Title styled={styles.title}>
-        Запатентовані методики
+        {t('title')}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 150 39"

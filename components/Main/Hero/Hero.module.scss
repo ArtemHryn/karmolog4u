@@ -71,7 +71,7 @@
     display: block;
     width: 455px;
     height: 562px;
-    bottom: -10%;
+    bottom: -14%;
   }
   @media all and (min-width: $min_desktop) {
     width: 607px;
@@ -129,45 +129,6 @@
     filter: blur(0px);
   }
 }
-
-// @keyframes scaleDown {
-//   0% {
-//     transform: scale(2) translate(20%);
-//     filter: blur(0px);
-//     opacity: 1;
-//   }
-//   15% {
-//     transform: scale(2) translate(20%);
-//     filter: blur(0px);
-//   }
-//   25% {
-//     transform: scale(1) translate(0%);
-//     filter: blur(0px);
-//     opacity: 1;
-//   }
-//   34% {
-//     opacity: 1;
-//   }
-//   35% {
-//     opacity: 0;
-//   }
-//   39% {
-//     opacity: 1;
-//   }
-//   40% {
-//     opacity: 0;
-//   }
-//   45% {
-//     opacity: 1;
-//     transform: scale(1);
-//   }
-//   50% {
-//     transform: scale(1);
-//   }
-//   100% {
-//     transform: scale(1.2);
-//   }
-// }
 
 .bg_logo {
   display: none;
