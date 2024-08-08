@@ -1,52 +1,72 @@
-"use client";
-import React, { useState } from "react";
-import styles from "./Nav.module.scss";
-import ArrowDown from "@components/Common/Icons/ArrowDown";
+'use client';
+import React, { useState } from 'react';
+import styles from './Nav.module.scss';
+import ArrowDown from '@components/Common/Icons/ArrowDown';
+import { useLocale } from 'next-intl';
 
 const links = [
   {
-    title: "ПОСЛУГИ",
+    title: { uk: 'ПОСЛУГИ', ru: 'УСЛУГИ' },
     links: [
-      { name: "Терапевтичні сесії", link: "/therapy-sessions" },
-      { name: "Консультація з матриці долі", link: "/consultations" },
-      { name: "Офлайн-зустрічі", link: "/offline-meetings" },
+      {
+        name: { uk: 'Терапевтичні сесії', ru: 'Терапевтические сессии' },
+        link: '/therapy-sessions',
+      },
+      {
+        name: { uk: 'Консультація з матриці долі', ru: 'Консультація з матриці долі' },
+        link: '/consultations',
+      },
+      { name: { uk: 'Офлайн-зустрічі', ru: 'Офлайн-зустрічі' }, link: '/offline-meetings' },
     ],
     id: 12,
   },
   {
-    title: "НАВЧАННЯ",
+    title: { uk: 'НАВЧАННЯ', ru: 'НАВЧАННЯ' },
     links: [
-      { name: "Курс “Cам собі кармолог”", link: "/karmologist-himself" },
-      { name: "Консультантський курс", link: "/consulting-course" },
-      { name: "Поглиблений курс", link: "/advanced-course" },
+      {
+        name: { uk: 'Курс "Cам собі кармолог"', ru: 'Курс "Cам собі кармолог"' },
+        link: '/karmologist-himself',
+      },
+      {
+        name: { uk: 'Консультантський курс', ru: 'Консультантський курс' },
+        link: '/consulting-course',
+      },
+      { name: { uk: 'Поглиблений курс', ru: 'Поглиблений курс' }, link: '/advanced-course' },
     ],
     id: 13,
   },
   {
-    title: "ГО ПСИХОЛОГІЯ ЛЮДСЬКОЇ ДОЛІ",
+    title: { uk: 'ГО ПСИХОЛОГІЯ ЛЮДСЬКОЇ ДОЛІ', ru: 'ГО ПСИХОЛОГІЯ ЛЮДСЬКОЇ ДОЛІ' },
     links: [
-      { name: 'Асоціація "Кармотерапії та психології"', link: "/association" },
-      { name: "Благодійний фонд", link: "/charitable-foundation" },
+      {
+        name: {
+          uk: 'Асоціація "Кармотерапії та психології"',
+          ru: 'Асоціація "Кармотерапії та психології"',
+        },
+        link: '/association',
+      },
+      { name: { uk: 'Благодійний фонд', ru: 'Благодійний фонд' }, link: '/charitable-foundation' },
     ],
     id: 14,
   },
   {
-    title: "АВТОРСЬКІ ПРОДУКТИ",
+    title: { uk: 'АВТОРСЬКІ ПРОДУКТИ', ru: 'АВТОРСЬКІ ПРОДУКТИ' },
     links: [
-      { name: "Медитації", link: "/products/meditations" },
-      { name: "Вебінари", link: "/products/courses" },
-      { name: "Гайди та книги", link: "/products/guides-and-books" },
-      { name: "Подарунки Студії", link: "/products/gifts" },
+      { name: { uk: 'Медитації', ru: 'Медитації' }, link: '/products/meditations' },
+      { name: { uk: 'Вебінари', ru: 'Вебінари' }, link: '/products/courses' },
+      { name: { uk: 'Гайди та книги', ru: 'Гайди та книги' }, link: '/products/guides-and-books' },
+      { name: { uk: 'Подарунки Студії', ru: 'Подарунки Студії' }, link: '/products/gifts' },
     ],
     id: 15,
   },
-  { title: "КАЛЬКУЛЯТОР", links: "/calculator" },
+  { title: { uk: 'КАЛЬКУЛЯТОР', ru: 'КАЛЬКУЛЯТОР' }, links: '/calculator' },
 ];
 
 function Nav() {
   const [active, setActive] = useState(null);
+  const locale = useLocale();
 
-  const onClick = (e) => {
+  const onClick = e => {
     if (+e.currentTarget.attributes.id.value === active) {
       setActive(null);
     } else {
@@ -66,22 +86,22 @@ function Nav() {
                 id={item.id}
                 onClick={onClick}
               >
-                <p className={styles.title}>{item.title}</p>
+                <p className={styles.title}>{item.title[locale]}</p>
                 <ArrowDown
                   styled={`${styles.dropdown_icon} ${
-                    +active === +item.id ? styles.dropdown_icon_rotate : ""
+                    +active === +item.id ? styles.dropdown_icon_rotate : ''
                   }`}
                 />
               </button>
               <ul
                 className={`${styles.dropdown_list} ${
-                  +active === +item.id ? styles.dropdown_open : ""
+                  +active === +item.id ? styles.dropdown_open : ''
                 }`}
               >
                 {item.links.map((link, index) => (
                   <li key={index} className={styles.dropdown_item}>
                     <a href={link.link} className={styles.dropdown_link}>
-                      {link.name}
+                      {link.name[locale]}
                     </a>
                   </li>
                 ))}
@@ -90,7 +110,7 @@ function Nav() {
           ) : (
             <li>
               <a href={item.links} className={styles.title}>
-                {item.title}
+                {item.title[locale]}
               </a>
             </li>
           )}

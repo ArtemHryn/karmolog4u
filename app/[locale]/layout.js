@@ -18,7 +18,7 @@ export const unbounded = Unbounded({
   weight: ['700', '600', '500', '400'],
 });
 
-export default async function RootLayout({ children, params }) {
+export default async function RootLayout({ children }) {
   const locale = await getLocale();
   const messages = await getMessages();
   // Show a 404 error if the user requests an unknown locale

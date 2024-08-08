@@ -1,29 +1,21 @@
-import Container from '@components/Common/Container/Container';
 import Image from 'next/image';
-import React from 'react';
+import { useLocale, useTranslations } from 'next-intl';
+import Container from '@components/Common/Container/Container';
 import Title from '@components/Common/Title/Title';
 
 import styles from './PairedSessions.module.scss';
 
 function PairedSessions() {
+  const t = useTranslations('Services.therapy_sessions.paired_sessions');
+  const locale = useLocale();
   return (
     <Container>
-      <Title styled={`${styles.title}`}>Про парні сесії</Title>
+      <Title styled={`${styles.title}`}>{t('title')}</Title>
       <div className={styles.wrap}>
-        <article className={styles.article}>
-          <p>Парна терапія – це можливість не тільки сказати, а перш за все, бути почутим.</p>
-          <p>
-            Парні терапевтичні сесії — це моя унікальна авторська методика роботи, в якій поєднані
-            різноманітні методики: гендерної підміни, ототожнення, розтотожнення, а також техніки:
-            психотерапевтичні, медитативні, гіпнотичні. Саме ці інструменти терапевтичної роботи й
-            лежать в основі запатентованого мною методу роботи з підсвідомістю – “Кармотерапії”.
-          </p>
-          <p>
-            Терапевтичні сесії допомагають парі знайти порозуміння, озвучити свої переживання
-            партнеру без остраху засудження чи не вірної інтерпретації, знайти шлях до
-            розв&apos;язання конфліктів та поліпшення взаємодії у будуванні гармонійних стосунків
-            тощо.
-          </p>
+        <article className={`${styles.article} ${locale === 'ru' ? styles.article_ru : ''}`}>
+          <p>{t('text1')}</p>
+          <p>{t('text2')}</p>
+          <p>{t('text3')}</p>
         </article>
         <picture className={styles.image}>
           <source

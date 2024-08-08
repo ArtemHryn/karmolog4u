@@ -1,27 +1,22 @@
+import Image from 'next/image';
 import Container from '@components/Common/Container/Container';
 import React from 'react';
 import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
 
 import styles from './SessionInsights.module.scss';
-import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 function SessionInsights() {
+  const t = useTranslations('Services.therapy_sessions.session_insights');
   return (
     <Container styled={styles.container} styledSection={styles.section}>
       <TitleNoStyles variant="h2" styled={`${styles.title}`}>
-        Як, що, де, коли, яким чином?
+        {t('title')}
       </TitleNoStyles>
       <div className={styles.wrap}>
         <article className={styles.text_wrapper}>
-          <p className={styles.text}>
-            Родзинка цієї роботи – це індивідуальність, саме тому замовивши таку послугу ви
-            отримуєте не теорію про когось, а практику для вас!
-          </p>
-          <p className={styles.text}>
-            Після внесення оплати починається, попередньо погоджена з вами, покроково розпланована
-            робота виходячи з ваших запитів, яка ймовірніше не тільки закриє нагальні запити, а й
-            суттєво покращить життя у різних напрямках, які на це потребують.
-          </p>
+          <p className={styles.text}>{t('text1')}</p>
+          <p className={styles.text}>{t('text2')}</p>
         </article>
         <picture>
           <source

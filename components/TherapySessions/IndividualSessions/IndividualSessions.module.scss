@@ -46,6 +46,11 @@
     padding: 64px 54px;
     width: 737px;
   }
+  &_ru {
+    @media screen and (min-width: $min_desktop) {
+      padding: 42px 54px;
+    }
+  }
 }
 
 .image {

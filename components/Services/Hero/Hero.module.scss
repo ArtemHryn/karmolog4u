@@ -15,7 +15,7 @@
 }
 
 .title {
-  @include fontRegular(32px, 400, 44.8px);
+  @include fontRegular(26px, 400, 44.8px);
   margin-bottom: 28px;
 
   @media all and (min-width: $min_tablet) {
@@ -23,7 +23,7 @@
     margin-bottom: 44px;
   }
   @media all and (min-width: $min_desktop) {
-    @include fontRegular(64px, 400, 89.6px);
+    @include fontRegular(60px, 400, 89.6px);
     margin-bottom: 48px;
   }
 }

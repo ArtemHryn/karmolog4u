@@ -1,9 +1,5 @@
 export const individualPricing = [
-  {
-    title: '4 сесії',
-    addTitle: 'з Сергієм Скляренко',
-    price: '1000€',
-  },
-  { title: '6 сесій', addTitle: 'з Сергієм Скляренко', price: '1300€' },
-  { title: '8 сесій', addTitle: 'з Сергієм Скляренко', price: '1600€' },
+  { title: { uk: '4 сесії', ru: '4 сессии' }, price: '1000€' },
+  { title: { uk: '6 сесій', ru: '6 сессий' }, price: '1300€' },
+  { title: { uk: '8 сесій', ru: '8 сессий' }, price: '1600€' },
 ];

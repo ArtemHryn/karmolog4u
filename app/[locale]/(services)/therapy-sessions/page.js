@@ -14,14 +14,19 @@ import therapyFeedbacks from '@helper/therapyFeedbacks';
 import { column1, column2 } from '@helper/therapySessionsQA';
 import therapyReasons from '@helper/therayReasonList';
 
-const links = [{ href: '/therapy-sessions', name: 'Терапевтичні сесії' }];
+const links = [
+  { href: '/therapy-sessions', name: { uk: 'Терапевтичні сесії', ru: 'Терапевтические сессии' } },
+];
 
 function TherapySessions() {
   return (
     <main>
       <Hero
         linkNames={links}
-        title="ТЕРАПЕВТИЧНІ СЕСІЇ З СЕРГІЄМ СКЛЯРЕНКО"
+        title={{
+          uk: 'ТЕРАПЕВТИЧНІ СЕСІЇ З СЕРГІЄМ СКЛЯРЕНКО',
+          ru: 'ТЕРАПЕВТИЧЕСКИЕ СЕССИИ С СЕРГЕЕМ СКЛЯРЕНКО',
+        }}
         img={{
           img: '/assets/images/therapySessions/Hero.webp',
           imgDesk: '/assets/images/therapySessions/Hero-desk.webp',
@@ -29,15 +34,27 @@ function TherapySessions() {
         }}
       />
       <ServicesForYouIf
-        title="Ці сесії створені саме для вас, якщо ви:"
+        title={{
+          uk: 'Ці сесії створені саме для вас, якщо ви:',
+          ru: 'Эти сессии созданы именно для вас, если вы:',
+        }}
         listOfReasons={therapyReasons}
       />
       <SessionInsights />
       <Facts />
       <IndividualSessions />
-      <Pricing content={individualPricing} accTitle={'індивідуальних терапевтичних сесій'} />
+      <Pricing
+        content={individualPricing}
+        accTitle={{
+          uk: 'індивідуальних терапевтичних сесій',
+          ru: 'индивидуальных терапевтических сессий',
+        }}
+      />
       <PairedSessions />
-      <Pricing content={pairedPricing} accTitle={'парних терапевтичних сесій'} />
+      <Pricing
+        content={pairedPricing}
+        accTitle={{ uk: 'парних терапевтичних сесій', ru: 'парных терапевтических сессий' }}
+      />
       <Feedbacks feedbacks={therapyFeedbacks} />
       <QuestionAnswer column1={column1} column2={column2} />
       <Feedback />

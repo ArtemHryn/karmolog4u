@@ -1,6 +1,8 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useLocale } from 'next-intl';
+import { usePathname } from 'next/navigation';
 import Nav from './Nav/Nav';
 import MobileNav from './MobileNav/MobileNav';
 import Logo from '@components/Common/Icons/Logo';
@@ -12,6 +14,8 @@ import styles from './Header.module.scss';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(null);
+  const locale = useLocale();
+  const pathName = usePathname();
 
   useEffect(() => {
     if (!isOpen) {
@@ -38,10 +42,15 @@ function Header() {
           <Nav />
         </div>
         <div className={styles.add_nav}>
-          <Link href={'#'} className={`${styles.hover} ${styles.bag}`} data-after="0">
+          <Link
+            href={pathName.replace(`/${locale}/`, `/${locale === 'uk' ? 'ru' : 'uk'}/`)}
+            className={`${styles.hover} ${styles.bag}`}
+            data-after="0"
+            locale={locale}
+          >
             <ShoppingBag />
           </Link>
-          <Link href={'#'} className={styles.hover}>
+          <Link href={'#'} locale={locale} className={styles.hover}>
             <User />
           </Link>
           <MobileNav isOpen={isOpen} setIsOpen={setIsOpen} />
