@@ -4,13 +4,15 @@ import Title from '@components/Common/Title/Title';
 
 import styles from './ConsultationsTariff.module.scss';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 const ConsultationsTariff = () => {
+  const t = useTranslations('Services.consultations.consultations_tariff');
   return (
     <Container>
-      <Title styled={`${styles.title}`}>Прайс та оплата</Title>
+      <Title styled={`${styles.title}`}>{t('title')}</Title>
       <p className={styles.warning}>
-        *Послуги надаються згідно з <Link href={'#'}>договором оферти</Link>.
+        {t('warning')} <Link href={'#'}>{t('link')}</Link>.
       </p>
       <TariffList />
     </Container>

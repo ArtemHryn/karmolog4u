@@ -3,22 +3,18 @@ import Container from '@components/Common/Container/Container';
 import Title from '@components/Common/Title/Title';
 
 import styles from './HowIsConsultationGoing.module.scss';
+import { useTranslations } from 'next-intl';
 
 const HowIsConsultationGoing = () => {
+  const t = useTranslations('Services.consultations.how_consultations_going');
   return (
     <Container>
-      <Title styled={styles.title}>Як проходить консультація?</Title>
+      <Title styled={styles.title}>{t('title')}</Title>
       <div className={styles.wrapper}>
         <article className={styles.article}>
-          <p>
-            Після здійснення оплати за консультацію наш менеджер зв’яжеться з вами для визначення
-            найзручнішої для вас дати та уточнення деталей.
-          </p>
-          <p>Зустріч відбувається онлайн (Zoom).</p>
-          <p>
-            Якщо це передбачено обраним тарифом, ви отримаєте допоміжні матеріали, а також — запис
-            вашої консультації.
-          </p>
+          <p>{t('text1')}</p>
+          <p>{t('text2')}</p>
+          <p>{t('text3')}</p>
         </article>
         <picture>
           <source
