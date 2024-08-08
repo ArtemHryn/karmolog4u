@@ -31,6 +31,14 @@
     padding: 64px 54px;
     width: 737px;
   }
+  &_ru {
+    @media screen and (min-width: $min_tablet) {
+      padding: 50px 40px;
+    }
+    @media screen and (min-width: $min_desktop) {
+      padding: 50px 40px;
+    }
+  }
 }
 
 .wrap {

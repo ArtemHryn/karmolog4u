@@ -42,8 +42,9 @@
     padding: 50px;
   }
   @media screen and (min-width: $min_desktop) {
-    padding: 64px 54px;
+    padding: 24px 54px;
     max-width: 737px;
+    justify-content: center;
   }
 }
 

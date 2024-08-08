@@ -6,11 +6,11 @@ import styles from './MobileNav.module.scss';
 import socialStyles from './SocialLinks.module.scss';
 import CLose from '@components/Common/Icons/Close';
 import Logo from '@components/Common/Icons/Logo';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 function MobileNav({ isOpen, setIsOpen }) {
-  const t = useTranslations('Calculator.personal');
-
+  const t = useTranslations('Header');
+  const locale = useLocale();
   return (
     <>
       <div className={`${styles.menu} ${isOpen ? styles.menu_open : ''}`}>
@@ -25,7 +25,9 @@ function MobileNav({ isOpen, setIsOpen }) {
             <span>
               <Logo styled={styles.logo} />
             </span>
-            <p className={styles.title}>Студія трансформації Сергія Скляренка</p>
+            <p className={`${styles.title} ${locale === 'ru' ? styles.title_ru : ''}`}>
+              {t('studio')}
+            </p>
           </Link>
         </div>
         <Nav />

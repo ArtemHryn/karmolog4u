@@ -31,21 +31,21 @@
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  padding: 20px 14.5px 12px;
+  padding: 20px 14.5px 10px;
 
-  min-height: 224px;
+  min-height: 235px;
 
   border-radius: 30px;
   border: 1px solid $seconds_text_color;
   background-color: #000;
 
   @media all and (min-width: $min_tablet) {
-    min-height: 206px;
-    padding: 20px 55.5px 20px;
+    min-height: 209px;
+    padding: 20px 55.5px 8px;
     gap: 20px;
   }
   @media all and (min-width: $min_desktop) {
-    padding: 20px 28.5px 20px;
+    padding: 20px 28.5px 8px;
   }
 }
 

@@ -1,19 +1,22 @@
-import React from 'react';
-import styles from './Pricing.module.scss';
-import { unbounded } from '@app/[locale]/layout';
 import Link from 'next/link';
-function Card({ content }) {
+import { unbounded } from '@app/[locale]/layout';
+import styles from './Pricing.module.scss';
+import { useLocale, useTranslations } from 'next-intl';
+
+function Card({ content: { title, addTitle, price } }) {
+  const t = useTranslations('Services.therapy_sessions.pricing');
+  const locale = useLocale();
   return (
     <div className={styles.card}>
       <div className={styles.card_wrap}>
         <h4 className={`${styles.card_title} ${unbounded.className}`}>
-          {content.title}
-          <span className={styles.card_title_add}>{content.addTitle}</span>
+          {typeof title === 'string' ? title : title[locale]}
+          <span className={styles.card_title_add}>{t('with_author')}</span>
         </h4>
-        <h3 className={`${styles.card_price} ${unbounded.className}`}>{content.price}</h3>
+        <h3 className={`${styles.card_price} ${unbounded.className}`}>{price}</h3>
       </div>
-      <Link href={'therapy-sessions/dialog'} aria-label="Записатися" className={styles.button}>
-        Записатись
+      <Link href={'therapy-sessions/dialog'} aria-label={t('button')} className={styles.button}>
+        {t('button')}
       </Link>
     </div>
   );
