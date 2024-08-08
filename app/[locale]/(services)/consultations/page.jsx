@@ -11,7 +11,12 @@ import { questions } from '@helper/consultationsQuestions';
 import Feedback from '@components/Main/Feedback/Feedback';
 import HowIsConsultationGoing from '@components/Services/HowIsConsultationGoing/HowIsConsultationGoing';
 
-const links = [{ href: '/consultations', name: 'Консультація з матриці долі' }];
+const links = [
+  {
+    href: '/consultations',
+    name: { uk: 'Консультація з матриці долі', ru: 'Консультация по матрице судьбы' },
+  },
+];
 
 export default function Consultations() {
   const { column1, column2 } = questions();
@@ -19,14 +24,17 @@ export default function Consultations() {
     <main>
       <Hero
         linkNames={links}
-        title="КОНСУЛЬТАЦІЇ З МАТРИЦІ ДОЛІ"
+        title={{ uk: 'КОНСУЛЬТАЦІЇ З МАТРИЦІ ДОЛІ', ru: 'КОНСУЛЬТАЦИИ ПО МАТРИЦЕ СУДЬБЫ' }}
         img={{
           img: '/assets/images/consultationsHero.webp',
           alt: 'Фото Сергія',
         }}
       />
       <ServicesForYouIf
-        title="Консультації з Матриці долі допоможуть у таких випадках:"
+        title={{
+          uk: 'Консультації з Матриці долі допоможуть у таких випадках:',
+          ru: 'Консультации по Матрице судьбы помогут, если:',
+        }}
         listOfReasons={reasons}
       />
       <AboutConsultations />

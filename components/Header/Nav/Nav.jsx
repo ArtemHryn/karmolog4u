@@ -13,7 +13,7 @@ const links = [
         link: '/therapy-sessions',
       },
       {
-        name: { uk: 'Консультація з матриці долі', ru: 'Консультація з матриці долі' },
+        name: { uk: 'Консультація з матриці долі', ru: 'Консультация по матрице судьбы' },
         link: '/consultations',
       },
       { name: { uk: 'Офлайн-зустрічі', ru: 'Офлайн-зустрічі' }, link: '/offline-meetings' },

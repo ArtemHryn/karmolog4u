@@ -7,9 +7,12 @@ import ActiveDropDown from './ActiveDropDown';
 import ToggleArrow from '@components/Common/Icons/ConsultationsIcons/ToggleArrow';
 
 import styles from './TariffList.module.scss';
+import { useLocale, useTranslations } from 'next-intl';
 
 const DropDown = ({ tariff }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const t = useTranslations('Services.consultations.consultations_tariff');
+  const locale = useLocale();
   const { title, description, time, price, isPerHour } = tariff;
 
   return (
@@ -26,7 +29,7 @@ const DropDown = ({ tariff }) => {
           isPerHour ? styles.tariff_title_per_hour : ''
         }`}
       >
-        {title}
+        {typeof title === 'string' ? title : title[locale]}
       </p>
 
       <button
@@ -34,7 +37,7 @@ const DropDown = ({ tariff }) => {
         className={`${styles.details_btn} ${open_Sans.className} ${isOpen ? styles.is_hidden : ''}`}
         onClick={() => setIsOpen(true)}
       >
-        Детальніше про послугу
+        {t('show_more')}
       </button>
 
       <div className={styles.wrapper_mob}>
@@ -47,14 +50,14 @@ const DropDown = ({ tariff }) => {
       </div>
       <p className={`${styles.price} ${unbounded.className}`}>
         {price}
-        <span>{isPerHour ? '/година' : ''}</span>
+        <span>{isPerHour ? `${locale === 'uk' ? '/година' : '/час'}` : ''}</span>
       </p>
       <Link
         href={'consultations/dialog'}
-        aria-label="Записатися"
+        aria-label={t('join')}
         className={`${styles.btn} ${open_Sans.className}`}
       >
-        Записатися
+        {t('join')}
       </Link>
 
       <div className={styles.wrapper_tab}>
