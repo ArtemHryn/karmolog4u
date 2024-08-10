@@ -1,44 +1,48 @@
 import Image from 'next/image';
+import { useLocale, useTranslations } from 'next-intl';
 import Container from '@components/Common/Container/Container';
-
-import styles from './AboutRetreat.module.scss';
 import Title from '@components/Common/Title/Title';
 
+import styles from './AboutRetreat.module.scss';
+
+const list = {
+  uk: [
+    'практики для отримання сили роду',
+    'пропрацювання страхів',
+    'окремий день, присвячений ритуалу в місячне затемнення',
+    'розкриття тотемної тварини',
+    'досвід холотропного дихання',
+    'звукотерапію чашами Тибету, гонгом і бубном',
+    'багато відкриттів та відповідей',
+  ],
+  ru: [
+    'практики для получения силы рода',
+    'проработка страхов',
+    'отдельный день, посвященный ритуалу в лунное затмение',
+    'раскрытие тотемного животного',
+    'опыт холотропного дыхания',
+    'звукотерапия чашами Тибета, гонгом и бубном',
+    'много открытий и ответов',
+  ],
+};
+
 const AboutRetreat = () => {
+  const locale = useLocale();
+  const t = useTranslations('Services.offline_meetings.retreat.about_retreat');
   return (
     <Container>
-      <Title styled={styles.title}>Що на вас чекає?</Title>
+      <Title styled={styles.title}>{t('title')}</Title>
       <div className={styles.wrapper}>
         <div className={styles.text_container}>
-          <p className={styles.text}>*Тема та програма ретриту щоразу різні.</p>
+          <p className={styles.text}>{t('about_topics')}</p>
           <ul className={styles.list}>
-            <li>
-              <p className={styles.text}>практики для отримання сили роду</p>
-            </li>
-            <li>
-              <p className={styles.text}>пропрацювання страхів</p>
-            </li>
-            <li>
-              <p className={styles.text}>окремий день, присвячений ритуалу в місячне затемнення</p>
-            </li>
-            <li>
-              <p className={styles.text}>розкриття тотемної тварини</p>
-            </li>
-            <li>
-              <p className={styles.text}>досвід холотропного дихання</p>
-            </li>
-            <li>
-              <p className={styles.text}>звукотерапію чашами Тибету, гонгом і бубном</p>
-            </li>
-            <li>
-              <p className={styles.text}>багато відкриттів та відповідей</p>
-            </li>
+            {list[locale].map((el, index) => (
+              <li key={index}>
+                <p className={styles.text}>{el}</p>
+              </li>
+            ))}
           </ul>
-          <p className={styles.text}>
-            Як результат — ви здійсните глибинну трансформацію трьох рівнів свідомості: душі, розуму
-            та тіла, яка відбудеться завдяки повному зануренню в обрані практики під керівництвом
-            Сергія Скляренка.
-          </p>
+          <p className={styles.text}>{t('text')}</p>
         </div>
         <picture className={styles.img}>
           <source srcSet="/assets/images/about_retreat_desc.webp" media="(min-width: 1280px)" />

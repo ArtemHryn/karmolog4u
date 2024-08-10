@@ -1,17 +1,19 @@
+import { useLocale, useTranslations } from 'next-intl';
+import HeroNav from '../HeroNav/HeroNav';
+import Title from '../Title/Title';
 
-import HeroNav from "../HeroNav/HeroNav";
-import Title from "../Title/Title";
-
-import styles from "./InternalNavTitle.module.scss";
+import styles from './InternalNavTitle.module.scss';
 
 const InternalNavTitle = ({ title, links }) => {
+  const locale = useLocale();
+  const t = useTranslations('Common.offline_meetings');
   return (
     <>
       <HeroNav linkNames={links} />
-      <Title styled={styles.title}>{title}</Title>
+      <Title styled={styles.title}>{title[locale]}</Title>
       <Title variant="p" styled={`${styles.studio}`}>
-        <span className={styles.studio_line} /> Студія трансформації Сергія
-        Скляренка <span className={styles.studio_line} />
+        <span className={styles.studio_line} /> {t('studio')}
+        <span className={styles.studio_line} />
       </Title>
     </>
   );

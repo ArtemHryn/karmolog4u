@@ -1,10 +1,9 @@
 export async function generateMetadata() {
   return {
     metadataBase: new URL('https://karmolog4u.vercel.app'),
-    title: 'Розбір матриці долі - Зрозумійте свою долю з Сергієм Скляренко',
+    title: 'Публічні виступи Сергія Скляренка - Натхнення та мотивація',
     description:
-      'Відкрийте секрети своєї долі з розбором матриці долі від Сергія Скляренка. Розуміння і гармонія.',
-
+      'Замовте публічні виступи Сергія Скляренка. Отримайте натхнення та мотивацію для особистого та професійного зростання.',
     alternates: {
       canonical: '/',
       languages: {
@@ -13,9 +12,9 @@ export async function generateMetadata() {
       },
     },
     openGraph: {
-      title: 'Розбір матриці долі - Зрозумійте свою долю з Сергієм Скляренко',
+      title: 'Публічні виступи Сергія Скляренка - Натхнення та мотивація',
       description:
-        'Відкрийте секрети своєї долі з розбором матриці долі від Сергія Скляренка. Розуміння і гармонія.',
+        'Замовте публічні виступи Сергія Скляренка. Отримайте натхнення та мотивацію для особистого та професійного зростання.',
       url: '/',
       siteName: 'Karmolog4u',
       images: [
@@ -49,9 +48,9 @@ export async function generateMetadata() {
     },
     twitter: {
       // card: "summary_large_image",
-      title: 'Розбір матриці долі - Зрозумійте свою долю з Сергієм Скляренко',
+      title: 'Публічні виступи Сергія Скляренка - Натхнення та мотивація',
       description:
-        'Відкрийте секрети своєї долі з розбором матриці долі від Сергія Скляренка. Розуміння і гармонія.',
+        'Замовте публічні виступи Сергія Скляренка. Отримайте натхнення та мотивацію для особистого та професійного зростання.',
       // siteId: "1467726470533754880",
       // creator: "@Karmolog4u",
       // creatorId: "1467726470533754880",
@@ -79,12 +78,8 @@ export const viewport = {
   themeColor: 'black',
 };
 
-const layout = ({ children, modal }) => {
-  return (
-    <>
-      {children} {modal}
-    </>
-  );
+const PublicSpeechesLayout = ({ children }) => {
+  return <>{children}</>;
 };
 
-export default layout;
+export default PublicSpeechesLayout;

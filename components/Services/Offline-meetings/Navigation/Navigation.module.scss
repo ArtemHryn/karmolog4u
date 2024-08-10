@@ -17,15 +17,19 @@
   align-items: center;
 
   width: 328px;
+  height: 58px;
 
   border-radius: 30px;
   background-color: #000;
 
-  @include fontRegular(24px, 400, 24px);
+  @include fontRegular(20px, 400, 20px);
   transition: all 350ms ease;
   @media all and (min-width: $min_tablet) {
-    @include fontRegular(28px, 400, 39.2px);
+    font-size: 24px;
+
     width: 411px;
+    height: 68px;
+
     padding: 20px 0px;
   }
   @media all and (min-width: $min_desktop) {

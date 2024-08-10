@@ -16,7 +16,7 @@ const links = [
         name: { uk: 'Консультація з матриці долі', ru: 'Консультация по матрице судьбы' },
         link: '/consultations',
       },
-      { name: { uk: 'Офлайн-зустрічі', ru: 'Офлайн-зустрічі' }, link: '/offline-meetings' },
+      { name: { uk: 'Офлайн-зустрічі', ru: 'Офлайн-встречи' }, link: '/offline-meetings' },
     ],
     id: 12,
   },
