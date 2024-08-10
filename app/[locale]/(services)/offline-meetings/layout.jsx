@@ -1,4 +1,4 @@
-import Navigation from "@components/Services/Offline-meetings/Navigation/Navigation";
+import Navigation from '@components/Services/Offline-meetings/Navigation/Navigation';
 
 const OfflineMeetingsLayout = ({ children }) => {
   return (

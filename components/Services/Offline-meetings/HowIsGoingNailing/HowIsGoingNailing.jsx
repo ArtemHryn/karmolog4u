@@ -1,23 +1,21 @@
 import Container from '@components/Common/Container/Container';
+import SeeMoreOnMyYouTube from '@components/Common/SeeMoreOnMyYouTube/SeeMoreOnMyYouTube';
 import Video from './Video';
+import { unbounded } from '@app/[locale]/layout';
 
 import styles from './HowIsGoingNailing.module.scss';
-import { unbounded } from '@app/[locale]/layout';
-import SeeMoreOnMyYouTube from '@components/Common/SeeMoreOnMyYouTube/SeeMoreOnMyYouTube';
+import { useTranslations } from 'next-intl';
 
 const HowIsGoingNailing = () => {
+  const t = useTranslations('Services.offline_meetings.nailing.how_is_going_nailing');
   return (
     <Container>
-      <h1 className={`${styles.title} ${unbounded.className}`}>
-        Як проходить практика цвяхостояння?
-      </h1>
+      <h2 className={`${styles.title} ${unbounded.className}`}>{t('main_title')}</h2>
       <div className={styles.topic_container}>
         <Video id={'PLuUtpIkhVY?si=JvbMh9b9m1iDWych'} />
         <Video id={'xhtsBunobUs?si=H0RsNzwKHYPFJLx3'} />
       </div>
-      <h2 className={`${styles.title} ${unbounded.className}`}>
-        Детальніше про практику стояння на цвяхах
-      </h2>
+      <h2 className={`${styles.title} ${unbounded.className}`}>{t('additional_title')}</h2>
       <div className={styles.topic_container2}>
         <Video id={'1elEAD1qJfA?si=QQJAHeGe6e6EWblu'} />
         <SeeMoreOnMyYouTube />

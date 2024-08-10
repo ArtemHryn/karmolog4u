@@ -1,16 +1,19 @@
 import Image from 'next/image';
+import { useLocale } from 'next-intl';
 import Container from '@components/Common/Container/Container';
 
 import Title from '@components/Common/Title/Title';
 import styles from './Hero.module.scss';
 
 const OfflineMeetingsHero = ({ title, text, img, imgDesk }) => {
+  const locale = useLocale();
+  const renderText = Array.isArray(text) ? text : text[locale];
   return (
     <Container>
-      <Title styled={`${styles.title}`}>{title}</Title>
+      <Title styled={`${styles.title}`}>{title[locale]}</Title>
       <div className={styles.wrapper}>
         <ul className={styles.text_list}>
-          {text.map(el => (
+          {renderText.map(el => (
             <li key={el}>
               <p className={styles.text} dangerouslySetInnerHTML={{ __html: el }} />
             </li>

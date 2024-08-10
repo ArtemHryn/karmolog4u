@@ -1,10 +1,9 @@
 export async function generateMetadata() {
   return {
     metadataBase: new URL('https://karmolog4u.vercel.app'),
-    title: 'Розбір матриці долі - Зрозумійте свою долю з Сергієм Скляренко',
+    title: 'Цвяхостояння з Сергієм Скляренко - Практика для тіла і душі',
     description:
-      'Відкрийте секрети своєї долі з розбором матриці долі від Сергія Скляренка. Розуміння і гармонія.',
-
+      'Відчуйте силу практики цвяхостояння з Сергієм Скляренком. Ця техніка допоможе досягти гармонії тіла і душі та покращити ваше життя.',
     alternates: {
       canonical: '/',
       languages: {
@@ -13,9 +12,9 @@ export async function generateMetadata() {
       },
     },
     openGraph: {
-      title: 'Розбір матриці долі - Зрозумійте свою долю з Сергієм Скляренко',
+      title: 'Цвяхостояння з Сергієм Скляренко - Практика для тіла і душі',
       description:
-        'Відкрийте секрети своєї долі з розбором матриці долі від Сергія Скляренка. Розуміння і гармонія.',
+        'Відчуйте силу практики цвяхостояння з Сергієм Скляренком. Ця техніка допоможе досягти гармонії тіла і душі та покращити ваше життя.',
       url: '/',
       siteName: 'Karmolog4u',
       images: [
@@ -49,9 +48,9 @@ export async function generateMetadata() {
     },
     twitter: {
       // card: "summary_large_image",
-      title: 'Розбір матриці долі - Зрозумійте свою долю з Сергієм Скляренко',
+      title: 'Цвяхостояння з Сергієм Скляренко - Практика для тіла і душі',
       description:
-        'Відкрийте секрети своєї долі з розбором матриці долі від Сергія Скляренка. Розуміння і гармонія.',
+        'Відчуйте силу практики цвяхостояння з Сергієм Скляренком. Ця техніка допоможе досягти гармонії тіла і душі та покращити ваше життя.',
       // siteId: "1467726470533754880",
       // creator: "@Karmolog4u",
       // creatorId: "1467726470533754880",
@@ -78,13 +77,8 @@ export async function generateMetadata() {
 export const viewport = {
   themeColor: 'black',
 };
-
-const layout = ({ children, modal }) => {
-  return (
-    <>
-      {children} {modal}
-    </>
-  );
+const NailingLayout = ({ children }) => {
+  return <>{children}</>;
 };
 
-export default layout;
+export default NailingLayout;

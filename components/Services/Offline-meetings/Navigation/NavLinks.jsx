@@ -4,16 +4,18 @@ import Link from 'next/link';
 
 import styles from './Navigation.module.scss';
 import { unbounded } from '@app/[locale]/layout';
+import { useLocale } from 'next-intl';
 
 const navLinks = [
-  { name: 'Цвяхостояння', link: 'nailing' },
-  { name: 'Ретрит', link: 'retreat' },
-  { name: 'Публічні виступи', link: 'public-speeches' },
+  { name: { uk: 'Цвяхостояння', ru: 'Гвоздестояние' }, link: 'nailing' },
+  { name: { uk: 'Ретрит', ru: 'Ретрит' }, link: 'retreat' },
+  { name: { uk: 'Публічні виступи', ru: 'Публичные выступления' }, link: 'public-speeches' },
 ];
 
 const NavLinks = () => {
   const fullRoute = usePathname().split('/');
   const currentRoute = fullRoute[fullRoute.length - 1];
+  const locale = useLocale();
   return (
     <ul className={styles.nav_links_list}>
       {navLinks.map(({ name, link }) => (
@@ -24,7 +26,7 @@ const NavLinks = () => {
               link === currentRoute ? styles.nav_link_active : ''
             }`}
           >
-            {name}
+            {name[locale]}
           </Link>
         </li>
       ))}
