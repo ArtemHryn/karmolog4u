@@ -1,20 +1,28 @@
+import Link from 'next/link';
+import { useLocale, useTranslations } from 'next-intl';
 import { unbounded } from '@app/[locale]/layout';
 import HeroNavArrow from '@components/Common/Icons/HeroNavArrow';
 
 import styles from './TariffsSlider.module.scss';
-import Link from 'next/link';
 
 const Card = ({ card, link }) => {
+  const t = useTranslations('Education.karmologist_himself.karmologist_page_tariff');
+  const locale = useLocale();
+  const renderAboutCourse = Array.isArray(card.aboutCourse)
+    ? card.aboutCourse
+    : card.aboutCourse[locale];
   return (
     <div className={styles.card}>
-      <p className={styles.recruitment}>Триває набір</p>
+      <p className={styles.recruitment}>{t('in_progress')}</p>
       <p
-        dangerouslySetInnerHTML={{ __html: card.title }}
+        dangerouslySetInnerHTML={{
+          __html: typeof card.title === 'string' ? card.title : card.title[locale],
+        }}
         className={`${styles.card_title} ${unbounded.className}`}
       />
       <div className={styles.wrapper}>
         <ul className={styles.list}>
-          {card.aboutCourse.map(el => (
+          {renderAboutCourse.map(el => (
             <li key={el} className={styles.list_text_element}>
               <p className={styles.icon}>
                 <HeroNavArrow />
@@ -26,7 +34,7 @@ const Card = ({ card, link }) => {
         <p className={`${styles.price} ${unbounded.className}`}>{card.price}</p>
         <div className={styles.btn_wrapper}>
           <Link href={link} className={`${styles.btn}`}>
-            Повна оплата
+            {t('full_payment')}
           </Link>
           {!card.hidePrepaymentBtn && (
             <Link href={link} className={`${styles.btn} ${styles.second_btn}`}>
@@ -38,9 +46,12 @@ const Card = ({ card, link }) => {
 
       {card.nextSlideInfo && (
         <div className={styles.message_wrapper}>
-          <p className={`${styles.message} ${unbounded.className}`}>
-            Гортай, щоб переглянути <span>ВСІ тарифи</span>
-          </p>
+          <p
+            className={`${styles.message} ${unbounded.className} ${
+              locale === 'ru' ? styles.message_ru : ''
+            }`}
+            dangerouslySetInnerHTML={{ __html: t.raw('next_slide') }}
+          />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 103 32"

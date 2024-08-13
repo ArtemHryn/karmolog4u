@@ -1,18 +1,16 @@
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 
-import styles from "./AboutCourse.module.scss";
+import styles from './AboutCourse.module.scss';
 
 const TextContainer = ({ text }) => {
   const [showMore, setShowMore] = useState(false);
+  const t = useTranslations('Education.karmologist_himself.about_course');
   return (
     <div className={styles.text_wrapper}>
-      <div
-        className={`${styles.text_container} ${
-          showMore ? styles.text_container_more : ""
-        }`}
-      >
+      <div className={`${styles.text_container} ${showMore ? styles.text_container_more : ''}`}>
         {text.map((item, index) => (
           <p key={index} className={`${styles.text}`}>
             {item}
@@ -21,10 +19,10 @@ const TextContainer = ({ text }) => {
       </div>
       <button
         className={styles.btn}
-        aria-label="Відкрити/Закрити більше тексту"
-        onClick={() => setShowMore((prev) => !prev)}
+        aria-label={t('arial_toggle_btn')}
+        onClick={() => setShowMore(prev => !prev)}
       >
-        {showMore ? "Закрити" : "Показати більше"}
+        {showMore ? t('close') : t('show_more')}
       </button>
     </div>
   );
