@@ -17,7 +17,7 @@
 .title {
   @include fontRegular(26px, 400, 44.8px);
   margin-bottom: 28px;
-
+  text-transform: uppercase;
   @media all and (min-width: $min_tablet) {
     @include fontRegular(48px, 400, 48px);
     margin-bottom: 44px;
