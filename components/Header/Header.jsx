@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useLocale } from 'next-intl';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 import Nav from './Nav/Nav';
 import MobileNav from './MobileNav/MobileNav';
 import Logo from '@components/Common/Icons/Logo';
@@ -14,8 +14,20 @@ import styles from './Header.module.scss';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(null);
+  const [searchString, setSearchString] = useState('');
   const locale = useLocale();
   const pathName = usePathname();
+  const search = useSearchParams();
+  useEffect(() => {
+    let string = '';
+    for (const [key, value] of search.entries()) {
+      string += `${key}=${value}&`;
+    }
+    if (string) {
+      string = string.slice(0, -1);
+    }
+    setSearchString(string);
+  }, [search]);
 
   useEffect(() => {
     if (!isOpen) {
@@ -43,7 +55,9 @@ function Header() {
         </div>
         <div className={styles.add_nav}>
           <Link
-            href={pathName.replace(`/${locale}/`, `/${locale === 'uk' ? 'ru' : 'uk'}/`)}
+            href={`${pathName.replace(`/${locale}/`, `/${locale === 'uk' ? 'ru' : 'uk'}/`)}${
+              searchString ? `?${searchString}` : ''
+            }`}
             className={`${styles.hover} ${styles.bag}`}
             data-after="0"
             locale={locale}

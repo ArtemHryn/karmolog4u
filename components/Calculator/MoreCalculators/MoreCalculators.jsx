@@ -27,7 +27,7 @@ const MoreCalculators = ({ date, name }) => {
         </span>
       </button>
       <div className={`${showButtons ? styles.active_part : styles.active_part_hide}`}>
-        <TitleNoStyles styled={styles.title}>{t('what_matrix')}</TitleNoStyles>
+        <TitleNoStyles variant='h3' styled={styles.title}>{t('what_matrix')}</TitleNoStyles>
         <ButtonsList date={date} name={name} />
         <h2 className={styles.notification}>{t('about_calc')}</h2>
       </div>

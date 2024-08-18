@@ -1,0 +1,23 @@
+@import '/styles/main.scss';
+
+.graph_wrapper {
+  position: relative;
+  width: 328px;
+  height: 413px;
+  margin-inline: auto;
+  @media all and (min-width: $min_tablet) {
+    display: flex;
+    justify-content: center;
+    width: 618px;
+    height: 617px;
+  }
+}
+
+.graph {
+  width: 328px;
+  height: 413px;
+  @media all and (min-width: $min_tablet) {
+    width: 618px;
+    height: 617px;
+  }
+}

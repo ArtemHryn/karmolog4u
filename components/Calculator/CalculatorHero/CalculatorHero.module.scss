@@ -22,6 +22,7 @@
 .title {
   white-space: pre-line;
   @include fontRegular(32px, 400, 44.8px, $main_text_color, center);
+  text-transform: uppercase;
   margin-bottom: 40px;
   @media all and (min-width: $min_tablet) {
     @include fontRegular(48px, 400, 57.6px, $main_text_color, center);
@@ -44,7 +45,7 @@
 
 .desc {
   white-space: pre-line;
-  
+
   @include fontRegular(14px, 400, 19.6px, $seconds_text_color, center);
   &:not(:last-of-type) {
     margin-bottom: 24px;

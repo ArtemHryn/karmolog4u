@@ -1,0 +1,12 @@
+@import '/styles/main.scss';
+
+.matrix_wrapper {
+  border-top: 1px solid $seconds_text_color;
+  border-bottom: 1px solid $seconds_text_color;
+  background: $matrix_bg_gradient;
+}
+
+.talisman_of_matrix_wrapper {
+  display: flex;
+  justify-content: center;
+}

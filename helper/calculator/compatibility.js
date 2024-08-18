@@ -1,6 +1,6 @@
 import { checkNum, getPersonalGraph } from './personal';
 
-export const getCompatibilityGraph = ({ partners }) => {
+export const getCompatibilityGraph = ({ partners, skipCenter = false }) => {
   const result = partners.reduce((acc, partner) => {
     Object.entries(partner.matrix).forEach(([key, value]) => {
       acc[key] = (acc[key] || 0) + value;
@@ -10,7 +10,7 @@ export const getCompatibilityGraph = ({ partners }) => {
   Object.keys(result).forEach(el => {
     result[el] = checkNum(result[el]);
   });
-  return getPersonalGraph({ info: result, lifeMap: true, isPartners: true });
+  return getPersonalGraph({ info: result, lifeMap: true, isPartners: true, skipCenter });
 };
 
 export const getResultLifeMap = ({ info }) => {

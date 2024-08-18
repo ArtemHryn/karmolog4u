@@ -14,7 +14,7 @@ const ButtonsList = ({ date, name }) => {
   return (
     <ul className={styles.links_list}>
       {matrixLinks.map((links, index) =>
-        links.href === pathname ? null : (
+        `/${locale}${links.href}` === pathname ? null : (
           <li key={index}>
             <Link
               href={

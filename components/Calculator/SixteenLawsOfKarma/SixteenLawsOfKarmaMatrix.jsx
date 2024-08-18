@@ -43,11 +43,11 @@ const SixteenLawsOfKarmaMatrix = ({ date, name }) => {
 
   return (
     <div id="sixteen-laws">
-      <div className={styles.sixteen_laws_of_matrix_matrix_wrapper}>
+      <div className={styles.sixteen_laws_of_matrix_wrapper}>
         <SixteenLawsOfKarmaGraph matrix={matrix} name={name} date={date} />
         <SixteenLawsPeriods periods={periods} age={age} />
       </div>
-      <div className={styles.sixteen_laws_of_matrix_matrix_wrapper}>
+      <div className={styles.sixteen_laws_of_matrix_wrapper}>
         <SixteenWorkingCornersGraph matrix={matrix} />
         <SixteenWorkingCornerResult matrix={matrix} />
       </div>
