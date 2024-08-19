@@ -1,0 +1,184 @@
+@import '/styles/main.scss';
+
+.key {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  line-height: 28px !important;
+  text-align: center;
+  color: $seconds_text_color !important;
+  @media all and (min-width: $min_tablet) {
+    width: 35px;
+    font-size: 20px !important;
+  }
+}
+
+.key {
+  &_day {
+    top: 46.8%;
+    left: 0%;
+  }
+  &_topLeft1 {
+    top: 21.3%;
+    left: 13.5%;
+  }
+  &_month {
+    top: 10.5%;
+    left: 45.7%;
+  }
+  &_topRight1 {
+    top: 21.1%;
+    right: 12.5%;
+  }
+  &_year {
+    top: 46.4%;
+    right: 0%;
+  }
+  &_bottomRight1 {
+    bottom: 20.9%;
+    right: 13%;
+  }
+  &_bottom1 {
+    bottom: 10.5%;
+    right: 45.1%;
+  }
+  &_bottomLeft1 {
+    bottom: 21.1%;
+    left: 13.7%;
+  }
+  @media all and (min-width: $min_tablet) {
+    &_day {
+      top: 48.4%;
+      left: 1.6%;
+    }
+    &_topLeft1 {
+      top: 16.2%;
+      left: 15.5%;
+    }
+    &_month {
+      top: 2.5%;
+      left: 47.6%;
+    }
+    &_topRight1 {
+      top: 15.8%;
+      right: 14.2%;
+    }
+    &_year {
+      top: 48%;
+      right: 1.6%;
+    }
+    &_bottomRight1 {
+      bottom: 15%;
+      right: 14.6%;
+    }
+    &_bottom1 {
+      bottom: 1.7%;
+      right: 46.8%;
+    }
+    &_bottomLeft1 {
+      bottom: 15%;
+      left: 15.6%;
+    }
+  }
+}
+
+.main {
+  &_day {
+    top: 46.3%;
+    left: 0%;
+  }
+  &_topLeft1 {
+    top: 21.3%;
+    left: 13.5%;
+  }
+  &_month {
+    top: 10.5%;
+    left: 45.7%;
+  }
+  &_topRight1 {
+    top: 21.1%;
+    right: 12.5%;
+  }
+  &_year {
+    top: 46.2%;
+    right: 0%;
+  }
+  &_bottomRight1 {
+    bottom: 21.7%;
+    right: 13%;
+  }
+  &_bottom1 {
+    bottom: 11.4%;
+    right: 45.1%;
+  }
+  &_bottomLeft1 {
+    bottom: 22%;
+    left: 13.7%;
+  }
+  @media all and (min-width: $min_tablet) {
+    &_day {
+      top: 48.4%;
+      left: 1.6%;
+    }
+    &_topLeft1 {
+      top: 20.8%;
+      left: 15.5%;
+    }
+    &_month {
+      top: 9%;
+      left: 47.6%;
+    }
+    &_topRight1 {
+      top: 20.8%;
+      right: 14.2%;
+    }
+    &_year {
+      top: 48%;
+      right: 1.6%;
+    }
+    &_bottomRight1 {
+      bottom: 19.8%;
+      right: 14.6%;
+    }
+    &_bottom1 {
+      bottom: 8.7%;
+      right: 46.8%;
+    }
+    &_bottomLeft1 {
+      bottom: 20%;
+      left: 15.6%;
+    }
+  }
+}
+
+.center {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  line-height: 28px !important;
+  text-align: center;
+  color: $seconds_text_color !important;
+  top: 46.7%;
+  left: 45.9%;
+  &_main {
+    top: 46.4%;
+  }
+  @media all and (min-width: $min_tablet) {
+    width: 40px;
+    font-size: 22px !important;
+    top: 48.2%;
+    left: 47.2%;
+  }
+  @media all and (min-width: $min_desktop) {
+    top: 48.4%;
+    left: 47.2%;
+  }
+}

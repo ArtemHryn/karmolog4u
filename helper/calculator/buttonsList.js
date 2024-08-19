@@ -46,4 +46,11 @@ export const matrixLinks = [
     name: { uk: 'Матрицю свідомості', ru: 'Матрицу сознания' },
   },
   { href: '/calculator/matrix-of-soul', name: { uk: 'Матрицю душі', ru: 'Матрицу души' } },
+  {
+    href: '/calculator/talisman-of-the-star-of-prosperity',
+    name: {
+      uk: 'Талісман зірки процвітання',
+      ru: 'Талисман звезды процветания',
+    },
+  },
 ];

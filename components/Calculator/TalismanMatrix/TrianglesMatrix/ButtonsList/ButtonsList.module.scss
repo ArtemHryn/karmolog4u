@@ -1,0 +1,56 @@
+@import '/styles/main.scss';
+
+.list {
+  display: none;
+  @media all and (min-width: $min_desktop) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    margin-bottom: 80px;
+  }
+}
+
+.list_element {
+  flex-grow: 1;
+}
+
+.slider {
+  overflow: visible;
+  margin-bottom: 40px;
+  @media all and (min-width: $min_desktop) {
+    margin-bottom: 80px;
+  }
+  @media all and (min-width: $min_desktop) {
+    display: none;
+  }
+}
+.slide {
+  flex-shrink: 0;
+  width: auto !important;
+}
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 2;
+  padding: 0px 16px;
+  height: 51px;
+  width: auto;
+  border-radius: 30px;
+  background: $buttons_color;
+  @include fontRegular(16px, 600, 22.5px, $third_text_color);
+  transition: all 250ms ease-in;
+  &:is(:hover, :focus) {
+    background-color: $buttons_hover_color;
+  }
+  &_active {
+    background-color: $buttons_hover_color;
+  }
+  @media all and (min-width: $min_tablet) {
+    font-size: 18px;
+    padding: 0px 12px;
+    width: 100%;
+  }
+}

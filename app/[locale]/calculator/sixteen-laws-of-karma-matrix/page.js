@@ -28,7 +28,7 @@ const SixteenLawsOfKarmaPage = () => {
   const [name, setName] = useState('');
   const [isChecked, setIsChecked] = useState(false);
   return (
-    <main>
+    <>
       <Container>
         <Suspense fallback={<div></div>}>
           <SixteenLawsOfKarmaHero
@@ -49,7 +49,7 @@ const SixteenLawsOfKarmaPage = () => {
           <SocialInfoDesc socialList={social} />
         </>
       )}
-    </main>
+    </>
   );
 };
 

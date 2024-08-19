@@ -22,6 +22,7 @@ export const getPersonalGraph = ({
   parents,
   yearMatrix,
   sixteenLaws,
+  isStar,
 }) => {
   const data = { ...info };
 
@@ -45,6 +46,17 @@ export const getPersonalGraph = ({
 
   if (!skipCenter) {
     data.center = checkNum(data.day, data.month, data.year, data.bottom1);
+  }
+
+  //розрахунки центрів трикутників зірки процвітання
+  if (isStar) {
+    const pinkTriangle = checkNum(data.month, data.bottomRight1, data.bottomLeft1);
+    const blueTriangle = checkNum(data.topLeft1, data.topRight1, data.bottom1);
+    const purpleTriangle = checkNum(data.topLeft1, data.year, data.bottomLeft1);
+    const yellowTriangle = checkNum(data.topRight1, data.bottomRight1, data.day);
+    const energyTriangles = checkNum(pinkTriangle, blueTriangle);
+    const materialTriangles = checkNum(purpleTriangle, yellowTriangle);
+    data.center = checkNum(energyTriangles, materialTriangles);
   }
 
   //внутрішні основні точки

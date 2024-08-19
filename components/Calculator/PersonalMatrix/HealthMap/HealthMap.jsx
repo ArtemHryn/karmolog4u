@@ -14,8 +14,8 @@ const HealthMap = ({ health }) => {
         {t('health_map')}
       </Title>
       <ul className={styles.chakraname_list}>
-        {health.columnName[locale].map(el => (
-          <li key={el} className={styles.chakraname_list_item}>
+        {health.columnName[locale].map((el, index) => (
+          <li key={index} className={styles.chakraname_list_item}>
             <Title variant="p" styled={styles.chakraname_text}>
               {el}
             </Title>
@@ -23,8 +23,8 @@ const HealthMap = ({ health }) => {
         ))}
       </ul>
       <ul>
-        {health.chakraList.map(el => (
-          <li key={el.chakraName} className={styles.chakra_element}>
+        {health.chakraList.map((el, index) => (
+          <li key={index} className={styles.chakra_element}>
             <ChakraElement chakra={el} />
           </li>
         ))}

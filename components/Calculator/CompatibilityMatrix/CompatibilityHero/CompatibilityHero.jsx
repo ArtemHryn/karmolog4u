@@ -11,7 +11,7 @@ const heroData = {
       name: 'Калькулятор',
     },
     {
-      href: '/compatibility-matrix',
+      href: '/calculator/compatibility-matrix',
       name: { uk: 'Розрахувати матрицю сумісності', ru: 'Рассчитать матрицу совместимости' },
     },
   ],
