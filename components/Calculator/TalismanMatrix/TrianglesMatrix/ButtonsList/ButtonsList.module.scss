@@ -9,7 +9,15 @@
     gap: 16px;
     width: 100%;
     margin-bottom: 80px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
   }
+}
+
+.scrolling {
+  background: $matrix_bg_gradient;
+  transition: background-color 0.3s ease;
 }
 
 .list_element {
