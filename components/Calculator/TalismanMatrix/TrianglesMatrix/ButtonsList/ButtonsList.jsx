@@ -5,6 +5,7 @@ import { open_Sans } from '@app/[locale]/layout';
 import 'swiper/css';
 import styles from './ButtonsList.module.scss';
 import './slider.scss';
+import { useEffect, useState } from 'react';
 
 const buttons = {
   uk: [
@@ -28,11 +29,29 @@ const buttons = {
 };
 
 const ButtonsList = ({ activeTriangle, setActiveTriangle }) => {
+  const [isScrolling, setIsScrolling] = useState(false);
   const locale = useLocale();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const list = document.querySelector('#triangle-button-list');
+      const rect = list.getBoundingClientRect();
+      const isScrollingNow = rect.top <= 0; // Початок руху списку
+      setIsScrolling(isScrollingNow);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <>
-      <ul className={styles.list}>
+      <ul
+        className={`${styles.list} ${isScrolling ? styles.scrolling : ''}`}
+        id="triangle-button-list"
+      >
         {buttons[locale].map((el, index) => (
           <li key={index} className={styles.list_element}>
             <button
