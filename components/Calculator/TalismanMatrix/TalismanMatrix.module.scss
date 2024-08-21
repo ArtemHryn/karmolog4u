@@ -4,7 +4,9 @@
   border-top: 1px solid $seconds_text_color;
   border-bottom: 1px solid $seconds_text_color;
   background: $matrix_bg_gradient;
-  overflow: visible;
+  @media all and (min-width: $min_desktop) {
+    overflow: visible;
+  }
 }
 
 .talisman_of_matrix_wrapper {
