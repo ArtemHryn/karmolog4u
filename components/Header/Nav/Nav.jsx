@@ -31,7 +31,7 @@ const links = [
         name: { uk: 'Консультантський курс', ru: 'Консультантський курс' },
         link: '/consulting-course',
       },
-      { name: { uk: 'Поглиблений курс', ru: 'Поглиблений курс' }, link: '/advanced-course' },
+      { name: { uk: 'Поглиблений курс', ru: 'Углубленный курс' }, link: '/advanced-course' },
     ],
     id: 13,
   },
