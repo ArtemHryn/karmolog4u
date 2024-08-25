@@ -9,7 +9,7 @@
 }
 
 .title {
-  text-align: center;
+  text-align: center !important;
   margin-bottom: 40px;
   @media all and (min-width: $min_tablet) {
     margin-bottom: 48px;
