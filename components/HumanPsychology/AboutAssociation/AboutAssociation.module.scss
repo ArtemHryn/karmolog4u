@@ -39,8 +39,9 @@
     padding: 60px 54px;
   }
   @media all and (min-width: $min_desktop) {
-    padding: 73px 54.5px;
+    padding: 0px 54.5px;
     width: 737px;
+    justify-content: center;
   }
 }
 

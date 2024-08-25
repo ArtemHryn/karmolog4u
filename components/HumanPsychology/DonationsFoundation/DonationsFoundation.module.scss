@@ -19,6 +19,9 @@
 
 .title {
   @include fontRegular(28px, 400, 39.2px, $main_text_color, center);
+  &_ru {
+    font-size: 22px;
+  }
   @media all and (min-width: $min_tablet) {
     @include fontRegular(36px, 400, 43.2px, $main_text_color, center);
   }

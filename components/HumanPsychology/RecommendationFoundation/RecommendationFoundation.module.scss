@@ -15,6 +15,9 @@
 
 .title {
   @include fontRegular(28px, 400, 39.2px, $main_text_color, center);
+  &_ru{
+    font-size: 24px;
+  }
   @media all and (min-width: $min_tablet) {
     @include fontRegular(36px, 400, 43.2px, $main_text_color, center);
   }
@@ -52,8 +55,9 @@
     padding: 60px 54px;
   }
   @media all and (min-width: $min_desktop) {
-    padding: 66px 54.5px;
+    padding: 0px 54.5px;
     width: 737px;
+    justify-content: center;
   }
 }
 

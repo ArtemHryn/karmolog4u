@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import Container from '@components/Common/Container/Container';
 import Title from '@components/Common/Title/Title';
 import { open_Sans } from '@app/[locale]/layout';
@@ -13,31 +14,26 @@ import Stethoscope from '@components/Common/Icons/PshychoIcons/Stethoscope';
 import styles from './TasksAssociation.module.scss';
 
 const TasksAssociation = () => {
+  const t = useTranslations('Human_psychology.Association.Tasks');
   return (
     <Container styledSection={styles.section} styled={styles.container}>
       <div className={styles.spot} />
-      <Title styled={styles.title}>Завдання нашої Громадської організації та Асоціації</Title>
+      <Title variant="h2" styled={styles.title}>
+        {t('title')}
+      </Title>
       <ul className={styles.main_list}>
         <li className={styles.main_list_item}>
           <ul className={styles.inner_list}>
             <li className={styles.inner_list_item}>
-              <p className={styles.text}>
-                Задоволення гуманітарних потреб дітей, зокрема доступу до освіти, психосоціальної
-                допомоги та кураторства
-              </p>
+              <p className={styles.text}>{t('task1')}</p>
               <GraduationCap styled={styles.icon} />
             </li>
             <li className={`${styles.inner_list_item} ${styles.inner_list_item_gold}`}>
-              <p className={`${styles.text} ${styles.text_dark}`}>
-                Розвиток та поглиблення співробітництва з міжнародними організаціями задля
-                поставленої мети
-              </p>
+              <p className={`${styles.text} ${styles.text_dark}`}>{t('task2')}</p>
               <ChatArrowGrow styled={styles.icon} />
             </li>
             <li className={`${styles.inner_list_item} ${styles.inner_list_item_light}`}>
-              <p className={`${styles.text} ${styles.text_dark}`}>
-                Покращення безпеки здоров&apos;я
-              </p>
+              <p className={`${styles.text} ${styles.text_dark}`}>{t('task3')}</p>
               <Stethoscope styled={`${styles.icon}`} />
             </li>
           </ul>
@@ -45,38 +41,27 @@ const TasksAssociation = () => {
         <li className={styles.main_list_item}>
           <ul className={styles.inner_list}>
             <li className={`${styles.inner_list_item} ${styles.inner_list_item_light}`}>
-              <p className={`${styles.text} ${styles.text_dark}`}>
-                Впровадження високих соціальних стандартів життя для кожного
-              </p>
+              <p className={`${styles.text} ${styles.text_dark}`}>{t('task4')}</p>
               <Document styled={styles.icon} />
             </li>
             <li className={`${styles.inner_list_item} ${styles.inner_list_item_gold}`}>
-              <p className={`${styles.text} ${styles.text_dark}`}>
-                Популяризація та дотримання принципів гендерної рівності
-              </p>
+              <p className={`${styles.text} ${styles.text_dark}`}>{t('task5')}</p>
               <VenusMars styled={styles.icon} />
             </li>
             <li className={styles.inner_list_item}>
-              <p className={styles.text}>
-                Гуманітарна та інша допомога дітям, які позбавлені батьківського піклування,
-                підліткам, особам з інвалідністю, хворим, а також дитячим будинкам та закладам
-                знаходження зазначених груп людей тощо
-              </p>
+              <p className={styles.text}>{t('task6')}</p>
               <HandHoldingHeart styled={styles.icon} />
             </li>
           </ul>
         </li>
       </ul>
       <div className={styles.write_us_wrapper}>
-        <p className={styles.write_us_text}>
-          Звісно перелік наших завдань набагато ширший, але важливо інше – ви завжди можете написати
-          нам про свою проблему й ми спробуємо допомогти, зарадити чи підтримати
-        </p>
+        <p className={styles.write_us_text}>{t('you_always_can_write_us')}</p>
         <Link
           href={'https://t.me/karmologforyou'}
           className={`${styles.write_us_btn} ${open_Sans.className}`}
         >
-          Написати
+          {t('button')}
         </Link>
       </div>
     </Container>
