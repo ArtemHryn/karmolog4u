@@ -7,8 +7,11 @@
 .title {
   @include fontRegular(32px, 400, 44.8px, $main_text_color, center);
   text-wrap: balance;
-  &_ru{
+  &_ru {
     font-size: 30px;
+  }
+  &_foundation {
+    font-size: 22px;
   }
   @media all and (min-width: $min_tablet) {
     @include fontRegular(48px, 400, 48px, $main_text_color, center);

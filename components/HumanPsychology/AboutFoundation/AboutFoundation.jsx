@@ -3,12 +3,14 @@ import Image from 'next/image';
 
 import styles from './AboutFoundation.module.scss';
 import Title from '@components/Common/Title/Title';
+import { useTranslations } from 'next-intl';
 
 function AboutFoundation() {
+  const t = useTranslations('Human_psychology.Foundation.about');
   return (
     <>
       <Container>
-        <h1 className="visually-hidden">БЛАГОДІЙНИЙ ФОНД</h1>
+        <h2 className="visually-hidden">{t('title')}</h2>
         <div className={styles.section}>
           <picture className={styles.img}>
             <source
@@ -25,27 +27,15 @@ function AboutFoundation() {
             />
           </picture>
           <article className={styles.article}>
-            <p className={styles.text}>
-              Кармологи часто кажуть, що без щедрості багатства не буває. Ні, це зовсім не означає,
-              що ви взагалі не матимете грошей, проте, вище певного рівня “виживання” не пригнете.
-            </p>
-            <p className={styles.text}>
-              Досвід наших пращурів навчив накопичувати, ховати під матрац та економити, але час
-              змінювати свою свідомість, а відповідно, й світ навколо.
-            </p>
-            <p className={styles.text}>
-              Спробуйте інший підхід до грошей, зробіть благодійний внесок і відчуйте силу
-              кармічного відкупу.
-            </p>
-            <p className={styles.text}>
-              Кожен донат від щирого серця сприяє глобальній трансформації та на додаток, допомагає
-              реалізації ваших власних бажань.
-            </p>
+            <p className={styles.text}>{t('text1')}</p>
+            <p className={styles.text}>{t('text2')}</p>
+            <p className={styles.text}>{t('text3')}</p>
+            <p className={styles.text}>{t('text4')}</p>
           </article>
         </div>
       </Container>
       <Container>
-        <Title styled={styles.title}>Донати, які реалізують мрії!</Title>
+        <Title styled={styles.title}>{t('additional_title')}</Title>
         <div className={styles.section}>
           <picture className={styles.img}>
             <source
@@ -62,15 +52,8 @@ function AboutFoundation() {
             />
           </picture>
           <article className={styles.article}>
-            <p className={styles.text}>
-              Благодійний фонд “Психологія людської долі” пропонує вам можливість зробити внесок для
-              реалізації вашого наміру та підтримки тих, хто цього дійсно потребує.
-            </p>
-            <p className={styles.text}>
-              Поєднати корисне та приємне – не питання, адже ваші донати – це енергія, яку ви зі
-              своїм конкретним наміром відправляєте, і яка примноженою, повертається до вас й
-              пришвидшує отримання бажаного.
-            </p>
+            <p className={styles.text}>{t('text5')}</p>
+            <p className={styles.text}>{t('text6')}</p>
           </article>
         </div>
       </Container>

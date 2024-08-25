@@ -1,26 +1,29 @@
-"use client";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
-import Container from "@components/Common/Container/Container";
-import Title from "@components/Common/Title/Title";
-import React from "react";
+'use client';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { useTranslations } from 'next-intl';
+import { Pagination } from 'swiper';
+import Container from '@components/Common/Container/Container';
+import Card from './Card';
+import Title from '@components/Common/Title/Title';
+import React from 'react';
 
-import styles from "./CollaborativeSuccessFoundation.module.scss";
+import styles from './CollaborativeSuccessFoundation.module.scss';
 
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/effect-creative";
-import Card from "./Card";
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-creative';
 
 const collaborativeSuccess = [
-  "/assets/images/humanPsychology/collaborativeFoundation_1.webp",
-  "/assets/images/humanPsychology/collaborativeFoundation_2.webp",
-  "/assets/images/humanPsychology/collaborativeFoundation_3.webp",
-  "/assets/images/humanPsychology/collaborativeFoundation_4.webp",
-  "/assets/images/humanPsychology/collaborativeFoundation_5.webp",
+  '/assets/images/humanPsychology/collaborativeFoundation_1.webp',
+  '/assets/images/humanPsychology/collaborativeFoundation_2.webp',
+  '/assets/images/humanPsychology/collaborativeFoundation_3.webp',
+  '/assets/images/humanPsychology/collaborativeFoundation_4.webp',
+  '/assets/images/humanPsychology/collaborativeFoundation_5.webp',
 ];
 
 function CollaborativeSuccessFoundation() {
+  const t = useTranslations('Human_psychology.Foundation.collaboration');
+
   const pagination = {
     clickable: true,
     renderBullet: function (index, className) {
@@ -30,20 +33,20 @@ function CollaborativeSuccessFoundation() {
   return (
     <Container styled={styles.container} styledSection={styles.section}>
       <Title styled={styles.title} variant="h2">
-        Разом ми змогли допомогти
+        {t('title')}
       </Title>
       <Swiper
         className={styles.swiper}
         style={{
-          "--swiper-pagination-bottom": "0px",
-          "--swiper-pagination-bullet-inactive-color": "#454545;",
-          "--swiper-pagination-color": "#CFB691",
+          '--swiper-pagination-bottom': '0px',
+          '--swiper-pagination-bullet-inactive-color': '#454545;',
+          '--swiper-pagination-color': '#CFB691',
         }}
         modules={[Pagination]}
         grabCursor={true}
         pagination={pagination}
         spaceBetween={24}
-        slidesPerView={"auto"}
+        slidesPerView={'auto'}
         // loop={true}
       >
         {collaborativeSuccess.map((source, index) => (

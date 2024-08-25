@@ -45,7 +45,10 @@ const links = [
         },
         link: '/association',
       },
-      { name: { uk: 'Благодійний фонд', ru: 'Благодійний фонд' }, link: '/charitable-foundation' },
+      {
+        name: { uk: 'Благодійний фонд', ru: 'Благотворительный фонд' },
+        link: '/charitable-foundation',
+      },
     ],
     id: 14,
   },

@@ -6,13 +6,17 @@ import styles from './Hero.module.scss';
 import { useLocale } from 'next-intl';
 import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
 
-const Hero = ({ links, title }) => {
+const Hero = ({ links, title, foundation }) => {
   const locale = useLocale();
   const localizedTitle = typeof title === 'string' ? title : title[locale];
   return (
     <Container styledSection={styles.section}>
       <HeroNav linkNames={links} />
-      <TitleNoStyles styled={`${styles.title} ${locale === 'ru' ? styles.title_ru : ''}`}>
+      <TitleNoStyles
+        styled={`${styles.title} ${
+          foundation ? styles.title_foundation : locale === 'ru' ? styles.title_ru : ''
+        }`}
+      >
         {localizedTitle.split('<br />').map((line, index) => (
           <React.Fragment key={index}>
             {line}

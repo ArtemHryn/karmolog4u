@@ -1,22 +1,26 @@
-import AboutFoundation from "@components/HumanPsychology/AboutFoundation/AboutFoundation";
-import CollaborativeSuccessFoundation from "@components/HumanPsychology/CollaborativeSuccessFoundation/CollaborativeSuccessFoundation";
-import DonationsFoundation from "@components/HumanPsychology/DonationsFoundation/DonationsFoundation";
-import Hero from "@components/HumanPsychology/Hero/Hero";
+import AboutFoundation from '@components/HumanPsychology/AboutFoundation/AboutFoundation';
+import CollaborativeSuccessFoundation from '@components/HumanPsychology/CollaborativeSuccessFoundation/CollaborativeSuccessFoundation';
+import DonationsFoundation from '@components/HumanPsychology/DonationsFoundation/DonationsFoundation';
+import Hero from '@components/HumanPsychology/Hero/Hero';
 // import MyHistoryFoundation from "@components/HumanPsychology/MyHistoryFoundation/MyHistoryFoundation";
-import RecommendationFoundation from "@components/HumanPsychology/RecommendationFoundation/RecommendationFoundation";
-import Feedback from "@components/Main/Feedback/Feedback";
+import RecommendationFoundation from '@components/HumanPsychology/RecommendationFoundation/RecommendationFoundation';
+import Feedback from '@components/Main/Feedback/Feedback';
 
 const links = [
   {
-    name: "ГО “Психологія людської долі”",
-    href: "/charitable-foundation",
+    name: { uk: 'ГО "Психологія людської долі"', ru: 'ОО "Психология человеческой судьбы"' },
+    href: '/charitable-foundation',
   },
 ];
 
 const CharitableFoundationPage = () => {
   return (
     <>
-      <Hero links={links} title={"БЛАГОДІЙНИЙ ФОНД"} />
+      <Hero
+        links={links}
+        title={{ uk: 'БЛАГОДІЙНИЙ ФОНД', ru: 'БЛАГОТВОРИТЕЛЬНЫЙ ФОНД' }}
+        foundation={true}
+      />
       <AboutFoundation />
       <RecommendationFoundation />
       <DonationsFoundation />
