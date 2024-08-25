@@ -10,7 +10,7 @@ const heroData = {
       name: 'Калькулятор',
     },
     {
-      href: '/nine-tribes-matrix',
+      href: '/calculator/nine-tribes-matrix',
       name: { uk: 'Розрахувати матрицю "9 колін Роду"', ru: 'Рассчитать матрицу "9 колен Рода"' },
     },
   ],

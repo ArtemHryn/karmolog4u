@@ -14,7 +14,7 @@ const heroData = {
       name: 'Калькулятор',
     },
     {
-      href: '/groups-of-people-matrix',
+      href: '/calculator/groups-of-people-matrix',
       name: { uk: 'Розрахувати матрицю групи людей', ru: 'Рассчитать матрицу группы людей' },
     },
   ],

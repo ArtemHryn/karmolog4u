@@ -10,7 +10,7 @@ const heroData = {
       name: 'Калькулятор',
     },
     {
-      href: '/matrix-of-the-year',
+      href: '/calculator/matrix-of-the-year',
       name: { uk: 'Розрахувати матрицю року', ru: 'Рассчитать матрицу года' },
     },
   ],

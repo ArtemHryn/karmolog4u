@@ -10,7 +10,7 @@ const heroData = {
       name: 'Калькулятор',
     },
     {
-      href: '/personal-matrix-of-fade',
+      href: '/calculator/personal-matrix-of-fade',
       name: { uk: 'Розрахувати особисту матрицю', ru: 'Рассчитать личную матрицу' },
     },
   ],

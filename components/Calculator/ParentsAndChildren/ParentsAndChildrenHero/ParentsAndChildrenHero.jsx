@@ -10,7 +10,7 @@ const heroData = {
       name: 'Калькулятор',
     },
     {
-      href: '/parents-and-children-matrix',
+      href: '/calculator/parents-and-children-matrix',
       name: {
         uk: 'Розрахувати матрицю "Батьки та діти"',
         ru: 'Рассчитать матрицу "Родители и дети"',
