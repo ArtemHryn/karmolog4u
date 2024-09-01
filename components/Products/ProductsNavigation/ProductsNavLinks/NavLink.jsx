@@ -1,10 +1,12 @@
-import { useSwiper } from "swiper/react";
 import { useEffect } from "react";
+import Link from "next/link";
+import { useSwiper } from "swiper/react";
+import { useLocale } from "next-intl";
 
 import styles from "./ProductsNavLinks.module.scss";
-import Link from "next/link";
 
 const NavLink = ({ link, index, currentRoute }) => {
+  const locale = useLocale()
   const swiper = useSwiper();
   useEffect(() => {
     currentRoute === link.href && swiper.slideTo(index, 300);
@@ -12,11 +14,9 @@ const NavLink = ({ link, index, currentRoute }) => {
   return (
     <Link
       href={link.href}
-      className={`${styles.link} ${
-        currentRoute === link.href && styles.link_active
-      }`}
+      className={`${styles.link} ${currentRoute === link.href && styles.link_active}`}
     >
-      {link.name}
+      {typeof link.name === 'string' ? link.name : link.name[locale]}
     </Link>
   );
 };

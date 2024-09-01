@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import styles from "./Meditations.module.scss";
 
 const MeditationsCheckBoxes = ({
@@ -8,6 +9,8 @@ const MeditationsCheckBoxes = ({
   showOpenedMeditation,
   showClosedMeditation,
 }) => {
+
+  const t = useTranslations('Author_products.meditations.checkboxes');
   return (
     <ul className={styles.list}>
       <li>
@@ -16,9 +19,9 @@ const MeditationsCheckBoxes = ({
             type="checkbox"
             id="check-23"
             checked={energies}
-            onChange={(e) => {
+            onChange={e => {
               setEnergies(e.target.checked);
-              window.localStorage.setItem("energies", JSON.stringify(e.target.checked));
+              window.localStorage.setItem('energies', JSON.stringify(e.target.checked));
             }}
           />
           <label htmlFor="check-23">
@@ -26,7 +29,7 @@ const MeditationsCheckBoxes = ({
               <path d="M5 30 L 20 45 L 45 5"></path>
             </svg>
           </label>
-          <p className={styles.text}>Медитації по 22 енергіях</p>
+          <p className={styles.text}>{t('energies')}</p>
         </div>
       </li>
       <li>
@@ -35,12 +38,9 @@ const MeditationsCheckBoxes = ({
             type="checkbox"
             id="check-24"
             checked={showClosedMeditation}
-            onChange={(e) => {
+            onChange={e => {
               setShowClosedMeditation(e.target.checked);
-              window.localStorage.setItem(
-                "showClosedMeditation",
-                JSON.stringify(e.target.checked)
-              );
+              window.localStorage.setItem('showClosedMeditation', JSON.stringify(e.target.checked));
             }}
           />
           <label htmlFor="check-24">
@@ -48,7 +48,7 @@ const MeditationsCheckBoxes = ({
               <path d="M5 30 L 20 45 L 45 5"></path>
             </svg>
           </label>
-          <p className={styles.text}>Медитації у закритому доступі</p>
+          <p className={styles.text}>{t('closed')}</p>
         </div>
       </li>
       <li>
@@ -57,12 +57,9 @@ const MeditationsCheckBoxes = ({
             type="checkbox"
             id="check-25"
             checked={showOpenedMeditation}
-            onChange={(e) => {
+            onChange={e => {
               setShowOpenedMeditation(e.target.checked);
-              window.localStorage.setItem(
-                "showOpenedMeditation",
-                JSON.stringify(e.target.checked)
-              );
+              window.localStorage.setItem('showOpenedMeditation', JSON.stringify(e.target.checked));
             }}
           />
           <label htmlFor="check-25">
@@ -70,7 +67,7 @@ const MeditationsCheckBoxes = ({
               <path d="M5 30 L 20 45 L 45 5"></path>
             </svg>
           </label>
-          <p className={styles.text}>Медитації у відкритому доступі</p>
+          <p className={styles.text}>{t('opened')}</p>
         </div>
       </li>
     </ul>
