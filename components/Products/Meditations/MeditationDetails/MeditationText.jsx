@@ -1,21 +1,34 @@
-import Title from "@components/Common/Title/Title";
-import Link from "next/link";
+import Title from '@components/Common/Title/Title';
+import Link from 'next/link';
 
-import styles from "./MeditationsDescriptions.module.scss";
-import MeditationsTextList from "./MeditationsTextList";
+import styles from './MeditationsDescriptions.module.scss';
+import MeditationsTextList from './MeditationsTextList';
+import useLocalizedValue from '@hooks/useLocalizedValue';
+import { useTranslations } from 'next-intl';
 
 const list = {
-  title: "ЯК ОТРИМАТИ МЕДИТАЦІЮ?",
-  text: [
-    "Натисніть на кнопку “Придбати” та заповніть дані, вказавши ім’я, електронну адресу та номер мобільного телефону.",
-    "Здійсніть оплату вибраного матеріалу.",
-    "Одразу після успішної транзакції вам на пошту прийде лист з доступом до особистого кабінету, де буде розміщена медитація.",
-  ],
+  title: { uk: 'ЯК ОТРИМАТИ МЕДИТАЦІЮ?', ru: 'КАК ПОЛУЧИТЬ МЕДИТАЦИЮ?' },
+  text: {
+    uk: [
+      'Натисніть на кнопку “Придбати” та заповніть дані, вказавши ім’я, електронну адресу та номер мобільного телефону.',
+      'Здійсніть оплату вибраного матеріалу.',
+      'Одразу після успішної транзакції вам на пошту прийде лист з доступом до особистого кабінету, де буде розміщена медитація.',
+    ],
+    ru: [
+      'Нажмите на кнопку "Купить" и заполните данные, указав имя, электронный адрес и номер мобильного телефона.',
+      'Оплатите выбранный материал.',
+      'После успешной транзакции, вы получите электронное письмо с доступом в личный кабинет, где и будет размещена медитация.',
+    ],
+  },
 };
 
 const MeditationText = ({ name, desc, price, category, img }) => {
-  const categoryList = ["closed", "webinars"];
-  const pic = img ? img.split("/") : null;
+  const t = useTranslations('Author_products.meditations.list');
+  const categoryList = ['closed', 'webinars'];
+  const pic = img ? img.split('/') : null;
+
+  const localizedText = useLocalizedValue(desc.text);
+  const localizedWarning = useLocalizedValue(desc.warning);
 
   return (
     <div>
@@ -26,18 +39,18 @@ const MeditationText = ({ name, desc, price, category, img }) => {
             {price}
           </Title>
           <Link
-            href={`/products/buy-product?${
-              price ? `price=${price}` : ""
-            }&name=${name}&pic=${img ? pic[pic.length - 1] : ""}`}
+            href={`/products/buy-product?${price ? `price=${price}` : ''}&name=${name}&pic=${
+              img ? pic[pic.length - 1] : ''
+            }`}
             className={styles.button}
           >
-            Придбати
+            {t('buy_button')}
           </Link>
         </>
       )}
       {desc?.text && (
         <div className={styles.text_wrapper}>
-          {desc.text.map((el) => (
+          {localizedText.map(el => (
             <p key={el} className={styles.text}>
               {el}
             </p>
@@ -47,8 +60,8 @@ const MeditationText = ({ name, desc, price, category, img }) => {
       <div className={styles.list_wrapper}>
         {categoryList.includes(category) && <MeditationsTextList list={list} />}
         {desc?.list && <MeditationsTextList list={desc.list} />}
+        {desc?.warning && <p>{localizedWarning}</p>}
       </div>
-      {desc?.warning && <p>{desc.warning}</p>}
     </div>
   );
 };

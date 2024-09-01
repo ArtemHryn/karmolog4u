@@ -1,21 +1,15 @@
+import { useTranslations } from 'next-intl';
 import styles from './Meditations.module.scss';
 
 const AboutArcanes = () => {
+  const t = useTranslations('Author_products.meditations.about_arcanes');
   return (
     <>
-      <p className={styles.about_arcanes}>
-        Медитації на 22 архетипи — це медитативні техніки, створені разом з моїми геніальними учнями
-        базуючись на моїх авторських методиках. Ці медитації написані за чітким алгоритмом, який
-        сприяє формуванню нових нейронних програм у нашій свідомості та підсвідомості, що дає
-        максимально позитивний терапевтичний ефект.
-      </p>
-      <p className={styles.about_arcanes_second}>
-        Медитації рекомендовано слухати 22 дні поспіль, без пропусків.{' '}
-        <span>
-          Першочергово я рекомендую обирати саме ті налаштування, які відповідають енергіям у вашій
-          матриці долі.
-        </span>
-      </p>
+      <p className={styles.about_arcanes}>{t('text1')}</p>
+      <p
+        className={styles.about_arcanes_second}
+        dangerouslySetInnerHTML={{ __html: t.raw('text2') }}
+      />
     </>
   );
 };

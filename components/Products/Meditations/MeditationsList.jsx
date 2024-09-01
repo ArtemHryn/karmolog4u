@@ -11,14 +11,6 @@ const MeditationsList = ({
 }) => {
   const [meditationList, setMeditationList] = useState([]);
   useEffect(() => {
-    if (!energies && !showOpenedMeditation && !showClosedMeditation) {
-      setMeditationList([
-        ...list.getMeditationsArcanesList(),
-        ...list.getClosedMeditationsList(),
-        ...list.getOpenedMeditationsList(),
-      ]);
-      return;
-    }
     setMeditationList([
       ...(energies ? list.getMeditationsArcanesList() : []),
       ...(showClosedMeditation ? list.getClosedMeditationsList() : []),
@@ -29,8 +21,8 @@ const MeditationsList = ({
   if (meditationList.length === 0) return null;
   return (
     <ul className={styles.meditation_list}>
-      {meditationList.map((el) => (
-        <li key={el.name} className={styles.meditation_list_item}>
+      {meditationList.map((el, index) => (
+        <li key={index} className={styles.meditation_list_item}>
           <Meditation card={el} />
         </li>
       ))}
