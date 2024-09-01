@@ -15,9 +15,9 @@ const links = [
   },
 ];
 
-function Calculator() {
+function Calculator({ params: { locale } }) {
   const t = useTranslations('Calculator.More');
-  const locale = useLocale();
+
   return (
     <>
       <Container styledSection={styles.container}>

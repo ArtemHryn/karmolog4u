@@ -103,7 +103,11 @@ function Nav() {
               >
                 {item.links.map((link, index) => (
                   <li key={index} className={styles.dropdown_item}>
-                    <a href={link.link} className={styles.dropdown_link}>
+                    <a
+                      href={`/${locale}${link.link}`}
+                      className={styles.dropdown_link}
+                      locale={locale}
+                    >
                       {link.name[locale]}
                     </a>
                   </li>
@@ -112,7 +116,7 @@ function Nav() {
             </li>
           ) : (
             <li>
-              <a href={item.links} className={styles.title}>
+              <a href={item.links} className={styles.title} locale={locale}>
                 {item.title[locale]}
               </a>
             </li>
