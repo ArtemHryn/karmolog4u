@@ -11,23 +11,13 @@ import User from '@components/Common/Icons/User';
 import Burger from '@components/Common/Icons/Burger';
 
 import styles from './Header.module.scss';
+import LanguageSwitcher from './LanguageSwitcher/LanguageSwitcher';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(null);
-  const [searchString, setSearchString] = useState('');
-  const locale = useLocale();
   const pathName = usePathname();
   const search = useSearchParams();
-  useEffect(() => {
-    let string = '';
-    for (const [key, value] of search.entries()) {
-      string += `${key}=${value}&`;
-    }
-    if (string) {
-      string = string.slice(0, -1);
-    }
-    setSearchString(string);
-  }, [search]);
+
 
   useEffect(() => {
     if (!isOpen) {
@@ -36,6 +26,13 @@ function Header() {
       document.body.style.overflow = 'hidden';
     }
   }, [isOpen]);
+
+  const cleanedPathname = pathName.replace(/^\/[a-z]{2}(\/|$)/, '/');
+
+  const createLocaleLink = locale => {
+    const currentParams = new URLSearchParams(search.toString());
+    return `/${locale}${cleanedPathname}?${currentParams.toString()}`;
+  };
 
   return (
     <header className={styles.wrap}>
@@ -54,19 +51,10 @@ function Header() {
           <Nav />
         </div>
         <div className={styles.add_nav}>
-          <Link
-            href={`${pathName.replace(`/${locale}/`, `/${locale === 'uk' ? 'ru' : 'uk'}/`)}${
-              searchString ? `?${searchString}` : ''
-            }`}
-            className={`${styles.hover} ${styles.bag}`}
-            data-after="0"
-            locale={locale}
-          >
-            <ShoppingBag />
-          </Link>
-          <Link href={'#'} locale={locale} className={styles.hover}>
+          <Link href={createLocaleLink('ru')} locale={'ru'} className={styles.hover}>
             <User />
           </Link>
+          <LanguageSwitcher />
           <MobileNav isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
       </div>

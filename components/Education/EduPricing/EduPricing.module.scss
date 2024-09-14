@@ -15,9 +15,21 @@
   @include fontRegular(16px, 400, 22.4px);
 }
 
+.card_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 24px 0px;
+  @media all and (min-width: $min_tablet) {
+    margin-top: 32px;
+  }
+  @media all and (min-width: $min_desktop) {
+    margin-top: 40px;
+  }
+}
+
 .card {
   padding: 20px 0px;
-  margin: 24px 0px;
   border-radius: 30px;
   background-color: $card_bg_v2;
   display: flex;
@@ -29,12 +41,10 @@
     flex-direction: row;
     justify-content: center;
     gap: 60px;
-    margin-top: 32px;
   }
   @media all and (min-width: $min_desktop) {
     gap: 120px;
     padding: 30px 43px;
-    margin-top: 40px;
   }
 }
 
@@ -86,6 +96,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media all and (min-width: $min_desktop) {
+    width: 355px;
+  }
 }
 
 .card_price {
@@ -101,7 +114,22 @@
   @media all and (min-width: $min_tablet) {
     @include fontRegular(18px, 400, 25.2px, $main_text_color);
   }
+}
 
+.additional_info_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  @media all and (min-width: $min_tablet) {
+    gap: 36px;
+  }
+}
+
+.additional_info_title {
+  @include fontRegular(14px, 400, 19.6px, $main_text_color, center);
+  @media all and (min-width: $min_tablet) {
+    font-size: 18px;
+  }
 }
 
 .info {
@@ -113,25 +141,31 @@
   }
   @media all and (min-width: $min_desktop) {
     flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.info_element {
+  @media all and (min-width: $min_desktop) {
+    width: 628px;
   }
 }
 
 .info_card {
   display: flex;
   align-items: center;
-  height: 130px;
+  min-height: 130px;
   padding: 0 32px;
   border-radius: 30px;
   border: 1px solid $seconds_text_color;
   background-color: $black;
   @media all and (min-width: $min_tablet) {
     padding: 0 92px;
-    height: 80px;
+    min-height: 80px;
   }
   @media all and (min-width: $min_desktop) {
-    height: 125px;
+    min-height: 125px;
     padding: 0 41px;
     width: 100%;
-    min-width: 411px;
   }
 }

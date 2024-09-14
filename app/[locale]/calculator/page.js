@@ -1,4 +1,4 @@
-import { useLocale, useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import Container from '@components/Common/Container/Container';
 import HeroNav from '@components/Common/HeroNav/HeroNav';

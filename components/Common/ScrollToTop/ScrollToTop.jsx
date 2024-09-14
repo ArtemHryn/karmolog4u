@@ -5,26 +5,14 @@ import { useEffect, useState } from 'react';
 import styles from './ScrollToTop.module.scss';
 import { open_Sans } from '@app/[locale]/layout';
 import { useTranslations } from 'next-intl';
+import useScrollManager from '@hooks/useScrollManager';
 
 const ScrollToTop = () => {
-  const [showButton, setShowButton] = useState(false);
+  const { showButton, smoothScrollToTop } = useScrollManager();
   const t = useTranslations('Common.ScrollToTop');
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 300) {
-        setShowButton(true);
-      } else {
-        setShowButton(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
+ 
   return showButton ? (
-    <button onClick={() => window.scrollTo(0, 0)} className={styles.btn}>
+    <button onClick={smoothScrollToTop} className={styles.btn}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 13"

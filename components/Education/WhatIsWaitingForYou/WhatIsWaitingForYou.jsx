@@ -1,4 +1,4 @@
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import Container from '@components/Common/Container/Container';
 import Title from '@components/Common/Title/Title';
 import Card from './Card';
@@ -7,7 +7,7 @@ import styles from './WhatIsWaitingForYou.module.scss';
 
 const WhatIsWaitingForYou = ({ cards, column1Style }) => {
   const t = useTranslations('Education.karmologist_himself.what_is_waiting_for_you');
-
+  const locale = useLocale();
   return (
     <Container styled={styles.container} styledSection={styles.section}>
       <div className={styles.spot} />
@@ -22,7 +22,7 @@ const WhatIsWaitingForYou = ({ cards, column1Style }) => {
       </div>
       {cards.warning && (
         <div>
-          {cards.warning.map((el, index) => (
+          {cards.warning[locale].map((el, index) => (
             <p key={index} className={styles.warning}>
               {el}
             </p>

@@ -73,6 +73,7 @@ const ResearchSlider = () => {
           '--swiper-pagination-bullet-inactive-color': '#454545;',
           '--swiper-pagination-color': '#CFB691',
         }}
+        speed={1200}
         breakpoints={{
           360: {
             slidesPerView: 1,
