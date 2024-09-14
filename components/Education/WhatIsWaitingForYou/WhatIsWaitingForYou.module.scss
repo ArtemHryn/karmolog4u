@@ -91,9 +91,6 @@
 
 .warning {
   @include fontRegular(16px, 400, 22.4px);
-  @media all and (min-width: $min_desktop) {
-    text-wrap: balance;
-  }
 }
 
 .spot {

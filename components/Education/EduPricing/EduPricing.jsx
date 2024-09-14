@@ -1,15 +1,18 @@
+import { useLocale, useTranslations } from 'next-intl';
 import Container from '@components/Common/Container/Container';
-import styles from './EduPricing.module.scss';
 import Title from '@components/Common/Title/Title';
 import Link from 'next/link';
 import { open_Sans } from '@app/[locale]/layout';
-import { useLocale, useTranslations } from 'next-intl';
+import useLocalizedValue from '@hooks/useLocalizedValue';
 
-function EduPricing({ card, addInfo = [], desc, link }) {
-  const locale = useLocale();
+import styles from './EduPricing.module.scss';
+import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
+
+function EduPricing({ card, addInfo = [], desc, link, additionalTitle, additionalCard }) {
   const t = useTranslations('Education.advanced_course.edu_pricing');
 
-  const renderAddInfo = Array.isArray(addInfo) ? addInfo : addInfo[locale];
+  const renderAddInfo = useLocalizedValue(addInfo);
+  const localizedTitle = useLocalizedValue(card.title);
 
   return (
     <Container>
@@ -21,11 +24,11 @@ function EduPricing({ card, addInfo = [], desc, link }) {
         <br />
         {desc.second}
       </p>
-      <div>
+      <div className={styles.card_wrapper}>
         <div className={styles.card}>
           <div className={styles.wrap}>
             <Title variant="h4" styled={styles.card_title}>
-              {typeof card.title === 'string' ? card.title : card.title[locale]}
+              {localizedTitle}
             </Title>
             <div className={styles.card_price_wrap}>
               <Title variant="h3" styled={styles.card_price}>
@@ -40,18 +43,43 @@ function EduPricing({ card, addInfo = [], desc, link }) {
             {t('button')}
           </Link>
         </div>
+        {additionalCard && (
+          <div className={styles.card}>
+            <div className={styles.wrap}>
+              <Title variant="h4" styled={styles.card_title}>
+                {additionalCard.title}
+              </Title>
+              <div className={styles.card_price_wrap}>
+                <Title variant="h3" styled={styles.card_price}>
+                  {additionalCard.price} &#8372;
+                </Title>
+                <Title variant="h5" styled={styles.card_info}>
+                  ({t('full_payment')})
+                </Title>
+              </div>
+            </div>
+            <Link href={link} className={`${styles.button} ${open_Sans.className}`}>
+              {t('button')}
+            </Link>
+          </div>
+        )}
       </div>
-      <section>
+      <div className={styles.additional_info_wrapper}>
+        {additionalTitle && (
+          <TitleNoStyles variant="h3" styled={styles.additional_info_title}>
+            {additionalTitle}
+          </TitleNoStyles>
+        )}
         <ul className={styles.info}>
           {renderAddInfo.map((item, index) => (
-            <li key={index}>
+            <li key={index} className={styles.info_element}>
               <div className={styles.info_card}>
                 <p className={styles.info_text}>{item}</p>
               </div>
             </li>
           ))}
         </ul>
-      </section>
+      </div>
     </Container>
   );
 }
