@@ -29,6 +29,7 @@ const MeditationText = ({ name, desc, price, category, img }) => {
 
   const localizedText = useLocalizedValue(desc.text);
   const localizedWarning = useLocalizedValue(desc.warning);
+  const localizedList = useLocalizedValue(desc.list);
 
   return (
     <div>
@@ -59,7 +60,7 @@ const MeditationText = ({ name, desc, price, category, img }) => {
       )}
       <div className={styles.list_wrapper}>
         {categoryList.includes(category) && <MeditationsTextList list={list} />}
-        {desc?.list && <MeditationsTextList list={desc.list} />}
+        {desc?.list && <MeditationsTextList list={localizedList} />}
         {desc?.warning && <p>{localizedWarning}</p>}
       </div>
     </div>

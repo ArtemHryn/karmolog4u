@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import styles from './Courses.module.scss'
 
 const CoursesCheckboxes = ({
@@ -8,6 +9,7 @@ const CoursesCheckboxes = ({
   showEthers,
   setShowEthers,
 }) => {
+  const t = useTranslations('Author_products.courses.checkboxes');
   return (
     <ul className={styles.list}>
       <li>
@@ -16,12 +18,9 @@ const CoursesCheckboxes = ({
             type="checkbox"
             id="check-1"
             checked={showWebinars}
-            onChange={(e) => {
+            onChange={e => {
               setShowWebinars(e.target.checked);
-              window.localStorage.setItem(
-                "showWebinars",
-                JSON.stringify(e.target.checked)
-              );
+              window.localStorage.setItem('showWebinars', JSON.stringify(e.target.checked));
             }}
           />
           <label htmlFor="check-1">
@@ -29,7 +28,7 @@ const CoursesCheckboxes = ({
               <path d="M5 30 L 20 45 L 45 5"></path>
             </svg>
           </label>
-          <p className={styles.text}>Вебінари</p>
+          <p className={styles.text}>{t('vebinars')}</p>
         </div>
       </li>
       <li>
@@ -38,12 +37,9 @@ const CoursesCheckboxes = ({
             type="checkbox"
             id="check-2"
             checked={showIntensives}
-            onChange={(e) => {
+            onChange={e => {
               setShowIntensives(e.target.checked);
-              window.localStorage.setItem(
-                "showIntensives",
-                JSON.stringify(e.target.checked)
-              );
+              window.localStorage.setItem('showIntensives', JSON.stringify(e.target.checked));
             }}
           />
           <label htmlFor="check-2">
@@ -51,7 +47,7 @@ const CoursesCheckboxes = ({
               <path d="M5 30 L 20 45 L 45 5"></path>
             </svg>
           </label>
-          <p className={styles.text}>Інтенсиви</p>
+          <p className={styles.text}>{t('intensive')}</p>
         </div>
       </li>
       <li>
@@ -60,12 +56,9 @@ const CoursesCheckboxes = ({
             type="checkbox"
             id="check-3"
             checked={showEthers}
-            onChange={(e) => {
+            onChange={e => {
               setShowEthers(e.target.checked);
-              window.localStorage.setItem(
-                "showEthers",
-                JSON.stringify(e.target.checked)
-              );
+              window.localStorage.setItem('showEthers', JSON.stringify(e.target.checked));
             }}
           />
           <label htmlFor="check-3">
@@ -73,7 +66,7 @@ const CoursesCheckboxes = ({
               <path d="M5 30 L 20 45 L 45 5"></path>
             </svg>
           </label>
-          <p className={styles.text}>Терапевтичні ефіри</p>
+          <p className={styles.text}>{t('therapeutic_ethers')}</p>
         </div>
       </li>
     </ul>

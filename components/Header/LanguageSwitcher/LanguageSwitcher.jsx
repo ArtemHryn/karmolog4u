@@ -28,9 +28,9 @@ const LanguageSwitcher = () => {
   return (
     <label className={styles.switch}>
       <input type="checkbox" onChange={handleLanguageSwitch} defaultChecked={locale === 'uk'} />
-      <TitleNoStyles variant="span" styled={styles.slider} data={locale}>
+      <TitleNoStyles variant="span" styled={styles.slider} data={locale === 'uk' ? 'ua' : locale}>
         <TitleNoStyles variant="span">RU</TitleNoStyles>
-        <TitleNoStyles variant="span">UK</TitleNoStyles>
+        <TitleNoStyles variant="span">UA</TitleNoStyles>
       </TitleNoStyles>
     </label>
   );

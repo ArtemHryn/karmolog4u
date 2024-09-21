@@ -38,7 +38,7 @@ function Calculator({ params: { locale } }) {
             <ul className={styles.links_list}>
               {matrixLinks.map((links, index) => (
                 <li key={index}>
-                  <Link href={links.href} className={styles.links}>
+                  <Link href={`/${locale}${links.href}`} className={styles.links}>
                     {links.name[locale]}
                   </Link>
                 </li>

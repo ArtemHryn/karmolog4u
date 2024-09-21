@@ -9,9 +9,9 @@ import styles from './ProductsNavLinks/ProductsNavLinks.module.scss';
 
 const linksList = [
   { name: { uk: 'Медитації', ru: 'Медитации' }, href: 'meditations' },
-  { name: 'Вебінари', href: 'courses' },
-  { name: 'Гайди та книги', href: 'guides-and-books' },
-  { name: 'Подарунки Студії', href: 'gifts' },
+  { name: { uk: 'Вебінари', ru: 'Вебинары' }, href: 'courses' },
+  { name: { uk: 'Гайди та книги', ru: 'Гайды и книги' }, href: 'guides-and-books' },
+  { name: { uk: 'Подарунки Студії', ru: 'Подарки Студии' }, href: 'gifts' },
 ];
 
 const ProductsNavigation = () => {
@@ -21,7 +21,7 @@ const ProductsNavigation = () => {
 
   if (params.id || pathname.includes('health-map-details')) return null;
   const links = [linksList.find(el => el.href === segment)];
-  
+
   return (
     <Container styledSection={styles.section}>
       <InternalNavTitle

@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { open_Sans, unbounded } from '@app/[locale]/layout';
 
@@ -19,12 +20,13 @@ const links = [
 ];
 
 const ModalContext = () => {
+  const t = useTranslations('Common.modal');
   return (
     <div className={styles.container}>
-      <h1 className={`${styles.title} ${unbounded.className}`}>ВАЖЛИВЕ ПОВІДОМЛЕННЯ!</h1>
+      <h1 className={`${styles.title} ${unbounded.className}`}>{t('important_message')}</h1>
       <p className={styles.text}>
-        Для швидкої оплати просимо звернутися за допомогою у <span>WhatsApp</span>,{' '}
-        <span>Telegram</span> або <span>Viber</span>:
+        {t('text')}{' '}
+        <span>WhatsApp</span>, <span>Telegram</span> або <span>Viber</span>:
       </p>
       <ul className={styles.btn_list}>
         {links.map(link => (
