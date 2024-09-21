@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { unbounded } from '@app/[locale]/layout';
+import useLocalizedValue from '@hooks/useLocalizedValue';
 import HeroNavArrow from '@components/Common/Icons/HeroNavArrow';
 
 import styles from './TariffsSlider.module.scss';
@@ -8,9 +9,7 @@ import styles from './TariffsSlider.module.scss';
 const Card = ({ card, link }) => {
   const t = useTranslations('Education.karmologist_himself.karmologist_page_tariff');
   const locale = useLocale();
-  const renderAboutCourse = Array.isArray(card.aboutCourse)
-    ? card.aboutCourse
-    : card.aboutCourse[locale];
+  const renderAboutCourse = useLocalizedValue(card.aboutCourse);
   return (
     <div className={styles.card}>
       <p className={styles.recruitment}>{t('in_progress')}</p>

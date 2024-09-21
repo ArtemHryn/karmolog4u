@@ -1,35 +1,32 @@
-import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import Container from '@components/Common/Container/Container';
 import HeroNav from '@components/Common/HeroNav/HeroNav';
 
 import styles from './HealthMapHero.module.scss';
 import Image from 'next/image';
 import Title from '@components/Common/Title/Title';
-import { open_Sans } from '@app/[locale]/layout';
 
 const links = [
-  { href: '/products/courses', name: 'Вебінари' },
+  { href: '/products/courses', name: { uk: 'Вебінари', ru: 'Вебинары' } },
   {
-    name: 'ДЕВ’ЯТИЧАКРОВА КАРТА ЗДОРОВ’Я  В “МАТРИЦІ ДОЛІ”',
+    name: {
+      uk: 'ДЕВ’ЯТИЧАКРОВА КАРТА ЗДОРОВ’Я  В "МАТРИЦІ ДОЛІ"',
+      ru: 'ДЕВЯТИЧАКРОВАЯ КАРТА ЗДОРОВЬЯ В "МАТРИЦЕ СУДЬБЫ"',
+    },
     href: '/products/courses/health-map-details',
   },
 ];
 
 const HealthMapHero = () => {
+  const t = useTranslations('Author_products.courses.health_map.hero');
   return (
     <Container>
       <HeroNav linkNames={links} />
       <div className={styles.box}>
         <div className={styles.text_wrapper}>
-          <Title className={`${styles.title}`}>
-            ДЕВ’ЯТИЧАКРОВА КАРТА ЗДОРОВ’Я В “МАТРИЦІ ДОЛІ”
-          </Title>
+          <Title className={`${styles.title}`}>{t('title')}</Title>
 
-          <p className={styles.text}>
-            Дев&#8216;ятичакрова карта здоров&#8216;я в ”Матриці долі” — це курс, на якому ви
-            навчитесь працювати зі своїм здоровям на рівні причин, а не наслідків, для відкриття
-            перед собою можливості істинного зцілення і переходу у вібрації Нового Часу.
-          </p>
+          <p className={styles.text}>{t('description')}</p>
         </div>
         <picture className={styles.img}>
           <Image

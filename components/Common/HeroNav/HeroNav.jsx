@@ -15,9 +15,9 @@ const HeroNav = ({ linkNames }) => {
           {t('main')}
         </Link>
       </li>
-      {linkNames.map(link =>
+      {linkNames.map((link, index) =>
         !link ? null : (
-          <li key={link.name} className={styles.list_item}>
+          <li key={index} className={styles.list_item}>
             <HeroNavArrow styled={styles.arrow} />
             <Link href={link.href} className={`${styles.link} ${open_Sans}`}>
               {typeof link.name === 'object' ? link.name[locale] : link.name}
