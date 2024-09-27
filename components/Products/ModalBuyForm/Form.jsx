@@ -1,14 +1,16 @@
-import { useState } from "react";
-import PhoneInput from "react-phone-input-2";
-import { useForm, Controller } from "react-hook-form";
+import { useState } from 'react';
+import PhoneInput from 'react-phone-input-2';
+import { useForm, Controller } from 'react-hook-form';
 
-import styles from "./ModalBuyForm.module.scss";
-import "react-phone-input-2/lib/bootstrap.css";
-import Title from "@components/Common/Title/Title";
-import Link from "next/link";
+import styles from './ModalBuyForm.module.scss';
+import 'react-phone-input-2/lib/bootstrap.css';
+import Title from '@components/Common/Title/Title';
+import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 const Form = ({ price }) => {
   const [license, setLicense] = useState(false);
+  const t = useTranslations('Author_products.buy_product_modal');
 
   const {
     register,
@@ -17,14 +19,14 @@ const Form = ({ price }) => {
     formState: { errors },
   } = useForm();
 
-  const onFormSubmit = (data) => {
+  const onFormSubmit = data => {
     console.log(data);
   };
 
   return (
     <form className={styles.form} onSubmit={handleSubmit(onFormSubmit)}>
       <Title variant="p" styled={styles.form_title}>
-        Вкажіть свої дані:
+        {t('enter_your_info')}
       </Title>
       <div className={styles.inputGroup}>
         <input
@@ -32,10 +34,10 @@ const Form = ({ price }) => {
           id="name"
           className={styles.input}
           placeholder=" "
-          {...register("name")}
+          {...register('name')}
         />
         <label htmlFor="name" className={styles.label}>
-          ПІБ
+          {t('name')}
         </label>
       </div>
       <div className={styles.inputGroup}>
@@ -44,36 +46,36 @@ const Form = ({ price }) => {
           id="email"
           className={styles.input}
           placeholder=" "
-          {...register("email", {
-            required: "Будь ласка, введіть email",
+          {...register('email', {
+            required: t('email.empty_error'),
             pattern: {
               value: /\S+@\S+\.\S+/,
-              message: "Введіть коректний email",
+              message: t('email.wrong_email_error'),
             },
           })}
         />
         <label htmlFor="email" className={styles.label}>
-          Ваш email
+          {t('email.email')}
         </label>
         {errors.email && <p className={styles.error}>{errors.email.message}</p>}
       </div>
       <div>
-        <p>Ваш номер телефону</p>
+        <p>{t('phone.phone')}</p>
         <Controller
           name="phone"
           control={control}
           rules={{
             minLength: {
               value: 12,
-              message: "Введіть номер в форматі (XXX) XXX-XX-XX",
+              message: t('phone.min_length_error'),
             },
-            required: { value: true, message: "Введіть номер телефону" },
+            required: { value: true, message: t('phone.empty_number_error') },
           }}
           render={({ field }) => (
             <PhoneInput
-              country={"ua"}
+              country={'ua'}
               value={field.value}
-              onChange={(phone) => field.onChange(phone)}
+              onChange={phone => field.onChange(phone)}
               prefix="+"
               defaultMask="(...) ...-..-.."
               className={styles.phone}
@@ -91,7 +93,7 @@ const Form = ({ price }) => {
           type="checkbox"
           id="license"
           checked={license}
-          onChange={(e) => setLicense(e.target.checked)}
+          onChange={e => setLicense(e.target.checked)}
         />
         <label htmlFor="license">
           <svg viewBox="0,0,50,50">
@@ -99,21 +101,21 @@ const Form = ({ price }) => {
           </svg>
         </label>
         <p className={styles.text}>
-          Я підтверджую, що ознайомився (-лася) з{" "}
-          <Link href={"/"} target="_blank">
-            політикою конфіденційності
-          </Link>{" "}
-          та{" "}
-          <Link href={"/"} target="_blank">
-            договором публічної оферти
+          {t('license.part1')}{' '}
+          <Link href={'/'} target="_blank">
+            {t('license.part2')}
+          </Link>{' '}
+          {t('license.part3')}{' '}
+          <Link href={'/'} target="_blank">
+            {t('license.part4')}
           </Link>
         </p>
       </div>
       <Title variant="p" styled={styles.form_price}>
-        Сума до сплати:<span>{price}</span>
+        {t('price')}:<span>{price}</span>
       </Title>
       <button type="submit" className={styles.submit_btn} disabled={!license}>
-        Придбати
+        {t('button')}
       </button>
     </form>
   );
