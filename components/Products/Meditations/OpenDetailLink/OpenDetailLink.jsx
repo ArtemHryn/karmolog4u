@@ -9,19 +9,21 @@ import { open_Sans, unbounded } from '@app/[locale]/layout';
 import Logo from '@components/Common/Icons/Logo';
 
 import styles from './OpenDetailLink.module.scss';
+import useLocalizedValue from '@hooks/useLocalizedValue';
 
 const OpenDetailLink = ({ card }) => {
   const { video, isWaiting, name, img, cardName, id } = card;
 
   const pathname = usePathname();
   const params = useParams();
+  const localizedCardName = useLocalizedValue(cardName);
 
   const getCardName = () => {
     if (!cardName) return;
     const classNameToAdd = `${open_Sans.className}`;
 
     const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = cardName;
+    tempDiv.innerHTML = localizedCardName;
 
     const spanElement = tempDiv.querySelector('span');
     spanElement.classList.add(classNameToAdd);

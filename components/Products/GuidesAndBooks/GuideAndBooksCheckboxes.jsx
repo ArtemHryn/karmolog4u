@@ -1,4 +1,5 @@
-import styles from "./GuidesAndBooks.module.scss";
+import { useTranslations } from 'next-intl';
+import styles from './GuidesAndBooks.module.scss';
 
 const GuideAndBooksCheckboxes = ({
   setGuides,
@@ -8,6 +9,7 @@ const GuideAndBooksCheckboxes = ({
   showOtherGuides,
   showBooks,
 }) => {
+  const t = useTranslations('Author_products.guides_and_books.checkboxes');
   return (
     <ul className={styles.list}>
       <li>
@@ -16,12 +18,9 @@ const GuideAndBooksCheckboxes = ({
             type="checkbox"
             id="check-1"
             checked={showGuides}
-            onChange={(e) => {
+            onChange={e => {
               setGuides(e.target.checked);
-              window.localStorage.setItem(
-                "showGuides",
-                JSON.stringify(e.target.checked)
-              );
+              window.localStorage.setItem('showGuides', JSON.stringify(e.target.checked));
             }}
           />
           <label htmlFor="check-1">
@@ -29,7 +28,7 @@ const GuideAndBooksCheckboxes = ({
               <path d="M5 30 L 20 45 L 45 5"></path>
             </svg>
           </label>
-          <p className={styles.text}>Гайди по 22 енергіям</p>
+          <p className={styles.text}>{t('energies')}</p>
         </div>
       </li>
       <li>
@@ -38,12 +37,9 @@ const GuideAndBooksCheckboxes = ({
             type="checkbox"
             id="check-2"
             checked={showOtherGuides}
-            onChange={(e) => {
+            onChange={e => {
               setShowOtherGuides(e.target.checked);
-              window.localStorage.setItem(
-                "showOtherGuides",
-                JSON.stringify(e.target.checked)
-              );
+              window.localStorage.setItem('showOtherGuides', JSON.stringify(e.target.checked));
             }}
           />
           <label htmlFor="check-2">
@@ -51,7 +47,7 @@ const GuideAndBooksCheckboxes = ({
               <path d="M5 30 L 20 45 L 45 5"></path>
             </svg>
           </label>
-          <p className={styles.text}>Інші гайди</p>
+          <p className={styles.text}>{t('other')}</p>
         </div>
       </li>
       <li>
@@ -60,12 +56,9 @@ const GuideAndBooksCheckboxes = ({
             type="checkbox"
             id="check-3"
             checked={showBooks}
-            onChange={(e) => {
+            onChange={e => {
               setShowBooks(e.target.checked);
-              window.localStorage.setItem(
-                "showBooks",
-                JSON.stringify(e.target.checked)
-              );
+              window.localStorage.setItem('showBooks', JSON.stringify(e.target.checked));
             }}
           />
           <label htmlFor="check-3">
@@ -73,7 +66,7 @@ const GuideAndBooksCheckboxes = ({
               <path d="M5 30 L 20 45 L 45 5"></path>
             </svg>
           </label>
-          <p className={styles.text}>Друковані видання</p>
+          <p className={styles.text}>{t('printed_editions')}</p>
         </div>
       </li>
     </ul>
