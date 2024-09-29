@@ -53,12 +53,12 @@ const links = [
     id: 14,
   },
   {
-    title: { uk: 'АВТОРСЬКІ ПРОДУКТИ', ru: 'АВТОРСЬКІ ПРОДУКТИ' },
+    title: { uk: 'АВТОРСЬКІ ПРОДУКТИ', ru: 'АВТОРСКИЕ ПРОДУКТЫ' },
     links: [
-      { name: { uk: 'Медитації', ru: 'Медитації' }, link: '/products/meditations' },
-      { name: { uk: 'Вебінари', ru: 'Вебінари' }, link: '/products/courses' },
-      { name: { uk: 'Гайди та книги', ru: 'Гайди та книги' }, link: '/products/guides-and-books' },
-      { name: { uk: 'Подарунки Студії', ru: 'Подарунки Студії' }, link: '/products/gifts' },
+      { name: { uk: 'Медитації', ru: 'Медитации' }, link: '/products/meditations' },
+      { name: { uk: 'Вебінари', ru: 'Вебинары' }, link: '/products/courses' },
+      { name: { uk: 'Гайди та книги', ru: 'Гайды и книги' }, link: '/products/guides-and-books' },
+      { name: { uk: 'Подарунки Студії', ru: 'Подарки Студии' }, link: '/products/gifts' },
     ],
     id: 15,
   },

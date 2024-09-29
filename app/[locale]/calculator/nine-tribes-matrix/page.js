@@ -31,7 +31,7 @@ function NineTribesOfTheFadeFamilyMatrix() {
   const [kneeling, setKneeling] = useState(null);
 
   return (
-    <main>
+    <>
       <Suspense fallback={<div></div>}>
         <Container>
           <NineTribesHero
@@ -58,7 +58,7 @@ function NineTribesOfTheFadeFamilyMatrix() {
           <SocialInfoDesc socialList={social} />
         </>
       )}
-    </main>
+    </>
   );
 }
 

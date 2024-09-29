@@ -19,7 +19,7 @@ function Calculator({ params: { locale } }) {
   const t = useTranslations('Calculator.More');
 
   return (
-    <>
+    <main>
       <Container styledSection={styles.container}>
         <HeroNav linkNames={links} />
         <section className={styles.section}>
@@ -50,7 +50,7 @@ function Calculator({ params: { locale } }) {
           <CalculatorLogo styled={styles.logo_l} />
         </section>
       </Container>
-    </>
+    </main>
   );
 }
 

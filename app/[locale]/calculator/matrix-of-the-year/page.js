@@ -29,7 +29,7 @@ const YearMatrixPage = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [period, setPeriod] = useState(null);
   return (
-    <main>
+    <>
       <Container>
         <Suspense fallback={<div></div>}>
           <YearMatrixHero
@@ -51,7 +51,7 @@ const YearMatrixPage = () => {
           <SocialInfoDesc socialList={social} />
         </>
       )}
-    </main>
+    </>
   );
 };
 

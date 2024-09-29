@@ -1,21 +1,23 @@
-export async function generateMetadata() {
+import { getTranslations } from 'next-intl/server';
+
+export async function generateMetadata({ params: { locale } }) {
+  const t = await getTranslations({ locale, namespace: 'Metadata.Services.consultations' });
+
   return {
     metadataBase: new URL('https://karmolog4u.vercel.app'),
-    title: 'Розбір матриці долі - Зрозумійте свою долю з Сергієм Скляренко',
-    description:
-      'Відкрийте секрети своєї долі з розбором матриці долі від Сергія Скляренка. Розуміння і гармонія.',
+    title: t('title'),
+    description: t('description'),
 
     alternates: {
       canonical: '/',
       languages: {
-        'uk-UA': `/`,
+        'uk-UA': `/uk`,
         'ru-Ru': '/ru',
       },
     },
     openGraph: {
-      title: 'Розбір матриці долі - Зрозумійте свою долю з Сергієм Скляренко',
-      description:
-        'Відкрийте секрети своєї долі з розбором матриці долі від Сергія Скляренка. Розуміння і гармонія.',
+      title: t('title'),
+      description: t('description'),
       url: '/',
       siteName: 'Karmolog4u',
       images: [
@@ -49,9 +51,8 @@ export async function generateMetadata() {
     },
     twitter: {
       // card: "summary_large_image",
-      title: 'Розбір матриці долі - Зрозумійте свою долю з Сергієм Скляренко',
-      description:
-        'Відкрийте секрети своєї долі з розбором матриці долі від Сергія Скляренка. Розуміння і гармонія.',
+      title: t('title'),
+      description: t('description'),
       // siteId: "1467726470533754880",
       // creator: "@Karmolog4u",
       // creatorId: "1467726470533754880",

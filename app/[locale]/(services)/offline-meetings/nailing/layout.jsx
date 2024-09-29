@@ -1,20 +1,26 @@
-export async function generateMetadata() {
+import { getTranslations } from 'next-intl/server';
+
+export async function generateMetadata({ params: { locale } }) {
+  const t = await getTranslations({
+    locale,
+    namespace: 'Metadata.Services.offline_meetings.nailing',
+  });
+
   return {
     metadataBase: new URL('https://karmolog4u.vercel.app'),
-    title: 'Цвяхостояння з Сергієм Скляренко - Практика для тіла і душі',
-    description:
-      'Відчуйте силу практики цвяхостояння з Сергієм Скляренком. Ця техніка допоможе досягти гармонії тіла і душі та покращити ваше життя.',
+    title: t('title'),
+    description: t('description'),
+
     alternates: {
       canonical: '/',
       languages: {
-        'uk-UA': `/`,
+        'uk-UA': `/uk`,
         'ru-Ru': '/ru',
       },
     },
     openGraph: {
-      title: 'Цвяхостояння з Сергієм Скляренко - Практика для тіла і душі',
-      description:
-        'Відчуйте силу практики цвяхостояння з Сергієм Скляренком. Ця техніка допоможе досягти гармонії тіла і душі та покращити ваше життя.',
+      title: t('title'),
+      description: t('description'),
       url: '/',
       siteName: 'Karmolog4u',
       images: [
@@ -48,9 +54,8 @@ export async function generateMetadata() {
     },
     twitter: {
       // card: "summary_large_image",
-      title: 'Цвяхостояння з Сергієм Скляренко - Практика для тіла і душі',
-      description:
-        'Відчуйте силу практики цвяхостояння з Сергієм Скляренком. Ця техніка допоможе досягти гармонії тіла і душі та покращити ваше життя.',
+      title: t('title'),
+      description: t('description'),
       // siteId: "1467726470533754880",
       // creator: "@Karmolog4u",
       // creatorId: "1467726470533754880",
@@ -77,6 +82,7 @@ export async function generateMetadata() {
 export const viewport = {
   themeColor: 'black',
 };
+
 const NailingLayout = ({ children }) => {
   return <>{children}</>;
 };
