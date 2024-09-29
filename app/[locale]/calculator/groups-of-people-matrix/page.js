@@ -57,7 +57,7 @@ function GroupsOfPeopleMatrix() {
   const [isChecked, setIsChecked] = useState(false);
 
   return (
-    <main>
+    <>
       <Container>
         <Suspense fallback={<div></div>}>
           <GroupHero
@@ -77,7 +77,7 @@ function GroupsOfPeopleMatrix() {
           <SocialInfoDesc socialList={social} />
         </>
       )}
-    </main>
+    </>
   );
 }
 

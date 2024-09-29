@@ -29,7 +29,7 @@ const ParentsAndChildrenPage = () => {
   const [name, setName] = useState('');
   const [isChecked, setIsChecked] = useState(false);
   return (
-    <main>
+    <>
       <Suspense>
         <Container>
           <ParentsAndChildrenHero
@@ -53,7 +53,7 @@ const ParentsAndChildrenPage = () => {
           <SocialInfoDesc socialList={social} />
         </>
       )}
-    </main>
+    </>
   );
 };
 

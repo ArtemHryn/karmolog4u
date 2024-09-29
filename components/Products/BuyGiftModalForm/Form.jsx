@@ -1,20 +1,21 @@
-"use client";
-import { useState } from "react";
-import PhoneInput from "react-phone-input-2";
-import { useForm, Controller } from "react-hook-form";
-import AsyncSelect from "react-select/async";
-import Select from "react-select";
-import Link from "next/link";
+'use client';
+import { useState } from 'react';
+import PhoneInput from 'react-phone-input-2';
+import { useForm, Controller } from 'react-hook-form';
+import AsyncSelect from 'react-select/async';
+import Select from 'react-select';
+import Link from 'next/link';
 
-import Title from "@components/Common/Title/Title";
+import Title from '@components/Common/Title/Title';
 
-import styles from "./BuyGiftModalForm.module.scss";
-import "react-phone-input-2/lib/bootstrap.css";
+import styles from './BuyGiftModalForm.module.scss';
+import 'react-phone-input-2/lib/bootstrap.css';
 
 const Form = ({ price }) => {
   const [license, setLicense] = useState(false);
   const [warehousesList, setWarehousesList] = useState([]);
-  const [cityValue, setCityValue] = useState("");
+  const [cityValue, setCityValue] = useState('');
+  const t = useTranslations('Author_products.buy_gift_modal');
 
   const {
     register,
@@ -25,10 +26,10 @@ const Form = ({ price }) => {
     formState: { errors },
   } = useForm();
 
-  const onFormSubmit = (data) => {
+  const onFormSubmit = data => {
     console.log(data);
   };
-  getValues("city");
+  getValues('city');
   const loadOptions = async (value, callback) => {
     if (value.length < 3) return;
     const data = await fetch(`/api/nova-poshta/cities?city=${value}`);
@@ -46,19 +47,17 @@ const Form = ({ price }) => {
     singleValue: () => styles.singleValue,
   };
 
-  const onCityChange = async (selectedCity) => {
-    const data = await fetch(
-      `/api/nova-poshta/warehouses?warehouse=${selectedCity.value}`
-    );
+  const onCityChange = async selectedCity => {
+    const data = await fetch(`/api/nova-poshta/warehouses?warehouse=${selectedCity.value}`);
     const wh = await data.json();
     setWarehousesList(wh.data);
-    setValue("city", selectedCity);
+    setValue('city', selectedCity);
     setCityValue(selectedCity.value);
   };
   return (
     <form className={styles.form} onSubmit={handleSubmit(onFormSubmit)}>
       <Title variant="p" styled={styles.form_title}>
-        Вкажіть свої дані:
+        {t('enter_your_info')}:
       </Title>
       <div className={styles.inputGroup}>
         <input
@@ -66,10 +65,10 @@ const Form = ({ price }) => {
           id="name"
           className={styles.input}
           placeholder=" "
-          {...register("name")}
+          {...register('name')}
         />
         <label htmlFor="name" className={styles.label}>
-          ПІБ
+          {t('name')}
         </label>
       </div>
       <div className={styles.inputGroup}>
@@ -78,26 +77,26 @@ const Form = ({ price }) => {
           id="email"
           className={styles.input}
           placeholder=" "
-          {...register("email", {
-            required: "Будь ласка, введіть email",
+          {...register('email', {
+            required: t('email.empty_error'),
             pattern: {
               value: /\S+@\S+\.\S+/,
-              message: "Введіть коректний email",
+              message: t('email.wrong_email_error'),
             },
           })}
         />
         <label htmlFor="email" className={styles.label}>
-          Ваш email
+          {t('email.email')}
         </label>
         {errors.email && <p className={styles.error}>{errors.email.message}</p>}
       </div>
       <div>
-        <p>Місто/населенний пункт</p>
+        <p>{t('city.city')}</p>
         <Controller
           name="city"
           control={control}
           rules={{
-            required: { value: true, message: "Виберіть місто" },
+            required: { value: true, message: t('city.choose_city') },
           }}
           render={({ field }) => (
             <AsyncSelect
@@ -105,54 +104,54 @@ const Form = ({ price }) => {
               defaultOptions
               onChange={onCityChange}
               noOptionsMessage={() => {
-                return "Введіть перші 3 букви";
+                return t('city.enter_three_letters');
               }}
               classNames={cityStyling}
-              placeholder="Введіть назву міста"
+              placeholder={t('city.placeholder')}
             />
           )}
         />
       </div>
       {cityValue && warehousesList.length !== 0 && (
         <div>
-          <p>Номер відділення/поштомату Нової Пошти</p>
+          <p>{t('warehouse.warehouse')}</p>
           <Controller
             name="warehouse"
             control={control}
             rules={{
-              required: { value: true, message: "Виберіть відділення" },
+              required: { value: true, message: t('warehouse.choose_wh') },
             }}
             render={({ field }) => (
               <Select
                 options={warehousesList}
-                onChange={(wh) => setValue("warehouse", wh.value)}
+                onChange={wh => setValue('warehouse', wh.value)}
                 noOptionsMessage={() => {
-                  return "Відділення не знайдено";
+                  return t('warehouse.not_found');
                 }}
                 classNames={cityStyling}
-                placeholder="Введіть відділення"
+                placeholder={t('warehouse.placeholder')}
               />
             )}
           />
         </div>
       )}
       <div>
-        <p>Ваш номер телефону</p>
+        <p>{t('phone.phone')}</p>
         <Controller
           name="phone"
           control={control}
           rules={{
             minLength: {
               value: 12,
-              message: "Введіть номер в форматі (XXX) XXX-XX-XX",
+              message: t('phone.min_length_error'),
             },
-            required: { value: true, message: "Введіть номер телефону" },
+            required: { value: true, message: t('phone.empty_number_error') },
           }}
           render={({ field }) => (
             <PhoneInput
-              country={"ua"}
+              country={'ua'}
               value={field.value}
-              onChange={(phone) => field.onChange(phone)}
+              onChange={phone => field.onChange(phone)}
               prefix="+"
               defaultMask="(...) ...-..-.."
               className={styles.phone}
@@ -170,7 +169,7 @@ const Form = ({ price }) => {
           type="checkbox"
           id="license"
           checked={license}
-          onChange={(e) => setLicense(e.target.checked)}
+          onChange={e => setLicense(e.target.checked)}
         />
         <label htmlFor="license">
           <svg viewBox="0,0,50,50">
@@ -178,21 +177,21 @@ const Form = ({ price }) => {
           </svg>
         </label>
         <p className={styles.text}>
-          Я підтверджую, що ознайомився (-лася) з{" "}
-          <Link href={"/"} target="_blank">
-            політикою конфіденційності
-          </Link>{" "}
-          та{" "}
-          <Link href={"/"} target="_blank">
-            договором публічної оферти
+          {t('license.part1')}{' '}
+          <Link href={'/'} target="_blank">
+            {t('license.part2')}
+          </Link>{' '}
+          {t('license.part3')}{' '}
+          <Link href={'/'} target="_blank">
+            {t('license.part4')}
           </Link>
         </p>
       </div>
       <Title variant="p" styled={styles.form_price}>
-        Сума до сплати:<span>{price}</span>
+        {t('price')}:<span>{price}</span>
       </Title>
       <button type="submit" className={styles.submit_btn} disabled={!license}>
-        Придбати
+        {t('button')}
       </button>
     </form>
   );

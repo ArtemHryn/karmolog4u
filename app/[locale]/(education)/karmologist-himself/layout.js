@@ -1,21 +1,23 @@
-export async function generateMetadata() {
+import { getTranslations } from 'next-intl/server';
+
+export async function generateMetadata({ params: { locale } }) {
+  const t = await getTranslations({ locale, namespace: 'Metadata.Education.karmologist_himself' });
+
   return {
     metadataBase: new URL('https://karmolog4u.vercel.app'),
-    title: 'Курс Cам собі кармолог з Сергієм Скляренко - Відкрийте секрети кармології',
-    description:
-      'Приєднуйтесь до курсу Cам собі кармолог з Сергієм Скляренко. Навчіться розуміти кармологію та застосовувати її у своєму житті для гармонії та успіху.',
+    title: t('title'),
+    description: t('description'),
 
     alternates: {
       canonical: '/',
       languages: {
-        'uk-UA': `/`,
+        'uk-UA': `/uk`,
+        'ru-Ru': '/ru',
       },
     },
     openGraph: {
-      title: 'Курс Cам собі кармолог з Сергієм Скляренко - Відкрийте секрети кармології',
-      description:
-        'Приєднуйтесь до курсу Cам собі кармолог з Сергієм Скляренко. Навчіться розуміти кармологію та застосовувати її у своєму житті для гармонії та успіху.',
-
+      title: t('title'),
+      description: t('description'),
       url: '/',
       siteName: 'Karmolog4u',
       images: [
@@ -49,10 +51,8 @@ export async function generateMetadata() {
     },
     twitter: {
       // card: "summary_large_image",
-      title: 'Курс Cам собі кармолог з Сергієм Скляренко - Відкрийте секрети кармології',
-      description:
-        'Приєднуйтесь до курсу Cам собі кармолог з Сергієм Скляренко. Навчіться розуміти кармологію та застосовувати її у своєму житті для гармонії та успіху.',
-
+      title: t('title'),
+      description: t('description'),
       // siteId: "1467726470533754880",
       // creator: "@Karmolog4u",
       // creatorId: "1467726470533754880",

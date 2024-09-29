@@ -9,25 +9,24 @@ import PatentedMethods from '@components/Main/PatendedMethods/PatendedMethods';
 import { column1, column2 } from '@components/Main/QuestionAnswer/QuestionAnswer';
 import Research from '@components/Main/Research/Research';
 import StarCustomers from '@components/Main/StarCustomers/StarCustomers';
+import { getTranslations } from 'next-intl/server';
 
-export async function generateMetadata() {
+export async function generateMetadata({ params: { locale } }) {
+  const t = await getTranslations({ locale, namespace: 'Metadata.Main' });
   return {
     metadataBase: new URL('https://karmolog4u.vercel.app'),
-    title: 'Сергій Скляренко Кармолог - Психотерапевт і автор медитацій для вашої гармонії',
-
-    description:
-      'Відкрийте простір енергетичної сили з Сергієм Скляренком. Психотерапія, кармологія та авторські медитації для вашої гармонії.',
-
+    title: t('title'),
+    description: t('description'),
     alternates: {
       canonical: '/',
       languages: {
-        'uk-UA': `/`,
+        'uk-UA': `/uk`,
+        'ru-Ru': '/ru',
       },
     },
     openGraph: {
-      title: 'Сергій Скляренко Кармолог - Психотерапевт і автор медитацій для вашої гармонії',
-      description:
-        'Відкрийте простір енергетичної сили з Сергієм Скляренком. Психотерапія, кармологія та авторські медитації для вашої гармонії.',
+      title: t('title'),
+      description: t('description'),
       url: '/',
       siteName: 'Karmolog4u',
       images: [
@@ -61,9 +60,8 @@ export async function generateMetadata() {
     },
     twitter: {
       // card: "summary_large_image",
-      title: 'Сергій Скляренко Кармолог - Психотерапевт і автор медитацій для вашої гармонії',
-      description:
-        'Відкрийте простір енергетичної сили з Сергієм Скляренком. Психотерапія, кармологія та авторські медитації для вашої гармонії.',
+      title: t('title'),
+      description: t('description'),
       // siteId: "1467726470533754880",
       // creator: "@Karmolog4u",
       // creatorId: "1467726470533754880",
@@ -92,7 +90,6 @@ export const viewport = {
 };
 
 export default function Home() {
- 
   return (
     <main>
       <Hero />

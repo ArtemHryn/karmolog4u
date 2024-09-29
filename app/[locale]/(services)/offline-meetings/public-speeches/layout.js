@@ -1,20 +1,26 @@
-export async function generateMetadata() {
+import { getTranslations } from 'next-intl/server';
+
+export async function generateMetadata({ params: { locale } }) {
+  const t = await getTranslations({
+    locale,
+    namespace: 'Metadata.Services.offline_meetings.public_speeches',
+  });
+
   return {
     metadataBase: new URL('https://karmolog4u.vercel.app'),
-    title: 'Публічні виступи Сергія Скляренка - Натхнення та мотивація',
-    description:
-      'Замовте публічні виступи Сергія Скляренка. Отримайте натхнення та мотивацію для особистого та професійного зростання.',
+    title: t('title'),
+    description: t('description'),
+
     alternates: {
       canonical: '/',
       languages: {
-        'uk-UA': `/`,
+        'uk-UA': `/uk`,
         'ru-Ru': '/ru',
       },
     },
     openGraph: {
-      title: 'Публічні виступи Сергія Скляренка - Натхнення та мотивація',
-      description:
-        'Замовте публічні виступи Сергія Скляренка. Отримайте натхнення та мотивацію для особистого та професійного зростання.',
+      title: t('title'),
+      description: t('description'),
       url: '/',
       siteName: 'Karmolog4u',
       images: [
@@ -48,9 +54,8 @@ export async function generateMetadata() {
     },
     twitter: {
       // card: "summary_large_image",
-      title: 'Публічні виступи Сергія Скляренка - Натхнення та мотивація',
-      description:
-        'Замовте публічні виступи Сергія Скляренка. Отримайте натхнення та мотивацію для особистого та професійного зростання.',
+      title: t('title'),
+      description: t('description'),
       // siteId: "1467726470533754880",
       // creator: "@Karmolog4u",
       // creatorId: "1467726470533754880",

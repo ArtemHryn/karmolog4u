@@ -1,21 +1,26 @@
-export async function generateMetadata() {
+import { getTranslations } from 'next-intl/server';
+
+export async function generateMetadata({ params: { locale } }) {
+  const t = await getTranslations({
+    locale,
+    namespace: 'Metadata.Calculator.main',
+  });
+
   return {
     metadataBase: new URL('https://karmolog4u.vercel.app'),
-    title: 'Сергій Скляренко - засновник кармотерапії, магістр психології',
-
-    description:
-      'Президент Асоціації "Кармотерапії та психології". Голова ГО "Психологія людської долі"',
+    title: t('title'),
+    description: t('description'),
 
     alternates: {
       canonical: '/',
       languages: {
-        'uk-UA': `/`,
+        'uk-UA': `/uk`,
+        'ru-Ru': '/ru',
       },
     },
     openGraph: {
-      title: 'Сергій Скляренко - засновник кармотерапії, магістр психології',
-      description:
-        'Президент Асоціації "Кармотерапії та психології". Голова ГО "Психологія людської долі"',
+      title: t('title'),
+      description: t('description'),
       url: '/',
       siteName: 'Karmolog4u',
       images: [
@@ -49,9 +54,8 @@ export async function generateMetadata() {
     },
     twitter: {
       // card: "summary_large_image",
-      title: 'Сергій Скляренко - засновник кармотерапії, магістр психології',
-      description:
-        'Президент Асоціації "Кармотерапії та психології". Голова ГО "Психологія людської долі"',
+      title: t('title'),
+      description: t('description'),
       // siteId: "1467726470533754880",
       // creator: "@Karmolog4u",
       // creatorId: "1467726470533754880",
@@ -80,7 +84,7 @@ export const viewport = {
 };
 
 const calculatorLayout = ({ children }) => {
-  return <main>{children}</main>;
+  return <>{children}</>;
 };
 
 export default calculatorLayout;

@@ -29,7 +29,7 @@ const DemonMatrixPage = () => {
   const [code, setCode] = useState('');
   const [isChecked, setIsChecked] = useState(false);
   return (
-    <main>
+    <>
       <Suspense fallback={<div></div>}>
         <Container>
           <DemonMatrixHero
@@ -51,7 +51,7 @@ const DemonMatrixPage = () => {
           </>
         )}
       </Suspense>
-    </main>
+    </>
   );
 };
 

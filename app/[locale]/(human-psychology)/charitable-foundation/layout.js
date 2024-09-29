@@ -1,7 +1,10 @@
 import { getTranslations } from 'next-intl/server';
 
 export async function generateMetadata({ params: { locale } }) {
-  const t = await getTranslations({ locale, namespace: 'Metadata.Services.therapy_sessions' });
+  const t = await getTranslations({
+    locale,
+    namespace: 'Metadata.Human_psychology.Foundation',
+  });
 
   return {
     metadataBase: new URL('https://karmolog4u.vercel.app'),
@@ -80,12 +83,8 @@ export const viewport = {
   themeColor: 'black',
 };
 
-const layout = ({ children, modal }) => {
-  return (
-    <>
-      {children} {modal}
-    </>
-  );
+const psychologyLayout = ({ children }) => {
+  return <>{children}</>;
 };
 
-export default layout;
+export default psychologyLayout;
