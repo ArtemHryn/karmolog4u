@@ -71,10 +71,12 @@ function Nav() {
   const locale = useLocale();
 
   const onClick = e => {
-    if (+e.currentTarget.attributes.id.value === active) {
+    console.log(e.currentTarget.dataset.id);
+
+    if (+e.currentTarget.dataset.id === active) {
       setActive(null);
     } else {
-      setActive(+e.currentTarget.attributes.id.value);
+      setActive(+e.currentTarget.dataset.id);
     }
   };
 
@@ -87,7 +89,7 @@ function Nav() {
               <button
                 type="button"
                 className={styles.dropdown_button}
-                id={item.id}
+                data-id={item.id}
                 onClick={onClick}
               >
                 <span className={styles.title}>{item.title[locale]}</span>
