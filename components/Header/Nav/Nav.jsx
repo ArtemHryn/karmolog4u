@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from 'react';
+import Link from 'next/link';
 import styles from './Nav.module.scss';
 import ArrowDown from '@components/Common/Icons/ArrowDown';
 import { useLocale } from 'next-intl';
@@ -82,14 +83,14 @@ function Nav() {
       {links.map((item, index) => (
         <React.Fragment key={index}>
           {Array.isArray(item.links) ? (
-            <li id={item.id} className={styles.dropdown_wrap}>
+            <li className={styles.dropdown_wrap}>
               <button
                 type="button"
                 className={styles.dropdown_button}
                 id={item.id}
                 onClick={onClick}
               >
-                <p className={styles.title}>{item.title[locale]}</p>
+                <span className={styles.title}>{item.title[locale]}</span>
                 <ArrowDown
                   styled={`${styles.dropdown_icon} ${
                     +active === +item.id ? styles.dropdown_icon_rotate : ''
@@ -103,22 +104,18 @@ function Nav() {
               >
                 {item.links.map((link, index) => (
                   <li key={index} className={styles.dropdown_item}>
-                    <a
-                      href={`/${locale}${link.link}`}
-                      className={styles.dropdown_link}
-                      locale={locale}
-                    >
+                    <Link href={`/${locale}${link.link}`} className={styles.dropdown_link}>
                       {link.name[locale]}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
             </li>
           ) : (
             <li>
-              <a href={item.links} className={styles.title} locale={locale}>
+              <Link href={item.links} className={styles.title}>
                 {item.title[locale]}
-              </a>
+              </Link>
             </li>
           )}
         </React.Fragment>

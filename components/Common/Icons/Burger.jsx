@@ -11,7 +11,7 @@ const Burger = ({ styled }) => {
         <path d="M24 11.0006H0v2h24v-2ZM24 4.0002H0v2h24v-2ZM24 18H0v2h24v-2Z" />
       </g>
       <defs>
-        <clipPath id="a">
+        <clipPath>
           <path fill="#fff" d="M0 0h24v24H0z" />
         </clipPath>
       </defs>
