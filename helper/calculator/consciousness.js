@@ -1,8 +1,10 @@
 import { checkNum } from './personal';
 
-export const getConsciousness = ({ info }) => {
-  const { social, spirit, planet } = info;
-  const data = { keys: [social, spirit, planet] };
+export const getConsciousness = ({ info, regression }) => {
+  const { personal, social, spirit, planet } = info;
+  const data = regression
+    ? { keys: [personal, social, spirit] }
+    : { keys: [social, spirit, planet] };
   return data;
 };
 

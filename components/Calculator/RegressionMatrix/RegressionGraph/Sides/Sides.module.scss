@@ -1,0 +1,319 @@
+@import '/styles/main.scss';
+
+.out_key {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 28px;
+  text-align: center;
+  color: $seconds_text_color;
+  @media all and (min-width: $min_tablet) {
+    width: 55px;
+    height: 55px;
+    font-size: 20px;
+  }
+}
+
+.middle_key {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 28px;
+  text-align: center;
+  color: $seconds_text_color;
+  @media all and (min-width: $min_tablet) {
+    width: 30px;
+    font-size: 16px;
+  }
+}
+
+.inner_key {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 28px;
+  text-align: center;
+  color: $seconds_text_color;
+  @media all and (min-width: $min_tablet) {
+    width: 30px;
+    font-size: 16px;
+  }
+}
+
+.out {
+  &_day {
+    top: 45.7%;
+    left: 0%;
+  }
+  &_topLeft1 {
+    top: 19.9%;
+    left: 12.5%;
+  }
+  &_month {
+    top: 10.4%;
+    left: 45.5%;
+  }
+  &_topRight1 {
+    top: 19.8%;
+    right: 12.5%;
+  }
+  &_year {
+    top: 46%;
+    right: 0%;
+  }
+  &_bottomRight1 {
+    bottom: 21.2%;
+    right: 12.6%;
+  }
+  &_bottom1 {
+    bottom: 11.5%;
+    right: 45.3%;
+  }
+  &_bottomLeft1 {
+    bottom: 21.3%;
+    left: 12.3%;
+  }
+  @media all and (min-width: $min_tablet) {
+    &_day {
+      top: 46.2%;
+      left: 0%;
+    }
+    &_topLeft1 {
+      top: 17.4%;
+      left: 12.4%;
+    }
+    &_month {
+      top: 7%;
+      left: 45.6%;
+    }
+    &_topRight1 {
+      top: 17.3%;
+      right: 12.7%;
+    }
+    &_year {
+      top: 46.2%;
+      right: 0%;
+    }
+    &_bottomRight1 {
+      bottom: 17.5%;
+      right: 12.9%;
+    }
+    &_bottom1 {
+      bottom: 6.9%;
+      right: 45.6%;
+    }
+    &_bottomLeft1 {
+      bottom: 17.5%;
+      left: 12.3%;
+    }
+  }
+}
+
+.middle {
+  &_left2 {
+    top: 46.3%;
+    left: 9.4%;
+  }
+  &_top2 {
+    top: 17.3%;
+    left: 46.3%;
+  }
+  &_right2 {
+    top: 46.2%;
+    right: 9.2%;
+  }
+  &_bottom2 {
+    bottom: 18.2%;
+    right: 46%;
+  }
+  @media all and (min-width: $min_tablet) {
+    &_left2 {
+      top: 48.2%;
+      left: 10.7%;
+    }
+    &_top2 {
+      top: 16.4%;
+      left: 47.5%;
+    }
+    &_right2 {
+      top: 48%;
+      right: 10.7%;
+    }
+    &_bottom2 {
+      bottom: 16%;
+      right: 47.5%;
+    }
+  }
+  @media all and (min-width: $min_desktop) {
+    &_left2 {
+      top: 48.2%;
+      left: 10.7%;
+    }
+    &_top2 {
+      top: 16.3%;
+      left: 47.5%;
+    }
+    &_right2 {
+      top: 48.2%;
+      right: 10.5%;
+    }
+    &_bottom2 {
+      bottom: 15.9%;
+      right: 47.5%;
+    }
+  }
+}
+
+.inner {
+  &_left3 {
+    top: 46%;
+    left: 17.5%;
+  }
+  &_top3 {
+    top: 22.9%;
+    left: 47.2%;
+  }
+  &_right3 {
+    top: 46%;
+    right: 17.4%;
+  }
+  &_bottom3 {
+    bottom: 24.1%;
+    right: 46.8%;
+  }
+  @media all and (min-width: $min_tablet) {
+    &_left3 {
+      top: 48.2%;
+      left: 18.1%;
+    }
+    &_top3 {
+      top: 22.5%;
+      left: 47.8%;
+    }
+    &_right3 {
+      top: 48%;
+      right: 18%;
+    }
+    &_bottom3 {
+      bottom: 22.5%;
+      right: 47.5%;
+    }
+  }
+  @media all and (min-width: $min_desktop) {
+    &_left3 {
+      top: 48.2%;
+      left: 18%;
+    }
+    &_top3 {
+      top: 22.5%;
+      left: 47.8%;
+    }
+    &_right3 {
+      top: 48.2%;
+      right: 18%;
+    }
+    &_bottom3 {
+      bottom: 22.3%;
+      right: 47.5%;
+    }
+  }
+}
+
+.active {
+  transition: all 250ms ease-in;
+  &:is(:hover, :focus) {
+    border: 1px solid #454545;
+    border-radius: 50%;
+    color: $buttons_hover_color;
+    background: $active_key;
+    scale: 1.07;
+  }
+}
+
+.center {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 28px;
+  text-align: center;
+  color: $seconds_text_color;
+  top: 46%;
+  left: 45.9%;
+  @media all and (min-width: $min_tablet) {
+    width: 40px;
+    font-size: 22px;
+    top: 47.8%;
+    left: 47%;
+  }
+  @media all and (min-width: $min_desktop) {
+    top: 48%;
+  }
+}
+
+.link_to_regression {
+  display: flex;
+  align-items: center;
+  border: 1px solid #454545;
+  border-radius: 30px;
+  padding: 0 20px;
+  min-width: 200px;
+  max-width: 300px;
+  min-height: 28px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  background: #1f1f1f;
+  @include fontRegular(10px, 400, 14px, $main_text_color, center);
+  @media all and (min-width: $min_tablet) {
+    font-size: 14px;
+    max-width: 400px;
+    min-height: 46px;
+  }
+  @media all and (min-width: $min_desktop) {
+    max-width: 600px;
+  }
+}
+
+.fade_in {
+  animation: fadeIn 0.5s ease forwards;
+  @media all and (min-width: $min_tablet) {
+    animation: fadeInTablet 0.5s ease forwards;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0); /* Початкове зміщення вгору */
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-10px, 5px); /* Плавне повернення до нормальної позиції */
+  }
+}
+
+@keyframes fadeInTablet {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0); /* Менше зсуву для менших екранів */
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-30px, 15px); /* Менше зсуву для менших екранів */
+  }
+}

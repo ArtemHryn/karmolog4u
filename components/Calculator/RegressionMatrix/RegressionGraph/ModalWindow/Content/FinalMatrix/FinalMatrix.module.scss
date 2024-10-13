@@ -1,0 +1,27 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  border-bottom: 1px solid $accent_v2;
+  padding: 40px 0px;
+  @media all and (min-width: $min_desktop) {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0px;
+  }
+}
+
+.title {
+  @include fontRegular(24px, 400, 24px, $main_text_color, center);
+  @media all and (min-width: $min_tablet) {
+    font-size: 28px;
+    max-width: 70%;
+    text-wrap: balance;
+    margin-inline: auto;
+  }
+}
+
+.matrix_wrapper {
+  @media all and (min-width: $min_desktop) {
+   width: 618px;
+  }
+}
