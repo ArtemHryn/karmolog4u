@@ -13,7 +13,7 @@ export const getCompatibilityGraph = ({ partners, skipCenter = false }) => {
   return getPersonalGraph({ info: result, lifeMap: true, isPartners: true, skipCenter });
 };
 
-export const getResultLifeMap = ({ info }) => {
+export const getResultLifeMap = ({ info, hideSpirit }) => {
   const { sky, earth, personal, man, woman, social, spirit } = info;
 
   const data = {
@@ -36,12 +36,15 @@ export const getResultLifeMap = ({ info }) => {
       },
       { name: { uk: 'Соціальне призначення', ru: 'Социальное предназначение' }, key: social },
     ],
-    spirit: [
+  };
+
+  if (!hideSpirit) {
+    data.spirit = [
       { name: { uk: 'Особисте призначення', ru: 'Личное предназначение' }, key: personal },
       { name: { uk: 'Соціальне призначення', ru: 'Социальное предназначение' }, key: social },
       { name: { uk: 'Духовне призначення', ru: 'Духовное предназначение' }, key: spirit },
-    ],
-  };
+    ];
+  }
 
   return data;
 };

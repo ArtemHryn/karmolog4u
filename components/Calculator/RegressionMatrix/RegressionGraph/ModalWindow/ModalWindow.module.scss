@@ -1,0 +1,49 @@
+@import '/styles/main.scss';
+
+.layout {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $modal_layout;
+  z-index: 1000;
+}
+
+.modal {
+  position: relative;
+  height: 100%;
+  width: $min_mobile;
+  border-radius: 30px;
+  padding: 40px 16px;
+  background-color: $modal_bg;
+  overflow-y: auto;
+  scrollbar-width: none; /* Для Firefox */
+  -ms-overflow-style: none; /* Для Internet Explorer та Edge */
+  &::-webkit-scrollbar {
+    display: none; /* Для Chrome, Safari та Opera */
+  }
+  @media all and (min-width: $min_tablet) {
+    width: $min_tablet;
+  }
+  @media all and (min-width: $min_desktop) {
+    width: $min_desktop;
+    padding: 40px 115px;
+  }
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  @media all and (min-width: $min_tablet) {
+    top: 16px;
+    right: 16px;
+    width: 24px;
+    height: 24px;
+  }
+}

@@ -53,4 +53,8 @@ export const matrixLinks = [
       ru: 'Талисман звезды процветания',
     },
   },
+  {
+    href: '/calculator/regression-matrix',
+    name: { uk: 'Матриця регресії', ru: 'Матрица регрессии' },
+  },
 ];

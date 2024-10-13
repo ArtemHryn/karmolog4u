@@ -1,0 +1,67 @@
+@import '/styles/main.scss';
+
+.buttons_wrapper {
+  padding: 40px 0px;
+}
+
+.title {
+  @include fontRegular(28px, 400, 39.2px, $main_text_color, center);
+  margin-bottom: 40px;
+}
+
+.channel {
+  @include fontRegular(24px, 400, 24px, $main_text_color, center);
+  @media all and (min-width: $min_tablet) {
+    font-size: 28px;
+    max-width: 70%;
+    text-wrap: balance;
+    margin-inline: auto;
+  }
+}
+.matrix_wrapper {
+  @media all and (min-width: $min_desktop) {
+    display: flex;
+    justify-content: center;
+    height: 782px;
+  }
+}
+
+//buttons
+
+.button_list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  @media all and (min-width: $min_tablet) {
+    flex-direction: row;
+  }
+  @media all and (min-width: $min_desktop) {
+    justify-content: center;
+  }
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  padding: 20px 16px;
+  width: 320px;
+  height: 51px;
+
+  background-color: $buttons_color;
+  @include fontRegular(16px, 600, 16px, $third_text_color);
+  transition: all 250ms ease-in;
+  &:is(:hover, :focus) {
+    background-color: $buttons_hover_color;
+  }
+  &_active {
+    background-color: $buttons_hover_color;
+  }
+  @media all and (min-width: $min_tablet) {
+    width: 221px;
+  }
+  @media all and (min-width: $min_desktop) {
+    width: 339px;
+  }
+}
