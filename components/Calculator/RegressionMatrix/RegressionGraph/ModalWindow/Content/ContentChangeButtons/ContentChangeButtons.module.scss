@@ -1,0 +1,54 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  padding-top: 40px;
+  border-top: 1px solid $accent_v2;
+}
+
+.title {
+  @include fontRegular(28px, 400, 39.2px, $main_text_color, center);
+  margin-bottom: 40px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 16px;
+  @media all and (min-width: $min_tablet) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  @media all and (min-width: $min_desktop) {
+    justify-content: center;
+  }
+}
+
+.element {
+  @media all and (min-width: $min_tablet) {
+    width: 100%;
+    max-width: calc((100% - 16px) / 2);
+  }
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  padding: 20px 16px;
+  width: 320px;
+  height: 51px;
+
+  background-color: $buttons_color;
+  @include fontRegular(16px, 400, 16px, $third_text_color, center);
+  transition: all 250ms ease-in;
+  &:is(:hover, :focus) {
+    background-color: $buttons_hover_color;
+  }
+  @media all and (min-width: $min_tablet) {
+    width: 100%;
+  }
+}

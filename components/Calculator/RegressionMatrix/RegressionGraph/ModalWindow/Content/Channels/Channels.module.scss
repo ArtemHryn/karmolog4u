@@ -1,5 +1,12 @@
 @import '/styles/main.scss';
 
+.main_wrapper {
+  padding-bottom: 40px;
+  @media all and (min-width: $min_desktop) {
+    padding-bottom: 0px;
+  }
+}
+
 .buttons_wrapper {
   padding: 40px 0px;
 }
