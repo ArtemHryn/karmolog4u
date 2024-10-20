@@ -30,7 +30,7 @@ const FinalMatrix = ({ matrix, title }) => {
 
   if (!matrix) return;
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} id='final-matrix'>
       <div className={styles.matrix_wrapper}>
         <TitleNoStyles variant="h2" styled={styles.title}>
           {title}

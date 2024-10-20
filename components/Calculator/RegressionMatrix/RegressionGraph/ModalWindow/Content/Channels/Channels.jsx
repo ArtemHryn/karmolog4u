@@ -60,7 +60,7 @@ const Channels = ({ matrix, currentKey, setFinalMatrix }) => {
   }, [activeButton, currentKey, matrix, setFinalMatrix]);
 
   return (
-    <div>
+    <div className={styles.main_wrapper}>
       <Buttons setActiveButton={setActiveButton} activeButton={activeButton} />
       {activeButton && (
         <div className={styles.matrix_wrapper}>
