@@ -5,7 +5,7 @@ import ActiveKey from './ActiveKey/ActiveKey';
 
 import styles from './Sides.module.scss';
 
-const Left = ({ matrix }) => {
+const Left = ({ matrix, setTitle, setCurrentKey, setShowChannels }) => {
   const { left2 } = matrix;
   const t = useTranslations('Calculator.regression.links_to_regression');
 
@@ -21,12 +21,18 @@ const Left = ({ matrix }) => {
         translation={t('personal')}
         main
         matrix={matrix}
+        setTitle={setTitle}
+        setCurrentKey={setCurrentKey}
+        setShowChannels={setShowChannels}
       />
       <ActiveKey
         currentKey={'left3'}
         styled={styles.inner_left3}
         translation={t('parents_children_karma')}
         matrix={matrix}
+        setTitle={setTitle}
+        setCurrentKey={setCurrentKey}
+        setShowChannels={setShowChannels}
       />
     </>
   );

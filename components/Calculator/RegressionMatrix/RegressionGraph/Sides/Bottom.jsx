@@ -4,7 +4,7 @@ import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
 import styles from './Sides.module.scss';
 import ActiveKey from './ActiveKey/ActiveKey';
 
-const Bottom = ({ matrix }) => {
+const Bottom = ({ matrix, setTitle, setCurrentKey, setShowChannels }) => {
   const t = useTranslations('Calculator.regression.links_to_regression');
 
   const { bottomRight1, bottomLeft1, bottom2 } = matrix;
@@ -19,6 +19,9 @@ const Bottom = ({ matrix }) => {
         styled={styles.out_bottom1}
         translation={t('past')}
         matrix={matrix}
+        setTitle={setTitle}
+        setCurrentKey={setCurrentKey}
+        setShowChannels={setShowChannels}
       />
       <TitleNoStyles variant="span" styled={`${styles.out_key} ${styles.out_bottomLeft1}`}>
         {bottomLeft1}
@@ -31,6 +34,9 @@ const Bottom = ({ matrix }) => {
         styled={styles.inner_bottom3}
         translation={t('love')}
         matrix={matrix}
+        setTitle={setTitle}
+        setCurrentKey={setCurrentKey}
+        setShowChannels={setShowChannels}
       />
     </>
   );

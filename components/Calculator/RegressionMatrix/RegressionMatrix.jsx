@@ -5,7 +5,7 @@ import { getPersonalGraph } from '@helper/calculator/personal';
 
 import styles from './RegressionMatrix.module.scss';
 
-const RegressionMatrix = ({ date, name }) => {
+const RegressionMatrix = ({ date, name, setTitle, setCurrentKey, setShowChannels }) => {
   const [matrix, setMatrix] = useState(null);
 
   useEffect(() => {
@@ -27,7 +27,14 @@ const RegressionMatrix = ({ date, name }) => {
 
   return (
     <div id="regression-matrix" className={styles.regression_matrix_wrapper}>
-      <RegressionGraph matrix={matrix} date={date} name={name} />
+      <RegressionGraph
+        matrix={matrix}
+        date={date}
+        name={name}
+        setTitle={setTitle}
+        setCurrentKey={setCurrentKey}
+        setShowChannels={setShowChannels}
+      />
     </div>
   );
 };
