@@ -5,11 +5,18 @@ import styles from '../Sides.module.scss';
 import { unbounded } from '@app/[locale]/layout';
 
 import 'primereact/resources/primereact.min.css';
-import ModalWindow from '../../ModalWindow/ModalWindow';
 
-const ActiveKey = ({ currentKey, styled, translation, main, matrix }) => {
+const ActiveKey = ({
+  currentKey,
+  styled,
+  translation,
+  main,
+  matrix,
+  setTitle,
+  setCurrentKey,
+  setShowChannels,
+}) => {
   const [isVisible, setIsVisible] = useState(false);
-  const [showModal, setShowModal] = useState(false);
 
   const op = useRef(null);
 
@@ -18,8 +25,10 @@ const ActiveKey = ({ currentKey, styled, translation, main, matrix }) => {
     setIsVisible(prev => !prev);
   };
 
-  const onOpenModalWindow = () => {
-    setShowModal(true);
+  const onOpenChannels = () => {
+    setTitle(translation);
+    setCurrentKey(currentKey);
+    setShowChannels(true);
     op.current.hide();
   };
 
@@ -38,19 +47,11 @@ const ActiveKey = ({ currentKey, styled, translation, main, matrix }) => {
         <button
           type="button"
           className={`${styles.link_to_regression} ${unbounded.className}`}
-          onClick={onOpenModalWindow}
+          onClick={onOpenChannels}
         >
           {translation}
         </button>
       </OverlayPanel>
-      {showModal && (
-        <ModalWindow
-          matrix={matrix}
-          setShowModal={setShowModal}
-          currentKey={currentKey}
-          translation={translation}
-        />
-      )}
     </>
   );
 };

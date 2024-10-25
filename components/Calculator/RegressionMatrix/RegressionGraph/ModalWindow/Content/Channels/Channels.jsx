@@ -26,6 +26,7 @@ const Channels = ({ matrix, currentKey, setFinalMatrix }) => {
       skipCenter: true,
       lifeMap: true,
     };
+    if (!matrix) return;
     const result = regression(matrix, currentKey);
     const activeChannel = result[`channel${activeButton}`];
 
@@ -70,7 +71,7 @@ const Channels = ({ matrix, currentKey, setFinalMatrix }) => {
             </TitleNoStyles>
             <Matrix matrix={channelMatrix} />
           </div>
-          <ResultLifeMap maps={map} spiritLesson={spiritLesson} regression/>
+          <ResultLifeMap maps={map} spiritLesson={spiritLesson} regression />
         </div>
       )}
     </div>

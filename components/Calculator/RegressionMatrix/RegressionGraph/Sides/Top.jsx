@@ -4,7 +4,7 @@ import ActiveKey from './ActiveKey/ActiveKey';
 import styles from './Sides.module.scss';
 import { useTranslations } from 'next-intl';
 
-const Top = ({ matrix }) => {
+const Top = ({ matrix, setTitle, setCurrentKey, setShowChannels }) => {
   const t = useTranslations('Calculator.regression.links_to_regression');
   const { topLeft1, topRight1, top2 } = matrix;
   return (
@@ -24,12 +24,18 @@ const Top = ({ matrix }) => {
         styled={styles.out_month}
         translation={t('spirit')}
         matrix={matrix}
+        setTitle={setTitle}
+        setCurrentKey={setCurrentKey}
+        setShowChannels={setShowChannels}
       />
       <ActiveKey
         currentKey={'top3'}
         styled={styles.inner_top3}
         translation={t('creativity')}
         matrix={matrix}
+        setTitle={setTitle}
+        setCurrentKey={setCurrentKey}
+        setShowChannels={setShowChannels}
       />
     </>
   );

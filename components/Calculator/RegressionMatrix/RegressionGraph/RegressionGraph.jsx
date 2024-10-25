@@ -8,17 +8,37 @@ import Right from './Sides/Right';
 import Bottom from './Sides/Bottom';
 import Center from './Sides/Center';
 
-const RegressionGraph = ({ matrix, name, date }) => {
+const RegressionGraph = ({ matrix, name, date, setTitle, setCurrentKey, setShowChannels }) => {
   if (!matrix) return null;
   return (
     <div>
       <CalcDateTitle date={date} name={name} />
       <div className={styles.graph_wrapper}>
         <RegressionSvg styled={styles.graph} />
-        <Top matrix={matrix} />
-        <Left matrix={matrix} />
-        <Right matrix={matrix} />
-        <Bottom matrix={matrix} />
+        <Top
+          matrix={matrix}
+          setTitle={setTitle}
+          setCurrentKey={setCurrentKey}
+          setShowChannels={setShowChannels}
+        />
+        <Left
+          matrix={matrix}
+          setTitle={setTitle}
+          setCurrentKey={setCurrentKey}
+          setShowChannels={setShowChannels}
+        />
+        <Right
+          matrix={matrix}
+          setTitle={setTitle}
+          setCurrentKey={setCurrentKey}
+          setShowChannels={setShowChannels}
+        />
+        <Bottom
+          matrix={matrix}
+          setTitle={setTitle}
+          setCurrentKey={setCurrentKey}
+          setShowChannels={setShowChannels}
+        />
         <Center matrix={matrix} />
       </div>
     </div>

@@ -8,6 +8,7 @@ import SocialInfoDesc from '@components/Common/Calculator/SocialInfoDesc/SocialI
 
 import styles from '@components/Calculator/RegressionMatrix/RegressionMatrix.module.scss';
 import RegressionMatrix from '@components/Calculator/RegressionMatrix/RegressionMatrix';
+import RegressionChannels from '@components/Calculator/RegressionMatrix/RegressionChannels/RegressionChannels';
 
 const social = {
   uk: [
@@ -25,6 +26,10 @@ const RegressionMatrixPage = () => {
   const [date, setDate] = useState('');
   const [name, setName] = useState('');
   const [isChecked, setIsChecked] = useState(false);
+  const [title, setTitle] = useState(null);
+  const [currentKey, setCurrentKey] = useState(null);
+  const [showChannels, setShowChannels] = useState(false);
+
   return (
     <main>
       <Suspense fallback={<div></div>}>
@@ -40,8 +45,19 @@ const RegressionMatrixPage = () => {
         {isChecked && isShowMatrix && (
           <>
             <Container styledSection={styles.matrix_wrapper}>
-              <RegressionMatrix date={date} name={name} />
+              <RegressionMatrix
+                date={date}
+                name={name}
+                setTitle={setTitle}
+                setCurrentKey={setCurrentKey}
+                setShowChannels={setShowChannels}
+              />
             </Container>
+            {showChannels && (
+              <Container styledSection={styles.matrix_wrapper}>
+                <RegressionChannels date={date} title={title} currentKey={currentKey} />
+              </Container>
+            )}
             <MoreCalculators date={date} name={name} />
             <SocialInfoDesc socialList={social} />
           </>

@@ -103,7 +103,7 @@ const getKeys = (matrix, currentKey) => {
         num8: matrix.top2,
       };
     default:
-      return 'test';
+      return 'error';
   }
 };
 
