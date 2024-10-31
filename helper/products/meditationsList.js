@@ -227,7 +227,7 @@ const getOpenedMeditationsList = () => {
       },
     },
     {
-      name: { uk: 'Медитація "Бажання здійснюються"', ru: 'Медитация "Желания исполняются"' },
+      name: { uk: 'Медитація "Бажання здійснюються"', ru: 'Медитация Изобилие' },
       isWaiting: false,
       img: '/assets/images/meditations/free_meditation5.webp',
       category: 'opened',
@@ -290,7 +290,7 @@ const getClosedMeditationsList = () => {
       },
     },
     {
-      name: { uk: 'Медитація "Достаток"', ru: 'Медитация "Достаток"' },
+      name: { uk: 'Медитація "Достаток"', ru: 'Медитация Изобилие' },
       img: '/assets/images/meditations/payed_meditations3.webp',
       price: '10€',
       link: '#',

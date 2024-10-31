@@ -66,7 +66,7 @@ const links = [
   { title: { uk: 'КАЛЬКУЛЯТОР', ru: 'КАЛЬКУЛЯТОР' }, links: '/calculator' },
 ];
 
-function Nav() {
+function Nav({ setIsOpen }) {
   const [active, setActive] = useState(null);
   const locale = useLocale();
 
@@ -106,7 +106,11 @@ function Nav() {
               >
                 {item.links.map((link, index) => (
                   <li key={index} className={styles.dropdown_item}>
-                    <Link href={`/${locale}${link.link}`} className={styles.dropdown_link}>
+                    <Link
+                      href={`/${locale}${link.link}`}
+                      className={styles.dropdown_link}
+                      onClick={() => setIsOpen && setIsOpen(false)}
+                    >
                       {link.name[locale]}
                     </Link>
                   </li>
@@ -115,7 +119,11 @@ function Nav() {
             </li>
           ) : (
             <li>
-              <Link href={item.links} className={styles.title}>
+              <Link
+                href={item.links}
+                className={styles.title}
+                onClick={() => setIsOpen && setIsOpen(false)}
+              >
                 {item.title[locale]}
               </Link>
             </li>
