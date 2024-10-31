@@ -23,7 +23,7 @@ const GiftDetailsPage = ({ params: { locale } }) => {
   if (!gift) return null;
 
   const links = [
-    { href: '/products/gifts', name: 'Подарунки Студії' },
+    { href: '/products/gifts', name: { uk: 'Подарунки Студії', ru: 'Подарки Студии' } },
     { href: pathname, name: gift.name[locale] },
   ];
 

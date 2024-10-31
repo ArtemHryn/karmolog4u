@@ -30,7 +30,7 @@ function MobileNav({ isOpen, setIsOpen }) {
             </p>
           </Link>
         </div>
-        <Nav />
+        <Nav setIsOpen={setIsOpen} />
         <SocialLinks styles={socialStyles} />
       </div>
       <div

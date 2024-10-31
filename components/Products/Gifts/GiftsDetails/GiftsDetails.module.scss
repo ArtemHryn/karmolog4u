@@ -133,7 +133,7 @@
   list-style-type: disc;
   padding-left: 24px;
   @media all and (min-width: $min_tablet) {
-    width: 366px;
+    min-width: 366px;
   }
 }
 

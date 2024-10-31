@@ -8,6 +8,8 @@ import styles from './IndividualSessions.module.scss';
 function IndividualSessions() {
   const t = useTranslations('Services.therapy_sessions.individual_sessions');
   const locale = useLocale();
+  const text3 = t('text3').replace(/22-м/g, '22\u2011м');
+
   return (
     <Container styledSection={styles.section}>
       <Title variant="h2" styled={`${styles.title}`}>
@@ -17,7 +19,7 @@ function IndividualSessions() {
         <article className={`${styles.article} ${locale === 'ru' ? styles.article_ru : ''}`}>
           <p>{t('text1')}</p>
           <p>{t('text2')}</p>
-          <p>{t('text3')}</p>
+          <p dangerouslySetInnerHTML={{ __html: text3 }} />
           <p>{t('text4')}</p>
           <p>{t('text5')}</p>
         </article>

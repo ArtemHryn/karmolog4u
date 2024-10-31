@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Marquees from './Marquees/Marquees';
-import VideoButton from './VideoButton/VideoButton';
 import Container from '@components/Common/Container/Container';
 import { unbounded } from '@app/[locale]/layout';
 import BackgroundLogo from './BackgroundLogo/BackgroundLogo';
@@ -25,7 +24,6 @@ const Hero = () => {
               {t('description2')}
             </p>
             <p className={`${styled.text_description}`}> {t('description3')}</p>
-            <VideoButton />
           </div>
         </div>
         <div className={styled.wrapper}>

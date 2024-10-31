@@ -13,9 +13,12 @@ export const getExtensionList = ({ info }) => {
   const data = {
     title: 'Ключ розширення',
     extension: [
-      { name: 'Зона комфорту', key: center },
-      { name: 'Дар роду', key: center2 },
-      { name: 'Особистий потенціал', key: checkNum(center, center2) },
+      { name: { uk: 'Зона комфорту', ru: 'Зона комфорта' }, key: center },
+      { name: { uk: 'Дар роду', ru: 'Дар рода' }, key: center2 },
+      {
+        name: { uk: 'Особистий потенціал', ru: 'Личный потенциал' },
+        key: checkNum(center, center2),
+      },
     ],
   };
   return data;
