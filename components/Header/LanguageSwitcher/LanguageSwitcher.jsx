@@ -1,3 +1,5 @@
+'use client'
+
 import { useLocale } from 'next-intl';
 import styles from './LanguageSwitcher.module.scss';
 import { usePathname, useSearchParams, useRouter } from 'next/navigation';
@@ -29,8 +31,12 @@ const LanguageSwitcher = () => {
     <label className={styles.switch}>
       <input type="checkbox" onChange={handleLanguageSwitch} defaultChecked={locale === 'uk'} />
       <TitleNoStyles variant="span" styled={styles.slider} data={locale === 'uk' ? 'ua' : locale}>
-        <TitleNoStyles variant="span">RU</TitleNoStyles>
-        <TitleNoStyles variant="span">UA</TitleNoStyles>
+        <TitleNoStyles variant="span" styled={styles.text}>
+          RU
+        </TitleNoStyles>
+        <TitleNoStyles variant="span" styled={styles.text}>
+          UA
+        </TitleNoStyles>
       </TitleNoStyles>
     </label>
   );

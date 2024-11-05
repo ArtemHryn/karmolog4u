@@ -51,8 +51,10 @@
   transition: all 0.4s linear;
 }
 
-
-
 .switch input:checked + .slider:before {
   transform: translateX(32px);
+}
+
+.text {
+  text-align: center;
 }

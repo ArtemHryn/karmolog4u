@@ -6,7 +6,6 @@ import { usePathname, useSearchParams } from 'next/navigation';
 import Nav from './Nav/Nav';
 import MobileNav from './MobileNav/MobileNav';
 import Logo from '@components/Common/Icons/Logo';
-import ShoppingBag from '@components/Common/Icons/ShoppingBag';
 import User from '@components/Common/Icons/User';
 import Burger from '@components/Common/Icons/Burger';
 

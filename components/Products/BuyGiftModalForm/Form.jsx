@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import PhoneInput from 'react-phone-input-2';
 import { useForm, Controller } from 'react-hook-form';
+import { useTranslations } from 'next-intl';
 import AsyncSelect from 'react-select/async';
 import Select from 'react-select';
 import Link from 'next/link';
