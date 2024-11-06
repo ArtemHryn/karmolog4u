@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { unbounded } from '@app/[locale]/layout';
+import { unbounded } from '@app/[locale]//layout';
 import styles from './Pricing.module.scss';
 import { useLocale, useTranslations } from 'next-intl';
 

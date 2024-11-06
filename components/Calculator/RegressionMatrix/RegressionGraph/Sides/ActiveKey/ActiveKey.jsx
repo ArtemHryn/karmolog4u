@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { OverlayPanel } from 'primereact/overlaypanel';
 
 import styles from '../Sides.module.scss';
-import { unbounded } from '@app/[locale]/layout';
+import { unbounded } from '@app/[locale]//layout';
 
 import 'primereact/resources/primereact.min.css';
 

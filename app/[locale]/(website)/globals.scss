@@ -1,0 +1,26 @@
+@import "../styles/main.scss";
+
+body {
+  height: 100%;
+  position: relative;
+  background-color: $section_color;
+  color: $main_text_color;
+}
+
+.react-tel-input .country-list .country.highlight {
+  border: 1px solid $seconds_text_color !important;
+  background-color: transparent !important;
+}
+
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}

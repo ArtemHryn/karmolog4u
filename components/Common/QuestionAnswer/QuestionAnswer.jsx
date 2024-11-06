@@ -1,7 +1,7 @@
 import Container from '@components/Common/Container/Container';
 import React from 'react';
 import Dropdown from './Dropdown';
-import { unbounded } from '@app/[locale]/layout';
+import { unbounded } from '@app/[locale]//layout';
 import styles from './QuestionAnswer.module.scss';
 import { useLocale, useTranslations } from 'next-intl';
 

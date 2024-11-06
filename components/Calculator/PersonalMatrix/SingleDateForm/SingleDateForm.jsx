@@ -2,7 +2,7 @@ import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { Controller, useForm } from 'react-hook-form';
 import TextMaskInput from 'react-text-mask';
-import { open_Sans } from '@app/[locale]/layout';
+import { open_Sans } from '@app/[locale]//layout';
 
 import styles from './SingleDateForm.module.scss';
 

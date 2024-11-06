@@ -1,7 +1,7 @@
 'use client';
 import { useEffect } from 'react';
 import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
-import { open_Sans } from '@app/[locale]/layout';
+import { open_Sans } from '@app/[locale]//layout';
 import Logo from './Logo';
 
 import styles from './NotFound.module.scss';

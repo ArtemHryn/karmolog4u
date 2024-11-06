@@ -2,7 +2,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import Container from '@components/Common/Container/Container';
 import Title from '@components/Common/Title/Title';
 import Link from 'next/link';
-import { open_Sans } from '@app/[locale]/layout';
+import { open_Sans } from '@app/[locale]//layout';
 import useLocalizedValue from '@hooks/useLocalizedValue';
 
 import styles from './EduPricing.module.scss';

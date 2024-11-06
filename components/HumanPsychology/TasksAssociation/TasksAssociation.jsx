@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import Container from '@components/Common/Container/Container';
 import Title from '@components/Common/Title/Title';
-import { open_Sans } from '@app/[locale]/layout';
+import { open_Sans } from '@app/[locale]//layout';
 //icons
 import GraduationCap from '@components/Common/Icons/PshychoIcons/GraduationCap';
 import ChatArrowGrow from '@components/Common/Icons/PshychoIcons/ChatArrowGrow';

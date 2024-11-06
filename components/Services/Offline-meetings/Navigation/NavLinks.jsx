@@ -3,7 +3,7 @@ import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
 import styles from './Navigation.module.scss';
-import { unbounded } from '@app/[locale]/layout';
+import { unbounded } from '@app/[locale]//layout';
 import { useLocale } from 'next-intl';
 
 const navLinks = [

@@ -1,6 +1,6 @@
 import { useLocale } from 'next-intl';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { open_Sans } from '@app/[locale]/layout';
+import { open_Sans } from '@app/[locale]//layout';
 
 import 'swiper/css';
 import styles from './ButtonsList.module.scss';

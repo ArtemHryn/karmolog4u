@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import YouTube from '../SocialIcons/YouTube';
-import { unbounded } from '@app/[locale]/layout';
+import { unbounded } from '@app/[locale]//layout';
 
 import styles from './SeeMoreOnMyYouTube.module.scss';
 import { useTranslations } from 'next-intl';

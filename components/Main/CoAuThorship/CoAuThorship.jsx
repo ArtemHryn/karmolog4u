@@ -2,7 +2,7 @@ import Container from '@components/Common/Container/Container';
 import Books from './Books/Books';
 import BooksTab from './Books/BooksTab';
 import BooksArrow from '@components/Common/Icons/BooksArrow';
-import { unbounded } from '@app/[locale]/layout';
+import { unbounded } from '@app/[locale]//layout';
 
 import styles from './CoAuThorship.module.scss';
 import { useTranslations } from 'next-intl';
