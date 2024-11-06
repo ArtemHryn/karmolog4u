@@ -6,7 +6,7 @@ import Link from 'next/link';
 import styles from './SocialInfo.module.scss';
 import Logo from '@components/Common/Icons/Logo';
 import BlurLogo from '@components/Common/Icons/BlurLogo';
-import { unbounded } from '@app/[locale]/layout';
+import { unbounded } from '@app/[locale]//layout';
 import { useTranslations } from 'next-intl';
 
 const links = [

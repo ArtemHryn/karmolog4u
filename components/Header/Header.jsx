@@ -1,8 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useLocale } from 'next-intl';
-import { usePathname, useSearchParams } from 'next/navigation';
 import Nav from './Nav/Nav';
 import MobileNav from './MobileNav/MobileNav';
 import Logo from '@components/Common/Icons/Logo';
@@ -14,9 +12,6 @@ import LanguageSwitcher from './LanguageSwitcher/LanguageSwitcher';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(null);
-  const pathName = usePathname();
-  const search = useSearchParams();
-
 
   useEffect(() => {
     if (!isOpen) {
@@ -25,13 +20,6 @@ function Header() {
       document.body.style.overflow = 'hidden';
     }
   }, [isOpen]);
-
-  const cleanedPathname = pathName.replace(/^\/[a-z]{2}(\/|$)/, '/');
-
-  const createLocaleLink = locale => {
-    const currentParams = new URLSearchParams(search.toString());
-    return `/${locale}${cleanedPathname}?${currentParams.toString()}`;
-  };
 
   return (
     <header className={styles.wrap}>
@@ -50,7 +38,7 @@ function Header() {
           <Nav />
         </div>
         <div className={styles.add_nav}>
-          <Link href={createLocaleLink('ru')} locale={'ru'} className={styles.hover}>
+          <Link href={'cabinet/login'} className={styles.hover}>
             <User />
           </Link>
           <LanguageSwitcher />

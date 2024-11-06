@@ -3,9 +3,9 @@ import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import Container from '@components/Common/Container/Container';
 import HeroNav from '@components/Common/HeroNav/HeroNav';
-import { open_Sans, unbounded } from '@app/[locale]/layout';
 
 import styles from './Hero.module.scss';
+import { open_Sans, unbounded } from '@app/[locale]/layout';
 
 const Hero = ({ linkNames = [], title, img }) => {
   const locale = useLocale();

@@ -6,7 +6,7 @@ import Telegram from '@components/Common/SocialIcons/Telegram';
 import Link from 'next/link';
 import Logo from '@components/Common/Icons/Logo';
 import BlurLogo from '@components/Common/Icons/BlurLogo';
-import { unbounded } from '@app/[locale]/layout';
+import { unbounded } from '@app/[locale]//layout';
 
 import styles from './Feedback.module.scss';
 

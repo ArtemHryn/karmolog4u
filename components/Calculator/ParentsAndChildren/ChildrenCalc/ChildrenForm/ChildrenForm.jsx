@@ -1,4 +1,4 @@
-import { open_Sans } from '@app/[locale]/layout';
+import { open_Sans } from '@app/[locale]//layout';
 import { Controller, useForm } from 'react-hook-form';
 import TextMaskInput from 'react-text-mask';
 import { getPersonalGraph } from '@helper/calculator/personal';

@@ -1,9 +1,5 @@
 import { Open_Sans, Unbounded } from 'next/font/google';
 import './globals.scss';
-import Header from '@components/Header/Header';
-import Footer from '@components/Footer/Footer';
-import ScrollToTop from '@components/Common/ScrollToTop/ScrollToTop';
-import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
 
@@ -28,10 +24,7 @@ export default async function RootLayout({ children }) {
     <html lang={locale}>
       <body className={open_Sans.className}>
         <NextIntlClientProvider messages={messages}>
-          <Header />
-          <ScrollToTop />
           {children}
-          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>

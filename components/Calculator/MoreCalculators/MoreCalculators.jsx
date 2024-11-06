@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { unbounded } from '@app/[locale]/layout';
+import { unbounded } from '@app/[locale]//layout';
 import Container from '@components/Common/Container/Container';
 import Arrow from './Arrow';
 import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
@@ -27,7 +27,9 @@ const MoreCalculators = ({ date, name }) => {
         </span>
       </button>
       <div className={`${showButtons ? styles.active_part : styles.active_part_hide}`}>
-        <TitleNoStyles variant='h3' styled={styles.title}>{t('what_matrix')}</TitleNoStyles>
+        <TitleNoStyles variant="h3" styled={styles.title}>
+          {t('what_matrix')}
+        </TitleNoStyles>
         <ButtonsList date={date} name={name} />
         <h2 className={styles.notification}>{t('about_calc')}</h2>
       </div>

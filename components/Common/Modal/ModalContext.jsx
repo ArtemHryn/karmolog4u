@@ -25,8 +25,7 @@ const ModalContext = () => {
     <div className={styles.container}>
       <h1 className={`${styles.title} ${unbounded.className}`}>{t('important_message')}</h1>
       <p className={styles.text}>
-        {t('text')}{' '}
-        <span>WhatsApp</span>, <span>Telegram</span> або <span>Viber</span>:
+        {t('text')} <span>WhatsApp</span>, <span>Telegram</span> або <span>Viber</span>:
       </p>
       <ul className={styles.btn_list}>
         {links.map(link => (

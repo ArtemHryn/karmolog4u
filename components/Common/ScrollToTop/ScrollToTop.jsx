@@ -3,14 +3,14 @@
 import { useEffect, useState } from 'react';
 
 import styles from './ScrollToTop.module.scss';
-import { open_Sans } from '@app/[locale]/layout';
+import { open_Sans } from '@app/[locale]//layout';
 import { useTranslations } from 'next-intl';
 import useScrollManager from '@hooks/useScrollManager';
 
 const ScrollToTop = () => {
   const { showButton, smoothScrollToTop } = useScrollManager();
   const t = useTranslations('Common.ScrollToTop');
- 
+
   return showButton ? (
     <button onClick={smoothScrollToTop} className={styles.btn}>
       <svg

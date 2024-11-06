@@ -1,5 +1,5 @@
 import { useLocale, useTranslations } from 'next-intl';
-import { unbounded } from '@app/[locale]/layout';
+import { unbounded } from '@app/[locale]//layout';
 import Container from '@components/Common/Container/Container';
 import Whatsapp from '@components/Common/SocialIcons/Whatsapp';
 import Telegram from '@components/Common/SocialIcons/Telegram';

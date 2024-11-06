@@ -5,7 +5,7 @@ import Instagram from '@components/Common/SocialIcons/Instagram';
 import Telegram from '@components/Common/SocialIcons/Telegram';
 import TikTok from '@components/Common/SocialIcons/TikTok';
 import YouTube from '@components/Common/SocialIcons/YouTube';
-import { unbounded } from '@app/[locale]/layout';
+import { unbounded } from '@app/[locale]//layout';
 
 import styles from './AboutPeopleOnTheWay.module.scss';
 

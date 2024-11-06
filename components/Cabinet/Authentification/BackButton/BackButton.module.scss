@@ -1,0 +1,24 @@
+@import '/styles/main.scss';
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 130px;
+  height: 36px;
+  background-color: #e8e8e8;
+  @include fontRegular(12px, 400, 16.8px, $third_text_color);
+  border-radius: 30px;
+  margin-bottom: 70px;
+  @media all and (min-width: $min_tablet) {
+    width: 150px;
+    height: 42px;
+    font-size: 14px;
+  }
+  @media all and (min-width: $min_desktop) {
+    width: 220px;
+    height: 48px;
+    font-size: 16px;
+  }
+}

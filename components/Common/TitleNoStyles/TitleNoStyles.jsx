@@ -1,4 +1,4 @@
-import { unbounded } from '@app/[locale]/layout';
+import { unbounded } from "@app/[locale]/layout";
 
 const TitleNoStyles = ({ children, styled, variant = 'h1', data }) => {
   const Tag = variant;

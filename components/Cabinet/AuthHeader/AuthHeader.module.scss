@@ -1,0 +1,30 @@
+@import '../styles/main.scss';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 16px;
+}
+
+.logo {
+  width: 70px;
+  height: 70px;
+  color: #fdfdfd;
+}
+
+.user_wrapper {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $buttons_color;
+  border-radius: 50%;
+}
+
+.user {
+  width: 24px;
+  height: 24px;
+  color: #fdfdfd;
+}
