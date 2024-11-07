@@ -1,5 +1,5 @@
-import BackButton from '@components/Cabinet/Authentification/BackButton/BackButton';
-import LoginForm from '@components/Cabinet/Authentification/Login/LoginForm';
+import BackButton from '@components/Cabinet/Authentication/BackButton/BackButton';
+import LoginForm from '@components/Cabinet/Authentication/Login/LoginForm';
 import Container from '@components/Common/Container/Container';
 
 import styles from './loginPage.module.scss';
