@@ -8,10 +8,10 @@ import { useTranslations } from 'next-intl';
 import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
 import BackgroundLogo from '@components/Cabinet/BackgroundLogo/BackgroundLogo';
 
-import styles from './LoginForm.module.scss';
+import styles from './RegistrationForm.module.scss';
 import ShowPasswordIcon from './ShowPasswordIcon';
 
-const LoginForm = () => {
+const RegistrationForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const t = useTranslations('Author_products.buy_gift_modal');
 
@@ -30,9 +30,18 @@ const LoginForm = () => {
       <BackgroundLogo />
       <form className={styles.form} onSubmit={handleSubmit(onFormSubmit)}>
         <TitleNoStyles styled={styles.title} variant="h1">
-          Увійдіть в свій акаунт
+          Створіть свій акаунт
         </TitleNoStyles>
+
         <div className={styles.labels_wrapper}>
+          <label className={styles.label}>
+            <p className={styles.label_text}>Ваше Ім’я</p>
+            <input
+              className={styles.input}
+              type="text"
+              {...register('name', { required: t('email.empty_error') })}
+            />
+          </label>
           <label className={styles.label}>
             <p className={styles.label_text}>Ваш email</p>
             <input
@@ -49,9 +58,6 @@ const LoginForm = () => {
           </label>
           <label className={styles.label}>
             <p className={styles.label_text}>Пароль</p>
-            <button type="button" onClick={() => setShowPassword(prev => !prev)}>
-              <ShowPasswordIcon showPassword={showPassword} />
-            </button>
             <input
               className={styles.input}
               type={showPassword ? 'text' : 'password'}
@@ -60,21 +66,21 @@ const LoginForm = () => {
                 minLength: { value: 8, message: 'мінімум 8 символів' },
               })}
             />
+            <button type="button" onClick={() => setShowPassword(prev => !prev)}>
+              <ShowPasswordIcon showPassword={showPassword} />
+            </button>
           </label>
         </div>
-        <Link href={'#'} className={`${styles.forgot_password}`}>
-          Забули пароль?
-        </Link>
         <button type="submit" className={styles.button}>
-          Увійти
+          Створити
         </button>
 
         <p className={styles.link_to_registration}>
-          Бажаєте створити акаунт? <Link href={'/cabinet/registration'}>Створити акаунт</Link>
+          Вже маєте акаунт? <Link href={'/cabinet/login'}>Увійти в акаунт</Link>
         </p>
       </form>
     </div>
   );
 };
 
-export default LoginForm;
+export default RegistrationForm;
