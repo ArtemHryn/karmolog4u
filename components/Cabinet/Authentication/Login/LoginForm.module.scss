@@ -1,32 +1,24 @@
 @import '../styles/main.scss';
 
 .wrapper {
-  position: relative;
   display: flex;
   height: 100%;
   justify-content: center;
   align-items: center;
+
+  @media all and (max-width: $min_tablet) {
+    width: 328px;
+  }
 }
 
 .form {
-  position: relative;
-  background-color: #fdfdfd;
+  background-color: $form_bg;
   border-radius: 30px;
-  padding: 40px 24px;
-  z-index: 100;
+  padding: 24px 16px;
+  width: 100%;
   @media all and (min-width: $min_tablet) {
     width: 458px;
-  }
-}
-
-.title {
-  @include fontRegular(18px, 600, 25.2px, $third_text_color, center);
-  margin-bottom: 16px;
-  @media all and (min-width: $min_tablet) {
-    font-size: 20px;
-  }
-  @media all and (min-width: $min_desktop) {
-    font-size: 28px;
+    padding: 40px 24px;
   }
 }
 
@@ -34,9 +26,6 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  @media all and (min-width: $min_desktop) {
-    font-size: 20px;
-  }
 }
 
 .label {
@@ -44,42 +33,28 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  @media all and (min-width: $min_desktop) {
-    font-size: 12px;
-  }
 }
 
 .label_text {
-  @include fontRegular(10px, 400, 10px, $third_text_color);
-  @media all and (min-width: $min_tablet) {
-    font-size: 14px;
-  }
-  @media all and (min-width: $min_desktop) {
-  }
+  @include fontRegular(12px, 400, 12px);
 }
 
 .input {
   display: flex;
   align-items: center;
   width: 100%;
-  height: 52px;
-  @include fontRegular(14px, 400, 16px, $third_text_color);
-  padding: 10px 42px 10px 12px;
+  height: 48px;
+  @include fontRegular(14px, 400, 19.6px);
+  padding: 19px 42px 19px 16px;
   border: 1px solid $form_border;
   border-radius: 30px;
-  @media all and (min-width: $min_tablet) {
-    font-size: 16px;
-    height: 56px;
-    padding: 10px 18px;
-  }
-  @media all and (min-width: $min_desktop) {
-  }
+  background-color: transparent;
 }
 
 .forgot_password {
   display: block;
-  @include fontRegular(14px, 400, 14px, $third_text_color, right);
-  margin-bottom: 12px;
+  @include fontRegular(16px, 400, 22.4px, $seconds_text_color, right);
+  margin-bottom: 24px;
   @media (hover: hover) {
     &:is(:hover, :focus) {
       text-decoration: underline;
@@ -91,11 +66,7 @@
     }
   }
   @media all and (min-width: $min_tablet) {
-    font-size: 16px;
-    margin-bottom: 24px;
-  }
-  @media all and (min-width: $min_desktop) {
-    margin-bottom: 36px;
+    margin-bottom: 28px;
   }
 }
 
@@ -107,44 +78,41 @@
   height: 52px;
   width: 100%;
   border-radius: 30px;
-  background: $main_bg;
-  @include fontRegular(14px, 400, 14px);
+  background: $buttons_color;
+  @include fontRegular(16px, 600, 16px, $third_text_color);
   margin-bottom: 20px;
   transition: all 250ms ease-in;
   @media (hover: hover) {
     &:is(:hover, :focus) {
       background-color: $card_bg;
       border: 1px solid $form_border;
-      color: $third_text_color;
     }
   }
   @media (hover: none) {
     &:is(:active, :focus) {
       background-color: $card_bg;
       border: 1px solid $form_border;
-      color: $third_text_color;
     }
-  }
-  @media all and (min-width: $min_tablet) {
-    font-size: 16px;
-    height: 56px;
-  }
-  @media all and (min-width: $min_desktop) {
-    font-size: 18px;
-    height: 60px;
   }
 }
 
 .link_to_registration {
-  @include fontRegular(12px, 400, 12px, $third_text_color, center);
+  @include fontRegular(16px, 400, 22.4px, $main_text_color, center);
   & > a {
-    text-decoration: underline;
-  }
-  @media all and (min-width: $min_tablet) {
-    font-size: 14px;
-  }
-  @media all and (min-width: $min_desktop) {
-    font-size: 16px;
+    color: $seconds_text_color;
+    transition: all 250ms ease-in;
+    @media all and (min-width: $min_tablet) {
+      @media (hover: hover) {
+        &:is(:hover, :focus) {
+          color: $main_text_color;
+        }
+      }
+      @media (hover: none) {
+        &:is(:active, :focus) {
+          color: $main_text_color;
+        }
+      }
+    }
   }
 }
 
@@ -153,9 +121,5 @@
   width: 32px;
   height: 32px;
   right: 3%;
-  top: 38%;
-
-  @media all and (min-width: $min_tablet) {
-    top: 42%;
-  }
+  top: 33%;
 }

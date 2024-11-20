@@ -2,14 +2,14 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { signIn } from 'next-auth/react';
 import { useForm } from 'react-hook-form';
 import { useTranslations } from 'next-intl';
-
 import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
-import BackgroundLogo from '@components/Cabinet/BackgroundLogo/BackgroundLogo';
 
 import styles from './LoginForm.module.scss';
 import ShowPasswordIcon from './ShowPasswordIcon';
+import FormHeader from '../FormHeader/FormHeader';
 
 const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -21,22 +21,25 @@ const LoginForm = () => {
     formState: { errors },
   } = useForm();
 
-  const onFormSubmit = data => {
-    console.log(data);
+  const onFormSubmit = async data => {
+    const { email, password } = data;
+    const res = await signIn('credentials', { email, password });
+
+    if (res?.error) {
+      console.log('error');
+    }
   };
 
   return (
     <div className={styles.wrapper}>
-      <BackgroundLogo />
       <form className={styles.form} onSubmit={handleSubmit(onFormSubmit)}>
-        <TitleNoStyles styled={styles.title} variant="h1">
-          Увійдіть в свій акаунт
-        </TitleNoStyles>
+        <FormHeader title={'Вхід'} />
         <div className={styles.labels_wrapper}>
           <label className={styles.label}>
-            <p className={styles.label_text}>Ваш email</p>
+            <p className={styles.label_text}>Email</p>
             <input
               className={styles.input}
+              placeholder="Введіть ваш email"
               type="text"
               {...register('email', {
                 required: t('email.empty_error'),
@@ -51,11 +54,13 @@ const LoginForm = () => {
             <p className={styles.label_text}>Пароль</p>
             <input
               className={styles.input}
+              placeholder="Введіть ваш пароль"
               type={showPassword ? 'text' : 'password'}
               {...register('password', {
                 required: t('email.empty_error'),
                 minLength: { value: 8, message: 'мінімум 8 символів' },
               })}
+              defaultValue={'123456789'}
             />
             <button type="button" onClick={() => setShowPassword(prev => !prev)}>
               <ShowPasswordIcon showPassword={showPassword} />
@@ -70,7 +75,7 @@ const LoginForm = () => {
         </button>
 
         <p className={styles.link_to_registration}>
-          Бажаєте створити акаунт? <Link href={'/cabinet/registration'}>Створити акаунт</Link>
+          Немає акаунту? <Link href={'/cabinet/registration'}>Зареєструватись</Link>
         </p>
       </form>
     </div>

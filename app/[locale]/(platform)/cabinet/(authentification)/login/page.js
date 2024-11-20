@@ -4,13 +4,12 @@ import Container from '@components/Common/Container/Container';
 
 import styles from './loginPage.module.scss';
 
-const login = () => {
+const LoginPage = async () => {
   return (
     <Container styledSection={styles.section}>
-      <BackButton />
       <LoginForm />
     </Container>
   );
 };
 
-export default login;
+export default LoginPage;

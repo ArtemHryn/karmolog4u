@@ -1,0 +1,33 @@
+@import '/styles/main.scss';
+
+.aside {
+  position: fixed;
+  transform: translateX(calc(-100% + 24px));
+  width: 90vw;
+  border-right: 1px #d3d3d3 solid;
+  height: 100vh;
+  transition: all 250ms ease-in;
+  z-index: 100;
+}
+
+.aside_show {
+  transform: translateX(0px);
+}
+
+.show_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-left: auto;
+}
+.arrow {
+  width: 16px;
+  height: 28px;
+  transition: all 250ms ease;
+}
+
+.arrow_rotate {
+  rotate: 180deg;
+}

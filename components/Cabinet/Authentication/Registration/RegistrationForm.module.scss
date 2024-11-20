@@ -2,31 +2,26 @@
 
 .wrapper {
   position: relative;
-  display: flex;
   height: 100%;
-  justify-content: center;
-  align-items: center;
+
+  @media all and (max-width: $min_tablet) {
+    width: 328px;
+  }
 }
 
 .form {
-  position: relative;
-  background-color: #fdfdfd;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  background-color: $form_bg;
   border-radius: 30px;
-  padding: 40px 24px;
-  z-index: 100;
+  padding: 24px 16px;
+
   @media all and (min-width: $min_tablet) {
     width: 458px;
-  }
-}
-
-.title {
-  @include fontRegular(18px, 600, 25.2px, $third_text_color, center);
-  margin-bottom: 16px;
-  @media all and (min-width: $min_tablet) {
-    font-size: 20px;
-  }
-  @media all and (min-width: $min_desktop) {
-    font-size: 28px;
+    padding: 40px 24px;
   }
 }
 
@@ -34,9 +29,11 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-bottom: 20px;
-  @media all and (min-width: $min_desktop) {
-    font-size: 20px;
+}
+
+.customer_name_wrapper {
+  @media all and (width >= $min_tablet) {
+    flex-direction: row;
   }
 }
 
@@ -45,33 +42,22 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  @media all and (min-width: $min_desktop) {
-    font-size: 12px;
-  }
 }
 
 .label_text {
-  @include fontRegular(10px, 400, 10px, $third_text_color);
-  @media all and (min-width: $min_tablet) {
-    font-size: 14px;
-  }
-
+  @include fontRegular(12px, 400, 12px);
 }
 
 .input {
   display: flex;
   align-items: center;
   width: 100%;
-  height: 52px;
-  @include fontRegular(14px, 400, 16px, $third_text_color);
-  padding: 10px 42px 10px 12px;
+  height: 48px;
+  @include fontRegular(14px, 400, 19.6px);
+  padding: 19px 42px 19px 16px;
   border: 1px solid $form_border;
   border-radius: 30px;
-  @media all and (min-width: $min_tablet) {
-    font-size: 16px;
-    height: 56px;
-    padding: 10px 18px;
-  }
+  background-color: transparent;
 }
 
 .button {
@@ -82,44 +68,41 @@
   height: 52px;
   width: 100%;
   border-radius: 30px;
-  background: $main_bg;
-  @include fontRegular(14px, 400, 14px);
+  background: $buttons_color;
+  @include fontRegular(16px, 600, 16px, $third_text_color);
   margin-bottom: 20px;
   transition: all 250ms ease-in;
   @media (hover: hover) {
     &:is(:hover, :focus) {
       background-color: $card_bg;
       border: 1px solid $form_border;
-      color: $third_text_color;
     }
   }
   @media (hover: none) {
     &:is(:active, :focus) {
       background-color: $card_bg;
       border: 1px solid $form_border;
-      color: $third_text_color;
     }
-  }
-  @media all and (min-width: $min_tablet) {
-    font-size: 16px;
-    height: 56px;
-  }
-  @media all and (min-width: $min_desktop) {
-    font-size: 18px;
-    height: 60px;
   }
 }
 
-.link_to_registration {
-  @include fontRegular(12px, 400, 12px, $third_text_color, center);
+.link_to_login {
+  @include fontRegular(16px, 400, 22.4px, $main_text_color, center);
   & > a {
-    text-decoration: underline;
-  }
-  @media all and (min-width: $min_tablet) {
-    font-size: 14px;
-  }
-  @media all and (min-width: $min_desktop) {
-    font-size: 16px;
+    color: $seconds_text_color;
+    transition: all 250ms ease-in;
+    @media all and (min-width: $min_tablet) {
+      @media (hover: hover) {
+        &:is(:hover, :focus) {
+          color: $main_text_color;
+        }
+      }
+      @media (hover: none) {
+        &:is(:active, :focus) {
+          color: $main_text_color;
+        }
+      }
+    }
   }
 }
 
@@ -128,8 +111,51 @@
   width: 32px;
   height: 32px;
   right: 3%;
-  top: 38%;
-  @media all and (min-width: $min_tablet) {
-    top: 42%;
+  top: 33%;
+}
+
+//phone input
+.phone {
+  width: 100%;
+}
+
+.phone_title {
+  @include fontRegular(14px, 500, 14px);
+}
+
+.flagInput {
+  background-color: transparent !important;
+  width: 100% !important;
+  border-radius: 30px !important;
+  border: 1px solid #7e7e7e !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 1 !important;
+  height: 48px !important;
+  color: $main_text_color !important;
+  box-shadow: none !important;
+}
+
+.buttonClass {
+  & div::before {
+    border: none !important;
+    box-shadow: none !important;
+  }
+}
+
+.dropdownClass {
+  background-color: $form_bg !important;
+  max-height: 150px !important;
+  width: 267px !important;
+  & > li[aria-selected='true'] {
+    background-color: transparent !important;
+    border: 1px $accent_v2 solid;
+    border-radius: 5px;
+  }
+  & > li > span {
+    color: $main_text_color;
+  }
+  @media all and (width >= $min_tablet) {
+    width: 410px !important;
   }
 }

@@ -1,11 +1,35 @@
 import createMiddleware from 'next-intl/middleware';
+import { auth } from '@/auth'; // Імпортуємо функцію авторизації
 
-export default createMiddleware({
-  // A list of all locales that are supported
+const intlMiddleware = createMiddleware({
   locales: ['uk', 'ru'],
-
-  // If this locale is matched, pathnames work without a prefix (e.g. `/about`)
   defaultLocale: 'uk',
+});
+
+export default auth(async req => {
+  const { pathname } = req.nextUrl;
+  const session = await auth();
+  if (pathname.includes('/cabinet/login') && session?.accessToken) {
+    // Redirect authenticated users to their dashboard or another page
+    return Response.redirect(new URL('/cabinet/dashboard', req.url));
+  }
+
+  const pages =
+    pathname.includes('/cabinet/login') ||
+    pathname.includes('/cabinet/registration') ||
+    pathname.includes('/cabinet/reset-password');
+  if (pathname.includes('/cabinet') && !pages) {
+    // Виконуємо авторизаційну перевірку за допомогою функції `auth`
+
+    // Якщо користувач не авторизований, перенаправляємо на сторінку логіну
+    if (!req?.auth) {
+      const loginUrl = new URL('/cabinet/login', req.url);
+      return Response.redirect(loginUrl);
+    }
+  }
+
+  // Якщо не потрібно авторизації, виконується стандартне локалізоване налаштування
+  return intlMiddleware(req);
 });
 
 export const config = {

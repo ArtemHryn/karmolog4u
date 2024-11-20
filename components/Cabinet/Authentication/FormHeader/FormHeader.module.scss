@@ -1,0 +1,28 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.title {
+  @include fontRegular(18px, 600, 25.2px, $main_text_color, center);
+  @media all and (min-width: $min_tablet) {
+    font-size: 28px;
+  }
+  @media all and (min-width: $min_desktop) {
+    font-size: 28px;
+  }
+}
+
+.logo {
+  width: 32px;
+  height: 32px;
+  @media all and (min-width: $min_tablet) {
+    width: 48px;
+    height: 48px;
+  }
+}
