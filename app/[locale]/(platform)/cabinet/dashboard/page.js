@@ -5,7 +5,7 @@ const CabinetPage = async () => {
   const {user} = await auth();
 
   const redirectTo =
-    user.role === 'ADMIN' ? '/cabinet/dashboard/admin' : '/cabinet/dashboard/user';
+    user.role === 'ADMIN' ? '/cabinet/dashboard/admin/products' : '/cabinet/dashboard/user';
   redirect(redirectTo);
 };
 

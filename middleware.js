@@ -1,5 +1,5 @@
 import createMiddleware from 'next-intl/middleware';
-import { auth } from '@/auth'; // Імпортуємо функцію авторизації
+import { auth } from '@/auth';
 
 const intlMiddleware = createMiddleware({
   locales: ['uk', 'ru'],
@@ -11,6 +11,14 @@ export default auth(async req => {
   const session = await auth();
   if (pathname.includes('/cabinet/login') && session?.accessToken) {
     // Redirect authenticated users to their dashboard or another page
+    return Response.redirect(new URL('/cabinet/dashboard', req.url));
+  }
+
+  if (session?.user?.role === 'ADMIN' && pathname.includes('dashboard/user')) {
+    return Response.redirect(new URL('/cabinet/dashboard', req.url));
+  }
+
+  if (session?.user?.role === 'USER' && pathname.includes('dashboard/admin')) {
     return Response.redirect(new URL('/cabinet/dashboard', req.url));
   }
 
