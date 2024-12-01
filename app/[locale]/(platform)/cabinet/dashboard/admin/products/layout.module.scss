@@ -1,0 +1,9 @@
+@import '/styles/main.scss';
+
+.main {
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background-color: $p_main_bg;
+}

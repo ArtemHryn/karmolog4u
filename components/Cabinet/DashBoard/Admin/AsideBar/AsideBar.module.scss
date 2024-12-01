@@ -1,0 +1,20 @@
+@import '/styles/main.scss';
+
+.aside {
+  display: none;
+  @media all and (width >= $min_desktop) {
+    display: flex;
+    flex-direction: column;
+    width: 265px;
+    border-right: 1px solid $p_border;
+    background-color: $p_main_bg;
+  }
+}
+
+.logo_bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  border-bottom: 1px solid $p_border;
+}

@@ -1,0 +1,38 @@
+@import '/styles/main.scss';
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5vh;
+  min-height: 100dvh;
+  @media all and (width >= $min_desktop) {
+    flex-direction: row;
+    padding: 24px;
+    gap: 20vw;
+  }
+}
+
+.header {
+  width: 328px;
+  padding-top: 16px;
+  @media all and (min-width: $min_tablet) {
+    width: 100%;
+    padding: 16px;
+    height: 180px;
+    background-image: url('/assets/images/cabinet/login.webp');
+    background-size: cover;
+    background-position: center -40vw;
+    background-repeat: no-repeat;
+    border-radius: 0px 0px 30px 30px;
+  }
+  @media all and (width >= $min_tablet) {
+    height: 220px;
+  }
+  @media all and (width >= $min_desktop) {
+    border-radius: 30px;
+    background-position: center;
+    width: 40vw;
+    height: calc(100dvh - 48px);
+  }
+}

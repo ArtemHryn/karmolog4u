@@ -1,0 +1,10 @@
+@import '/styles/main.scss';
+
+.total_wrapper {
+  max-width: 100vw;
+  overflow-x: hidden;
+  min-height: 100dvh;
+  @media all and (width >= $min_desktop) {
+    display: flex;
+  }
+}

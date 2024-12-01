@@ -1,0 +1,60 @@
+@import '/styles/main.scss';
+
+.header {
+  border-bottom: 1px solid $p_border;
+  position: relative;
+  background-color: $p_main_bg;
+  transition: all 150ms linear;
+  @media all and (width >= $min_desktop) {
+    display: none;
+  }
+}
+
+.hide {
+  opacity: 0;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  max-width: $min_mobile;
+  padding: 12px 16px;
+  margin-inline: auto;
+  height: 64px;
+  @media all and (width >= $min_tablet) {
+    max-width: $min_tablet;
+  }
+}
+
+.logo {
+  width: 32px;
+  height: 32px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid $p_border;
+  background-color: #f6f6f6;
+  transition: all 250ms ease-in;
+  @media (hover: hover) {
+    &:is(:hover, :focus) {
+      background-color: color-mix(in srgb, #f6f6f6 80%, $p_button_bg 20%);
+      scale: 1.05;
+    }
+  }
+  @media (hover: none) {
+    &:is(:active, :focus) {
+      background-color: color-mix(in srgb, #f6f6f6 80%, $p_button_bg 20%);
+    }
+  }
+}
+
+.burger {
+  width: 20px;
+  height: 20px;
+}

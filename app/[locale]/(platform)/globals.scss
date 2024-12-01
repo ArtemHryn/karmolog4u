@@ -4,4 +4,12 @@ body {
   height: 100%;
   position: relative;
   color: $third_text_color;
+  background-color: $section_color;
+}
+
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }

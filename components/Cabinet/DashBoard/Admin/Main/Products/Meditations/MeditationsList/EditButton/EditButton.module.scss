@@ -1,0 +1,71 @@
+@import '/styles/main.scss';
+
+.overlay {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+
+  width: 100vw;
+  height: 100vh;
+  transition: all 250ms linear;
+}
+
+.hide_overlay {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.edit_icon {
+  width: 16px;
+  height: 16px;
+}
+
+//edit menu
+
+.list {
+  border: 1px solid $p_border;
+  border-radius: 12px;
+  padding: 12px;
+  width: 160px;
+  box-shadow: 0 0 0 0 rgba(25, 41, 66, 0.01), 1px 1px 3px 0 rgba(25, 41, 66, 0.01),
+    2px 6px 6px 0 rgba(25, 41, 66, 0.01), 5px 12px 8px 0 rgba(25, 41, 66, 0.01),
+    9px 22px 10px 0 rgba(25, 41, 66, 0), 15px 35px 11px 0 rgba(25, 41, 66, 0);
+  background-color: $p_main_bg;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  height: 44px;
+  width: 100%;
+  gap: 8px;
+  @include fontRegular(16px, 400, 22.4px, $third_text_color);
+
+  transition: all 250ms linear;
+  @media (hover: hover) {
+    &:is(:hover, :focus) {
+      scale: 1.02;
+    }
+  }
+  @media (hover: none) {
+    &:is(:active, :focus) {
+      scale: 1.02;
+    }
+  }
+}
+
+.item {
+  &:last-child > button {
+    color: #cc3636;
+  }
+}
+
+.menu_icon {
+  width: 20px;
+  height: 20px;
+}

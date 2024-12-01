@@ -1,0 +1,31 @@
+@import '/styles/main.scss';
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  width: 100%;
+  flex-grow: 2;
+}
+
+.link {
+  display: flex;
+  padding: 12px;
+  gap: 12px;
+  border-radius: 8px;
+  @include fontRegular(16px, 400, 22.4px, $p_second_text_color);
+  &_active {
+    background-color: $p_button_bg;
+    color: $p_third_text_color;
+  }
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  fill: $p_second_text_color;
+  &_active {
+    fill: $p_third_text_color;
+  }
+}

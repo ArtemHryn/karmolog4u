@@ -1,0 +1,48 @@
+@import '/styles/main.scss';
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: $p_button_bg;
+  height: 44px;
+  max-width: 328px;
+  border-radius: 8px;
+  @include fontRegular(16px, 400, 22.4px, $main_text_color);
+  transition: all 250ms linear;
+  @media all and (width >= $min_tablet) {
+    width: 224px;
+  }
+  @media (hover: hover) {
+    &:is(:hover, :focus) {
+      background-color: $p_main_bg;
+      color: $third_text_color;
+      scale: 1.05;
+      border: 1px solid $p_border;
+    }
+  }
+  @media (hover: none) {
+    &:is(:active, :focus) {
+      background-color: $p_main_bg;
+      color: $third_text_color;
+      border: 1px solid $p_border;
+    }
+  }
+}
+
+.icon {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+  @media (hover: hover) {
+    &:is(:hover, :focus) {
+      fill: currentColor;
+    }
+  }
+  @media (hover: none) {
+    &:is(:active, :focus) {
+      fill: currentColor;
+    }
+  }
+}

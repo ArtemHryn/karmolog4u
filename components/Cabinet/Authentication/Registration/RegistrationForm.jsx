@@ -2,14 +2,15 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { useTranslations } from 'next-intl';
+import PhoneInput from 'react-phone-input-2';
 
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
-import BackgroundLogo from '@components/Cabinet/BackgroundLogo/BackgroundLogo';
+import FormHeader from '../FormHeader/FormHeader';
+import ShowPasswordIcon from '../Login/ShowPasswordIcon';
 
 import styles from './RegistrationForm.module.scss';
-import ShowPasswordIcon from './ShowPasswordIcon';
+import 'react-phone-input-2/lib/bootstrap.css';
 
 const RegistrationForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -19,33 +20,63 @@ const RegistrationForm = () => {
     register,
     handleSubmit,
     formState: { errors },
+    control,
   } = useForm();
 
-  const onFormSubmit = data => {
+  const onFormSubmit = async data => {
     console.log(data);
+    
+    try {
+      const response = await fetch('http://localhost:4499/auth/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ ...data }),
+      });
+      if (!response.ok) {
+        console.log('not ok');
+      }
+      const responseData = await response.json();
+      console.log(responseData);
+    } catch (error) {
+      console.log(error.json());
+    }
   };
 
   return (
     <div className={styles.wrapper}>
-      <BackgroundLogo />
       <form className={styles.form} onSubmit={handleSubmit(onFormSubmit)}>
-        <TitleNoStyles styled={styles.title} variant="h1">
-          Створіть свій акаунт
-        </TitleNoStyles>
-
+        <FormHeader title={'Реєстрація'} />
         <div className={styles.labels_wrapper}>
+          <div className={`${styles.labels_wrapper} ${styles.customer_name_wrapper}`}>
+            {/* name */}
+            <label className={styles.label}>
+              <p className={styles.label_text}>Ім’я</p>
+              <input
+                className={styles.input}
+                placeholder="Ваше ім’я"
+                type="text"
+                {...register('name', { required: t('email.empty_error') })}
+              />
+            </label>
+            {/* lastname */}
+            <label className={styles.label}>
+              <p className={styles.label_text}>Прізвище</p>
+              <input
+                className={styles.input}
+                placeholder="Ваше прізвище"
+                type="text"
+                {...register('lastname', { required: t('email.empty_error') })}
+              />
+            </label>
+          </div>
+          {/* email */}
           <label className={styles.label}>
-            <p className={styles.label_text}>Ваше Ім’я</p>
+            <p className={styles.label_text}>Email</p>
             <input
               className={styles.input}
-              type="text"
-              {...register('name', { required: t('email.empty_error') })}
-            />
-          </label>
-          <label className={styles.label}>
-            <p className={styles.label_text}>Ваш email</p>
-            <input
-              className={styles.input}
+              placeholder="Введіть ваш email"
               type="text"
               {...register('email', {
                 required: t('email.empty_error'),
@@ -56,10 +87,41 @@ const RegistrationForm = () => {
               })}
             />
           </label>
+          {/* phone */}
+          <label className={styles.label}>
+            <p className={styles.label_text}>Номер телефону</p>
+            <Controller
+              name="mobPhone"
+              control={control}
+              rules={{
+                minLength: {
+                  value: 12,
+                  message: t('phone.min_length_error'),
+                },
+                required: { value: true, message: t('phone.empty_number_error') },
+              }}
+              render={({ field }) => (
+                <PhoneInput
+                  country={'ua'}
+                  value={field.value}
+                  placeholder="(99) 999-99-99"
+                  onChange={phone => field.onChange(phone)}
+                  prefix="+"
+                  defaultMask="(...) ...-..-.."
+                  className={styles.phone}
+                  inputClass={styles.flagInput}
+                  buttonClass={styles.buttonClass}
+                  dropdownClass={styles.dropdownClass}
+                />
+              )}
+            />
+          </label>
+          {/* password */}
           <label className={styles.label}>
             <p className={styles.label_text}>Пароль</p>
             <input
               className={styles.input}
+              placeholder="Введіть ваш пароль"
               type={showPassword ? 'text' : 'password'}
               {...register('password', {
                 required: t('email.empty_error'),
@@ -72,10 +134,10 @@ const RegistrationForm = () => {
           </label>
         </div>
         <button type="submit" className={styles.button}>
-          Створити
+          Створити акаунт
         </button>
 
-        <p className={styles.link_to_registration}>
+        <p className={styles.link_to_login}>
           Вже маєте акаунт? <Link href={'/cabinet/login'}>Увійти в акаунт</Link>
         </p>
       </form>
