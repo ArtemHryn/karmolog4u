@@ -16,7 +16,7 @@
   border-radius: 8px;
   @include fontRegular(16px, 400, 22.4px, $p_second_text_color);
   &_active {
-    background-color: #4880ff;
+    background-color: $p_button_bg;
     color: $p_third_text_color;
   }
 }

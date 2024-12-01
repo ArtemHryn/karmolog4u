@@ -1,0 +1,59 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  border: 1px solid $p_border;
+  border-radius: 12px;
+  width: 420px;
+  padding: 24px;
+  background-color: $p_main_bg;
+}
+
+.title_wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.title {
+  @include fontRegular(20px, 400, 28px, $third_text_color);
+}
+
+.close_button {
+  width: 24px;
+  height: 24px;
+  & > svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.message {
+  @include fontRegular(14px, 400, 19.6px, $p_second_text_color);
+  margin-bottom: 24px;
+}
+
+.button_wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 182px;
+  height: 44px;
+  border: 1px solid $p_border;
+  border-radius: 8px;
+  @include fontRegular(16px, 500, 24px, $third_text_color);
+}
+
+.delete_button {
+  background-color: #cc3636;
+  color: $main_text_color;
+}
+
+.hide_button {
+  background-color: #2961e0;
+  color: $main_text_color;
+}

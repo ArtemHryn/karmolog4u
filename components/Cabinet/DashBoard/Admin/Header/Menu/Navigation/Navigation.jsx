@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
@@ -14,7 +14,7 @@ const nav = [
   { link: 'products', icon: Products, name: 'Авторські продукти' },
   { link: 'users', icon: Users, name: 'Користувачі' },
   { link: 'education', icon: Education, name: 'Навчання' },
-  { link: 'promocod', icon: Promocode, name: 'Промокод' },
+  { link: 'promocode', icon: Promocode, name: 'Промокод' },
   { link: 'deleted', icon: Deleted, name: 'Видалене' },
 ];
 
@@ -26,9 +26,11 @@ const Navigation = ({ setShowMenu }) => {
         <li key={link}>
           {' '}
           <Link
-            href={`/uk/cabinet/dashboard/admin/${link}`}
+            href={`/cabinet/dashboard/admin/${link}`}
             className={`${styles.link} ${pathname.includes(link) ? styles.link_active : ''} `}
-            onClick={() => setShowMenu(false)}
+            onClick={() => {
+              setShowMenu?.(false);
+            }}
           >
             <Icon styled={`${styles.icon} ${pathname.includes(link) ? styles.icon_active : ''}`} />{' '}
             <p>{name}</p>

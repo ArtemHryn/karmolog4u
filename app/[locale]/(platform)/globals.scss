@@ -6,3 +6,10 @@ body {
   color: $third_text_color;
   background-color: $section_color;
 }
+
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
