@@ -38,7 +38,7 @@ function Header() {
           <Nav />
         </div>
         <div className={styles.add_nav}>
-          <Link href={'cabinet/login'} className={styles.hover}>
+          <Link href={'/cabinet/login'} className={styles.hover}>
             <User />
           </Link>
           <LanguageSwitcher />
