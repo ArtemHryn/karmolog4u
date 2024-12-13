@@ -1,19 +1,62 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
+import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
 
 import styles from './Navigation.module.scss';
+import { useEffect, useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import { useSession } from 'next-auth/react';
 
-const navList = [
-  { name: 'Медитації', count: 10, link: 'meditations' },
-  { name: 'Вебінари', count: 11, link: 'vebinars' },
-  { name: 'Гайди та книги', count: 12, link: 'guides-and-books' },
-  { name: 'Подарунки студії', count: 13, link: 'gifts' },
+const defaultNavList = [
+  { name: 'Медитації', count: 0, link: 'meditations' },
+  { name: 'Вебінари', count: 0, link: 'vebinars' },
+  { name: 'Гайди та книги', count: 0, link: 'guides-and-books' },
+  { name: 'Подарунки студії', count: 0, link: 'gifts' },
 ];
+
+const fetchProductsCount = async token => {
+  const res = await fetch('http://localhost:4499/admin/products/product-count', {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  if (!res.ok) {
+    throw new Error('Помилка завантаження кількості продуктів');
+  }
+  return res.json();
+};
 
 const Navigation = () => {
   const pathname = usePathname();
+  const [navList, setNavList] = useState([]);
+  const { data: token } = useSession();
+
+  const { data, isError, error } = useQuery({
+    queryKey: ['products-count'],
+    queryFn: () => fetchProductsCount(token.accessToken),
+  });
+
+  useEffect(() => {
+    if (!data) return;
+
+    if (isError) {
+      toast.error(error?.message, { autoClose: 2500 });
+      setNavList(defaultNavList);
+      return;
+    }
+
+    const newList = defaultNavList.map(({ name, link, count }) => {
+      if (data[link]) {
+        return { name, link, count: data[link] };
+      }
+      return { name, link, count };
+    });
+    setNavList(newList);
+  }, [data, error?.message, isError]);
+
   return (
     <ul className={styles.list}>
       {navList.map(({ name, count, link }) => (
@@ -33,6 +76,7 @@ const Navigation = () => {
           </Link>
         </li>
       ))}
+      <ToastContainer />
     </ul>
   );
 };

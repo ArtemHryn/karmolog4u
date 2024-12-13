@@ -1,0 +1,43 @@
+@import '/styles/main.scss';
+
+.p-dropdown {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid $p_border;
+  border-radius: 8px;
+  height: 48px;
+  padding: 0 20px;
+}
+
+.p-dropdown-items-wrapper {
+  border-radius: 8px;
+  border: 1px solid $p_border;
+  background-color: #fff;
+}
+
+.p-dropdown-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.p-dropdown-label {
+  @include fontRegular(14px, 400, 19.6px, $third_text_color);
+}
+
+.p-dropdown-item {
+  padding: 8px 10px;
+  &[aria-selected='true'] {
+    background-color: rgba(83, 191, 245, 0.2);
+  }
+  @media screen and (width >= $min_tablet) {
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

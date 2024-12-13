@@ -2,6 +2,7 @@ import { Open_Sans, Unbounded } from 'next/font/google';
 import './globals.scss';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
+import { SessionProvider } from 'next-auth/react';
 
 export const open_Sans = Open_Sans({
   subsets: ['cyrillic'],
@@ -23,9 +24,9 @@ export default async function RootLayout({ children }) {
   return (
     <html lang={locale}>
       <body className={open_Sans.className}>
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
+        <SessionProvider>
+          <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
+        </SessionProvider>
       </body>
     </html>
   );

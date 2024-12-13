@@ -28,16 +28,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             return null;
           }
 
-          // Парсимо відповідь від сервера, яка містить дані користувача
           const user = await res.json();
 
-          // Якщо користувача не знайдено, повертаємо помилку
           if (!user) {
             throw new Error('Invalid login response');
           }
-          // console.log(user.user.userData);
+          console.log(user);
 
-          // Повертаємо об'єкт користувача для збереження в сесії
           return user.user;
         } catch (error) {
           console.error('Authorization error:', error);
@@ -56,8 +53,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       return !!auth;
     },
     async jwt({ token, user }) {
-      // Якщо користувач успішно увійшов, додавати токени і роль до JWT
-
       if (user) {
         token.accessToken = user.accessToken;
         token.refreshToken = user.refreshToken;
@@ -72,7 +67,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             Authorization: `Bearer ${token.refreshToken}`,
           },
         });
-
         if (refreshResponse.ok) {
           const newTokens = await refreshResponse.json();
           token.accessToken = newTokens.accessToken;
