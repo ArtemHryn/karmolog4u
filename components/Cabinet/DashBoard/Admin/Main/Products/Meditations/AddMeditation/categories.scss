@@ -27,6 +27,7 @@
 
 .p-dropdown-label {
   @include fontRegular(14px, 400, 19.6px, $third_text_color);
+  color: $third_text_color !important;
 }
 
 .p-dropdown-item {

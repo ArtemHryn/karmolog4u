@@ -1,10 +1,10 @@
 import { Controller, useFormContext } from 'react-hook-form';
 import { Dropdown } from 'primereact/dropdown';
 
-import { ARCANES, CLOSED_MEDITATIONS, OPENED_MEDITATIONS } from '@helper/consts';
 import styles from '../AddMeditationForm.module.scss';
+import '../categories.scss';
 
-const RequiredLabels = () => {
+const RequiredLabels = ({ categories }) => {
   const {
     register,
     formState: { errors },
@@ -14,11 +14,6 @@ const RequiredLabels = () => {
     setError,
   } = useFormContext();
 
-  const categories = [
-    { value: ARCANES, name: 'Медитації по 22 енергіях' },
-    { value: CLOSED_MEDITATIONS, name: 'Медитації у закритому доступі' },
-    { value: OPENED_MEDITATIONS, name: 'Медитації у відкритому доступі' },
-  ];
 
   return (
     <>

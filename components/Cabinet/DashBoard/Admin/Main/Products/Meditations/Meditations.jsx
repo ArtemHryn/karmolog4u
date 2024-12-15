@@ -2,14 +2,14 @@
 
 import { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
+import { useSession } from 'next-auth/react';
 import Filter from './Filter/Filter';
 import MeditationsList from './MeditationsList/MeditationsList';
 import Status from './Status/Status';
-
-import styles from './Meditations.module.scss';
-import { ADMIN_CLOSED, ADMIN_ENERGIES, ADMIN_OPENED } from '@helper/consts';
 import SkeletonMeditations from './MeditationsList/SkeletonMeditations/SkeletonMeditations';
-import { useSession } from 'next-auth/react';
+
+import { ADMIN_CLOSED, ADMIN_ENERGIES, ADMIN_OPENED } from '@helper/consts';
+import styles from './Meditations.module.scss';
 
 const fetchMeditations = async token => {
   const response = await fetch('http://localhost:4499/admin/products/meditations/get-all', {
@@ -18,7 +18,7 @@ const fetchMeditations = async token => {
       Authorization: `Bearer ${token}`,
     },
   });
-  
+
   if (!response.ok) {
     throw new Error('Failed to fetch meditations');
   }
@@ -32,6 +32,7 @@ const Meditations = () => {
   const [isCheckedLS, setIsCheckedLS] = useState(false);
   const [status, setStatus] = useState('all');
   const { data: token } = useSession();
+
   const {
     data: meditations,
     isLoading,
@@ -50,6 +51,7 @@ const Meditations = () => {
     }
   }, [isCheckedLS]);
 
+  if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error...</div>;
 
   return (
@@ -62,7 +64,7 @@ const Meditations = () => {
         showClosedMeditation={showClosedMeditation}
         setShowClosedMeditation={setShowClosedMeditation}
       />
-      <Status activeStatus={status} setActiveStatus={setStatus} meditations={meditations} />
+      <Status activeStatus={status} setActiveStatus={setStatus} products={meditations} />
       {isLoading ? (
         <SkeletonMeditations />
       ) : (

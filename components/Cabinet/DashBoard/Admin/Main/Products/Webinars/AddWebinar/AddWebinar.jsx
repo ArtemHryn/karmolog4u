@@ -1,28 +1,22 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-import { useMutation } from '@tanstack/react-query';
-import { useForm, Controller, FormProvider } from 'react-hook-form';
 import { useSession } from 'next-auth/react';
-import { toast, ToastContainer } from 'react-toastify';
-import ArcanesPart from './ArcanesPart/ArcanesPart';
-import ClosedPart from './ClosedPart/ClosedPart';
-import OpenedPart from './OpenedPart/OpenedPart';
-import RequiredLabels from './RequiredLabels/RequiredLabels';
-import SubmitButtons from './SubmitButtons/SubmitButtons';
+import { useRouter } from 'next/navigation';
+import { FormProvider, useForm } from 'react-hook-form';
+import RequiredLabels from '../../Meditations/AddMeditation/RequiredLabels/RequiredLabels';
+import SubmitButtons from '../../Meditations/AddMeditation/SubmitButtons/SubmitButtons';
+import { ToastContainer } from 'react-toastify';
+import { ETHERS, WEBINARS } from '@helper/consts';
+import WebinarPart from './WebinarPart/WebinarPart';
 
-import { ARCANES, CLOSED_MEDITATIONS, OPENED_MEDITATIONS } from '@helper/consts';
-
-import styles from './AddMeditationForm.module.scss';
+import styles from './AddWebinar.module.scss';
 import 'react-toastify/dist/ReactToastify.css';
 
-async function addMeditation({ data, token, action, id }) {
-  console.log(token);
-
+async function webinarAction({ data, token, action, id }) {
   const url =
     action === 'add'
-      ? 'http://localhost:4499/admin/products/meditations/create'
-      : `http://localhost:4499/admin/products/meditations/edit/${id}`;
+      ? 'http://localhost:4499/admin/products/webinars/create'
+      : `http://localhost:4499/admin/products/webinars/edit/${id}`;
   const res = await fetch(url, {
     method: action === 'add' ? 'POST' : 'PUT',
     headers: {
@@ -59,12 +53,11 @@ const setDefaultValues = item => {
 };
 
 const categoriesList = [
-  { value: ARCANES, name: 'Медитації по 22 енергіях' },
-  { value: CLOSED_MEDITATIONS, name: 'Медитації у закритому доступі' },
-  { value: OPENED_MEDITATIONS, name: 'Медитації у відкритому доступі' },
+  { value: WEBINARS, name: 'Вебінари' },
+  { value: ETHERS, name: 'Терапевтичні ефіри' },
 ];
 
-const MeditationForm = ({ edit }) => {
+const AddWebinar = ({ edit }) => {
   const router = useRouter();
   const methods = useForm({ defaultValues: setDefaultValues(edit) });
   const { data: token } = useSession();
@@ -79,23 +72,6 @@ const MeditationForm = ({ edit }) => {
     setError,
   } = methods;
 
-  const mutation = useMutation({
-    mutationFn: ({ info }) =>
-      addMeditation({
-        data: info,
-        token: token.accessToken,
-        action: edit ? 'edit' : 'add',
-        id: edit ? edit._id : '',
-      }),
-    onSuccess: () => {
-      toast.success('Медитацію успішно додано!', { autoClose: 2500 });
-      setTimeout(() => router.push('/cabinet/dashboard/admin/products/meditations'), 3000);
-    },
-    onError: err => {
-      toast.error(`Помилка: ${err.message}`);
-    },
-  });
-
   const youtubeRegex =
     /(?:https?:\/\/(?:www\.)?youtube\.com\/(?:[^\/\n\s]+\/\S+|(?:watch\?v=|v%3D)([\w-]+)))/;
 
@@ -105,6 +81,7 @@ const MeditationForm = ({ edit }) => {
   };
 
   const onSubmit = data => {
+    console.log(data);
 
     const { name_uk, name_ru, status, category } = data;
     if (!getValues('category')) {
@@ -127,14 +104,14 @@ const MeditationForm = ({ edit }) => {
       video: data.video,
     };
 
-    if (data.category === ARCANES) {
+    if (data.category === WEBINARS) {
       const { isWaiting } = data;
       body = {
         ...requiredParams,
         isWaiting,
       };
     }
-    if (data.category === CLOSED_MEDITATIONS) {
+    if (data.category === ETHERS) {
       const {
         description_uk = '',
         description_ru = '',
@@ -153,27 +130,18 @@ const MeditationForm = ({ edit }) => {
         }),
       };
     }
-    if (data.category === OPENED_MEDITATIONS) {
-      const { description_uk = '', description_ru = '', cover = 'image' } = data;
-      body = {
-        ...requiredParams,
-        isWaiting: false,
-        description: { uk: description_uk, ru: description_ru },
-        cover: 'link',
-      };
-    }
 
-    mutation.mutate({ info: body, token: token.accessToken });
+    console.log(data);
+
+    // mutation.mutate({ info: body });
   };
-
   return (
     <FormProvider {...methods}>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.labels_wrapper}>
           <RequiredLabels categories={categoriesList} />
-          {watch('category') === ARCANES && <ArcanesPart />}
-          {watch('category') === CLOSED_MEDITATIONS && <ClosedPart />}
-          {watch('category') === OPENED_MEDITATIONS && <OpenedPart />}
+          {watch('category') === WEBINARS && <WebinarPart />}
+          {/* {watch('category') === OPENED_MEDITATIONS && <OpenedPart />} */}
         </div>
         <SubmitButtons setStatusAndSubmit={setStatusAndSubmit} />
       </form>
@@ -182,4 +150,4 @@ const MeditationForm = ({ edit }) => {
   );
 };
 
-export default MeditationForm;
+export default AddWebinar;

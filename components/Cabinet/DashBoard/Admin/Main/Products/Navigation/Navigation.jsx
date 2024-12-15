@@ -11,7 +11,7 @@ import { useSession } from 'next-auth/react';
 
 const defaultNavList = [
   { name: 'Медитації', count: 0, link: 'meditations' },
-  { name: 'Вебінари', count: 0, link: 'vebinars' },
+  { name: 'Вебінари', count: 0, link: 'webinars' },
   { name: 'Гайди та книги', count: 0, link: 'guides-and-books' },
   { name: 'Подарунки студії', count: 0, link: 'gifts' },
 ];
@@ -24,7 +24,11 @@ const fetchProductsCount = async token => {
     },
   });
   if (!res.ok) {
-    throw new Error('Помилка завантаження кількості продуктів');
+    const error = {
+      message: new Error('Помилка завантаження кількості продуктів'),
+      status: res.status,
+    };
+    throw error;
   }
   return res.json();
 };
@@ -58,26 +62,28 @@ const Navigation = () => {
   }, [data, error?.message, isError]);
 
   return (
-    <ul className={styles.list}>
-      {navList.map(({ name, count, link }) => (
-        <li key={link} className={`${styles.item}`}>
-          <Link
-            href={link}
-            className={`${styles.link} ${pathname.includes(link) ? styles.link_active : ''}`}
-          >
-            {name}
-            <span
-              className={`${styles.counter} ${
-                pathname.includes(link) ? styles.counter_active : ''
-              }`}
+    <>
+      <ul className={styles.list}>
+        {navList.map(({ name, count, link }) => (
+          <li key={link} className={`${styles.item}`}>
+            <Link
+              href={link}
+              className={`${styles.link} ${pathname.includes(link) ? styles.link_active : ''}`}
             >
-              {count}
-            </span>
-          </Link>
-        </li>
-      ))}
+              {name}
+              <span
+                className={`${styles.counter} ${
+                  pathname.includes(link) ? styles.counter_active : ''
+                }`}
+              >
+                {count}
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ul>
       <ToastContainer />
-    </ul>
+    </>
   );
 };
 

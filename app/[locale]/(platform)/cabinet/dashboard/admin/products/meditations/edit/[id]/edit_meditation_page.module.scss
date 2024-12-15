@@ -8,5 +8,6 @@
   @media all and (width >= $min_desktop) {
     min-height: 100vh;
     width: 100%;
+    overflow: auto;
   }
 }

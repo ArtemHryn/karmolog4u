@@ -10,20 +10,20 @@ const buttons = [
   { name: 'Приховані', status: HIDDEN },
 ];
 
-const Status = ({ activeStatus, setActiveStatus, meditations }) => {
+const Status = ({ activeStatus, setActiveStatus, products }) => {
   const [updatedButtons, setUpdatedButtons] = useState([]);
   useEffect(() => {
-    if (!meditations) return;
+    if (!products) return;
     const buttonsWithCount = buttons.map(button => {
       if (button.status === 'all') {
-        return { ...button, count: meditations.length };
+        return { ...button, count: products.length };
       }
-      const countOfStatus = meditations.filter(el => button.status === el.status).length;
+      const countOfStatus = products.filter(el => button.status === el.status).length;
       return { ...button, count: countOfStatus };
     });
 
     setUpdatedButtons(buttonsWithCount);
-  }, [meditations]);
+  }, [products]);
 
   if (updatedButtons.length === 0) return null;
 

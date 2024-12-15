@@ -15,3 +15,13 @@ export const OPENED_MEDITATIONS = 'OPENED';
 export const PUBLISHED = 'PUBLISHED';
 export const DRAFT = 'DRAFT';
 export const HIDDEN = 'HIDDEN';
+
+//webinars
+
+export const ADMIN_WEBINARS = 'admin_webinars';
+export const ADMIN_ETHERS = 'admin_ethers';
+
+//webinars category
+
+export const WEBINARS = 'WEBINARS';
+export const ETHERS = 'ETHERS';

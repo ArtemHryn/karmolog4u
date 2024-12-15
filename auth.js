@@ -33,7 +33,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           if (!user) {
             throw new Error('Invalid login response');
           }
-          console.log(user);
 
           return user.user;
         } catch (error) {
@@ -53,11 +52,12 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       return !!auth;
     },
     async jwt({ token, user }) {
+      const expiresAt = Date.now() + 14 * 60 * 1000;
       if (user) {
         token.accessToken = user.accessToken;
         token.refreshToken = user.refreshToken;
         token.role = user.userData.role;
-        token.expiresAt = Date.now() + 15 * 60 * 1000;
+        token.expiresAt = expiresAt;
       }
 
       if (Date.now() > token.expiresAt) {
@@ -67,11 +67,12 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             Authorization: `Bearer ${token.refreshToken}`,
           },
         });
+
         if (refreshResponse.ok) {
           const newTokens = await refreshResponse.json();
           token.accessToken = newTokens.accessToken;
           token.refreshToken = newTokens.refreshToken;
-          token.expiresAt = Date.now() + 15 * 60 * 1000; // Оновлення часу закінчення дії
+          token.expiresAt = expiresAt; // Оновлення часу закінчення дії
         }
       }
 

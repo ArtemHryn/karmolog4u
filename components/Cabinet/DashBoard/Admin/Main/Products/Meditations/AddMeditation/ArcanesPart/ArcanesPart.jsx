@@ -18,7 +18,7 @@ const ArcanesPart = () => {
         />
         {errors?.video && <p className={styles.error}>{errors.video.message}</p>}
       </label>
-      <Tick register={register} />
+      <Tick name={'isWaiting'} />
     </>
   );
 };

@@ -13,7 +13,7 @@ const ProductsLayout = ({ children }) => {
       {!pathname.includes('/add') && !pathname.includes('/edit') && (
         <>
           <Title />
-          {/* <Navigation /> */}
+          <Navigation />
         </>
       )}
 
