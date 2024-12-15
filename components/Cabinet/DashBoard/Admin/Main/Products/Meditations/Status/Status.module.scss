@@ -1,5 +1,11 @@
 @import '/styles/main.scss';
 
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .list {
   display: flex;
   align-items: center;
@@ -17,6 +23,13 @@
   }
   @media all and (width >= $min_tablet) {
     width: min-content;
+  }
+}
+
+.button_wrapper {
+  display: none;
+  @media all and (width >= $min_desktop) {
+    display: block;
   }
 }
 

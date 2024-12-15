@@ -1,0 +1,42 @@
+@import '/styles/main.scss';
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  @include fontRegular(12px, 500, 12px, $third_text_color);
+  max-width: 500px;
+  width: 100%;
+}
+
+.input {
+  border: 1px solid $p_border;
+  border-radius: 8px;
+  padding: 24px 16px;
+  height: 48px;
+  @include fontRegular(14px, 400, 19.6px, $third_text_color);
+  &::placeholder {
+    color: $form_placeholder;
+  }
+}
+
+.textarea {
+  border: 1px solid $p_border;
+  border-radius: 8px;
+  padding: 12px;
+  resize: none;
+  height: 166px;
+  scrollbar-width: thin;
+  @include fontRegular(14px, 400, 19.6px, $third_text_color);
+  &::placeholder {
+    color: $form_placeholder;
+  }
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 12px;
+  }
+}
+
+.error {
+  @include fontRegular(12px, 500, 12px, red);
+}

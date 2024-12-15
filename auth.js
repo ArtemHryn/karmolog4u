@@ -28,16 +28,12 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             return null;
           }
 
-          // Парсимо відповідь від сервера, яка містить дані користувача
           const user = await res.json();
 
-          // Якщо користувача не знайдено, повертаємо помилку
           if (!user) {
             throw new Error('Invalid login response');
           }
-          // console.log(user.user.userData);
 
-          // Повертаємо об'єкт користувача для збереження в сесії
           return user.user;
         } catch (error) {
           console.error('Authorization error:', error);
@@ -56,13 +52,12 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       return !!auth;
     },
     async jwt({ token, user }) {
-      // Якщо користувач успішно увійшов, додавати токени і роль до JWT
-
+      const expiresAt = Date.now() + 14 * 60 * 1000;
       if (user) {
         token.accessToken = user.accessToken;
         token.refreshToken = user.refreshToken;
         token.role = user.userData.role;
-        token.expiresAt = Date.now() + 15 * 60 * 1000;
+        token.expiresAt = expiresAt;
       }
 
       if (Date.now() > token.expiresAt) {
@@ -77,7 +72,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           const newTokens = await refreshResponse.json();
           token.accessToken = newTokens.accessToken;
           token.refreshToken = newTokens.refreshToken;
-          token.expiresAt = Date.now() + 15 * 60 * 1000; // Оновлення часу закінчення дії
+          token.expiresAt = expiresAt; // Оновлення часу закінчення дії
         }
       }
 

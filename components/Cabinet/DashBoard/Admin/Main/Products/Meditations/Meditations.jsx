@@ -1,12 +1,29 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { useSession } from 'next-auth/react';
 import Filter from './Filter/Filter';
 import MeditationsList from './MeditationsList/MeditationsList';
 import Status from './Status/Status';
+import SkeletonMeditations from './MeditationsList/SkeletonMeditations/SkeletonMeditations';
 
-import styles from './Meditations.module.scss';
 import { ADMIN_CLOSED, ADMIN_ENERGIES, ADMIN_OPENED } from '@helper/consts';
+import styles from './Meditations.module.scss';
+
+const fetchMeditations = async token => {
+  const response = await fetch('http://localhost:4499/admin/products/meditations/get-all', {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to fetch meditations');
+  }
+  return response.json();
+};
 
 const Meditations = () => {
   const [energies, setEnergies] = useState(false);
@@ -14,21 +31,28 @@ const Meditations = () => {
   const [showClosedMeditation, setShowClosedMeditation] = useState(false);
   const [isCheckedLS, setIsCheckedLS] = useState(false);
   const [status, setStatus] = useState('all');
+  const { data: token } = useSession();
+
+  const {
+    data: meditations,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ['meditations'],
+    queryFn: () => fetchMeditations(token.accessToken),
+  });
 
   useEffect(() => {
     if (!isCheckedLS) {
-      setEnergies(() => {
-        return JSON.parse(window.localStorage.getItem(ADMIN_ENERGIES)) ?? false;
-      });
-      setShowOpenedMeditation(() => {
-        return JSON.parse(window.localStorage.getItem(ADMIN_OPENED)) ?? false;
-      });
-      setShowClosedMeditation(() => {
-        return JSON.parse(window.localStorage.getItem(ADMIN_CLOSED)) ?? false;
-      });
+      setEnergies(() => JSON.parse(window.localStorage.getItem(ADMIN_ENERGIES)) ?? false);
+      setShowOpenedMeditation(() => JSON.parse(window.localStorage.getItem(ADMIN_OPENED)) ?? false);
+      setShowClosedMeditation(() => JSON.parse(window.localStorage.getItem(ADMIN_CLOSED)) ?? false);
       setIsCheckedLS(true);
     }
   }, [isCheckedLS]);
+
+  if (isLoading) return <div>Loading...</div>;
+  if (isError) return <div>Error...</div>;
 
   return (
     <div className={styles.wrapper}>
@@ -40,14 +64,19 @@ const Meditations = () => {
         showClosedMeditation={showClosedMeditation}
         setShowClosedMeditation={setShowClosedMeditation}
       />
-      <Status activeStatus={status} setActiveStatus={setStatus} />
-      <MeditationsList
-        energies={energies}
-        opened={showOpenedMeditation}
-        closed={showClosedMeditation}
-        isCheckedLS={isCheckedLS}
-        status={status}
-      />
+      <Status activeStatus={status} setActiveStatus={setStatus} products={meditations} />
+      {isLoading ? (
+        <SkeletonMeditations />
+      ) : (
+        <MeditationsList
+          energies={energies}
+          opened={showOpenedMeditation}
+          closed={showClosedMeditation}
+          isCheckedLS={isCheckedLS}
+          status={status}
+          meditations={meditations}
+        />
+      )}
     </div>
   );
 };

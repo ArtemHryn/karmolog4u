@@ -4,19 +4,21 @@ import Edit from './Icons/Edit';
 import Hide from './Icons/Hide';
 
 import styles from './EditButton.module.scss';
+import { HIDDEN } from '@helper/consts';
 
-const EditMenu = ({ setVisibleDialogToHide, setVisibleDialogToDelete, status }) => {
-  //   const route = useRouter();
+const EditMenu = ({ setVisibleDialogToHide, setVisibleDialogToDelete, status, id }) => {
+  const route = useRouter();
   const pathname = usePathname();
 
-  const onEdit = () => {
-    // route.push(`${pathname}/edit?id=${id}`);
-    console.log(pathname, id);
-  };
   return (
     <ul className={styles.list}>
       <li>
-        <button className={styles.button} onClick={() => {}}>
+        <button
+          className={styles.button}
+          onClick={() => {
+            route.push(`${pathname}/edit/${id}`);
+          }}
+        >
           <Edit />
           Редагувати
         </button>
@@ -30,7 +32,7 @@ const EditMenu = ({ setVisibleDialogToHide, setVisibleDialogToDelete, status }) 
           }}
         >
           <Hide />
-          {status === 'hidden' ? 'Опубліковати' : 'Приховати'}
+          {status === HIDDEN ? 'Опубліковати' : 'Приховати'}
         </button>
       </li>
       <li className={styles.item}>

@@ -8,6 +8,12 @@
   @media all and (width >= $min_tablet) {
     display: grid;
     grid-template-columns: repeat(3, minmax(232px, 1fr));
+    overflow: auto;
+    padding-right: 10px;
+    scrollbar-width: 2px;
+    &::-webkit-scrollbar {
+      width: 2px;
+    }
   }
 }
 
@@ -39,17 +45,17 @@
   width: min-content;
   padding: 0px 12px;
   @include fontRegular(14px, 400, 19.6px);
-  &_published {
+  &_PUBLISHED {
     background-color: #e3fbe8;
     border: 1px solid #d1efd7;
     color: #11491c;
   }
-  &_hidden {
+  &_HIDDEN {
     background-color: #f6f6f6;
     border: 1px solid #ecebeb;
     color: #393939;
   }
-  &_draft {
+  &_DRAFT {
     background-color: #e0ebff;
     border: 1px solid #cfdbf0;
     color: #163b90;

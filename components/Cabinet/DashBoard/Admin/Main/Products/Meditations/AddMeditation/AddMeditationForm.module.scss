@@ -1,0 +1,137 @@
+@import '/styles/main.scss';
+
+.form {
+  background-color: $p_main_bg;
+  flex-grow: 2;
+  @media all and (width >= $min_tablet) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #fcfbfb;
+    gap: 30px;
+  }
+}
+
+.labels_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc(100% - 24px);
+
+  margin-inline: auto;
+  margin-bottom: 24px;
+  gap: 12px;
+
+  background-color: #fff;
+  @media all and (width >= $min_tablet) {
+    margin-bottom: 0;
+    margin-top: 16px;
+    padding: 24px;
+    border-radius: 8px;
+    gap: 16px;
+  }
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  @include fontRegular(12px, 500, 12px, $third_text_color);
+  max-width: 500px;
+  width: 100%;
+}
+
+.input {
+  border: 1px solid $p_border;
+  border-radius: 8px;
+  padding: 24px 16px;
+  height: 48px;
+  @include fontRegular(14px, 400, 19.6px, $third_text_color);
+  &::placeholder {
+    color: $form_placeholder;
+  }
+}
+
+.error {
+  @include fontRegular(12px, 500, 12px, red);
+}
+
+//checkboxes
+.checkbox_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 500px;
+  width: 100%;
+  @media all and (width >= $min_tablet) {
+    gap: 12px;
+  }
+}
+.checkbox_wrapper *,
+.checkbox_wrapper *:after,
+.checkbox_wrapper *:before {
+  box-sizing: border-box;
+}
+
+.checkbox_wrapper input {
+  position: absolute;
+  opacity: 0;
+  appearance: none;
+}
+
+.checkbox_wrapper input:checked + label svg path {
+  stroke-dashoffset: 0;
+}
+
+.checkbox_wrapper input:focus + label {
+  transform: scale(1.03);
+}
+
+.checkbox_wrapper input + label {
+  display: flex;
+  border: 1px solid $p_border;
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  & > svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.checkbox_wrapper input + label:active {
+  transform: scale(1.05);
+  border-radius: 12px;
+}
+
+.checkbox_wrapper input + label svg {
+  pointer-events: none;
+  padding: 10%;
+}
+.checkbox_wrapper input:checked + label svg {
+  pointer-events: none;
+  padding: 10%;
+  background-color: $p_button_bg;
+}
+
+.checkbox_wrapper input + label svg path {
+  fill: none;
+  stroke: $main_text_color;
+  stroke-width: 4px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 101;
+  transition: all 250ms cubic-bezier(1, 0, 0.37, 0.91);
+}
+
+.text {
+  @include fontRegular(14px, 400, 19.6px, $third_text_color);
+  text-wrap: balance;
+}
+
+
+

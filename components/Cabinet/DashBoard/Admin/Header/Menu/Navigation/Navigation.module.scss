@@ -7,6 +7,9 @@
   padding: 24px;
   width: 100%;
   flex-grow: 2;
+  @media all and (width >= $min_desktop) {
+   width: 265px;
+  }
 }
 
 .link {

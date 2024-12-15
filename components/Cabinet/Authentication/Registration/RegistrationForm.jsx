@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useForm, Controller } from 'react-hook-form';
 import { useTranslations } from 'next-intl';
@@ -14,6 +15,7 @@ import 'react-phone-input-2/lib/bootstrap.css';
 
 const RegistrationForm = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const router = useRouter()
   const t = useTranslations('Author_products.buy_gift_modal');
 
   const {
@@ -24,8 +26,6 @@ const RegistrationForm = () => {
   } = useForm();
 
   const onFormSubmit = async data => {
-    console.log(data);
-    
     try {
       const response = await fetch('http://localhost:4499/auth/register', {
         method: 'POST',
@@ -37,8 +37,7 @@ const RegistrationForm = () => {
       if (!response.ok) {
         console.log('not ok');
       }
-      const responseData = await response.json();
-      console.log(responseData);
+      router.push('/cabinet/login')
     } catch (error) {
       console.log(error.json());
     }
@@ -67,7 +66,7 @@ const RegistrationForm = () => {
                 className={styles.input}
                 placeholder="Ваше прізвище"
                 type="text"
-                {...register('lastname', { required: t('email.empty_error') })}
+                {...register('lastName', { required: t('email.empty_error') })}
               />
             </label>
           </div>

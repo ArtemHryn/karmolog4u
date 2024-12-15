@@ -1,0 +1,14 @@
+@import '/styles/main.scss';
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  @media all and (width >= $min_tablet) {
+    flex-direction: row;
+    gap: 24px;
+  }
+  @media all and (width >= $min_desktop) {
+    gap: 40px;
+  }
+}
