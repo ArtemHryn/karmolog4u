@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { useMutation } from '@tanstack/react-query';
-import { useForm, Controller, FormProvider } from 'react-hook-form';
+import { useForm, FormProvider } from 'react-hook-form';
 import { useSession } from 'next-auth/react';
 import { toast, ToastContainer } from 'react-toastify';
 import ArcanesPart from './ArcanesPart/ArcanesPart';
@@ -17,8 +17,6 @@ import styles from './AddMeditationForm.module.scss';
 import 'react-toastify/dist/ReactToastify.css';
 
 async function addMeditation({ data, token, action, id }) {
-  console.log(token);
-
   const url =
     action === 'add'
       ? `${base_url}/admin/products/meditations/create`
@@ -26,10 +24,9 @@ async function addMeditation({ data, token, action, id }) {
   const res = await fetch(url, {
     method: action === 'add' ? 'POST' : 'PUT',
     headers: {
-      'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify(data),
+    body: data,
   });
 
   if (!res.ok) {
@@ -42,7 +39,17 @@ async function addMeditation({ data, token, action, id }) {
 
 const setDefaultValues = item => {
   if (!item) return {};
-  const { name, category, video, isWaiting, description, price = '', discount = null } = item;
+  const {
+    name,
+    category,
+    video,
+    isWaiting,
+    description,
+    price = '',
+    discount = null,
+    cover = null,
+  } = item;
+
   return {
     name_uk: name.uk,
     name_ru: name.ru,
@@ -55,6 +62,7 @@ const setDefaultValues = item => {
     discount: discount?.discount,
     start_date: discount ? new Date(discount.start) : undefined,
     end_date: discount ? new Date(discount.expiredAt) : undefined,
+    ...(cover ? { cover } : {}),
   };
 };
 
@@ -105,65 +113,56 @@ const MeditationForm = ({ edit }) => {
   };
 
   const onSubmit = data => {
-
-    const { name_uk, name_ru, status, category } = data;
+    const { name_uk, name_ru, status, category, cover, description_uk, description_ru, video } =
+      data;
     if (!getValues('category')) {
       setError('category', { type: 'manual', message: 'Оберіть категорію' });
     }
-    if (!data.video || !youtubeRegex.test(data.video)) {
+    if (!video || !youtubeRegex.test(video)) {
       setError('video', {
         type: 'manual',
         message: 'Введіть посилання з YouTube',
       });
       return;
     }
-    const videoId = data.video.match(youtubeRegex)[1];
-    data.video = videoId;
-    let body;
+    const videoId = video.match(youtubeRegex)[1];
+
+    const formData = new FormData();
     const requiredParams = {
       name: { uk: name_uk, ru: name_ru },
       category,
       status,
-      video: data.video,
+      video: videoId,
     };
-
+    //додаємо ключи які точно є
+    Object.entries(requiredParams).forEach(([key, value]) =>
+      formData.append(key, JSON.stringify(value))
+    );
+    //перевірка чи існує cover і якщо да то перевіряємо чи файл
+    if (cover) {
+      formData.append('cover', cover instanceof File ? cover : cover);
+    }
+    //додаємо опис якщо існує
+    if (description_ru && description_uk) {
+      formData.append('description', JSON.stringify({ uk: description_uk, ru: description_ru }));
+    }
     if (data.category === ARCANES) {
       const { isWaiting } = data;
-      body = {
-        ...requiredParams,
-        isWaiting,
-      };
+      formData.append('isWaiting', isWaiting);
     }
     if (data.category === CLOSED_MEDITATIONS) {
-      const {
-        description_uk = '',
-        description_ru = '',
-        price,
-        cover = 'image',
-        discount = null,
-      } = data;
-      body = {
-        ...requiredParams,
-        isWaiting: false,
-        description: { uk: description_uk, ru: description_ru },
-        cover: 'image',
-        price,
-        ...(discount !== null && {
-          discount: { discount, start: data.start_date, expiredAt: data.end_date },
-        }),
-      };
+      const { price, discount = null } = data;
+      formData.append('price', price);
+      if (discount) {
+        formData.append(
+          'discount',
+          JSON.stringify({ discount, start: data.start_date, expiredAt: data.end_date })
+        );
+      }
     }
-    if (data.category === OPENED_MEDITATIONS) {
-      const { description_uk = '', description_ru = '', cover = 'image' } = data;
-      body = {
-        ...requiredParams,
-        isWaiting: false,
-        description: { uk: description_uk, ru: description_ru },
-        cover: 'link',
-      };
-    }
+    console.log(data.cover);
 
-    mutation.mutate({ info: body, token: token.accessToken });
+    mutation.mutate({ info: formData, token: token.accessToken });
   };
 
   return (

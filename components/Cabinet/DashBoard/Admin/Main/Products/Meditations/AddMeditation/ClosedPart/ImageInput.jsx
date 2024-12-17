@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { useFormContext } from 'react-hook-form';
 import styles from './ClosedPart.module.scss';
@@ -6,7 +6,14 @@ import styles from './ClosedPart.module.scss';
 const ImageInput = () => {
   const [previewImage, setPreviewImage] = useState(null);
   const fileInputRef = useRef(null);
-  const { register, watch, setValue } = useFormContext();
+  const { register, watch, setValue, getValues } = useFormContext();
+
+  useEffect(() => {
+    const cover = getValues('cover');
+    if (cover && typeof cover === 'string') {
+      setPreviewImage(cover); // Якщо в `cover` посилання, використовуємо його як URL
+    }
+  }, [getValues]);
 
   const handleFileChange = e => {
     const file = e.target.files?.[0];
