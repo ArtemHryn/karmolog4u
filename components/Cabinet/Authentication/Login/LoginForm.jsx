@@ -2,9 +2,9 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { signIn } from 'next-auth/react';
 import { useForm } from 'react-hook-form';
 import { useTranslations } from 'next-intl';
+import { signIn } from 'next-auth/react';
 
 import styles from './LoginForm.module.scss';
 import ShowPasswordIcon from './ShowPasswordIcon';

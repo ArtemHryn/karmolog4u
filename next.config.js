@@ -16,7 +16,7 @@ const nextConfig = {
         pathname: '/covers/**', // Якщо у вас є певний шаблон для шляхів
       },
       {
-        protocol: 'http',
+        protocol: 'https',
         hostname: 'karmolog4u-backend-dev-production.up.railway.app',
         pathname: '/covers/**', // Якщо у вас є певний шаблон для шляхів
       },

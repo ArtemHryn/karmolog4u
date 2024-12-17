@@ -1,8 +1,9 @@
 import FormHead from '@components/Cabinet/DashBoard/Admin/FormHead/FormHead';
 import styles from './edit_meditation_page.module.scss';
 import MeditationForm from '@components/Cabinet/DashBoard/Admin/Main/Products/Meditations/AddMeditation/AddMeditation';
-import { auth } from '@auth';
+import { authOptions } from '@app/api/auth/[...nextauth]/route';
 import { base_url } from '@helper/consts';
+import { getServerSession } from 'next-auth';
 
 const editMeditation = async (id, token) => {
   const res = await fetch(`${base_url}/admin/products/meditations/get/${id}`, {
@@ -19,7 +20,7 @@ const editMeditation = async (id, token) => {
 };
 
 const EditPage = async ({ params }) => {
-  const { accessToken } = await auth();
+  const { accessToken } = await getServerSession(authOptions);;
   const meditation = await editMeditation(params.id, accessToken);
 
   return (
