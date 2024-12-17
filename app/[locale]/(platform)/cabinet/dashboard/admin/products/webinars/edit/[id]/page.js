@@ -1,6 +1,7 @@
 import FormHead from '@components/Cabinet/DashBoard/Admin/FormHead/FormHead';
-import { auth } from '@auth';
 import AddWebinar from '@components/Cabinet/DashBoard/Admin/Main/Products/Webinars/AddWebinar/AddWebinar';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@app/api/auth/[...nextauth]/route';
 import styles from './edit_meditation_page.module.scss';
 
 const editWebinar = async (id, token) => {
@@ -17,7 +18,7 @@ const editWebinar = async (id, token) => {
 };
 
 const EditPage = async ({ params }) => {
-  const { accessToken } = await auth();
+  const { accessToken } = await getServerSession(authOptions);
   // const [webinar] = await editWebinar(params.id, accessToken);
 
   return (

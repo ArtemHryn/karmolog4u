@@ -1,6 +1,8 @@
+import { getServerSession } from 'next-auth';
 import FormHead from '@components/Cabinet/DashBoard/Admin/FormHead/FormHead';
 import AddGuideAndBooks from '@components/Cabinet/DashBoard/Admin/Main/Products/GuideAndBooks/AddGuideAndBooks/AddGuideAndBooks';
-import { auth } from '@auth';
+import { authOptions } from '@app/api/auth/[...nextauth]/route';
+
 import styles from './edit_meditation_page.module.scss';
 
 const editGuideAndBook = async (id, token) => {
@@ -17,7 +19,7 @@ const editGuideAndBook = async (id, token) => {
 };
 
 const EditPage = async ({ params }) => {
-  const { accessToken } = await auth();
+  const { accessToken } = await getServerSession(authOptions);
   // const [guide_and_book] = await editWebinar(params.id, accessToken);
 
   return (

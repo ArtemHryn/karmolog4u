@@ -160,8 +160,6 @@ const MeditationForm = ({ edit }) => {
         );
       }
     }
-    console.log(data.cover);
-
     mutation.mutate({ info: formData, token: token.accessToken });
   };
 

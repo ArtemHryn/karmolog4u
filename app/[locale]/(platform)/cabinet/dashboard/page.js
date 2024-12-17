@@ -1,11 +1,16 @@
-import { auth } from '@auth';
+import { authOptions } from '@app/api/auth/[...nextauth]/route';
+import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
 
 const CabinetPage = async () => {
-  const {user} = await auth();
+  const session = await getServerSession(authOptions);
 
+  if (!session) {
+    redirect('/cabinet/login');
+  }
   const redirectTo =
-    user.role === 'ADMIN' ? '/cabinet/dashboard/admin/products' : '/cabinet/dashboard/user';
+    session.user.role === 'ADMIN' ? '/cabinet/dashboard/admin/products' : '/cabinet/dashboard/user';
+
   redirect(redirectTo);
 };
 
