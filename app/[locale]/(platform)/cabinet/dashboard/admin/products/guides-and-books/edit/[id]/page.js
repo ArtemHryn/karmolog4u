@@ -1,10 +1,10 @@
 import FormHead from '@components/Cabinet/DashBoard/Admin/FormHead/FormHead';
+import AddGuideAndBooks from '@components/Cabinet/DashBoard/Admin/Main/Products/GuideAndBooks/AddGuideAndBooks/AddGuideAndBooks';
 import { auth } from '@auth';
-import AddWebinar from '@components/Cabinet/DashBoard/Admin/Main/Products/Webinars/AddWebinar/AddWebinar';
 import styles from './edit_meditation_page.module.scss';
 
-const editWebinar = async (id, token) => {
-  const res = await fetch(`http://localhost:4499/admin/products/webinar/get/${id}`, {
+const editGuideAndBook = async (id, token) => {
+  const res = await fetch(`http://localhost:4499/admin/products/guide-and-book/get/${id}`, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
@@ -18,12 +18,12 @@ const editWebinar = async (id, token) => {
 
 const EditPage = async ({ params }) => {
   const { accessToken } = await auth();
-  // const [webinar] = await editWebinar(params.id, accessToken);
+  // const [guide_and_book] = await editWebinar(params.id, accessToken);
 
   return (
     <div className={styles.wrapper}>
       <FormHead title={'Редагувати публікацію'} />
-      <AddWebinar edit={{}} />
+      <AddGuideAndBooks edit={{}} />
     </div>
   );
 };
