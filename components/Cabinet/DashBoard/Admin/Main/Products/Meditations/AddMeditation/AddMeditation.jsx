@@ -11,7 +11,7 @@ import OpenedPart from './OpenedPart/OpenedPart';
 import RequiredLabels from './RequiredLabels/RequiredLabels';
 import SubmitButtons from './SubmitButtons/SubmitButtons';
 
-import { ARCANES, CLOSED_MEDITATIONS, OPENED_MEDITATIONS } from '@helper/consts';
+import { ARCANES, base_url, CLOSED_MEDITATIONS, OPENED_MEDITATIONS } from '@helper/consts';
 
 import styles from './AddMeditationForm.module.scss';
 import 'react-toastify/dist/ReactToastify.css';
@@ -21,8 +21,8 @@ async function addMeditation({ data, token, action, id }) {
 
   const url =
     action === 'add'
-      ? 'http://localhost:4499/admin/products/meditations/create'
-      : `http://localhost:4499/admin/products/meditations/edit/${id}`;
+      ? `${base_url}/admin/products/meditations/create`
+      : `${base_url}/admin/products/meditations/edit/${id}`;
   const res = await fetch(url, {
     method: action === 'add' ? 'POST' : 'PUT',
     headers: {

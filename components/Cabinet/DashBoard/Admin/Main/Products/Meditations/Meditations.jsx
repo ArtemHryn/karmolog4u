@@ -6,13 +6,13 @@ import { useSession } from 'next-auth/react';
 import Filter from './Filter/Filter';
 import MeditationsList from './MeditationsList/MeditationsList';
 import Status from './Status/Status';
-import SkeletonMeditations from './MeditationsList/SkeletonMeditations/SkeletonMeditations';
+import SkeletonProducts from '../SkeletonProducts/SkeletonProducts';
 
-import { ADMIN_CLOSED, ADMIN_ENERGIES, ADMIN_OPENED } from '@helper/consts';
+import { ADMIN_CLOSED, ADMIN_ENERGIES, ADMIN_OPENED, base_url } from '@helper/consts';
 import styles from './Meditations.module.scss';
 
 const fetchMeditations = async token => {
-  const response = await fetch('http://localhost:4499/admin/products/meditations/get-all', {
+  const response = await fetch(`${base_url}/admin/products/meditations/get-all`, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
@@ -66,7 +66,7 @@ const Meditations = () => {
       />
       <Status activeStatus={status} setActiveStatus={setStatus} products={meditations} />
       {isLoading ? (
-        <SkeletonMeditations />
+        <SkeletonProducts />
       ) : (
         <MeditationsList
           energies={energies}

@@ -1,18 +1,13 @@
+import { useMutation } from '@tanstack/react-query';
 import { useRef, useState } from 'react';
-import { useSession } from 'next-auth/react';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { OverlayPanel } from 'primereact/overlaypanel';
-import EditButtonIcon from './EditButtonIcon';
-import EditMenu from './EditMenu';
-import ConfirmDialog from '../../../ConfirmDialogSet/ConfirmDialog/ConfirmDialog';
+import EditButtonIcon from '../../../Meditations/MeditationsList/EditButton/EditButtonIcon';
+import ConfirmDialogSet from '../../../ConfirmDialogSet/ConfirmDialogSet';
+import EditMenu from '../../../Meditations/MeditationsList/EditButton/EditMenu';
 import { HIDDEN, PUBLISHED } from '@helper/consts';
 
-import styles from './EditButton.module.scss';
-import 'primereact/resources/primereact.min.css';
-import ConfirmDialogSet from '../../../ConfirmDialogSet/ConfirmDialogSet';
-
-const deleteMeditation = async (id, token) => {
-  const res = await fetch(`http://localhost:4499/admin/products/meditations/delete/${id}`, {
+const deleteGuideAndBooks = async (id, token) => {
+  const res = await fetch(`http://localhost:4499/admin/products/guide-and-books/delete/${id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -28,8 +23,8 @@ const deleteMeditation = async (id, token) => {
   return res.json();
 };
 
-const hideMeditation = async (id, token, status) => {
-  const res = await fetch(`http://localhost:4499/admin/products/meditations/status/${id}`, {
+const hideGuideAndBooks = async (id, token, status) => {
+  const res = await fetch(`http://localhost:4499/admin/products/guide-and-books/status/${id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -45,20 +40,17 @@ const hideMeditation = async (id, token, status) => {
 
   return res.json();
 };
-
 const EditButton = ({ id, name, status }) => {
   const [visibleDialogToHide, setVisibleDialogToHide] = useState(false);
   const [visibleDialogToDelete, setVisibleDialogToDelete] = useState(false);
-  const { data: token } = useSession();
-  const queryClient = useQueryClient();
 
   const op = useRef(null);
 
   const mutation = useMutation({
     mutationFn: async ({ action }) => {
-      if (action === 'delete') await deleteMeditation(id, token.accessToken);
+      if (action === 'delete') await deleteGuideAndBooks(id, token.accessToken);
       if (action === 'hide')
-        await hideMeditation(id, token.accessToken, status === HIDDEN ? PUBLISHED : HIDDEN);
+        await hideGuideAndBooks(id, token.accessToken, status === HIDDEN ? PUBLISHED : HIDDEN);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['meditations'] });
@@ -67,13 +59,13 @@ const EditButton = ({ id, name, status }) => {
   });
 
   const onHide = () => {
-    mutation.mutate({ action: 'hide' });
+    // mutation.mutate({ action: 'hide' });
     setVisibleDialogToHide(false);
     document.body.style.overflow = 'auto';
   };
 
   const onDelete = () => {
-    mutation.mutate({ action: 'delete' });
+    // mutation.mutate({ action: 'delete' });
     setVisibleDialogToDelete(false);
     document.body.style.overflow = 'auto';
   };
@@ -82,9 +74,9 @@ const EditButton = ({ id, name, status }) => {
     callback(false);
     document.body.style.overflow = 'auto';
   };
-
   return (
     <>
+      {' '}
       <ConfirmDialogSet
         status={status}
         name={name}

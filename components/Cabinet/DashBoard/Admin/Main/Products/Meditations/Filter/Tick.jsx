@@ -1,6 +1,6 @@
 import styles from './Filter.module.scss';
 
-const Tick = ({ name, setTick, localStorageName, id, tick }) => {
+const Tick = ({ name, setTick, localStorageName, id, tick }) => {  
   return (
     <div className={styles.checkbox_wrapper}>
       <input

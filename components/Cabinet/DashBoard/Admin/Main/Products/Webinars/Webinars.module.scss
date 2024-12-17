@@ -7,6 +7,6 @@
   gap: 24px;
   @media all and (width >= $min_desktop) {
     flex-grow: 1;
-    height: calc(100vh - (160px + 48px));
+    height: calc(100vh - (160px + 56px));
   }
 }
