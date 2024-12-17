@@ -1,13 +1,14 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { useQuery } from '@tanstack/react-query';
-import Link from 'next/link';
-
-import styles from './Navigation.module.scss';
-import { useEffect, useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import { useSession } from 'next-auth/react';
+import Link from 'next/link';
+
+import { base_url } from '@helper/consts';
+import styles from './Navigation.module.scss';
 
 const defaultNavList = [
   { name: 'Медитації', count: 0, link: 'meditations' },
@@ -17,7 +18,7 @@ const defaultNavList = [
 ];
 
 const fetchProductsCount = async token => {
-  const res = await fetch('http://localhost:4499/admin/products/product-count', {
+  const res = await fetch(`${base_url}/admin/products/product-count`, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
@@ -35,7 +36,7 @@ const fetchProductsCount = async token => {
 
 const Navigation = () => {
   const pathname = usePathname();
-  const [navList, setNavList] = useState([]);
+  const [navList, setNavList] = useState(defaultNavList);
   const { data: token } = useSession();
 
   const { data, isError, error } = useQuery({

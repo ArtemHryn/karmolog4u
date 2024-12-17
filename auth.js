@@ -52,7 +52,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       return !!auth;
     },
     async jwt({ token, user }) {
-      const expiresAt = Date.now() + 14 * 60 * 1000;
+      const expiresAt = Date.now() + 60 * 60 * 1000;
       if (user) {
         token.accessToken = user.accessToken;
         token.refreshToken = user.refreshToken;

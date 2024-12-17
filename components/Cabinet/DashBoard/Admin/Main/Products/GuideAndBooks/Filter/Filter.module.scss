@@ -1,12 +1,14 @@
 @import '/styles/main.scss';
 
-.wrapper {
-  padding: 0 16px;
+.list {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 12px;
+  @media all and (width >= $min_tablet) {
+    flex-direction: row;
+    gap: 24px;
+  }
   @media all and (width >= $min_desktop) {
-    flex-grow: 1;
-    height: calc(100vh - (160px + 56px));
+    gap: 40px;
   }
 }

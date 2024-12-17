@@ -1,5 +1,7 @@
+import GuideAndBooks from '@components/Cabinet/DashBoard/Admin/Main/Products/GuideAndBooks/GuideAndBooks';
+
 const GuideAndBooksPage = () => {
-  return <div>GuideAndBooksPage</div>;
+  return <GuideAndBooks />;
 };
 
 export default GuideAndBooksPage;

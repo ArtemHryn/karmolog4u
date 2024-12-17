@@ -25,7 +25,7 @@ const ClosedPart = () => {
         {errors?.video && <p className={styles.error}>{errors.video.message}</p>}
       </label>
       <Price showDiscount={showDiscount} setShowDiscount={setShowDiscount} />
-      <Description register={register} />
+      <Description />
     </>
   );
 };

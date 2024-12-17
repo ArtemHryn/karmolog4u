@@ -1,14 +1,13 @@
 import { useRef, useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { OverlayPanel } from 'primereact/overlaypanel';
-import ConfirmDialog from '../../../Meditations/MeditationsList/EditButton/ConfirmDialog/ConfirmDialog';
 import EditButtonIcon from '../../../Meditations/MeditationsList/EditButton/EditButtonIcon';
 import EditMenu from '../../../Meditations/MeditationsList/EditButton/EditMenu';
+import ConfirmDialogSet from '../../../ConfirmDialogSet/ConfirmDialogSet';
 
-import styles from './EditButton.module.scss'
 import { HIDDEN } from '@helper/consts';
 
-const deleteMeditation = async (id, token) => {
+const deleteWebinars = async (id, token) => {
   const res = await fetch(`http://localhost:4499/admin/products/webinars/delete/${id}`, {
     method: 'PATCH',
     headers: {
@@ -25,7 +24,7 @@ const deleteMeditation = async (id, token) => {
   return res.json();
 };
 
-const hideMeditation = async (id, token, status) => {
+const hideWebinars = async (id, token, status) => {
   const res = await fetch(`http://localhost:4499/admin/products/webinars/status/${id}`, {
     method: 'PATCH',
     headers: {
@@ -51,9 +50,9 @@ const EditButton = ({ id, name, status }) => {
 
   const mutation = useMutation({
     mutationFn: async ({ action }) => {
-      if (action === 'delete') await deleteMeditation(id, token.accessToken);
+      if (action === 'delete') await deleteWebinars(id, token.accessToken);
       if (action === 'hide')
-        await hideMeditation(id, token.accessToken, status === HIDDEN ? PUBLISHED : HIDDEN);
+        await hideWebinars(id, token.accessToken, status === HIDDEN ? PUBLISHED : HIDDEN);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['meditations'] });
@@ -80,26 +79,16 @@ const EditButton = ({ id, name, status }) => {
 
   return (
     <>
-      <div className={`${styles.overlay} ${!visibleDialogToHide ? styles.hide_overlay : ''}`}>
-        <ConfirmDialog
-          header={`${status === HIDDEN ? 'Приховати продукт' : 'Опубілковати продукт'}`}
-          message={`Ви впевнені, що хочете ${
-            status === HIDDEN ? 'приховати' : 'опубілковати'
-          }  ${name}? Після цього він стане недоступним для публічного перегляду, але ви зможете будь-коли повернути його із розділу “Приховані”.`}
-          accept={onHide}
-          reject={() => onReject(setVisibleDialogToHide)}
-          acceptContext={`${status === HIDDEN ? 'Опубілковати' : 'Приховати'}`}
-        />
-      </div>
-      <div className={`${styles.overlay} ${!visibleDialogToDelete ? styles.hide_overlay : ''}`}>
-        <ConfirmDialog
-          header={'Видалити продукт'}
-          message={`Ви впевнені, що хочете видалити ${name}? У разі чого, ви зможете повернути його з “Видалене” впродовж тижня.`}
-          accept={onDelete}
-          reject={() => onReject(setVisibleDialogToDelete)}
-          acceptContext={'Видалити'}
-        />
-      </div>
+      <ConfirmDialogSet
+        status={status}
+        name={name}
+        acceptOnHide={onHide}
+        rejectOnHide={() => onReject(setVisibleDialogToHide)}
+        acceptOnDelete={onDelete}
+        rejectOnDelete={() => onReject(setVisibleDialogToDelete)}
+        visibleDialogToHide={visibleDialogToHide}
+        visibleDialogToDelete={visibleDialogToDelete}
+      />
       <button
         onClick={e => {
           op.current.toggle(e);

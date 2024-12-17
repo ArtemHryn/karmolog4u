@@ -3,7 +3,7 @@ import styles from './SkeletonMeditations.module.scss';
 
 import 'primereact/resources/themes/saga-blue/theme.css';
 
-const SkeletonMeditations = () => {
+const SkeletonProducts = () => {
   return (
     <div className={styles.wrapper}>
       <Skeleton className={styles.item} />
@@ -13,4 +13,4 @@ const SkeletonMeditations = () => {
   );
 };
 
-export default SkeletonMeditations;
+export default SkeletonProducts;
