@@ -12,6 +12,7 @@ import ShowPasswordIcon from '../Login/ShowPasswordIcon';
 
 import styles from './RegistrationForm.module.scss';
 import 'react-phone-input-2/lib/bootstrap.css';
+import { base_url } from '@helper/consts';
 
 const RegistrationForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -27,7 +28,7 @@ const RegistrationForm = () => {
 
   const onFormSubmit = async data => {
     try {
-      const response = await fetch('http://localhost:4499/auth/register', {
+      const response = await fetch(`${base_url}/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

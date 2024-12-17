@@ -1,5 +1,6 @@
 import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
+import { base_url } from '@helper/consts';
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   session: {
@@ -14,7 +15,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
       async authorize(credentials) {
         try {
-          const res = await fetch('http://localhost:4499/auth/login', {
+          const res = await fetch(`${base_url}/auth/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -61,7 +62,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       }
 
       if (Date.now() > token.expiresAt) {
-        const refreshResponse = await fetch('http://localhost:4499/auth/refresh-token', {
+        const refreshResponse = await fetch(`${base_url}/auth/refresh-token`, {
           method: 'POST',
           headers: {
             Authorization: `Bearer ${token.refreshToken}`,

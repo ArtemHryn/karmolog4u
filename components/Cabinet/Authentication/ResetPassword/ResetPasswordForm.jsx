@@ -3,11 +3,9 @@
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { useTranslations } from 'next-intl';
-
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
+import FormHeader from '../FormHeader/FormHeader';
 
 import styles from './ResetPassword.module.scss';
-import FormHeader from '../FormHeader/FormHeader';
 
 const ResetPasswordForm = () => {
   const t = useTranslations('Author_products.buy_gift_modal');
