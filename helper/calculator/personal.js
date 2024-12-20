@@ -171,7 +171,7 @@ export const getPersonalGraph = ({
     data.JulAug = checkNum(data.year, data.bottomRight1);
     data.AugSep = checkNum(data.bottomRight1, data.bottom1);
     data.OctNov = checkNum(data.bottom1, data.bottomLeft1);
-    data.NovDec = checkNum(data.bottomLeft1, data.month);
+    data.NovDec = checkNum(data.bottomLeft1, data.day);
   }
   if (sixteenLaws) {
     const laws = {};

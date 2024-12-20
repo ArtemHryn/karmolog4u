@@ -1,5 +1,5 @@
-export const base_url = 'http://localhost:4499';
-// export const base_url = 'https://karmolog4u-backend-dev-production.up.railway.app';
+// export const base_url = 'http://localhost:4499';
+export const base_url = 'https://karmolog4u-backend-dev-production.up.railway.app';
 
 //admin page meditation filter
 export const ADMIN_ENERGIES = 'admin_arcanes';
