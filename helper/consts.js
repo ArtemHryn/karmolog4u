@@ -1,5 +1,8 @@
-// export const base_url = 'http://localhost:4499';
-export const base_url = 'https://karmolog4u-backend-dev-production.up.railway.app';
+export const base_url = 'http://localhost:4499';
+// export const base_url = 'https://karmolog4u-backend-dev-production.up.railway.app';
+
+export const youtubeRegex =
+  /(?:https?:\/\/(?:www\.)?youtube\.com\/(?:[^\/\n\s]+\/\S+|(?:watch\?v=|v%3D)([\w-]+)))/;
 
 //admin page meditation filter
 export const ADMIN_ENERGIES = 'admin_arcanes';
@@ -30,6 +33,6 @@ export const ADMIN_OTHER_GUIDES = 'admin_other_guides';
 export const ADMIN_BOOKS = 'admin_books';
 
 //guide and books category
-export const GUIDES = 'GUIDES'
-export const OTHER_GUIDES = 'OTHER_GUIDES'
-export const BOOKS = 'BOOKS'
+export const GUIDES = 'GUIDES';
+export const OTHER_GUIDES = 'OTHER_GUIDES';
+export const BOOKS = 'BOOKS';

@@ -20,7 +20,7 @@ const fetchMeditations = async token => {
   });
 
   if (!response.ok) {
-    throw new Error('Failed to fetch meditations');
+    throw new Error('Помилка завантаження медитацій');
   }
   return response.json();
 };

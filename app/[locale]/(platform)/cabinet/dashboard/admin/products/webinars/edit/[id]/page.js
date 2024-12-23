@@ -3,14 +3,16 @@ import AddWebinar from '@components/Cabinet/DashBoard/Admin/Main/Products/Webina
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@app/api/auth/[...nextauth]/route';
 import styles from './edit_meditation_page.module.scss';
+import { base_url } from '@helper/consts';
 
 const editWebinar = async (id, token) => {
-  const res = await fetch(`http://localhost:4499/admin/products/webinar/get/${id}`, {
+  const res = await fetch(`${base_url}/admin/products/webinars/get/${id}`, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
   });
+
   if (!res.ok) {
     throw new Error('Failed to fetch meditations');
   }
@@ -19,12 +21,12 @@ const editWebinar = async (id, token) => {
 
 const EditPage = async ({ params }) => {
   const { accessToken } = await getServerSession(authOptions);
-  // const [webinar] = await editWebinar(params.id, accessToken);
+  const webinar = await editWebinar(params.id, accessToken);
 
   return (
     <div className={styles.wrapper}>
       <FormHead title={'Редагувати публікацію'} />
-      <AddWebinar edit={{}} />
+      <AddWebinar edit={webinar} />
     </div>
   );
 };
