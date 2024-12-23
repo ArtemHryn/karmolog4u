@@ -3,15 +3,16 @@
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { FormProvider, useForm } from 'react-hook-form';
-import RequiredLabels from '../../Meditations/AddMeditation/RequiredLabels/RequiredLabels';
+import { useMutation } from '@tanstack/react-query';
+import { ToastContainer, toast } from 'react-toastify';
 import SubmitButtons from '../../Meditations/AddMeditation/SubmitButtons/SubmitButtons';
-import { ToastContainer } from 'react-toastify';
-import { ETHERS, WEBINARS } from '@helper/consts';
 import WebinarPart from './WebinarPart/WebinarPart';
+import EthersPart from './EthersPart/EthersPart';
+import RequiredLabels from '../../Meditations/AddMeditation/RequiredLabels/RequiredLabels';
+import { ETHERS, WEBINARS, youtubeRegex } from '@helper/consts';
 
 import styles from './AddWebinar.module.scss';
-import EthersPart from './EthersPart/EthersPart';
-
+import 'react-toastify/dist/ReactToastify.css';
 
 async function webinarAction({ data, token, action, id }) {
   const url =
@@ -21,10 +22,9 @@ async function webinarAction({ data, token, action, id }) {
   const res = await fetch(url, {
     method: action === 'add' ? 'POST' : 'PUT',
     headers: {
-      'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify(data),
+    body: data,
   });
 
   if (!res.ok) {
@@ -64,8 +64,6 @@ const AddWebinar = ({ edit }) => {
   const { data: token } = useSession();
   const {
     handleSubmit,
-    register,
-    control,
     getValues,
     setValue,
     watch,
@@ -73,8 +71,22 @@ const AddWebinar = ({ edit }) => {
     setError,
   } = methods;
 
-  const youtubeRegex =
-    /(?:https?:\/\/(?:www\.)?youtube\.com\/(?:[^\/\n\s]+\/\S+|(?:watch\?v=|v%3D)([\w-]+)))/;
+  const mutation = useMutation({
+    mutationFn: ({ info }) =>
+      webinarAction({
+        data: info,
+        token: token.accessToken,
+        action: edit ? 'edit' : 'add',
+        id: edit ? edit._id : '',
+      }),
+    onSuccess: () => {
+      toast.success('Успішно', { autoClose: 2500 });
+      setTimeout(() => router.push('/cabinet/dashboard/admin/products/webinars'), 3000);
+    },
+    onError: err => {
+      toast.error(`Помилка: ${err.message}`);
+    },
+  });
 
   const setStatusAndSubmit = status => {
     setValue('status', status);
@@ -82,9 +94,17 @@ const AddWebinar = ({ edit }) => {
   };
 
   const onSubmit = data => {
-    console.log(data);
-
-    const { name_uk, name_ru, status, category } = data;
+    const {
+      name_uk,
+      name_ru,
+      status,
+      category,
+      cover,
+      description_uk,
+      description_ru,
+      video,
+      showDetails,
+    } = data;
     if (!getValues('category')) {
       setError('category', { type: 'manual', message: 'Оберіть категорію' });
     }
@@ -95,46 +115,36 @@ const AddWebinar = ({ edit }) => {
       });
       return;
     }
-    const videoId = data.video.match(youtubeRegex)[1];
-    data.video = videoId;
-    let body;
+
+    const formData = new FormData();
+
+    const videoId = video.match(youtubeRegex)[1];
     const requiredParams = {
       name: { uk: name_uk, ru: name_ru },
       category,
       status,
-      video: data.video,
+      video: videoId,
     };
+    //додаємо ключи які точно є
+    Object.entries(requiredParams).forEach(([key, value]) => {
+      formData.append(key, JSON.stringify(value));
+    });
 
     if (data.category === WEBINARS) {
-      const { isWaiting } = data;
-      body = {
-        ...requiredParams,
-        isWaiting,
-      };
-    }
-    if (data.category === ETHERS) {
-      const {
-        description_uk = '',
-        description_ru = '',
-        price,
-        cover = 'image',
-        discount = null,
-      } = data;
-      body = {
-        ...requiredParams,
-        isWaiting: false,
-        description: { uk: description_uk, ru: description_ru },
-        cover: 'image',
-        price,
-        ...(discount !== null && {
-          discount: { discount, start: data.start_date, expiredAt: data.end_date },
-        }),
-      };
+      formData.append('cover', cover);
+      formData.append('description', JSON.stringify({ uk: description_uk, ru: description_ru }));
+      if (showDetails) {
+        formData.append('detailsTitle', JSON.stringify({ uk: data.title_uk, ru: data.title_ru }));
+        formData.append(
+          'detailsDescription',
+          JSON.stringify({ uk: data.details_description_uk, ru: data.details_description_ru })
+        );
+      }
     }
 
-    console.log(data);
+    // console.log(data);
 
-    // mutation.mutate({ info: body });
+    mutation.mutate({ info: formData });
   };
   return (
     <FormProvider {...methods}>

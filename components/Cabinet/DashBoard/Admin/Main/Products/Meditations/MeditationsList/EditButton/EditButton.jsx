@@ -4,12 +4,10 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { OverlayPanel } from 'primereact/overlaypanel';
 import EditButtonIcon from './EditButtonIcon';
 import EditMenu from './EditMenu';
-import ConfirmDialog from '../../../ConfirmDialogSet/ConfirmDialog/ConfirmDialog';
 import { HIDDEN, PUBLISHED } from '@helper/consts';
-
-import styles from './EditButton.module.scss';
-import 'primereact/resources/primereact.min.css';
 import ConfirmDialogSet from '../../../ConfirmDialogSet/ConfirmDialogSet';
+
+import 'primereact/resources/primereact.min.css';
 
 const deleteMeditation = async (id, token) => {
   const res = await fetch(`http://localhost:4499/admin/products/meditations/delete/${id}`, {

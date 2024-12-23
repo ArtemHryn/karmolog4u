@@ -11,7 +11,7 @@ import OpenedPart from './OpenedPart/OpenedPart';
 import RequiredLabels from './RequiredLabels/RequiredLabels';
 import SubmitButtons from './SubmitButtons/SubmitButtons';
 
-import { ARCANES, base_url, CLOSED_MEDITATIONS, OPENED_MEDITATIONS } from '@helper/consts';
+import { ARCANES, base_url, CLOSED_MEDITATIONS, OPENED_MEDITATIONS, youtubeRegex } from '@helper/consts';
 
 import styles from './AddMeditationForm.module.scss';
 import 'react-toastify/dist/ReactToastify.css';
@@ -104,8 +104,7 @@ const MeditationForm = ({ edit }) => {
     },
   });
 
-  const youtubeRegex =
-    /(?:https?:\/\/(?:www\.)?youtube\.com\/(?:[^\/\n\s]+\/\S+|(?:watch\?v=|v%3D)([\w-]+)))/;
+
 
   const setStatusAndSubmit = status => {
     setValue('status', status);
@@ -140,7 +139,7 @@ const MeditationForm = ({ edit }) => {
     );
     //перевірка чи існує cover і якщо да то перевіряємо чи файл
     if (cover) {
-      formData.append('cover', cover instanceof File ? cover : cover);
+      formData.append('cover', cover);
     }
     //додаємо опис якщо існує
     if (description_ru && description_uk) {
@@ -160,7 +159,7 @@ const MeditationForm = ({ edit }) => {
         );
       }
     }
-    mutation.mutate({ info: formData, token: token.accessToken });
+    mutation.mutate({ info: formData });
   };
 
   return (
