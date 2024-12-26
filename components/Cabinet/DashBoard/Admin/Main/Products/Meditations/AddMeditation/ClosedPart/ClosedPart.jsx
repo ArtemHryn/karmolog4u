@@ -1,13 +1,11 @@
-import { useState } from 'react';
-
-import styles from './ClosedPart.module.scss';
+import { useFormContext } from 'react-hook-form';
 import Price from './Price/Price';
 import Description from './Description';
-import { useFormContext } from 'react-hook-form';
 import ImageInput from './ImageInput';
 
+import styles from './ClosedPart.module.scss';
+
 const ClosedPart = () => {
-  const [showDiscount, setShowDiscount] = useState(false);
   const {
     register,
     formState: { errors },
@@ -24,7 +22,7 @@ const ClosedPart = () => {
         />
         {errors?.video && <p className={styles.error}>{errors.video.message}</p>}
       </label>
-      <Price showDiscount={showDiscount} setShowDiscount={setShowDiscount} />
+      <Price/>
       <Description />
     </>
   );
