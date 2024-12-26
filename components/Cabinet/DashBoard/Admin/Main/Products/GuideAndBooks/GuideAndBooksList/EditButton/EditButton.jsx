@@ -1,13 +1,16 @@
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useSession } from 'next-auth/react';
 import { useRef, useState } from 'react';
 import { OverlayPanel } from 'primereact/overlaypanel';
 import EditButtonIcon from '../../../Meditations/MeditationsList/EditButton/EditButtonIcon';
 import ConfirmDialogSet from '../../../ConfirmDialogSet/ConfirmDialogSet';
 import EditMenu from '../../../Meditations/MeditationsList/EditButton/EditMenu';
-import { HIDDEN, PUBLISHED } from '@helper/consts';
+import { base_url, HIDDEN, PUBLISHED } from '@helper/consts';
+
+import 'primereact/resources/primereact.min.css';
 
 const deleteGuideAndBooks = async (id, token) => {
-  const res = await fetch(`http://localhost:4499/admin/products/guide-and-books/delete/${id}`, {
+  const res = await fetch(`${base_url}/admin/products/guides-and-books/delete/${id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -24,7 +27,7 @@ const deleteGuideAndBooks = async (id, token) => {
 };
 
 const hideGuideAndBooks = async (id, token, status) => {
-  const res = await fetch(`http://localhost:4499/admin/products/guide-and-books/status/${id}`, {
+  const res = await fetch(`${base_url}/admin/products/guides-and-books/status/${id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -40,9 +43,12 @@ const hideGuideAndBooks = async (id, token, status) => {
 
   return res.json();
 };
+
 const EditButton = ({ id, name, status }) => {
   const [visibleDialogToHide, setVisibleDialogToHide] = useState(false);
   const [visibleDialogToDelete, setVisibleDialogToDelete] = useState(false);
+  const { data: token } = useSession();
+  const queryClient = useQueryClient();
 
   const op = useRef(null);
 
@@ -53,19 +59,22 @@ const EditButton = ({ id, name, status }) => {
         await hideGuideAndBooks(id, token.accessToken, status === HIDDEN ? PUBLISHED : HIDDEN);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['meditations'] });
+      queryClient.invalidateQueries({ queryKey: ['guides-and-books'] });
       queryClient.invalidateQueries({ queryKey: ['products-count'] });
+    },
+    onError: er => {
+      console.log(er);
     },
   });
 
   const onHide = () => {
-    // mutation.mutate({ action: 'hide' });
+    mutation.mutate({ action: 'hide' });
     setVisibleDialogToHide(false);
     document.body.style.overflow = 'auto';
   };
 
   const onDelete = () => {
-    // mutation.mutate({ action: 'delete' });
+    mutation.mutate({ action: 'delete' });
     setVisibleDialogToDelete(false);
     document.body.style.overflow = 'auto';
   };

@@ -4,13 +4,13 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { OverlayPanel } from 'primereact/overlaypanel';
 import EditButtonIcon from './EditButtonIcon';
 import EditMenu from './EditMenu';
-import { HIDDEN, PUBLISHED } from '@helper/consts';
+import { base_url, HIDDEN, PUBLISHED } from '@helper/consts';
 import ConfirmDialogSet from '../../../ConfirmDialogSet/ConfirmDialogSet';
 
 import 'primereact/resources/primereact.min.css';
 
 const deleteMeditation = async (id, token) => {
-  const res = await fetch(`http://localhost:4499/admin/products/meditations/delete/${id}`, {
+  const res = await fetch(`${base_url}/admin/products/meditations/delete/${id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ const deleteMeditation = async (id, token) => {
 };
 
 const hideMeditation = async (id, token, status) => {
-  const res = await fetch(`http://localhost:4499/admin/products/meditations/status/${id}`, {
+  const res = await fetch(`${base_url}/admin/products/meditations/status/${id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
