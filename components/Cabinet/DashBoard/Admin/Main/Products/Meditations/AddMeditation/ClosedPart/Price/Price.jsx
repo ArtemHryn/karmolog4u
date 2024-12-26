@@ -1,11 +1,13 @@
+import { useEffect, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import styles from '../ClosedPart.module.scss';
 import DiscountCalendar from './DiscountCalendar';
 import { open_Sans } from '@app/[locale]/layout';
 import DeleteDiscountButton from './DeleteDiscountButton';
-import { useEffect } from 'react';
 
-const Price = ({ showDiscount, setShowDiscount }) => {
+const Price = () => {
+  const [showDiscount, setShowDiscount] = useState(false);
+
   const {
     register,
     watch,
@@ -18,7 +20,7 @@ const Price = ({ showDiscount, setShowDiscount }) => {
 
   useEffect(() => {
     if (!!watch('discount')) setShowDiscount(true);
-  });
+  }, [watch]);
 
   return (
     <>

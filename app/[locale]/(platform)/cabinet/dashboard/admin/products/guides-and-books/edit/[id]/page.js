@@ -4,28 +4,29 @@ import AddGuideAndBooks from '@components/Cabinet/DashBoard/Admin/Main/Products/
 import { authOptions } from '@app/api/auth/[...nextauth]/route';
 
 import styles from './edit_meditation_page.module.scss';
+import { base_url } from '@helper/consts';
 
 const editGuideAndBook = async (id, token) => {
-  const res = await fetch(`http://localhost:4499/admin/products/guide-and-book/get/${id}`, {
+  const res = await fetch(`${base_url}/admin/products/guides-and-books/get/${id}`, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
   });
   if (!res.ok) {
-    throw new Error('Failed to fetch meditations');
+    throw new Error('Failed to fetch guide or book');
   }
   return res.json();
 };
 
 const EditPage = async ({ params }) => {
   const { accessToken } = await getServerSession(authOptions);
-  // const [guide_and_book] = await editWebinar(params.id, accessToken);
+  const guide_and_book = await editGuideAndBook(params.id, accessToken);
 
   return (
     <div className={styles.wrapper}>
       <FormHead title={'Редагувати публікацію'} />
-      <AddGuideAndBooks edit={{}} />
+      <AddGuideAndBooks edit={guide_and_book} />
     </div>
   );
 };

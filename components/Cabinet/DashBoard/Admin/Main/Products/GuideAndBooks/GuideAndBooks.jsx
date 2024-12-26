@@ -1,14 +1,30 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useSession } from 'next-auth/react';
+import { useQuery } from '@tanstack/react-query';
 
-import { ADMIN_BOOKS, ADMIN_GUIDES, ADMIN_OTHER_GUIDES } from '@helper/consts';
-
-import styles from './GuideAndBooks.module.scss';
-import Filter from './Filter/Filter';
 import Status from '../Meditations/Status/Status';
-import { guide_and_books } from '@helper/db/guide_and_books';
+import Filter from './Filter/Filter';
 import GuideAndBooksList from './GuideAndBooksList/GuideAndBooksList';
+import SkeletonProducts from '../SkeletonProducts/SkeletonProducts';
+
+import { ADMIN_BOOKS, ADMIN_GUIDES, ADMIN_OTHER_GUIDES, base_url } from '@helper/consts';
+import styles from './GuideAndBooks.module.scss';
+
+const fetchGuidesAndBooks = async token => {
+  const response = await fetch(`${base_url}/admin/products/guides-and-books/get-all`, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error('Помилка завантаження вебінарів');
+  }
+  return response.json();
+};
 
 const GuideAndBooks = () => {
   const [showGuides, setShowGuides] = useState(false);
@@ -16,6 +32,16 @@ const GuideAndBooks = () => {
   const [showBooks, setShowBooks] = useState(false);
   const [isCheckedLS, setIsCheckedLS] = useState(false);
   const [status, setStatus] = useState('all');
+  const { data: token } = useSession();
+
+  const {
+    data: guides_and_books,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ['guides-and-books'],
+    queryFn: () => fetchGuidesAndBooks(token.accessToken),
+  });
 
   useEffect(() => {
     if (!isCheckedLS) {
@@ -28,6 +54,8 @@ const GuideAndBooks = () => {
     }
   }, [isCheckedLS]);
 
+  if (isError) return <div>Error...</div>;
+
   return (
     <div className={styles.wrapper}>
       <Filter
@@ -38,15 +66,19 @@ const GuideAndBooks = () => {
         showBooks={showBooks}
         setShowBooks={setShowBooks}
       />
-      <Status activeStatus={status} setActiveStatus={setStatus} products={guide_and_books} />
-      <GuideAndBooksList
-        showGuides={showGuides}
-        showOthersGuide={showOthersGuide}
-        showBooks={showBooks}
-        isCheckedLS={isCheckedLS}
-        status={status}
-        guideAndBooks={guide_and_books}
-      />
+      <Status activeStatus={status} setActiveStatus={setStatus} products={guides_and_books} />
+      {isLoading ? (
+        <SkeletonProducts />
+      ) : (
+        <GuideAndBooksList
+          showGuides={showGuides}
+          showOthersGuide={showOthersGuide}
+          showBooks={showBooks}
+          isCheckedLS={isCheckedLS}
+          status={status}
+          guideAndBooks={guides_and_books}
+        />
+      )}
     </div>
   );
 };

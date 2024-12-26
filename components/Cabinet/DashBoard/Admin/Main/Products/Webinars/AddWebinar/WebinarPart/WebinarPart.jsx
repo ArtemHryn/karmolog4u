@@ -1,14 +1,12 @@
-import { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import Description from '../../../Meditations/AddMeditation/ClosedPart/Description';
 import ImageInput from '../../../Meditations/AddMeditation/ClosedPart/ImageInput';
 import Price from '../../../Meditations/AddMeditation/ClosedPart/Price/Price';
-
-import styles from './WebinarPart.module.scss';
 import WebinarDetails from './WebinarDetails';
 
+import styles from './WebinarPart.module.scss';
+
 const WebinarPart = () => {
-  const [showDiscount, setShowDiscount] = useState(false);
   const {
     register,
     formState: { errors },
@@ -25,7 +23,7 @@ const WebinarPart = () => {
         />
         {errors?.video && <p className={styles.error}>{errors.video.message}</p>}
       </label>
-      <Price showDiscount={showDiscount} setShowDiscount={setShowDiscount} />
+      <Price/>
       <Description />
       <WebinarDetails />
     </>

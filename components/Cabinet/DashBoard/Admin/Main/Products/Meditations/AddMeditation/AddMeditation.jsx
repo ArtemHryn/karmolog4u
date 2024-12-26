@@ -78,8 +78,6 @@ const MeditationForm = ({ edit }) => {
   const { data: token } = useSession();
   const {
     handleSubmit,
-    register,
-    control,
     getValues,
     setValue,
     watch,

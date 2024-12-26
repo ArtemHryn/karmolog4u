@@ -10,22 +10,24 @@ import RequiredLabels from '../../Meditations/AddMeditation/RequiredLabels/Requi
 import OtherGuidesPart from './OtherGuidesPart/OtherGuidesPart';
 import BooksPart from './BooksPart/BooksPart';
 import GuidesPart from './GuidesPart/GuidesPart';
-import { base_url, BOOKS, GUIDES, OTHER_GUIDES } from '@helper/consts';
+import { base_url, BOOKS, GUIDES, OTHER_GUIDES, youtubeRegex } from '@helper/consts';
 
 import styles from './AddGuideAndBooks.module.scss';
+import 'react-toastify/dist/ReactToastify.css';
 
 async function guideAndBooksAction({ data, token, action, id }) {
+  console.log(token);
+
   const url =
     action === 'add'
-      ? `${base_url}/admin/products/webinars/create`
-      : `${base_url}/admin/products/webinars/edit/${id}`;
+      ? `${base_url}/admin/products/guides-and-books/create`
+      : `${base_url}/admin/products/guides-and-books/edit/${id}`;
   const res = await fetch(url, {
     method: action === 'add' ? 'POST' : 'PUT',
     headers: {
-      'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify(data),
+    body: data,
   });
 
   if (!res.ok) {
@@ -38,19 +40,28 @@ async function guideAndBooksAction({ data, token, action, id }) {
 
 const setDefaultValues = item => {
   if (!item) return {};
-  const { name, category, video, isWaiting, description, price = '', discount = null } = item;
+  const {
+    name,
+    category,
+    video,
+    isWaiting,
+    description,
+    price = '',
+    discount = null,
+    cover = null,
+  } = item;
   return {
     name_uk: name.uk,
     name_ru: name.ru,
     category: category,
     video: `https://youtube.com/watch?v=${video}`,
-    isWaiting: isWaiting,
     description_uk: description.uk,
     description_ru: description.ru,
     price: price,
     discount: discount?.discount,
     start_date: discount ? new Date(discount.start) : undefined,
     end_date: discount ? new Date(discount.expiredAt) : undefined,
+    ...(cover ? { cover } : {}),
   };
 };
 
@@ -66,17 +77,12 @@ const AddGuideAndBooks = ({ edit }) => {
   const { data: token } = useSession();
   const {
     handleSubmit,
-    register,
-    control,
     getValues,
     setValue,
     watch,
     formState: { errors },
     setError,
   } = methods;
-
-  const youtubeRegex =
-    /(?:https?:\/\/(?:www\.)?youtube\.com\/(?:[^\/\n\s]+\/\S+|(?:watch\?v=|v%3D)([\w-]+)))/;
 
   const mutation = useMutation({
     mutationFn: ({ info }) =>
@@ -87,8 +93,8 @@ const AddGuideAndBooks = ({ edit }) => {
         id: edit ? edit._id : '',
       }),
     onSuccess: () => {
-      toast.success('Медитацію успішно додано!', { autoClose: 2000 });
-      setTimeout(() => router.push('/cabinet/dashboard/admin/products/guide-and-books'), 2500);
+      toast.success('Запис успішно додано!', { autoClose: 2000 });
+      setTimeout(() => router.push('/cabinet/dashboard/admin/products/guides-and-books'), 2500);
     },
     onError: err => {
       toast.error(`Помилка: ${err.message}`);
@@ -101,77 +107,68 @@ const AddGuideAndBooks = ({ edit }) => {
   };
 
   const onSubmit = data => {
-    console.log(data);
-
-    const { name_uk, name_ru, status, category } = data;
+    const {
+      name_uk,
+      name_ru,
+      status,
+      category,
+      cover,
+      description_uk,
+      description_ru,
+      video,
+      discount,
+      price,
+    } = data;
     if (!getValues('category')) {
       setError('category', { type: 'manual', message: 'Оберіть категорію' });
     }
-    if (!data.video || !youtubeRegex.test(data.video)) {
-      setError('video', {
-        type: 'manual',
-        message: 'Введіть посилання з YouTube',
-      });
-      return;
+
+    if (category === OTHER_GUIDES) {
+      if (!video || !youtubeRegex.test(video)) {
+        setError('video', {
+          type: 'manual',
+          message: 'Введіть посилання з YouTube',
+        });
+        return;
+      }
     }
-    const videoId = data.video.match(youtubeRegex)[1];
-    data.video = videoId;
-    let body;
+
+    const formData = new FormData();
+
     const requiredParams = {
       name: { uk: name_uk, ru: name_ru },
       category,
       status,
-      video: data.video,
     };
 
-    if (data.category === GUIDES) {
-      const { isWaiting } = data;
-      body = {
-        ...requiredParams,
-        isWaiting,
-      };
+    Object.entries(requiredParams).forEach(([key, value]) =>
+      formData.append(key, JSON.stringify(value))
+    );
+    //перевірка чи існує cover і якщо да то перевіряємо чи файл
+    if (cover) {
+      formData.append('cover', cover);
     }
-    if (data.category === OTHER_GUIDES) {
-      const {
-        description_uk = '',
-        description_ru = '',
-        price,
-        cover = 'image',
-        discount = null,
-      } = data;
-      body = {
-        ...requiredParams,
-        isWaiting: false,
-        description: { uk: description_uk, ru: description_ru },
-        cover: 'image',
-        price,
-        ...(discount !== null && {
-          discount: { discount, start: data.start_date, expiredAt: data.end_date },
-        }),
-      };
-    }
-    if (data.category === BOOKS) {
-      const {
-        description_uk = '',
-        description_ru = '',
-        price,
-        cover = 'image',
-        discount = null,
-      } = data;
-      body = {
-        ...requiredParams,
-        isWaiting: false,
-        description: { uk: description_uk, ru: description_ru },
-        cover: 'image',
-        price,
-        ...(discount !== null && {
-          discount: { discount, start: data.start_date, expiredAt: data.end_date },
-        }),
-      };
-    }
-    console.log(data);
 
-    // mutation.mutate({ info: body });
+    if (category === OTHER_GUIDES) {
+      const videoId = video.match(youtubeRegex)[1];
+      formData.append('video', videoId);
+    }
+
+    formData.append('price', price);
+    if (discount) {
+      formData.append(
+        'discount',
+        JSON.stringify({ discount, start: data.start_date, expiredAt: data.end_date })
+      );
+    }
+
+    if (category === OTHER_GUIDES || category === BOOKS) {
+      if (description_ru && description_uk) {
+        formData.append('description', JSON.stringify({ uk: description_uk, ru: description_ru }));
+      }
+    }
+
+    mutation.mutate({ info: formData });
   };
 
   return (
