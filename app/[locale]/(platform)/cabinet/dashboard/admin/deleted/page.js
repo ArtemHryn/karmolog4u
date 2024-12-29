@@ -1,6 +1,7 @@
+import Deleted from '@components/Cabinet/DashBoard/Admin/Main/Deleted/Deleted';
 
 const DeletedPage = () => {
-  return <div>DeletedPage</div>;
-}
+  return <Deleted />;
+};
 
-export default DeletedPage
+export default DeletedPage;

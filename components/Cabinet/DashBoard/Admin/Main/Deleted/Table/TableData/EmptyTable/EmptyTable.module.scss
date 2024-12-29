@@ -1,0 +1,15 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $p_main_bg;
+  padding: 20px;
+  width: 100%;
+}
+
+.text {
+  @include fontRegular(16px, 400, 19.6px, $third_text_color, center);
+}

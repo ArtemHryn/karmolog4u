@@ -1,0 +1,21 @@
+@import '/styles/main.scss';
+
+.overlay {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+
+  width: 100vw;
+  height: 100vh;
+  transition: all 250ms linear;
+}
+
+.hide_overlay {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}

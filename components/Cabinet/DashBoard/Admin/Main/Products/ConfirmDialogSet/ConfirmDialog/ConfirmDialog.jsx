@@ -45,9 +45,7 @@ const ConfirmDialog = ({
           type="button"
           onClick={accept}
           className={`${styles.button} ${open_Sans} ${
-            acceptContext === 'Приховати' || acceptContext === 'Опубілковати'
-              ? styles.hide_button
-              : styles.delete_button
+            acceptContext !== 'Видалити' ? styles.hide_button : styles.delete_button
           }`}
         >
           {acceptContext}
