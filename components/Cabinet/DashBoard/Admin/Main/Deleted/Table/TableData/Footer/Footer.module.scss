@@ -1,0 +1,42 @@
+@import '/styles/main.scss';
+
+.items_info_wrapper {
+  display: none;
+  @media all and (width >= $min_tablet) {
+    display: block;
+  }
+}
+
+//pagination
+
+.container {
+  display: flex;
+  gap: 4px;
+}
+
+.page_number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $p_border;
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  @include fontRegular(12px, 500, 12px, $third_text_color);
+
+  &_active {
+    color: $main_text_color;
+    background: #2961e0;
+  }
+}
+
+.next {
+  width: 20px;
+  height: 20px;
+  rotate: 180deg;
+}
+
+.prev {
+  width: 20px;
+  height: 20px;
+}

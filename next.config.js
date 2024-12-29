@@ -7,6 +7,7 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
+  reactStrictMode: true,
   images: {
     remotePatterns: [
       {
@@ -20,7 +21,6 @@ const nextConfig = {
         hostname: 'karmolog4u-backend-dev-production.up.railway.app',
         pathname: '/covers/**', // Якщо у вас є певний шаблон для шляхів
       },
-
     ],
   },
 };
