@@ -70,7 +70,7 @@ const TableData = ({ search }) => {
     return <div>Error...</div>;
   }
 
-  const proceedData = deletedProducts?.[0]?.data.map(item => {
+  const proceedData = deletedProducts?.[0]?.data?.map(item => {
     const { category, expiredAt } = item;
     const categoryTableName = categoryNames[category] || 'Невідома категорія';
     return {
@@ -92,7 +92,10 @@ const TableData = ({ search }) => {
         />
       )}
       {deletedProducts[0].data.length === 0 ? (
-        <EmptyTable search={search} />
+        <EmptyTable
+          search={search}
+          noRecords={'У вас немає видалених продуктів'}
+        />
       ) : (
         <DataTable
           value={proceedData}

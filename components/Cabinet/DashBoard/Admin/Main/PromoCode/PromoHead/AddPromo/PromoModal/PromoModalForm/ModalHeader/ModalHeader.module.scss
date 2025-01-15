@@ -1,0 +1,24 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  @include fontRegular(20px, 400, 28px, $third_text_color);
+}
+
+.close_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.close_icon {
+  width: 12px;
+  height: 12px;
+}

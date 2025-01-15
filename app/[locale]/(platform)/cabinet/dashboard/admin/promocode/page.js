@@ -1,6 +1,7 @@
+import PromoCode from "@/components/Cabinet/DashBoard/Admin/Main/PromoCode/PromoCode";
 
-const PromocodePage = () => {
-  return <div>PromocodePage</div>;
+const PromoCodePage = () => {
+  return <PromoCode/>;
 }
 
-export default PromocodePage
+export default PromoCodePage

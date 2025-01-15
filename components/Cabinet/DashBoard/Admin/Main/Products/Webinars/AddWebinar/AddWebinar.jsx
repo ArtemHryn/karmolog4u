@@ -9,7 +9,7 @@ import SubmitButtons from '../../Meditations/AddMeditation/SubmitButtons/SubmitB
 import WebinarPart from './WebinarPart/WebinarPart';
 import EthersPart from './EthersPart/EthersPart';
 import RequiredLabels from '../../Meditations/AddMeditation/RequiredLabels/RequiredLabels';
-import { ETHERS, WEBINARS, youtubeRegex } from '@helper/consts';
+import { base_url, ETHERS, WEBINARS, youtubeRegex } from '@helper/consts';
 
 import styles from './AddWebinar.module.scss';
 import 'react-toastify/dist/ReactToastify.css';
@@ -17,8 +17,8 @@ import 'react-toastify/dist/ReactToastify.css';
 async function webinarAction({ data, token, action, id }) {
   const url =
     action === 'add'
-      ? 'http://localhost:4499/admin/products/webinars/create'
-      : `http://localhost:4499/admin/products/webinars/edit/${id}`;
+      ? `${base_url}/admin/products/webinars/create`
+      : `${base_url}/admin/products/webinars/edit/${id}`;
   const res = await fetch(url, {
     method: action === 'add' ? 'POST' : 'PUT',
     headers: {

@@ -1,0 +1,39 @@
+@import '/styles/main.scss';
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: $p_active_button;
+  border-radius: 8px;
+  transition: all 250ms ease;
+
+  @media all and (width <= $min_tablet) {
+    & > span {
+      display: none;
+    }
+  }
+  @media all and (width >= $min_tablet) {
+    @include fontRegular(16px, 400, 22.4px, $main_text_color);
+    height: 44px;
+    width: 200px;
+    gap: 16px;
+  }
+  @media (hover: hover) {
+    &:is(:hover, :focus) {
+      scale: 1.05;
+    }
+  }
+  @media (hover: none) {
+    &:is(:active, :focus) {
+      scale: 1.05;
+    }
+  }
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+}

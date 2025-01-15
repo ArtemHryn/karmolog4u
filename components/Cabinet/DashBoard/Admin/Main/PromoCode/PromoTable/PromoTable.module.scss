@@ -1,0 +1,12 @@
+@import '/styles/main.scss';
+
+.table_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-grow: 1;
+  @media all and (width >= $min_desktop) {
+    background-color: $p_main_bg;
+    padding: 16px;
+  }
+}

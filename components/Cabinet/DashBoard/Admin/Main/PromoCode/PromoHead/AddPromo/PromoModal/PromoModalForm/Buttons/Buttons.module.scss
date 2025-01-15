@@ -1,0 +1,21 @@
+@import '/styles/main.scss';
+
+.buttons_wrapper {
+  display: flex;
+  gap: 12px;
+}
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc((100% - 12px) / 2);
+  height: 44px;
+  border-radius: 8px;
+  background-color: $p_active_button;
+  @include fontRegular(16px, 500, 24px, $p_third_text_color);
+  &_cancel {
+    color: $third_text_color;
+    background-color: transparent;
+    border: 1px solid $p_border;
+  }
+}

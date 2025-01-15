@@ -1,0 +1,13 @@
+@import '/styles/main.scss';
+
+.layer {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  inset: 0;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.6);
+  overflow-y: auto;
+}

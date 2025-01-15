@@ -1,0 +1,21 @@
+@import '/styles/main.scss';
+
+.main_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  @include fontRegular(12px, 500, 12px, $third_text_color);
+}
+
+.error {
+  @include fontRegular(12px, 500, 12px, red);
+}

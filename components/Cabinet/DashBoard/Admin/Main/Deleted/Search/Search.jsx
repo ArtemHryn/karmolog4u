@@ -1,14 +1,24 @@
 import { useEffect, useState, useCallback } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import debounce from 'lodash.debounce';
 
 import styles from './Search.module.scss';
 
 const Search = ({ search, setSearch }) => {
   const [inputValue, setInputValue] = useState(search);
-
+  const searchParams = useSearchParams();
+  const router = useRouter();
   const debouncedSetSearch = useCallback(
     debounce(value => {
+      const params = new URLSearchParams(searchParams.toString());
       setSearch(value);
+      if (value) {
+        params.set('search', value);
+      } else {
+        params.set('search', '');
+      }
+
+      router.replace(`?${params.toString()}`);
     }, 300),
     []
   );

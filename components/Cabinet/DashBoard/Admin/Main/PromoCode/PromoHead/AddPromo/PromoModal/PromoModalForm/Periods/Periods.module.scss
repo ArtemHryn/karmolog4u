@@ -1,0 +1,17 @@
+@import '/styles/main.scss';
+
+.main_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.calendar_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  @include fontRegular(12px, 500, 12px, $third_text_color);
+}
