@@ -44,7 +44,6 @@ const setDefaultValues = item => {
     name,
     category,
     video,
-    isWaiting,
     description,
     price = '',
     discount = null,

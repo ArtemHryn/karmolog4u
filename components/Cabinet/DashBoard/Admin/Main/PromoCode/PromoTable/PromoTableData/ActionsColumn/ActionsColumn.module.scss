@@ -1,0 +1,30 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+}
+
+.button {
+  flex-grow: 1;
+  transition: all 250ms ease;
+  @media (hover: hover) {
+    &:is(:hover, :focus) {
+      scale: 1.1;
+    }
+  }
+  @media (hover: none) {
+    &:is(:active, :focus) {
+      scale: 1.1;
+    }
+  }
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+
