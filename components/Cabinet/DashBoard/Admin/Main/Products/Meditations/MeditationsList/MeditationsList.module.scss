@@ -15,6 +15,9 @@
       width: 2px;
     }
   }
+  @media all and (width >= $min_desktop) {
+    grid-template-columns: repeat(auto-fit, minmax(232px, 272px));
+  }
 }
 
 .item {

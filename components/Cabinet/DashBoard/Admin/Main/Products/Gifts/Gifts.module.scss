@@ -1,0 +1,12 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  @media all and (width >= $min_desktop) {
+    flex-grow: 1;
+    height: calc(100vh - (160px + 56px));
+  }
+}

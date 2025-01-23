@@ -35,29 +35,31 @@ const RequiredLabels = ({ categories }) => {
         />
         {errors?.name_ru && <p className={styles.error}>{errors.name_ru.message}</p>}
       </label>
-      <div className={styles.label}>
-        <Controller
-          name="category"
-          control={control}
-          render={({ field }) => (
-            <div className={styles.label}>
-              <p>Категорія</p>
-              <Dropdown
-                id={field.name}
-                value={getValues('category')}
-                onChange={e => {
-                  setValue('category', e.value);
-                  setError('category', null);
-                }}
-                options={categories}
-                optionLabel="name"
-                placeholder="Оберіть категорію"
-              />
-            </div>
-          )}
-        />
-        {errors?.category && <p className={styles.error}>{errors.category.message}</p>}
-      </div>
+      {categories && (
+        <div className={styles.label}>
+          <Controller
+            name="category"
+            control={control}
+            render={({ field }) => (
+              <div className={styles.label}>
+                <p>Категорія</p>
+                <Dropdown
+                  id={field.name}
+                  value={getValues('category')}
+                  onChange={e => {
+                    setValue('category', e.value);
+                    setError('category', null);
+                  }}
+                  options={categories}
+                  optionLabel="name"
+                  placeholder="Оберіть категорію"
+                />
+              </div>
+            )}
+          />
+          {errors?.category && <p className={styles.error}>{errors.category.message}</p>}
+        </div>
+      )}
     </>
   );
 };
