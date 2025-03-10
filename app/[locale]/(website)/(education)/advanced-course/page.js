@@ -60,7 +60,7 @@ const AdvancedPage = () => {
       />
       <WhatIsWaitingForYou cards={cards} column1Style={true} />
       <EduPricing
-        card={{ title: { uk: 'Поглиблений курс', ru: 'Углубленный курс' }, price: '1700€' }}
+        card={{ title: { uk: 'Поглиблений курс', ru: 'Углубленный курс' }, price: '2300€' }}
         addInfo={addInfo}
         link="/advanced-course/dialog"
         desc={{
