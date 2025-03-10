@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useMutation } from '@tanstack/react-query';
 import { useSession } from 'next-auth/react';
-import { ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import RequiredLabels from '../../Meditations/AddMeditation/RequiredLabels/RequiredLabels';
 import SubmitButtons from '../../Meditations/AddMeditation/SubmitButtons/SubmitButtons';
 import ImageInput from '../../Meditations/AddMeditation/ClosedPart/ImageInput';
@@ -49,7 +49,7 @@ const setDefaultValues = item => {
     discount: discount?.discount,
     start_date: discount ? new Date(discount.start) : undefined,
     end_date: discount ? new Date(discount.expiredAt) : undefined,
-    ...(cover ? { cover } : {}),
+    // ...(cover ? { cover } : {}),
   };
 };
 
@@ -59,22 +59,22 @@ const AddGift = ({ edit }) => {
   const { data: token } = useSession();
   const { handleSubmit, setValue, setError } = methods;
 
-  //   const mutation = useMutation({
-  //     mutationFn: ({ info }) =>
-  //       AddOrUpdateGift({
-  //         data: info,
-  //         token: token.accessToken,
-  //         action: edit ? 'edit' : 'add',
-  //         id: edit ? edit._id : '',
-  //       }),
-  //     onSuccess: () => {
-  //       toast.success('Запис успішно додано!', { autoClose: 1000 });
-  //       setTimeout(() => router.push('/cabinet/dashboard/admin/products/gifts'), 1500);
-  //     },
-  //     onError: err => {
-  //       toast.error(`Помилка: ${err.message}`);
-  //     },
-  //   });
+  const mutation = useMutation({
+    mutationFn: ({ info }) =>
+      AddOrUpdateGift({
+        data: info,
+        token: token.accessToken,
+        action: edit ? 'edit' : 'add',
+        id: edit ? edit._id : '',
+      }),
+    onSuccess: () => {
+      toast.success('Запис успішно додано!', { autoClose: 1000 });
+      setTimeout(() => router.push('/cabinet/dashboard/admin/products/gifts'), 1500);
+    },
+    onError: err => {
+      toast.error(`Помилка: ${err.message}`);
+    },
+  });
 
   const setStatusAndSubmit = status => {
     setValue('status', status);
@@ -84,40 +84,42 @@ const AddGift = ({ edit }) => {
   const onSubmit = data => {
     console.log(data);
 
-    // const { name_uk, name_ru, status, cover, description_uk, description_ru, discount, price } =
-    //   data;
+    const { name_uk, name_ru, status, cover, description_uk, description_ru, discount, price } =
+      data;
 
-    // if (!cover || cover.length === 0) {
-    //   setError('cover', {
-    //     type: 'manual',
-    //     message: 'Додайте Картинку',
-    //   });
-    // }
+    if (!cover || cover.length === 0) {
+      setError('cover', {
+        type: 'manual',
+        message: 'Додайте Картинку',
+      });
+    }
 
-    // const formData = new FormData();
+    const formData = new FormData();
 
-    // const requiredParams = {
-    //   name: { uk: name_uk, ru: name_ru },
-    //   status,
-    //   cover,
-    //   price,
-    // description: {
-    //   uk: description_uk, ru: description_ru
-    // }
-    // };
+    const requiredParams = {
+      name: { uk: name_uk, ru: name_ru },
+      status,
+      price,
+      description: {
+        uk: description_uk,
+        ru: description_ru,
+      },
+    };
 
-    // Object.entries(requiredParams).forEach(([key, value]) =>
-    //   formData.append(key, JSON.stringify(value))
-    // );
+    Object.entries(requiredParams).forEach(([key, value]) =>
+      formData.append(key, JSON.stringify(value))
+    );
 
-    // if (discount) {
-    //   formData.append(
-    //     'discount',
-    //     JSON.stringify({ discount, start: data.start_date, expiredAt: data.end_date })
-    //   );
-    // }
+    formData.append('cover', cover);
 
-    // mutation.mutate({ info: formData });
+    if (discount) {
+      formData.append(
+        'discount',
+        JSON.stringify({ discount, start: data.start_date, expiredAt: data.end_date })
+      );
+    }
+
+    mutation.mutate({ info: formData });
   };
   return (
     <FormProvider {...methods}>

@@ -18,7 +18,7 @@ const GiftsList = ({ status, gifts }) => {
 
   return (
     <ul className={styles.list}>
-      {list.map(({ id: id, status, name }) => {
+      {list.map(({ _id: id, status, name }) => {
         const statusItem = statusInfo.find(el => el.orig_name === status);
 
         return (
