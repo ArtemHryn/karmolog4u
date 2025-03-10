@@ -12,7 +12,7 @@
   }
 
   @media all and (width >= $min_desktop) {
-    border-bottom: 1px solid $p_border;
+    border-bottom: 1px solid $p_header_title_border;
     height: 80px;
     padding: 24px;
   }

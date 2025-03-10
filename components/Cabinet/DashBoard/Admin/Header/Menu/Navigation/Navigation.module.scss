@@ -3,7 +3,7 @@
 .list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
   padding: 24px;
   width: 100%;
   flex-grow: 2;
@@ -31,6 +31,15 @@
   @media (hover: none) {
     &:is(:active, :focus) {
       scale: 1.05;
+    }
+  }
+  @media all and (width >= $min_desktop) {
+    border: 1px solid #c2c2c2;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+    background: $p_nav_bg;
+    &_active {
+      background-color: $p_button_bg;
+      color: $p_third_text_color;
     }
   }
 }

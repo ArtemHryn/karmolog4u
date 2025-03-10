@@ -7,7 +7,7 @@
     flex-direction: column;
     width: 265px;
     border-right: 1px solid $p_border;
-    background-color: $p_main_bg;
+    background-color: $p_nav_bg;
   }
 }
 
@@ -16,5 +16,5 @@
   align-items: center;
   justify-content: center;
   height: 80px;
-  border-bottom: 1px solid $p_border;
+  border-bottom: 1px solid $p_header_title_border;
 }
