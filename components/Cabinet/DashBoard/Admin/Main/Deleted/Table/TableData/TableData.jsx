@@ -72,7 +72,7 @@ const TableData = ({ search }) => {
 
   const proceedData = deletedProducts?.[0]?.data?.map(item => {
     const { category, expiredAt } = item;
-    const categoryTableName = categoryNames[category] || 'Невідома категорія';
+    const categoryTableName = categoryNames[category] || '-';
     return {
       ...item,
       categoryTableName,

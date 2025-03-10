@@ -10,9 +10,12 @@
     grid-template-columns: repeat(3, minmax(232px, 1fr));
     overflow: auto;
     padding-right: 10px;
-    &::-webkit-scrollbar{
+    &::-webkit-scrollbar {
       width: 2px;
     }
+  }
+  @media all and (width >= $min_desktop) {
+    grid-template-columns: repeat(auto-fit, minmax(232px, 272px));
   }
 }
 

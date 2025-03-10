@@ -1,0 +1,13 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: $p_main_bg;
+  min-height: calc(100vh - 65px);
+  @media all and (width >= $min_desktop) {
+    min-height: 100vh;
+    width: 100%;
+    overflow: auto;
+  }
+}

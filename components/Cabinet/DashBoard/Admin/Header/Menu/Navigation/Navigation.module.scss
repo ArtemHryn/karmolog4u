@@ -8,7 +8,7 @@
   width: 100%;
   flex-grow: 2;
   @media all and (width >= $min_desktop) {
-   width: 265px;
+    width: 265px;
   }
 }
 
@@ -18,9 +18,20 @@
   gap: 12px;
   border-radius: 8px;
   @include fontRegular(16px, 400, 22.4px, $p_second_text_color);
+  transition: all 250ms ease;
   &_active {
     background-color: $p_button_bg;
     color: $p_third_text_color;
+  }
+  @media (hover: hover) {
+    &:is(:hover, :focus) {
+      scale: 1.05;
+    }
+  }
+  @media (hover: none) {
+    &:is(:active, :focus) {
+      scale: 1.05;
+    }
   }
 }
 

@@ -1,6 +1,7 @@
+import Gifts from '@components/Cabinet/DashBoard/Admin/Main/Products/Gifts/Gifts';
 
 const GiftsPage = () => {
-  return <div>GiftsPage</div>;
-}
+  return <Gifts />;
+};
 
-export default GiftsPage
+export default GiftsPage;

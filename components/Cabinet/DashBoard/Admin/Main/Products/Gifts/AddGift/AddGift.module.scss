@@ -1,0 +1,33 @@
+@import '/styles/main.scss';
+
+.form {
+  background-color: $p_main_bg;
+  flex-grow: 2;
+  @media all and (width >= $min_tablet) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #fcfbfb;
+    gap: 30px;
+  }
+}
+
+.labels_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc(100% - 24px);
+
+  margin-inline: auto;
+  margin-bottom: 24px;
+  gap: 12px;
+
+  background-color: #fff;
+  @media all and (width >= $min_tablet) {
+    margin-bottom: 0;
+    margin-top: 16px;
+    padding: 24px;
+    border-radius: 8px;
+    gap: 16px;
+  }
+}
