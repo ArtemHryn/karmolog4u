@@ -1,0 +1,98 @@
+@import '/styles/main.scss';
+
+//main
+
+.radio_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  &.period {
+    gap: 4px;
+  }
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  @include fontRegular(14px, 600, 14px, $third_text_color);
+  @media all and (width >= $min_tablet) {
+    font-size: 16px;
+  }
+  @media all and (width >= $min_desktop) {
+  }
+}
+
+.name {
+  @include fontRegular(14px, 600, 20.02px, $p_header_title_border);
+}
+//Available
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+}
+
+.available_radio_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid $p_separators;
+  border-radius: 8px;
+  padding: 12px;
+  height: 44px;
+  @media all and (width >= $min_tablet) {
+    justify-content: flex-start;
+    gap: 60px;
+  }
+  @media all and (width >= $min_desktop) {
+  }
+}
+
+//Period
+.period_data_wrapper {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $p_separators;
+  border-radius: 8px;
+  padding: 12px 6px;
+  gap: 24px;
+  @media all and (width >= $min_tablet) {
+    gap: 20px;
+  }
+  @media all and (width >= $min_desktop) {
+  }
+}
+
+.period_radio_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.calendar_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.calendar_item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.months_label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.months_input {
+  width: 40px;
+  border: 1px solid $p_separators;
+  border-radius: 8px;
+  padding: 12px;
+  height: 24px;
+}

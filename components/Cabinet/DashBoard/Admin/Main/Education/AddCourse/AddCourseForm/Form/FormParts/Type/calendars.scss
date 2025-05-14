@@ -1,0 +1,46 @@
+@import '/styles/main.scss';
+
+.p-calendar {
+  background-color: transparent;
+  border: none !important;
+}
+
+.p-inputtext {
+  background-color: transparent;
+  border: none;
+  width: 78px;
+  @include fontRegular(16px, 400, 22.4px, $p_header_title_border);
+  @media all and (width >= $min_tablet) {
+    padding-left: 0px !important;
+  }
+  @media all and (width >= $min_desktop) {
+  }
+}
+
+.p-datepicker {
+  padding: 24px;
+  border: 16px;
+  color: $third_text_color;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px -1px rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  background-color: $p_main_bg;
+}
+
+.p-datepicker-header {
+  border-bottom: none;
+  margin-bottom: 8px;
+}
+
+.p-datepicker-title {
+  display: flex;
+  gap: 12px;
+  & > .p-datepicker-month,
+  & > .p-datepicker-year {
+    @include fontRegular(14px, 600, 25.2px, $third_text_color);
+  }
+}
+
+.p-datepicker table td > span.p-highlight {
+  background-color: $p_active_button;
+  color: $p_third_text_color;
+}

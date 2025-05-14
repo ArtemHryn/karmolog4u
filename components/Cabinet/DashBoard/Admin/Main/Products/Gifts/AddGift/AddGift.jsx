@@ -82,8 +82,6 @@ const AddGift = ({ edit }) => {
   };
 
   const onSubmit = data => {
-    console.log(data);
-
     const { name_uk, name_ru, status, cover, description_uk, description_ru, discount, price } =
       data;
 

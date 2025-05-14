@@ -1,0 +1,20 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  padding: 16px;
+  @media all and (width >= $min_tablet) {
+    padding: 24px;
+  }
+  @media all and (width >= $min_desktop) {
+    padding: 0 24px;
+  }
+}
+
+.actions_wrapper {
+  display: none;
+  @media all and (width >= $min_desktop) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

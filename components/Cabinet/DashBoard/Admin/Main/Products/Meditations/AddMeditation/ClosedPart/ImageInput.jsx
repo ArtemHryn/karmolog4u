@@ -6,7 +6,7 @@ import styles from './ClosedPart.module.scss';
 const ImageInput = () => {
   const [previewImage, setPreviewImage] = useState(null);
   const fileInputRef = useRef(null);
-  const { register, watch, setValue, getValues } = useFormContext();
+  const { register, setValue, getValues } = useFormContext();
 
   useEffect(() => {
     const cover = getValues('cover');

@@ -1,0 +1,29 @@
+@import '/styles/main.scss';
+
+.info_wrapper {
+  flex-grow: 1;
+}
+
+.table {
+  border: 1px solid $p_border;
+  border-radius: 8px;
+  min-width: 700px;
+}
+
+.column {
+  height: 60px;
+  padding: 16px;
+  &:first-child {
+    width: 46px;
+    // display: flex;
+    // justify-content: center;
+  }
+}
+
+.loader_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  background-color: $p_main_bg;
+}
