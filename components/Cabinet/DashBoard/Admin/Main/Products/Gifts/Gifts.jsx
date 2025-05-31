@@ -39,8 +39,6 @@ const Gifts = () => {
 
   if (isError) return <div>Error...</div>;
 
-// console.log(gifts);
-
 
   return (
     <div className={styles.wrapper}>

@@ -50,6 +50,7 @@ const CoverWithPrice = () => {
             setShowModal={setShowModal}
             title={'Список літератури'}
             fieldName={'literature'}
+            linkFieldName={'author'}
           />
         )}
       </div>

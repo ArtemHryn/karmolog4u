@@ -18,6 +18,7 @@ export const OPENED_MEDITATIONS = 'OPENED';
 export const PUBLISHED = 'PUBLISHED';
 export const DRAFT = 'DRAFT';
 export const HIDDEN = 'HIDDEN';
+export const ARCHIVE = 'ARCHIVE';
 
 //webinars
 export const ADMIN_WEBINARS = 'admin_webinars';

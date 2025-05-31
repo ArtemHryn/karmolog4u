@@ -21,7 +21,7 @@ const Search = ({ search, setSearch }) => {
       }
 
       router.replace(`?${params.toString()}`);
-    }, 300),
+    }, 500),
     []
   );
 

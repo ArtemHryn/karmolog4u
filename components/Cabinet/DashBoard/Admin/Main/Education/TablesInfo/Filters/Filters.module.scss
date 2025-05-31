@@ -14,7 +14,9 @@
   border-bottom: 2px solid #7e7e7e;
 
   @include fontRegular(13px, 400, 20px, $p_second_text_color);
-
+  &:is(:hover, :focus) {
+    scale: 1;
+  }
   &::after {
     content: '';
     position: absolute;
@@ -34,6 +36,7 @@
       transform: scaleX(1);
     }
   }
+
   @media all and (width >= $min_tablet) {
     font-size: 16px;
     font-weight: 600;

@@ -4,7 +4,7 @@ import { open_Sans } from '@app/[locale]/layout';
 
 import styles from './AdditionalLinks.module.scss';
 
-const ModalAddLinks = ({ setShowModal, fieldName, title }) => {
+const ModalAddLinks = ({ setShowModal, fieldName, title, linkFieldName = 'name' }) => {
   const {
     register,
     formState: { errors },
@@ -30,7 +30,7 @@ const ModalAddLinks = ({ setShowModal, fieldName, title }) => {
               <p className={styles.list_number}>{index + 1}. </p>
               <div className={styles.input_wrapper}>
                 <input
-                  {...register(`${fieldName}.${index}.author`)}
+                  {...register(`${fieldName}.${index}.${linkFieldName}`)}
                   placeholder="Назва"
                   className={styles.list_input}
                 />
@@ -51,7 +51,7 @@ const ModalAddLinks = ({ setShowModal, fieldName, title }) => {
                     <button
                       className={`${styles.add_button} ${styles.add_button_modal}`}
                       type="button"
-                      onClick={() => append({ name: '', link: '' })}
+                      onClick={() => append({ [linkFieldName]: '', link: '' })}
                     >
                       <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path

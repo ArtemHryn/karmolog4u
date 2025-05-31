@@ -5,8 +5,8 @@ import AddCourseHeader from './AddCourseHeader/AddCourseHeader';
 const AddCourse = () => {
   return (
     <main className={styles.main}>
-      <AddCourseHeader />
-      <AddCourseForm />
+      <AddCourseHeader place={'Створення  курсу'} />
+      <AddCourseForm place={'Створення  курсу'} />
     </main>
   );
 };

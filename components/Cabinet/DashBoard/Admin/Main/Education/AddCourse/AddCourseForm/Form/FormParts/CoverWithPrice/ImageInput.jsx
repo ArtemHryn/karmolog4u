@@ -1,13 +1,12 @@
 import Image from 'next/image';
-import { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { useSession } from 'next-auth/react';
 import { useMutation } from '@tanstack/react-query';
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { base_url } from '@/helper/consts';
 
 import styles from './CoverWithPrice.module.scss';
-import { base_url } from '@/helper/consts';
+import 'react-toastify/dist/ReactToastify.css';
 
 const uploadImage = async ({ file, token }) => {
   const formData = new FormData();
@@ -25,42 +24,19 @@ const uploadImage = async ({ file, token }) => {
     throw new Error(errorMessage.message || 'Не вдалося надіслати картинку');
   }
 
-  const { link: protectedImageUrl } = await uploadRes.json();
-
-  const imageRes = await fetch(protectedImageUrl, {
-    method: 'GET',
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
-
-  if (!imageRes.ok) {
-    throw new Error('Не вдалося отримати зображення');
-  }
-
-  const blob = await imageRes.blob();
-  const base64ImageUrl = await new Promise(resolve => {
-    const reader = new FileReader();
-    reader.onloadend = () => resolve(reader.result);
-    reader.readAsDataURL(blob);
-  });
-
-  return {
-    url: protectedImageUrl,
-    preview: base64ImageUrl,
-  };
+  return uploadRes.json();
 };
 
 const ImageInput = () => {
-  const [previewImage, setPreviewImage] = useState(null);
-  const { register, setValue } = useFormContext();
+  const { register, setValue, watch } = useFormContext();
   const { data: token } = useSession();
+
+  const imageUrl = watch('cover');
 
   const mutation = useMutation({
     mutationFn: uploadImage,
     onSuccess: data => {
-      setPreviewImage(data.preview);
-      setValue('cover', data.url);
+      setValue('cover', data.link);
     },
     onError: err => {
       toast.error(`Помилка: ${err.message} test`);
@@ -77,19 +53,14 @@ const ImageInput = () => {
     }
   };
 
+  const isUrl = typeof imageUrl === 'string' && imageUrl.startsWith('http');
+
   return (
     <>
-      {' '}
       <label className={styles.img_label}>
-        {previewImage ? (
+        {isUrl ? (
           <div className={`${styles.image_wrapper}`}>
-            <Image
-              width={140}
-              height={140}
-              alt="cover"
-              src={previewImage}
-              className={styles.image}
-            />
+            <Image width={140} height={140} alt="cover" src={imageUrl} className={styles.image} />
           </div>
         ) : (
           <div className={`${styles.image_wrapper} ${styles.no_image}`}>

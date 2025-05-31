@@ -5,6 +5,7 @@ import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import { toast, ToastContainer } from 'react-toastify';
+
 import About from './FormParts/About';
 import SubmitButtons from './FormParts/SubmitButtons';
 import Type from './FormParts/Type/Type';
@@ -14,12 +15,16 @@ import Contract from './FormParts/Contract/Contract';
 import ChatLink from './FormParts/ChatLink';
 import PracticePaymentLink from './FormParts/PracticePaymentLink';
 import CoverWithPrice from './FormParts/CoverWithPrice/CoverWithPrice';
+
 import { base_url } from '@/helper/consts';
+import { typesList } from '@/helper/platform/coursesList';
 
 import styles from './Form.module.scss';
 import 'react-toastify/dist/ReactToastify.css';
 
 async function AddOrUpdateCourse({ data, token, action, id }) {
+  console.log(id);
+
   const url =
     action === 'add'
       ? `${base_url}/admin/education/course/create`
@@ -42,11 +47,9 @@ async function AddOrUpdateCourse({ data, token, action, id }) {
   return res.json();
 }
 
-const Form = ({ edit }) => {
-  const router = useRouter();
-  const { data: token } = useSession();
-  const methods = useForm({
-    defaultValues: {
+const setDefaultFormFields = items => {
+  if (!items)
+    return {
       optionalFiles: [],
       additional_links: [{ name: '', link: '' }],
       points: [{ name: '', description: '' }],
@@ -55,7 +58,63 @@ const Form = ({ edit }) => {
         { author: '', link: '' },
       ],
       cover: '',
-    },
+    };
+  const {
+    name,
+    status,
+    type,
+    completeness,
+    access,
+    optionalFiles,
+    chat,
+    practiceInvoice,
+    stream,
+    price,
+    optionalLink,
+    literature,
+    contract,
+    cover,
+  } = items;
+
+  return {
+    name,
+    status,
+    type: typesList.find(el => el.type === type),
+    completeness,
+    period: access.period,
+    ...(access.start_date ? { start_date: new Date(access.start_date) } : {}),
+    ...(access.end_date ? { end_date: new Date(access.end_date) } : {}),
+    optionalFiles: optionalFiles && optionalFiles.length > 0 ? optionalFiles : [],
+    chat,
+    practiceInvoice,
+    stream,
+    price,
+    additional_links:
+      optionalLink && optionalLink.length > 0 ? optionalLink : [{ name: '', link: '' }],
+    points:
+      contract.points && contract.points.length > 0
+        ? contract.points
+        : [{ name: '', description: '' }],
+    contract_date: new Date(contract.date),
+    sign_up_to: new Date(contract.signUpTo),
+    price_in_contract: contract.price,
+    contract_header: contract.header,
+    literature:
+      literature && literature.length > 0
+        ? literature
+        : [
+            { author: '', link: '' },
+            { author: '', link: '' },
+          ],
+    cover: cover ? cover : '',
+  };
+};
+
+const Form = ({ editCourse }) => {
+  const router = useRouter();
+  const { data: token } = useSession();
+  const methods = useForm({
+    defaultValues: setDefaultFormFields(editCourse),
   });
 
   const mutation = useMutation({
@@ -63,8 +122,8 @@ const Form = ({ edit }) => {
       AddOrUpdateCourse({
         data: info,
         token: token.accessToken,
-        action: edit ? 'edit' : 'add',
-        id: edit ? edit._id : '',
+        action: editCourse ? 'edit' : 'add',
+        id: editCourse ? editCourse.id : '',
       }),
     onSuccess: () => {
       toast.success('Запис успішно додано!', { autoClose: 1000 });
@@ -145,8 +204,6 @@ const Form = ({ edit }) => {
       let hasError = false;
       fields.forEach(key => {
         if (!data[key] || (Array.isArray(data[key]) && data[key].length === 0)) {
-          console.log(data[key]);
-
           setFieldError(key, "Це поле обов'язкове");
           hasError = true;
         }
@@ -165,7 +222,7 @@ const Form = ({ edit }) => {
       type,
       completeness,
       access: {
-        period,
+        type: period,
         ...(period === 'TO_DATE' && { start_date, end_date }),
         ...(period === 'FOR_PERIOD' && { months }),
       },
@@ -175,13 +232,11 @@ const Form = ({ edit }) => {
       optionalLink: data.additional_links?.filter(link => link.name && link.link) || [],
       practiceInvoice,
       stream: +stream,
-      literature: literature?.filter(link => link.author && link.link) || [],
+      literature: literature?.filter(el => el.author && el.link) || [],
       status,
       price: +price,
       cover,
     };
-
-    console.log(requiredParams);
 
     mutation.mutate({ info: requiredParams });
   };
@@ -199,7 +254,7 @@ const Form = ({ edit }) => {
           <div className={`${styles.column} ${styles.column2}`}>
             <div className={`${styles.column2_1}`}>
               <AdditionalLinks />
-              <AdditionalFiles />
+              <AdditionalFiles editFiles={editCourse?.optionalFiles} />
               <PracticePaymentLink />
             </div>
             <CoverWithPrice />

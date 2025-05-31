@@ -33,8 +33,8 @@ const uploadFile = async ({ files, token }) => {
 const MAX_FILES = 10;
 const fieldName = 'optionalFiles';
 
-const AdditionalFiles = () => {
-  const [files, setFiles] = useState([]);
+const AdditionalFiles = ({ editFiles }) => {
+  const [files, setFiles] = useState(editFiles || []);
   const { register, setValue, setError } = useFormContext();
   const { data: token } = useSession();
 

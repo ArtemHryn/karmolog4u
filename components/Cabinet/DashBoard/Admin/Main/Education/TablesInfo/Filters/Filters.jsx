@@ -1,18 +1,17 @@
 'use client';
 
-import { useState } from 'react';
-import { open_Sans } from '../../../../../../../../app/[locale]/layout';
+import { open_Sans } from '@/app/[locale]/layout';
 
 import styles from './Filters.module.scss';
+import { PUBLISHED, DRAFT, ARCHIVE } from '/helper/consts';
 
 const filtersList = [
-  { name: 'Чернетки', link: '1' },
-  { name: 'Опубликовані', link: '2' },
-  { name: 'Архів', link: '3' },
+  { name: 'Чернетки', link: DRAFT },
+  { name: 'Опубликовані', link: PUBLISHED },
+  { name: 'Архів', link: ARCHIVE },
 ];
 
-const Filters = () => {
-  const [activeBtn, setActiveBtn] = useState('1');
+const Filters = ({ activeBtn, setActiveBtn }) => {
   return (
     <ul className={styles.list}>
       {filtersList.map(({ name, link }, id) => (

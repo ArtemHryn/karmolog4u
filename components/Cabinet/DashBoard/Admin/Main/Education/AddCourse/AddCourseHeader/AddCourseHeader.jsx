@@ -3,11 +3,11 @@ import Actions from './Actions';
 
 import styles from './AddCourseHeader.module.scss';
 
-const AddCourseHeader = () => {
+const AddCourseHeader = ({ place }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.actions_wrapper}>
-        <Actions />
+        <Actions place={place} />
       </div>
       <TitleNoStyles styled={styles.title}>Навчання</TitleNoStyles>
     </div>

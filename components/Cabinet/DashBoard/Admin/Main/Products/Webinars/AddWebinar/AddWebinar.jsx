@@ -142,8 +142,6 @@ const AddWebinar = ({ edit }) => {
       }
     }
 
-    // console.log(data);
-
     mutation.mutate({ info: formData });
   };
   return (

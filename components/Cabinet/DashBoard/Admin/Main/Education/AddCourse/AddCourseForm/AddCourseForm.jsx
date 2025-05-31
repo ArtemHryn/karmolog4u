@@ -3,13 +3,13 @@ import Actions from '../AddCourseHeader/Actions';
 import styles from './AddCourseForm.module.scss';
 import Form from './Form/Form';
 
-const AddCourseForm = () => {
+const AddCourseForm = ({ place, course }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.actions_wrapper}>
-        <Actions />
+        <Actions place={place} />
       </div>
-      <Form />
+      <Form editCourse={course} />
     </div>
   );
 };

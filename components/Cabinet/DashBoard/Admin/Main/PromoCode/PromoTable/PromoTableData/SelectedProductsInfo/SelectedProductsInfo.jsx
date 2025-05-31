@@ -7,7 +7,6 @@ import { base_url } from '@helper/consts';
 import styles from './SelectedProductsInfo.module.scss';
 
 const deleteBulkPromo = async (data, token) => {
-  console.log(data);
 
   const res = await fetch(`${base_url}/admin/promo-code/delete/`, {
     method: 'DELETE',
@@ -41,7 +40,6 @@ const SelectedProductsInfo = ({ selectedProducts }) => {
   const onDelete = () => {
     const listToDelete = selectedProducts.map(({ _id }) => _id);
     mutation.mutate({ data: listToDelete });
-    console.log('deleted all');
 
     setVisibleDialogToDelete(false);
     document.body.style.overflow = 'auto';

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import styles from './AddCourseHeader.module.scss';
 import { unbounded } from '@app/[locale]/layout';
 
-const Actions = () => {
+const Actions = ({ place }) => {
   return (
     <>
       <div className={styles.links_wrapper}>
@@ -18,7 +18,7 @@ const Actions = () => {
           href="/cabinet/dashboard/admin/education/add_course"
           className={`${styles.link} ${unbounded.className}`}
         >
-          Додавання курсу
+          {place}
         </Link>
       </div>
     </>

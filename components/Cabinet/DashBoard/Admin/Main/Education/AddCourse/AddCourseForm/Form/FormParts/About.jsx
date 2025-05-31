@@ -1,23 +1,10 @@
 import { Dropdown } from 'primereact/dropdown';
 import { Controller, useFormContext } from 'react-hook-form';
-import {
-  ADVANCED,
-  CONSULTING,
-  SSK_INDEPENDENT,
-  SSK_WITH_CURATOR,
-  SSK_WITH_SERGIY,
-} from '@helper/consts';
+
+import { typesList } from '@/helper/platform/coursesList';
 
 import styles from './FormParts.module.scss';
 import './about.scss';
-
-const typesList = [
-  { type: SSK_INDEPENDENT, name: 'ССК самостійний' },
-  { type: SSK_WITH_CURATOR, name: 'ССК з куратором' },
-  { type: SSK_WITH_SERGIY, name: 'ССК із Сергієм' },
-  { type: ADVANCED, name: 'Поглиблений' },
-  { type: CONSULTING, name: 'Консультанський' },
-];
 
 const About = () => {
   const {
@@ -28,6 +15,7 @@ const About = () => {
     getValues,
     setError,
   } = useFormContext();
+
   return (
     <>
       <label className={styles.label}>

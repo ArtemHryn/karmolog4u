@@ -27,8 +27,6 @@ const deleteWebinars = async (id, token) => {
 };
 
 const hideWebinars = async (id, token, status) => {
-  console.log('hide');
-
   const res = await fetch(`${base_url}/admin/products/webinars/status/${id}`, {
     method: 'PATCH',
     headers: {

@@ -1,0 +1,59 @@
+@import '/styles/main.scss';
+
+.overlay {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+
+  width: 100vw;
+  height: 100vh;
+  transition: all 250ms linear;
+}
+
+.hide_overlay {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+  width: 238px;
+  height: 130px;
+  border-radius: 8px;
+  background-color: $card_bg;
+}
+
+.title {
+  @include fontRegular(13px, 400, 18px, $third_text_color, center);
+}
+
+.buttons_wrapper {
+  display: flex;
+  gap: 16px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 30px;
+  border-radius: 6px;
+  padding: 4px 8px;
+  @include fontRegular(16px, 600, 16px, $p_third_text_color);
+  background-color: $p_active_button;
+  &_cancel {
+    background-color: $p_nav_bg;
+    border: 1px solid $p_separators;
+    color: $p_header_title_border;
+  }
+}

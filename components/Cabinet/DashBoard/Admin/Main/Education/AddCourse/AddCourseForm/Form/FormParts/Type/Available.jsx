@@ -5,11 +5,8 @@ import styles from './Type.module.scss';
 
 const Available = () => {
   const {
-    formState: { errors },
     setValue,
     control,
-    getValues,
-    setError,
   } = useFormContext();
   return (
     <>
