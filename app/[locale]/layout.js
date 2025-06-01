@@ -1,4 +1,4 @@
-import { Open_Sans, Unbounded } from 'next/font/google';
+import { Open_Sans, Unbounded, Inter } from 'next/font/google';
 import './globals.scss';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
@@ -14,6 +14,12 @@ export const unbounded = Unbounded({
   subsets: ['cyrillic'],
   variable: '--font-unbounded',
   weight: ['700', '600', '500', '400'],
+  adjustFontFallback: false,
+});
+
+export const inter = Inter({
+  subsets: ['cyrillic', 'latin'],
+  weight: ['300', '400', '500', '600', '700'],
   adjustFontFallback: false,
 });
 

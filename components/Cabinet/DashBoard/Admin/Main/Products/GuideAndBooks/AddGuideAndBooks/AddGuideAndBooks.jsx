@@ -16,8 +16,6 @@ import styles from './AddGuideAndBooks.module.scss';
 import 'react-toastify/dist/ReactToastify.css';
 
 async function guideAndBooksAction({ data, token, action, id }) {
-  console.log(token);
-
   const url =
     action === 'add'
       ? `${base_url}/admin/products/guides-and-books/create`

@@ -1,5 +1,5 @@
-export const base_url = 'http://localhost:4499';
-// export const base_url = 'https://karmolog-dev.up.railway.app';
+// export const base_url = 'http://localhost:4499';
+export const base_url = 'https://karmolog-dev.up.railway.app';
 
 export const youtubeRegex =
   /(?:https?:\/\/(?:www\.)?youtube\.com\/(?:[^\/\n\s]+\/\S+|(?:watch\?v=|v%3D)([\w-]+)))/;
@@ -18,6 +18,7 @@ export const OPENED_MEDITATIONS = 'OPENED';
 export const PUBLISHED = 'PUBLISHED';
 export const DRAFT = 'DRAFT';
 export const HIDDEN = 'HIDDEN';
+export const ARCHIVE = 'ARCHIVE';
 
 //webinars
 export const ADMIN_WEBINARS = 'admin_webinars';
@@ -36,3 +37,11 @@ export const ADMIN_BOOKS = 'admin_books';
 export const GUIDES = 'GUIDES';
 export const OTHER_GUIDES = 'OTHER_GUIDES';
 export const BOOKS = 'BOOKS';
+
+//courses
+
+export const SSK_INDEPENDENT = 'SSK_INDEPENDENT';
+export const SSK_WITH_CURATOR = 'SSK_WITH_CURATOR';
+export const SSK_WITH_SERGIY = 'SSK_WITH_SERGIY';
+export const ADVANCED = 'ADVANCED';
+export const CONSULTING = 'CONSULTING';

@@ -1,0 +1,137 @@
+@import '/styles/main.scss';
+
+.main_wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  @media all and (width >= $min_desktop) {
+    width: 225px;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 89px;
+  }
+}
+
+.wrapper_without_image {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  width: 149px;
+  @media all and (width >= $min_desktop) {
+    width: 225px;
+    order: 1;
+  }
+}
+//Image
+
+.img_label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 147px;
+  height: 171px;
+  gap: 8px;
+  @include fontRegular(12px, 500, 12px, $third_text_color);
+  @media all and (width >= $min_desktop) {
+    width: 225px;
+    height: 271px;
+    order: 2;
+  }
+}
+
+.image_wrapper {
+  border-radius: 8px;
+  width: 147px;
+  height: 171px;
+  @media all and (width >= $min_desktop) {
+    width: 225px;
+    height: 271px;
+  }
+}
+
+.no_image {
+  border: 1px dashed #77a0fc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  & > svg {
+    width: 24px;
+    height: 24px;
+    @media all and (width >= $min_desktop) {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}
+
+.image {
+  width: 147px;
+  height: 171px;
+  object-fit: cover;
+  border-radius: 8px;
+  @media all and (width >= $min_desktop) {
+    width: 225px;
+    height: 271px;
+  }
+}
+
+.add_image_text {
+  @include fontRegular(12px, 500, 12px, $p_active_button, center);
+  text-wrap: balance;
+  @media all and (width >= $min_desktop) {
+    font-size: 18px;
+  }
+}
+
+//Input
+.label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 149px;
+  @include fontRegular(14px, 500, 16px, $third_text_color);
+  @media all and (width >= $min_desktop) {
+    font-size: 16px;
+    width: 100%;
+    font-weight: 600;
+  }
+}
+
+.input {
+  width: 101px;
+  height: 40px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid $p_separators;
+  @include fontRegular(14px, 500, 16px, $third_text_color);
+  @media all and (width >= $min_desktop) {
+    height: 44px;
+  }
+}
+
+.literature_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 149px;
+  height: 44px;
+  border: 1px solid $p_separators;
+  border-radius: 8px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  background: $p_btn_border;
+  @include fontRegular(14px, 500, 16px, $p_header_title_border, center);
+  & > svg {
+    width: 24px;
+    height: 25px;
+  }
+  @media all and (width >= $min_desktop) {
+    width: 225px;
+  }
+}

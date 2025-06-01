@@ -1,5 +1,7 @@
+import Education from '@components/Cabinet/DashBoard/Admin/Main/Education/Education';
+
 const EducationPage = () => {
-  return <div>EducationPage</div>;
+  return <Education />;
 };
 
 export default EducationPage;

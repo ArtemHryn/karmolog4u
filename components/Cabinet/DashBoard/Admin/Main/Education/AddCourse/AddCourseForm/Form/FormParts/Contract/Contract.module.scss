@@ -1,0 +1,275 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  @include fontRegular(14px, 600, 14px, $third_text_color);
+  gap: 4px;
+  @media all and (width >= $min_tablet) {
+    font-size: 16px;
+  }
+
+  &_price {
+    flex-grow: 1;
+    text-align: center;
+    @media all and (width >= $min_tablet) {
+      display: flex;
+      flex-direction: column;
+      width: 160px;
+      flex-grow: 0;
+      @include fontRegular(16px, 600, 20px, $third_text_color, center);
+    }
+    @media all and (width >= $min_desktop) {
+      flex-direction: row;
+      width: 319px;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+  &_header {
+    @media all and (width >= $min_tablet) {
+      font-size: 14px;
+    }
+    @media all and (width >= $min_desktop) {
+      font-size: 16px;
+    }
+  }
+}
+
+.input {
+  border: 1px solid $p_separators;
+  border-radius: 8px;
+  padding: 8px 8px 8px 16px;
+  width: 100%;
+  min-height: 44px;
+  &_price {
+    text-align: center;
+    width: 160px;
+  }
+}
+
+.info_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.info {
+  @include fontRegular(14px, 400, 20px, $third_text_color);
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 40px;
+  border: 1px solid $p_separators;
+  border-radius: 8px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  background-color: $light_table_header_gray;
+  & > svg {
+    width: 20px;
+    height: 16px;
+  }
+  @media all and (width >= $min_tablet) {
+    width: 84px;
+    & > svg {
+      width: 20px;
+      height: 19px;
+    }
+  }
+  @media all and (width >= $min_desktop) {
+    width: 108px;
+  }
+}
+
+//modal
+
+.wrapper_modal {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  border-radius: 16px;
+  padding: 40px 16px;
+  width: 328px;
+  background: $p_main_bg;
+  max-height: 80vh;
+  overflow: scroll;
+  scrollbar-width: none; /* для Firefox */
+  -ms-overflow-style: none; /* для IE і Edge */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  @media all and (width >= $min_tablet) {
+    padding: 40px 24px;
+    width: 688px;
+  }
+  @media all and (width >= $min_desktop) {
+    padding: 60px 32px;
+    width: 1216px;
+    gap: 40px;
+  }
+}
+
+.title {
+  @include fontRegular(16px, 400, 25px, #231f20, center);
+  @media all and (width >= $min_tablet) {
+    font-size: 20px;
+  }
+  @media all and (width >= $min_desktop) {
+    font-size: 24px;
+  }
+}
+
+//calendar
+
+.main_calendar_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  @media all and (width >= $min_tablet) {
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.calendar_wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: calc((100% - 8px) / 2);
+  @media all and (width >= $min_tablet) {
+    width: 160px;
+  }
+  @media all and (width >= $min_desktop) {
+    flex-direction: row;
+    width: 321px;
+    align-items: center;
+    & > span {
+      width: 160px;
+    }
+  }
+}
+
+.calendar_name {
+  @include fontRegular(14px, 600, 14px, #231f20, center);
+  @media all and (width >= $min_tablet) {
+    font-size: 16px;
+  }
+  @media all and (width >= $min_desktop) {
+  }
+}
+
+.calendar_icon {
+  position: absolute;
+  top: 48%;
+  right: 18%;
+  @media all and (width >= $min_tablet) {
+    right: 25%;
+  }
+  @media all and (width >= $min_desktop) {
+    top: 30%;
+    right: 16%;
+    &_date {
+      right: 24%;
+    }
+  }
+}
+
+//points in contract
+
+.points_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.textarea {
+  border: 1px solid $p_separators;
+  border-radius: 8px;
+  padding: 8px 8px 8px 16px;
+  width: 100%;
+  min-height: 100px;
+  max-height: 200px;
+  @include fontRegular(14px, 400, 20px, $third_text_color);
+  scrollbar-width: none; /* для Firefox */
+  -ms-overflow-style: none; /* для IE і Edge */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  &::placeholder {
+    @include fontRegular(14px, 400, 20px, $p_header_title_border);
+    font-family: inherit;
+  }
+  &_header {
+    min-height: 44px;
+    max-height: 150px;
+    @media all and (width >= $min_tablet) {
+      min-height: 96px;
+      max-height: 190px;
+    }
+    @media all and (width >= $min_desktop) {
+      min-height: 75px;
+      max-height: 150px;
+    }
+  }
+}
+
+.add_point_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 28px;
+  background-color: $p_btn_border;
+  border-radius: 8px;
+  @include fontRegular(12px, 400, 12px, $p_header_title_border);
+}
+
+//buttons
+.buttons_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  @media all and (width >= $min_tablet) {
+    flex-direction: row;
+    justify-content: center;
+  }
+  @media all and (width >= $min_desktop) {
+  }
+}
+
+.proceed_buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  padding: 4px 8px;
+  width: 296px;
+  height: 44px;
+  min-width: 60px;
+  @include fontRegular(16px, 600, 16px, $p_third_text_color);
+  @media all and (width >= $min_tablet) {
+    width: 156px;
+  }
+  @media all and (width >= $min_desktop) {
+  }
+  &_save {
+    background-color: $p_active_button;
+  }
+  &_cancel {
+    border: 1px solid $p_separators;
+    background-color: $p_btn_border;
+    color: $p_header_title_border;
+  }
+}

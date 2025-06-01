@@ -25,7 +25,7 @@ const ProductsList = ({ list }) => {
       setValue('product', currentProduct);
       setIsCheckedProduct(true);
     }
-  }, [list, setValue, watch]);
+  }, [isCheckedProduct, list, setValue, watch]);
 
   return (
     <div className={styles.main_wrapper}>

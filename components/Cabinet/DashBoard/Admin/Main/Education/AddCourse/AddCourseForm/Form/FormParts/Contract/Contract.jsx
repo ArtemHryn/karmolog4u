@@ -1,0 +1,31 @@
+'use client';
+
+import { useState } from 'react';
+import ContractModule from './ContractModule';
+
+import styles from './Contract.module.scss';
+
+const Contract = () => {
+  const [openModal, setOpenModal] = useState(false);
+  return (
+    <div className={styles.wrapper}>
+      <p className={styles.label}>5. Договір</p>
+      <div className={styles.info_wrapper}>
+        <p className={styles.info}>Відкрити основний текст для редагування</p>
+        <button type="button" className={styles.button} onClick={() => setOpenModal(true)}>
+          <svg viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M7.98348 5.32275L2.36648 10.9398L2.10248 13.8958L5.07948 13.6248L10.6795 8.01875L7.98348 5.32275ZM13.9661 4.72881L11.2711 2.03481L9.32314 3.98281L12.0181 6.67881L13.9661 4.72881ZM1.09114 15.9958C1.06014 15.9988 1.03014 15.9998 1.00014 15.9998C0.736142 15.9998 0.481142 15.8958 0.293142 15.7068C0.0831418 15.4968 -0.0228583 15.2048 0.00414174 14.9098L0.383142 10.7388C0.425142 10.2818 0.627142 9.85081 0.952142 9.52581L9.94814 0.528814C10.6501 -0.175186 11.9241 -0.140186 12.6641 0.598814L15.4021 3.33681H15.4031C16.1691 4.10381 16.1991 5.32081 15.4711 6.05081L6.47414 15.0478C6.14914 15.3738 5.71914 15.5748 5.26114 15.6168L1.09114 15.9958ZM1 17.9999H15C15.55 17.9999 16 18.4499 16 18.9999C16 19.5499 15.55 19.9999 15 19.9999H1C0.45 19.9999 0 19.5499 0 18.9999C0 18.4499 0.45 17.9999 1 17.9999Z"
+              fill="#6c6c6c"
+            />
+          </svg>
+        </button>
+      </div>
+      {openModal && <ContractModule setOpenModal={setOpenModal} />}
+    </div>
+  );
+};
+
+export default Contract;

@@ -1,0 +1,71 @@
+@import '/styles/main.scss';
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  border: 1px solid $p_separators;
+  border-radius: 8px;
+  padding: 16px 8px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  @media all and (width >= $min_tablet) {
+    border-radius: 12px;
+    padding: 16px;
+  }
+  @media all and (width >= $min_desktop) {
+    padding: 12px;
+  }
+  @media all and (width >= $big_pc) {
+    padding: 32px;
+  }
+}
+
+.info_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  @media all and (width >= $min_tablet) {
+    flex-direction: row;
+  }
+  @media all and (width >= $big_pc) {
+    gap: 4vw;
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.column1 {
+  @media all and (width >= $min_tablet) {
+    width: calc((100% - 26px) / 2);
+  }
+  @media all and (width >= $min_desktop) {
+    width: 356px;
+  }
+}
+
+.column2 {
+  @media all and (width >= $min_tablet) {
+    width: calc((100% - 26px) / 2);
+  }
+  @media all and (width >= $min_desktop) {
+    flex-direction: row;
+    width: calc((356px + 225px + 63.5px));
+  }
+  @media all and (width >= $big_pc) {
+    gap: 4vw;
+    width: calc((356px + 225px + 4vw));
+  }
+}
+
+.column2_1 {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  @media all and (width >= $min_desktop) {
+    width: 356px;
+  }
+}

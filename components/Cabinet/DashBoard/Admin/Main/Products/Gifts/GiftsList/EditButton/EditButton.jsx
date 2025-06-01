@@ -30,17 +30,13 @@ const EditButton = ({ id, name, status }) => {
   });
 
   const onHide = () => {
-      // mutation.mutate({ action: 'hide' });
-      console.log('hidden');
-      
+    mutation.mutate({ action: 'hide' });
     setVisibleDialogToHide(false);
     document.body.style.overflow = 'auto';
   };
 
   const onDelete = () => {
-      // mutation.mutate({ action: 'delete' });
-      console.log('deleted');
-      
+    mutation.mutate({ action: 'delete' });
     setVisibleDialogToDelete(false);
     document.body.style.overflow = 'auto';
   };

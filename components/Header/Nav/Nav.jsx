@@ -71,8 +71,6 @@ function Nav({ setIsOpen }) {
   const locale = useLocale();
 
   const onClick = e => {
-    console.log(e.currentTarget.dataset.id);
-
     if (+e.currentTarget.dataset.id === active) {
       setActive(null);
     } else {
