@@ -1,0 +1,46 @@
+@import '/styles/main.scss';
+
+.p-datatable-wrapper {
+  overflow-x: auto;
+}
+
+.p-datatable-wrapper::-webkit-scrollbar {
+  height: 7px !important;
+  background-color: #d3d3d3;
+}
+
+.p-datatable-wrapper::-webkit-scrollbar-thumb {
+  width: 27px !important;
+  height: 7px !important;
+}
+
+.p-column-header-content {
+  display: flex;
+  padding: 0px 14px;
+  height: 44px;
+  align-items: center;
+}
+
+.p-datatable-footer {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $light_table_header_gray;
+  border-radius: 0px 0px 12px 12px;
+  overflow-x: scroll;
+  &::-webkit-scrollbar {
+    width: 2px;
+    height: 4px;
+  }
+
+  @media all and (width >= $min_tablet) {
+    justify-content: space-between;
+    padding: 0 12px;
+  }
+}
+
+.p-column-title {
+  @include fontRegular(14px, 600, 20px, $third_text_color);
+  flex-grow: 1;
+}

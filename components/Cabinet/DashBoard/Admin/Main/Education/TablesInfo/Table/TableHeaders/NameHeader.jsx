@@ -1,6 +1,6 @@
 import styles from './TableHeaders.module.scss';
 
-const NameHeader = ({ nameFilter, setNameFilter }) => {
+const NameHeader = ({ nameFilter, setNameFilter, title = 'Назва' }) => {
   return (
     <div className={styles.name_wrapper}>
       <p>Назва</p>

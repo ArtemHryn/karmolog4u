@@ -20,6 +20,7 @@ import styles from './Table.module.scss';
 import './table.scss';
 import 'react-toastify/dist/ReactToastify.css';
 import ConfirmWindow from './ConfirmWindow/ConfirmWindow';
+import Link from 'next/link';
 
 const fetchCourses = async ({ token, status, filters, limit, page }) => {
   const { searchQuery, name, type, access, completeness } = filters;
@@ -201,7 +202,7 @@ const Table = ({ activeBtn, search }) => {
       )}
       <DataTable
         value={filterData()}
-        emptyMessage={<EmptyTable />}
+        emptyMessage={<EmptyTable message="Зараз немає даних. Додайте курс або змініть фільтр" />}
         selection={selectedProducts}
         onSelectionChange={e => setSelectedProducts(e.value)}
         resizableColumns
@@ -219,9 +220,15 @@ const Table = ({ activeBtn, search }) => {
       >
         <Column selectionMode="multiple" className={styles.column} />
         <Column
-          field="name"
           header={<NameHeader nameFilter={nameFilter} setNameFilter={setNameFilter} />}
           className={styles.column}
+          body={rowData => (
+            <div className={styles.name_column}>
+              <Link href={`/cabinet/dashboard/admin/education/${rowData.id}/modules`}>
+                {rowData.name}
+              </Link>
+            </div>
+          )}
         />
         <Column
           field="type"

@@ -23,8 +23,6 @@ import styles from './Form.module.scss';
 import 'react-toastify/dist/ReactToastify.css';
 
 async function AddOrUpdateCourse({ data, token, action, id }) {
-  console.log(id);
-
   const url =
     action === 'add'
       ? `${base_url}/admin/education/course/create`

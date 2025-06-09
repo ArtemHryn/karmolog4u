@@ -6,3 +6,10 @@
   text-align: $ta;
 }
 
+@mixin buttonsDefault() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $p_separators;
+  border-radius: 8px;
+}

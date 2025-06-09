@@ -1,6 +1,9 @@
-import ReactPaginate from 'react-paginate';
-import Select from 'react-select';
+'use client';
 
+import ReactPaginate from 'react-paginate';
+import dynamic from 'next/dynamic';
+
+const SelectNoSSR = dynamic(() => import('react-select'), { ssr: false });
 import styles from './Footer.module.scss';
 
 const Footer = ({ totalPage = 10, setCurrentPage, currentPage }) => {
@@ -76,14 +79,14 @@ const Footer = ({ totalPage = 10, setCurrentPage, currentPage }) => {
       />
       <div className={styles.page_selector_wrapper}>
         <p>Сторінка #</p>
-        <Select
+        <SelectNoSSR
           options={pageOptions}
           value={pageOptions.find(opt => opt.value === currentPage)}
           onChange={opt => setCurrentPage(opt.value)}
           className={styles.page_selector}
           isSearchable={false}
           menuPosition="absolute"
-          menuPortalTarget={document.body}
+          menuPortalTarget={typeof window !== 'undefined' ? document.body : null}
           menuPlacement="auto"
           styles={{
             control: provided => ({

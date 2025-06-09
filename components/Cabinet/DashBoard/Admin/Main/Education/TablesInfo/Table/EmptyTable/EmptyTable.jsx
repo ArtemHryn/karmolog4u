@@ -1,9 +1,9 @@
 import styles from './EmptyTable.module.scss';
 
-const EmptyTable = () => {
+const EmptyTable = ({ message }) => {
   return (
     <div className={styles.wrapper}>
-      <p>Зараз немає даних. Додайте курс або змініть фільтр</p>
+      <p>{message}</p>
     </div>
   );
 };
