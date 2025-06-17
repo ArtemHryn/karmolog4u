@@ -13,7 +13,11 @@ const ModulesTable = () => {
   return (
     <div className={styles.wrapper}>
       <Actions search={search} setSearch={setSearch} selectedProducts={selectedProducts} />
-      <Table selectedProducts={selectedProducts} setSelectedProducts={setSelectedProducts} />
+      <Table
+        selectedProducts={selectedProducts}
+        setSelectedProducts={setSelectedProducts}
+        search={search}
+      />
     </div>
   );
 };

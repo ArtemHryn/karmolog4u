@@ -25,16 +25,3 @@
   flex-grow: 1;
   background-color: $p_main_bg;
 }
-
-.name_link {
-  @media (hover: hover) {
-    &:is(:hover, :focus) {
-      text-decoration: underline;
-    }
-  }
-  @media (hover: none) {
-    &:is(:active, :focus) {
-      text-decoration: underline;
-    }
-  }
-}

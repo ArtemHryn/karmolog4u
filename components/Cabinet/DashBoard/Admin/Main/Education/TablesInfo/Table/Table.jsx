@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
@@ -21,6 +21,7 @@ import './table.scss';
 import 'react-toastify/dist/ReactToastify.css';
 import ConfirmWindow from './ConfirmWindow/ConfirmWindow';
 import Link from 'next/link';
+import NameColumnBody from './NameColumnBody/NameColumnBody';
 
 const fetchCourses = async ({ token, status, filters, limit, page }) => {
   const { searchQuery, name, type, access, completeness } = filters;
@@ -93,7 +94,7 @@ const deleteCourse = async ({ token, arrayOfIds }) => {
   }
 };
 
-const Table = ({ activeBtn, search }) => {
+const Table = ({ activeBtn, search, setNumberOsCourses }) => {
   const [selectedProducts, setSelectedProducts] = useState(null);
   const [nameFilter, setNameFilter] = useState('1');
   const [typeFilter, setTypeFilter] = useState([]);
@@ -163,6 +164,9 @@ const Table = ({ activeBtn, search }) => {
   const onDeleteCourse = () => {
     mutation.mutate({ id: selectedId, action: 'delete' });
   };
+  useEffect(() => {
+    if (courses && courses.length > 0) setNumberOsCourses(courses[0].statusCounters);
+  }, [courses, setNumberOsCourses]);
 
   if (isLoading) {
     return (
@@ -198,7 +202,11 @@ const Table = ({ activeBtn, search }) => {
   return (
     <div>
       {showDialogWindow && (
-        <ConfirmWindow setShowDialogWindow={setShowDialogWindow} onDeleteCourse={onDeleteCourse} />
+        <ConfirmWindow
+          setShowDialogWindow={setShowDialogWindow}
+          onDelete={onDeleteCourse}
+          message={'Дійсно хочете видалити курс?'}
+        />
       )}
       <DataTable
         value={filterData()}
@@ -222,13 +230,7 @@ const Table = ({ activeBtn, search }) => {
         <Column
           header={<NameHeader nameFilter={nameFilter} setNameFilter={setNameFilter} />}
           className={styles.column}
-          body={rowData => (
-            <div className={styles.name_column}>
-              <Link href={`/cabinet/dashboard/admin/education/${rowData.id}/modules`}>
-                {rowData.name}
-              </Link>
-            </div>
-          )}
+          body={rowData => <NameColumnBody rowData={rowData} />}
         />
         <Column
           field="type"

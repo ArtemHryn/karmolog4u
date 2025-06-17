@@ -2,7 +2,7 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@app/api/auth/[...nextauth]/route';
 import { base_url } from '@/helper/consts';
 import { notFound } from 'next/navigation';
-import Modules from '@/components/Cabinet/DashBoard/Admin/Main/Education/Modules/Modules';
+import Lessons from '@/components/Cabinet/DashBoard/Admin/Main/Education/Lessons/Lessons';
 
 export const revalidate = 0;
 
@@ -21,7 +21,7 @@ const editCourse = async (id, token) => {
   return res.json();
 };
 
-const ModulesPage = async ({ params }) => {
+const LessonsPage = async ({ params }) => {
   try {
     const session = await getServerSession(authOptions);
     const accessToken = session?.accessToken;
@@ -33,11 +33,11 @@ const ModulesPage = async ({ params }) => {
     const course = await editCourse(params.course_id, accessToken);
 
     if (!course) notFound();
-    return <Modules course={course} />;
+    return <Lessons course={course} />;
   } catch (err) {
     console.error('Помилка завантаження курсу:', err);
     return notFound();
   }
 };
 
-export default ModulesPage;
+export default LessonsPage;

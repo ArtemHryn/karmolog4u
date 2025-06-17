@@ -11,10 +11,15 @@ const filtersList = [
   { name: 'Архів', link: ARCHIVE },
 ];
 
-const Filters = ({ activeBtn, setActiveBtn }) => {
+const Filters = ({ activeBtn, setActiveBtn, numberOsCourses }) => {
+  const onFilterChange = () => {
+    if (!numberOsCourses) return filtersList;
+    return filtersList.map(el => ({ ...el, count: numberOsCourses[el.link] }));
+  };
+
   return (
     <ul className={styles.list}>
-      {filtersList.map(({ name, link }, id) => (
+      {onFilterChange().map(({ name, link, count }, id) => (
         <li key={id}>
           <button
             className={`${styles.button} ${open_Sans.className} ${
@@ -23,7 +28,7 @@ const Filters = ({ activeBtn, setActiveBtn }) => {
             onClick={() => setActiveBtn(link)}
           >
             {name}
-            <span>(0)</span>
+            <span>({count ? count : 0})</span>
           </button>
         </li>
       ))}

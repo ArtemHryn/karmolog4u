@@ -36,7 +36,7 @@ const StartEndDate = () => {
       <p className={styles.label}>3. Дати доступу</p>
       <div className={styles.calendars_wrapper}>
         <Controller
-          name="start_date"
+          name="dateStart"
           control={control}
           defaultValue={new Date()}
           render={({ field }) => (
@@ -57,7 +57,7 @@ const StartEndDate = () => {
           )}
         />
         <Controller
-          name="end_date"
+          name="dateEnd"
           control={control}
           defaultValue={new Date(new Date().setMonth(new Date().getMonth() + 6))}
           render={({ field }) => (

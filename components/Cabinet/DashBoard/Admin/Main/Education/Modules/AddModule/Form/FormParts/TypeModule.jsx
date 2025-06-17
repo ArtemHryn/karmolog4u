@@ -9,7 +9,7 @@ const TypeModule = () => {
     <Controller
       name="type"
       control={control}
-      defaultValue={'ALL'}
+      defaultValue={'THEORETICAL'}
       render={({ field }) => (
         <div className={`${styles.wrapper} ${styles.form_part_wrapper}`}>
           <p className={styles.label}>2. Тип модуля:</p>

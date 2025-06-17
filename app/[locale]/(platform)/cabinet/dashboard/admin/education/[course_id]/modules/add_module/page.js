@@ -7,7 +7,7 @@ import AddModule from '@/components/Cabinet/DashBoard/Admin/Main/Education/Modul
 
 export const revalidate = 0;
 
-const editCourse = async (id, token) => {
+const getCourseInfo = async (id, token) => {
   const res = await fetch(`${base_url}/admin/education/course/get/${id}`, {
     headers: {
       'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ const AddModulePage = async ({ params }) => {
     return <div>Немає доступу</div>;
   }
 
-  const course = await editCourse(params.course_id, accessToken);
+  const course = await getCourseInfo(params.course_id, accessToken);
 
   if (!course) notFound();
   try {

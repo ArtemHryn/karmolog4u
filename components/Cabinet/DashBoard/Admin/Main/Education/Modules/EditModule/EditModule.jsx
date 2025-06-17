@@ -1,33 +1,36 @@
 'use client';
 import { usePathname } from 'next/navigation';
-
 import { ToastContainer } from 'react-toastify';
+
+import Header from '../Header/Header';
 import NavEducationLinks from '../NavEducationLinks/NavEducationLinks';
 import CourseDetails from '../CourseDetails/CourseDetails';
-import Header from '../Header/Header';
-import Form from './Form/Form';
 
-import styles from './AddModule.module.scss';
+import styles from './EditModule.module.scss';
 import 'react-toastify/dist/ReactToastify.css';
+import Form from '../AddModule/Form/Form';
 
-const AddModule = ({ course }) => {
+const EditModule = ({ moduleInfo, courseInfo }) => {
   const pathName = usePathname();
+
+  console.log(moduleInfo);
+
   return (
     <main className={styles.main}>
       <Header />
       <div className={styles.wrapper}>
         <NavEducationLinks
           navList={[
-            { name: 'Модулі', link: `${pathName.split('/').slice(0, -1).join('/')}` },
-            { name: 'Створення модулю', link: `#` },
+            { name: 'Модулі', link: `${pathName.split('/').slice(0, -2).join('/')}` },
+            { name: 'Редагування модулю', link: `#` },
           ]}
         />
-        <CourseDetails course={course} />
-        <Form />
+        <CourseDetails course={courseInfo} />
+        <Form editModule={moduleInfo}/>
       </div>
       <ToastContainer autoClose={1000} />
     </main>
   );
 };
 
-export default AddModule;
+export default EditModule;

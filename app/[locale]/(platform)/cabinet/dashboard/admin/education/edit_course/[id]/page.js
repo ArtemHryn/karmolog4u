@@ -25,7 +25,7 @@ const EditCoursePage = async ({ params }) => {
   try {
     const session = await getServerSession(authOptions);
     const accessToken = session?.accessToken;
-    if (!accessToken) {
+    if (!accessToken || session.user.role !== 'ADMIN') {
       console.error('Access token not found in session');
       return <div>Немає доступу</div>;
     }

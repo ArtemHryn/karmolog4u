@@ -2,9 +2,10 @@ import { open_Sans } from '@/app/[locale]/layout';
 import styles from './FormParts.module.scss';
 import { usePathname, useRouter } from 'next/navigation';
 
-const ActionButtons = () => {
+const ActionButtons = ({ isEditModule }) => {
   const pathName = usePathname();
-  const router = useRouter()
+  const router = useRouter();
+  console.log(isEditModule);
 
   return (
     <div className={styles.buttons_wrapper}>
@@ -17,7 +18,7 @@ const ActionButtons = () => {
             fill="#FDFDFD"
           />
         </svg>
-        Додати модуль
+        {isEditModule ? 'Зберегти зміни' : 'Додати модуль'}
       </button>
       <button
         type="button"
@@ -32,7 +33,7 @@ const ActionButtons = () => {
             fill="#131212"
           />
         </svg>
-        Повернутися
+        {isEditModule ? 'Відхилити зміни' : 'Повернутися'}
       </button>
     </div>
   );
