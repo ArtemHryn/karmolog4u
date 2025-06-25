@@ -7,6 +7,9 @@ const intlMiddleware = createMiddleware({
 });
 
 export default async function middleware(req) {
+  const intlResponse = intlMiddleware(req);
+  if (intlResponse) return intlResponse;
+  
   const { pathname } = req.nextUrl;
 
   // Отримуємо токен сесії з JWT

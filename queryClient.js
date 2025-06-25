@@ -4,7 +4,7 @@ import { signOut } from 'next-auth/react';
 const queryClient = new QueryClient({
   queryCache: new QueryCache({
     onError: async er => {
-      if (er?.status === 401) {
+      if (er?.status === 401 || er?.statusCode === 401) {
         await signOut();
       }
     },

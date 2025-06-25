@@ -4,7 +4,7 @@ import Calendars from './Calendars';
 
 import styles from './Type.module.scss';
 
-const Period = () => {
+const Period = ({ title }) => {
   const {
     register,
     formState: { errors },
@@ -16,7 +16,7 @@ const Period = () => {
 
   return (
     <div className={styles.wrapper}>
-      <p className={styles.label}>4. Оберіть тип доступу до курсу:</p>
+      <p className={styles.label}>{title}</p>
       <div className={styles.period_data_wrapper}>
         <div>
           <Controller

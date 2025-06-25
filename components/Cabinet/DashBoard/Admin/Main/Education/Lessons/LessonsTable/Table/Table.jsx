@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useParams } from 'next/navigation';
 import { useQueryClient } from '@tanstack/react-query';
 import { useSession } from 'next-auth/react';
 import { DataTable } from 'primereact/datatable';
@@ -7,6 +8,8 @@ import EmptyTable from '../../../TablesInfo/Table/EmptyTable/EmptyTable';
 import Footer from '../../../TablesInfo/Table/Footer/Footer';
 import NameHeader from '../../../TablesInfo/Table/TableHeaders/NameHeader';
 import HeaderTemplate from '../../../TablesInfo/Table/TableHeaders/HeaderTemplate';
+import ActionsLessonsColumn from './ActionsLessonsColumn/ActionsLessonsColumn';
+import ConfirmWindow from '../../../TablesInfo/Table/ConfirmWindow/ConfirmWindow';
 
 import { useDebounce } from '@/hooks/useDebounce';
 import { base_url } from '@/helper/consts';
@@ -30,10 +33,37 @@ const Table = ({
   const [activeFilter, setActiveFilter] = useState('name');
   const { data: token } = useSession();
   const queryClient = useQueryClient();
+
+  const { module_id } = useParams();
+  console.log(module_id);
+
+  const debouncedName = useDebounce(nameFilter, 500);
+  const debouncedAccess = useDebounce(accessFilter, 500);
+
+  const onDeleteLesson = () => {
+    console.log(selectedId);
+  };
+
   return (
     <div>
+      {showDialogWindow && (
+        <ConfirmWindow
+          setShowDialogWindow={setShowDialogWindow}
+          onDelete={onDeleteLesson}
+          message={'Дійсно хочете видалити урок?'}
+        />
+      )}
       <DataTable
-        value={[{ id: '1', name: 'Test', access: 'Test access', period: 'Test period' }]}
+        value={[
+          {
+            id: '1',
+            name: 'Test',
+            access: 'Test access',
+            period: 'Test period',
+            time: '10:00 - 12:00',
+            day: 'День 1 урок 2',
+          },
+        ]}
         emptyMessage={<EmptyTable message="Зараз немає даних. Додайте урок або змініть фільтр" />}
         selection={selectedProducts}
         onSelectionChange={e => setSelectedProducts(e.value)}
@@ -50,20 +80,37 @@ const Table = ({
           className={styles.column}
           field="name"
         />
+        {module_id ? (
+          <Column field="day" header={'Урок'} className={styles.column} />
+        ) : (
+          <Column
+            field="access"
+            header={
+              <HeaderTemplate
+                name={'Тип доступу'}
+                list={accessTypeList}
+                filter={accessFilter}
+                setFilter={setAccessFilter}
+              />
+            }
+            className={styles.column}
+          />
+        )}
+        {module_id ? (
+          <Column field="time" className={styles.column} header="Час Уроку" />
+        ) : (
+          <Column field="period" className={styles.column} header="Дати доступу" />
+        )}
         <Column
-          field="access"
-          header={
-            <HeaderTemplate
-              name={'Тип доступу'}
-              list={accessTypeList}
-              filter={accessFilter}
-              setFilter={setAccessFilter}
+          header=""
+          body={rowData => (
+            <ActionsLessonsColumn
+              rowData={rowData}
+              setSelectedId={setSelectedId}
+              setShowDialogWindow={setShowDialogWindow}
             />
-          }
-          className={styles.column}
+          )}
         />
-        <Column field="period" className={styles.column} header="Дати доступу" />
-        <Column header="" body={rowData => <div></div>} />
       </DataTable>
     </div>
   );

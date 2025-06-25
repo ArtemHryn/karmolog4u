@@ -2,10 +2,10 @@ import { useEffect, useRef } from 'react';
 import OpenMenuIcon from '../../../../TablesInfo/Table/ActionsColumn/Icons/OpenMenuIcon';
 import { OverlayPanel } from 'primereact/overlaypanel';
 
-import styles from './ActionsModuleColumn.module.scss';
 import Link from 'next/link';
 import Edit from '../../../../TablesInfo/Table/ActionsColumn/Icons/Edit';
 import DeleteCourseIcon from '../../../../TablesInfo/Table/ActionsColumn/Icons/DeleteCourseIcon';
+import styles from './ActionsModuleColumn.module.scss';
 
 const ActionsModuleColumn = ({
   rowData,
@@ -28,7 +28,6 @@ const ActionsModuleColumn = ({
         type="button"
         onClick={e => {
           op.current.toggle(e);
-          console.log(courseId);
         }}
         className={styles.open_menu_btn}
       >

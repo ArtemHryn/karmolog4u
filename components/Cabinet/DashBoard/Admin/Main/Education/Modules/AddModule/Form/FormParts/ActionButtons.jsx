@@ -5,7 +5,6 @@ import { usePathname, useRouter } from 'next/navigation';
 const ActionButtons = ({ isEditModule }) => {
   const pathName = usePathname();
   const router = useRouter();
-  console.log(isEditModule);
 
   return (
     <div className={styles.buttons_wrapper}>

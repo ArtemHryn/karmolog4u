@@ -33,7 +33,7 @@ const uploadFile = async ({ files, token }) => {
 const MAX_FILES = 10;
 const fieldName = 'optionalFiles';
 
-const AdditionalFiles = ({ editFiles }) => {
+const AdditionalFiles = ({ editFiles, title, form_name = 'file' }) => {
   const [files, setFiles] = useState(editFiles || []);
   const { register, setValue, setError } = useFormContext();
   const { data: token } = useSession();
@@ -71,7 +71,7 @@ const AdditionalFiles = ({ editFiles }) => {
 
   return (
     <div className={styles.label}>
-      <p>6. Додаткові файли курсу</p>
+      <p>{title}</p>
       <label className={styles.file_label} onClick={e => e.stopPropagation()}>
         {files.length > 0 && (
           <ul className={styles.files_list}>

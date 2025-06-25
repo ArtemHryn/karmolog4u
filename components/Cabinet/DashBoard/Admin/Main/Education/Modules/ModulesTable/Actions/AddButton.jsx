@@ -3,11 +3,16 @@ import { usePathname } from 'next/navigation';
 
 import styles from './Actions.module.scss';
 
-const AddModuleButton = () => {
+const AddButton = () => {
   const pathName = usePathname();
 
+  const getButtonName = () => {
+    if (pathName.includes('lessons')) return 'урок';
+    return 'модуль';
+  };
+
   return (
-    <Link href={`${pathName}/add_module`} className={styles.link_to_add_module}>
+    <Link href={`${pathName}/add`} className={styles.link_to_add_module}>
       <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
           fillRule="evenodd"
@@ -18,10 +23,10 @@ const AddModuleButton = () => {
       </svg>
       <span>
         {' '}
-        Додати <span>модуль</span>
+        Додати <span>{getButtonName()}</span>
       </span>
     </Link>
   );
 };
 
-export default AddModuleButton;
+export default AddButton;

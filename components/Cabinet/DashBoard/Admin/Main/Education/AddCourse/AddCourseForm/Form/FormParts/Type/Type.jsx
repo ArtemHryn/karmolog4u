@@ -5,7 +5,7 @@ const Type = () => {
   return (
     <>
       <Available />
-      <Period />
+      <Period title={'4. Оберіть тип доступу до курсу:'} />
     </>
   );
 };

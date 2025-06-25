@@ -2,6 +2,7 @@ import { Controller, useFormContext } from 'react-hook-form';
 import { RadioButton } from 'primereact/radiobutton';
 
 import styles from './FormParts.module.scss';
+import { PRACTICAL, THEORETICAL } from '@/helper/consts';
 
 const TypeModule = () => {
   const { setValue, control } = useFormContext();
@@ -9,7 +10,7 @@ const TypeModule = () => {
     <Controller
       name="type"
       control={control}
-      defaultValue={'THEORETICAL'}
+      defaultValue={THEORETICAL}
       render={({ field }) => (
         <div className={`${styles.wrapper} ${styles.form_part_wrapper}`}>
           <p className={styles.label}>2. Тип модуля:</p>
@@ -18,8 +19,8 @@ const TypeModule = () => {
               <RadioButton
                 id={field.id}
                 inputId="type1"
-                value={'THEORETICAL'}
-                checked={field.value === 'THEORETICAL'}
+                value={THEORETICAL}
+                checked={field.value === THEORETICAL}
                 onChange={e => setValue('type', e.value)}
               />
               <label htmlFor="type1" className={styles.name}>
@@ -30,8 +31,8 @@ const TypeModule = () => {
               <RadioButton
                 id={field.id}
                 inputId="type2"
-                value={'PRACTICAL'}
-                checked={field.value === 'PRACTICAL'}
+                value={PRACTICAL}
+                checked={field.value === PRACTICAL}
                 onChange={e => setValue('type', e.value)}
               />
               <label htmlFor="type2" className={styles.name}>

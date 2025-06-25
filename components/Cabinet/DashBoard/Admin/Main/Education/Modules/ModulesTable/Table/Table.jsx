@@ -146,9 +146,10 @@ const Table = ({ selectedProducts, setSelectedProducts, search }) => {
     const isInvalidModule =
       !modules || !Array.isArray(modules) || modules.length === 0 || !modules[0]?.data.length === 0;
     if (isInvalidModule) return [];
+
     const tableData = modules[0].data.map(el => ({
       name: el.name || 'Не вказано',
-      type: el.type || 'Не вказано',
+      type: moduleTypes.find(type => type.value === el.type).name || 'Не вказано',
       access: `${format(parseISO(el.access.dateStart), 'dd.MM.yyyy') || 'Не вказано'} - ${
         format(parseISO(el.access.dateEnd), 'dd.MM.yyyy') || 'Не вказано'
       }`,

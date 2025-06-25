@@ -4,7 +4,7 @@ import ModalAddLinks from './ModalAddLinks';
 
 import styles from './AdditionalLinks.module.scss';
 
-const AdditionalLinks = () => {
+const AdditionalLinks = ({ title = '7. Додаткові посилання' }) => {
   const [showModal, setShowModal] = useState(false);
   const {
     register,
@@ -14,7 +14,7 @@ const AdditionalLinks = () => {
   return (
     <>
       <div className={styles.wrapper}>
-        <p className={styles.title}>7. Додаткові посилання</p>
+        <p className={styles.title}>{title}</p>
         <div className={styles.input_wrapper}>
           <input
             type="text"

@@ -252,7 +252,10 @@ const Form = ({ editCourse }) => {
           <div className={`${styles.column} ${styles.column2}`}>
             <div className={`${styles.column2_1}`}>
               <AdditionalLinks />
-              <AdditionalFiles editFiles={editCourse?.optionalFiles} />
+              <AdditionalFiles
+                editFiles={editCourse?.optionalFiles}
+                title={'6. Додаткові файли курсу'}
+              />
               <PracticePaymentLink />
             </div>
             <CoverWithPrice />

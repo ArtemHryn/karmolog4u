@@ -1,0 +1,20 @@
+@import '/styles/main.scss';
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.button {
+  border-radius: 4px;
+  padding: 0px 8px;
+  height: 28px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  background-color: $p_btn_border;
+  @include fontRegular(13px, 400, 17.94px, $third_text_color);
+  &_active {
+    background-color: $p_header_title_border;
+    color: $main_text_color;
+  }
+}
