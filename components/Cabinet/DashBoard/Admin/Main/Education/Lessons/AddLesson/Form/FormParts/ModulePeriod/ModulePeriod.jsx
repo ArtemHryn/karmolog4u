@@ -4,7 +4,12 @@ import { inter } from '@/app/[locale]/layout';
 import { Calendar } from 'primereact/calendar';
 
 const ModulePeriod = () => {
-  const { register, control } = useFormContext();
+  const {
+    register,
+    control,
+    formState: { errors },
+  } = useFormContext();
+
   return (
     <div className={styles.period_wrapper}>
       <div className={styles.label_wrapper}>
@@ -12,18 +17,22 @@ const ModulePeriod = () => {
           3. День модулю
           <input
             type="number"
-            className={`${styles.input} ${inter.className}`}
+            className={`${styles.input} ${inter.className} ${
+              errors.module_day ? styles.error : ''
+            }`}
             placeholder="Введіть день"
-            {...register('module_day')}
+            {...register('module_day', { required: true })}
           />
         </label>
         <label className={styles.label}>
           4. Номер в дні
           <input
             type="number"
-            className={`${styles.input} ${inter.className}`}
+            className={`${styles.input} ${inter.className} ${
+              errors.module_part ? styles.error : ''
+            }`}
             placeholder="Введіть № п/п"
-            {...register('module_part')}
+            {...register('module_part', { required: true })}
           />
         </label>
       </div>

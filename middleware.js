@@ -1,15 +1,13 @@
 import { getToken } from 'next-auth/jwt';
 import createMiddleware from 'next-intl/middleware';
+import { localeConfig } from './i18n/config';
 
-const intlMiddleware = createMiddleware({
-  locales: ['uk', 'ru'],
-  defaultLocale: 'uk',
-});
+const intlMiddleware = createMiddleware(localeConfig);
 
 export default async function middleware(req) {
   const intlResponse = intlMiddleware(req);
   if (intlResponse) return intlResponse;
-  
+
   const { pathname } = req.nextUrl;
 
   // Отримуємо токен сесії з JWT

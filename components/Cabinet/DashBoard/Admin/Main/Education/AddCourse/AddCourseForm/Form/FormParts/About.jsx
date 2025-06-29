@@ -13,7 +13,7 @@ const About = () => {
     setValue,
     control,
     getValues,
-    setError,
+    clearErrors,
   } = useFormContext();
 
   return (
@@ -23,7 +23,7 @@ const About = () => {
         <input
           type="text"
           {...register('name', { required: 'Введіть назву' })}
-          className={styles.input}
+          className={`${styles.input} ${errors.name ? styles.error : ''}`}
           placeholder="Введить назву курсу"
         />
       </label>
@@ -41,12 +41,12 @@ const About = () => {
               value={getValues('type')}
               onChange={e => {
                 setValue('type', e.value);
-                setError('type', null);
+                clearErrors('type');
               }}
               options={typesList}
               optionLabel="name"
               placeholder="Оберіть тип курсу"
-              className={styles.input}
+              className={`${styles.input} ${errors.type ? styles.error : ''}`}
             />
           </div>
         )}

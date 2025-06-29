@@ -12,8 +12,8 @@ const CoverWithPrice = () => {
       <div className={styles.main_wrapper}>
         <ImageInput />
         <div className={styles.wrapper_without_image}>
-          <Input name={'stream'} title={'Потік'} />
-          <Input name={'price'} title={'Ціна курсу'} />
+          <Input name={'stream'} title={'Потік'} options={{ required: true }} />
+          <Input name={'price'} title={'Ціна курсу'} options={{ required: true }} />
           <button
             type="button"
             className={styles.literature_btn}

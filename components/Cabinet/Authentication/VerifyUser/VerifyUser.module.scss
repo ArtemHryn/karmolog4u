@@ -1,0 +1,25 @@
+@import '/styles/main.scss';
+
+.loader_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  height: 50vh;
+  width: 100%;
+  @media all and (width >= $min_desktop) {
+    width: 30vw;
+  }
+}
+
+.spinner {
+  width: 150px;
+  height: 150px;
+  :global(.p-progress-spinner-circle) {
+    stroke: #007bff;
+  }
+  @media all and (width >= $min_desktop) {
+    width: 200px;
+    height: 200px;
+  }
+}

@@ -35,7 +35,6 @@ const Table = ({
   const queryClient = useQueryClient();
 
   const { module_id } = useParams();
-  console.log(module_id);
 
   const debouncedName = useDebounce(nameFilter, 500);
   const debouncedAccess = useDebounce(accessFilter, 500);

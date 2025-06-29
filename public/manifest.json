@@ -1,7 +1,7 @@
 {
   "name": "Karmolog4u",
   "short_name": "Karmolog4u",
-  "start_url": "https://karmolog4u.vercel.app/",
+  "start_url": "/uk/",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
