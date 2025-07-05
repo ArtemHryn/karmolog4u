@@ -21,7 +21,7 @@ const ModulePeriod = () => {
               errors.module_day ? styles.error : ''
             }`}
             placeholder="Введіть день"
-            {...register('module_day', { required: true })}
+            {...register('moduleDay', { required: true })}
           />
         </label>
         <label className={styles.label}>
@@ -32,7 +32,7 @@ const ModulePeriod = () => {
               errors.module_part ? styles.error : ''
             }`}
             placeholder="Введіть № п/п"
-            {...register('module_part', { required: true })}
+            {...register('modulePart', { required: true })}
           />
         </label>
       </div>
@@ -40,7 +40,7 @@ const ModulePeriod = () => {
         <p className={styles.label}>5. Розклад уроку</p>
         <div className={styles.time_wrapper}>
           <Controller
-            name="lesson_time_start"
+            name="lessonTimeStart"
             control={control}
             render={({ field }) => (
               <div className={styles.time_label}>
@@ -55,7 +55,7 @@ const ModulePeriod = () => {
             )}
           />
           <Controller
-            name="lesson_time_end"
+            name="lessonTimeEnd"
             control={control}
             render={({ field }) => (
               <div className={styles.time_label}>

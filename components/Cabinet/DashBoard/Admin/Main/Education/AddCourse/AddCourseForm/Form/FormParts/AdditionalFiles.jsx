@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { useSession } from 'next-auth/react';
 import { useMutation } from '@tanstack/react-query';
@@ -33,7 +33,7 @@ const uploadFile = async ({ files, token }) => {
 const MAX_FILES = 10;
 const fieldName = 'optionalFiles';
 
-const AdditionalFiles = ({ editFiles, title, form_name = 'file' }) => {
+const AdditionalFiles = ({ editFiles, title, form_name = fieldName }) => {
   const [files, setFiles] = useState(editFiles || []);
   const { register, setValue, setError } = useFormContext();
   const { data: token } = useSession();
@@ -43,8 +43,7 @@ const AdditionalFiles = ({ editFiles, title, form_name = 'file' }) => {
     onSuccess: data => {
       const allFiles = [...files, ...data.uploaded];
       setFiles(allFiles);
-      setValue(fieldName, allFiles, { shouldValidate: true });
-      console.log(data.uploaded);
+      setValue(form_name, allFiles, { shouldValidate: true });
     },
     onError: err => {
       toast.error(`Помилка: ${err.message}`);
@@ -54,7 +53,7 @@ const AdditionalFiles = ({ editFiles, title, form_name = 'file' }) => {
   const handleFileChange = e => {
     const newFiles = Array.from(e.target.files);
     if (newFiles.length + files.length > MAX_FILES) {
-      setError(fieldName, { message: 'Максимум 10 файлів' });
+      setError(form_name, { message: 'Максимум 10 файлів' });
       return;
     }
 
@@ -66,7 +65,7 @@ const AdditionalFiles = ({ editFiles, title, form_name = 'file' }) => {
     e.preventDefault();
     const afterRemoving = files.filter((file, index) => i !== index);
     setFiles(afterRemoving);
-    setValue(fieldName, afterRemoving, { shouldValidate: true });
+    setValue(form_name, afterRemoving, { shouldValidate: true });
   };
 
   return (
@@ -105,7 +104,7 @@ const AdditionalFiles = ({ editFiles, title, form_name = 'file' }) => {
           type="file"
           multiple
           className={styles.file_input}
-          {...register(fieldName, {
+          {...register(form_name, {
             onChange: handleFileChange,
           })}
           max={MAX_FILES - files.length}

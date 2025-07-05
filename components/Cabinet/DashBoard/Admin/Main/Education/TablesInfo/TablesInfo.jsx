@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 const TablesInfo = ({ search, setSearch }) => {
   const [activeBtn, setActiveBtn] = useState(PUBLISHED);
-  const [numberOsCourses, setNumberOsCourses] = useState(null);
+  const [numberOfCourses, setNumberOfCourses] = useState(null);
 
   return (
     <div className={styles.wrapper}>
@@ -16,9 +16,9 @@ const TablesInfo = ({ search, setSearch }) => {
       <Filters
         activeBtn={activeBtn}
         setActiveBtn={setActiveBtn}
-        numberOsCourses={numberOsCourses}
+        numberOfCourses={numberOfCourses}
       />
-      <Table activeBtn={activeBtn} search={search} setNumberOsCourses={setNumberOsCourses} />
+      <Table activeBtn={activeBtn} search={search} setNumberOfCourses={setNumberOfCourses} />
     </div>
   );
 };

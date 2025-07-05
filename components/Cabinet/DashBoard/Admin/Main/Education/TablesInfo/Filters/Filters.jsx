@@ -11,10 +11,11 @@ const filtersList = [
   { name: 'Архів', link: ARCHIVE },
 ];
 
-const Filters = ({ activeBtn, setActiveBtn, numberOsCourses }) => {
+const Filters = ({ activeBtn, setActiveBtn, numberOfCourses }) => {
   const onFilterChange = () => {
-    if (!numberOsCourses) return filtersList;
-    return filtersList.map(el => ({ ...el, count: numberOsCourses[el.link] }));
+    if (!numberOfCourses) return filtersList;
+
+    return filtersList.map(el => ({ ...el, count: numberOfCourses[el.link] }));
   };
 
   return (

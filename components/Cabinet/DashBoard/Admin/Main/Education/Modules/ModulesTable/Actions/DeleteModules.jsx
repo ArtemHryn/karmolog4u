@@ -1,8 +1,13 @@
 import styles from './Actions.module.scss';
 
-const DeleteModules = ({ selectedProducts }) => {
+const DeleteModules = ({ selectedProducts, onBulkDelete }) => {
   return (
-    <button className={`${styles.delete_button}`} type="button">
+    <button
+      className={`${styles.delete_button}`}
+      type="button"
+      onClick={onBulkDelete}
+      disabled={!selectedProducts || selectedProducts.length === 0}
+    >
       {selectedProducts && selectedProducts.length > 0 ? (
         <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path

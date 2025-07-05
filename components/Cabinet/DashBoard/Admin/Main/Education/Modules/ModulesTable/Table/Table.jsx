@@ -22,6 +22,7 @@ import './table.scss';
 import { useDebounce } from '@/hooks/useDebounce';
 import { base_url } from '@/helper/consts';
 import { moduleTypes } from '@/helper/platform/modules';
+import { useModuleMutation } from '@/hooks/useModuleMutation';
 
 const fetchModules = async ({ token, filters, limit, page, courseId, activeFilter }) => {
   const { searchQuery, name, type, access } = filters;
@@ -56,23 +57,6 @@ const fetchModules = async ({ token, filters, limit, page, courseId, activeFilte
   return res.json();
 };
 
-const deleteModule = async ({ token, arrayOfIds }) => {
-  const res = await fetch(`${base_url}/admin/education/modules/delete`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json',
-    },
-    method: 'POST',
-    body: JSON.stringify({ moduleIds: arrayOfIds }),
-  });
-
-  if (!res.ok) {
-    const errorBody = await res.json();
-    const message = errorBody?.message || 'Помилка видалення';
-    throw new Error(message);
-  }
-};
-
 const Table = ({ selectedProducts, setSelectedProducts, search }) => {
   const [nameFilter, setNameFilter] = useState('1');
   const [selectedId, setSelectedId] = useState(null);
@@ -82,7 +66,6 @@ const Table = ({ selectedProducts, setSelectedProducts, search }) => {
   const [showDialogWindow, setShowDialogWindow] = useState(false);
   const [activeFilter, setActiveFilter] = useState('name');
   const { data: token } = useSession();
-  const queryClient = useQueryClient();
 
   const params = useParams();
   const courseId = params.course_id;
@@ -92,6 +75,11 @@ const Table = ({ selectedProducts, setSelectedProducts, search }) => {
   const debouncedAccess = useDebounce(accessFilter, 500);
 
   const queryKey = ['modules', debouncedName, debouncedType, debouncedAccess, currentPage, search];
+  const moduleMutation = useModuleMutation({
+    token: token?.accessToken,
+    queryKey,
+    onSuccessCallback: () => setShowDialogWindow(false),
+  });
 
   const {
     data: modules,
@@ -116,18 +104,6 @@ const Table = ({ selectedProducts, setSelectedProducts, search }) => {
     placeholderData: prevD => prevD,
   });
 
-  const mutation = useMutation({
-    mutationFn: ({ id }) => deleteModule({ token: token.accessToken, arrayOfIds: [id] }),
-    onSuccess: () => {
-      toast.success('Успішно видалено модуль');
-      setShowDialogWindow(false);
-      queryClient.invalidateQueries({ queryKey });
-    },
-    onError: err => {
-      toast.error(`Помилка: ${err.message}`);
-      setShowDialogWindow(false);
-    },
-  });
   if (isLoading) {
     return (
       <div className={styles.loader_wrapper}>
@@ -137,7 +113,7 @@ const Table = ({ selectedProducts, setSelectedProducts, search }) => {
   }
 
   const onDeleteModule = () => {
-    mutation.mutate({ id: selectedId });
+    moduleMutation.mutate({ id: [selectedId] });
   };
 
   if (isError) return <div>Error...</div>;

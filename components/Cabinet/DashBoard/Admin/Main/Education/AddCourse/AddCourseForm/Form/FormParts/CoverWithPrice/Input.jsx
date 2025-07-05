@@ -7,7 +7,6 @@ const Input = ({ name, title, options }) => {
     register,
     formState: { errors },
   } = useFormContext();
-  console.log('error', errors);
 
   return (
     <label className={styles.label}>

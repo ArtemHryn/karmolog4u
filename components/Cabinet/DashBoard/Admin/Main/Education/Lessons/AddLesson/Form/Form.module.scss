@@ -33,10 +33,13 @@
   gap: 32px;
   @media all and (width >= $min_tablet) {
     flex-wrap: wrap;
-    max-height: 815px;
+    max-height: 825px;
+    &_module {
+      max-height: 900px;
+    }
   }
   @media all and (width >= $min_desktop) {
-    max-height: 660px;
+    max-height: 680px;
   }
 }
 

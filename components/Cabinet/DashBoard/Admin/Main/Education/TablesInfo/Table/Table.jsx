@@ -20,7 +20,6 @@ import styles from './Table.module.scss';
 import './table.scss';
 import 'react-toastify/dist/ReactToastify.css';
 import ConfirmWindow from './ConfirmWindow/ConfirmWindow';
-import Link from 'next/link';
 import NameColumnBody from './NameColumnBody/NameColumnBody';
 
 const fetchCourses = async ({ token, status, filters, limit, page }) => {
@@ -94,7 +93,7 @@ const deleteCourse = async ({ token, arrayOfIds }) => {
   }
 };
 
-const Table = ({ activeBtn, search, setNumberOsCourses }) => {
+const Table = ({ activeBtn, search, setNumberOfCourses }) => {
   const [selectedProducts, setSelectedProducts] = useState(null);
   const [nameFilter, setNameFilter] = useState('1');
   const [typeFilter, setTypeFilter] = useState([]);
@@ -165,8 +164,8 @@ const Table = ({ activeBtn, search, setNumberOsCourses }) => {
     mutation.mutate({ id: selectedId, action: 'delete' });
   };
   useEffect(() => {
-    if (courses && courses.length > 0) setNumberOsCourses(courses[0].statusCounters);
-  }, [courses, setNumberOsCourses]);
+    if (courses && courses.length > 0) setNumberOfCourses(courses[0].statusCounters);
+  }, [courses, setNumberOfCourses]);
 
   if (isLoading) {
     return (

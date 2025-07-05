@@ -21,7 +21,7 @@ const getCourseInfo = async (id, token) => {
   return res.json();
 };
 
-const AddModulePage = async ({ params }) => {
+const AddLessonPage = async ({ params }) => {
   const session = await getServerSession(authOptions);
   const accessToken = session?.accessToken;
   if (!accessToken) {
@@ -40,4 +40,4 @@ const AddModulePage = async ({ params }) => {
   }
 };
 
-export default AddModulePage;
+export default AddLessonPage;
