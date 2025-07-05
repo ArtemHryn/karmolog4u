@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { useSession } from 'next-auth/react';
 import { useMutation } from '@tanstack/react-query';
@@ -33,7 +33,7 @@ const uploadFile = async ({ files, token }) => {
 const MAX_FILES = 10;
 const fieldName = 'optionalFiles';
 
-const AdditionalFiles = ({ editFiles }) => {
+const AdditionalFiles = ({ editFiles, title, form_name = fieldName }) => {
   const [files, setFiles] = useState(editFiles || []);
   const { register, setValue, setError } = useFormContext();
   const { data: token } = useSession();
@@ -43,7 +43,7 @@ const AdditionalFiles = ({ editFiles }) => {
     onSuccess: data => {
       const allFiles = [...files, ...data.uploaded];
       setFiles(allFiles);
-      setValue(fieldName, allFiles, { shouldValidate: true });
+      setValue(form_name, allFiles, { shouldValidate: true });
     },
     onError: err => {
       toast.error(`Помилка: ${err.message}`);
@@ -53,7 +53,7 @@ const AdditionalFiles = ({ editFiles }) => {
   const handleFileChange = e => {
     const newFiles = Array.from(e.target.files);
     if (newFiles.length + files.length > MAX_FILES) {
-      setError(fieldName, { message: 'Максимум 10 файлів' });
+      setError(form_name, { message: 'Максимум 10 файлів' });
       return;
     }
 
@@ -65,49 +65,46 @@ const AdditionalFiles = ({ editFiles }) => {
     e.preventDefault();
     const afterRemoving = files.filter((file, index) => i !== index);
     setFiles(afterRemoving);
-    setValue(fieldName, afterRemoving, { shouldValidate: true });
+    setValue(form_name, afterRemoving, { shouldValidate: true });
   };
 
   return (
     <div className={styles.label}>
-      <p>6. Додаткові файли курсу</p>
+      <p>{title}</p>
       <label className={styles.file_label} onClick={e => e.stopPropagation()}>
         {files.length > 0 && (
           <ul className={styles.files_list}>
-            {files.map((fileUrl, index) => {
-              const fileName = fileUrl.split('/').pop();
-              return (
-                <li
-                  key={index}
-                  className={styles.files_item}
-                  onClick={e => {
-                    handleFileRemove(e, index);
-                  }}
+            {files.map((file, index) => (
+              <li
+                key={index}
+                className={styles.files_item}
+                onClick={e => {
+                  handleFileRemove(e, index);
+                }}
+              >
+                <p className={styles.file_name}>{file.originalName}</p>
+                <svg
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className={styles.delete_icon}
                 >
-                  <p className={styles.file_name}>{fileName}</p>
-                  <svg
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className={styles.delete_icon}
-                  >
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M8.94283 8.00017L11.8048 5.13817C12.0655 4.8775 12.0655 4.45617 11.8048 4.1955C11.5442 3.93483 11.1228 3.93483 10.8622 4.1955L8.00017 7.0575L5.13817 4.1955C4.8775 3.93483 4.45617 3.93483 4.1955 4.1955C3.93483 4.45617 3.93483 4.8775 4.1955 5.13817L7.0575 8.00017L4.1955 10.8622C3.93483 11.1228 3.93483 11.5442 4.1955 11.8048C4.3255 11.9348 4.49617 12.0002 4.66683 12.0002C4.8375 12.0002 5.00817 11.9348 5.13817 11.8048L8.00017 8.94283L10.8622 11.8048C10.9922 11.9348 11.1628 12.0002 11.3335 12.0002C11.5042 12.0002 11.6748 11.9348 11.8048 11.8048C12.0655 11.5442 12.0655 11.1228 11.8048 10.8622L8.94283 8.00017Z"
-                      fill="#6C6C6C"
-                    />
-                  </svg>
-                </li>
-              );
-            })}
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M8.94283 8.00017L11.8048 5.13817C12.0655 4.8775 12.0655 4.45617 11.8048 4.1955C11.5442 3.93483 11.1228 3.93483 10.8622 4.1955L8.00017 7.0575L5.13817 4.1955C4.8775 3.93483 4.45617 3.93483 4.1955 4.1955C3.93483 4.45617 3.93483 4.8775 4.1955 5.13817L7.0575 8.00017L4.1955 10.8622C3.93483 11.1228 3.93483 11.5442 4.1955 11.8048C4.3255 11.9348 4.49617 12.0002 4.66683 12.0002C4.8375 12.0002 5.00817 11.9348 5.13817 11.8048L8.00017 8.94283L10.8622 11.8048C10.9922 11.9348 11.1628 12.0002 11.3335 12.0002C11.5042 12.0002 11.6748 11.9348 11.8048 11.8048C12.0655 11.5442 12.0655 11.1228 11.8048 10.8622L8.94283 8.00017Z"
+                    fill="#6C6C6C"
+                  />
+                </svg>
+              </li>
+            ))}
           </ul>
         )}
         <input
           type="file"
           multiple
           className={styles.file_input}
-          {...register(fieldName, {
+          {...register(form_name, {
             onChange: handleFileChange,
           })}
           max={MAX_FILES - files.length}

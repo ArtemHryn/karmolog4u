@@ -1,0 +1,72 @@
+@import '/styles/main.scss';
+
+.period_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  @media all and (width >= $min_tablet) {
+    width: calc((100% - 24px) / 2);
+  }
+  @media all and (width >= $min_desktop) {
+    width: calc((100% - 127px) / 3);
+  }
+}
+
+.label_wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  @include fontRegular(14px, 600, 14px, $third_text_color);
+  @media all and (width >= $min_tablet) {
+    font-size: 16px;
+  }
+  @media all and (width >= $min_desktop) {
+  }
+}
+
+.input {
+  border: 1px solid $p_separators;
+  border-radius: 8px;
+  padding: 8px 8px 8px 16px;
+  width: 100%;
+  height: 44px;
+  &::placeholder {
+    @include fontRegular(14px, 400, 14px, $p_second_text_color);
+  }
+}
+
+//time
+
+.main_time_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.time_wrapper {
+  display: flex;
+  height: 52px;
+  align-items: center;
+  border: 1px solid $p_separators;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.time_label {
+  display: flex;
+  gap: 8px;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.error {
+  border-color: red !important;
+  outline-color: red !important;
+}

@@ -47,15 +47,16 @@ const authOptions = {
   },
   callbacks: {
     async jwt({ token, user }) {
-      const expiresAt = Date.now() + 50 * 60 * 1000;
+      const ONE_HOUR = 60 * 60 * 1000;
+      const now = Date.now();
       if (user) {
         token.accessToken = user.accessToken;
         token.refreshToken = user.refreshToken;
-        token.role = user.userData.role;
-        token.expiresAt = expiresAt;
+        token.role = user.userData?.role;
+        token.expiresAt = now + ONE_HOUR;
       }
 
-      if (Date.now() > token.expiresAt) {
+      if (token.expiresAt && now > token.expiresAt) {
         try {
           const refreshResponse = await fetch(`${base_url}/auth/refresh-token`, {
             method: 'POST',
@@ -68,11 +69,15 @@ const authOptions = {
             const newTokens = await refreshResponse.json();
             token.accessToken = newTokens.accessToken;
             token.refreshToken = newTokens.refreshToken;
-            token.expiresAt = expiresAt;
-            console.log('refreshed: ', new Date());
+            token.expiresAt = now + ONE_HOUR;
+            console.log('refreshed at ', new Date(Date.now()));
+          } else {
+            console.error('Failed to refresh token:', refreshResponse);
+            // Якщо не вдалося оновити токен, повертаємо null
+            return null;
           }
         } catch (error) {
-          console.error('Token refresh error:', error);
+          console.log('Error during token refresh:', error);
         }
       }
 

@@ -1,0 +1,64 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: $main_text_color;
+  border-radius: 8px;
+  padding: 24px 16px;
+  width: 296px;
+  @media all and (width >= $min_tablet) {
+    width: 433px;
+    padding: 32px 40px;
+  }
+}
+
+.title {
+  @include fontRegular(14px, 600, 24px, $third_text_color);
+  @media all and (width >= $min_tablet) {
+    font-size: 16px;
+  }
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input {
+  width: 100%;
+  height: 40px;
+  border-radius: 8px;
+  padding: 0 16px;
+  outline: none;
+  border: 1px solid $p_separators;
+  @include fontRegular(14px, 400, 24px, $third_text_color);
+  @media all and (width >= $min_tablet) {
+    font-size: 16px;
+  }
+}
+
+.button {
+  @include buttonsDefault();
+  gap: 8px;
+  width: 130px;
+  height: 44px;
+  background-color: $p_active_button;
+  @include fontRegular(14px, 600, 24px, $main_text_color);
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+  @media all and (width >= $min_tablet) {
+    width: 139;
+    font-size: 16px;
+  }
+}

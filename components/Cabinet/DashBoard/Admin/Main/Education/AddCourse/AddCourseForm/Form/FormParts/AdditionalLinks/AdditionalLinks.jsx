@@ -4,7 +4,7 @@ import ModalAddLinks from './ModalAddLinks';
 
 import styles from './AdditionalLinks.module.scss';
 
-const AdditionalLinks = () => {
+const AdditionalLinks = ({ title = '7. Додаткові посилання', form_name = 'additional_links' }) => {
   const [showModal, setShowModal] = useState(false);
   const {
     register,
@@ -14,18 +14,18 @@ const AdditionalLinks = () => {
   return (
     <>
       <div className={styles.wrapper}>
-        <p className={styles.title}>7. Додаткові посилання</p>
+        <p className={styles.title}>{title}</p>
         <div className={styles.input_wrapper}>
           <input
             type="text"
-            {...register(`additional_links.0.name`)}
+            {...register(`${form_name}.0.name`)}
             placeholder="Назва"
             className={styles.input}
           />
           <div className={styles.link_input_wrapper}>
             <input
               type="text"
-              {...register(`additional_links.0.link`)}
+              {...register(`${form_name}.0.link`)}
               placeholder="Посилання"
               className={`${styles.input} ${styles.input_link}`}
             />
@@ -46,7 +46,7 @@ const AdditionalLinks = () => {
         <ModalAddLinks
           setShowModal={setShowModal}
           title={'Додаткові посилання'}
-          fieldName={'additional_links'}
+          fieldName={form_name}
         />
       )}
     </>

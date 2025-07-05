@@ -45,3 +45,7 @@ export const SSK_WITH_CURATOR = 'SSK_WITH_CURATOR';
 export const SSK_WITH_SERGIY = 'SSK_WITH_SERGIY';
 export const ADVANCED = 'ADVANCED';
 export const CONSULTING = 'CONSULTING';
+
+//module types
+export const THEORETICAL = 'THEORETICAL';
+export const PRACTICAL = 'PRACTICAL';

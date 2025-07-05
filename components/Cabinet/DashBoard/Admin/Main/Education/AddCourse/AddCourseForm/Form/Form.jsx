@@ -23,8 +23,6 @@ import styles from './Form.module.scss';
 import 'react-toastify/dist/ReactToastify.css';
 
 async function AddOrUpdateCourse({ data, token, action, id }) {
-  console.log(id);
-
   const url =
     action === 'add'
       ? `${base_url}/admin/education/course/create`
@@ -254,7 +252,10 @@ const Form = ({ editCourse }) => {
           <div className={`${styles.column} ${styles.column2}`}>
             <div className={`${styles.column2_1}`}>
               <AdditionalLinks />
-              <AdditionalFiles editFiles={editCourse?.optionalFiles} />
+              <AdditionalFiles
+                editFiles={editCourse?.optionalFiles}
+                title={'6. Додаткові файли курсу'}
+              />
               <PracticePaymentLink />
             </div>
             <CoverWithPrice />

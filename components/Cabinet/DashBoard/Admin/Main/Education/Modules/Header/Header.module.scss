@@ -1,0 +1,16 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: none;
+  @media all and (width >= $min_desktop) {
+    display: block;
+    background-color: $p_main_bg;
+    padding: 24px;
+    border-bottom: 1px solid $p_border;
+    height: 80px;
+  }
+}
+
+.title {
+  @include fontRegular(24px, 400, 25.2px, $third_text_color);
+}

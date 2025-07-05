@@ -1,0 +1,50 @@
+@import '/styles/main.scss';
+
+.actions_wrapper {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  @media all and (width >= $min_tablet) {
+    justify-content: flex-end;
+  }
+}
+
+.delete_button {
+  @include buttonsDefault();
+  width: 44px;
+  height: 44px;
+  padding: 0px 12px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  background-color: $p_main_bg;
+  & > svg {
+    width: 20px;
+    height: 20px;
+  }
+  @media all and (width >= $min_tablet) {
+    order: 2;
+  }
+}
+
+.link_to_add_module {
+  @include buttonsDefault();
+  gap: 12px;
+  width: 135px;
+  height: 44px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  background-color: $p_active_button;
+  border: none;
+  @include fontRegular(14px, 600, 14px);
+  & > svg {
+    width: 16px;
+    height: 16px;
+  }
+  & > span > span {
+    @media all and (width < $min_tablet) {
+      display: none;
+    }
+  }
+  @media all and (width >= $min_tablet) {
+    order: 3;
+    width: 181px;
+  }
+}

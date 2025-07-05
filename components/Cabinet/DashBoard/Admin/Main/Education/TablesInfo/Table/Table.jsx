@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
@@ -20,6 +20,7 @@ import styles from './Table.module.scss';
 import './table.scss';
 import 'react-toastify/dist/ReactToastify.css';
 import ConfirmWindow from './ConfirmWindow/ConfirmWindow';
+import NameColumnBody from './NameColumnBody/NameColumnBody';
 
 const fetchCourses = async ({ token, status, filters, limit, page }) => {
   const { searchQuery, name, type, access, completeness } = filters;
@@ -92,7 +93,7 @@ const deleteCourse = async ({ token, arrayOfIds }) => {
   }
 };
 
-const Table = ({ activeBtn, search }) => {
+const Table = ({ activeBtn, search, setNumberOfCourses }) => {
   const [selectedProducts, setSelectedProducts] = useState(null);
   const [nameFilter, setNameFilter] = useState('1');
   const [typeFilter, setTypeFilter] = useState([]);
@@ -162,6 +163,9 @@ const Table = ({ activeBtn, search }) => {
   const onDeleteCourse = () => {
     mutation.mutate({ id: selectedId, action: 'delete' });
   };
+  useEffect(() => {
+    if (courses && courses.length > 0) setNumberOfCourses(courses[0].statusCounters);
+  }, [courses, setNumberOfCourses]);
 
   if (isLoading) {
     return (
@@ -197,11 +201,15 @@ const Table = ({ activeBtn, search }) => {
   return (
     <div>
       {showDialogWindow && (
-        <ConfirmWindow setShowDialogWindow={setShowDialogWindow} onDeleteCourse={onDeleteCourse} />
+        <ConfirmWindow
+          setShowDialogWindow={setShowDialogWindow}
+          onDelete={onDeleteCourse}
+          message={'Дійсно хочете видалити курс?'}
+        />
       )}
       <DataTable
         value={filterData()}
-        emptyMessage={<EmptyTable />}
+        emptyMessage={<EmptyTable message="Зараз немає даних. Додайте курс або змініть фільтр" />}
         selection={selectedProducts}
         onSelectionChange={e => setSelectedProducts(e.value)}
         resizableColumns
@@ -219,9 +227,9 @@ const Table = ({ activeBtn, search }) => {
       >
         <Column selectionMode="multiple" className={styles.column} />
         <Column
-          field="name"
           header={<NameHeader nameFilter={nameFilter} setNameFilter={setNameFilter} />}
           className={styles.column}
+          body={rowData => <NameColumnBody rowData={rowData} />}
         />
         <Column
           field="type"

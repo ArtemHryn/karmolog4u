@@ -1,12 +1,17 @@
 import styles from './TableHeaders.module.scss';
 
-const NameHeader = ({ nameFilter, setNameFilter }) => {
+const NameHeader = ({ nameFilter, setNameFilter, title = 'Назва', setActiveFilter }) => {
   return (
     <div className={styles.name_wrapper}>
-      <p>Назва</p>
+      <p>{title}</p>
       <button
         className={styles.button}
-        onClick={() => setNameFilter(prev => (prev === '1' ? '-1' : '1'))}
+        onClick={() => {
+          if (setActiveFilter) {
+            setActiveFilter();
+          }
+          setNameFilter(prev => (prev === '1' ? '-1' : '1'));
+        }}
       >
         <svg
           viewBox="0 0 20 16"

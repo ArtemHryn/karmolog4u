@@ -2,12 +2,20 @@ import { useFormContext } from 'react-hook-form';
 
 import styles from './CoverWithPrice.module.scss';
 
-const Input = ({ name, title }) => {
-  const { register } = useFormContext();
+const Input = ({ name, title, options }) => {
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
+
   return (
     <label className={styles.label}>
       {title}
-      <input {...register(name, {})} className={styles.input} type="number" />
+      <input
+        {...register(name, { ...options })}
+        className={`${styles.input} ${errors[name] ? styles.error : ''}`}
+        type="number"
+      />
     </label>
   );
 };

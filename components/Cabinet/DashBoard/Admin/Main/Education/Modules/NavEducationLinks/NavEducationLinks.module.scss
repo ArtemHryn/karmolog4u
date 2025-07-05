@@ -1,0 +1,28 @@
+@import '/styles/main.scss';
+
+.nav_education_list {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+}
+
+.nav_education_list_item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  & > span {
+    color: $p_active_button;
+  }
+}
+
+.link {
+  @include fontRegular(16px, 400, 16.8px, $p_active_button);
+  transition: background-color 0.3s ease;
+  @media all and (width >= $min_tablet) {
+    font-size: 18px;
+  }
+  &:hover {
+    color: $p_second_text_color;
+  }
+}

@@ -8,12 +8,17 @@ import { useState } from 'react';
 
 const TablesInfo = ({ search, setSearch }) => {
   const [activeBtn, setActiveBtn] = useState(PUBLISHED);
+  const [numberOfCourses, setNumberOfCourses] = useState(null);
 
   return (
     <div className={styles.wrapper}>
       <Actions search={search} setSearch={setSearch} />
-      <Filters activeBtn={activeBtn} setActiveBtn={setActiveBtn} />
-      <Table activeBtn={activeBtn} search={search} />
+      <Filters
+        activeBtn={activeBtn}
+        setActiveBtn={setActiveBtn}
+        numberOfCourses={numberOfCourses}
+      />
+      <Table activeBtn={activeBtn} search={search} setNumberOfCourses={setNumberOfCourses} />
     </div>
   );
 };

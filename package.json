@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@bprogress/next": "^3.2.12",
     "@nestjs-modules/mailer": "^1.9.1",
     "@tanstack/react-query": "^5.62.2",
     "date-fns": "^3.3.1",

@@ -1,0 +1,117 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid $p_separators;
+  border-radius: 12px;
+  padding: 16px;
+  width: 328px;
+  height: 196px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  background-color: $p_nav_bg;
+  margin-inline: auto;
+  @media all and (width >= $min_tablet) {
+    width: 100%;
+    height: 120px;
+    justify-content: flex-start;
+    gap: 16px;
+  }
+  @media all and (width >= $min_desktop) {
+    gap: 48px;
+  }
+}
+
+.img {
+  width: 92px;
+  height: 88px;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center;
+}
+
+//list
+
+.details_list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  @media all and (width >= $min_tablet) {
+    order: 2;
+    flex-grow: 1;
+  }
+  @media all and (width >= $min_tablet) {
+    max-width: calc((100% - 96px - 92px) / 2);
+  }
+}
+
+.second_list {
+  display: none;
+
+  @media all and (width >= $min_desktop) {
+    display: block;
+  }
+}
+
+.details_list_item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.list_text {
+  @include fontRegular(14px, 400, 16.8px, $third_text_color);
+  &:first-child {
+    width: 100px;
+  }
+  &:last-child {
+    font-weight: 600;
+    flex-grow: 1;
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Firefox */
+    scrollbar-width: none;
+
+    /* Edge/IE (не підтримується повністю, але на всяк) */
+    -ms-overflow-style: none;
+  }
+  @media all and (width >= $min_tablet) {
+    font-size: 16px;
+  }
+  @media all and (width >= $min_desktop) {
+    &:first-child {
+      width: 130px;
+    }
+    &:last-child {
+      overflow-x: auto;
+      max-width: calc(100% - 130px - 8px);
+    }
+  }
+}
+
+.list_button {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow-x: auto;
+  overflow-y: hidden;
+  @media (hover: hover) {
+    &:is(:hover, :focus) {
+      scale: 1;
+      color: $p_active_button;
+    }
+  }
+
+  @media (hover: none) {
+    &:is(:active, :focus) {
+      scale: 1;
+      color: $p_active_button;
+    }
+  }
+}
