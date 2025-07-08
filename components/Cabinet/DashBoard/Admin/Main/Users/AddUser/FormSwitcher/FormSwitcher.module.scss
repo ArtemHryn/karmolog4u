@@ -1,0 +1,8 @@
+@import '/styles/main.scss';
+
+.form_switcher_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-inline: auto;
+}

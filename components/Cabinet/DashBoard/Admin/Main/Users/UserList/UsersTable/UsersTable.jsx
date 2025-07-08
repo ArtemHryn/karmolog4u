@@ -6,10 +6,10 @@ import { users } from '@helper/db/users';
 import { Column } from 'primereact/column';
 
 import styles from './UsersTable.module.scss';
-import './table.scss';
 import ActionsColumn from './ActionsColumn/ActionsColumn';
-import Footer from '../../Deleted/Table/TableData/Footer/Footer';
+import Footer from '../../../Deleted/Table/TableData/Footer/Footer';
 import OpenAccountProperties from './OpenAccountProperties/OpenAccountProperties';
+import './table.scss';
 
 const UsersTable = () => {
   const [selectedProducts, setSelectedProducts] = useState(null);

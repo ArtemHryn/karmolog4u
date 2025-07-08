@@ -1,7 +1,7 @@
-import UsersList from '@components/Cabinet/DashBoard/Admin/Main/UserList/UsersList';
+import Users from '@/components/Cabinet/DashBoard/Admin/Main/Users/Users';
 
 const UsersListPage = () => {
-  return <UsersList />;
+  return <Users />;
 };
 
 export default UsersListPage;
