@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'next/navigation';
+import { useParams, usePathname } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
@@ -18,6 +18,7 @@ import { accessTypeList } from '@/helper/platform/coursesList';
 
 import styles from './Table.module.scss';
 import './table.scss';
+import Link from 'next/link';
 
 const Table = ({
   selectedProducts,
@@ -32,6 +33,7 @@ const Table = ({
   const [currentPage, setCurrentPage] = useState(1);
   const [showDialogWindow, setShowDialogWindow] = useState(false);
   const [showDialogMoveTo, setShowDialogMoveTo] = useState(false);
+  const pathName = usePathname();
   const { data: token } = useSession();
   const { module_id, course_id } = useParams();
   const debouncedName = useDebounce(nameFilter, 500);
@@ -167,7 +169,13 @@ const Table = ({
         <Column
           header={<NameHeader nameFilter={nameFilter} setNameFilter={setNameFilter} />}
           className={styles.column}
-          field="name"
+          body={rowData => (
+            <div>
+              <Link href={`${pathName}/edit/${rowData.id}`} className={styles.name_table_link}>
+                {rowData.name}
+              </Link>
+            </div>
+          )}
         />
         {module_id ? (
           <Column field="day" header={'Урок'} className={styles.column} />

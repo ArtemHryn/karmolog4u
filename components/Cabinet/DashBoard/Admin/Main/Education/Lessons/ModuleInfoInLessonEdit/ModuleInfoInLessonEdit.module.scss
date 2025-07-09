@@ -1,0 +1,55 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: 1px solid $p_separators;
+  border-radius: 12px;
+  padding: 16px;
+  width: 328px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  background-color: $p_btn_border;
+  @media all and (width >= $min_tablet) {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  @media all and (width >= $min_tablet) {
+    gap: 32px;
+  }
+}
+
+.list_el {
+  height: 24px;
+  display: flex;
+  &:first-child {
+    width: 122px;
+  }
+  &:last-child {
+    flex-grow: 1;
+  }
+  @media all and (width >= $min_tablet) {
+    height: 100%;
+    &:first-child {
+      width: 100%;
+    }
+  }
+}
+
+.column_name {
+  @include fontRegular(16px, 600, 16px, $third_text_color);
+}
+
+.column_data {
+  @include fontRegular(16px, 400, 16px, $third_text_color);
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap;
+}
