@@ -7,6 +7,8 @@ import SingleForm from './SingleForm/SingleForm';
 const SelectNoSSR = dynamic(() => import('react-select'), { ssr: false });
 
 import styles from './FormSwitcher.module.scss';
+import ImportUsersForm from './ImportUsersForm/ImportUsersForm';
+import ExportUsersForm from './ExportUsersForm/ExportUsersForm';
 
 const list = [
   { value: 'single', label: 'Додати користувача' },
@@ -16,8 +18,8 @@ const list = [
 
 const FormSwitcher = () => {
   const [selectedOption, setSelectedOption] = useState({
-    value: 'single',
-    label: 'Додати користувача',
+    value: 'export',
+    label: 'Експорт користувачів',
   });
 
   return (
@@ -40,6 +42,8 @@ const FormSwitcher = () => {
         }}
       />
       {selectedOption.value === 'single' && <SingleForm />}
+      {selectedOption.value === 'import' && <ImportUsersForm />}
+      {selectedOption.value === 'export' && <ExportUsersForm />}
     </div>
   );
 };

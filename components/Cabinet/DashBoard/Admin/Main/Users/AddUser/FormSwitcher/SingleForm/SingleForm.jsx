@@ -2,26 +2,20 @@ import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import dynamic from 'next/dynamic';
 import { Controller } from 'react-hook-form';
+import Tick from '../Tick/Tick';
+import SubmitButtons from '../SubmitButtons/SubmitButtons';
 import { base_url } from '@/helper/consts';
 
 const SelectNoSSR = dynamic(() => import('react-select'), { ssr: false });
 
 import styles from './SingleForm.module.scss';
-import SubmitButtons from '../SubmitButtons/SubmitButtons';
-import Tick from '../Tick/Tick';
-
-const list = [
-  { value: 'single', label: 'Додати користувача' },
-  { value: 'import', label: 'Імпортувати нових користувачів' },
-  { value: 'export', label: 'Експорт користувачів' },
-  { value: 'export2', label: 'Експорт користувачів2' },
-];
+import ProductsSelector from '../ProductsSelector/ProductsSelector';
 
 const SingleForm = () => {
   const [options, setOptions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const { register, control } = useForm({ defaultValues: {} });
+  const { register, control, handleSubmit } = useForm({ defaultValues: { products: [] } });
 
   //   useEffect(() => {
   //     const fetchOptions = async () => {
@@ -44,23 +38,27 @@ const SingleForm = () => {
   //     fetchOptions();
   //   }, []);
 
+  const onFormSubmit = data => {
+    console.log(data);
+  };
+
   return (
-    <form className={styles.form}>
+    <form className={styles.form} onSubmit={handleSubmit(onFormSubmit)}>
       <div className={styles.name_wrapper}>
         <label className={styles.label}>
-          {" Ім'я"}
+          {"Ім'я"}
           <input
             type="text"
-            {...register('name')}
-            className={`${styles.input} ${styles.input_name}`}
+            {...register('name', { required: true })}
+            className={`${styles.input}`}
           />
         </label>
         <label className={styles.label}>
           Прізвище
           <input
             type="text"
-            {...register('lastName')}
-            className={`${styles.input} ${styles.input_name}`}
+            {...register('lastName', { required: true })}
+            className={`${styles.input}`}
           />
         </label>
       </div>
@@ -68,33 +66,17 @@ const SingleForm = () => {
         Email
         <input
           type="email"
-          {...register('email')}
-          className={`${styles.input} ${styles.input_email}`}
+          {...register('email', { required: true })}
+          className={`${styles.input}`}
         />
       </label>
-      <div className={styles.selector_wrapper}>
-        <p className={styles.selector_label}>Додати до продукту</p>
-        <Controller
-          name="products"
-          control={control}
-          render={({ field }) => (
-            <SelectNoSSR
-              isMulti
-              isLoading={isLoading}
-              placeholder="Оберіть продукт"
-              value={field.value}
-              options={list}
-              styles={{
-                control: base => ({
-                  ...base,
-                  borderRadius: '8px',
-                  minHeight: '48px',
-                }),
-              }}
-            />
-          )}
-        />
-      </div>
+      <ProductsSelector
+        title={'Додати до продукту'}
+        control={control}
+        name={'products'}
+        isLoading={isLoading}
+      />
+
       <div className={styles.ticks_wrapper}>
         <Tick
           name={'Згенерувати та надіслати пароль на електронну пошту'}
