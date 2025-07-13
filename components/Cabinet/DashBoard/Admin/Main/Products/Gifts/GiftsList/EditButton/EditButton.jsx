@@ -5,6 +5,42 @@ import { OverlayPanel } from 'primereact/overlaypanel';
 import EditButtonIcon from '../../../Meditations/MeditationsList/EditButton/EditButtonIcon';
 import EditMenu from '../../../Meditations/MeditationsList/EditButton/EditMenu';
 import ConfirmDialogSet from '../../../ConfirmDialogSet/ConfirmDialogSet';
+import { base_url, HIDDEN, PUBLISHED } from '@/helper/consts';
+
+const deleteGift = async (id, token) => {
+  const res = await fetch(`${base_url}/admin/products/gifts/delete/${id}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (!res.ok) {
+    const errorMessage = await res.json();
+    throw new Error(errorMessage.message || 'Не вдалося видалити медитацію');
+  }
+
+  return res.json();
+};
+
+const hideGift = async (id, token, status) => {
+  const res = await fetch(`${base_url}/admin/products/gifts/status/${id}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ status }),
+  });
+
+  if (!res.ok) {
+    const errorMessage = await res.json();
+    throw new Error(errorMessage.message || 'Упс щось трапилось');
+  }
+
+  return res.json();
+};
 
 const EditButton = ({ id, name, status }) => {
   const [visibleDialogToHide, setVisibleDialogToHide] = useState(false);
@@ -16,9 +52,9 @@ const EditButton = ({ id, name, status }) => {
 
   const mutation = useMutation({
     mutationFn: async ({ action }) => {
-      if (action === 'delete') await deleteGuideAndBooks(id, token.accessToken);
+      if (action === 'delete') await deleteGift(id, token.accessToken);
       if (action === 'hide')
-        await hideGuideAndBooks(id, token.accessToken, status === HIDDEN ? PUBLISHED : HIDDEN);
+        await hideGift(id, token.accessToken, status === HIDDEN ? PUBLISHED : HIDDEN);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['gifts'] });

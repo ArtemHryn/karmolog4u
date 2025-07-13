@@ -5,12 +5,15 @@ import { authOptions } from '@app/api/auth/[...nextauth]/route';
 import { base_url } from '@helper/consts';
 import { getServerSession } from 'next-auth';
 
+export const revalidate = 0;
+
 const editMeditation = async (id, token) => {
   const res = await fetch(`${base_url}/admin/products/meditations/get/${id}`, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
+    cache: 'no-store',
   });
 
   if (!res.ok) {
@@ -20,7 +23,7 @@ const editMeditation = async (id, token) => {
 };
 
 const EditPage = async ({ params }) => {
-  const { accessToken } = await getServerSession(authOptions);;
+  const { accessToken } = await getServerSession(authOptions);
   const meditation = await editMeditation(params.id, accessToken);
 
   return (

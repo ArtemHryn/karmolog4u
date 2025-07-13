@@ -37,7 +37,7 @@ async function webinarAction({ data, token, action, id }) {
 
 const setDefaultValues = item => {
   if (!item) return {};
-  const { name, category, video, isWaiting, description, price = '', discount = null } = item;
+  const { name, category, video, isWaiting, description, price = '', discount = null, cover } = item;
   return {
     name_uk: name.uk,
     name_ru: name.ru,
@@ -50,6 +50,7 @@ const setDefaultValues = item => {
     discount: discount?.discount,
     start_date: discount ? new Date(discount.start) : undefined,
     end_date: discount ? new Date(discount.expiredAt) : undefined,
+    ...(cover ? { cover } : {}),
   };
 };
 
@@ -62,14 +63,7 @@ const AddWebinar = ({ edit }) => {
   const router = useRouter();
   const methods = useForm({ defaultValues: setDefaultValues(edit) });
   const { data: token } = useSession();
-  const {
-    handleSubmit,
-    getValues,
-    setValue,
-    watch,
-    formState: { errors },
-    setError,
-  } = methods;
+  const { handleSubmit, getValues, setValue, watch, setError } = methods;
 
   const mutation = useMutation({
     mutationFn: ({ info }) =>

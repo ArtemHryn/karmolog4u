@@ -6,12 +6,15 @@ import { base_url } from '@helper/consts';
 
 import styles from './edit_gifts_page.module.scss';
 
+export const revalidate = 0;
+
 const editGift = async (id, token) => {
   const res = await fetch(`${base_url}/admin/products/gifts/get/${id}`, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
+    cache: 'no-store',
   });
   if (!res.ok) {
     throw new Error('Failed to fetch guide or book');
@@ -22,9 +25,10 @@ const editGift = async (id, token) => {
 const EditPage = async ({ params }) => {
   const { accessToken } = await getServerSession(authOptions);
   const gift = await editGift(params.id, accessToken);
+
   return (
     <div className={styles.wrapper}>
-      <FormHead title={'Створити публікацію'} />
+      <FormHead title={'Редагувати публікацію'} />
       <AddGift edit={gift} />
     </div>
   );
