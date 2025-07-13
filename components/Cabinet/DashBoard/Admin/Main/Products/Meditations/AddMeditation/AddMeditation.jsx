@@ -81,7 +81,6 @@ const MeditationForm = ({ edit }) => {
     getValues,
     setValue,
     watch,
-    formState: { errors },
     setError,
   } = methods;
 

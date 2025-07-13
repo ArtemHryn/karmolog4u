@@ -49,7 +49,7 @@ const setDefaultValues = item => {
     discount: discount?.discount,
     start_date: discount ? new Date(discount.start) : undefined,
     end_date: discount ? new Date(discount.expiredAt) : undefined,
-    // ...(cover ? { cover } : {}),
+    ...(cover ? { cover } : {}),
   };
 };
 
@@ -58,6 +58,8 @@ const AddGift = ({ edit }) => {
   const methods = useForm({ defaultValues: setDefaultValues(edit) });
   const { data: token } = useSession();
   const { handleSubmit, setValue, setError } = methods;
+
+  console.log(edit);
 
   const mutation = useMutation({
     mutationFn: ({ info }) =>

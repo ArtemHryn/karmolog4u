@@ -39,7 +39,6 @@ const Gifts = () => {
 
   if (isError) return <div>Error...</div>;
 
-
   return (
     <div className={styles.wrapper}>
       <Status activeStatus={status} setActiveStatus={setStatus} products={gifts} />
