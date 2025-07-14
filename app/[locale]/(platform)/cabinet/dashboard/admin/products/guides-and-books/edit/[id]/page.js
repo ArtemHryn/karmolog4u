@@ -6,12 +6,15 @@ import { authOptions } from '@app/api/auth/[...nextauth]/route';
 import styles from './edit_meditation_page.module.scss';
 import { base_url } from '@helper/consts';
 
+export const revalidate = 0;
+
 const editGuideAndBook = async (id, token) => {
   const res = await fetch(`${base_url}/admin/products/guides-and-books/get/${id}`, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
+    cache: 'no-store',
   });
   if (!res.ok) {
     throw new Error('Failed to fetch guide or book');

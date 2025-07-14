@@ -82,8 +82,8 @@ const MeditationForm = ({ edit }) => {
   const router = useRouter();
   const methods = useForm({ defaultValues: setDefaultValues(edit) });
   const { data: token } = useSession();
-  const { handleSubmit, getValues, setValue, watch, setError } = methods;
 
+  const { handleSubmit, getValues, setValue, watch, setError } = methods;
   const mutation = useMutation({
     mutationFn: ({ info }) =>
       addMeditation({

@@ -37,6 +37,7 @@ async function webinarAction({ data, token, action, id }) {
 
 const setDefaultValues = item => {
   if (!item) return {};
+
   const {
     name,
     category,
