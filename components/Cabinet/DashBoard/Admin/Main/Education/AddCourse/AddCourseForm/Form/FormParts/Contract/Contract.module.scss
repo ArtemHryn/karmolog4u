@@ -173,6 +173,12 @@
   position: absolute;
   top: 48%;
   right: 18%;
+  width: 18px;
+  height: 20px;
+  & > svg {
+    width: 18px;
+    height: 20px;
+  }
   @media all and (width >= $min_tablet) {
     right: 25%;
   }

@@ -49,9 +49,16 @@ const CalendarComponent = ({ title, name, isDate }) => {
             prevIcon={<Prev />}
             placeholder="Введіть дату"
           />
-          <CalendarIcon
-            styled={`${styles.calendar_icon} ${isDate ? styles.calendar_icon_date : ''}`}
-          />
+          <button
+            className={`${styles.calendar_icon} ${isDate ? styles.calendar_icon_date : ''}`}
+            onClick={() => {
+              field.onChange(null);
+              clearErrors(name);
+              trigger(name);
+            }}
+          >
+            <CalendarIcon />
+          </button>
         </div>
       )}
     />

@@ -38,15 +38,7 @@ async function guideAndBooksAction({ data, token, action, id }) {
 
 const setDefaultValues = item => {
   if (!item) return {};
-  const {
-    name,
-    category,
-    video,
-    description,
-    price = '',
-    discount = null,
-    cover = null,
-  } = item;
+  const { name, category, video, description, price = '', discount = null, cover = null } = item;
   return {
     name_uk: name.uk,
     name_ru: name.ru,
@@ -58,7 +50,7 @@ const setDefaultValues = item => {
     discount: discount?.discount,
     start_date: discount ? new Date(discount.start) : undefined,
     end_date: discount ? new Date(discount.expiredAt) : undefined,
-    ...(cover ? { cover } : {}),
+    ...(cover ? { cover } : { cover: '' }),
   };
 };
 
@@ -84,6 +76,7 @@ const AddGuideAndBooks = ({ edit }) => {
       }),
     onSuccess: () => {
       toast.success('Запис успішно додано!', { autoClose: 2000 });
+      router.refresh();
       setTimeout(() => router.push('/cabinet/dashboard/admin/products/guides-and-books'), 2500);
     },
     onError: err => {

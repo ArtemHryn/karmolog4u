@@ -93,10 +93,10 @@ const setDefaultFormFields = items => {
       contract.points && contract.points.length > 0
         ? contract.points
         : [{ name: '', description: '' }],
-    contract_date: new Date(contract.date),
-    sign_up_to: new Date(contract.signUpTo),
-    price_in_contract: contract.price,
-    contract_header: contract.header,
+    contract_date: !isNaN(new Date(contract.date)) ? new Date(contract.date) : '',
+    sign_up_to: !isNaN(new Date(contract.signUpTo)) ? new Date(contract.signUpTo) : '',
+    price_in_contract: contract.price || '',
+    contract_header: contract.header || '',
     literature:
       literature && literature.length > 0
         ? literature
@@ -125,6 +125,7 @@ const Form = ({ editCourse }) => {
       }),
     onSuccess: () => {
       toast.success('Запис успішно додано!', { autoClose: 1000 });
+      router.refresh();
       setTimeout(() => router.push('/cabinet/dashboard/admin/education/'), 1500);
     },
     onError: err => {
@@ -182,37 +183,52 @@ const Form = ({ editCourse }) => {
       return;
     }
 
-    const fields = [
-      'contract_date',
-      'sign_up_to',
-      'price_in_contract',
-      'contract_header',
-      'points',
-    ];
-
-    const contract = {
-      date: data.contract_date,
-      signUpTo: data.sign_up_to,
-      price: data.price_in_contract,
-      header: data.contract_header,
-      points: data.points?.filter(point => point.name && point.description) || undefined,
+    const fieldMap = {
+      contract_date: 'date',
+      sign_up_to: 'signUpTo',
+      price_in_contract: 'price',
+      contract_header: 'header',
     };
 
-    const validateContract = () => {
+    const contract = {};
+
+    Object.entries(fieldMap).forEach(([sourceKey, targetKey]) => {
+      if (data[sourceKey]) {
+        contract[targetKey] = data[sourceKey];
+      }
+    });
+
+    if (Array.isArray(data.points)) {
+      const filteredPoints = data.points.filter(p => p.name && p.description);
+      if (filteredPoints.length > 0) {
+        contract.points = filteredPoints;
+      }
+    }
+
+    if (Object.keys(contract).length > 0) {
+      const requiredFields = [
+        'contract_date',
+        'sign_up_to',
+        'price_in_contract',
+        'contract_header',
+        'points',
+      ];
       let hasError = false;
-      fields.forEach(key => {
-        if (!data[key] || (Array.isArray(data[key]) && data[key].length === 0)) {
-          setFieldError(key, "Це поле обов'язкове");
+
+      requiredFields.forEach(key => {
+        const value = data[key];
+        const isEmpty = !value || (Array.isArray(value) && value.length === 0);
+
+        if (isEmpty) {
+          setFieldError(key, 'Це поле обов’язкове');
           hasError = true;
         }
       });
 
-      return hasError;
-    };
-
-    if (validateContract()) {
-      toast.error('Заповніть всі поля контракту');
-      return;
+      if (hasError) {
+        toast.error('Заповніть всі поля контракту');
+        return;
+      }
     }
 
     const requiredParams = {
@@ -224,7 +240,7 @@ const Form = ({ editCourse }) => {
         ...(period === 'TO_DATE' && { start_date, end_date }),
         ...(period === 'FOR_PERIOD' && { months }),
       },
-      contract,
+      // contract,
       chat,
       optionalFiles,
       optionalLink: data.additional_links?.filter(link => link.name && link.link) || [],
@@ -236,7 +252,16 @@ const Form = ({ editCourse }) => {
       cover,
     };
 
+    if (
+      contract &&
+      Object.keys(contract).length > 0 &&
+      Object.values(contract).some(value => value !== '' && value !== undefined)
+    ) {
+      requiredParams.contract = contract;
+    }
+
     mutation.mutate({ info: requiredParams });
+    // console.log(requiredParams);
   };
 
   return (

@@ -11,7 +11,13 @@ import OpenedPart from './OpenedPart/OpenedPart';
 import RequiredLabels from './RequiredLabels/RequiredLabels';
 import SubmitButtons from './SubmitButtons/SubmitButtons';
 
-import { ARCANES, base_url, CLOSED_MEDITATIONS, OPENED_MEDITATIONS, youtubeRegex } from '@helper/consts';
+import {
+  ARCANES,
+  base_url,
+  CLOSED_MEDITATIONS,
+  OPENED_MEDITATIONS,
+  youtubeRegex,
+} from '@helper/consts';
 
 import styles from './AddMeditationForm.module.scss';
 import 'react-toastify/dist/ReactToastify.css';
@@ -62,7 +68,7 @@ const setDefaultValues = item => {
     discount: discount?.discount,
     start_date: discount ? new Date(discount.start) : undefined,
     end_date: discount ? new Date(discount.expiredAt) : undefined,
-    ...(cover ? { cover } : {}),
+    ...(cover ? { cover } : { cover: '' }),
   };
 };
 
@@ -76,14 +82,7 @@ const MeditationForm = ({ edit }) => {
   const router = useRouter();
   const methods = useForm({ defaultValues: setDefaultValues(edit) });
   const { data: token } = useSession();
-  const {
-    handleSubmit,
-    getValues,
-    setValue,
-    watch,
-    formState: { errors },
-    setError,
-  } = methods;
+  const { handleSubmit, getValues, setValue, watch, setError } = methods;
 
   const mutation = useMutation({
     mutationFn: ({ info }) =>
@@ -95,14 +94,13 @@ const MeditationForm = ({ edit }) => {
       }),
     onSuccess: () => {
       toast.success('Медитацію успішно додано!', { autoClose: 2500 });
+      router.refresh();
       setTimeout(() => router.push('/cabinet/dashboard/admin/products/meditations'), 3000);
     },
     onError: err => {
       toast.error(`Помилка: ${err.message}`);
     },
   });
-
-
 
   const setStatusAndSubmit = status => {
     setValue('status', status);
@@ -122,6 +120,7 @@ const MeditationForm = ({ edit }) => {
       });
       return;
     }
+
     const videoId = video.match(youtubeRegex)[1];
 
     const formData = new FormData();

@@ -37,7 +37,7 @@ async function AddOrUpdateGift({ data, token, action, id }) {
 }
 
 const setDefaultValues = item => {
-  if (!item) return {};
+  if (!item) return { cover: '' };
   const { name, description, price = '', discount = null, cover = null } = item;
 
   return {
@@ -49,7 +49,7 @@ const setDefaultValues = item => {
     discount: discount?.discount,
     start_date: discount ? new Date(discount.start) : undefined,
     end_date: discount ? new Date(discount.expiredAt) : undefined,
-    // ...(cover ? { cover } : {}),
+    ...(cover ? { cover } : { cover: '' }),
   };
 };
 
@@ -57,7 +57,7 @@ const AddGift = ({ edit }) => {
   const router = useRouter();
   const methods = useForm({ defaultValues: setDefaultValues(edit) });
   const { data: token } = useSession();
-  const { handleSubmit, setValue, setError } = methods;
+  const { handleSubmit, setValue } = methods;
 
   const mutation = useMutation({
     mutationFn: ({ info }) =>
@@ -69,6 +69,7 @@ const AddGift = ({ edit }) => {
       }),
     onSuccess: () => {
       toast.success('Запис успішно додано!', { autoClose: 1000 });
+      router.refresh();
       setTimeout(() => router.push('/cabinet/dashboard/admin/products/gifts'), 1500);
     },
     onError: err => {
@@ -85,12 +86,12 @@ const AddGift = ({ edit }) => {
     const { name_uk, name_ru, status, cover, description_uk, description_ru, discount, price } =
       data;
 
-    if (!cover || cover.length === 0) {
-      setError('cover', {
-        type: 'manual',
-        message: 'Додайте Картинку',
-      });
-    }
+    // if (!cover || cover.length === 0) {
+    //   setError('cover', {
+    //     type: 'manual',
+    //     message: 'Додайте Картинку',
+    //   });
+    // }
 
     const formData = new FormData();
 
@@ -108,7 +109,9 @@ const AddGift = ({ edit }) => {
       formData.append(key, JSON.stringify(value))
     );
 
-    formData.append('cover', cover);
+    if (cover) {
+      formData.append('cover', cover);
+    }
 
     if (discount) {
       formData.append(

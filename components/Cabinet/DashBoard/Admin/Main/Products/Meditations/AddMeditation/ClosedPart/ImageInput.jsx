@@ -10,6 +10,7 @@ const ImageInput = () => {
 
   useEffect(() => {
     const cover = getValues('cover');
+
     if (cover && typeof cover === 'string') {
       setPreviewImage(cover); // Якщо в `cover` посилання, використовуємо його як URL
     }
