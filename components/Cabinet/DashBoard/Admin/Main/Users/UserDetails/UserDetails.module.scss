@@ -1,0 +1,10 @@
+@import '/styles/main.scss';
+
+.user_details_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  @media all and (width >= $min_desktop) {
+    padding: 0px 24px 24px;
+  }
+}

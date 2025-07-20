@@ -1,0 +1,18 @@
+@import '/styles/main.scss';
+
+.info_part_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.table {
+  border: 1px solid $p_border;
+  border-radius: 8px;
+  min-width: 700px;
+}
+
+.column {
+  height: 60px;
+  padding: 16px;
+}

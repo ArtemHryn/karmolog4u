@@ -53,7 +53,11 @@ const fetchCourses = async ({ token, status, filters, limit, page }) => {
       },
     }
   );
-
+  if (!res.ok) {
+    const errorBody = await res.json();
+    const message = errorBody?.message || 'Помилка завантаження курсів';
+    throw new Error(message);
+  }
   return res.json();
 };
 

@@ -1,0 +1,12 @@
+@import '/styles/main.scss';
+
+.table {
+  border: 1px solid $p_border;
+  border-radius: 8px;
+  min-width: 700px;
+}
+
+.column {
+  height: 60px;
+  padding: 16px;
+}

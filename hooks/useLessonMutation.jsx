@@ -56,7 +56,7 @@ const changeModuleForLesson = async ({ token, lessonId, targetModule }) => {
 
   if (!res.ok) {
     const errorBody = await res.json();
-    const message = errorBody?.message || 'Помилка зміни модуля';
+    const message = errorBody?.message || 'Помилка зміни уроку';
     throw new Error(message);
   }
   return res.json();

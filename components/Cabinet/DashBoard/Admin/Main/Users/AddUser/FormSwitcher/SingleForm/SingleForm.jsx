@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import dynamic from 'next/dynamic';
-import { Controller } from 'react-hook-form';
 import Tick from '../Tick/Tick';
 import SubmitButtons from '../SubmitButtons/SubmitButtons';
 import { base_url } from '@/helper/consts';
@@ -82,13 +81,13 @@ const SingleForm = () => {
           name={'Згенерувати та надіслати пароль на електронну пошту'}
           id="1"
           register={register}
-          form_name={'send_password'}
+          form_name={'sendPassword'}
         />
         <Tick
           name={'Обліковий запис користувача активний'}
           id="2"
           register={register}
-          form_name={'user_is_active'}
+          form_name={'userIsActive'}
         />
       </div>
       <SubmitButtons />

@@ -1,44 +1,33 @@
-'use client';
-
-import { useState } from 'react';
-
 import dynamic from 'next/dynamic';
 import UserSortBy from './UserSortBy/UserSortBy';
 import UsersSearch from './UsersSearch/UsersSearch';
+import AddUserLink from '../../UserHeader/AddUserLink/AddUserLink';
+import { useCoursesList } from '@/hooks/useCoursesListForUsers';
 
 const SelectNoSSR = dynamic(() => import('react-select'), { ssr: false });
 
 import styles from './UsersFilter.module.scss';
-import AddUserLink from '../../UserHeader/AddUserLink/AddUserLink';
 
-const list = [
-  { value: 'all', label: 'Всі користувачі' },
-  { value: 'active', label: 'Активні користувачі' },
-  { value: 'inactive', label: 'Неактивні користувачі' },
-  { value: 'banned', label: 'Заблоковані користувачі' },
-];
+const UsersFilter = ({
+  selectedOption,
+  setSelectedOption,
+  search,
+  setSearch,
+  selectedSort,
+  setSelectedSort,
+}) => {
 
-const defaultOption = {
-  sort: {
-    name: 'name',
-    order: '1',
-    display_name: 'за іменем А-Я',
-  },
-  filter: list[0],
-};
-
-const UsersFilter = () => {
-  const [selectedOption, setSelectedOption] = useState(defaultOption.filter);
-  const [search, setSearch] = useState('');
-  const [selectedSort, setSelectedSort] = useState(defaultOption.sort);
+  const { coursesOptions, isLoading, isError } = useCoursesList();
 
   return (
     <div className={styles.main_wrapper}>
       <div className={styles.filter_for_phone}>
         <SelectNoSSR
-          options={list}
+          options={isError ? [] : coursesOptions}
+          isLoading={isLoading}
           value={selectedOption}
           onChange={opt => setSelectedOption(opt)}
+          placeholder="Вибрати курс"
           styles={{
             menu: base => ({
               ...base,
@@ -51,8 +40,10 @@ const UsersFilter = () => {
         <p className={styles.title}>Усі користувачі</p>
         <div className={styles.filter_for_table}>
           <SelectNoSSR
-            options={list}
             value={selectedOption}
+            options={isError ? [] : coursesOptions}
+            isLoading={isLoading}
+            placeholder="Вибрати курс"
             onChange={opt => setSelectedOption(opt)}
             styles={{
               menu: base => ({

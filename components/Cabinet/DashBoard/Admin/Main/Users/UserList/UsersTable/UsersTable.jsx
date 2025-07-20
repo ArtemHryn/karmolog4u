@@ -1,8 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { DataTable } from 'primereact/datatable';
-import { users } from '@helper/db/users';
 import { Column } from 'primereact/column';
 
 import styles from './UsersTable.module.scss';
@@ -11,23 +10,29 @@ import Footer from '../../../Deleted/Table/TableData/Footer/Footer';
 import OpenAccountProperties from './OpenAccountProperties/OpenAccountProperties';
 import './table.scss';
 
-const UsersTable = () => {
+const UsersTable = ({ users, totalUsers, currentPage, setCurrentPage }) => {
   const [selectedProducts, setSelectedProducts] = useState(null);
-  const [userList, setUserList] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
 
-  useEffect(() => {
-    const proceedData = users.map(item => {
-      const { name, lastName } = item;
-      return { ...item, fullName: `${name} ${lastName}` };
-    });
-    setUserList(proceedData);
-  }, []);
+  const filterUsers = () => {
+    if (!users || users.length === 0) return [];
+    const filtered = users.map(el => ({
+      name: el.name,
+      lastName: el.lastName,
+      id: el._id,
+      email: el.email,
+      mobPhone: el.mobPhone.startsWith('+') ? el.mobPhone : `+${el.mobPhone}`,
+      product: el.education?.[0]?.name || 'немає курсу',
+      createdAt: new Date(el.createdAt).toLocaleDateString(),
+      lastLogin: new Date(el.lastLogin).toLocaleDateString(),
+      banned: el.banned,
+    }));
+    return filtered;
+  };
 
   return (
     <div>
       <DataTable
-        value={userList}
+        value={filterUsers()}
         selection={selectedProducts}
         onSelectionChange={e => setSelectedProducts(e.value)}
         dataKey="id"
@@ -37,10 +42,10 @@ const UsersTable = () => {
         selectionMode={'checkbox'}
         footer={
           <Footer
-            totalPage={5}
+            totalPage={Math.ceil(totalUsers / 20)}
             setCurrentPage={setCurrentPage}
             currentPage={currentPage}
-            total={100}
+            total={totalUsers}
           />
         }
       >
@@ -51,11 +56,7 @@ const UsersTable = () => {
         <Column field="product" header="Продукт" className={styles.column} />
         <Column field="createdAt" header="Реєстрація" className={styles.column} />
         <Column field="lastLogin" header="Останній вхід" className={styles.column} />
-        <Column
-          body={rowData => <ActionsColumn rowData={rowData} />}
-          header=""
-          //   className={styles.column}
-        />
+        <Column body={rowData => <ActionsColumn rowData={rowData} />} header="" />
       </DataTable>
     </div>
   );
