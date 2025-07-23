@@ -77,7 +77,7 @@ const LoginForm = () => {
           Немає акаунту? <Link href={'/cabinet/registration'}>Зареєструватись</Link>
         </p>
         <p className={styles.link_to_registration}>
-          Уже створений але не <Link href={'/cabinet/verify'}>Верифікований?</Link>
+          Уже створений але не <Link href={'/cabinet/resent-verification'}>Верифікований?</Link>
         </p>
       </form>
     </div>

@@ -17,10 +17,7 @@ const list = [
 ];
 
 const FormSwitcher = () => {
-  const [selectedOption, setSelectedOption] = useState({
-    value: 'export',
-    label: 'Експорт користувачів',
-  });
+  const [selectedOption, setSelectedOption] = useState(list[0]);
 
   return (
     <div className={styles.form_switcher_wrapper}>

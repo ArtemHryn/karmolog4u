@@ -61,6 +61,11 @@
   border: 1px solid $form_border;
   border-radius: 30px;
   background-color: transparent;
+  outline: none;
+}
+
+.error {
+  border-color: red;
 }
 
 .button {

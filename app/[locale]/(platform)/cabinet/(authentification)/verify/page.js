@@ -1,7 +1,9 @@
-import SendVerifyAgain from '@/components/Cabinet/Authentication/SendVerifyAgain/SendVerifyAgain';
+import VerifyUser from '@/components/Cabinet/Authentication/VerifyUser/VerifyUser';
 
-const VerifyPage = () => {
-  return <SendVerifyAgain />;
+const VerifyUserPage = ({ searchParams }) => {
+  console.log(searchParams);
+
+  return <VerifyUser token={searchParams.token} />;
 };
 
-export default VerifyPage;
+export default VerifyUserPage;
