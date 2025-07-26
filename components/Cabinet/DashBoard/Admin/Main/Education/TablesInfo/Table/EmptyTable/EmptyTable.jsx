@@ -1,8 +1,8 @@
 import styles from './EmptyTable.module.scss';
 
-const EmptyTable = ({ message }) => {
+const EmptyTable = ({ message, styledWrapper }) => {
   return (
-    <div className={styles.wrapper}>
+    <div className={`${styles.wrapper} ${styledWrapper ? styledWrapper : ''}`}>
       <p>{message}</p>
     </div>
   );

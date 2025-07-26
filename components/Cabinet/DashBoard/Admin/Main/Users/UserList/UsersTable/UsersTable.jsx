@@ -9,23 +9,21 @@ import ActionsColumn from './ActionsColumn/ActionsColumn';
 import Footer from '../../../Deleted/Table/TableData/Footer/Footer';
 import OpenAccountProperties from './OpenAccountProperties/OpenAccountProperties';
 import './table.scss';
+import EmptyTable from '../../../Education/TablesInfo/Table/EmptyTable/EmptyTable';
 
 const UsersTable = ({ users, totalUsers, currentPage, setCurrentPage }) => {
   const [selectedProducts, setSelectedProducts] = useState(null);
 
   const filterUsers = () => {
     if (!users || users.length === 0) return [];
-    const filtered = users.map(el => ({
-      name: el.name,
-      lastName: el.lastName,
-      id: el._id,
-      email: el.email,
-      mobPhone: el.mobPhone.startsWith('+') ? el.mobPhone : `+${el.mobPhone}`,
-      product: el.education?.[0]?.name || 'немає курсу',
-      createdAt: new Date(el.createdAt).toLocaleDateString(),
-      lastLogin: new Date(el.lastLogin).toLocaleDateString(),
-      banned: el.banned,
+    const filtered = users.map(({ mobPhone, education, createdAt, lastLogin, ...otherData }) => ({
+      mobPhone: mobPhone.startsWith('+') ? mobPhone : `+${mobPhone}`,
+      product: education?.[0]?.name || 'немає курсу',
+      createdAt: new Date(createdAt).toLocaleDateString(),
+      lastLogin: lastLogin ? new Date(lastLogin).toLocaleDateString() : 'Не входив',
+      ...otherData,
     }));
+
     return filtered;
   };
 
@@ -39,7 +37,7 @@ const UsersTable = ({ users, totalUsers, currentPage, setCurrentPage }) => {
         tableClassName={`${styles.table}`}
         resizableColumns
         showGridlines
-        selectionMode={'checkbox'}
+        emptyMessage={<EmptyTable message="У вас немає користувачів" />}
         footer={
           <Footer
             totalPage={Math.ceil(totalUsers / 20)}
@@ -49,7 +47,6 @@ const UsersTable = ({ users, totalUsers, currentPage, setCurrentPage }) => {
           />
         }
       >
-        <Column selectionMode="multiple" className={styles.column} />
         <Column body={rowData => <OpenAccountProperties rowData={rowData} />} header="Ім’я" />
         <Column field="email" header="Email" className={styles.column} />
         <Column field="mobPhone" header="Телефон" className={styles.column} />

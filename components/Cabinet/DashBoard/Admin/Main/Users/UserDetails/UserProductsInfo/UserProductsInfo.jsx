@@ -11,6 +11,7 @@ const UserProductsInfo = ({ userDetails }) => {
   if (!userDetails) return <div>Немає продуктів</div>;
 
   const filterProducts = () => {
+    if (!userDetails?.products || userDetails.products.length === 0) return [];
     return userDetails.products.map(el => ({ ...el, type: 'Медитації' }));
   };
 

@@ -10,9 +10,14 @@ const list = [
   { name: 'email', order: '-1', display_name: 'за email Z-A' },
   { name: 'register_date', order: '1', display_name: 'за датою реєстрації 1-10' },
   { name: 'register_date', order: '-1', display_name: 'за датою реєстрації 10-1' },
-  { name: 'active', order: '1', display_name: 'за активністю' },
-  { name: 'blocked', order: '1', display_name: 'блоковані' },
-  { name: 'verified', order: '1', display_name: 'верифіковані' },
+  { name: 'lastLogin', order: '1', display_name: 'за активністю 1-10' },
+  { name: 'lastLogin', order: '-1', display_name: 'за активністю 10-1' },
+  { name: 'banned', order: '1', display_name: 'потім блоковані' },
+  { name: 'banned', order: '-1', display_name: 'спочатку блоковані' },
+  { name: 'verified', order: '-1', display_name: 'потім верифіковані' },
+  { name: 'verified', order: '1', display_name: 'спочатку верифіковані' },
+  { name: 'toDelete', order: '1', display_name: 'потім видалені' },
+  { name: 'toDelete', order: '-1', display_name: 'спочатку видалені' },
 ];
 
 const UserSortBy = ({ selectedFilter, setSelectedFilter }) => {

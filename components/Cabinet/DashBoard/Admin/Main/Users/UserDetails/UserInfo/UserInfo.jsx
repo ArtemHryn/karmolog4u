@@ -7,8 +7,31 @@ import SubmitButtons from './SubmitButtons';
 import { toast } from 'react-toastify';
 import { useEffect } from 'react';
 import Tick from '../../../Education/TablesInfo/Table/TableHeaders/Tick';
+import { base_url } from '../../../../../../../../helper/consts';
+import { useMutation } from '@tanstack/react-query';
+import { useSession } from 'next-auth/react';
+
+const updateUser = async ({ token, id, data }) => {
+  const res = await fetch(`${base_url}/admin/user/update/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+    method: 'POST',
+    body: JSON.stringify(data),
+  });
+  const parsedData = await res.json();
+
+  if (!res.ok) {
+    const message = parsedData?.message || 'Помилка оновлення користувача';
+    throw new Error(message);
+  }
+
+  return parsedData;
+};
 
 const UserInfo = ({ userDetails }) => {
+  const { data: token } = useSession();
   const { name, lastName, email, mobPhone, banned, role } = userDetails;
   const methods = useForm({
     defaultValues: { name, lastName, email, mobPhone, banned, isAdmin: role === 'ADMIN' },
@@ -16,10 +39,20 @@ const UserInfo = ({ userDetails }) => {
 
   const { handleSubmit, formState, control } = methods;
 
+  const mutation = useMutation({
+    mutationFn: ({ data }) => updateUser({ data, token: token?.accessToken, id: userDetails._id }),
+    onSuccess: () => {
+      toast.success('Успішно оновленно', { autoClose: 1000 });
+    },
+    onError: err => {
+      toast.error(err);
+    },
+  });
+
   const onFormSubmit = data => {
     const { isAdmin, ...otherData } = data;
     const editedData = { ...otherData, role: isAdmin ? 'ADMIN' : 'USER' };
-    console.log(editedData);
+    mutation.mutate({ data: editedData });
   };
 
   useEffect(() => {

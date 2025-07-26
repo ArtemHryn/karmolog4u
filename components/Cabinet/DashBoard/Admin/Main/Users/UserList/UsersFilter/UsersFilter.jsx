@@ -16,13 +16,13 @@ const UsersFilter = ({
   selectedSort,
   setSelectedSort,
 }) => {
-
   const { coursesOptions, isLoading, isError } = useCoursesList();
 
   return (
     <div className={styles.main_wrapper}>
       <div className={styles.filter_for_phone}>
         <SelectNoSSR
+          isClearable
           options={isError ? [] : coursesOptions}
           isLoading={isLoading}
           value={selectedOption}
@@ -40,6 +40,7 @@ const UsersFilter = ({
         <p className={styles.title}>Усі користувачі</p>
         <div className={styles.filter_for_table}>
           <SelectNoSSR
+            isClearable
             value={selectedOption}
             options={isError ? [] : coursesOptions}
             isLoading={isLoading}

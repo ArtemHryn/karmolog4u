@@ -5,9 +5,9 @@ import EmptyTable from '../../../Education/TablesInfo/Table/EmptyTable/EmptyTabl
 import { Column } from 'primereact/column';
 
 const UserPaymentTable = ({ userDetails }) => {
-  console.log(userDetails);
 
   const filterPayments = () => {
+    if (!userDetails?.payment || userDetails.payment.length === 0) return [];
     return userDetails.payment.map(el => ({
       ...el,
       status: 'Успішно',
@@ -24,7 +24,7 @@ const UserPaymentTable = ({ userDetails }) => {
     <div className={styles.info_part_wrapper}>
       <p>Платежі</p>
       <DataTable
-        emptyMessage={<EmptyTable message="Зараз немає даних." />}
+        emptyMessage={<EmptyTable message="Зараз немає платежів" styledWrapper={styles.empty_wrapper}/>}
         value={filterPayments()}
         tableClassName={`${styles.table}`}
         dataKey={'id'}

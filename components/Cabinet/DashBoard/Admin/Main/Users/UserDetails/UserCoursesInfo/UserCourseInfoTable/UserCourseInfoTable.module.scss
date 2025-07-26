@@ -1,5 +1,9 @@
 @import '/styles/main.scss';
 
+.empty_wrapper {
+  min-height: 50px;
+}
+
 .table {
   border: 1px solid $p_border;
   border-radius: 8px;

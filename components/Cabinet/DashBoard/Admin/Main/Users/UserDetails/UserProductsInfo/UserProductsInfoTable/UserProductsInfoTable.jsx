@@ -6,12 +6,13 @@ import styles from './UserProductsInfoTable.module.scss';
 import './table.scss';
 
 const UserProductsInfoTable = ({ list }) => {
-
   return (
     <>
       <p>Доступні продукти</p>
       <DataTable
-        emptyMessage={<EmptyTable message="Зараз немає даних." />}
+        emptyMessage={
+          <EmptyTable message="Зараз немає продуктів." styledWrapper={styles.empty_wrapper} />
+        }
         value={list}
         tableClassName={`${styles.table}`}
         dataKey={'id'}

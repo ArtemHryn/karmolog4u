@@ -13,6 +13,8 @@ const UserCoursesInfo = ({ userDetails }) => {
   if (!userDetails) return <div>Немає курсів</div>;
 
   const productsDetails = () => {
+    if (!userDetails?.education || userDetails.education.length === 0) return [];
+
     return userDetails.education.map(el => ({
       ...el,
       status: 'active',

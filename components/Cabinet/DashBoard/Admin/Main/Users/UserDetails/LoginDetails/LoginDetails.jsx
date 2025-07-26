@@ -3,7 +3,7 @@ import { generateColorFromInitials } from '@/helper/users/generateColorFromIniti
 import styles from './LoginDetails.module.scss';
 
 const LoginDetails = ({ userDetails }) => {
-  const { name, lastName } = userDetails;
+  const { name, lastName, createdAt, lastLogin } = userDetails;
   const timeParams = {
     day: '2-digit',
     month: '2-digit',
@@ -26,13 +26,15 @@ const LoginDetails = ({ userDetails }) => {
         <li className={styles.list_element}>
           <p className={`${styles.login_text} ${styles.login_text_name}`}>Дата реєстрації:</p>
           <p className={`${styles.login_text}`}>
-            {new Date(userDetails.createdAt).toLocaleDateString(undefined, timeParams)}
+            {new Date(createdAt).toLocaleDateString(undefined, timeParams)}
           </p>
         </li>
         <li className={styles.list_element}>
           <p className={`${styles.login_text} ${styles.login_text_name}`}>Останній вхід:</p>
           <p className={`${styles.login_text}`}>
-            {new Date(userDetails.lastLogin).toLocaleDateString(undefined, timeParams)}
+            {lastLogin
+              ? new Date(lastLogin).toLocaleDateString(undefined, timeParams)
+              : 'Не входив'}
           </p>
         </li>
       </ul>

@@ -1,44 +1,27 @@
-import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import dynamic from 'next/dynamic';
 import Tick from '../Tick/Tick';
 import SubmitButtons from '../SubmitButtons/SubmitButtons';
-import { base_url } from '@/helper/consts';
-
-const SelectNoSSR = dynamic(() => import('react-select'), { ssr: false });
 
 import styles from './SingleForm.module.scss';
 import ProductsSelector from '../ProductsSelector/ProductsSelector';
+import { useCreateUser } from '@/hooks/useCreateUser';
+import { useSession } from 'next-auth/react';
 
 const SingleForm = () => {
-  const [options, setOptions] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const { register, control, handleSubmit } = useForm({ defaultValues: { products: [] } });
+  const { register, control, handleSubmit, reset } = useForm({ defaultValues: { education: [] } });
+  const { data: token } = useSession();
 
-  //   useEffect(() => {
-  //     const fetchOptions = async () => {
-  //       try {
-  //         const res = await fetch(`${base_url}`);
-  //         if (!res.ok) throw new Error('Помилка при завантаженні списку');
-  //         const data = await res.json();
-  //         const formatted = data.map(item => ({
-  //           value: item.id,
-  //           label: item.name,
-  //         }));
-  //         setOptions(formatted);
-  //       } catch (err) {
-  //         setError(err.message);
-  //       } finally {
-  //         setIsLoading(false);
-  //       }
-  //     };
-
-  //     fetchOptions();
-  //   }, []);
+  const mutateUser = useCreateUser({ token: token?.accessToken, onSuccessCallback: () => reset() });
 
   const onFormSubmit = data => {
-    console.log(data);
+    const { education, ...otherData } = data;
+    const dataToSend = {
+      ...otherData,
+      mobPhone: '+380',
+      education: education.map(({ value }) => value),
+    };
+    console.log(dataToSend);
+    mutateUser.mutate({ data: dataToSend, action: 'add_user' });
   };
 
   return (
@@ -69,25 +52,20 @@ const SingleForm = () => {
           className={`${styles.input}`}
         />
       </label>
-      <ProductsSelector
-        title={'Додати до продукту'}
-        control={control}
-        name={'products'}
-        isLoading={isLoading}
-      />
+      <ProductsSelector title={'Додати до продукту'} control={control} name={'education'} />
 
       <div className={styles.ticks_wrapper}>
         <Tick
           name={'Згенерувати та надіслати пароль на електронну пошту'}
           id="1"
           register={register}
-          form_name={'sendPassword'}
+          form_name={'sendToEmail'}
         />
         <Tick
           name={'Обліковий запис користувача активний'}
           id="2"
           register={register}
-          form_name={'userIsActive'}
+          form_name={'verified'}
         />
       </div>
       <SubmitButtons />

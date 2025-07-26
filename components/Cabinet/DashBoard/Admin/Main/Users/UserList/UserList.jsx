@@ -17,14 +17,14 @@ const fetchUsers = async ({ token, search, selectedOption, selectedSort, current
   params.append('page', currentPage);
   params.append('limit', 20);
   if (search) {
-    params.append('search', search);
+    params.append('searchQuery', search);
   }
 
   if (selectedOption) {
     params.append('course_id', selectedOption.value);
   }
 
-  const res = await fetch(`${base_url}/user/get/all?${params.toString()}`, {
+  const res = await fetch(`${base_url}/admin/user/get/all?${params.toString()}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },

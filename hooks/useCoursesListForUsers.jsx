@@ -3,14 +3,11 @@ import { useSession } from 'next-auth/react';
 import { base_url, PUBLISHED } from '../helper/consts';
 
 const fetchCourses = async token => {
-  const res = await fetch(
-    `${base_url}/admin/education/course/get-all/${PUBLISHED}?limit=100&page=1`,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
+  const res = await fetch(`${base_url}/admin/education/course/list`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 
   if (!res.ok) {
     const errorBody = await res.json();
@@ -20,10 +17,9 @@ const fetchCourses = async token => {
 
   const data = await res.json();
 
-  // Очікується структура: [ { data: [...] } ]
-  if (!Array.isArray(data) || !Array.isArray(data[0]?.data)) return [];
+  if (!Array.isArray(data)) return [];
 
-  return data[0].data.map(el => ({
+  return data.map(el => ({
     value: el.id,
     label: el.name,
   }));

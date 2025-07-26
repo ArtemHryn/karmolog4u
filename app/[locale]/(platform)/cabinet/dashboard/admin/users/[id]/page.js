@@ -7,7 +7,7 @@ import { notFound } from 'next/navigation';
 import styles from './page.module.scss';
 
 const fetchUserDetails = async (id, token) => {
-  const res = await fetch(`${base_url}/user/get/${id}`, {
+  const res = await fetch(`${base_url}/admin/user/get/${id}`, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
