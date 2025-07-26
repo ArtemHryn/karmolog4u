@@ -1,13 +1,34 @@
 'use client';
 
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useMutation } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
 import { useTranslations } from 'next-intl';
+import { toast } from 'react-toastify';
 import FormHeader from '../FormHeader/FormHeader';
 
 import styles from './ResetPassword.module.scss';
+import { base_url } from '@/helper/consts';
+
+const resetPassword = async email => {
+  const res = await fetch(`${base_url}/auth/reset-password`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email }),
+  });
+
+  const data = await res.json();
+
+  if (!res.ok) {
+    throw new Error(data.message || 'Не вдалося надіслати дані');
+  }
+
+  return data;
+};
 
 const ResetPasswordForm = () => {
+  const router = useRouter();
   const t = useTranslations('Author_products.buy_gift_modal');
 
   const {
@@ -16,8 +37,19 @@ const ResetPasswordForm = () => {
     formState: { errors },
   } = useForm();
 
+  const mutation = useMutation({
+    mutationFn: data => resetPassword(data.email),
+    onSuccess: () => {
+      toast.success('Пароль успішно надіслано', { autoClose: 1000 });
+      setTimeout(() => router.push('/cabinet/login'), 1500);
+    },
+    onError: err => {
+      toast.error(`${err.message}`);
+    },
+  });
+
   const onFormSubmit = data => {
-    console.log(data);
+    mutation.mutate(data);
   };
 
   return (
@@ -32,7 +64,7 @@ const ResetPasswordForm = () => {
           <label className={styles.label}>
             <p className={styles.label_text}>Email</p>
             <input
-              className={styles.input}
+              className={`${styles.input} ${errors.email ? styles.error : ''}`}
               type="text"
               {...register('email', {
                 required: t('email.empty_error'),

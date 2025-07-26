@@ -1,7 +1,7 @@
 export const users = [
   {
-    name: 'Art',
-    lastName: 'Gry',
+    name: 'Арте',
+    lastName: 'Dр',
     mobPhone: '+380991231231',
     email: 'test@gmail.com',
     product: 'Курс навчання',

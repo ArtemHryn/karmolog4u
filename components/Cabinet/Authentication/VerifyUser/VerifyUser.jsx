@@ -2,38 +2,43 @@
 
 import { base_url } from '@/helper/consts';
 import { ProgressSpinner } from 'primereact/progressspinner';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 import styles from './VerifyUser.module.scss';
 import VerifyStatus from './VerifyStatus/VerifyStatus';
+import { useMutation } from '@tanstack/react-query';
+import { useRouter } from 'next/navigation';
 
-const VerifyUser = ({ id }) => {
-  const [status, setStatus] = useState('loading'); // 'loading' | 'success' | 'error'
-  const [errorMessage, setErrorMessage] = useState('');
+const verifyUser = async token => {
+  const res = await fetch(`${base_url}/auth/verify?token=${token}`, {
+    method: 'POST',
+  });
+  const data = await res.json();
+
+  if (!res.ok) {
+    throw new Error(data.message || 'Помилка перевірки користувача');
+  }
+
+  return data;
+};
+
+const VerifyUser = ({ token }) => {
+  const router = useRouter();
+  const mutation = useMutation({
+    mutationFn: () => verifyUser(token),
+    onSuccess: () => {
+      setTimeout(() => router.push('/cabinet/login'), 2000);
+    },
+  });
 
   useEffect(() => {
-    const verify = async () => {
-      try {
-        const res = await fetch(`${base_url}/auth/verify?token=${id}`, {
-          method: 'POST',
-        });
+    if (token) {
+      mutation.mutate();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [token]);
 
-        if (!res.ok) {
-          const errorData = await res.json();
-          throw new Error(errorData.message || 'Помилка перевірки користувача');
-        }
-
-        await res.json();
-        setStatus('success');
-      } catch (err) {
-        setErrorMessage(err.message);
-        setStatus('error');
-      }
-    };
-    verify();
-  }, [id]);
-
-  if (status === 'loading') {
+  if (mutation.isPending) {
     return (
       <div className={styles.loader_wrapper}>
         <ProgressSpinner className={styles.spinner} />
@@ -41,10 +46,13 @@ const VerifyUser = ({ id }) => {
     );
   }
 
-  if (status === 'error') {
-    return <VerifyStatus message={errorMessage} />;
+  if (mutation.isError) {
+    return <VerifyStatus message={mutation.error.message} />;
   }
-  return <VerifyStatus message={'Користувача успішно підтверджено!'} />;
+  if (mutation.isSuccess) {
+    return <VerifyStatus message={'Користувача успішно підтверджено!'} />;
+  }
+  return null;
 };
 
 export default VerifyUser;

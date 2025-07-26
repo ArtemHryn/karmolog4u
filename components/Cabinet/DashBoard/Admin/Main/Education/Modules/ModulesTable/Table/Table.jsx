@@ -53,7 +53,11 @@ const fetchModules = async ({ token, filters, limit, page, courseId, activeFilte
       },
     }
   );
-
+  if (!res.ok) {
+    const errorBody = await res.json();
+    const message = errorBody?.message || 'Помилка завантаження модулів';
+    throw new Error(message);
+  }
   return res.json();
 };
 

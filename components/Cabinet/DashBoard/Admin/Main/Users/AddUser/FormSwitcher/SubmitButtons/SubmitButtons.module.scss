@@ -1,0 +1,20 @@
+@import '/styles/main.scss';
+
+.buttons_wrapper {
+  display: flex;
+  gap: 16px;
+}
+
+.button {
+  @include buttonsDefault();
+  width: calc((100% - 16px) / 2);
+  height: 44px;
+  @include fontRegular(14px, 600, 14px);
+
+  &_add {
+    background-color: $p_active_button;
+  }
+  &_cancel {
+    color: $third_text_color;
+  }
+}

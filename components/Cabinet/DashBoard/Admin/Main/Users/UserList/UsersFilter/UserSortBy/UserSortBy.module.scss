@@ -1,0 +1,60 @@
+@import '/styles/main.scss';
+
+.sort_button {
+  @include buttonsDefault();
+  width: 44px;
+  height: 44px;
+  gap: 8px;
+  background-color: #fff;
+
+  & > svg {
+    width: 20px;
+    height: 16px;
+  }
+  @media all and (width >= $min_tablet) {
+    order: 3;
+  }
+  @media all and (width >= $min_desktop) {
+    order: 1;
+  }
+}
+
+.panel {
+  border-radius: 16px;
+  padding: 10px 0;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 213px;
+  max-height: 190px;
+  overflow-y: auto;
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: rgba(0, 0, 0, 0.3) transparent; /* Firefox */
+
+  &::-webkit-scrollbar {
+    width: 1px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3); /* Колір ползунка */
+    border-radius: 1px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent; /* Трек скролбару */
+  }
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 190px;
+  height: 48px;
+  &_active {
+    color: $p_active_button;
+  }
+}

@@ -1,0 +1,45 @@
+@import '/styles/main.scss';
+
+.main_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.filter_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.title {
+  flex-grow: 1;
+  @include fontRegular(16px, 400, 22.4px, $third_text_color);
+
+  @media all and (width >= $min_tablet) {
+    font-size: 18px;
+  }
+}
+
+.filter_for_phone {
+  @media all and (width >= $min_tablet) {
+    display: none;
+  }
+}
+
+.filter_for_table {
+  display: none;
+  @media all and (width >= $min_tablet) {
+    display: block;
+    order: 2;
+    width: 280px;
+  }
+}
+
+.add_user_link_wrapper {
+  display: none;
+  @media all and (width >= $min_desktop) {
+    display: block;
+    order: 4;
+  }
+}

@@ -12,7 +12,9 @@ export default async function middleware(req) {
   const isPublicPage =
     pathname.includes('/cabinet/login') ||
     pathname.includes('/cabinet/registration') ||
-    pathname.includes('/cabinet/reset-password');
+    pathname.includes('/cabinet/reset-password') ||
+    pathname.includes('/cabinet/verify') ||
+    pathname.includes('/cabinet/resent-verification');
 
   // Обмеження доступу до /cabinet сторінок
   if (pathname.includes('/cabinet') && !isPublicPage && !token) {

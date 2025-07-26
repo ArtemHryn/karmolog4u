@@ -1,0 +1,20 @@
+@import '/styles/main.scss';
+
+.save_courses_button_wrapper {
+  display: flex;
+  gap: 12px;
+}
+
+.save_courses_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.27);
+  border-radius: 4px;
+  & > svg {
+    width: 12px;
+    height: 16px;
+  }
+}
