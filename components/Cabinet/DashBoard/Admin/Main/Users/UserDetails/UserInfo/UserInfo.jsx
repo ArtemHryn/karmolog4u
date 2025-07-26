@@ -23,7 +23,11 @@ const updateUser = async ({ token, id, data }) => {
   const parsedData = await res.json();
 
   if (!res.ok) {
-    const message = parsedData?.message || 'Помилка оновлення користувача';
+    console.log(parsedData?.message[0]);
+
+    const message =
+      parsedData?.message[0] || parsedData?.message || 'Помилка оновлення користувача';
+
     throw new Error(message);
   }
 
@@ -45,7 +49,7 @@ const UserInfo = ({ userDetails }) => {
       toast.success('Успішно оновленно', { autoClose: 1000 });
     },
     onError: err => {
-      toast.error(err);
+      toast.error(err.message, { autoClose: 1000 });
     },
   });
 

@@ -18,7 +18,9 @@ const banOrDeleteAccount = async ({ token, id, action }) => {
 
   if (!res.ok) {
     const message =
-      parsedData?.message || `Помилка ${action === 'ban' ? 'блокування' : 'видалення'} користувача`;
+      parsedData?.message[0] ||
+      parsedData?.message ||
+      `Помилка ${action === 'ban' ? 'блокування' : 'видалення'} користувача`;
     throw new Error(message);
   }
 
@@ -38,7 +40,7 @@ const ActionsColumn = ({ rowData }) => {
       queryClient.invalidateQueries({ queryKey: ['users_list'] });
     },
     onError: err => {
-      toast.error(err);
+      toast.error(err.message);
     },
   });
 
