@@ -31,13 +31,17 @@ const ImportUsersForm = () => {
         toast.error(`Ім'я та прізвище - обов'язкові`, { autoClose: 1000 });
         throw new Error('Invalid name or last name');
       }
+      if (mobPhone && mobPhone.replace(/\D/g, '').length < 12) {
+        toast.error(`Номер телефону ${mobPhone} має бути щонайменше з 12 цифр`, {
+          autoClose: 1000,
+        });
+        throw new Error('Invalid phone');
+      }
       return {
         email,
         name,
         lastName,
-        ...(mobPhone
-          ? { mobPhone: mobPhone.startsWith('+') ? mobPhone : `+${mobPhone}` }
-          : { mobPhone: '+380' }),
+        ...(mobPhone ? { mobPhone: mobPhone.startsWith('+') ? mobPhone : `+${mobPhone}` } : {}),
       };
     });
 

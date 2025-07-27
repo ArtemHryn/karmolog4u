@@ -15,7 +15,11 @@ const addUser = async ({ token, data, link }) => {
   const parsedData = await res.json();
 
   if (!res.ok) {
-    const message = parsedData?.message || 'Помилка додавання користувача';
+    const message = Array.isArray(parsedData?.message)
+      ? parsedData.message[0]
+      : parsedData?.message || 'Помилка додавання користувача';
+    console.log(message);
+
     throw new Error(message);
   }
 
@@ -75,8 +79,19 @@ export const useCreateUser = ({ token, onSuccessCallback }) => {
         onSuccessCallback?.();
       }
     },
-    onError: () => {
-      toast.error(`Помилка: ${err.message}`);
+    onError: err => {
+      let message = err.message;
+
+      // Перевіряємо, чи це формат типу "users.0.текст"
+      const match = message.match(/^users\.(\d+)\.(.+)$/);
+      console.log(match);
+      if (match) {
+        const userIndex = parseInt(match[1], 10);
+        const errorText = match[2];
+        message = `Користувач ${userIndex + 1}: ${errorText}`;
+      }
+
+      toast.error(`Помилка: ${message}`);
     },
   });
 };

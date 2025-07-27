@@ -58,6 +58,7 @@
   border: 1px solid $form_border;
   border-radius: 30px;
   background-color: transparent;
+  outline: none;
 }
 
 .button {
@@ -158,4 +159,8 @@
   @media all and (width >= $min_tablet) {
     width: 410px !important;
   }
+}
+
+.error {
+  border-color: red !important;
 }
