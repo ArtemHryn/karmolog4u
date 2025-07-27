@@ -6,21 +6,23 @@ import styles from './SingleForm.module.scss';
 import ProductsSelector from '../ProductsSelector/ProductsSelector';
 import { useCreateUser } from '@/hooks/useCreateUser';
 import { useSession } from 'next-auth/react';
+import MobPhone from './MobPhone/MobPhone';
 
 const SingleForm = () => {
-  const { register, control, handleSubmit, reset } = useForm({ defaultValues: { education: [] } });
+  const {
+    register,
+    control,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({ defaultValues: { education: [] } });
   const { data: token } = useSession();
 
   const mutateUser = useCreateUser({ token: token?.accessToken, onSuccessCallback: () => reset() });
 
   const onFormSubmit = data => {
     const { education, ...otherData } = data;
-    const dataToSend = {
-      ...otherData,
-      mobPhone: '+380',
-      education: education.map(({ value }) => value),
-    };
-    console.log(dataToSend);
+    const dataToSend = { ...otherData, education: education.map(({ value }) => value) };
     mutateUser.mutate({ data: dataToSend, action: 'add_user' });
   };
 
@@ -32,7 +34,7 @@ const SingleForm = () => {
           <input
             type="text"
             {...register('name', { required: true })}
-            className={`${styles.input}`}
+            className={`${styles.input} ${errors.name ? styles.error : ''}`}
           />
         </label>
         <label className={styles.label}>
@@ -40,7 +42,7 @@ const SingleForm = () => {
           <input
             type="text"
             {...register('lastName', { required: true })}
-            className={`${styles.input}`}
+            className={`${styles.input} ${errors.lastName ? styles.error : ''}`}
           />
         </label>
       </div>
@@ -49,9 +51,11 @@ const SingleForm = () => {
         <input
           type="email"
           {...register('email', { required: true })}
-          className={`${styles.input}`}
+          className={`${styles.input} ${errors.email ? styles.error : ''}`}
         />
       </label>
+      <MobPhone control={control} errors={errors} />
+
       <ProductsSelector title={'Додати до продукту'} control={control} name={'education'} />
 
       <div className={styles.ticks_wrapper}>
