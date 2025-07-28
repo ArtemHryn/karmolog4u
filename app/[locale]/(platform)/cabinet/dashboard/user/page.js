@@ -1,11 +1,7 @@
-import React from 'react'
+import { redirect } from 'next/navigation';
 
-const page = () => {
-  return (
-    <div>
-      user
-    </div>
-  )
-}
+const UserPage = async () => {
+  redirect('/cabinet/dashboard/user/achievement');
+};
 
-export default page
+export default UserPage;

@@ -1,0 +1,31 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  @media all and (width >= $min_tablet) {
+    height: 100%;
+    width: 60px;
+  }
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  outline: none;
+  @media all and (width >= $min_tablet) {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+.burger {
+  fill: #ecdbc3;
+  width: 24px;
+}

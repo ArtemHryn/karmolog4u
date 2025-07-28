@@ -1,0 +1,24 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.name_text {
+  @include fontRegular(14px, 600, 14px, $main_text_color);
+  @media all and (width >= $min_tablet) {
+    font-size: 20px;
+  }
+}
+
+.greeting {
+  @include fontRegular(8px, 400, 8px, $main_text_color);
+  @media all and (width >= $min_tablet) {
+    font-size: 14px;
+  }
+}

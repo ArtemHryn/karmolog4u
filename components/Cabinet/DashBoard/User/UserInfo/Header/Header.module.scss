@@ -1,0 +1,35 @@
+@import '/styles/main.scss';
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  height: 57px;
+  width: 100%;
+  overflow: hidden;
+  @media all and (width >= $min_tablet) {
+    height: 80px;
+    padding: 10px 24px;
+  }
+}
+
+.link {
+  @media (hover: hover) {
+    &:is(:hover, :focus) {
+      scale: 1.05;
+    }
+  }
+  @media (hover: none) {
+    &:is(:active, :focus) {
+      scale: 1.05;
+    }
+  }
+}
+
+.logo {
+  width: 36px;
+  fill: #cfb691;
+  @media all and (width >= $min_tablet) {
+    width: 60px;
+  }
+}

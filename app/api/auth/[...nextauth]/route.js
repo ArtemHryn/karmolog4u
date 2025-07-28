@@ -32,7 +32,6 @@ const authOptions = {
 
           const user = await res.json();
           if (!user) throw new Error('Invalid login response');
-
           return user.user;
         } catch (error) {
           console.error('Authorization error:', error);
@@ -53,6 +52,11 @@ const authOptions = {
         token.accessToken = user.accessToken;
         token.refreshToken = user.refreshToken;
         token.role = user.userData?.role;
+        token.name = user.userData?.name;
+        token.lastName = user.userData?.lastName;
+        token.email = user.userData?.email;
+        token.id = user.userData?.id;
+        token.mobPhone = user.userData?.mobPhone;
         token.expiresAt = now + ONE_HOUR;
       }
 
@@ -86,6 +90,11 @@ const authOptions = {
     async session({ session, token }) {
       if (token) {
         session.user.role = token.role;
+        session.user.name = token.name;
+        session.user.lastName = token.lastName;
+        session.user.email = token.email;
+        session.user.mobPhone = token.mobPhone;
+        session.user.id = token.id;
         session.accessToken = token.accessToken;
         session.refreshToken = token.refreshToken;
       }
