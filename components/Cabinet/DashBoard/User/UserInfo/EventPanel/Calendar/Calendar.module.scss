@@ -1,0 +1,134 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+//основа
+.wrapper :global(.react-calendar) {
+  width: 224px;
+  height: 250px;
+  background: $main_bg;
+  color: $main_text_color;
+  border-radius: 8px;
+  border: none;
+  padding: 10px;
+  border: 1px solid $accent_v2;
+}
+.wrapper :global(.react-calendar__tile) {
+  color: $main_text_color;
+}
+
+/* Вихідні дні (сб, нд) - синій текст */
+.wrapper :global(.react-calendar__month-view__days__day--weekend) {
+  color: $seconds_text_color;
+}
+
+//обгортка днів
+.wrapper :global(.react-calendar__month-view__days) {
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0px 4px; /* 8px між рядками (висота), 4px між колонками (ширина) */
+  flex-grow: 1;
+}
+
+//день місяця
+.wrapper :global(.react-calendar__tile) {
+  position: relative;
+  padding: 8px 6px;
+  text-align: center;
+}
+
+//навігаційна панель
+.wrapper :global(.react-calendar__navigation) {
+  height: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5px;
+}
+
+//стрілки навігації
+.wrapper :global(.react-calendar__navigation__prev-button),
+.wrapper :global(.react-calendar__navigation__next-button) {
+  color: $main_text_color;
+  min-width: 34px;
+  &:hover,
+  &:focus {
+    background-color: transparent !important;
+    scale: 1.1;
+  }
+}
+
+//місяць і рік
+.wrapper :global(.react-calendar__navigation__label__labelText) {
+  color: $main_text_color;
+  font-weight: bold;
+  &:hover,
+  &:focus {
+    background-color: transparent !important;
+    scale: 1.1;
+  }
+}
+
+.wrapper :global(.react-calendar__navigation__label) {
+  &:hover,
+  &:focus {
+    background-color: transparent !important;
+    scale: 1.1;
+  }
+}
+
+//сьогоднішній день
+.wrapper :global(.react-calendar__tile--now) {
+  background: $tips_bg;
+  border-radius: 6px;
+}
+
+//дні, які не належать до поточного місяця
+.wrapper :global(.react-calendar__month-view__days__day--neighboringMonth) {
+  color: $form_placeholder;
+}
+
+//при наведенні курсора на день
+.wrapper :global(.react-calendar__tile) {
+  &:hover,
+  &:focus {
+    background-color: transparent; /* без фону */
+    color: $p_active_button;
+  }
+}
+
+.wrapper :global(.react-calendar__tile--active) {
+  background-color: $p_header_title_border;
+  border-radius: 6px;
+}
+
+//крапка під днем
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: $seconds_text_color;
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navLabel {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.tileContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  padding-top: 2px; // опціонально, щоб підняти число дати
+}

@@ -10,6 +10,9 @@
     height: 100%;
     width: 60px;
   }
+  @media all and (width >= $min_desktop) {
+    display: none;
+  }
 }
 
 .button {

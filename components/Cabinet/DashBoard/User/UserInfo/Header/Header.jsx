@@ -3,6 +3,7 @@ import Logo from '../../../../../Common/Icons/Logo';
 import styles from './Header.module.scss';
 import Greeting from './Greeting/Greeting';
 import Menu from './Menu/Menu';
+import AccountInfo from './AccountInfo/AccountInfo';
 
 const Header = () => {
   return (
@@ -12,6 +13,7 @@ const Header = () => {
       </Link>
       <Greeting />
       <Menu />
+      <AccountInfo />
     </header>
   );
 };

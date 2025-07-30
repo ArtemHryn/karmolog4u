@@ -7,6 +7,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  @media all and (width >= $min_desktop) {
+    height: 144px;
+  }
 }
 
 .icon {

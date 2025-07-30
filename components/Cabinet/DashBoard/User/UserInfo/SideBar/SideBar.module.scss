@@ -1,0 +1,16 @@
+@import '/styles/main.scss';
+
+.aside {
+  display: none;
+  @media all and (width >= $min_desktop) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    border-radius: 30px;
+    background-color: $card_bg_v2;
+    height: calc((100vh - 146px));
+    min-height: 654px;
+    border-right: 1px solid $accent_v2;
+  }
+}

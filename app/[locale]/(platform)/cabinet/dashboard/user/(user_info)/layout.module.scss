@@ -14,10 +14,24 @@
   grid-template-columns: 1fr;
 
   @media all and (width >= $min_desktop) {
+    grid-template-columns: 260px 1fr 260px;
+  }
+  @media all and (width >= $mac) {
+    grid-template-columns: 280px 1fr 280px;
+  }
+  @media all and (width >= $big_pc) {
     grid-template-columns: 304px 1fr 304px;
   }
 }
 
 .main {
   overflow: auto;
+  width: 100%;
+  background-color: $card_bg_v2;
+  border-radius: 30px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.3);
+  padding: 24px 24px 60px 24px;
+  @media all and (width >= $min_tablet) {
+    padding: 60px 24px 24px 24px;
+  }
 }

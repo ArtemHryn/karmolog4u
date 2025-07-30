@@ -11,6 +11,10 @@
     height: 80px;
     padding: 10px 24px;
   }
+  @media all and (width >= $min_desktop) {
+    height: 146px;
+    padding: 28px 80px;
+  }
 }
 
 .link {
@@ -31,5 +35,8 @@
   fill: #cfb691;
   @media all and (width >= $min_tablet) {
     width: 60px;
+  }
+  @media all and (width >= $min_tablet) {
+    width: 80px;
   }
 }

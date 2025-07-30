@@ -18,6 +18,7 @@ const ActivePart = ({ showMenu, setShowMenu }) => {
       window.removeEventListener('keydown', onEscapeClick);
     };
   });
+  
   return (
     <>
       <div

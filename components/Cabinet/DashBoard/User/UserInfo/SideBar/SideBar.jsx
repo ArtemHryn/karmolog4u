@@ -1,7 +1,15 @@
-import React from 'react';
+import SignOut from '../Header/Menu/SignOut/SignOut';
+import Navigation from '../Navigation/Navigation';
+
+import styles from './SideBar.module.scss';
 
 const SideBar = () => {
-  return <aside style={{ backgroundColor: 'blue', height: '100px' }}></aside>;
+  return (
+    <aside className={styles.aside}>
+      <Navigation />
+      <SignOut />
+    </aside>
+  );
 };
 
 export default SideBar;

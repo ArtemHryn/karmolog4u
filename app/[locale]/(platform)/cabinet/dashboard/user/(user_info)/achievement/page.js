@@ -1,6 +1,7 @@
+import Achievement from '@/components/Cabinet/DashBoard/User/UserInfo/Achievement/Achievement';
 
 const AchievementPage = () => {
-  return <div>achievement</div>;
-}
+  return <Achievement />;
+};
 
-export default AchievementPage
+export default AchievementPage;

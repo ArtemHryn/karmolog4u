@@ -1,3 +1,5 @@
+'use client'
+
 import { signOut } from 'next-auth/react';
 import styles from './SignOut.module.scss'
 import SignOutIcon from './SignOutIcon';

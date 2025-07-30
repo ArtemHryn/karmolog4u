@@ -1,0 +1,63 @@
+@import '/styles/main.scss';
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 224px;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+  @media all and (width >= $min_tablet) {
+    width: 100%;
+    max-width: 462px;
+  }
+  @media all and (width >= $min_desktop) {
+    width: 224px;
+  }
+}
+
+.list_item {
+  display: flex;
+  align-items: baselines;
+  gap: 4px;
+  padding: 12px 16px;
+  border: 1px solid $accent_v2;
+  border-radius: 12px;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+}
+
+.text {
+  width: 169px;
+  flex-grow: 1;
+  @include fontRegular(13px, 400, 17.94px);
+  & > a {
+    color: $buttons_color;
+    text-decoration: underline;
+  }
+}
+
+//no events
+
+.no_events_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 244px;
+  gap: 16px;
+}
+
+.text_no_events {
+  @include fontRegular(13px, 400, 17.94px, $main_text_color, center);
+  width: 100%;
+  @media all and (width >= $min_tablet) {
+    font-size: 16px;
+  }
+}

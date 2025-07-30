@@ -11,7 +11,7 @@ const UserInfoLayout = ({ children }) => {
       <Header />
       <div className={styles.body}>
         <SideBar />
-        <main>{children}</main>
+        <main className={styles.main}>{children}</main>
         <EventPanel />
       </div>
       <UserFooter />

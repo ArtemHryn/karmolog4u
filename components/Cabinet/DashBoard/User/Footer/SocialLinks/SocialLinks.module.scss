@@ -1,0 +1,54 @@
+@import '/styles/main.scss';
+
+.wrap {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+
+  gap: 28px;
+  @media all and (min-width: $min_tablet) {
+    max-width: 192px;
+  }
+  @media all and (min-width: $min_desktop) {
+    width: 408px;
+    max-width: 408px;
+  }
+}
+
+.title {
+  display: none;
+}
+
+.list {
+  display: flex;
+  gap: 16px;
+  @media all and (min-width: $min_tablet) {
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  background-color: $black;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  @media all and (min-width: $min_tablet) {
+    width: 48px;
+    height: 48px;
+  }
+  &:hover,
+  &:focus {
+    background-color: $seconds_text_color;
+  }
+}
+
+.icon_social {
+  width: 20px;
+  height: 20px;
+  fill: $main_text_color;
+}

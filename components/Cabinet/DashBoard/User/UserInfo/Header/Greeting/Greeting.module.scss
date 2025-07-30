@@ -7,6 +7,9 @@
   justify-content: center;
   align-items: center;
   flex-grow: 1;
+  @media all and (width >= $min_desktop) {
+    gap: 8px;
+  }
 }
 
 .name_text {
@@ -14,11 +17,17 @@
   @media all and (width >= $min_tablet) {
     font-size: 20px;
   }
+  @media all and (width >= $min_desktop) {
+    font-size: 24px;
+  }
 }
 
 .greeting {
   @include fontRegular(8px, 400, 8px, $main_text_color);
   @media all and (width >= $min_tablet) {
     font-size: 14px;
+  }
+  @media all and (width >= $min_desktop) {
+    font-size: 16px;
   }
 }

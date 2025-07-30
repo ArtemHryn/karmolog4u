@@ -7,6 +7,8 @@ import YouTube from '@components/Common/SocialIcons/YouTube';
 import Viber from '@components/Common/SocialIcons/Viber';
 import { useTranslations } from 'next-intl';
 
+import styles from './SocialLinks.module.scss'
+
 const links = [
   { icon: Instagram, to: 'https://www.instagram.com/karmolog4u/' },
   { icon: Telegram, to: 'https://t.me/karmologforyou' },
@@ -24,7 +26,7 @@ const links = [
     to: 'viber://chat/?number=%2B380678696760',
   },
 ];
-function SocialLinks({ styles, userPage }) {
+function SocialLinks() {
   const t = useTranslations('Header');
   return (
     <div className={styles.wrap}>
@@ -32,13 +34,8 @@ function SocialLinks({ styles, userPage }) {
       <ul className={styles.list}>
         {links.map(({ icon: Icon, to }, index) => (
           <li key={index}>
-            <Link
-              href={to}
-              className={`${styles.link} ${userPage ? styles.link_user : ''}`}
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              <Icon styled={`${styles.icon_social} ${userPage ? styles.icon_social_user : ''} `} />
+            <Link href={to} className={styles.link} target="_blank" rel="noreferrer noopener">
+              <Icon styled={styles.icon_social} />
             </Link>
           </li>
         ))}
