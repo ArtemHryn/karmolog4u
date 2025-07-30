@@ -8,12 +8,24 @@ import { open_Sans } from '@/app/[locale]/layout';
 
 import styles from './ImportUsersForm.module.scss';
 import { useCreateUser } from '@/hooks/useCreateUser';
+import { useRouter } from 'next/navigation';
 
 const ImportUsersForm = () => {
-  const { register, control, handleSubmit, reset } = useForm({ defaultValues: { education: [] } });
+  const router = useRouter();
+  const { register, control, handleSubmit, reset } = useForm({
+    defaultValues: { education: [], verified: true, sendToEmail: true },
+  });
   const { data: token } = useSession();
 
-  const mutateUser = useCreateUser({ token: token?.accessToken, onSuccessCallback: () => reset() });
+  const mutateUser = useCreateUser({
+    token: token?.accessToken,
+    onSuccessCallback: () => {
+      reset();
+      setTimeout(() => {
+        router.push('/cabinet/dashboard/admin/users');
+      }, 1000);
+    },
+  });
 
   const onFormSubmit = data => {
     const isValidEmail = email => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());

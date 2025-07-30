@@ -15,10 +15,18 @@ const SingleForm = () => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm({ defaultValues: { education: [] } });
+  } = useForm({ defaultValues: { education: [], verified: true, sendToEmail: true } });
   const { data: token } = useSession();
 
-  const mutateUser = useCreateUser({ token: token?.accessToken, onSuccessCallback: () => reset() });
+  const mutateUser = useCreateUser({
+    token: token?.accessToken,
+    onSuccessCallback: () => {
+      reset();
+      setTimeout(() => {
+        router.push('/cabinet/dashboard/admin/users');
+      }, 1000);
+    },
+  });
 
   const onFormSubmit = data => {
     const { education, ...otherData } = data;
