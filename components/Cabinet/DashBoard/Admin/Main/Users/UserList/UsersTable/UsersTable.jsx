@@ -17,7 +17,11 @@ const UsersTable = ({ users, totalUsers, currentPage, setCurrentPage }) => {
   const filterUsers = () => {
     if (!users || users.length === 0) return [];
     const filtered = users.map(({ mobPhone, education, createdAt, lastLogin, ...otherData }) => ({
-      mobPhone: mobPhone.startsWith('+') ? mobPhone : `+${mobPhone}`,
+      mobPhone: mobPhone
+        ? mobPhone.startsWith('+')
+          ? mobPhone
+          : `+${mobPhone}`
+        : 'немає телефону',
       product: education?.[0]?.name || 'немає курсу',
       createdAt: new Date(createdAt).toLocaleDateString(),
       lastLogin: lastLogin ? new Date(lastLogin).toLocaleDateString() : 'Не входив',
