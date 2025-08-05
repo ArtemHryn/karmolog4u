@@ -3,6 +3,7 @@ import CompletedCourses from './CompletedCourses/CompletedCourses';
 import Title from './Title/Title';
 
 import styles from './Achievement.module.scss';
+import AvailableCourses from './AvailableCourses/AvailableCourses';
 
 const Achievement = () => {
   return (
@@ -11,6 +12,7 @@ const Achievement = () => {
       <div className={styles.wrapper}>
         <Certificates />
         <CompletedCourses />
+        <AvailableCourses />
       </div>
     </>
   );

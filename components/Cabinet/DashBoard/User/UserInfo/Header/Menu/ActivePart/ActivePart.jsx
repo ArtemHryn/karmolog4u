@@ -18,7 +18,7 @@ const ActivePart = ({ showMenu, setShowMenu }) => {
       window.removeEventListener('keydown', onEscapeClick);
     };
   });
-  
+
   return (
     <>
       <div
@@ -32,7 +32,7 @@ const ActivePart = ({ showMenu, setShowMenu }) => {
             <Close styled={styles.close} />
           </button>
         </div>
-        <Navigation />
+        <Navigation setShowMenu={setShowMenu} />
         <SignOut />
       </div>
     </>

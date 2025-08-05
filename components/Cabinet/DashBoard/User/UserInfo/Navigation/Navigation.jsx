@@ -14,7 +14,7 @@ const navList = [
   { name: 'Відділ турботи', icon: Support, link: '/cabinet/dashboard/user/support' },
 ];
 
-const Navigation = () => {
+const Navigation = ({ setShowMenu }) => {
   const pathName = usePathname();
 
   return (
@@ -24,6 +24,7 @@ const Navigation = () => {
           <Link
             href={link}
             className={`${styles.link} ${pathName.includes(link) ? styles.link_active : ''}`}
+            onClick={() => setShowMenu && setShowMenu(false)}
           >
             <Icon styled={styles.icon} /> {name}
           </Link>
