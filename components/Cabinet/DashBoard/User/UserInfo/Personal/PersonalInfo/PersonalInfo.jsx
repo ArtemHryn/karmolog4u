@@ -10,9 +10,12 @@ const PersonalInfo = ({ user: { name, lastName, email, mobPhone } }) => {
     defaultValues: { name, email, lastName, mobPhone },
   });
 
+
+  
   const onSubmit = data => {
     console.log(data);
   };
+  
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.name_last_name_wrapper}>

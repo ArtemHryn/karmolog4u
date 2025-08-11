@@ -5,7 +5,6 @@ import PersonalInfo from './PersonalInfo/PersonalInfo';
 
 const Personal = async () => {
   const session = await getServerSession(authOptions);
-  console.log(session);
 
   return (
     <>

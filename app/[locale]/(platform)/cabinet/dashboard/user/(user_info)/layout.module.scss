@@ -36,9 +36,10 @@
   padding: 24px 24px 60px 24px;
   @media all and (width >= $min_tablet) {
     padding: 60px 24px 24px 24px;
+    height: calc((100vh - 146px));
   }
   @media all and (width >= $min_desktop) {
-    height: calc((100vh - 146px));
+    // height: calc((100vh - 146px));
     overflow-y: auto;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE 10+ */

@@ -1,5 +1,7 @@
+import Support from '@/components/Cabinet/DashBoard/User/UserInfo/Support/Support';
+
 const SupportPage = () => {
-  return <div>SupportPage</div>;
+  return <Support />;
 };
 
 export default SupportPage;

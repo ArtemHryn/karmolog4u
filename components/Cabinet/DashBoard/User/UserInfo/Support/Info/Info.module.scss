@@ -1,0 +1,85 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  max-width: $min_mobile;
+  margin-inline: auto;
+  @media all and (width >= $min_tablet) {
+    max-width: $min_tablet;
+    flex-direction: row;
+  }
+  @media all and (width >= $min_desktop) {
+    max-width: $min_desktop;
+  }
+}
+
+.text_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  @media all and (width >= $min_tablet) {
+    flex-grow: 1;
+  }
+}
+
+.text {
+  @include fontRegular(14px, 400, 20.02px);
+  color: $main_text_color;
+  @media all and (width >= $min_tablet) {
+    font-size: 16px;
+  }
+}
+
+.buttons_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  @media all and (width >= $min_tablet) {
+    gap: 16px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+  }
+}
+
+.buttons_wrapper_element {
+  width: 152px;
+  height: 44px;
+  @media all and (width >= $min_tablet) {
+    width: 160px;
+  }
+}
+
+.button {
+  @include fontRegular(16px, 600, 16px, $seconds_text_color);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 12px;
+  width: 100%;
+  height: 100%;
+  gap: 10px;
+  background-color: $main_bg;
+  border: 1px solid $accent_v2;
+  border-radius: 8px;
+  & > svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+  }
+  @media (hover: hover) {
+    &:is(:hover, :focus) {
+      background-color: $buttons_hover_color;
+      color: $third_text_color;
+    }
+  }
+  @media (hover: none) {
+    &:is(:active, :focus) {
+      background-color: $buttons_hover_color;
+      color: $third_text_color;
+      border-color: $buttons_hover_color;
+    }
+  }
+}
