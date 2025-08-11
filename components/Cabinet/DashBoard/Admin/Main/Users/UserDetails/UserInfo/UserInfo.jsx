@@ -7,7 +7,7 @@ import SubmitButtons from './SubmitButtons';
 import { toast } from 'react-toastify';
 import { useEffect } from 'react';
 import Tick from '../../../Education/TablesInfo/Table/TableHeaders/Tick';
-import { base_url } from '../../../../../../../../helper/consts';
+import { base_url } from '@/helper/consts';
 import { useMutation } from '@tanstack/react-query';
 import { useSession } from 'next-auth/react';
 
@@ -23,10 +23,9 @@ const updateUser = async ({ token, id, data }) => {
   const parsedData = await res.json();
 
   if (!res.ok) {
-    console.log(parsedData?.message[0]);
-
-    const message =
-      parsedData?.message[0] || parsedData?.message || 'Помилка оновлення користувача';
+    const message = Array.isArray(parsedData?.message)
+      ? parsedData?.message[0] || 'Помилка оновлення користувача'
+      : parsedData?.message || 'Помилка оновлення користувача';
 
     throw new Error(message);
   }

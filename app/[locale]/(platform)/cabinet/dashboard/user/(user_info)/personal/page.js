@@ -1,6 +1,7 @@
+import Personal from '@/components/Cabinet/DashBoard/User/UserInfo/Personal/Personal';
 
 const PersonalPage = () => {
-  return <div>PersonalPage</div>;
+  return <Personal />;
 };
 
 export default PersonalPage;

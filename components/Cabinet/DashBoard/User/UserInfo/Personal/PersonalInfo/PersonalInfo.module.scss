@@ -1,0 +1,63 @@
+@import '/styles/main.scss';
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 400px;
+  margin-inline: auto;
+  width: 100%;
+}
+
+.name_last_name_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.label {
+  @include fontRegular(14px, 600, 14px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input {
+  @include fontRegular(14px, 600, 14px);
+
+  border: 1px solid $dark_gold_light;
+  border-radius: 8px;
+  padding: 8px 8px 8px 16px;
+  width: 100%;
+  height: 44px;
+  background-color: transparent;
+  outline: none;
+}
+
+//buttons
+.buttons_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  @media all and (width >= $min_tablet) {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include fontRegular(14px, 600, 14px);
+
+  border: 1px solid $dark_gold_light;
+  border-radius: 8px;
+  width: 100%;
+  height: 44px;
+  &_accept {
+    background-color: $dark_gold_light;
+    color: $third_text_color;
+  }
+}
