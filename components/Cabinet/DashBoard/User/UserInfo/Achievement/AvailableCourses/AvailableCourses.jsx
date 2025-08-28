@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import SectionsTemplate from '../SectionsTemplate/SectionsTemplate';
 import Card from './Card';
-
+import { Autoplay } from 'swiper';
 import styles from './AvailableCourses.module.scss';
 import 'swiper/css';
 
@@ -66,7 +66,13 @@ const AvailableCourses = () => {
   return (
     <SectionsTemplate title="Рекомендації">
       <div className={styles.swiper_wrapper}>
-        <Swiper spaceBetween={24} className={styles.slider} loop={true}>
+        <Swiper
+          spaceBetween={24}
+          className={styles.slider}
+          loop={true}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          modules={[Autoplay]}
+        >
           {courses.map((course, i) => (
             <SwiperSlide key={i}>
               <Card course={course} />

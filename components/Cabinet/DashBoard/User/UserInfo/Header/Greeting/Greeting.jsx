@@ -1,12 +1,13 @@
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+'use client';
+
+import { useSession } from 'next-auth/react';
 
 import styles from './Greeting.module.scss';
 import { unbounded } from '@/app/[locale]/layout';
 
-const Greeting = async () => {
-  const { user } = await getServerSession(authOptions);
-
+const Greeting = () => {
+  const { data } = useSession();
+  const user = data?.user || { name: '' };
   return (
     <div className={styles.wrapper}>
       <p className={`${styles.name_text} ${unbounded.className}`}>Привіт, {user.name}</p>

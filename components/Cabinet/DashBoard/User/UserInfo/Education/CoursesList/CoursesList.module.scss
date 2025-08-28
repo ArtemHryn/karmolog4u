@@ -1,0 +1,170 @@
+@import '/styles/main.scss';
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  @media all and (width >= $min_tablet) {
+    gap: 24px;
+  }
+}
+
+.list_item {
+  width: 312px;
+  min-height: 188px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid $accent_v2;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  background-color: $main_bg;
+  border-radius: 12px;
+  @media all and (width >= $min_tablet) {
+    flex-direction: row;
+    width: 100%;
+    min-height: auto;
+    height: 100px;
+    max-width: 1000px;
+    padding: 10px;
+  }
+  @media all and (width >= $min_desktop) {
+  }
+}
+
+.title {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 2px;
+    width: 100%;
+    background-color: $main_text_color;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.25s ease;
+  }
+
+  @media (hover: hover) {
+    &:is(:hover, :focus)::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  }
+
+  @media (hover: none) {
+    &:is(:active, :focus)::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  }
+}
+
+.title_mob {
+  @include fontRegular(16px, 400, 25.28px, $main_text_color);
+  width: max-content;
+  @media all and (width >= $min_tablet) {
+    display: none;
+  }
+}
+
+.title_wrapper {
+  @media all and (width >= $min_tablet) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+  }
+}
+
+.title_tablet {
+  display: none;
+  @media all and (width >= $min_tablet) {
+    display: block;
+    @include fontRegular(24px, 400, 24px, $main_text_color);
+  }
+}
+
+.info {
+  display: flex;
+  gap: 16px;
+  flex-grow: 1;
+}
+
+.texts {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @media all and (width >= $min_tablet) {
+    flex-direction: row;
+    flex-grow: 1;
+    width: 100%;
+  }
+}
+
+.available {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 108px;
+  height: 20px;
+  border-radius: 6px;
+  padding: 4px 8px;
+  @include fontRegular(8px, 400, 8px, $main_text_color);
+  background-color: rgba(207, 182, 145, 0.3);
+  @media all and (width >= $min_tablet) {
+    display: block;
+    background-color: transparent;
+    font-size: 13px;
+    width: 100%;
+  }
+}
+
+.img {
+  border-radius: 10px;
+  width: 140px;
+  height: 112px;
+  object-fit: cover;
+  @media all and (width >= $min_tablet) {
+    width: 137px;
+    height: 80px;
+  }
+}
+
+.payment {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  @media all and (width >= $min_tablet) {
+    justify-content: space-between;
+    align-items: center;
+    width: 122px;
+  }
+}
+
+.payment_text {
+  @include fontRegular(8px, 400, 12px, $main_text_color);
+  @media all and (width >= $min_tablet) {
+    font-size: 13px;
+    text-align: center;
+  }
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 108px;
+  height: 27px;
+  border-radius: 8px;
+  background: $buttons_color;
+  @include fontRegular(14px, 600, 14px, $third_text_color);
+  @media all and (width >= $min_tablet) {
+    font-size: 16px;
+    height: 30px;
+    width: 100%;
+  }
+}

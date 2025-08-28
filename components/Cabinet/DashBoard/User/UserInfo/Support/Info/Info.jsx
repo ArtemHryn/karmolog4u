@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { open_Sans } from '@/app/[locale]/layout';
 import styles from './Info.module.scss';
 import Telegram from './Icons/Telegram';
@@ -25,19 +26,34 @@ const Info = () => {
       </div>
       <ul className={styles.buttons_wrapper}>
         <li className={styles.buttons_wrapper_element}>
-          <button type="button" className={`${styles.button} ${open_Sans.className}`}>
+          <Link
+            href="https://t.me/karmologforyou"
+            target="_blank"
+            rel="noreferrer noopener"
+            className={`${styles.button} ${open_Sans.className}`}
+          >
             <Telegram /> Telegram
-          </button>
+          </Link>
         </li>
         <li className={styles.buttons_wrapper_element}>
-          <button type="button" className={`${styles.button} ${open_Sans.className}`}>
+          <Link
+            href="https://wa.me/380678696760"
+            target="_blank"
+            rel="noreferrer noopener"
+            className={`${styles.button} ${open_Sans.className}`}
+          >
             <WhatsApp /> WhatsApp
-          </button>
+          </Link>
         </li>
         <li className={styles.buttons_wrapper_element}>
-          <button type="button" className={`${styles.button} ${open_Sans.className}`}>
+          <Link
+            href={'viber://chat/?number=%2B380678696760'}
+            target="_blank"
+            rel="noreferrer noopener"
+            className={`${styles.button} ${open_Sans.className}`}
+          >
             <Viber /> Viber
-          </button>
+          </Link>
         </li>
       </ul>
     </div>

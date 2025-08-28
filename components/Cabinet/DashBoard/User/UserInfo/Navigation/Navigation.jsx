@@ -1,6 +1,7 @@
 'use client';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import Products from './Icons/Products';
 import Achievement from './Icons/Achievement';
 import Education from './Icons/Education';
 import Personal from './Icons/Personal';
@@ -10,6 +11,7 @@ import styles from './Navigation.module.scss';
 const navList = [
   { name: 'Мої досягнення', icon: Achievement, link: '/cabinet/dashboard/user/achievement' },
   { name: 'Навчання', icon: Education, link: '/cabinet/dashboard/user/education' },
+  { name: 'Продукти', icon: Products, link: '/cabinet/dashboard/user/products' },
   { name: 'Особисті дані', icon: Personal, link: '/cabinet/dashboard/user/personal' },
   { name: 'Відділ турботи', icon: Support, link: '/cabinet/dashboard/user/support' },
 ];
