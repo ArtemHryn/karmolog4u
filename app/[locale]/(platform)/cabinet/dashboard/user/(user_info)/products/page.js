@@ -1,5 +1,7 @@
+import { redirect } from 'next/navigation';
+
 const ProductsPage = () => {
-  return <div>ProductsPage</div>;
+  redirect('/cabinet/dashboard/user/products/meditations');
 };
 
 export default ProductsPage;

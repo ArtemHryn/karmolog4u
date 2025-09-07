@@ -1,0 +1,46 @@
+@import '/styles/main.scss';
+
+.list {
+  display: flex;
+  gap: 16px;
+}
+
+.checkboxWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #e0e0e0;
+  user-select: none;
+}
+
+.checkboxInput {
+  display: none;
+}
+
+.customCheckbox {
+  width: 16px;
+  height: 16px;
+  border: 2px solid $accent_v2;
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+}
+
+.customCheckbox::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background-color: $accent_v2;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.2s ease;
+}
+
+.checkboxInput:checked + .customCheckbox::after {
+  transform: translate(-50%, -50%) scale(1);
+}
