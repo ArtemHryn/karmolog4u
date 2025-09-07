@@ -1,0 +1,82 @@
+@import '/styles/main.scss';
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  @media all and (width >= $min_tablet) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  @media all and (width >= $min_tablet) {
+  }
+}
+
+.item {
+  @media all and (width >= $min_tablet) {
+    width: calc((100% - 20px) / 3);
+    min-width: 325px;
+  }
+  @media all and (width >= $min_desktop) {
+    width: calc((100% - 20px) / 3);
+    min-width: 233px;
+    max-width: 400px;
+  }
+}
+
+.item_wrapper {
+  display: flex;
+  min-height: 105px;
+  height: 100%;
+  max-height: 115px;
+  gap: 16px;
+  padding: 10px;
+  background-color: $main_bg;
+  border-radius: 10px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  border: 1px solid $accent_v2;
+  @media all and (width >= $min_tablet) {
+    width: 100%;
+  }
+}
+
+.img {
+  object-fit: fill;
+  width: 138px;
+  height: 83px;
+  @media all and (width >= $min_tablet) {
+    width: 98px;
+    height: 86px;
+  }
+}
+
+.desc_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 8px;
+}
+
+.name {
+  @include fontRegular(16px, 600, 25.28px, $main_text_color);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lessons {
+  @include fontRegular(10px, 600, 10px, $main_text_color);
+}
+
+.empty {
+  width: 100%;
+  min-height: 105px;
+  height: 100%;
+  background-color: $main_bg;
+  border-radius: 10px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  border: 1px dashed $accent_v2;
+}

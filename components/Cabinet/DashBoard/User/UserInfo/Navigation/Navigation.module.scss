@@ -1,0 +1,33 @@
+@import '/styles/main.scss';
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  padding: 10px 12px;
+  width: 216px;
+  height: 60px;
+  border: 1px solid $accent_v2;
+  @include fontRegular(16px, 600, 16px, $main_text_color);
+  background-color: $main_bg;
+  &_active {
+    background-color: $accent_v2;
+    color: $third_text_color;
+  }
+}
+
+.icon {
+  width: 20px;
+  fill: currentColor;
+}

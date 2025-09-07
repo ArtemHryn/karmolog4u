@@ -32,7 +32,6 @@ const authOptions = {
 
           const user = await res.json();
           if (!user) throw new Error('Invalid login response');
-
           return user.user;
         } catch (error) {
           console.error('Authorization error:', error);
@@ -46,16 +45,42 @@ const authOptions = {
     signOut: '/cabinet/login',
   },
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ token, user, trigger }) {
       const ONE_HOUR = 60 * 60 * 1000;
       const now = Date.now();
       if (user) {
         token.accessToken = user.accessToken;
         token.refreshToken = user.refreshToken;
         token.role = user.userData?.role;
+        token.name = user.userData?.name;
+        token.lastName = user.userData?.lastName;
+        token.email = user.userData?.email;
+        token.id = user.userData?.id;
+        token.mobPhone = user.userData?.mobPhone;
         token.expiresAt = now + ONE_HOUR;
+        token.cover = user.userData?.cover || '';
       }
 
+      if (trigger === 'update') {
+        try {
+          const refreshResponse = await fetch(`${base_url}/user/info`, {
+            method: 'GET',
+            headers: {
+              Authorization: `Bearer ${token.accessToken}`,
+            },
+          });
+          if (refreshResponse.ok) {
+            const userData = await refreshResponse.json();
+            token.name = userData.name;
+            token.lastName = userData.lastName;
+            token.email = userData.email;
+            token.mobPhone = userData.mobPhone;
+            token.cover = userData.cover || '';
+          }
+        } catch (error) {
+          console.error('Error fetching user info:', error);
+        }
+      }
       if (token.expiresAt && now > token.expiresAt) {
         try {
           const refreshResponse = await fetch(`${base_url}/auth/refresh-token`, {
@@ -86,8 +111,14 @@ const authOptions = {
     async session({ session, token }) {
       if (token) {
         session.user.role = token.role;
+        session.user.name = token.name;
+        session.user.lastName = token.lastName;
+        session.user.email = token.email;
+        session.user.mobPhone = token.mobPhone;
+        session.user.id = token.id;
         session.accessToken = token.accessToken;
         session.refreshToken = token.refreshToken;
+        session.cover = token.cover;
       }
       return session;
     },

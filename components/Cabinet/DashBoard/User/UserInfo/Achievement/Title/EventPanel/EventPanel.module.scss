@@ -1,0 +1,46 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 100%;
+  flex-grow: 1;
+  @media all and (width >= $min_tablet) {
+    order: 2;
+    width: auto;
+  }
+  @media all and (width >= $min_desktop) {
+    display: none;
+  }
+}
+
+.button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  & > svg {
+    width: 18px;
+    height: 20px;
+  }
+}
+
+.info {
+  position: absolute;
+  top: 15%;
+  right: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: #ecdbc3;
+  & > svg {
+    width: 6px;
+    height: 7px;
+  }
+}

@@ -1,0 +1,14 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.title {
+  @include fontRegular(16px, 400, 25.28px, $main_text_color);
+  @media all and (width >= $min_tablet) {
+    font-size: 18px;
+  }
+}

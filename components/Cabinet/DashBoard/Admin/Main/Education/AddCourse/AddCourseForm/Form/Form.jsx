@@ -240,7 +240,6 @@ const Form = ({ editCourse }) => {
         ...(period === 'TO_DATE' && { start_date, end_date }),
         ...(period === 'FOR_PERIOD' && { months }),
       },
-      // contract,
       chat,
       optionalFiles,
       optionalLink: data.additional_links?.filter(link => link.name && link.link) || [],
@@ -261,7 +260,6 @@ const Form = ({ editCourse }) => {
     }
 
     mutation.mutate({ info: requiredParams });
-    // console.log(requiredParams);
   };
 
   return (

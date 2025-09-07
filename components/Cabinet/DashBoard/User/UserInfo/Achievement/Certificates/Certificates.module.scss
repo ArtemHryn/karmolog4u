@@ -1,0 +1,19 @@
+@import '/styles/main.scss';
+
+.list {
+  display: flex;
+  gap: 10px;
+}
+
+.item {
+  width: 97px;
+  height: 120px;
+  border: 1px dashed $accent_v2;
+  border-radius: 12px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  background-color: $main_bg;
+  @media all and (width >= $min_tablet) {
+    width: 119px;
+    height: 147px;
+  }
+}

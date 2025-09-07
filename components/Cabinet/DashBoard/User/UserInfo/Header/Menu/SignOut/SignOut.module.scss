@@ -1,0 +1,29 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  width: 100%;
+  height: 92px;
+  padding: 0px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media all and (width >= $min_desktop) {
+    height: 144px;
+  }
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px;
+  flex-grow: 1;
+  @include fontRegular(16px, 400, 22.4px, $main_text_color);
+}

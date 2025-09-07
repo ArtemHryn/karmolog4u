@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 import Instagram from '@components/Common/SocialIcons/Instagram';
 import Telegram from '@components/Common/SocialIcons/Telegram';
@@ -25,7 +24,7 @@ const links = [
     to: 'viber://chat/?number=%2B380678696760',
   },
 ];
-function SocialLinks({ styles }) {
+function SocialLinks({ styles, userPage }) {
   const t = useTranslations('Header');
   return (
     <div className={styles.wrap}>
@@ -33,9 +32,14 @@ function SocialLinks({ styles }) {
       <ul className={styles.list}>
         {links.map(({ icon: Icon, to }, index) => (
           <li key={index}>
-            <a href={to} className={styles.link} target="_blank" rel="noreferrer noopener">
-              <Icon styled={styles.icon_social} />
-            </a>
+            <Link
+              href={to}
+              className={`${styles.link} ${userPage ? styles.link_user : ''}`}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <Icon styled={`${styles.icon_social} ${userPage ? styles.icon_social_user : ''} `} />
+            </Link>
           </li>
         ))}
       </ul>
