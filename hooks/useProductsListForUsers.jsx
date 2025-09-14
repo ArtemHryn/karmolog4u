@@ -22,6 +22,7 @@ const fetchProducts = async token => {
   return data.list.map(el => ({
     value: el.id,
     label: el.name,
+    targetModule: el.targetModule,
   }));
 };
 
