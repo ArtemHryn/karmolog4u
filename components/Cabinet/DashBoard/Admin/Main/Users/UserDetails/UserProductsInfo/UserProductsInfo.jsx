@@ -1,27 +1,57 @@
 'use client';
 
-import { useState } from 'react';
-import styles from './UserProductsInfo.module.scss';
+import { useParams } from 'next/navigation';
+import { useSession } from 'next-auth/react';
+import { useQuery } from '@tanstack/react-query';
 import UserProductsInfoTable from './UserProductsInfoTable/UserProductsInfoTable';
 import UserProductAdd from './UserProductAdd/UserProductAdd';
 
-const UserProductsInfo = ({ userDetails }) => {
-  const [selectedOption, setSelectedOption] = useState(null);
+import styles from './UserProductsInfo.module.scss';
+import { base_url } from '@/helper/consts';
 
-  if (!userDetails) return <div>Немає продуктів</div>;
+const fetchUserPurchases = async ({ token, userId }) => {
+  const res = await fetch(`${base_url}/admin/productPurchase/get/${userId}`, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  });
 
-  const filterProducts = () => {
-    if (!userDetails?.products || userDetails.products.length === 0) return [];
-    return userDetails.products.map(el => ({ ...el, type: 'Медитації' }));
+  if (!res.ok) {
+    throw new Error('Помилка завантаження списку продуктів користувача');
+  }
+  return res.json();
+};
+
+const UserProductsInfo = () => {
+  const { data: token } = useSession();
+  const { id } = useParams();
+
+  const {
+    data: productsPurchase,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ['products_purchase', 'users'],
+    queryFn: () => fetchUserPurchases({ token: token.accessToken, userId: id }),
+    placeholderData: prevD => prevD,
+  });
+
+  const usedPurchases = () => {
+    return productsPurchase?.map(({ productId }) => productId);
   };
 
   return (
     <div className={styles.main_wrapper}>
       <div className={styles.info_part_wrapper}>
-        <UserProductsInfoTable list={filterProducts()} />
+        {isLoading ? (
+          <div>Завантаження продуктів...</div>
+        ) : (
+          <UserProductsInfoTable list={productsPurchase} isError={isError} />
+        )}
       </div>
       <div className={styles.info_part_wrapper}>
-        <UserProductAdd selectedOption={selectedOption} setSelectedOption={setSelectedOption} />
+        <UserProductAdd usedPurchases={usedPurchases()} isLoadingProducts={isLoading} />
       </div>
     </div>
   );

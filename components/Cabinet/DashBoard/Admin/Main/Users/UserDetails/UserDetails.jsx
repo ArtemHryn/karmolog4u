@@ -14,8 +14,8 @@ const UserDetails = ({ userDetails }) => {
       <div className={styles.user_details_wrapper}>
         <LoginDetails userDetails={userDetails} />
         <UserInfo userDetails={userDetails} />
-        <UserCoursesInfo userDetails={userDetails} />
-        <UserProductsInfo userDetails={userDetails} />
+        <UserCoursesInfo />
+        <UserProductsInfo />
         <UserPaymentTable userDetails={userDetails} />
       </div>
     </>

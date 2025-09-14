@@ -1,7 +1,7 @@
 'use client';
 
 import { FormProvider, useForm } from 'react-hook-form';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import { toast, ToastContainer } from 'react-toastify';
@@ -79,9 +79,10 @@ const setDefaultFormFields = items => {
     status,
     type: typesList.find(el => el.type === type),
     completeness,
-    period: access.period,
-    ...(access.start_date ? { start_date: new Date(access.start_date) } : {}),
-    ...(access.end_date ? { end_date: new Date(access.end_date) } : {}),
+    period: access.type,
+    ...(access.dateStart ? { start_date: new Date(access.dateStart) } : {}),
+    ...(access.dateEnd ? { end_date: new Date(access.dateEnd) } : {}),
+    ...(access.months ? { months: access.months } : {}),
     optionalFiles: optionalFiles && optionalFiles.length > 0 ? optionalFiles : [],
     chat,
     practiceInvoice,
@@ -114,6 +115,7 @@ const Form = ({ editCourse }) => {
   const methods = useForm({
     defaultValues: setDefaultFormFields(editCourse),
   });
+  const queryClient = useQueryClient();
 
   const mutation = useMutation({
     mutationFn: ({ info }) =>
@@ -124,6 +126,7 @@ const Form = ({ editCourse }) => {
         id: editCourse ? editCourse.id : '',
       }),
     onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['courses_list', 'users'] });
       toast.success('Запис успішно додано!', { autoClose: 1000 });
       router.refresh();
       setTimeout(() => router.push('/cabinet/dashboard/admin/education/'), 1500);
@@ -237,7 +240,7 @@ const Form = ({ editCourse }) => {
       completeness,
       access: {
         type: period,
-        ...(period === 'TO_DATE' && { start_date, end_date }),
+        ...(period === 'TO_DATE' && { dateStart: start_date, dateEnd: end_date }),
         ...(period === 'FOR_PERIOD' && { months }),
       },
       chat,

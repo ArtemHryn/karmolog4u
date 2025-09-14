@@ -1,0 +1,17 @@
+@import '/styles/main.scss';
+
+.access_type {
+  border: 1px solid #cfdbf0;
+  padding: 4px 12px;
+  @include fontRegular(14px, 400, 20px, #163b90, center);
+  width: fit-content;
+  margin-left: 16px;
+  border-radius: 8px;
+  background-color: #e0ebff;
+}
+
+.full {
+  background-color: #e3fbe8;
+  color: #11491c;
+  border-color: #d1efd7;
+}

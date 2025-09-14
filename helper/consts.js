@@ -49,3 +49,13 @@ export const CONSULTING = 'CONSULTING';
 //module types
 export const THEORETICAL = 'THEORETICAL';
 export const PRACTICAL = 'PRACTICAL';
+
+//courses purchase status
+export const ACTIVE = 'ACTIVE';
+export const EXPIRED = 'EXPIRED';
+export const BLOCKED = 'BLOCKED';
+
+//payment plans
+export const FULL = 'FULL';
+export const PARTIAL = 'PARTIAL';
+export const INSTALLMENTS = 'INSTALLMENT';

@@ -1,40 +1,60 @@
 'use client';
-
-import { useState } from 'react';
+import { useSession } from 'next-auth/react';
+import { useParams } from 'next/navigation';
+import { useQuery } from '@tanstack/react-query';
 
 import styles from './UserCoursesInfo.module.scss';
 
 import UserCourseInfoTable from './UserCourseInfoTable/UserCourseInfoTable';
 import UserCourseInfoAddCourse from './UserCourseInfoAddCourse/UserCourseInfoAddCourse';
+import { base_url } from '@/helper/consts';
 
-const UserCoursesInfo = ({ userDetails }) => {
-  const [selectedOption, setSelectedOption] = useState(null);
+const fetchUserPurchases = async ({ token, userId }) => {
+  const res = await fetch(`${base_url}/admin/coursePurchase/get-all/${userId}`, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  });
 
-  if (!userDetails) return <div>Немає курсів</div>;
+  if (!res.ok) {
+    throw new Error('Помилка завантаження списку курсів користувача');
+  }
+  return res.json();
+};
 
-  const productsDetails = () => {
-    if (!userDetails?.education || userDetails.education.length === 0) return [];
+const UserCoursesInfo = () => {
+  const { data: user } = useSession();
+  const { id } = useParams();
 
-    return userDetails.education.map(el => ({
-      ...el,
-      status: 'active',
-      to: new Date(2025, 6, 15).toLocaleString(undefined, {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric',
-      }),
-    }));
+  const {
+    data: purchases,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ['user_purchases'],
+    queryFn: () => fetchUserPurchases({ token: user.accessToken, userId: id }),
+    placeholderData: prevD => prevD,
+  });
+
+  const availableCourses = () => {
+    return purchases?.map(p => p.course.id);
   };
+
 
   return (
     <div className={styles.main_wrapper}>
       <div className={styles.info_part_wrapper}>
-        <UserCourseInfoTable list={productsDetails()} />
+        {isLoading ? (
+          <div>Завантаження курсів...</div>
+        ) : (
+          <UserCourseInfoTable purchases={purchases} isError={isError} />
+        )}
       </div>
       <div className={styles.info_part_wrapper}>
         <UserCourseInfoAddCourse
-          selectedOption={selectedOption}
-          setSelectedOption={setSelectedOption}
+          availableCourses={availableCourses()}
+          isLoadingCourses={isLoading}
         />
       </div>
     </div>

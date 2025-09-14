@@ -1,22 +1,49 @@
+import { useState } from 'react';
+import { useSession } from 'next-auth/react';
+import { useParams } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import { useProductsListForUsers } from '@/hooks/useProductsListForUsers';
+import useUserProductsPurchaseActions from '@/hooks/useUserProductsPurchaseActions';
 
 const SelectNoSSR = dynamic(() => import('react-select'), { ssr: false });
 
 import styles from './UserProductAdd.module.scss';
 
-const UserProductAdd = ({ selectedOption, setSelectedOption }) => {
+const UserProductAdd = ({ usedPurchases, isLoadingProducts }) => {
+  const [selectedOption, setSelectedOption] = useState(null);
+  const { id } = useParams();
+  const { data: token } = useSession();
+
   const { productsList, isError, isLoading } = useProductsListForUsers();
+
+  const useUserProductsPurchase = useUserProductsPurchaseActions({
+    token: token?.accessToken,
+    onSuccessCallback: () => setSelectedOption(null),
+  });
+
+  const filteredProducts = () => {
+    if (!usedPurchases || usedPurchases.length === 0) return productsList;
+    return productsList.filter(p => !usedPurchases.includes(p.value));
+  };
+
+  const onAddingProducts = () => {
+    const data = {
+      products: selectedOption.map(el => ({
+        productId: el.value,
+        targetModule: el.targetModule,
+      })),
+    };
+    useUserProductsPurchase.mutate({ action: 'add', id, data });
+  };
+
+  if (isLoadingProducts) return null;
 
   return (
     <>
       <div className={styles.save_courses_button_wrapper}>
         <p>Додати до продуктів</p>
         {selectedOption?.length > 0 && (
-          <button
-            className={styles.save_courses_button}
-            onClick={() => console.log(selectedOption)}
-          >
+          <button className={styles.save_courses_button} onClick={() => onAddingProducts()}>
             <svg viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 fillRule="evenodd"
@@ -30,8 +57,8 @@ const UserProductAdd = ({ selectedOption, setSelectedOption }) => {
       </div>
       <SelectNoSSR
         isMulti
-        isLoading={isLoading}
-        options={isError ? [] : productsList}
+        isLoading={isLoading || isLoadingProducts}
+        options={isError ? [] : filteredProducts()}
         value={selectedOption}
         onChange={opt => setSelectedOption(opt)}
         styles={{

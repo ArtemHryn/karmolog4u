@@ -84,7 +84,6 @@ export const useCreateUser = ({ token, onSuccessCallback }) => {
 
       // Перевіряємо, чи це формат типу "users.0.текст"
       const match = message.match(/^users\.(\d+)\.(.+)$/);
-      console.log(match);
       if (match) {
         const userIndex = parseInt(match[1], 10);
         const errorText = match[2];

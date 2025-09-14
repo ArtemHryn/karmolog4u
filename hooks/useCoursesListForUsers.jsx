@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { useSession } from 'next-auth/react';
-import { base_url, PUBLISHED } from '../helper/consts';
+import { base_url } from '../helper/consts';
 
 const fetchCourses = async token => {
   const res = await fetch(`${base_url}/admin/education/course/list`, {
@@ -22,6 +22,7 @@ const fetchCourses = async token => {
   return data.map(el => ({
     value: el.id,
     label: el.name,
+    type: el.type,
   }));
 };
 

@@ -158,6 +158,7 @@ const Table = ({ activeBtn, search, setNumberOfCourses }) => {
       toast.success('Успішно видалено курс');
       setShowDialogWindow(false);
       queryClient.invalidateQueries({ queryKey });
+      queryClient.invalidateQueries({ queryKey: ['courses_list', 'users'] });
     },
     onError: err => {
       toast.error(`Помилка: ${err.message}`);
