@@ -1,5 +1,4 @@
 'use client';
-import { useEffect } from 'react';
 import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
 import { open_Sans } from '@app/[locale]//layout';
 import Logo from './Logo';
@@ -7,11 +6,6 @@ import Logo from './Logo';
 import styles from './NotFound.module.scss';
 
 const NotFoundComponent = () => {
-  useEffect(() => {
-    setTimeout(() => {
-      window.location.href = '/';
-    }, 10000);
-  });
 
   return (
     <div className={styles.wrapper}>

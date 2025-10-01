@@ -21,7 +21,7 @@ const fetchProduct = async (id, token) => {
   return res.json();
 };
 
-const MeditationDetails = async ({ params }) => {
+const WebinarDetailed = async ({ params }) => {
   try {
     const session = await getServerSession(authOptions);
     const accessToken = session?.accessToken;
@@ -29,7 +29,7 @@ const MeditationDetails = async ({ params }) => {
       console.error('Access token not found in session');
       return <div>Немає доступу</div>;
     }
-    const product = await fetchProduct(params.meditation_id, accessToken);
+    const product = await fetchProduct(params.webinar_id, accessToken);
 
     if (!product) notFound();
 
@@ -40,4 +40,4 @@ const MeditationDetails = async ({ params }) => {
   }
 };
 
-export default MeditationDetails;
+export default WebinarDetailed;

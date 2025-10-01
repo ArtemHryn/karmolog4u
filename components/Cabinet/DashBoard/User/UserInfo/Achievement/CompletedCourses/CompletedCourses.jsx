@@ -1,5 +1,10 @@
+'use client';
+
 import Image from 'next/image';
+import { useSession } from 'next-auth/react';
 import SectionsTemplate from '../SectionsTemplate/SectionsTemplate';
+import { base_url } from '@/helper/consts';
+import useUserInfo from '@/hooks/useUserInfo';
 
 import styles from './CompletedCourses.module.scss';
 
@@ -16,7 +21,33 @@ const course = [
   },
 ];
 
+const getCompletedCourses = async token => {
+  const res = fetch(`${base_url}/coursePurchase/get-achievement`, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  if (!res.ok) {
+    const errorBody = await res.json();
+    throw new Error(errorBody?.message || 'Помилка');
+  }
+  return res.json();
+};
+
 const CompletedCourses = () => {
+  const { data: token } = useSession();
+
+  const {
+    data: courses,
+    isLoading,
+    isError,
+  } = useUserInfo({
+    token: token?.accessToken,
+    action: 'achievement',
+    queryKey: ['user-achievement'],
+  });
+
   return (
     <SectionsTemplate title={'Пройдені курси'}>
       <ul className={styles.list}>

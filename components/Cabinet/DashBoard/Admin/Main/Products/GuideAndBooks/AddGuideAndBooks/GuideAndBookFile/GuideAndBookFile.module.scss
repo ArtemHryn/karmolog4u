@@ -1,0 +1,41 @@
+@import '/styles/main.scss';
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  @include fontRegular(12px, 500, 12px, $third_text_color);
+  max-width: 500px;
+  width: 100%;
+}
+
+.file_label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid $p_border;
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 100%;
+  min-height: 48px;
+}
+
+.file_input {
+  display: none;
+}
+
+.delete_button {
+  position: absolute;
+  right: 4%;
+  top: 50%;
+  transform: translate(50%, -40%);
+  & > svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.error {
+  border-color: red;
+}

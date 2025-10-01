@@ -5,6 +5,7 @@ import styles from './ProductItem.module.scss';
 
 const ProductItem = ({ item, type, link }) => {
   const { name, cover, id } = item;
+  
   return (
     <li className={styles.list_item}>
       <Image src={cover} width={132} height={126} alt={name} className={styles.img} />
