@@ -43,7 +43,7 @@ const ProductInfo = ({ product }) => {
 
   const onDownloadFile = async () => {
     const fileName = file?.path?.split('/').pop();
-    const response = await fetch(`${base_url}/storage/file/${fileName}`, {
+    const response = await fetch(`${base_url}/file/${fileName}`, {
       headers: {
         Authorization: `Bearer ${data.accessToken}`,
       },
