@@ -31,7 +31,7 @@ const ProductInfo = ({ product }) => {
     detailsDescription = null,
     file = null,
   } = product;
-  console.log(product);
+  // console.log(product);
 
   const categoriesMap = {
     [CLOSED_MEDITATIONS]: 'Медитація',
@@ -42,7 +42,8 @@ const ProductInfo = ({ product }) => {
   };
 
   const onDownloadFile = async () => {
-    const response = await fetch(`${base_url}/storage/${file.path}`, {
+    const fileName = file?.path?.split('/').pop();
+    const response = await fetch(`${base_url}/storage/file/${fileName}`, {
       headers: {
         Authorization: `Bearer ${data.accessToken}`,
       },

@@ -1,7 +1,7 @@
 import styles from './AccountInfo.module.scss';
-const AccountInfo = () => {
+const AccountInfo = ({ showOnMobile }) => {
   return (
-    <div className={styles.wrapper}>
+    <div className={`${showOnMobile ? styles.show : styles.wrapper}`}>
       <svg
         viewBox="0 0 18 24"
         fill="none"

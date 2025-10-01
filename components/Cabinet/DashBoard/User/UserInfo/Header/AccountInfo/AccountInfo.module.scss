@@ -13,6 +13,16 @@
   }
 }
 
+.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $additional_bg;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+}
+
 .icon {
   width: 18px;
   height: 24px;
