@@ -18,7 +18,7 @@ const ProductsNav = () => {
       {list.map(({ title, link }) => (
         <li key={link}>
           <Link
-            href={link}
+            href={`/cabinet/dashboard/user/products/${link}`}
             className={`${styles.link} ${pathname.includes(link) ? styles.link_active : ''}`}
           >
             {title}

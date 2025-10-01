@@ -1,46 +1,32 @@
-import styles from './CoursesList.module.scss';
-import {
-  ADVANCED,
-  CONSULTING,
-  SSK_INDEPENDENT,
-  SSK_WITH_CURATOR,
-  SSK_WITH_SERGIY,
-} from '@/helper/consts';
-import Card from './Card';
+'use client';
 
-const list = [
-  {
-    name: 'Сам собі кармолог',
-    available_to: ' 01.04.2025',
-    paid: false,
-    img: '/assets/images/therapySessions/session-insight-desk.webp',
-    type: SSK_WITH_CURATOR,
-    id: 1,
-  },
-  {
-    name: 'Консультантський курс',
-    available_to: ' 01.06.2025',
-    paid: true,
-    img: '/assets/images/therapySessions/session-insight-desk.webp',
-    type: CONSULTING,
-    id: 2,
-  },
-  {
-    name: 'Поглиблений курс',
-    available_to: ' 01.08.2025',
-    paid: true,
-    img: '/assets/images/therapySessions/session-insight-desk.webp',
-    type: ADVANCED,
-    id: 3,
-  },
-];
+import { useSession } from 'next-auth/react';
+import Card from './Card';
+import Loader from '../../../Loader/Loader';
+import { SSK_INDEPENDENT, SSK_WITH_CURATOR, SSK_WITH_SERGIY } from '@/helper/consts';
+import useUserInfo from '@/hooks/useUserInfo';
+
+import styles from './CoursesList.module.scss';
 
 const CoursesList = () => {
+  const { data: token } = useSession();
+
+  const { data, isLoading, isError } = useUserInfo({
+    token: token?.accessToken,
+    action: 'courses',
+    queryKey: ['user-courses'],
+  });
+
+  if (isLoading) return <Loader />;
+  if (isError) return <div>Помилка завантаження курсів...</div>;
+
+  if (!data) return null;
+
   return (
     <ul className={styles.list}>
-      {list.map(course => {
+      {data.map(course => {
         const isSSK = [SSK_WITH_CURATOR, SSK_INDEPENDENT, SSK_WITH_SERGIY].includes(course.type);
-        return <Card course={course} isSSK={isSSK} key={course.name} />;
+        return <Card course={course} isSSK={isSSK} key={course.id} />;
       })}
     </ul>
   );

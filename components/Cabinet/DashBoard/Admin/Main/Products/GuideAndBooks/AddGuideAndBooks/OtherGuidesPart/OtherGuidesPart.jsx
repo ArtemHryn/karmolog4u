@@ -4,8 +4,9 @@ import ImageInput from '../../../Meditations/AddMeditation/ClosedPart/ImageInput
 import Price from '../../../Meditations/AddMeditation/ClosedPart/Price/Price';
 
 import styles from './OtherGuidesPart.module.scss';
+import GuideAndBookFile from '../GuideAndBookFile/GuideAndBookFile';
 
-const OtherGuidesPart = () => {
+const OtherGuidesPart = ({ serverFile }) => {
   const {
     register,
     formState: { errors },
@@ -22,6 +23,7 @@ const OtherGuidesPart = () => {
         />
         {errors?.video && <p className={styles.error}>{errors.video.message}</p>}
       </label>
+      <GuideAndBookFile serverFile={serverFile} />
       <Price />
       <Description />
     </>

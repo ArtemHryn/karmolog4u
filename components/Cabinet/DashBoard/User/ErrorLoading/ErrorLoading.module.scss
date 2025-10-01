@@ -1,0 +1,40 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  padding: 24px 16px;
+  justify-content: space-between;
+  width: 321px;
+  min-height: 152px;
+  border-radius: 12px;
+  border: 1px solid $accent_v2;
+  margin-inline: auto;
+  @media all and (width >= $min_tablet) {
+    width: 100%;
+    min-height: auto;
+    gap: 16px;
+    padding: 24px;
+  }
+}
+
+.text_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 224px;
+  @media all and (width >= $min_tablet) {
+    width: 100%;
+    gap: 0px;
+  }
+}
+
+.title {
+  @include fontRegular(14px, 400, 20.2px);
+  @media all and (width >= $min_tablet) {
+    font-size: 18px;
+  }
+}
+
+.text {
+  @include fontRegular(13px, 400, 20.2px);
+}

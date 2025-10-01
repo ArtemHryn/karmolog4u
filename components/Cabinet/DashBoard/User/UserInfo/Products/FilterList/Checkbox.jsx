@@ -4,22 +4,23 @@ import { useEffect, useState } from 'react';
 
 import styles from './FilterList.module.scss';
 
-const Checkbox = ({ label, storageKey }) => {
-  const [checked, setChecked] = useState(false);
-  useEffect(() => {
+const Checkbox = ({ label, storageKey, setFilters }) => {
+  const [checked, setChecked] = useState(() => {
     const saved = localStorage.getItem(storageKey);
-    if (saved !== null) setChecked(JSON.parse(saved));
-  }, [storageKey]);
+    return saved ? JSON.parse(saved) : false;
+  });
+
   useEffect(() => {
-    localStorage.setItem(storageKey, checked);
-  }, [checked, storageKey]);
-  
+    localStorage.setItem(storageKey, JSON.stringify(checked));
+    setFilters(prev => ({ ...prev, [storageKey]: checked }));
+  }, [checked, storageKey, setFilters]);
+
   return (
     <label className={styles.checkboxWrapper} htmlFor={storageKey}>
       <input
         type="checkbox"
         checked={checked}
-        onChange={e => setChecked(e.target.checked)}
+        onChange={({ target }) => setChecked(target.checked)}
         id={storageKey}
         className={styles.checkboxInput}
       />

@@ -8,8 +8,8 @@
 
 .list {
   display: flex;
-  flex-direction: column; // щоб завжди 1 елемент у рядку
-  align-items: center; // центрує по горизонталі
+  flex-direction: column;
+  align-items: center;
   gap: 16px;
   @media all and (width >= $min_tablet) {
     flex-wrap: wrap;

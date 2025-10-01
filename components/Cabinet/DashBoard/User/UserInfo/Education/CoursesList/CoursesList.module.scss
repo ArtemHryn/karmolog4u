@@ -141,7 +141,8 @@
   @media all and (width >= $min_tablet) {
     justify-content: space-between;
     align-items: center;
-    width: 122px;
+    width: 190px;
+    padding: 8px 0;
   }
 }
 
@@ -157,14 +158,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 108px;
+  width: 112px;
   height: 27px;
   border-radius: 8px;
   background: $buttons_color;
-  @include fontRegular(14px, 600, 14px, $third_text_color);
+  @include fontRegular(10px, 600, 10px, $third_text_color);
   @media all and (width >= $min_tablet) {
     font-size: 16px;
     height: 30px;
     width: 100%;
+    border-radius: 14px;
   }
 }

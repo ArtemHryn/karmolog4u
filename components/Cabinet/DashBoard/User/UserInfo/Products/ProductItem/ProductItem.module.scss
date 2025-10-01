@@ -50,6 +50,9 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis; /* "…" в кінці, якщо не вмістилось */
+  @media all and (width >= $min_tablet) {
+    font-size: 16px;
+  }
 }
 
 .link {

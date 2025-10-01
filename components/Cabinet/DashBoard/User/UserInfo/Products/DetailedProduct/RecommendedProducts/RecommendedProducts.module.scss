@@ -1,0 +1,45 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+}
+
+.title {
+  @include fontRegular(14px, 600, 14px, $seconds_text_color);
+  @media all and (min-width: $min_tablet) {
+    font-size: 16px;
+  }
+}
+
+.slider_wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 60vw;
+  margin-inline: auto;
+  @media all and (min-width: $min_tablet) {
+    width: 75vw;
+  }
+  @media all and (min-width: $min_desktop) {
+    width: 60vw;
+  }
+}
+
+.buttons_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.button {
+  display: flex;
+  &_prev {
+    rotate: 180deg;
+  }
+  & > svg {
+    width: 14px;
+    height: 14px;
+  }
+}

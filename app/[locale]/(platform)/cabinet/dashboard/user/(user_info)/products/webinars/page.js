@@ -1,7 +1,7 @@
-import React from 'react';
+import Webinars from '@/components/Cabinet/DashBoard/User/UserInfo/Products/Webinars/Webinars';
 
 const WebinarsPage = () => {
-  return <div>webinars</div>;
+  return <Webinars />;
 };
 
 export default WebinarsPage;

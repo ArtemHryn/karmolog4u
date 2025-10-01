@@ -101,6 +101,7 @@ const AddGuideAndBooks = ({ edit }) => {
       video,
       discount,
       price,
+      file,
     } = data;
     if (!getValues('category')) {
       setError('category', { type: 'manual', message: 'Оберіть категорію' });
@@ -116,17 +117,23 @@ const AddGuideAndBooks = ({ edit }) => {
       }
     }
 
+    if (!file) {
+      setError('file', { type: 'manual' });
+    }
+
     const formData = new FormData();
 
     const requiredParams = {
       name: { uk: name_uk, ru: name_ru },
       category,
       status,
+      file,
     };
 
     Object.entries(requiredParams).forEach(([key, value]) =>
       formData.append(key, JSON.stringify(value))
     );
+
     //перевірка чи існує cover і якщо да то перевіряємо чи файл
     if (cover) {
       formData.append('cover', cover);
@@ -160,9 +167,11 @@ const AddGuideAndBooks = ({ edit }) => {
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.labels_wrapper}>
           <RequiredLabels categories={categoriesList} />
-          {watch('category') === OTHER_GUIDES && <OtherGuidesPart />}
-          {watch('category') === BOOKS && <BooksPart />}
-          {watch('category') === GUIDES && <GuidesPart />}
+          {watch('category') === OTHER_GUIDES && (
+            <OtherGuidesPart serverFile={edit.file.originalName} />
+          )}
+          {watch('category') === BOOKS && <BooksPart serverFile={edit.file.originalName} />}
+          {watch('category') === GUIDES && <GuidesPart serverFile={edit.file.originalName} />}
         </div>
         <SubmitButtons setStatusAndSubmit={setStatusAndSubmit} />
       </form>

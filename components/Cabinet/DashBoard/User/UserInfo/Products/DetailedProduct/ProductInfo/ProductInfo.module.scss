@@ -1,0 +1,102 @@
+@import '/styles/main.scss';
+
+.main_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-inline: auto;
+  @media all and (width >= $min_tablet) {
+    width: 100%;
+  }
+}
+
+.back_button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  @include fontRegular(13px, 400, 13px, $seconds_text_color);
+  & > svg {
+    width: 10px;
+    height: 10px;
+    fill: currentColor;
+  }
+}
+
+.info_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  @media all and (width >= $min_tablet) {
+    flex-grow: 1;
+  }
+}
+
+.download_button {
+  & > svg {
+    width: 16px;
+    height: 16px;
+    @media all and (width >= $min_tablet) {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.download_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.additional_info_wrapper {
+  @media all and (width >= $min_tablet) {
+    flex-direction: row;
+    gap: 24px;
+  }
+}
+
+.video {
+  border-radius: 12px;
+  width: 70vw;
+  max-height: 300px;
+  aspect-ratio: 4/3;
+  border: 0.5px solid rgba(207, 182, 145, 0.3);
+  @media all and (width >= $min_tablet) {
+    width: 330px;
+    height: 226px;
+  }
+}
+
+.img {
+  border-radius: 12px;
+  width: 312px;
+  height: 208px;
+  border: 0.5px solid rgba(207, 182, 145, 0.3);
+  object-fit: cover;
+  @media all and (width >= $min_tablet) {
+    width: 330px;
+    height: 226px;
+  }
+}
+
+.category {
+  @include fontRegular(14px, 600, 14px);
+  @media all and (width >= $min_tablet) {
+    font-size: 16px;
+  }
+}
+
+.name {
+  @include fontRegular(14px, 400, 20.02px, $seconds_text_color);
+  text-transform: uppercase;
+}
+
+.description {
+  white-space: pre-line;
+  @include fontRegular(14px, 400, 20.02px);
+}
+
+.detailed_title {
+  @include fontRegular(14px, 400, 20.02px, $seconds_text_color);
+  text-transform: uppercase;
+}

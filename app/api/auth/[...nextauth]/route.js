@@ -71,11 +71,12 @@ const authOptions = {
           });
           if (refreshResponse.ok) {
             const userData = await refreshResponse.json();
+
             token.name = userData.name;
             token.lastName = userData.lastName;
             token.email = userData.email;
             token.mobPhone = userData.mobPhone;
-            token.cover = userData.cover || '';
+            token.cover = userData.cover;
           }
         } catch (error) {
           console.error('Error fetching user info:', error);
@@ -118,7 +119,7 @@ const authOptions = {
         session.user.id = token.id;
         session.accessToken = token.accessToken;
         session.refreshToken = token.refreshToken;
-        session.cover = token.cover;
+        session.user.cover = token.cover;
       }
       return session;
     },

@@ -1,31 +1,11 @@
 import Image from 'next/image';
 import { useFormContext } from 'react-hook-form';
 import { useSession } from 'next-auth/react';
-import { useMutation } from '@tanstack/react-query';
 import { toast } from 'react-toastify';
-import { base_url } from '@/helper/consts';
+import useCoverUpload from '@/hooks/useCoverUpload';
 
 import styles from './CoverWithPrice.module.scss';
 import 'react-toastify/dist/ReactToastify.css';
-
-const uploadImage = async ({ file, token }) => {
-  const formData = new FormData();
-  formData.append('image', file);
-  const url = `${base_url}/uploadCover`;
-  const uploadRes = await fetch(url, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-    body: formData,
-  });
-  if (!uploadRes.ok) {
-    const errorMessage = await uploadRes.json();
-    throw new Error(errorMessage.message || 'Не вдалося надіслати картинку');
-  }
-
-  return uploadRes.json();
-};
 
 const ImageInput = () => {
   const { register, setValue, watch } = useFormContext();
@@ -33,15 +13,7 @@ const ImageInput = () => {
 
   const imageUrl = watch('cover');
 
-  const mutation = useMutation({
-    mutationFn: uploadImage,
-    onSuccess: data => {
-      setValue('cover', data.link);
-    },
-    onError: err => {
-      toast.error(`Помилка: ${err.message} test`);
-    },
-  });
+  const mutation = useCoverUpload(setValue);
 
   const handleFileChange = async e => {
     const file = e.target.files?.[0];
