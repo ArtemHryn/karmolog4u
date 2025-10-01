@@ -52,7 +52,7 @@ const PersonalInfo = ({ user: { name, lastName, email, mobPhone, cover = null } 
   });
 
   const onSubmit = data => {
-    mutation.mutate({ ...data, cover });
+    mutation.mutate({ ...data });
   };
 
   return (
