@@ -41,6 +41,10 @@ const useUserProductsPurchaseActions = ({ token, onSuccessCallback }) => {
     },
     onError: error => {
       toast.error(`Помилка: ${error.message}`);
+      if (error.message.includes('Помилка відправлення email')) {
+        queryClient.invalidateQueries({ queryKey: ['products_purchase', 'users'] });
+        queryClient.invalidateQueries({ queryKey: ['products_list'] });
+      }
     },
     enabled: !!token,
   });
