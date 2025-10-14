@@ -1,4 +1,4 @@
-import Users from '@/components/Cabinet/DashBoard/Admin/Main/Users/Users';
+import Users from '@components/Cabinet/DashBoard/Admin/Main/Products/Users/Users';
 
 const UsersListPage = () => {
   return <Users />;

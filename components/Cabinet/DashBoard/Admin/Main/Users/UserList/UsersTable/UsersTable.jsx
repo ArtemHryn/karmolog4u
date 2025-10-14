@@ -6,10 +6,10 @@ import { Column } from 'primereact/column';
 
 import styles from './UsersTable.module.scss';
 import ActionsColumn from './ActionsColumn/ActionsColumn';
-import Footer from '../../../Deleted/Table/TableData/Footer/Footer';
+import Footer from '../../../../Deleted/Table/TableData/Footer/Footer';
 import OpenAccountProperties from './OpenAccountProperties/OpenAccountProperties';
 import './table.scss';
-import EmptyTable from '../../../Education/TablesInfo/Table/EmptyTable/EmptyTable';
+import EmptyTable from '../../../../Education/TablesInfo/Table/EmptyTable/EmptyTable';
 
 const UsersTable = ({ users, totalUsers, currentPage, setCurrentPage }) => {
   const [selectedProducts, setSelectedProducts] = useState(null);

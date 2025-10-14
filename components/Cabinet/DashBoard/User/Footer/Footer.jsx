@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Logo from '@components/Common/Icons/Logo';
 import SocialLinks from './SocialLinks/SocialLinks';
 
-function userFooter() {
+function UserFooter() {
   return (
     <footer className={styles.wrap}>
       <div className={styles.footer}>
@@ -36,4 +36,4 @@ function userFooter() {
   );
 }
 
-export default userFooter;
+export default UserFooter;

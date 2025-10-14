@@ -25,6 +25,7 @@ const courses = [
       '7-годинні теоретичні модулі — тричі на місяць',
       '4-годинні практичні заняття — один раз на місяць',
     ],
+    link: '/karmologist-himself',
   },
   {
     name: 'КОНСУЛЬТАНТСЬКИЙ',
@@ -42,6 +43,7 @@ const courses = [
       'Бінуарні ритми',
       'Трактування 22-х кодів долі',
     ],
+    link: '/consulting-course',
   },
   {
     name: 'ПОГЛИБЛЕНИЙ  КУРС',
@@ -59,6 +61,7 @@ const courses = [
       'Матриця року',
       'Регресія та інше',
     ],
+    link: '/advanced-course',
   },
 ];
 
@@ -70,7 +73,7 @@ const AvailableCourses = () => {
           spaceBetween={24}
           className={styles.slider}
           loop={true}
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          autoplay={{ delay: 3000, disableOnInteraction: true }}
           modules={[Autoplay]}
         >
           {courses.map((course, i) => (

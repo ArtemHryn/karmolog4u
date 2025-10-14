@@ -1,9 +1,10 @@
 import Image from 'next/image';
 
 import styles from './AvailableCourses.module.scss';
+import Link from 'next/link';
 
 const Card = ({ course }) => {
-  const { name, mobImg, tableImg, about } = course;
+  const { name, mobImg, tableImg, about, link } = course;
   return (
     <div className={styles.slide}>
       <picture className={styles.image}>
@@ -11,7 +12,9 @@ const Card = ({ course }) => {
         <Image src={mobImg} width={280} height={183} alt={name} className={styles.image} />
       </picture>
       <div className={styles.text_wrapper}>
-        <h3 className={styles.name}>{name}</h3>
+        <Link className={styles.name} href={link} target="_blank" rel="noopener noreferrer">
+          {name}
+        </Link>
         <ul className={styles.list}>
           {about.map((item, index) => (
             <li key={index}>

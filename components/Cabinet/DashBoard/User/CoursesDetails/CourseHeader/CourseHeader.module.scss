@@ -1,0 +1,65 @@
+@import '/styles/main.scss';
+
+.header {
+  position: relative;
+  height: 280px;
+  padding-top: 52px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.ssk {
+  background-image: url('/assets/images/cabinet/user_courses/ssk_bg_mob.webp');
+  @media all and (width >= $min_tablet) {
+    background-image: url('/assets/images/cabinet/user_courses/ssk_bg_tab.webp');
+  }
+  @media all and (width >= $min_desktop) {
+    background-image: url('/assets/images/cabinet/user_courses/ssk_bg_desk.webp');
+  }
+}
+
+//change images
+.advanced {
+  background-image: url('/assets/images/cabinet/user_courses/ssk_bg_mob.webp');
+  @media all and (width >= $min_tablet) {
+    background-image: url('/assets/images/cabinet/user_courses/ssk_bg_tab.webp');
+  }
+  @media all and (width >= $min_desktop) {
+    background-image: url('/assets/images/cabinet/user_courses/ssk_bg_desk.webp');
+  }
+}
+
+//change images
+.consulting {
+  background-image: url('/assets/images/cabinet/user_courses/ssk_bg_mob.webp');
+  @media all and (width >= $min_tablet) {
+    background-image: url('/assets/images/cabinet/user_courses/ssk_bg_tab.webp');
+  }
+  @media all and (width >= $min_desktop) {
+    background-image: url('/assets/images/cabinet/user_courses/ssk_bg_desk.webp');
+  }
+}
+
+.logo_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+}
+
+.logo_link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.greeting_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}

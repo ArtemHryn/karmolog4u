@@ -1,11 +1,10 @@
 import { DataTable } from 'primereact/datatable';
 import styles from './UserPaymentTable.module.scss';
 import './table.scss';
-import EmptyTable from '../../../Education/TablesInfo/Table/EmptyTable/EmptyTable';
+import EmptyTable from '../../../../Education/TablesInfo/Table/EmptyTable/EmptyTable';
 import { Column } from 'primereact/column';
 
 const UserPaymentTable = ({ userDetails }) => {
-
   const filterPayments = () => {
     if (!userDetails?.payment || userDetails.payment.length === 0) return [];
     return userDetails.payment.map(el => ({
@@ -24,7 +23,9 @@ const UserPaymentTable = ({ userDetails }) => {
     <div className={styles.info_part_wrapper}>
       <p>Платежі</p>
       <DataTable
-        emptyMessage={<EmptyTable message="Зараз немає платежів" styledWrapper={styles.empty_wrapper}/>}
+        emptyMessage={
+          <EmptyTable message="Зараз немає платежів" styledWrapper={styles.empty_wrapper} />
+        }
         value={filterPayments()}
         tableClassName={`${styles.table}`}
         dataKey={'id'}

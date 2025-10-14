@@ -3,7 +3,6 @@ import { useRouter } from 'next/navigation';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useSession } from 'next-auth/react';
 import { useMutation } from '@tanstack/react-query';
-import { inter } from '@/app/[locale]/layout';
 import SubmitButtons from './SubmitButtons';
 import { base_url } from '@/helper/consts';
 
@@ -36,7 +35,6 @@ const PersonalInfo = ({ user: { name, lastName, email, mobPhone, cover = null } 
     defaultValues: { name, email, lastName, mobPhone, cover },
   });
 
-
   const { handleSubmit, formState, reset } = methods;
 
   const mutation = useMutation({
@@ -52,7 +50,7 @@ const PersonalInfo = ({ user: { name, lastName, email, mobPhone, cover = null } 
   });
 
   const onSubmit = data => {
-    mutation.mutate({ ...data });
+    mutation.mutate(data);
   };
 
   return (

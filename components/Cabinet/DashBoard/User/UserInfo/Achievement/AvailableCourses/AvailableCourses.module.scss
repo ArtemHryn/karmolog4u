@@ -53,7 +53,18 @@
 
 .name {
   @include fontRegular(14px, 600, 14px, $third_text_color);
-  @media all and (width >= $min_tablet) {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 0.3s ease;
+  @media (hover: hover) {
+    &:is(:hover, :focus) {
+      text-decoration-color: currentColor;
+    }
+  }
+  @media (hover: none) {
+    &:is(:active, :focus) {
+      text-decoration-color: currentColor;
+    }
   }
 }
 
