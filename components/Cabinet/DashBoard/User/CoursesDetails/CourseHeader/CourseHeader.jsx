@@ -1,19 +1,31 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
-
-import styles from './CourseHeader.module.scss';
+import { useParams, usePathname } from 'next/navigation';
 import Link from 'next/link';
-import AccountInfo from '../../UserInfo/Header/AccountInfo/AccountInfo';
+
+import AccountLabel from './AccountLabel/AccountLabel';
 import Logo from '../../../../Authentication/FormHeader/Logo';
+import { unbounded } from '@/app/[locale]/layout';
+import styles from './CourseHeader.module.scss';
+import { useQuery } from '@tanstack/react-query';
+import { fetchCourseDetailsForUser } from '@/helper/platform/fetchCourseDetailsForUser';
+import { useSession } from 'next-auth/react';
 
 const CourseHeader = () => {
   const pathName = usePathname();
+  const { course_id } = useParams();
+  const { data } = useSession();
+
+  const { data: course } = useQuery({
+    queryKey: ['course', course_id],
+    queryFn: () => fetchCourseDetailsForUser(data?.accessToken, course_id),
+    enabled: !!data?.accessToken,
+  });
 
   const sections = {
     ssk: { style: styles.ssk, title: 'САМ СОБІ КАРМОЛОГ' },
-    advanced: { style: styles.advanced, title: 'ADVANCED' },
-    consulting: { style: styles.consulting, title: 'CONSULTING' },
+    advanced: { style: styles.advanced, title: 'Поглиблений курс' },
+    consulting: { style: styles.consulting, title: 'КОНСУЛЬТАНТСЬКИЙ КУРС ' },
   };
 
   const activeSection = Object.keys(sections).find(key => pathName.includes(key));
@@ -23,18 +35,27 @@ const CourseHeader = () => {
     .join(' ');
 
   const greeting = activeSection ? sections[activeSection].title : 'Курс';
+  const availableTo = course?.purchaseInfo?.availableTo
+    ? new Date(course?.purchaseInfo?.availableTo).toLocaleString(undefined, {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+      })
+    : null;
 
   return (
     <header className={header}>
       <div className={styles.logo_wrapper}>
-        <Link href={'#'} className={styles.logo_link}>
+        <Link href={'/cabinet/dashboard/user/achievement'} className={styles.logo_link}>
           <Logo />
         </Link>
-        <AccountInfo showOnMobile />
+        <AccountLabel />
       </div>
       <div className={styles.greeting_wrapper}>
-        <p>{greeting}</p>
-        <p>Курс дійсний до</p>
+        <p className={`${styles.greeting} ${unbounded.className}`}>{greeting}</p>
+        <p className={`${styles.date} ${unbounded.className}`}>
+          Курс дійсний до {availableTo && availableTo}
+        </p>
       </div>
     </header>
   );

@@ -2,11 +2,20 @@
 
 .header {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
   height: 280px;
-  padding-top: 52px;
+  padding: 52px 24px 0 24px;
   width: 100%;
   background-size: cover;
   background-position: center;
+  @media all and (width >= $min_tablet) {
+    gap: 32px;
+    padding: 32px;
+  }
+
 }
 
 .ssk {
@@ -21,23 +30,23 @@
 
 //change images
 .advanced {
-  background-image: url('/assets/images/cabinet/user_courses/ssk_bg_mob.webp');
+  background-image: url('/public/assets/images/cabinet/user_courses/advanced_bg_mob.webp');
   @media all and (width >= $min_tablet) {
-    background-image: url('/assets/images/cabinet/user_courses/ssk_bg_tab.webp');
+    background-image: url('/assets/images/cabinet/user_courses/advanced_bg_tab.webp');
   }
   @media all and (width >= $min_desktop) {
-    background-image: url('/assets/images/cabinet/user_courses/ssk_bg_desk.webp');
+    background-image: url('/assets/images/cabinet/user_courses/advanced_bg_desk.webp');
   }
 }
 
 //change images
 .consulting {
-  background-image: url('/assets/images/cabinet/user_courses/ssk_bg_mob.webp');
+  background-image: url('/assets/images/cabinet/user_courses/consulting_bg_mob.webp');
   @media all and (width >= $min_tablet) {
-    background-image: url('/assets/images/cabinet/user_courses/ssk_bg_tab.webp');
+    background-image: url('/assets/images/cabinet/user_courses/consulting_bg_tab.webp');
   }
   @media all and (width >= $min_desktop) {
-    background-image: url('/assets/images/cabinet/user_courses/ssk_bg_desk.webp');
+    background-image: url('/assets/images/cabinet/user_courses/consulting_bg_desk.webp');
   }
 }
 
@@ -46,6 +55,7 @@
   justify-content: space-between;
   align-items: center;
   height: 40px;
+  width: 80vw;
 }
 
 .logo_link {
@@ -54,6 +64,14 @@
   justify-content: center;
   width: 40px;
   height: 40px;
+  @media all and (width >= $min_tablet) {
+    width: 60px;
+    height: 60px;
+  }
+  @media all and (width >= $min_desktop) {
+    width: 80px;
+    height: 80px;
+  }
 }
 
 .greeting_wrapper {
@@ -62,4 +80,20 @@
   align-items: center;
   justify-content: center;
   gap: 24px;
+  width: 80vw;
+}
+
+.greeting {
+  @include fontRegular(32px, 400, 32px, $main_text_color, center);
+  text-transform: uppercase;
+  @media all and (width >= $min_desktop) {
+    font-size: 64px;
+  }
+}
+
+.date {
+  @include fontRegular(16px, 400, 16px, $main_text_color, center);
+  @media all and (width >= $min_tablet) {
+    font-size: 20px;
+  }
 }

@@ -1,0 +1,79 @@
+@import '/styles/main.scss';
+
+.text {
+  @include fontRegular(14px, 400, 20.02px);
+  text-wrap: wrap;
+  & > span {
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  @media all and (width >= $min_tablet) {
+    font-size: 13px;
+  }
+  @media all and (width >= $min_desktop) {
+    font-size: 16px;
+  }
+}
+
+//independedent styles
+.ind_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  @media all and (width >= $min_tablet) {
+    width: 340px;
+    gap: 0px;
+  }
+  @media all and (width >= $min_desktop) {
+    width: 737px;
+  }
+}
+
+//with chat
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  @media all and (width >= $min_tablet) {
+    width: 340px;
+  }
+  @media all and (width >= $min_desktop) {
+    width: 737px;
+    gap: 4px;
+  }
+}
+
+.about {
+  @include fontRegular(14px, 600, 20.02px);
+}
+
+.chat_with {
+  @include fontRegular(16px, 400, 25.28px, $seconds_text_color);
+  text-transform: uppercase;
+}
+
+.list_wrapper {
+  @media all and (width >= $min_tablet) {
+    display: none;
+  }
+}
+
+.list_title {
+  @include fontRegular(14px, 600, 20.02px);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: disc;
+  list-style-type: disc;
+  padding-left: 12px;
+  margin-left: 12px;
+  list-style-position: outside;
+
+  & > li {
+    color: $main_text_color;
+  }
+}

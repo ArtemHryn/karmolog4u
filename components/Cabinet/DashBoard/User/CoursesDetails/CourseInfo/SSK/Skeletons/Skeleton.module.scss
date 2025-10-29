@@ -1,0 +1,108 @@
+@import '/styles/main.scss';
+
+.header_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  opacity: 0.2;
+  @media all and (width >= $min_tablet) {
+    flex-direction: row;
+    max-width: $min_tablet;
+    margin-inline: auto;
+  }
+  @media all and (width >= $min_desktop) {
+    max-width: $min_desktop;
+  }
+  @media all and (width >= $mac) {
+    max-width: $mac;
+    padding: 0 16px;
+  }
+  @media all and (width >= $big_pc) {
+    max-width: $big_pc;
+    padding: 0 80px;
+  }
+}
+
+.text_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  @media all and (width >= $min_tablet) {
+    width: 340px;
+    gap: 16px;
+  }
+  @media all and (width >= $min_desktop) {
+    width: 737px;
+  }
+}
+.text {
+  height: 40px !important;
+  width: 100%;
+  border-radius: 8px;
+  background-color: $form_border;
+  @media all and (width >= $min_tablet) {
+    height: 62px !important;
+  }
+}
+
+.buttons_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  @media all and (width >= $min_tablet) {
+    width: 340px;
+  }
+  @media all and (width >= $min_desktop) {
+    width: 519px;
+  }
+}
+
+.buttons {
+  height: 62px !important;
+  background-color: $form_border;
+  width: calc((100% - 16px) / 2) !important;
+  border-radius: 8px;
+}
+
+//lessons
+.title {
+  @include fontRegular(32px, 400, 32px, $main_text_color, center);
+  @media all and (width >= $min_tablet) {
+    font-size: 36px;
+  }
+  @media all and (width >= $min_desktop) {
+    font-size: 44px;
+  }
+}
+
+.lessons_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  opacity: 0.2;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  @media all and (width >= $min_tablet) {
+    flex-direction: row;
+    width: 100%;
+  }
+}
+
+.list_item {
+  width: 312px;
+  height: 327px;
+  @media all and (width >= $min_tablet) {
+    width: calc((100% - 16px) / 2) !important;
+  }
+}
+
+.lesson {
+  width: 100%;
+  height: 100% !important;
+  border-radius: 12px;
+}

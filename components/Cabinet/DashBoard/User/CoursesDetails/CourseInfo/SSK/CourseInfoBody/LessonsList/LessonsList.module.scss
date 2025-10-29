@@ -1,0 +1,73 @@
+@import '/styles/main.scss';
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  @media all and (width >= $min_tablet) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 704px;
+    margin-inline: auto;
+  }
+  @media all and (width >= $min_desktop) {
+    width: 1280px;
+  }
+}
+
+//lessons list item
+
+.lesson_item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+  border: 1px solid $accent_v2;
+  border-radius: 30px;
+  padding: 40px 24px;
+  width: 312px;
+  height: 327px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  background: $card_bg_v2;
+  &_unavailable {
+    opacity: 0.5;
+  }
+  @media all and (width >= $min_tablet) {
+    width: 340px;
+  }
+  @media all and (width >= $min_desktop) {
+    width: 410px;
+    height: 341px;
+  }
+}
+
+.title {
+  @include fontRegular(16px, 400, 25.28px, $seconds_text_color);
+  text-transform: uppercase;
+}
+
+.description {
+  @include fontRegular(14px, 400, 22.12px, $main_text_color);
+  display: -webkit-box;
+  -webkit-line-clamp: 4; // максимум 4 рядки
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; // додає "..." якщо текст обрізається
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+
+  width: 182px;
+  height: 44px;
+
+  border: 1px solid $dark_gold_light;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  background: $buttons_color;
+
+  @include fontRegular(16px, 600, 25.28px, $third_text_color);
+}
