@@ -7,31 +7,18 @@ import SimpleModalContainer from '@components/Common/SimpleModalContainer/Simple
 import styles from './LessonsList.module.scss';
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { CourseInfoHeaderProps } from '@/types/ssk_course';
-import { base_url } from '@helper/consts';
-
-const fetchLessonsList = async (token: string, id: string) => {
-  const res = await fetch(`${base_url}/user/education/lessons-SSK/${id}`, {
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`,
-    },
-  });
-  if (!res.ok) {
-    const errorMessage = await res.json();
-    throw new Error(errorMessage.message || 'Помилка завантаження уроків');
-  }
-  return res.json();
-};
+import { fetchLessonsList } from '@helper/platform/fetchUserLessonsList';
 
 const LessonsList = ({ token, id }: CourseInfoHeaderProps) => {
   const [showModal, setShowModal] = useState(false);
 
-  const { data: lessons, isError } = useSuspenseQuery({
+  const { data: lessons } = useSuspenseQuery({
     queryKey: ['lessons', id],
     queryFn: () => fetchLessonsList(token, id),
+    gcTime: 24 * 60 * 60 * 1000,
   });
 
-  if (lessons.length === 0) return null;
+  if (!lessons || lessons.length === 0) return null;
 
   const sortedLessons = [...lessons].sort((a, b) => {
     return Number(b.isAvailable === true) - Number(a.isAvailable === true);
@@ -44,9 +31,11 @@ const LessonsList = ({ token, id }: CourseInfoHeaderProps) => {
           <Lesson key={lesson.id} lesson={lesson} setShowModal={setShowModal} />
         ))}
       </ul>
-      {/* <SimpleModalContainer setShowModal={setShowModal}>
-        <div></div>
-      </SimpleModalContainer> */}
+      {showModal && (
+        <SimpleModalContainer setShowModal={setShowModal}>
+          <div></div>
+        </SimpleModalContainer>
+      )}
     </div>
   );
 };

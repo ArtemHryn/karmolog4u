@@ -21,3 +21,18 @@ export interface CourseInfoHeaderProps {
   token: string;
   id: string;
 }
+
+export interface LessonDetailsProps {
+  params: { lesson_id: string; course_id: string };
+}
+
+export interface LessonVideosProps {
+  name: string;
+  link: string;
+}
+
+export interface BonusFileProps {
+  id: string;
+  originalName: string;
+  savedName: string;
+}

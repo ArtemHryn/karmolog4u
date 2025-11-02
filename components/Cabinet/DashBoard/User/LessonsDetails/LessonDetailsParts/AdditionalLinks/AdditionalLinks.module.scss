@@ -1,0 +1,73 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.title {
+  @include fontRegular(16px, 400, 25.28px);
+  @media all and (width >= $min_desktop) {
+    font-size: 24px;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  @media all and (width >= $min_tablet) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+}
+
+.item {
+  border: 1px solid var(--dark-gold);
+  border-radius: 14px;
+  padding: 16px;
+  width: 100%;
+  height: 92px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  background-color: $main_bg;
+  @media all and (width >= $min_tablet) {
+    width: calc(50% - 24px);
+  }
+  @media all and (width >= $min_desktop) {
+    width: calc(25% - 40px);
+  }
+}
+
+.link {
+  @include fontRegular(14px, 400, 20.02px);
+  width: 100%;
+  height: 100%;
+  white-space: pre-line;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; // максимум 2 рядки
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; // додає "..." якщо текст обрізається
+  transition: all 250ms ease-in-out;
+  &:visited {
+    color: $dark_gold_dark;
+  }
+  @media all and (width >= $min_desktop) {
+    font-size: 20px;
+  }
+  @media (hover: hover) {
+    &:is(:hover, :focus) {
+      text-decoration: underline;
+      color: $seconds_text_color;
+    }
+  }
+  @media (hover: none) {
+    &:is(:active, :focus) {
+      color: $seconds_text_color;
+      text-decoration: underline;
+    }
+  }
+}

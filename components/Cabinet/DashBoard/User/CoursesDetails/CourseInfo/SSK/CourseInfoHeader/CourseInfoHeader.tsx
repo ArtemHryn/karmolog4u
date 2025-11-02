@@ -3,8 +3,8 @@
 import { useSuspenseQuery } from '@tanstack/react-query';
 import CourseInfoHeaderButtons from './CourseInfoHeaderButtons/CourseInfoHeaderButtons';
 import CourseInfoHeaderText from './CourseInfoHeaderText/CourseInfoHeaderText';
-import { fetchCourseDetailsForUser } from '@helper/platform/fetchCourseDetailsForUser';
 import { CourseInfoHeaderProps } from '@/types/ssk_course';
+import { fetchCourseDetailsForUser } from '@helper/platform/fetchCourseDetailsForUser';
 
 import styles from './CourseInfoHeader.module.scss';
 

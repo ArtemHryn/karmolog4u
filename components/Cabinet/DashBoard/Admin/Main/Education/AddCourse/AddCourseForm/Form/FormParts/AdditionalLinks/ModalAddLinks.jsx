@@ -38,7 +38,7 @@ const ModalAddLinks = ({ setShowModal, fieldName, title, linkFieldName = 'name' 
                   <input
                     {...register(`${fieldName}.${index}.link`, {
                       pattern: {
-                        value: /^(https?:\/\/)?([\w-]+(\.[\w-]+)+)(\/[\w-]*)*\/?$/,
+                        value: /^(https?:\/\/)([^\s$.?#].[^\s]*)$/i,
                         message: 'Введіть коректне посилання',
                       },
                     })}

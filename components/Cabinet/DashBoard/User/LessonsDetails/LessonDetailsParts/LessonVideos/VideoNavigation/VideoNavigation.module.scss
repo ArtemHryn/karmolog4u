@@ -1,0 +1,65 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  @media all and (width >= $min_tablet) {
+    gap: 24px;
+  }
+  @media all and (width >= $min_desktop) {
+    gap: 40px;
+  }
+}
+
+.nav_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: $additional_bg;
+  & > svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+  }
+  &:first-child {
+    rotate: 180deg;
+  }
+  &:disabled {
+    background-color: transparent;
+    cursor: not-allowed;
+    border: 1px solid $buttons_color;
+    color: $buttons_color;
+    opacity: 0.3;
+  }
+  @media all and (width >= $min_tablet) {
+    width: 60px;
+    height: 60px;
+    & > svg {
+      width: 14px;
+      height: 24px;
+    }
+  }
+  @media all and (width >= $min_desktop) {
+    width: 80px;
+    height: 80px;
+    & > svg {
+      height: 40px;
+    }
+  }
+}
+
+.name {
+  @include fontRegular(14px, 600, 18px, $main_text_color, left);
+  flex-grow: 1;
+  @media all and (width >= $min_tablet) {
+    font-size: 20px;
+  }
+  @media all and (width >= $min_desktop) {
+    font-size: 24px;
+  }
+}

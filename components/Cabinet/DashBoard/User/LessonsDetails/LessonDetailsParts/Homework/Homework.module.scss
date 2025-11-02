@@ -1,0 +1,46 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border: 1px solid $dark_gold_dark;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  background-color: $additional_bg;
+  width: 100%;
+}
+
+.title {
+  @include fontRegular(16px, 400, 25.28px, $third_text_color);
+  @media all and (width >= $min_desktop) {
+    font-size: 24px;
+  }
+}
+
+.desc {
+  @include fontRegular(14px, 400, 20.02px, $third_text_color);
+  white-space: pre-line;
+  @media all and (width >= $min_desktop) {
+    font-size: 20px;
+  }
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 40px;
+  padding: 0px 32px;
+  border-radius: 6px;
+  background-color: $dark_gold_light;
+  @include fontRegular(13px, 400, 13px, $third_text_color);
+}

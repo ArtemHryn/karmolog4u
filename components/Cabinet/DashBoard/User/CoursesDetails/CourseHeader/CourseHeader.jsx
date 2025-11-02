@@ -2,14 +2,16 @@
 
 import { useParams, usePathname } from 'next/navigation';
 import Link from 'next/link';
+import { useQuery } from '@tanstack/react-query';
+import { useSession } from 'next-auth/react';
 
 import AccountLabel from './AccountLabel/AccountLabel';
 import Logo from '../../../../Authentication/FormHeader/Logo';
+
 import { unbounded } from '@/app/[locale]/layout';
-import styles from './CourseHeader.module.scss';
-import { useQuery } from '@tanstack/react-query';
 import { fetchCourseDetailsForUser } from '@/helper/platform/fetchCourseDetailsForUser';
-import { useSession } from 'next-auth/react';
+
+import styles from './CourseHeader.module.scss';
 
 const CourseHeader = () => {
   const pathName = usePathname();
