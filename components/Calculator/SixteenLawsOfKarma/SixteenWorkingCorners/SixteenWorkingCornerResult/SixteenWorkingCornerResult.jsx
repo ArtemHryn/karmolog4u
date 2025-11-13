@@ -7,6 +7,7 @@ const SixteenWorkingCornerResult = ({ matrix }) => {
   const t = useTranslations('Calculator.sixteen_laws');
   if (!matrix) return null;
   const { outerSixteenCircleResult, innerSixteenCircleResult, finalSixteenCircleResult } = matrix;
+  
   return (
     <ul className={styles.result_list}>
       <li className={styles.result_item}>
