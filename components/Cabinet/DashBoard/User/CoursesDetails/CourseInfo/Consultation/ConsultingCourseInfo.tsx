@@ -1,14 +1,15 @@
 import { Suspense } from 'react';
-import CourseInfoHeader from './CourseInfoHeader/CourseInfoHeader';
-import CourseInfoBody from './CourseInfoBody/CourseInfoBody';
-
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@app/api/auth/[...nextauth]/route';
 import CourseWrapper from '../CourseWrapper/CourseWrapper';
-import Course from './Skeletons/Course';
-import Lessons from './Skeletons/Lessons';
+import ConsultingHeader from './ConsultingHeader/ConsultingHeader';
+import Course from '../SSK/Skeletons/Course';
 
-const CourseInfo = async ({ id }: { id: string }) => {
+interface ConsultingCourseInfoProps {
+  id: string;
+}
+
+const ConsultingCourseInfo = async ({ id }: ConsultingCourseInfoProps) => {
   // @ts-expect-error: JS authOptions is untyped
   const session = await getServerSession(authOptions);
   if (!session) {
@@ -18,13 +19,10 @@ const CourseInfo = async ({ id }: { id: string }) => {
   return (
     <CourseWrapper>
       <Suspense fallback={<Course />}>
-        <CourseInfoHeader token={accessToken} id={id} />
-      </Suspense>
-      <Suspense fallback={<Lessons />}>
-        <CourseInfoBody token={accessToken} id={id} />
+        <ConsultingHeader token={accessToken} id={id} />
       </Suspense>
     </CourseWrapper>
   );
 };
 
-export default CourseInfo;
+export default ConsultingCourseInfo;

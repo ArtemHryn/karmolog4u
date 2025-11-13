@@ -1,0 +1,18 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  gap: 8px;
+  color: $accent_v2;
+  align-items: center;
+  & > svg {
+    width: 32px;
+    height: 32px;
+    fill: currentColor;
+  }
+}
+
+.text {
+  @include fontRegular(14px, 400, 20.02px, $seconds_text_color);
+  max-width: calc(100% - 40px);
+}

@@ -27,7 +27,7 @@ const CourseHeader = () => {
   const sections = {
     ssk: { style: styles.ssk, title: 'САМ СОБІ КАРМОЛОГ' },
     advanced: { style: styles.advanced, title: 'Поглиблений курс' },
-    consulting: { style: styles.consulting, title: 'КОНСУЛЬТАНТСЬКИЙ КУРС ' },
+    consulting: { style: styles.consulting, title: '<span>КОНСУЛЬТАНТСЬКИЙ</span> КУРС ' },
   };
 
   const activeSection = Object.keys(sections).find(key => pathName.includes(key));
@@ -54,7 +54,11 @@ const CourseHeader = () => {
         <AccountLabel />
       </div>
       <div className={styles.greeting_wrapper}>
-        <p className={`${styles.greeting} ${unbounded.className}`}>{greeting}</p>
+        <p
+          className={`${styles.greeting} ${unbounded.className}`}
+          dangerouslySetInnerHTML={{ __html: greeting }}
+        />
+
         <p className={`${styles.date} ${unbounded.className}`}>
           Курс дійсний до {availableTo && availableTo}
         </p>
