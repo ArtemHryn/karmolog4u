@@ -148,9 +148,8 @@ const RegistrationForm = () => {
                 onChange: () => clearErrors('password'),
               })}
             />
-            <button type="button" onClick={() => setShowPassword(prev => !prev)}>
-              <ShowPasswordIcon showPassword={showPassword} />
-            </button>
+
+            <ShowPasswordIcon showPassword={showPassword} setShowPassword={setShowPassword} />
           </label>
         </div>
         <button type="submit" className={styles.button} disabled={mutation.isPending}>

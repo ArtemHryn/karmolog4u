@@ -175,8 +175,6 @@ export const getPersonalGraph = ({
   }
   if (sixteenLaws) {
     const laws = {};
-    const outer = {};
-    const inner = {};
     laws.lawsLeft1 = checkNum(data.day, data.left2);
     laws.lawsLeft2 = checkNum(data.left2, data.left3);
     laws.lawsTopLeft1 = checkNum(data.topLeft1, data.topLeft2);
@@ -196,31 +194,51 @@ export const getPersonalGraph = ({
     data.laws = laws;
 
     //outer sixteen laws circle
-    outer.o1 = checkNum(data.day, data.topLeft1);
-    outer.o2 = checkNum(data.topLeft1, data.month);
-    outer.o3 = checkNum(data.month, data.topRight1);
-    outer.o4 = checkNum(data.topRight1, data.year);
-    outer.o5 = checkNum(data.year, data.bottomRight1);
-    outer.o6 = checkNum(data.bottomRight1, data.bottom1);
-    outer.o7 = checkNum(data.bottom1, data.bottomLeft1);
-    outer.o8 = checkNum(data.bottomLeft1, data.day);
+    const makeCircle = (keys, prefix) => {
+      const circle = {};
+      for (let i = 0; i < keys.length; i++) {
+        const a = keys[i];
+        const b = keys[(i + 1) % keys.length]; // if the last el + 1, use the 1st one
+        circle[`${prefix}${i + 1}`] = checkNum(data[a], data[b]);
+      }
+      return circle;
+    };
 
-    inner.i1 = checkNum(data.left3, data.topLeft3);
-    inner.i2 = checkNum(data.topLeft3, data.top3);
-    inner.i3 = checkNum(data.top3, data.topRight3);
-    inner.i4 = checkNum(data.topRight3, data.right3);
-    inner.i5 = checkNum(data.right3, data.bottomRight3);
-    inner.i6 = checkNum(data.bottomRight3, data.bottom3);
-    inner.i7 = checkNum(data.bottom3, data.bottomLeft3);
-    inner.i8 = checkNum(data.bottomLeft3, data.left3);
-    const outerSixteenCircleResult = Object.keys(outer).reduce((acc, el) => {
-      return acc + outer[el];
-    }, 0);
-    const innerSixteenCircleResult = Object.keys(inner).reduce((acc, el) => {
-      return acc + inner[el];
-    }, 0);
-    data.outerSixteenCircleResult = checkNum(outerSixteenCircleResult);
-    data.innerSixteenCircleResult = checkNum(innerSixteenCircleResult);
+    const sumByKeys = keys => keys.reduce((acc, key) => acc + data[key], 0);
+    const sumValues = obj => Object.values(obj).reduce((acc, val) => acc + val, 0);
+
+    const outerArr = [
+      'day',
+      'topLeft1',
+      'month',
+      'topRight1',
+      'year',
+      'bottomRight1',
+      'bottom1',
+      'bottomLeft1',
+    ];
+    const innerArr = [
+      'left3',
+      'topLeft3',
+      'top3',
+      'topRight3',
+      'right3',
+      'bottomRight3',
+      'bottom3',
+      'bottomLeft3',
+    ];
+
+    const outer = makeCircle(outerArr, 'o');
+    const inner = makeCircle(innerArr, 'i');
+
+    const outerSixteenCircleResult = sumValues(outer);
+    const innerSixteenCircleResult = sumValues(inner);
+
+    const mainArcanes = sumByKeys(outerArr);
+    const innerMainArcanse = sumByKeys(innerArr);
+
+    data.outerSixteenCircleResult = checkNum(outerSixteenCircleResult + mainArcanes);
+    data.innerSixteenCircleResult = checkNum(innerSixteenCircleResult + innerMainArcanse);
     data.finalSixteenCircleResult = checkNum(
       data.outerSixteenCircleResult,
       data.innerSixteenCircleResult

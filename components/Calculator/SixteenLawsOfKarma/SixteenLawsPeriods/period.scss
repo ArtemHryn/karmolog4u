@@ -13,9 +13,12 @@
   }
 }
 
+.p-dropdown-panel {
+  border-radius: 30px;
+}
+
 .p-dropdown-items-wrapper {
   background-color: rgba(16, 16, 16, 0.9);
-
   border-radius: 30px;
   border: 1px solid $matrix_table_border;
   border-top: none;
@@ -44,6 +47,11 @@
   &[aria-selected='true'] {
     border: 1px solid $matrix_table_border;
     border-radius: 30px;
+  }
+  &.p-focus {
+    border: 1px solid $matrix_table_border;
+    border-radius: 30px;
+    opacity: 0.9;
   }
   @media screen and (min-width: $min_tablet) {
     display: flex;
