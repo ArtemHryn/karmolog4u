@@ -8,12 +8,11 @@ import { useSession } from 'next-auth/react';
 import AccountLabel from './AccountLabel/AccountLabel';
 import Logo from '../../../../Authentication/FormHeader/Logo';
 
-import { unbounded } from '@/app/[locale]/layout';
 import { fetchCourseDetailsForUser } from '@/helper/platform/fetchCourseDetailsForUser';
 
 import styles from './CourseHeader.module.scss';
 
-const CourseHeader = () => {
+const CourseHeader = ({unbounded}) => {
   const pathName = usePathname();
   const { course_id } = useParams();
   const { data } = useSession();

@@ -14,7 +14,6 @@ const ConsultingHeader = ({ token, id }: ConsultingHeaderProps) => {
     queryKey: ['course', id],
     queryFn: () => fetchCourseDetailsForUser(token, id),
   });
-  console.log(course);
   return (
     <div>
       <AgreementInfo isSign={course?.purchaseInfo?.agreement} />

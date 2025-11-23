@@ -1,7 +1,7 @@
-import { base_url } from "@helper/consts";
+import { base_url } from '@helper/consts';
 
-export const fetchLessonsList = async (token: string, id: string) => {
-  const res = await fetch(`${base_url}/user/education/lessons-SSK/${id}`, {
+export const fetchLessonsList = async (token: string, id: string, url?: string) => {
+  const res = await fetch(`${base_url}/user/education/lessons-${url || 'SSK'}/${id}`, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,

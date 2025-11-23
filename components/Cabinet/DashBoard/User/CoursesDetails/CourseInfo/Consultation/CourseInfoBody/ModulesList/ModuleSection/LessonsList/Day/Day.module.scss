@@ -1,0 +1,54 @@
+@import '/styles/main.scss';
+
+.item {
+  display: flex;
+  gap: 8px;
+  @media all and (width >= $min_tablet) {
+    gap: 16px;
+  }
+}
+
+.title_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 44px;
+  border: 1px solid $accent_v2;
+  border-radius: 16px;
+  min-height: 97px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  background: $card_bg_v2;
+  flex-shrink: 0;
+  @media all and (width >= $min_tablet) {
+    width: 108px;
+    min-height: 80px;
+  }
+  @media all and (width >= $min_desktop) {
+    min-height: 96px;
+  }
+}
+
+.title {
+  rotate: -90deg;
+  white-space: nowrap;
+  @include fontRegular(16px, 500, 20.02px, $seconds_text_color);
+  @media all and (width >= $min_tablet) {
+    rotate: 0deg;
+  }
+  @media all and (width >= $min_desktop) {
+    font-size: 18px;
+  }
+}
+
+.lessons_list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  @media all and (width >= $min_desktop) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+}

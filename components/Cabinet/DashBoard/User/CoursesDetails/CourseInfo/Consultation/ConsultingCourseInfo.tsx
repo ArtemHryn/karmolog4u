@@ -4,6 +4,8 @@ import { authOptions } from '@app/api/auth/[...nextauth]/route';
 import CourseWrapper from '../CourseWrapper/CourseWrapper';
 import ConsultingHeader from './ConsultingHeader/ConsultingHeader';
 import Course from '../SSK/Skeletons/Course';
+import CourseInfoBody from './CourseInfoBody/CourseInfoBody';
+import Lessons from '../SSK/Skeletons/Lessons';
 
 interface ConsultingCourseInfoProps {
   id: string;
@@ -20,6 +22,9 @@ const ConsultingCourseInfo = async ({ id }: ConsultingCourseInfoProps) => {
     <CourseWrapper>
       <Suspense fallback={<Course />}>
         <ConsultingHeader token={accessToken} id={id} />
+      </Suspense>
+      <Suspense fallback={<Lessons />}>
+        <CourseInfoBody token={accessToken} id={id} />
       </Suspense>
     </CourseWrapper>
   );
