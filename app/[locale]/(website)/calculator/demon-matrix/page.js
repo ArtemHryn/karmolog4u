@@ -1,11 +1,11 @@
 'use client';
 
 import { Suspense, useState } from 'react';
-import Container from '@components/Common/Container/Container';
-import DemonMatrixHero from '@components/Calculator/DemonMatrix/DemonMatrixHero/DemonMatrixHero';
-import DemonMatrix from '@components/Calculator/DemonMatrix/DemonMatrix';
-import MoreCalculators from '@components/Calculator/MoreCalculators/MoreCalculators';
-import SocialInfoDesc from '@components/Common/Calculator/SocialInfoDesc/SocialInfoDesc';
+import Container from '@/components/Common/Container/Container';
+import DemonMatrixHero from '@/components/Calculator/DemonMatrix/DemonMatrixHero/DemonMatrixHero';
+import DemonMatrix from '@/components/Calculator/DemonMatrix/DemonMatrix';
+import MoreCalculators from '@/components/Calculator/MoreCalculators/MoreCalculators';
+import SocialInfoDesc from '@/components/Common/Calculator/SocialInfoDesc/SocialInfoDesc';
 
 import styles from '/components/Calculator/DemonMatrix/DemonMatrix.module.scss';
 

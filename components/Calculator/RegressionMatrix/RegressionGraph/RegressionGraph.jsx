@@ -1,4 +1,4 @@
-import CalcDateTitle from '@components/Common/CalcDateTitle/CalcDateTitle';
+import CalcDateTitle from '@/components/Common/CalcDateTitle/CalcDateTitle';
 import RegressionSvg from './RegressionSvg';
 
 import styles from './RegressionGraph.module.scss';

@@ -1,11 +1,11 @@
-import QuestionAnswer from '@components/Common/QuestionAnswer/QuestionAnswer';
-import Feedback from '@components/Main/Feedback/Feedback';
-import Feedbacks from '@components/Services/Feedbacks/Feedbacks';
-import OfflineMeetingsHero from '@components/Services/Offline-meetings/Hero/Hero';
-import SpeechesExamples from '@components/Services/Offline-meetings/SpeechesExamples/SpeechesExamples';
+import QuestionAnswer from '@/components/Common/QuestionAnswer/QuestionAnswer';
+import Feedback from '@/components/Main/Feedback/Feedback';
+import Feedbacks from '@/components/Services/Feedbacks/Feedbacks';
+import OfflineMeetingsHero from '@/components/Services/Offline-meetings/Hero/Hero';
+import SpeechesExamples from '@/components/Services/Offline-meetings/SpeechesExamples/SpeechesExamples';
 
-import getPublicSpeechesFeedbacks from '@helper/publicSpeechesFeedbacks';
-import getPublickSpeechesQuestions from '@helper/publickSpeechesQuestions';
+import getPublicSpeechesFeedbacks from '@/helper/publicSpeechesFeedbacks';
+import getPublickSpeechesQuestions from '@/helper/publickSpeechesQuestions';
 
 const text = {
   uk: [

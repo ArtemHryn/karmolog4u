@@ -1,11 +1,11 @@
 import { useTranslations } from 'next-intl';
-import Title from '@components/Common/Title/Title';
+import Title from '@/components/Common/Title/Title';
 import DemonMatrixSvg from './DemonMatrixSvg';
-import Top from '@components/Calculator/PersonalMatrix/MatrixGraph/Top';
-import Left from '@components/Calculator/PersonalMatrix/MatrixGraph/Left';
-import Right from '@components/Calculator/PersonalMatrix/MatrixGraph/Right';
-import Bottom from '@components/Calculator/PersonalMatrix/MatrixGraph/Bottom';
-import Center from '@components/Calculator/PersonalMatrix/MatrixGraph/Center';
+import Top from '@/components/Calculator/PersonalMatrix/MatrixGraph/Top';
+import Left from '@/components/Calculator/PersonalMatrix/MatrixGraph/Left';
+import Right from '@/components/Calculator/PersonalMatrix/MatrixGraph/Right';
+import Bottom from '@/components/Calculator/PersonalMatrix/MatrixGraph/Bottom';
+import Center from '@/components/Calculator/PersonalMatrix/MatrixGraph/Center';
 
 import styles from './DemonMatrixGraph.module.scss';
 

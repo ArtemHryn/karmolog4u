@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-import Container from "@components/Common/Container/Container";
-import CoursesCheckboxes from "@components/Products/Courses/CoursesCheckboxes";
-import CoursesList from "@components/Products/Courses/CoursesList";
+import Container from '@/components/Common/Container/Container';
+import CoursesCheckboxes from '@/components/Products/Courses/CoursesCheckboxes';
+import CoursesList from '@/components/Products/Courses/CoursesList';
 
 const CoursesPage = () => {
   const [showWebinars, setShowWebinars] = useState(false);
@@ -13,13 +13,13 @@ const CoursesPage = () => {
 
   useEffect(() => {
     setShowWebinars(() => {
-      return JSON.parse(window.localStorage.getItem("showWebinars")) ?? true;
+      return JSON.parse(window.localStorage.getItem('showWebinars')) ?? true;
     });
     setShowIntensives(() => {
-      return JSON.parse(window.localStorage.getItem("showIntensives")) ?? false;
+      return JSON.parse(window.localStorage.getItem('showIntensives')) ?? false;
     });
     setShowEthers(() => {
-      return JSON.parse(window.localStorage.getItem("showEthers")) ?? false;
+      return JSON.parse(window.localStorage.getItem('showEthers')) ?? false;
     });
   }, []);
 

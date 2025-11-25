@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { DRAFT, HIDDEN, PUBLISHED } from '@helper/consts';
+import { DRAFT, HIDDEN, PUBLISHED } from '@/helper/consts';
 import EditButton from './EditButton/EditButton';
 
 import styles from './GiftsList.module.scss';

@@ -1,4 +1,4 @@
-import Title from '@components/Common/Title/Title';
+import Title from '@/components/Common/Title/Title';
 
 import styles from './InternalMatrixGraph.module.scss';
 

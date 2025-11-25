@@ -2,7 +2,7 @@ import Link from 'next/link';
 import HeroNavArrow from '../Icons/HeroNavArrow';
 
 import styles from './HeroNav.module.scss';
-import { open_Sans } from '@app/[locale]//layout';
+import { open_Sans } from '@/app/[locale]//layout';
 import { useLocale, useTranslations } from 'next-intl';
 
 const HeroNav = ({ linkNames }) => {

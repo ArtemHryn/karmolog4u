@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import Meditation from '../Meditations/Meditation';
-import list from '@helper/products/guidesAndBooksList';
+import list from '@/helper/products/guidesAndBooksList';
 
 import styles from './GuidesAndBooks.module.scss';
 import { useLocale } from 'next-intl';

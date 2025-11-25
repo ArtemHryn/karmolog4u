@@ -1,13 +1,13 @@
 'use client';
 import { Suspense, useState } from 'react';
-import Container from '@components/Common/Container/Container';
-import MoreCalculators from '@components/Calculator/MoreCalculators/MoreCalculators';
-import SocialInfoDesc from '@components/Common/Calculator/SocialInfoDesc/SocialInfoDesc';
-import TalismanMatrix from '@components/Calculator/TalismanMatrix/TalismanMatrix';
-import TalismanMatrixHero from '@components/Calculator/TalismanMatrix/TalismanMatrixHero/TalismanMatrixHero';
+import Container from '@/components/Common/Container/Container';
+import MoreCalculators from '@/components/Calculator/MoreCalculators/MoreCalculators';
+import SocialInfoDesc from '@/components/Common/Calculator/SocialInfoDesc/SocialInfoDesc';
+import TalismanMatrix from '@/components/Calculator/TalismanMatrix/TalismanMatrix';
+import TalismanMatrixHero from '@/components/Calculator/TalismanMatrix/TalismanMatrixHero/TalismanMatrixHero';
 
-import styles from '@components/Calculator/TalismanMatrix/TalismanMatrix.module.scss';
-import TrianglesMatrix from '@components/Calculator/TalismanMatrix/TrianglesMatrix/TrianglesMatrix';
+import styles from '@/components/Calculator/TalismanMatrix/TalismanMatrix.module.scss';
+import TrianglesMatrix from '@/components/Calculator/TalismanMatrix/TrianglesMatrix/TrianglesMatrix';
 
 const social = {
   uk: [

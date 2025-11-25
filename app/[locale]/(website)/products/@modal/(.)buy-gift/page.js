@@ -1,5 +1,5 @@
-import Modal from "@components/Common/Modal/Modal";
-import BuyGiftModalForm from "@components/Products/BuyGiftModalForm/BuyGiftModalForm";
+import Modal from '@/components/Common/Modal/Modal';
+import BuyGiftModalForm from '@/components/Products/BuyGiftModalForm/BuyGiftModalForm';
 
 const BuyGiftModal = () => {
   return (

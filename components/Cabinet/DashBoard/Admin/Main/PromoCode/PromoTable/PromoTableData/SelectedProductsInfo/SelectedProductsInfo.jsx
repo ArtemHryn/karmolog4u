@@ -3,11 +3,10 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useSession } from 'next-auth/react';
 import ConfirmDialog from '../../../../Products/ConfirmDialogSet/ConfirmDialog/ConfirmDialog';
 
-import { base_url } from '@helper/consts';
+import { base_url } from '@/helper/consts';
 import styles from './SelectedProductsInfo.module.scss';
 
 const deleteBulkPromo = async (data, token) => {
-
   const res = await fetch(`${base_url}/admin/promo-code/delete/`, {
     method: 'DELETE',
     headers: {

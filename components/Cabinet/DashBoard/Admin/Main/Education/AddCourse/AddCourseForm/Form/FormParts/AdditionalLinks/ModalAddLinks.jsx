@@ -1,6 +1,6 @@
 import { useFieldArray, useFormContext } from 'react-hook-form';
 import ModalContainer from './ModalContainer';
-import { open_Sans } from '@app/[locale]/layout';
+import { open_Sans } from '@/app/[locale]/layout';
 
 import styles from './AdditionalLinks.module.scss';
 
@@ -38,7 +38,7 @@ const ModalAddLinks = ({ setShowModal, fieldName, title, linkFieldName = 'name' 
                   <input
                     {...register(`${fieldName}.${index}.link`, {
                       pattern: {
-                        value: /^(https?:\/\/)?([\w-]+(\.[\w-]+)+)(\/[\w-]*)*\/?$/,
+                        value: /^(https?:\/\/)([^\s$.?#].[^\s]*)$/i,
                         message: 'Введіть коректне посилання',
                       },
                     })}

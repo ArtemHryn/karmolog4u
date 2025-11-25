@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl';
 
 import styles from './ContentChangeButtons.module.scss';
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 
 const ContentChangeButtons = ({ currentKey, setChangedCurrentKey, setChangedTitle }) => {
   const t = useTranslations('Calculator.regression.links_to_regression');

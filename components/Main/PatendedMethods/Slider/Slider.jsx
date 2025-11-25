@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useLocale, useTranslations } from 'next-intl';
 import { Pagination } from 'swiper';
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 
 import styles from '../PatentedMethods.module.scss';
 

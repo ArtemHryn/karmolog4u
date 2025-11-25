@@ -1,5 +1,5 @@
-import Container from '@components/Common/Container/Container';
-import Title from '@components/Common/Title/Title';
+import Container from '@/components/Common/Container/Container';
+import Title from '@/components/Common/Title/Title';
 import Slider from './Slider/Slider';
 
 import styles from './PatentedMethods.module.scss';

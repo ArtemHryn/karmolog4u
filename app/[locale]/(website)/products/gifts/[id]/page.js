@@ -1,11 +1,11 @@
 'use client';
 import { useParams, usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import Container from '@components/Common/Container/Container';
-import { gifts } from '@helper/products/giftsList';
-import HeroNav from '@components/Common/HeroNav/HeroNav';
-import GiftsDetails from '@components/Products/Gifts/GiftsDetails/GiftsDetails';
-import GiftCanBeInteresting from '@components/Common/ProductionCanBeInterestingSlider/GiftCanBeInteresting';
+import Container from '@/components/Common/Container/Container';
+import { gifts } from '@/helper/products/giftsList';
+import HeroNav from '@/components/Common/HeroNav/HeroNav';
+import GiftsDetails from '@/components/Products/Gifts/GiftsDetails/GiftsDetails';
+import GiftCanBeInteresting from '@/components/Common/ProductionCanBeInterestingSlider/GiftCanBeInteresting';
 
 const GiftDetailsPage = ({ params: { locale } }) => {
   const [gift, setGift] = useState(null);

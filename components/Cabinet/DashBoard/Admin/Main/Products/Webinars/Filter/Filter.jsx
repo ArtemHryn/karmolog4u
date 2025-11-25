@@ -1,5 +1,5 @@
 import Tick from '../../Meditations/Filter/Tick';
-import { ADMIN_ETHERS, ADMIN_WEBINARS } from '@helper/consts';
+import { ADMIN_ETHERS, ADMIN_WEBINARS } from '@/helper/consts';
 
 import styles from './Filter.module.scss';
 

@@ -1,14 +1,14 @@
 'use client';
 import { Suspense, useState } from 'react';
-import MoreCalculators from '@components/Calculator/MoreCalculators/MoreCalculators';
-import NineTribesHero from '@components/Calculator/NineTribesMatrix/NineTribesHero/NineTribesHero';
-import NineTribesMatrix from '@components/Calculator/NineTribesMatrix/NineTribesMatrix';
-import SocialInfoDesc from '@components/Common/Calculator/SocialInfoDesc/SocialInfoDesc';
-import Container from '@components/Common/Container/Container';
-import Kneeling from '@components/Calculator/NineTribesMatrix/Kneeling/Kneeling';
-import KneelingCalc from '@components/Calculator/NineTribesMatrix/KneelingCalc/KneelingCalc';
+import MoreCalculators from '@/components/Calculator/MoreCalculators/MoreCalculators';
+import NineTribesHero from '@/components/Calculator/NineTribesMatrix/NineTribesHero/NineTribesHero';
+import NineTribesMatrix from '@/components/Calculator/NineTribesMatrix/NineTribesMatrix';
+import SocialInfoDesc from '@/components/Common/Calculator/SocialInfoDesc/SocialInfoDesc';
+import Container from '@/components/Common/Container/Container';
+import Kneeling from '@/components/Calculator/NineTribesMatrix/Kneeling/Kneeling';
+import KneelingCalc from '@/components/Calculator/NineTribesMatrix/KneelingCalc/KneelingCalc';
 
-import styles from '@components/Calculator/NineTribesMatrix/NineTribesMatrix.module.scss';
+import styles from '@/components/Calculator/NineTribesMatrix/NineTribesMatrix.module.scss';
 
 const social = {
   uk: [

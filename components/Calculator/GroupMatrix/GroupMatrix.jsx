@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import Container from '@components/Common/Container/Container';
+import Container from '@/components/Common/Container/Container';
 import ResultMatrix from '../CompatibilityMatrix/ResultMatrix/ResultMatrix';
-import { getLifeMap, getPersonalGraph } from '@helper/calculator/personal';
-import { getCompatibilityGraph } from '@helper/calculator/compatibility';
+import { getLifeMap, getPersonalGraph } from '@/helper/calculator/personal';
+import { getCompatibilityGraph } from '@/helper/calculator/compatibility';
 
 import styles from './GroupMatrix.module.scss';
 import { useTranslations } from 'next-intl';

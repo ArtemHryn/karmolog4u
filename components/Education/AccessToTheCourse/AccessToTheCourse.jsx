@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import Container from '@components/Common/Container/Container';
-import Title from '@components/Common/Title/Title';
+import Container from '@/components/Common/Container/Container';
+import Title from '@/components/Common/Title/Title';
 
 import styles from './AccessToTheCourse.module.scss';
-import { open_Sans, unbounded } from '@app/[locale]/layout';
+import { open_Sans, unbounded } from '@/app/[locale]/layout';
 import { useTranslations } from 'next-intl';
 
 const AccessToTheCourse = () => {

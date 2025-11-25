@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl';
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 import styles from './ResultLifeMap.module.scss';
 
 const SpiritLesson = ({ spiritLesson }) => {

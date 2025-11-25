@@ -1,9 +1,9 @@
-'use client'
+'use client';
 
 import { useLocale } from 'next-intl';
 import styles from './LanguageSwitcher.module.scss';
 import { usePathname, useSearchParams, useRouter } from 'next/navigation';
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 
 const LanguageSwitcher = () => {
   const locale = useLocale();

@@ -1,0 +1,24 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  @media all and (width >= $min_tablet) {
+    flex-direction: row;
+    max-width: $min_tablet;
+    justify-content: center;
+    margin-inline: auto;
+  }
+  @media all and (width >= $min_desktop) {
+    max-width: $min_desktop;
+  }
+  @media all and (width >= $mac) {
+    max-width: $mac;
+    padding: 0 16px;
+  }
+  @media all and (width >= $big_pc) {
+    max-width: $big_pc;
+    padding: 0 80px;
+  }
+}

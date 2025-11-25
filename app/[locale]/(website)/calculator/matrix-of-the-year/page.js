@@ -1,13 +1,13 @@
 'use client';
 
 import { Suspense, useState } from 'react';
-import Container from '@components/Common/Container/Container';
-import YearMatrixHero from '@components/Calculator/YearMatrix/YearMatrixHero/YearMatrixHero';
-import YearMatrix from '@components/Calculator/YearMatrix/YearMatrix';
+import Container from '@/components/Common/Container/Container';
+import YearMatrixHero from '@/components/Calculator/YearMatrix/YearMatrixHero/YearMatrixHero';
+import YearMatrix from '@/components/Calculator/YearMatrix/YearMatrix';
 
-import styles from '@components/Calculator/YearMatrix/YearMatrix.module.scss';
-import MoreCalculators from '@components/Calculator/MoreCalculators/MoreCalculators';
-import SocialInfoDesc from '@components/Common/Calculator/SocialInfoDesc/SocialInfoDesc';
+import styles from '@/components/Calculator/YearMatrix/YearMatrix.module.scss';
+import MoreCalculators from '@/components/Calculator/MoreCalculators/MoreCalculators';
+import SocialInfoDesc from '@/components/Common/Calculator/SocialInfoDesc/SocialInfoDesc';
 
 const social = {
   uk: [

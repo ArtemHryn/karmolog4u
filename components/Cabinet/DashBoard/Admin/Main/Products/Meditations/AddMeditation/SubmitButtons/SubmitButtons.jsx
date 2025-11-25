@@ -1,6 +1,6 @@
 import { useRouter } from 'next/navigation';
-import { open_Sans } from '@app/[locale]/layout';
-import { DRAFT, PUBLISHED } from '@helper/consts';
+import { open_Sans } from '@/app/[locale]/layout';
+import { DRAFT, PUBLISHED } from '@/helper/consts';
 
 import styles from './SubmitButtons.module.scss';
 

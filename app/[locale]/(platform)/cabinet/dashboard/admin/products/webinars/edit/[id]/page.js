@@ -1,9 +1,9 @@
-import FormHead from '@components/Cabinet/DashBoard/Admin/FormHead/FormHead';
-import AddWebinar from '@components/Cabinet/DashBoard/Admin/Main/Products/Webinars/AddWebinar/AddWebinar';
+import FormHead from '@/components/Cabinet/DashBoard/Admin/FormHead/FormHead';
+import AddWebinar from '@/components/Cabinet/DashBoard/Admin/Main/Products/Webinars/AddWebinar/AddWebinar';
 import { getServerSession } from 'next-auth';
-import { authOptions } from '@app/api/auth/[...nextauth]/route';
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import styles from './edit_meditation_page.module.scss';
-import { base_url } from '@helper/consts';
+import { base_url } from '@/helper/consts';
 
 export const revalidate = 0;
 

@@ -3,15 +3,32 @@ import Image from 'next/image';
 import styles from './CoursesList.module.scss';
 import { open_Sans, unbounded } from '@/app/[locale]/layout';
 import Link from 'next/link';
-import { INSTALLMENTS, PARTIAL } from '@/helper/consts';
+import {
+  ADVANCED,
+  CONSULTING,
+  INSTALLMENTS,
+  PARTIAL,
+  SSK_INDEPENDENT,
+  SSK_WITH_CURATOR,
+  SSK_WITH_SERGIY,
+} from '@/helper/consts';
 
-const Card = ({ course, isSSK }) => {
-  const { name = 'test', availableTo, accessEndDate, cover, id, paymentPlan } = course;
+const Card = ({ course }) => {
+  const { name = 'не вказано', availableTo, accessEndDate, cover, id, paymentPlan, type } = course;
+
+  const routing = {
+    [SSK_INDEPENDENT]: 'ssk',
+    [SSK_WITH_CURATOR]: 'ssk',
+    [SSK_WITH_SERGIY]: 'ssk',
+    [ADVANCED]: 'advanced',
+    [CONSULTING]: 'consulting',
+  };
+
   return (
     <li key={name} className={styles.list_item}>
       <Link
         className={`${styles.title} ${styles.title_mob} ${unbounded.className}`}
-        href={`/cabinet/dashboard/user/education/${id}`}
+        href={`/cabinet/dashboard/user/course/${routing[type]}/${id}`}
       >
         {name}
       </Link>
@@ -22,7 +39,7 @@ const Card = ({ course, isSSK }) => {
             {' '}
             <Link
               className={`${styles.title_tablet} ${styles.title} ${unbounded.className}`}
-              href={`/cabinet/dashboard/user/education/${id}`}
+              href={`/cabinet/dashboard/user/course/${routing[type]}/${id}`}
             >
               {name}
             </Link>

@@ -1,4 +1,4 @@
-import useLocalizedValue from '@hooks/useLocalizedValue';
+import useLocalizedValue from '@/hooks/useLocalizedValue';
 import styles from '../GiftsDetails.module.scss';
 
 const WhatIsInside = ({ whatIsInside }) => {

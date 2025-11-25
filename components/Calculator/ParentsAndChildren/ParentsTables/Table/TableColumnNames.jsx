@@ -1,4 +1,4 @@
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 import styles from './Table.module.scss';
 import { useLocale, useTranslations } from 'next-intl';
 

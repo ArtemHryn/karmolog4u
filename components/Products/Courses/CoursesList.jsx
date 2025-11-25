@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useLocale } from 'next-intl';
 import Meditation from '../Meditations/Meditation';
 
-import list from '@helper/products/coursesList';
+import list from '@/helper/products/coursesList';
 import styles from './Courses.module.scss';
 
 const CoursesList = ({ showWebinars, showIntensives, showEthers }) => {

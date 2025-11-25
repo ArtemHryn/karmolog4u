@@ -1,10 +1,10 @@
 import React from 'react';
-import Container from '@components/Common/Container/Container';
-import HeroNav from '@components/Common/HeroNav/HeroNav';
+import Container from '@/components/Common/Container/Container';
+import HeroNav from '@/components/Common/HeroNav/HeroNav';
 
 import styles from './Hero.module.scss';
 import { useLocale } from 'next-intl';
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 
 const Hero = ({ links, title, foundation }) => {
   const locale = useLocale();

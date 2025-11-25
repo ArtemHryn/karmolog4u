@@ -1,0 +1,71 @@
+@import '/styles/main.scss';
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  @media all and (width >= $min_tablet) {
+    width: 340px;
+    align-items: center;
+  }
+  @media all and (width >= $min_desktop) {
+    width: 519px;
+  }
+}
+
+.list_item {
+  width: calc((100% - 16px) / 2);
+}
+
+.full_width {
+  width: 100%;
+  @media all and (width >= $min_desktop) {
+    width: calc((100% - 16px) / 2);
+  }
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  background-color: $card_bg_v2;
+  height: 52px;
+  border: 1px solid $accent_v2;
+  border-radius: 8px;
+  padding: 4px 12px;
+  width: 100%;
+  @include fontRegular(16px, 400, 16px);
+  @media all and (width >= $min_tablet) {
+    height: 62px;
+  }
+  @media all and (width >= $min_desktop) {
+  }
+}
+
+.certificate {
+  @include buttonsDefault();
+  width: 100%;
+  height: 52px;
+  border-color: $dark_gold_light;
+  background-color: $accent_v2;
+  gap: 12px;
+  justify-content: flex-start;
+  padding: 4px 12px;
+  @include fontRegular(14px, 600, 16px, $third_text_color);
+  &:disabled {
+    opacity: 0.3;
+    border-color: $dark_gold_dark;
+    background-color: $card_bg_v2;
+    color: $main_text_color;
+  }
+  & > svg {
+    fill: currentColor;
+  }
+  @media all and (width >= $min_tablet) {
+    height: 62px;
+  }
+  @media all and (width >= $min_desktop) {
+  }
+}

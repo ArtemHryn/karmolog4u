@@ -1,14 +1,14 @@
 'use client';
 
 import { Suspense, useState } from 'react';
-import Container from '@components/Common/Container/Container';
-import RegressionHero from '@components/Calculator/RegressionMatrix/Hero/Hero';
-import MoreCalculators from '@components/Calculator/MoreCalculators/MoreCalculators';
-import SocialInfoDesc from '@components/Common/Calculator/SocialInfoDesc/SocialInfoDesc';
+import Container from '@/components/Common/Container/Container';
+import RegressionHero from '@/components/Calculator/RegressionMatrix/Hero/Hero';
+import MoreCalculators from '@/components/Calculator/MoreCalculators/MoreCalculators';
+import SocialInfoDesc from '@/components/Common/Calculator/SocialInfoDesc/SocialInfoDesc';
 
-import styles from '@components/Calculator/RegressionMatrix/RegressionMatrix.module.scss';
-import RegressionMatrix from '@components/Calculator/RegressionMatrix/RegressionMatrix';
-import RegressionChannels from '@components/Calculator/RegressionMatrix/RegressionChannels/RegressionChannels';
+import styles from '@/components/Calculator/RegressionMatrix/RegressionMatrix.module.scss';
+import RegressionMatrix from '@/components/Calculator/RegressionMatrix/RegressionMatrix';
+import RegressionChannels from '@/components/Calculator/RegressionMatrix/RegressionChannels/RegressionChannels';
 
 const social = {
   uk: [

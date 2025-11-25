@@ -3,7 +3,7 @@
 import { useSession } from 'next-auth/react';
 import Card from './Card';
 import Loader from '../../../Loader/Loader';
-import { SSK_INDEPENDENT, SSK_WITH_CURATOR, SSK_WITH_SERGIY } from '@/helper/consts';
+import ErrorLoading from '../../../ErrorLoading/ErrorLoading';
 import useUserInfo from '@/hooks/useUserInfo';
 
 import styles from './CoursesList.module.scss';
@@ -18,16 +18,15 @@ const CoursesList = () => {
   });
 
   if (isLoading) return <Loader />;
-  if (isError) return <div>Помилка завантаження курсів...</div>;
+  if (isError) return <ErrorLoading />;
 
   if (!data) return null;
 
   return (
     <ul className={styles.list}>
-      {data.map(course => {
-        const isSSK = [SSK_WITH_CURATOR, SSK_INDEPENDENT, SSK_WITH_SERGIY].includes(course.type);
-        return <Card course={course} isSSK={isSSK} key={course.id} />;
-      })}
+      {data.map(course => (
+        <Card course={course} key={course.id} />
+      ))}
     </ul>
   );
 };

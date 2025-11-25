@@ -1,6 +1,6 @@
-import { useSwiper } from "swiper/react";
-import styles from "./ResearchSlider.module.scss";
-import SliderArrow from "@components/Common/Icons/SliderArrow";
+import { useSwiper } from 'swiper/react';
+import styles from './ResearchSlider.module.scss';
+import SliderArrow from '@/components/Common/Icons/SliderArrow';
 
 const Button = ({ index }) => {
   const swiper = useSwiper();

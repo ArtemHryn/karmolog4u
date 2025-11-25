@@ -8,7 +8,7 @@ import SkeletonProducts from '../SkeletonProducts/SkeletonProducts';
 import Status from '../Meditations/Status/Status';
 import WebinarsList from './WebinarsList/WebinarsList';
 
-import { ADMIN_ETHERS, ADMIN_WEBINARS, base_url } from '@helper/consts';
+import { ADMIN_ETHERS, ADMIN_WEBINARS, base_url } from '@/helper/consts';
 import styles from './Webinars.module.scss';
 
 const fetchWebinars = async token => {

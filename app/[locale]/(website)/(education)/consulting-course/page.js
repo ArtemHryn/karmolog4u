@@ -1,16 +1,16 @@
-import AboutCourse from '@components/Education/AboutCourse/AboutCourse';
-import Hero from '@components/Education/ConsultingCourse/Hero/Hero';
-import WhatIsWaitingForYou from '@components/Education/WhatIsWaitingForYou/WhatIsWaitingForYou';
-import { getCardsForConsultingCourse } from '@helper/education/whatIsWaitingForYou';
-import Feedback from '@components/Main/Feedback/Feedback';
-import QuestionAnswer from '@components/Common/QuestionAnswer/QuestionAnswer';
-import getConsultingCourseQuestions from '@helper/education/consultingCourseQuestions';
-import getConsultingCourseFeedbacks from '@helper/education/consultingCourseFeedbacks';
-import Feedbacks from '@components/Services/Feedbacks/Feedbacks';
-import EduPricing from '@components/Education/EduPricing/EduPricing';
-import { addInfo } from '@helper/education/consultingCourseEduPricing';
+import AboutCourse from '@/components/Education/AboutCourse/AboutCourse';
+import Hero from '@/components/Education/ConsultingCourse/Hero/Hero';
+import WhatIsWaitingForYou from '@/components/Education/WhatIsWaitingForYou/WhatIsWaitingForYou';
+import { getCardsForConsultingCourse } from '@/helper/education/whatIsWaitingForYou';
+import Feedback from '@/components/Main/Feedback/Feedback';
+import QuestionAnswer from '@/components/Common/QuestionAnswer/QuestionAnswer';
+import getConsultingCourseQuestions from '@/helper/education/consultingCourseQuestions';
+import getConsultingCourseFeedbacks from '@/helper/education/consultingCourseFeedbacks';
+import Feedbacks from '@/components/Services/Feedbacks/Feedbacks';
+import EduPricing from '@/components/Education/EduPricing/EduPricing';
+import { addInfo } from '@/helper/education/consultingCourseEduPricing';
 
-import styled from '@components/Education/ConsultingCourse/AboutCourse/AboutCourse.module.scss';
+import styled from '@/components/Education/ConsultingCourse/AboutCourse/AboutCourse.module.scss';
 import { useTranslations } from 'next-intl';
 
 const text = {

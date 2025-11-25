@@ -1,12 +1,12 @@
-import Bottom from '@components/Calculator/PersonalMatrix/MatrixGraph/Bottom';
-import Left from '@components/Calculator/PersonalMatrix/MatrixGraph/Left';
-import Right from '@components/Calculator/PersonalMatrix/MatrixGraph/Right';
-import Top from '@components/Calculator/PersonalMatrix/MatrixGraph/Top';
+import Bottom from '@/components/Calculator/PersonalMatrix/MatrixGraph/Bottom';
+import Left from '@/components/Calculator/PersonalMatrix/MatrixGraph/Left';
+import Right from '@/components/Calculator/PersonalMatrix/MatrixGraph/Right';
+import Top from '@/components/Calculator/PersonalMatrix/MatrixGraph/Top';
 import ConsciousnessSvg from './ConsciousnessSvg';
 
 import styles from './ConsciousnessGraph.module.scss';
 import ConsciousnessCenter from './ConsciousnessCenter';
-import CalcDateTitle from '@components/Common/CalcDateTitle/CalcDateTitle';
+import CalcDateTitle from '@/components/Common/CalcDateTitle/CalcDateTitle';
 
 const ConsciousnessGraph = ({ matrix, name, date }) => {
   if (!matrix) return null;

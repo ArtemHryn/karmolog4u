@@ -1,6 +1,6 @@
 import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
-import { base_url } from '@helper/consts';
+import { base_url } from '@/helper/consts';
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   session: {

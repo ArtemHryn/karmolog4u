@@ -1,13 +1,13 @@
 'use client';
 
 import { Suspense, useState } from 'react';
-import ConsciousnessHero from '@components/Calculator/Consciousness/ConsciousnessHero/ConsciousnessHero';
-import Container from '@components/Common/Container/Container';
-import Consciousness from '@components/Calculator/Consciousness/Consciousness';
-import MoreCalculators from '@components/Calculator/MoreCalculators/MoreCalculators';
-import SocialInfoDesc from '@components/Common/Calculator/SocialInfoDesc/SocialInfoDesc';
+import ConsciousnessHero from '@/components/Calculator/Consciousness/ConsciousnessHero/ConsciousnessHero';
+import Container from '@/components/Common/Container/Container';
+import Consciousness from '@/components/Calculator/Consciousness/Consciousness';
+import MoreCalculators from '@/components/Calculator/MoreCalculators/MoreCalculators';
+import SocialInfoDesc from '@/components/Common/Calculator/SocialInfoDesc/SocialInfoDesc';
 
-import styles from '@components/Calculator/Consciousness/Consciousness.module.scss';
+import styles from '@/components/Calculator/Consciousness/Consciousness.module.scss';
 
 const social = {
   uk: [

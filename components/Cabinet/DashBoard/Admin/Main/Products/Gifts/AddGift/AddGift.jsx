@@ -10,7 +10,7 @@ import SubmitButtons from '../../Meditations/AddMeditation/SubmitButtons/SubmitB
 import ImageInput from '../../Meditations/AddMeditation/ClosedPart/ImageInput';
 import Price from '../../Meditations/AddMeditation/ClosedPart/Price/Price';
 import Description from '../../Meditations/AddMeditation/ClosedPart/Description';
-import { base_url } from '@helper/consts';
+import { base_url } from '@/helper/consts';
 
 import styles from './AddGift.module.scss';
 import 'react-toastify/dist/ReactToastify.css';

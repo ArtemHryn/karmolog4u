@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import NineTribesGraph from './NineTribesGraph/NineTribesGraph';
 import NineTribesTables from './NineTribesTables/NineTribesTables';
-import { getPersonalGraph } from '@helper/calculator/personal';
-import { getGenericTables, getKneelingTable } from '@helper/calculator/generic';
+import { getPersonalGraph } from '@/helper/calculator/personal';
+import { getGenericTables, getKneelingTable } from '@/helper/calculator/generic';
 
 import styles from './NineTribesMatrix.module.scss';
 
@@ -38,7 +38,6 @@ const NineTribesMatrix = ({ date, name, setKneeling }) => {
     <div id="nine-tribes" className={styles.nine_tribes_matrix}>
       <NineTribesGraph matrix={matrix} date={date} name={name} />
       <NineTribesTables tables={tables} />
-
     </div>
   );
 };

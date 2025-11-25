@@ -1,5 +1,5 @@
 import { DataTable } from 'primereact/datatable';
-import EmptyTable from '../../../../Education/TablesInfo/Table/EmptyTable/EmptyTable';
+import EmptyTable from '../../../../../Education/TablesInfo/Table/EmptyTable/EmptyTable';
 import { Column } from 'primereact/column';
 import ActionsColumn from './ActionsColumn/ActionsColumn';
 

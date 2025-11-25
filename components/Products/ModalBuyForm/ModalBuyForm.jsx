@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
-import Title from '@components/Common/Title/Title';
+import Title from '@/components/Common/Title/Title';
 
 import styles from './ModalBuyForm.module.scss';
 import Form from './Form';

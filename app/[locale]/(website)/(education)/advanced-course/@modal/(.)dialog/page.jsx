@@ -1,12 +1,12 @@
-import Modal from "@components/Common/Modal/Modal"
-import ModalContext from "@components/Common/Modal/ModalContext"
+import Modal from '@/components/Common/Modal/Modal';
+import ModalContext from '@/components/Common/Modal/ModalContext';
 
 const page = () => {
   return (
     <Modal>
-      <ModalContext/>
+      <ModalContext />
     </Modal>
-  )
-}
+  );
+};
 
-export default page
+export default page;

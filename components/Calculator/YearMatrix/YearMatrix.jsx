@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 
 import YearMatrixGraph from './YearMatrixGraph/YearMatrixGraph';
-import { getPeriod, getPersonalGraph } from '@helper/calculator/personal';
-import { getYearMatrix } from '@helper/calculator/year';
-import { getResultLifeMap } from '@helper/calculator/compatibility';
-import { getConsciousness } from '@helper/calculator/consciousness';
+import { getPeriod, getPersonalGraph } from '@/helper/calculator/personal';
+import { getYearMatrix } from '@/helper/calculator/year';
+import { getResultLifeMap } from '@/helper/calculator/compatibility';
+import { getConsciousness } from '@/helper/calculator/consciousness';
 import ResultLifeMap from '../CompatibilityMatrix/ResultMatrix/ResultLifeMap/ResultLifeMap';
 
 import styles from './YearMatrix.module.scss';

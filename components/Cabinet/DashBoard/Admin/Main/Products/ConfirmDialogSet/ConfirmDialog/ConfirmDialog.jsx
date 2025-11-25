@@ -1,4 +1,4 @@
-import { open_Sans } from '@app/[locale]/layout';
+import { open_Sans } from '@/app/[locale]/layout';
 import styles from './ConfirmDialog.module.scss';
 import { useEffect } from 'react';
 

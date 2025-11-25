@@ -1,13 +1,13 @@
 'use client';
 
 import { Suspense, useState } from 'react';
-import Container from '@components/Common/Container/Container';
-import MoreCalculators from '@components/Calculator/MoreCalculators/MoreCalculators';
-import SocialInfoDesc from '@components/Common/Calculator/SocialInfoDesc/SocialInfoDesc';
-import SixteenLawsOfKarmaHero from '@components/Calculator/SixteenLawsOfKarma/SixteenLawsOfKarmaHero/SixteenLawsOfKarmaHero';
-import SixteenLawsOfKarmaMatrix from '@components/Calculator/SixteenLawsOfKarma/SixteenLawsOfKarmaMatrix';
+import Container from '@/components/Common/Container/Container';
+import MoreCalculators from '@/components/Calculator/MoreCalculators/MoreCalculators';
+import SocialInfoDesc from '@/components/Common/Calculator/SocialInfoDesc/SocialInfoDesc';
+import SixteenLawsOfKarmaHero from '@/components/Calculator/SixteenLawsOfKarma/SixteenLawsOfKarmaHero/SixteenLawsOfKarmaHero';
+import SixteenLawsOfKarmaMatrix from '@/components/Calculator/SixteenLawsOfKarma/SixteenLawsOfKarmaMatrix';
 
-import styles from '@components/Calculator/SixteenLawsOfKarma/SixteenLawsOfKarmaMatrix.module.scss';
+import styles from '@/components/Calculator/SixteenLawsOfKarma/SixteenLawsOfKarmaMatrix.module.scss';
 
 const social = {
   uk: [

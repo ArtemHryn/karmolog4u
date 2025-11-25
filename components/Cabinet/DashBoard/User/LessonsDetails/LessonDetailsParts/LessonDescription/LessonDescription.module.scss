@@ -1,0 +1,28 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.title {
+  @include fontRegular(16px, 400, 16px);
+  @media all and (width >= $min_desktop) {
+    font-size: 24px;
+  }
+}
+
+.description {
+  @include fontRegular(14px, 400, 18.59px);
+  white-space: pre-line;
+  @media all and (width >= $min_tablet) {
+    column-count: 2;
+    column-gap: 24px;
+  }
+
+  @media all and (width >= $min_desktop) {
+    font-size: 20px;
+  }
+}

@@ -1,6 +1,6 @@
 import { getServerSession } from 'next-auth';
-import UserDetails from '@/components/Cabinet/DashBoard/Admin/Main/Users/UserDetails/UserDetails';
-import { authOptions } from '@app/api/auth/[...nextauth]/route';
+import UserDetails from '@/components/Cabinet/DashBoard/Admin/Main/Products/Users/UserDetails/UserDetails';
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import { base_url } from '@/helper/consts';
 import { notFound } from 'next/navigation';
 

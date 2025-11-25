@@ -1,4 +1,4 @@
-import Deleted from '@components/Cabinet/DashBoard/Admin/Main/Deleted/Deleted';
+import Deleted from '@/components/Cabinet/DashBoard/Admin/Main/Deleted/Deleted';
 
 const DeletedPage = () => {
   return <Deleted />;

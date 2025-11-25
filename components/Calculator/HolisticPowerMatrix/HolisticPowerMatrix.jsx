@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import HolisticPowerGraph from './HolisticPowerGraph/HolisticPowerGraph';
-import { getHolisticPower, getHolisticPowerTable } from '@helper/calculator/holisticPower';
+import { getHolisticPower, getHolisticPowerTable } from '@/helper/calculator/holisticPower';
 
-import { getResultLifeMap } from '@helper/calculator/compatibility';
+import { getResultLifeMap } from '@/helper/calculator/compatibility';
 import ResultLifeMap from '../CompatibilityMatrix/ResultMatrix/ResultLifeMap/ResultLifeMap';
-import { getPersonalGraph } from '@helper/calculator/personal';
-import { getConsciousness } from '@helper/calculator/consciousness';
+import { getPersonalGraph } from '@/helper/calculator/personal';
+import { getConsciousness } from '@/helper/calculator/consciousness';
 
 import styles from './HolisticPowerMatrix.module.scss';
 
@@ -44,7 +44,7 @@ const HolisticPowerMatrix = ({ date, name }) => {
   return (
     <div id="holistic-power" className={styles.holistic_power_matrix_wrapper}>
       <HolisticPowerGraph matrix={matrix} name={name} date={date} />
-      <ResultLifeMap maps={lifeMap} holisticTable={tableList} spiritLesson={spiritLesson}/>
+      <ResultLifeMap maps={lifeMap} holisticTable={tableList} spiritLesson={spiritLesson} />
     </div>
   );
 };

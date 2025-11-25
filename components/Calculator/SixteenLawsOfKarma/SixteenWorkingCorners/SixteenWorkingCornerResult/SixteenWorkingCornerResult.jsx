@@ -1,4 +1,4 @@
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 
 import styles from './SixteenWorkingCornerResult.module.scss';
 import { useTranslations } from 'next-intl';

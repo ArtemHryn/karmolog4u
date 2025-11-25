@@ -1,6 +1,6 @@
 import MeditationText from './MeditationText';
 import MeditationImage from './MeditationImage';
-import useLocalizedValue from '@hooks/useLocalizedValue';
+import useLocalizedValue from '@/hooks/useLocalizedValue';
 
 import styles from './MeditationsDescriptions.module.scss';
 

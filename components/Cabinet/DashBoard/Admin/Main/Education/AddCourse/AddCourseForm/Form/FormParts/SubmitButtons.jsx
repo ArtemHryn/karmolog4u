@@ -1,7 +1,7 @@
-import { DRAFT, PUBLISHED } from '@helper/consts';
+import { DRAFT, PUBLISHED } from '@/helper/consts';
 
 import styles from './FormParts.module.scss';
-import { open_Sans } from '@app/[locale]/layout';
+import { open_Sans } from '@/app/[locale]/layout';
 
 const SubmitButtons = ({ setStatusAndSubmit }) => {
   return (

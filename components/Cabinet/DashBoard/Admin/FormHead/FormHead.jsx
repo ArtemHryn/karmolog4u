@@ -1,6 +1,6 @@
 'use client';
 
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 import { useRouter } from 'next/navigation';
 
 import styles from './FormHead.module.scss';

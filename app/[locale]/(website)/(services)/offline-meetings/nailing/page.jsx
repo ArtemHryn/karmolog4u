@@ -1,12 +1,12 @@
-import QuestionAnswer from '@components/Common/QuestionAnswer/QuestionAnswer';
-import Feedback from '@components/Main/Feedback/Feedback';
-import Feedbacks from '@components/Services/Feedbacks/Feedbacks';
-import AboutPractice from '@components/Services/Offline-meetings/AboutPractice/AboutPractice';
-import OfflineMeetingsHero from '@components/Services/Offline-meetings/Hero/Hero';
-import HowIsGoingNailing from '@components/Services/Offline-meetings/HowIsGoingNailing/HowIsGoingNailing';
+import QuestionAnswer from '@/components/Common/QuestionAnswer/QuestionAnswer';
+import Feedback from '@/components/Main/Feedback/Feedback';
+import Feedbacks from '@/components/Services/Feedbacks/Feedbacks';
+import AboutPractice from '@/components/Services/Offline-meetings/AboutPractice/AboutPractice';
+import OfflineMeetingsHero from '@/components/Services/Offline-meetings/Hero/Hero';
+import HowIsGoingNailing from '@/components/Services/Offline-meetings/HowIsGoingNailing/HowIsGoingNailing';
 
-import getNailingFeedbacks from '@helper/nailingFeedbacks';
-import getNailingQuestions from '@helper/nailingQuestions';
+import getNailingFeedbacks from '@/helper/nailingFeedbacks';
+import getNailingQuestions from '@/helper/nailingQuestions';
 
 const text = {
   uk: [

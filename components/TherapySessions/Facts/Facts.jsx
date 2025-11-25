@@ -1,5 +1,5 @@
-import Container from '@components/Common/Container/Container';
-import Title from '@components/Common/Title/Title';
+import Container from '@/components/Common/Container/Container';
+import Title from '@/components/Common/Title/Title';
 
 import styles from './Facts.module.scss';
 import Rhomb from './Rhomb';
@@ -29,7 +29,9 @@ const Facts = () => {
   const locale = useLocale();
   return (
     <Container>
-      <Title variant='h2' styled={styles.title}>{t('title')}:</Title>
+      <Title variant="h2" styled={styles.title}>
+        {t('title')}:
+      </Title>
       <ul className={styles.facts_list}>
         {facts[locale].map((el, index) => (
           <li key={index} className={styles.facts_item}>

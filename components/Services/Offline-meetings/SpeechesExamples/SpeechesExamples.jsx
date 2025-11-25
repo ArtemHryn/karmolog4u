@@ -1,7 +1,7 @@
-import Container from '@components/Common/Container/Container';
-import Title from '@components/Common/Title/Title';
+import Container from '@/components/Common/Container/Container';
+import Title from '@/components/Common/Title/Title';
 import Video from '../HowIsGoingNailing/Video';
-import SeeMoreOnMyYouTube from '@components/Common/SeeMoreOnMyYouTube/SeeMoreOnMyYouTube';
+import SeeMoreOnMyYouTube from '@/components/Common/SeeMoreOnMyYouTube/SeeMoreOnMyYouTube';
 
 import styles from './SpeechesExamples.module.scss';
 import { useLocale, useTranslations } from 'next-intl';

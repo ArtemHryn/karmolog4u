@@ -1,10 +1,10 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
-import { open_Sans, unbounded } from '@app/[locale]/layout';
+import { open_Sans, unbounded } from '@/app/[locale]/layout';
 
 import ActiveDropDown from './ActiveDropDown';
-import ToggleArrow from '@components/Common/Icons/ConsultationsIcons/ToggleArrow';
+import ToggleArrow from '@/components/Common/Icons/ConsultationsIcons/ToggleArrow';
 
 import styles from './TariffList.module.scss';
 import { useLocale, useTranslations } from 'next-intl';

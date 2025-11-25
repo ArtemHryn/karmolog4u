@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
-import { unbounded } from '@app/[locale]//layout';
+import { unbounded } from '@/app/[locale]//layout';
 
 import styles from './FeedbacksSlider.module.scss';
 

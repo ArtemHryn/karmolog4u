@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl';
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 import KneelingSvg from './KneelingSvg';
 import Sides from './Sides/Sides';
 

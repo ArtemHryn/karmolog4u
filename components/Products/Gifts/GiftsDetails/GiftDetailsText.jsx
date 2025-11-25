@@ -1,4 +1,4 @@
-import useLocalizedValue from '@hooks/useLocalizedValue';
+import useLocalizedValue from '@/hooks/useLocalizedValue';
 import GiftDetailsTitle from './GiftDetailsTitle';
 
 import styles from './GiftsDetails.module.scss';

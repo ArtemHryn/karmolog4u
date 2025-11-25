@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import Container from '@components/Common/Container/Container';
+import Container from '@/components/Common/Container/Container';
 
 import styles from './AboutAssociation.module.scss';
 import { useTranslations } from 'next-intl';

@@ -1,4 +1,4 @@
-import { open_Sans } from '@app/[locale]/layout';
+import { open_Sans } from '@/app/[locale]/layout';
 import styles from '../ClosedPart.module.scss';
 import { useFormContext } from 'react-hook-form';
 

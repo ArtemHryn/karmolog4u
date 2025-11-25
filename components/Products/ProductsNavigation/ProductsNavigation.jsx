@@ -1,8 +1,8 @@
 'use client';
 
 import { useParams, useSelectedLayoutSegment, usePathname } from 'next/navigation';
-import Container from '@components/Common/Container/Container';
-import InternalNavTitle from '@components/Common/InternalNavTitle/InternalNavTitle';
+import Container from '@/components/Common/Container/Container';
+import InternalNavTitle from '@/components/Common/InternalNavTitle/InternalNavTitle';
 import ProductsNavLinks from './ProductsNavLinks/ProductsNavLinks';
 
 import styles from './ProductsNavLinks/ProductsNavLinks.module.scss';

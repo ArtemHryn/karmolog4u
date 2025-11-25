@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 import ChildrenForm from './ChildrenForm/ChildrenForm';
 import Table from '../ParentsTables/Table/Table';
 import Logo from './Logo';

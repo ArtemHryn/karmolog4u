@@ -1,9 +1,9 @@
-import HeroNav from '@components/Common/HeroNav/HeroNav';
+import HeroNav from '@/components/Common/HeroNav/HeroNav';
 import { useLocale } from 'next-intl';
 import React from 'react';
 import CalculatorLogo from '../CalculatorLogo/CalculatorLogo';
 import style from './CalculatorHero.module.scss';
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 
 function CalculatorHero({ heroData }) {
   const locale = useLocale();

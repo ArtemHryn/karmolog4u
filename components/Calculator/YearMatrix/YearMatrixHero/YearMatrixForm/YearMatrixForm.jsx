@@ -3,8 +3,8 @@ import { useRouter } from 'next/navigation';
 import { Controller, useForm } from 'react-hook-form';
 import TextMaskInput from 'react-text-mask';
 import { Dropdown } from 'primereact/dropdown';
-import { ageCalculator, getCurrentAgeInPeriod, getRoute } from '@helper/calculator/ageCalc';
-import { open_Sans } from '@app/[locale]//layout';
+import { ageCalculator, getCurrentAgeInPeriod, getRoute } from '@/helper/calculator/ageCalc';
+import { open_Sans } from '@/app/[locale]//layout';
 
 import styles from './YearMatrixForm.module.scss';
 import './period.scss';

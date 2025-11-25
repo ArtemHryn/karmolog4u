@@ -1,4 +1,4 @@
-import CalcDateTitle from '@components/Common/CalcDateTitle/CalcDateTitle';
+import CalcDateTitle from '@/components/Common/CalcDateTitle/CalcDateTitle';
 import TalismanMatrixSvg from './TalismanMatrixSvg';
 import TopTalismanMatrix from '../TrianglesMatrix/TriangleAdditionalMatrix/Sides/TopTalismanMatrix';
 import CenterTalismanMatrix from '../TrianglesMatrix/TriangleAdditionalMatrix/Sides/CenterTalismanMatrix';
@@ -14,9 +14,9 @@ const TalismanMatrixGraph = ({ matrix, date, name }) => {
       <CalcDateTitle name={name} date={date} />
       <div className={styles.graph_wrapper}>
         <TalismanMatrixSvg styled={styles.graph} />
-        <TopTalismanMatrix matrix={matrix} main/>
-        <BottomTalismanMatrix matrix={matrix} main/>
-        <CenterTalismanMatrix matrix={matrix} main/>
+        <TopTalismanMatrix matrix={matrix} main />
+        <BottomTalismanMatrix matrix={matrix} main />
+        <CenterTalismanMatrix matrix={matrix} main />
       </div>
     </div>
   );

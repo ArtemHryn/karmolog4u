@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import Logo from '@components/Common/Icons/Logo';
-import { open_Sans } from '@app/[locale]//layout';
+import Logo from '@/components/Common/Icons/Logo';
+import { open_Sans } from '@/app/[locale]//layout';
 
 import styles from './ResearchSlider.module.scss';
 import Button from './Button';

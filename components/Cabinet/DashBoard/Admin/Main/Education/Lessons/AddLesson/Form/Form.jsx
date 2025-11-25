@@ -95,6 +95,7 @@ const Form = ({ editLesson }) => {
     },
   });
 
+
   const onFormSubmit = data => {
     const {
       videoLinks,
@@ -205,7 +206,6 @@ const Form = ({ editLesson }) => {
               <Period title={'3. Доступ до уроку:'} />
             </div>
           )}
-
           <Descriptions
             name="recommendations"
             title={`${moduleId ? '6.' : '4.'}  Рекомендації до уроку`}

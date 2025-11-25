@@ -1,5 +1,5 @@
 import Marquee from 'react-fast-marquee';
-import { unbounded } from '@app/[locale]//layout';
+import { unbounded } from '@/app/[locale]//layout';
 
 import styled from './Marquees.module.scss';
 import { useTranslations } from 'next-intl';

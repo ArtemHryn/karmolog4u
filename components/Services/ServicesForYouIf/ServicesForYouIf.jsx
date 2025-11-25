@@ -1,5 +1,5 @@
 import Container from '../../Common/Container/Container';
-import Title from '@components/Common/Title/Title';
+import Title from '@/components/Common/Title/Title';
 
 import styles from './ServicesForYouIf.module.scss';
 import { useLocale } from 'next-intl';

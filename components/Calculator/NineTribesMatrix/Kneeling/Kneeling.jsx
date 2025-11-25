@@ -1,4 +1,4 @@
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 import KneelingTable from './KneelingTable/KneelingTable';
 
 import styles from './Kneeling.module.scss';

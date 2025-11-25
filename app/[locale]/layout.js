@@ -2,7 +2,7 @@ import { Open_Sans, Unbounded, Inter } from 'next/font/google';
 import './globals.scss';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
-import SessionProviderWrapper from '@components/Common/Providers/SessionProvider';
+import SessionProviderWrapper from '@/components/Common/Providers/SessionProvider';
 
 export const open_Sans = Open_Sans({
   subsets: ['cyrillic'],

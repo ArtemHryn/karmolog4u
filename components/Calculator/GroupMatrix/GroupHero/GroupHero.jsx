@@ -1,9 +1,16 @@
 import { useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import GroupMatrixForm from '../GroupMatrixForm/GroupMatrixForm';
-import CalculatorHero from '@components/Calculator/CalculatorHero/CalculatorHero';
+import CalculatorHero from '@/components/Calculator/CalculatorHero/CalculatorHero';
 
-const GroupHero = ({ heroData, usersInfo, setUsersInfo, setIsShowMatrix, setIsChecked, isChecked }) => {
+const GroupHero = ({
+  heroData,
+  usersInfo,
+  setUsersInfo,
+  setIsShowMatrix,
+  setIsChecked,
+  isChecked,
+}) => {
   const searchParams = useSearchParams();
 
   useEffect(() => {

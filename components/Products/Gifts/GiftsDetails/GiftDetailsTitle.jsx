@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import Title from '@components/Common/Title/Title';
+import Title from '@/components/Common/Title/Title';
 import styles from './GiftsDetails.module.scss';
-import useLocalizedValue from '@hooks/useLocalizedValue';
+import useLocalizedValue from '@/hooks/useLocalizedValue';
 import { useTranslations } from 'next-intl';
 
 const GiftDetailsTitle = ({ card }) => {

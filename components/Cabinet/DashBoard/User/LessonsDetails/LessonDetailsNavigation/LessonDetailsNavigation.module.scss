@@ -1,0 +1,36 @@
+@import '/styles/main.scss';
+
+.list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 56px;
+  @include fontRegular(14px, 600, 15px, $seconds_text_color);
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  & > svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+  }
+  & > span {
+    display: none;
+  }
+  @media all and (width >= $min_tablet) {
+    font-size: 16px;
+  }
+  @media all and (width >= $min_desktop) {
+    font-size: 18px;
+    & > span {
+      display: inline;
+    }
+    &:disabled {
+      color: rgba(207, 182, 145, 0.3);
+    }
+  }
+}

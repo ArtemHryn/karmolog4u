@@ -10,7 +10,7 @@ import RequiredLabels from '../../Meditations/AddMeditation/RequiredLabels/Requi
 import OtherGuidesPart from './OtherGuidesPart/OtherGuidesPart';
 import BooksPart from './BooksPart/BooksPart';
 import GuidesPart from './GuidesPart/GuidesPart';
-import { base_url, BOOKS, GUIDES, OTHER_GUIDES, youtubeRegex } from '@helper/consts';
+import { base_url, BOOKS, GUIDES, OTHER_GUIDES, youtubeRegex } from '@/helper/consts';
 
 import styles from './AddGuideAndBooks.module.scss';
 import 'react-toastify/dist/ReactToastify.css';

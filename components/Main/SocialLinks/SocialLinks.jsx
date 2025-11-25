@@ -1,10 +1,10 @@
 import Link from 'next/link';
-import Instagram from '@components/Common/SocialIcons/Instagram';
-import Telegram from '@components/Common/SocialIcons/Telegram';
-import TikTok from '@components/Common/SocialIcons/TikTok';
-import Whatsapp from '@components/Common/SocialIcons/Whatsapp';
-import YouTube from '@components/Common/SocialIcons/YouTube';
-import Viber from '@components/Common/SocialIcons/Viber';
+import Instagram from '@/components/Common/SocialIcons/Instagram';
+import Telegram from '@/components/Common/SocialIcons/Telegram';
+import TikTok from '@/components/Common/SocialIcons/TikTok';
+import Whatsapp from '@/components/Common/SocialIcons/Whatsapp';
+import YouTube from '@/components/Common/SocialIcons/YouTube';
+import Viber from '@/components/Common/SocialIcons/Viber';
 import { useTranslations } from 'next-intl';
 
 const links = [
