@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 
 import styles from './InternalKarmaMatrix.module.scss';
 import InternalMatrixGraph from './InternalMatrixGraph/InternalMatrixGraph';
-import { getPersonalGraph } from '@helper/calculator/personal';
-import { getResultLifeMap } from '@helper/calculator/compatibility';
-import { getConsciousness } from '@helper/calculator/consciousness';
+import { getPersonalGraph } from '@/helper/calculator/personal';
+import { getResultLifeMap } from '@/helper/calculator/compatibility';
+import { getConsciousness } from '@/helper/calculator/consciousness';
 import ResultLifeMap from '../CompatibilityMatrix/ResultMatrix/ResultLifeMap/ResultLifeMap';
 
 const InternalKarmaMatrix = ({ date, name }) => {

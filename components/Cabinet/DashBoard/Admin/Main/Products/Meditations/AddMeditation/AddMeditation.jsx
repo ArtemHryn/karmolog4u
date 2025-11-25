@@ -17,7 +17,7 @@ import {
   CLOSED_MEDITATIONS,
   OPENED_MEDITATIONS,
   youtubeRegex,
-} from '@helper/consts';
+} from '@/helper/consts';
 
 import styles from './AddMeditationForm.module.scss';
 import 'react-toastify/dist/ReactToastify.css';

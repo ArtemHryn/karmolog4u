@@ -1,12 +1,12 @@
 'use client';
 import { useParams, usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import Container from '@components/Common/Container/Container';
-import HeroNav from '@components/Common/HeroNav/HeroNav';
-import MeditationsDescriptions from '@components/Products/Meditations/MeditationDetails/MeditationsDescriptions';
+import Container from '@/components/Common/Container/Container';
+import HeroNav from '@/components/Common/HeroNav/HeroNav';
+import MeditationsDescriptions from '@/components/Products/Meditations/MeditationDetails/MeditationsDescriptions';
 
-import list from '@helper/products/meditationsList';
-import ProductionCanBeInterestingSlider from '@components/Common/ProductionCanBeInterestingSlider/ProductionCanBeInterestingSlider';
+import list from '@/helper/products/meditationsList';
+import ProductionCanBeInterestingSlider from '@/components/Common/ProductionCanBeInterestingSlider/ProductionCanBeInterestingSlider';
 import { useLocale } from 'next-intl';
 
 const MeditationDetails = () => {

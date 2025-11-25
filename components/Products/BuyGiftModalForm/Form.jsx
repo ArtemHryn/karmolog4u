@@ -7,7 +7,7 @@ import AsyncSelect from 'react-select/async';
 import Select from 'react-select';
 import Link from 'next/link';
 
-import Title from '@components/Common/Title/Title';
+import Title from '@/components/Common/Title/Title';
 
 import styles from './BuyGiftModalForm.module.scss';
 import 'react-phone-input-2/lib/bootstrap.css';

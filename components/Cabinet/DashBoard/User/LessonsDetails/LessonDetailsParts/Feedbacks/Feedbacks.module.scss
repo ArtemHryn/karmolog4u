@@ -70,6 +70,9 @@
   @media all and (width >= $min_desktop) {
     margin-left: auto;
   }
+  &:disabled {
+    opacity: 0.3;
+  }
 }
 
 .error {

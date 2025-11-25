@@ -1,12 +1,12 @@
 import HolisticPowerSvg from './HolisticPowerSvg';
-import Top from '@components/Calculator/PersonalMatrix/MatrixGraph/Top';
-import Left from '@components/Calculator/PersonalMatrix/MatrixGraph/Left';
-import Right from '@components/Calculator/PersonalMatrix/MatrixGraph/Right';
-import Bottom from '@components/Calculator/PersonalMatrix/MatrixGraph/Bottom';
-import InternalKarmaCenter from '@components/Calculator/InternalKarmaMatrix/InternalMatrixGraph/InternalKarmaCenter';
+import Top from '@/components/Calculator/PersonalMatrix/MatrixGraph/Top';
+import Left from '@/components/Calculator/PersonalMatrix/MatrixGraph/Left';
+import Right from '@/components/Calculator/PersonalMatrix/MatrixGraph/Right';
+import Bottom from '@/components/Calculator/PersonalMatrix/MatrixGraph/Bottom';
+import InternalKarmaCenter from '@/components/Calculator/InternalKarmaMatrix/InternalMatrixGraph/InternalKarmaCenter';
 
 import styles from './HolisticPowerGraph.module.scss';
-import CalcDateTitle from '@components/Common/CalcDateTitle/CalcDateTitle';
+import CalcDateTitle from '@/components/Common/CalcDateTitle/CalcDateTitle';
 
 const HolisticPowerGraph = ({ matrix, name, date }) => {
   if (!matrix) return null;

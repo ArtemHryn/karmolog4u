@@ -1,12 +1,12 @@
 import { useTranslations } from 'next-intl';
-import Container from '@components/Common/Container/Container';
-import Viber from '@components/Common/SocialIcons/Viber';
-import Whatsapp from '@components/Common/SocialIcons/Whatsapp';
-import Telegram from '@components/Common/SocialIcons/Telegram';
+import Container from '@/components/Common/Container/Container';
+import Viber from '@/components/Common/SocialIcons/Viber';
+import Whatsapp from '@/components/Common/SocialIcons/Whatsapp';
+import Telegram from '@/components/Common/SocialIcons/Telegram';
 import Link from 'next/link';
-import Logo from '@components/Common/Icons/Logo';
-import BlurLogo from '@components/Common/Icons/BlurLogo';
-import { unbounded } from '@app/[locale]//layout';
+import Logo from '@/components/Common/Icons/Logo';
+import BlurLogo from '@/components/Common/Icons/BlurLogo';
+import { unbounded } from '@/app/[locale]//layout';
 
 import styles from './Feedback.module.scss';
 

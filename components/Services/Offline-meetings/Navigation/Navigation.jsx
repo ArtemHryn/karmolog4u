@@ -1,6 +1,6 @@
-import Container from '@components/Common/Container/Container';
+import Container from '@/components/Common/Container/Container';
 import NavLinks from './NavLinks';
-import InternalNavTitle from '@components/Common/InternalNavTitle/InternalNavTitle';
+import InternalNavTitle from '@/components/Common/InternalNavTitle/InternalNavTitle';
 
 const links = [
   { href: '/offline-meetings', name: { uk: 'Офлайн-зустрічі', ru: 'Офлайн-встречи' } },

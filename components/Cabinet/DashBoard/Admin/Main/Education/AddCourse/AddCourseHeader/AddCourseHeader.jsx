@@ -1,4 +1,4 @@
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 import Actions from './Actions';
 
 import styles from './AddCourseHeader.module.scss';

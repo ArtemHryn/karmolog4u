@@ -1,5 +1,5 @@
 import ConfirmDialog from './ConfirmDialog/ConfirmDialog';
-import { HIDDEN } from '@helper/consts';
+import { HIDDEN } from '@/helper/consts';
 
 import styles from './ConfirmDialogSet.module.scss';
 

@@ -1,4 +1,4 @@
-import ConfirmDialog from '@components/Cabinet/DashBoard/Admin/Main/Products/ConfirmDialogSet/ConfirmDialog/ConfirmDialog';
+import ConfirmDialog from '@/components/Cabinet/DashBoard/Admin/Main/Products/ConfirmDialogSet/ConfirmDialog/ConfirmDialog';
 import styles from './ConfirmDialogSet.module.scss';
 
 const ConfirmDialogSet = ({

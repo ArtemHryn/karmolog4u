@@ -10,7 +10,7 @@ import {
   HIDDEN,
   OPENED_MEDITATIONS,
   PUBLISHED,
-} from '@helper/consts';
+} from '@/helper/consts';
 import styles from './MeditationsList.module.scss';
 
 const statusInfo = [

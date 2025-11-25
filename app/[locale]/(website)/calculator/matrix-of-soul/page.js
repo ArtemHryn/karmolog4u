@@ -1,13 +1,13 @@
 'use client';
 
-import MoreCalculators from '@components/Calculator/MoreCalculators/MoreCalculators';
-import SoulMatrix from '@components/Calculator/SoulMatrix/SoulMatrix';
-import SoulMatrixHero from '@components/Calculator/SoulMatrix/SoulMatrixHero/SoulMatrixHero';
-import SocialInfoDesc from '@components/Common/Calculator/SocialInfoDesc/SocialInfoDesc';
-import Container from '@components/Common/Container/Container';
+import MoreCalculators from '@/components/Calculator/MoreCalculators/MoreCalculators';
+import SoulMatrix from '@/components/Calculator/SoulMatrix/SoulMatrix';
+import SoulMatrixHero from '@/components/Calculator/SoulMatrix/SoulMatrixHero/SoulMatrixHero';
+import SocialInfoDesc from '@/components/Common/Calculator/SocialInfoDesc/SocialInfoDesc';
+import Container from '@/components/Common/Container/Container';
 import { Suspense, useState } from 'react';
 
-import styles from '@components/Calculator/SoulMatrix/SoulMatrixHero.module.scss';
+import styles from '@/components/Calculator/SoulMatrix/SoulMatrixHero.module.scss';
 
 const social = {
   uk: [

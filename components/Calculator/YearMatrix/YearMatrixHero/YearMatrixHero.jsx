@@ -1,4 +1,4 @@
-import CalculatorHero from '@components/Calculator/CalculatorHero/CalculatorHero';
+import CalculatorHero from '@/components/Calculator/CalculatorHero/CalculatorHero';
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 import YearMatrixForm from './YearMatrixForm/YearMatrixForm';

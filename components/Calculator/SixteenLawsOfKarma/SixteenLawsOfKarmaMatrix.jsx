@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import SixteenLawsOfKarmaGraph from './SixteenLawsOfKarmaGraph/SixteenLawsOfKarmaGraph';
-import { getPersonalGraph } from '@helper/calculator/personal';
+import { getPersonalGraph } from '@/helper/calculator/personal';
 import SixteenLawsPeriods from './SixteenLawsPeriods/SixteenLawsPeriods';
-import { getSixteenLawsPeriods } from '@helper/calculator/sixteenLaws';
-import { ageCalculator } from '@helper/calculator/ageCalc';
+import { getSixteenLawsPeriods } from '@/helper/calculator/sixteenLaws';
+import { ageCalculator } from '@/helper/calculator/ageCalc';
 
 import styles from './SixteenLawsOfKarmaMatrix.module.scss';
 import SixteenWorkingCornersGraph from './SixteenWorkingCorners/SixteenWorkingCornersGraph/SixteenWorkingCornersGraph';

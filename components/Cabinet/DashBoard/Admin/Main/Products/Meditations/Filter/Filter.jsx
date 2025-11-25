@@ -1,7 +1,7 @@
 import Tick from './Tick';
 
 import styles from './Filter.module.scss';
-import { ADMIN_CLOSED, ADMIN_ENERGIES, ADMIN_OPENED } from '@helper/consts';
+import { ADMIN_CLOSED, ADMIN_ENERGIES, ADMIN_OPENED } from '@/helper/consts';
 
 const Filter = ({
   energies,
@@ -11,7 +11,6 @@ const Filter = ({
   showClosedMeditation,
   setShowClosedMeditation,
 }) => {
-
   return (
     <ul className={styles.list}>
       <li>

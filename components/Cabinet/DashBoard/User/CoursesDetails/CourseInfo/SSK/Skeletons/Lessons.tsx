@@ -1,4 +1,4 @@
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 import { Skeleton } from 'primereact/skeleton';
 
 import styles from './Skeleton.module.scss';

@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { Dropdown } from 'primereact/dropdown';
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 import KneelingGraph from './KneelingGraph/KneelingGraph';
-import { open_Sans } from '@app/[locale]//layout';
+import { open_Sans } from '@/app/[locale]//layout';
 
 import styles from './KneelingCalc.module.scss';
 import './period.scss';

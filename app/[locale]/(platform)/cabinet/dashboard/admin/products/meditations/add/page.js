@@ -1,7 +1,7 @@
-import FormHead from '@components/Cabinet/DashBoard/Admin/FormHead/FormHead';
-import MeditationForm from '@components/Cabinet/DashBoard/Admin/Main/Products/Meditations/AddMeditation/AddMeditation';
+import FormHead from '@/components/Cabinet/DashBoard/Admin/FormHead/FormHead';
+import MeditationForm from '@/components/Cabinet/DashBoard/Admin/Main/Products/Meditations/AddMeditation/AddMeditation';
 
-import styles from './add_meditation_page.module.scss'
+import styles from './add_meditation_page.module.scss';
 
 const AddMeditationPage = () => {
   return (

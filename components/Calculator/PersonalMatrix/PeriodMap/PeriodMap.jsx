@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
-import Title from '@components/Common/Title/Title';
-import { ageCalculator } from '@helper/calculator/ageCalc';
+import Title from '@/components/Common/Title/Title';
+import { ageCalculator } from '@/helper/calculator/ageCalc';
 import PeriodMapElement from './PeriodMapElement';
 
 import styles from './PeriodMap.module.scss';

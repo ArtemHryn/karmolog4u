@@ -1,4 +1,4 @@
-import { unbounded } from '@app/[locale]/layout';
+import { unbounded } from '@/app/[locale]/layout';
 
 /**
  * Компонент заголовку без стилів

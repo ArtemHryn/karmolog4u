@@ -1,4 +1,4 @@
-import Instagram from '@components/Common/SocialIcons/Instagram';
+import Instagram from '@/components/Common/SocialIcons/Instagram';
 import Image from 'next/image';
 import styles from './StarCustomers.module.scss';
 import { useLocale } from 'next-intl';

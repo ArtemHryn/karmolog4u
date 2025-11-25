@@ -1,6 +1,6 @@
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 
-import styles from './Sides.module.scss'
+import styles from './Sides.module.scss';
 
 const Middle = ({ matrix }) => {
   const { day, center, year } = matrix;

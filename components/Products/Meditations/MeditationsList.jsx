@@ -1,14 +1,10 @@
-import { useEffect, useState } from "react";
-import list from "@helper/products/meditationsList";
-import Meditation from "./Meditation";
+import { useEffect, useState } from 'react';
+import list from '@/helper/products/meditationsList';
+import Meditation from './Meditation';
 
-import styles from "./Meditations.module.scss";
+import styles from './Meditations.module.scss';
 
-const MeditationsList = ({
-  energies,
-  showOpenedMeditation,
-  showClosedMeditation,
-}) => {
+const MeditationsList = ({ energies, showOpenedMeditation, showClosedMeditation }) => {
   const [meditationList, setMeditationList] = useState([]);
   useEffect(() => {
     setMeditationList([

@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
-import { unbounded } from '@app/[locale]//layout';
-import useLocalizedValue from '@hooks/useLocalizedValue';
-import HeroNavArrow from '@components/Common/Icons/HeroNavArrow';
+import { unbounded } from '@/app/[locale]//layout';
+import useLocalizedValue from '@/hooks/useLocalizedValue';
+import HeroNavArrow from '@/components/Common/Icons/HeroNavArrow';
 
 import styles from './TariffsSlider.module.scss';
 

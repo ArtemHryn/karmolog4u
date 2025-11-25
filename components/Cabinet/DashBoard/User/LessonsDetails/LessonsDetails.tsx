@@ -1,7 +1,7 @@
 'use client';
 import { useSuspenseQuery } from '@tanstack/react-query';
 import LessonTitle from './LessonDetailsParts/LessonTitle/LessonTitle';
-import { base_url } from '@helper/consts';
+import { base_url } from '@/helper/consts';
 import styles from './LessonsDetails.module.scss';
 import LessonDescription from './LessonDetailsParts/LessonDescription/LessonDescription';
 import LessonVideos from './LessonDetailsParts/LessonVideos/LessonVideos';
@@ -10,6 +10,8 @@ import Recommendations from './LessonDetailsParts/Recommendations/Recommendation
 import Homework from './LessonDetailsParts/Homework/Homework';
 import AdditionalLinks from './LessonDetailsParts/AdditionalLinks/AdditionalLinks';
 import Feedbacks from './LessonDetailsParts/Feedbacks/Feedbacks';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface LessonProps {
   token: string;
@@ -37,8 +39,6 @@ const LessonsDetails = ({ token, id }: LessonProps) => {
     queryFn: async () => fetchLesson(token, id),
   });
 
-  console.log(lesson);
-
   return (
     <div className={styles.wrapper}>
       <LessonTitle title={lesson.name} />
@@ -51,6 +51,7 @@ const LessonsDetails = ({ token, id }: LessonProps) => {
       )}
       {lesson.additionalLinks.length > 0 && <AdditionalLinks list={lesson.additionalLinks} />}
       <Feedbacks feedbacks={lesson.feedbacks} />
+      <ToastContainer />
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import ConfirmDialogSet from './ConfirmDialogSet/ConfirmDialogSet';
-import { base_url } from '@helper/consts';
+import { base_url } from '@/helper/consts';
 
 import styles from './SelectedProductsInfo.module.scss';
 import { useSession } from 'next-auth/react';

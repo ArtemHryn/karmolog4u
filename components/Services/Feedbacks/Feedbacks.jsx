@@ -1,7 +1,7 @@
-import Container from '@components/Common/Container/Container';
+import Container from '@/components/Common/Container/Container';
 
 import styles from './Feedbacks.module.scss';
-import { unbounded } from '@app/[locale]//layout';
+import { unbounded } from '@/app/[locale]//layout';
 import FeedbacksSlider from './FeedbacksSlider/FeedbacksSlider';
 import { useTranslations } from 'next-intl';
 

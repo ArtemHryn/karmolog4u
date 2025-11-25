@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { unbounded } from '@app/[locale]//layout';
-import Container from '@components/Common/Container/Container';
+import { unbounded } from '@/app/[locale]//layout';
+import Container from '@/components/Common/Container/Container';
 import Arrow from './Arrow';
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 import ArrowTab from './ArrowTab';
 import ButtonsList from './ButtonsList';
 

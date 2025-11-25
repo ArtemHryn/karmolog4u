@@ -2,7 +2,7 @@ import { useFormContext } from 'react-hook-form';
 
 import styles from './WebinarPart.module.scss';
 import Tick from '../../../Meditations/AddMeditation/Tick';
-import { open_Sans } from '@app/[locale]/layout';
+import { open_Sans } from '@/app/[locale]/layout';
 
 const tickName = 'showDetails';
 

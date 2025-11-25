@@ -5,7 +5,7 @@ import { OverlayPanel } from 'primereact/overlaypanel';
 import EditButtonIcon from '../../../Meditations/MeditationsList/EditButton/EditButtonIcon';
 import ConfirmDialogSet from '../../../ConfirmDialogSet/ConfirmDialogSet';
 import EditMenu from '../../../Meditations/MeditationsList/EditButton/EditMenu';
-import { base_url, HIDDEN, PUBLISHED } from '@helper/consts';
+import { base_url, HIDDEN, PUBLISHED } from '@/helper/consts';
 
 import 'primereact/resources/primereact.min.css';
 

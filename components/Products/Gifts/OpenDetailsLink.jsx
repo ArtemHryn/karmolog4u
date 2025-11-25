@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import styles from './Gifts.module.scss';
-import useLocalizedValue from '@hooks/useLocalizedValue';
+import useLocalizedValue from '@/hooks/useLocalizedValue';
 
 const OpenDetailsLink = ({ img, discount, name, id }) => {
   const pathname = usePathname();

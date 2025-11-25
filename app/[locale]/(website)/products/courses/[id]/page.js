@@ -2,11 +2,11 @@
 import { useEffect, useState } from 'react';
 import { useParams, usePathname, redirect } from 'next/navigation';
 
-import Container from '@components/Common/Container/Container';
-import HeroNav from '@components/Common/HeroNav/HeroNav';
-import list from '@helper/products/coursesList';
-import MeditationsDescriptions from '@components/Products/Meditations/MeditationDetails/MeditationsDescriptions';
-import ProductionCanBeInterestingSlider from '@components/Common/ProductionCanBeInterestingSlider/ProductionCanBeInterestingSlider';
+import Container from '@/components/Common/Container/Container';
+import HeroNav from '@/components/Common/HeroNav/HeroNav';
+import list from '@/helper/products/coursesList';
+import MeditationsDescriptions from '@/components/Products/Meditations/MeditationDetails/MeditationsDescriptions';
+import ProductionCanBeInterestingSlider from '@/components/Common/ProductionCanBeInterestingSlider/ProductionCanBeInterestingSlider';
 
 const CoursesDetails = () => {
   const [course, setCourse] = useState(null);

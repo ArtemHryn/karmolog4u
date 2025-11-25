@@ -1,5 +1,5 @@
-import Container from '@components/Common/Container/Container';
-import Title from '@components/Common/Title/Title';
+import Container from '@/components/Common/Container/Container';
+import Title from '@/components/Common/Title/Title';
 import Link from 'next/link';
 import Image from 'next/image';
 

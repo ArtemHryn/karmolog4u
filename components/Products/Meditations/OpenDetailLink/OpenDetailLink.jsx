@@ -4,12 +4,12 @@ import { useParams, usePathname } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import Youtube from 'react-youtube';
-import { open_Sans, unbounded } from '@app/[locale]/layout';
+import { open_Sans, unbounded } from '@/app/[locale]/layout';
 
-import Logo from '@components/Common/Icons/Logo';
+import Logo from '@/components/Common/Icons/Logo';
 
 import styles from './OpenDetailLink.module.scss';
-import useLocalizedValue from '@hooks/useLocalizedValue';
+import useLocalizedValue from '@/hooks/useLocalizedValue';
 
 const OpenDetailLink = ({ card }) => {
   const { video, isWaiting, name, img, cardName, id } = card;

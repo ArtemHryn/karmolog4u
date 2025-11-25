@@ -1,6 +1,6 @@
 import { useRouter } from 'next/navigation';
 
-import { open_Sans } from '@app/[locale]/layout';
+import { open_Sans } from '@/app/[locale]/layout';
 import styles from './Buttons.module.scss';
 
 const Buttons = () => {

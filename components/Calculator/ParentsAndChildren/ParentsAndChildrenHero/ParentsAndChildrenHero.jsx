@@ -1,5 +1,5 @@
-import CalculatorHero from '@components/Calculator/CalculatorHero/CalculatorHero';
-import SingleDateForm from '@components/Calculator/PersonalMatrix/SingleDateForm/SingleDateForm';
+import CalculatorHero from '@/components/Calculator/CalculatorHero/CalculatorHero';
+import SingleDateForm from '@/components/Calculator/PersonalMatrix/SingleDateForm/SingleDateForm';
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 

@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import Matrix from '../Matrix/Matrix';
-import ResultLifeMap from '@components/Calculator/CompatibilityMatrix/ResultMatrix/ResultLifeMap/ResultLifeMap';
+import ResultLifeMap from '@/components/Calculator/CompatibilityMatrix/ResultMatrix/ResultLifeMap/ResultLifeMap';
 
-import { getResultLifeMap } from '@helper/calculator/compatibility';
-import { getConsciousness } from '@helper/calculator/consciousness';
-import { getPersonalGraph } from '@helper/calculator/personal';
+import { getResultLifeMap } from '@/helper/calculator/compatibility';
+import { getConsciousness } from '@/helper/calculator/consciousness';
+import { getPersonalGraph } from '@/helper/calculator/personal';
 
 import styles from './FinalMatrix.module.scss';
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 
 const FinalMatrix = ({ matrix, title }) => {
   const [map, setMap] = useState(null);
@@ -30,14 +30,14 @@ const FinalMatrix = ({ matrix, title }) => {
 
   if (!matrix) return;
   return (
-    <div className={styles.wrapper} id='final-matrix'>
+    <div className={styles.wrapper} id="final-matrix">
       <div className={styles.matrix_wrapper}>
         <TitleNoStyles variant="h2" styled={styles.title}>
           {title}
         </TitleNoStyles>
         <Matrix matrix={matrix} />
       </div>
-      <ResultLifeMap maps={map} spiritLesson={spiritLesson} regression/>
+      <ResultLifeMap maps={map} spiritLesson={spiritLesson} regression />
     </div>
   );
 };

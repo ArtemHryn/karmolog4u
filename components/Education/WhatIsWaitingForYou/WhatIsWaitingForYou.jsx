@@ -1,6 +1,6 @@
 import { useLocale, useTranslations } from 'next-intl';
-import Container from '@components/Common/Container/Container';
-import Title from '@components/Common/Title/Title';
+import Container from '@/components/Common/Container/Container';
+import Title from '@/components/Common/Title/Title';
 import Card from './Card';
 
 import styles from './WhatIsWaitingForYou.module.scss';

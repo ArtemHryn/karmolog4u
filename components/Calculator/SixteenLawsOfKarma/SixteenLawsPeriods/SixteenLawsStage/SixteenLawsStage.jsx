@@ -1,5 +1,5 @@
 import { useLocale } from 'next-intl';
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 
 import styles from './SixteenLawsStage.module.scss';
 

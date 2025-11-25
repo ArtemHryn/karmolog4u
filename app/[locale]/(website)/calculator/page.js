@@ -1,11 +1,11 @@
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import Container from '@components/Common/Container/Container';
-import HeroNav from '@components/Common/HeroNav/HeroNav';
-import CalculatorLogo from '@components/Calculator/CalculatorLogo/CalculatorLogo';
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
+import Container from '@/components/Common/Container/Container';
+import HeroNav from '@/components/Common/HeroNav/HeroNav';
+import CalculatorLogo from '@/components/Calculator/CalculatorLogo/CalculatorLogo';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 
-import { matrixLinks } from '@helper/calculator/buttonsList';
+import { matrixLinks } from '@/helper/calculator/buttonsList';
 import styles from '/components/Calculator/MainPage.module.scss';
 
 const links = [

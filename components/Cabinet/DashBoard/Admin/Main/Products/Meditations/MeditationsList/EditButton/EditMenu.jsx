@@ -4,7 +4,7 @@ import Edit from './Icons/Edit';
 import Hide from './Icons/Hide';
 
 import styles from './EditButton.module.scss';
-import { HIDDEN } from '@helper/consts';
+import { HIDDEN } from '@/helper/consts';
 
 const EditMenu = ({ setVisibleDialogToHide, setVisibleDialogToDelete, status, id }) => {
   const route = useRouter();

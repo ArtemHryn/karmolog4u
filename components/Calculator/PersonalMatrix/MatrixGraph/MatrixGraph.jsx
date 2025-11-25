@@ -5,7 +5,7 @@ import Right from './Right';
 import Bottom from './Bottom';
 import Center from './Center';
 import InnerSq from './InnerSq';
-import CalcDateTitle from '@components/Common/CalcDateTitle/CalcDateTitle';
+import CalcDateTitle from '@/components/Common/CalcDateTitle/CalcDateTitle';
 import GraphText from './GraphText';
 
 import styles from './MatrixGraph.module.scss';

@@ -1,6 +1,6 @@
 import { getServerSession } from 'next-auth';
 import EditCourse from '@/components/Cabinet/DashBoard/Admin/Main/Education/EditCourse/EditCourse';
-import { authOptions } from '@app/api/auth/[...nextauth]/route';
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import { base_url } from '@/helper/consts';
 import { notFound } from 'next/navigation';
 

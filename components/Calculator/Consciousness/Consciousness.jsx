@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { getPersonalGraph } from '@helper/calculator/personal';
-import { getResultLifeMap } from '@helper/calculator/compatibility';
+import { getPersonalGraph } from '@/helper/calculator/personal';
+import { getResultLifeMap } from '@/helper/calculator/compatibility';
 import ConsciousnessGraph from './ConsciousnessGraph/ConsciousnessGraph';
 import ResultLifeMap from '../CompatibilityMatrix/ResultMatrix/ResultLifeMap/ResultLifeMap';
-import { getConsciousness, getExtensionList } from '@helper/calculator/consciousness';
+import { getConsciousness, getExtensionList } from '@/helper/calculator/consciousness';
 
 import styles from './Consciousness.module.scss';
 

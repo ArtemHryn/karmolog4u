@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import { useLocale } from 'next-intl';
-import Container from '@components/Common/Container/Container';
+import Container from '@/components/Common/Container/Container';
 
-import Title from '@components/Common/Title/Title';
+import Title from '@/components/Common/Title/Title';
 import styles from './Hero.module.scss';
 
 const OfflineMeetingsHero = ({ title, text, img, imgDesk }) => {

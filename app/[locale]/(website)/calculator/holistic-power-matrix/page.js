@@ -1,13 +1,13 @@
 'use client';
 
 import { Suspense, useState } from 'react';
-import HolisticPowerHero from '@components/Calculator/HolisticPowerMatrix/HolisticPowerHero/HolisticPowerHero';
-import Container from '@components/Common/Container/Container';
-import SocialInfoDesc from '@components/Common/Calculator/SocialInfoDesc/SocialInfoDesc';
-import HolisticPowerMatrix from '@components/Calculator/HolisticPowerMatrix/HolisticPowerMatrix';
-import MoreCalculators from '@components/Calculator/MoreCalculators/MoreCalculators';
+import HolisticPowerHero from '@/components/Calculator/HolisticPowerMatrix/HolisticPowerHero/HolisticPowerHero';
+import Container from '@/components/Common/Container/Container';
+import SocialInfoDesc from '@/components/Common/Calculator/SocialInfoDesc/SocialInfoDesc';
+import HolisticPowerMatrix from '@/components/Calculator/HolisticPowerMatrix/HolisticPowerMatrix';
+import MoreCalculators from '@/components/Calculator/MoreCalculators/MoreCalculators';
 
-import styles from '@components/Calculator/HolisticPowerMatrix/HolisticPowerMatrix.module.scss';
+import styles from '@/components/Calculator/HolisticPowerMatrix/HolisticPowerMatrix.module.scss';
 
 const social = {
   uk: [

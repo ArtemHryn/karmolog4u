@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import { getCompatibilityGraph, getResultLifeMap } from '@helper/calculator/compatibility';
-import { getStaticDemonMatrix } from '@helper/calculator/demon';
-import { getPersonalGraph } from '@helper/calculator/personal';
+import { getCompatibilityGraph, getResultLifeMap } from '@/helper/calculator/compatibility';
+import { getStaticDemonMatrix } from '@/helper/calculator/demon';
+import { getPersonalGraph } from '@/helper/calculator/personal';
 import DemonMatrixGraph from './DemonMatrixGraph/DemonMatrixGraph';
 import ResultLifeMap from '../CompatibilityMatrix/ResultMatrix/ResultLifeMap/ResultLifeMap';
 
 import styles from './DemonMatrix.module.scss';
-import { getConsciousness } from '@helper/calculator/consciousness';
+import { getConsciousness } from '@/helper/calculator/consciousness';
 
 const DemonMatrix = ({ date, name, code }) => {
   const [matrix, setMatrix] = useState({});

@@ -9,7 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { ProgressSpinner } from 'primereact/progressspinner';
 import SelectedProductsInfo from './SelectedProductsInfo/SelectedProductsInfo';
 import Footer from './Footer/Footer';
-import { base_url } from '@helper/consts';
+import { base_url } from '@/helper/consts';
 
 import styles from './TableData.module.scss';
 import './table.scss';
@@ -92,10 +92,7 @@ const TableData = ({ search }) => {
         />
       )}
       {deletedProducts[0].data.length === 0 ? (
-        <EmptyTable
-          search={search}
-          noRecords={'У вас немає видалених продуктів'}
-        />
+        <EmptyTable search={search} noRecords={'У вас немає видалених продуктів'} />
       ) : (
         <DataTable
           value={proceedData}

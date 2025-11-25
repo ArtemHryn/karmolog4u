@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Nav from './Nav/Nav';
 import MobileNav from './MobileNav/MobileNav';
-import Logo from '@components/Common/Icons/Logo';
-import User from '@components/Common/Icons/User';
-import Burger from '@components/Common/Icons/Burger';
+import Logo from '@/components/Common/Icons/Logo';
+import User from '@/components/Common/Icons/User';
+import Burger from '@/components/Common/Icons/Burger';
 
 import styles from './Header.module.scss';
 import LanguageSwitcher from './LanguageSwitcher/LanguageSwitcher';

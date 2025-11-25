@@ -1,9 +1,9 @@
-"use client";
-import { useEffect, useState } from "react";
-import Form from "./Form";
-import Title from "@components/Common/Title/Title";
-import styles from "./SendApplicationModalContext.module.scss";
-import { useRouter } from "next/navigation";
+'use client';
+import { useEffect, useState } from 'react';
+import Form from './Form';
+import Title from '@/components/Common/Title/Title';
+import styles from './SendApplicationModalContext.module.scss';
+import { useRouter } from 'next/navigation';
 
 const SendApplicationModalContext = () => {
   const [isSent, setIsSent] = useState(false);
@@ -18,15 +18,12 @@ const SendApplicationModalContext = () => {
     <div className={styles.successful_container}>
       <Title styled={styles.successful_title}>Дякуємо! </Title>
       <p className={styles.successful_text}>
-        Протягом тижня ми звʼяжемось з Вами стосовно свого рішення про вступ в
-        асоціацію
+        Протягом тижня ми звʼяжемось з Вами стосовно свого рішення про вступ в асоціацію
       </p>
     </div>
   ) : (
     <div className={styles.modal_container}>
-      <Title styled={styles.title}>
-        Заявка на вступ до Асоціації “Кармотерапії та психології”
-      </Title>
+      <Title styled={styles.title}>Заявка на вступ до Асоціації “Кармотерапії та психології”</Title>
       <Form setIsSent={setIsSent} />
     </div>
   );

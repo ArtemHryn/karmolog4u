@@ -1,4 +1,4 @@
-import useLocalizedValue from '@hooks/useLocalizedValue';
+import useLocalizedValue from '@/hooks/useLocalizedValue';
 import styles from './MeditationsDescriptions.module.scss';
 
 const MeditationsTextList = ({ list }) => {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import RegressionGraph from './RegressionGraph/RegressionGraph';
-import { getPersonalGraph } from '@helper/calculator/personal';
+import { getPersonalGraph } from '@/helper/calculator/personal';
 
 import styles from './RegressionMatrix.module.scss';
 
