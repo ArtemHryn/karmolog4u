@@ -1,7 +1,7 @@
 import { useLocale, useTranslations } from 'next-intl';
-import Container from '@components/Common/Container/Container';
+import Container from '@/components/Common/Container/Container';
 import Image from 'next/image';
-import Title from '@components/Common/Title/Title';
+import Title from '@/components/Common/Title/Title';
 
 import styles from './IndividualSessions.module.scss';
 

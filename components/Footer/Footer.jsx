@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './Footer.module.scss';
 import stylesSocial from './SocialLinks.module.scss';
-import SocialLinks from '@components/Main/SocialLinks/SocialLinks';
+import SocialLinks from '@/components/Main/SocialLinks/SocialLinks';
 import Link from 'next/link';
-import Logo from '@components/Common/Icons/Logo';
+import Logo from '@/components/Common/Icons/Logo';
 import { useTranslations } from 'next-intl';
 
 function Footer() {

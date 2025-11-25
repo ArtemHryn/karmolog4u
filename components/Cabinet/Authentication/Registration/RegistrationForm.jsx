@@ -14,7 +14,7 @@ import ShowPasswordIcon from '../Login/ShowPasswordIcon';
 
 import styles from './RegistrationForm.module.scss';
 import 'react-phone-input-2/lib/bootstrap.css';
-import { base_url } from '@helper/consts';
+import { base_url } from '@/helper/consts';
 
 const registerUser = async data => {
   const response = await fetch(`${base_url}/auth/register`, {
@@ -148,9 +148,8 @@ const RegistrationForm = () => {
                 onChange: () => clearErrors('password'),
               })}
             />
-            <button type="button" onClick={() => setShowPassword(prev => !prev)}>
-              <ShowPasswordIcon showPassword={showPassword} />
-            </button>
+
+            <ShowPasswordIcon showPassword={showPassword} setShowPassword={setShowPassword} />
           </label>
         </div>
         <button type="submit" className={styles.button} disabled={mutation.isPending}>

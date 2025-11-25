@@ -1,6 +1,6 @@
 import { useRouter } from 'next/navigation';
 import { useForm, useFieldArray } from 'react-hook-form';
-import { open_Sans } from '@app/[locale]//layout';
+import { open_Sans } from '@/app/[locale]//layout';
 
 import styles from './CompatibilityMatrixForm.module.scss';
 import PersonElement from './PersonElement';

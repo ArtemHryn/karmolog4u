@@ -9,7 +9,7 @@ import SubmitButtons from '../../Meditations/AddMeditation/SubmitButtons/SubmitB
 import WebinarPart from './WebinarPart/WebinarPart';
 import EthersPart from './EthersPart/EthersPart';
 import RequiredLabels from '../../Meditations/AddMeditation/RequiredLabels/RequiredLabels';
-import { base_url, ETHERS, WEBINARS, youtubeRegex } from '@helper/consts';
+import { base_url, ETHERS, WEBINARS, youtubeRegex } from '@/helper/consts';
 
 import styles from './AddWebinar.module.scss';
 import 'react-toastify/dist/ReactToastify.css';

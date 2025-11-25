@@ -4,7 +4,7 @@ import { useForm, Controller } from 'react-hook-form';
 
 import styles from './ModalBuyForm.module.scss';
 import 'react-phone-input-2/lib/bootstrap.css';
-import Title from '@components/Common/Title/Title';
+import Title from '@/components/Common/Title/Title';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 

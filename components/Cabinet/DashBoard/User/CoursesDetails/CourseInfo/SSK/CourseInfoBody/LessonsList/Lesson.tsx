@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { SSKLessonListItem } from '@/types/ssk_course';
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
-import { open_Sans } from '@app/[locale]/layout';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
+import { open_Sans } from '@/app/[locale]/layout';
 
 import styles from './LessonsList.module.scss';
 import { usePathname } from 'next/navigation';

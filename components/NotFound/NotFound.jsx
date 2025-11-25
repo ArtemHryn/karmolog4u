@@ -1,12 +1,11 @@
 'use client';
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
-import { open_Sans } from '@app/[locale]//layout';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
+import { open_Sans } from '@/app/[locale]//layout';
 import Logo from './Logo';
 
 import styles from './NotFound.module.scss';
 
 const NotFoundComponent = () => {
-
   return (
     <div className={styles.wrapper}>
       <TitleNoStyles styled={styles.title}>

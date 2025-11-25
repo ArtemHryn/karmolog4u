@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 import ActiveKey from './ActiveKey/ActiveKey';
 
 import styles from './Sides.module.scss';

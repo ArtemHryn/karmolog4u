@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { BOOKS, DRAFT, GUIDES, HIDDEN, OTHER_GUIDES, PUBLISHED } from '@helper/consts';
+import { BOOKS, DRAFT, GUIDES, HIDDEN, OTHER_GUIDES, PUBLISHED } from '@/helper/consts';
 
 import styles from './GuideAndBooksList.module.scss';
 import EditButton from './EditButton/EditButton';

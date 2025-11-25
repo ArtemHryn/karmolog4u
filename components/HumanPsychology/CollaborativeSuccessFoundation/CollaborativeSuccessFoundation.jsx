@@ -2,9 +2,9 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useTranslations } from 'next-intl';
 import { Pagination } from 'swiper';
-import Container from '@components/Common/Container/Container';
+import Container from '@/components/Common/Container/Container';
 import Card from './Card';
-import Title from '@components/Common/Title/Title';
+import Title from '@/components/Common/Title/Title';
 import React from 'react';
 
 import styles from './CollaborativeSuccessFoundation.module.scss';

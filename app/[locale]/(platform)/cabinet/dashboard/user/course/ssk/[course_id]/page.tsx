@@ -1,4 +1,4 @@
-import CourseInfo from '@components/Cabinet/DashBoard/User/CoursesDetails/CourseInfo/SSK/CourseInfo';
+import CourseInfo from '@/components/Cabinet/DashBoard/User/CoursesDetails/CourseInfo/SSK/CourseInfo';
 
 interface SSKPageProps {
   params: { course_id: string };

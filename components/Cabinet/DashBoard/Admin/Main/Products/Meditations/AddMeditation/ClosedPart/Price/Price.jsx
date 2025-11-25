@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import styles from '../ClosedPart.module.scss';
 import DiscountCalendar from './DiscountCalendar';
-import { open_Sans } from '@app/[locale]/layout';
+import { open_Sans } from '@/app/[locale]/layout';
 import DeleteDiscountButton from './DeleteDiscountButton';
 
 const Price = () => {

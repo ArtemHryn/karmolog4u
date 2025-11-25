@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
-import Container from '@components/Common/Container/Container';
-import Title from '@components/Common/Title/Title';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
+import Container from '@/components/Common/Container/Container';
+import Title from '@/components/Common/Title/Title';
 import Document from './Document';
 
 import styles from './MissionAssociation.module.scss';

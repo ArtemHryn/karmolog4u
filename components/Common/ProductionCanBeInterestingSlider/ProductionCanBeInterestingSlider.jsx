@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import Meditation from "@components/Products/Meditations/Meditation";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import Meditation from '@/components/Products/Meditations/Meditation';
 
-import styles from "./ProductionCanBeInterestingSlider.module.scss";
-import "swiper/css";
+import styles from './ProductionCanBeInterestingSlider.module.scss';
+import 'swiper/css';
 
 const ProductionCanBeInterestingSlider = ({ slides }) => {
   if (slides.length === 0) return null;

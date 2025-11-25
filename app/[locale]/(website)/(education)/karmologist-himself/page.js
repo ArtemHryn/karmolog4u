@@ -1,16 +1,16 @@
-import QuestionAnswer from '@components/Common/QuestionAnswer/QuestionAnswer';
-import AboutCourse from '@components/Education/AboutCourse/AboutCourse';
-import AccessToTheCourse from '@components/Education/AccessToTheCourse/AccessToTheCourse';
-import KarmologistPageTariffs from '@components/Education/KarmologistPageTariffs/KarmologistPageTariffs';
-import WhatIsWaitingForYou from '@components/Education/WhatIsWaitingForYou/WhatIsWaitingForYou';
-import Feedback from '@components/Main/Feedback/Feedback';
-import Feedbacks from '@components/Services/Feedbacks/Feedbacks';
-import Hero from '@components/Services/Hero/Hero';
+import QuestionAnswer from '@/components/Common/QuestionAnswer/QuestionAnswer';
+import AboutCourse from '@/components/Education/AboutCourse/AboutCourse';
+import AccessToTheCourse from '@/components/Education/AccessToTheCourse/AccessToTheCourse';
+import KarmologistPageTariffs from '@/components/Education/KarmologistPageTariffs/KarmologistPageTariffs';
+import WhatIsWaitingForYou from '@/components/Education/WhatIsWaitingForYou/WhatIsWaitingForYou';
+import Feedback from '@/components/Main/Feedback/Feedback';
+import Feedbacks from '@/components/Services/Feedbacks/Feedbacks';
+import Hero from '@/components/Services/Hero/Hero';
 
-import getKarmologistCoursesFeedbacks from '@helper/education/karmologistCourseFeedbacks';
-import getKarmologistCoursesQuestions from '@helper/education/karmologistCoursesQuestions';
-import { getCardsForKarmologistHimself } from '@helper/education/whatIsWaitingForYou';
-import getTariffs from '@helper/education/karmologistTariffs';
+import getKarmologistCoursesFeedbacks from '@/helper/education/karmologistCourseFeedbacks';
+import getKarmologistCoursesQuestions from '@/helper/education/karmologistCoursesQuestions';
+import { getCardsForKarmologistHimself } from '@/helper/education/whatIsWaitingForYou';
+import getTariffs from '@/helper/education/karmologistTariffs';
 
 const links = [
   {

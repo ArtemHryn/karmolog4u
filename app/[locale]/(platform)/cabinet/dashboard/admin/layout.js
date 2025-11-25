@@ -1,5 +1,5 @@
-import AsideBar from '@components/Cabinet/DashBoard/Admin/AsideBar/AsideBar';
-import Header from '@components/Cabinet/DashBoard/Admin/Header/Header';
+import AsideBar from '@/components/Cabinet/DashBoard/Admin/AsideBar/AsideBar';
+import Header from '@/components/Cabinet/DashBoard/Admin/Header/Header';
 import ChangeColor from '@/components/Cabinet/DashBoard/ChangeColor/ChangeColor';
 import PageProgress from '@/components/Common/PageProgress/PageProgress';
 

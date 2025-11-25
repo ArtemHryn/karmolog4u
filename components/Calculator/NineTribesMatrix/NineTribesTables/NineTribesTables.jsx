@@ -1,4 +1,4 @@
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 import NineTribesOneTable from './NineTribesOneTable/NineTribesOneTable';
 
 import styles from './NineTribesTables.module.scss';

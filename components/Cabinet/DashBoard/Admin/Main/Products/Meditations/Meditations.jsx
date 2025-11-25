@@ -8,7 +8,7 @@ import MeditationsList from './MeditationsList/MeditationsList';
 import Status from './Status/Status';
 import SkeletonProducts from '../SkeletonProducts/SkeletonProducts';
 
-import { ADMIN_CLOSED, ADMIN_ENERGIES, ADMIN_OPENED, base_url } from '@helper/consts';
+import { ADMIN_CLOSED, ADMIN_ENERGIES, ADMIN_OPENED, base_url } from '@/helper/consts';
 import styles from './Meditations.module.scss';
 
 const fetchMeditations = async token => {

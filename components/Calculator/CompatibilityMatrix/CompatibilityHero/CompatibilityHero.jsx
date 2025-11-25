@@ -1,5 +1,5 @@
 'use client';
-import CalculatorHero from '@components/Calculator/CalculatorHero/CalculatorHero';
+import CalculatorHero from '@/components/Calculator/CalculatorHero/CalculatorHero';
 import CompatibilityMatrixForm from '../CompatibilityMatrixForm/CompatibilityMatrixForm';
 import { useEffect } from 'react';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';

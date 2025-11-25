@@ -1,15 +1,15 @@
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import Container from '@components/Common/Container/Container';
-import Title from '@components/Common/Title/Title';
-import { open_Sans } from '@app/[locale]//layout';
+import Container from '@/components/Common/Container/Container';
+import Title from '@/components/Common/Title/Title';
+import { open_Sans } from '@/app/[locale]//layout';
 //icons
-import GraduationCap from '@components/Common/Icons/PshychoIcons/GraduationCap';
-import ChatArrowGrow from '@components/Common/Icons/PshychoIcons/ChatArrowGrow';
-import Document from '@components/Common/Icons/PshychoIcons/Document';
-import VenusMars from '@components/Common/Icons/PshychoIcons/VenusMars';
-import HandHoldingHeart from '@components/Common/Icons/PshychoIcons/HandHoldingHeart';
-import Stethoscope from '@components/Common/Icons/PshychoIcons/Stethoscope';
+import GraduationCap from '@/components/Common/Icons/PshychoIcons/GraduationCap';
+import ChatArrowGrow from '@/components/Common/Icons/PshychoIcons/ChatArrowGrow';
+import Document from '@/components/Common/Icons/PshychoIcons/Document';
+import VenusMars from '@/components/Common/Icons/PshychoIcons/VenusMars';
+import HandHoldingHeart from '@/components/Common/Icons/PshychoIcons/HandHoldingHeart';
+import Stethoscope from '@/components/Common/Icons/PshychoIcons/Stethoscope';
 
 import styles from './TasksAssociation.module.scss';
 

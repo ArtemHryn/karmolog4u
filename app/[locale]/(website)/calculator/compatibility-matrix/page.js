@@ -1,11 +1,11 @@
 'use client';
 
 import { Suspense, useState } from 'react';
-import Container from '@components/Common/Container/Container';
-import CompatibilityMatrix from '@components/Calculator/CompatibilityMatrix/CompatibilityMatrix';
-import SocialInfoDesc from '@components/Common/Calculator/SocialInfoDesc/SocialInfoDesc';
-import CompatibilityHero from '@components/Calculator/CompatibilityMatrix/CompatibilityHero/CompatibilityHero';
-import MoreCalculators from '@components/Calculator/MoreCalculators/MoreCalculators';
+import Container from '@/components/Common/Container/Container';
+import CompatibilityMatrix from '@/components/Calculator/CompatibilityMatrix/CompatibilityMatrix';
+import SocialInfoDesc from '@/components/Common/Calculator/SocialInfoDesc/SocialInfoDesc';
+import CompatibilityHero from '@/components/Calculator/CompatibilityMatrix/CompatibilityHero/CompatibilityHero';
+import MoreCalculators from '@/components/Calculator/MoreCalculators/MoreCalculators';
 
 const social = {
   uk: [

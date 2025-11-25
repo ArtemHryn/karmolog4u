@@ -3,7 +3,7 @@ import { useLocale } from 'next-intl';
 import OpenDetailsLink from './OpenDetailsLink';
 import BagIcon from './BagIcon';
 
-import { gifts } from '@helper/products/giftsList';
+import { gifts } from '@/helper/products/giftsList';
 
 import styles from './Gifts.module.scss';
 

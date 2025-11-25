@@ -1,12 +1,12 @@
-import Container from '@components/Common/Container/Container';
+import Container from '@/components/Common/Container/Container';
 import React from 'react';
-import Whatsapp from '@components/Common/SocialIcons/Whatsapp';
-import Telegram from '@components/Common/SocialIcons/Telegram';
+import Whatsapp from '@/components/Common/SocialIcons/Whatsapp';
+import Telegram from '@/components/Common/SocialIcons/Telegram';
 import Link from 'next/link';
 import styles from './SocialInfo.module.scss';
-import Logo from '@components/Common/Icons/Logo';
-import BlurLogo from '@components/Common/Icons/BlurLogo';
-import { unbounded } from '@app/[locale]//layout';
+import Logo from '@/components/Common/Icons/Logo';
+import BlurLogo from '@/components/Common/Icons/BlurLogo';
+import { unbounded } from '@/app/[locale]//layout';
 import { useTranslations } from 'next-intl';
 
 const links = [

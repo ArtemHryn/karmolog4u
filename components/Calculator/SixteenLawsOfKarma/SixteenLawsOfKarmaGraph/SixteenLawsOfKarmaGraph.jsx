@@ -1,5 +1,5 @@
 import SixteenLawsOfKarmaSvg from './SixteenLawsOfKarmaSvg';
-import CalcDateTitle from '@components/Common/CalcDateTitle/CalcDateTitle';
+import CalcDateTitle from '@/components/Common/CalcDateTitle/CalcDateTitle';
 
 import styles from './SixteenLawsOfKarmaGraph.module.scss';
 import SixteenLawsTop from './Sides/SixteenLawsTop';

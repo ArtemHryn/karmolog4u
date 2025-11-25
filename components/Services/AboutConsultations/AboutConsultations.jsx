@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import Container from '@components/Common/Container/Container';
-import Title from '@components/Common/Title/Title';
+import Container from '@/components/Common/Container/Container';
+import Title from '@/components/Common/Title/Title';
 
 import styles from './AboutConsultations.module.scss';
 import { useTranslations } from 'next-intl';

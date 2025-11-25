@@ -1,12 +1,17 @@
 import { useEffect, useState } from 'react';
-import { getHealthMap, getLifeMap, getPeriod, getPersonalGraph } from '@helper/calculator/personal';
+import {
+  getHealthMap,
+  getLifeMap,
+  getPeriod,
+  getPersonalGraph,
+} from '@/helper/calculator/personal';
 import PeriodMap from './PeriodMap/PeriodMap';
 import LifeMap from './LifeMap/LifeMap';
 import HealthMap from './HealthMap/HealthMap';
 import MatrixGraph from './MatrixGraph/MatrixGraph';
 
 import styles from './PersonalCalculator.module.scss';
-import { ageCalculator, getCurrentPeriod } from '@helper/calculator/ageCalc';
+import { ageCalculator, getCurrentPeriod } from '@/helper/calculator/ageCalc';
 import CurrentPeriod from './CurrentPeriod/CurrentPeriod';
 
 function PersonalCalculator({ date, name }) {

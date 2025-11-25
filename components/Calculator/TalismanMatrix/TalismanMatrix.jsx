@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import TalismanMatrixGraph from './TalismanMatrixGraph/TalismanMatrixGraph';
-import { getPersonalGraph } from '@helper/calculator/personal';
+import { getPersonalGraph } from '@/helper/calculator/personal';
 
 import styles from './TalismanMatrix.module.scss';
 

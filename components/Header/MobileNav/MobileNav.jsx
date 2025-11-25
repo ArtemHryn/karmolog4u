@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import React from 'react';
 import Nav from '../Nav/Nav';
-import SocialLinks from '@components/Main/SocialLinks/SocialLinks';
+import SocialLinks from '@/components/Main/SocialLinks/SocialLinks';
 import styles from './MobileNav.module.scss';
 import socialStyles from './SocialLinks.module.scss';
-import CLose from '@components/Common/Icons/Close';
-import Logo from '@components/Common/Icons/Logo';
+import CLose from '@/components/Common/Icons/Close';
+import Logo from '@/components/Common/Icons/Logo';
 import { useLocale, useTranslations } from 'next-intl';
 
 function MobileNav({ isOpen, setIsOpen }) {

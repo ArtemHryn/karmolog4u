@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import Container from '@components/Common/Container/Container';
+import Container from '@/components/Common/Container/Container';
 import React from 'react';
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 
 import styles from './SessionInsights.module.scss';
 import { useTranslations } from 'next-intl';

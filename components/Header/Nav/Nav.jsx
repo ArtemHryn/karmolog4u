@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import styles from './Nav.module.scss';
-import ArrowDown from '@components/Common/Icons/ArrowDown';
+import ArrowDown from '@/components/Common/Icons/ArrowDown';
 import { useLocale } from 'next-intl';
 
 const links = [

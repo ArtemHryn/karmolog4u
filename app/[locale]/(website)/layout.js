@@ -1,6 +1,6 @@
-import ScrollToTop from '@components/Common/ScrollToTop/ScrollToTop';
-import Footer from '@components/Footer/Footer';
-import Header from '@components/Header/Header';
+import ScrollToTop from '@/components/Common/ScrollToTop/ScrollToTop';
+import Footer from '@/components/Footer/Footer';
+import Header from '@/components/Header/Header';
 import PageProgress from '@/components/Common/PageProgress/PageProgress';
 import './globals.scss';
 

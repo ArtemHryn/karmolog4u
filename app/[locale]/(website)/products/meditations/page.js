@@ -1,9 +1,9 @@
-"use client";
-import Container from "@components/Common/Container/Container";
-import AboutArcanes from "@components/Products/Meditations/AboutArcanes";
-import MeditationsCheckBoxes from "@components/Products/Meditations/MeditationsCheckBoxes";
-import MeditationsList from "@components/Products/Meditations/MeditationsList";
-import { useEffect, useState } from "react";
+'use client';
+import Container from '@/components/Common/Container/Container';
+import AboutArcanes from '@/components/Products/Meditations/AboutArcanes';
+import MeditationsCheckBoxes from '@/components/Products/Meditations/MeditationsCheckBoxes';
+import MeditationsList from '@/components/Products/Meditations/MeditationsList';
+import { useEffect, useState } from 'react';
 
 const MeditationsPage = () => {
   const [energies, setEnergies] = useState(true);
@@ -12,17 +12,13 @@ const MeditationsPage = () => {
 
   useEffect(() => {
     setEnergies(() => {
-      return JSON.parse(window.localStorage.getItem("energies")) ?? true;
+      return JSON.parse(window.localStorage.getItem('energies')) ?? true;
     });
     setShowOpenedMeditation(() => {
-      return (
-        JSON.parse(window.localStorage.getItem("showOpenedMeditation")) ?? false
-      );
+      return JSON.parse(window.localStorage.getItem('showOpenedMeditation')) ?? false;
     });
     setShowClosedMeditation(() => {
-      return (
-        JSON.parse(window.localStorage.getItem("showClosedMeditation")) ?? false
-      );
+      return JSON.parse(window.localStorage.getItem('showClosedMeditation')) ?? false;
     });
   }, []);
   return (

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Marquees from './Marquees/Marquees';
-import Container from '@components/Common/Container/Container';
-import { unbounded } from '@app/[locale]//layout';
+import Container from '@/components/Common/Container/Container';
+import { unbounded } from '@/app/[locale]//layout';
 import BackgroundLogo from './BackgroundLogo/BackgroundLogo';
 
 import styled from './Hero.module.scss';

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
-import Container from '@components/Common/Container/Container';
-import Title from '@components/Common/Title/Title';
+import Container from '@/components/Common/Container/Container';
+import Title from '@/components/Common/Title/Title';
 import TextContainer from './TextContainer';
 import TestBox from './TestBox';
 

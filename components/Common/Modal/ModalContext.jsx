@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { open_Sans, unbounded } from '@app/[locale]/layout';
+import { open_Sans, unbounded } from '@/app/[locale]/layout';
 
 import styles from './Modal.module.scss';
 

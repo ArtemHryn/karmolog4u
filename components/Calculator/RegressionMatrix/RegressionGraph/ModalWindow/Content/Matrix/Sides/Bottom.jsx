@@ -1,8 +1,8 @@
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 
-import styles from './Sides.module.scss'
+import styles from './Sides.module.scss';
 
-const Bottom = ({matrix}) => {
+const Bottom = ({ matrix }) => {
   const { bottomLeft1, bottom1, bottomRight1 } = matrix;
   return (
     <>

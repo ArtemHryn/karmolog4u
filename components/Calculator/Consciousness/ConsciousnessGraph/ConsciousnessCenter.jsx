@@ -1,6 +1,6 @@
-import Title from "@components/Common/Title/Title";
+import Title from '@/components/Common/Title/Title';
 
-import styles from './ConsciousnessGraph.module.scss'
+import styles from './ConsciousnessGraph.module.scss';
 
 const ConsciousnessCenter = ({ matrix, hideCenter2 }) => {
   const { center, center2 } = matrix;

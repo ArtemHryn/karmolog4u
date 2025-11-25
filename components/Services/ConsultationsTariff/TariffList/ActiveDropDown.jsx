@@ -1,6 +1,6 @@
 import { useLocale, useTranslations } from 'next-intl';
-import AlarmClock from '@components/Common/Icons/ConsultationsIcons/AlarmClock';
-import { open_Sans } from '@app/[locale]//layout';
+import AlarmClock from '@/components/Common/Icons/ConsultationsIcons/AlarmClock';
+import { open_Sans } from '@/app/[locale]//layout';
 
 import styles from './TariffList.module.scss';
 

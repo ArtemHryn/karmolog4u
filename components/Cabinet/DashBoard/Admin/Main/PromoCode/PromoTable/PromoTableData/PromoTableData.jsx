@@ -11,7 +11,7 @@ import Footer from '../../../Deleted/Table/TableData/Footer/Footer';
 import ActionsColumn from './ActionsColumn/ActionsColumn';
 import ConfirmDialog from '../../../Products/ConfirmDialogSet/ConfirmDialog/ConfirmDialog';
 
-import { base_url } from '@helper/consts';
+import { base_url } from '@/helper/consts';
 import styles from './PromoTableData.module.scss';
 import './table.scss';
 import SelectedProductsInfo from './SelectedProductsInfo/SelectedProductsInfo';

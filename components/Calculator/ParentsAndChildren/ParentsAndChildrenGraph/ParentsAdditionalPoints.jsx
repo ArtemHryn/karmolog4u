@@ -1,4 +1,4 @@
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 import styles from './ParentsAndChildrenGraph.module.scss';
 
 const ParentsAdditionalPoints = ({ matrix }) => {

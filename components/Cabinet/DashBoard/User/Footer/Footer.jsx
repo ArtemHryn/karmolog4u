@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Footer.module.scss';
 import Link from 'next/link';
-import Logo from '@components/Common/Icons/Logo';
+import Logo from '@/components/Common/Icons/Logo';
 import SocialLinks from './SocialLinks/SocialLinks';
 
 function UserFooter() {

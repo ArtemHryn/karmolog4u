@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import styles from './Status.module.scss';
 import AddProductButton from '../../AddProductButton/AddProductButton';
-import { DRAFT, HIDDEN, PUBLISHED } from '@helper/consts';
+import { DRAFT, HIDDEN, PUBLISHED } from '@/helper/consts';
 
 const buttons = [
   { name: 'Усі', status: 'all' },

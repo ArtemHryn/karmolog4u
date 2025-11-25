@@ -3,8 +3,8 @@ import CourseInfoHeader from './CourseInfoHeader/CourseInfoHeader';
 import CourseInfoBody from './CourseInfoBody/CourseInfoBody';
 
 import { getServerSession } from 'next-auth';
-import { authOptions } from '@app/api/auth/[...nextauth]/route';
 import CourseWrapper from '../CourseWrapper/CourseWrapper';
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import Course from './Skeletons/Course';
 import Lessons from './Skeletons/Lessons';
 

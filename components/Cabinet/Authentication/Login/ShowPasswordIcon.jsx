@@ -1,14 +1,18 @@
 import styles from './LoginForm.module.scss';
 
-const ShowPasswordIcon = ({ showPassword }) => {
+const ShowPasswordIcon = ({ showPassword, setShowPassword }) => {
   return (
-    <>
+    <button
+      type="button"
+      onClick={() => setShowPassword(prev => !prev)}
+      className={styles.show_password}
+    >
       {showPassword ? (
         <svg
           viewBox="0 0 32 32"
           fill="#fdfdfd"
           xmlns="http://www.w3.org/2000/svg"
-          className={styles.show_password}
+          // className={styles.show_password}
         >
           <path
             fill="#fdfdfd"
@@ -20,7 +24,7 @@ const ShowPasswordIcon = ({ showPassword }) => {
           viewBox="0 0 32 32"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className={styles.show_password}
+          // className={styles.show_password}
         >
           <path
             fill="#fdfdfd"
@@ -28,7 +32,7 @@ const ShowPasswordIcon = ({ showPassword }) => {
           />
         </svg>
       )}
-    </>
+    </button>
   );
 };
 

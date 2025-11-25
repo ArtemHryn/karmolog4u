@@ -1,10 +1,10 @@
 import { useTranslations } from 'next-intl';
-import Container from '@components/Common/Container/Container';
-import HeroNav from '@components/Common/HeroNav/HeroNav';
+import Container from '@/components/Common/Container/Container';
+import HeroNav from '@/components/Common/HeroNav/HeroNav';
 
 import styles from './HealthMapHero.module.scss';
 import Image from 'next/image';
-import Title from '@components/Common/Title/Title';
+import Title from '@/components/Common/Title/Title';
 
 const links = [
   { href: '/products/courses', name: { uk: 'Вебінари', ru: 'Вебинары' } },

@@ -1,7 +1,7 @@
-import Container from '@components/Common/Container/Container';
-import SeeMoreOnMyYouTube from '@components/Common/SeeMoreOnMyYouTube/SeeMoreOnMyYouTube';
+import Container from '@/components/Common/Container/Container';
+import SeeMoreOnMyYouTube from '@/components/Common/SeeMoreOnMyYouTube/SeeMoreOnMyYouTube';
 import Video from './Video';
-import { unbounded } from '@app/[locale]//layout';
+import { unbounded } from '@/app/[locale]//layout';
 
 import styles from './HowIsGoingNailing.module.scss';
 import { useTranslations } from 'next-intl';

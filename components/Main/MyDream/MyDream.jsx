@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import Container from '@components/Common/Container/Container';
+import Container from '@/components/Common/Container/Container';
 import Arrow from './Arrow/Arrow';
-import { open_Sans, unbounded } from '@app/[locale]/layout';
+import { open_Sans, unbounded } from '@/app/[locale]/layout';
 import ArrowTab from './Arrow/ArrowTab';
 import Circles from './Circles/Circles';
 

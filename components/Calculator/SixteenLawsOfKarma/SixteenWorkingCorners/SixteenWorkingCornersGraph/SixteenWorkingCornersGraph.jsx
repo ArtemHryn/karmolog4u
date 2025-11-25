@@ -1,12 +1,12 @@
 import { useTranslations } from 'next-intl';
 import SixteenWorkingCornersSvg from './SixteenWorkingCornersSvg';
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 
-import Top from '@components/Calculator/PersonalMatrix/MatrixGraph/Top';
-import Left from '@components/Calculator/PersonalMatrix/MatrixGraph/Left';
-import Bottom from '@components/Calculator/PersonalMatrix/MatrixGraph/Bottom';
-import Right from '@components/Calculator/PersonalMatrix/MatrixGraph/Right';
-import Center from '@components/Calculator/PersonalMatrix/MatrixGraph/Center';
+import Top from '@/components/Calculator/PersonalMatrix/MatrixGraph/Top';
+import Left from '@/components/Calculator/PersonalMatrix/MatrixGraph/Left';
+import Bottom from '@/components/Calculator/PersonalMatrix/MatrixGraph/Bottom';
+import Right from '@/components/Calculator/PersonalMatrix/MatrixGraph/Right';
+import Center from '@/components/Calculator/PersonalMatrix/MatrixGraph/Center';
 import Outer from './Circles/Outer';
 import Inner from './Circles/Inner';
 import styles from './SixteenWorkingCornersGraph.module.scss';

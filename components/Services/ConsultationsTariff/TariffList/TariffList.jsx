@@ -1,4 +1,4 @@
-import tariffs from '@helper/consultationsTariffList';
+import tariffs from '@/helper/consultationsTariffList';
 import DropDown from './DropDown';
 
 import styles from './TariffList.module.scss';

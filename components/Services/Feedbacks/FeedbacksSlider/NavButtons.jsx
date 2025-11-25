@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useSwiper } from "swiper/react";
-import ArrowDownV2 from "@components/Common/Icons/ArrowDownV2";
+import { useSwiper } from 'swiper/react';
+import ArrowDownV2 from '@/components/Common/Icons/ArrowDownV2';
 
-import styles from "./FeedbacksSlider.module.scss";
+import styles from './FeedbacksSlider.module.scss';
 
 const NavButtons = () => {
   const swiper = useSwiper();

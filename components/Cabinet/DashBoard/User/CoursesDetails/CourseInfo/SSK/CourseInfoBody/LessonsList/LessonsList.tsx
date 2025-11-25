@@ -2,12 +2,12 @@
 
 import { useState } from 'react';
 import Lesson from './Lesson';
-import SimpleModalContainer from '@components/Common/SimpleModalContainer/SimpleModalContainer';
+import SimpleModalContainer from '@/components/Common/SimpleModalContainer/SimpleModalContainer';
 
 import styles from './LessonsList.module.scss';
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { CourseInfoHeaderProps } from '@/types/ssk_course';
-import { fetchLessonsList } from '@helper/platform/fetchUserLessonsList';
+import { fetchLessonsList } from '@/helper/platform/fetchUserLessonsList';
 
 const LessonsList = ({ token, id }: CourseInfoHeaderProps) => {
   const [showModal, setShowModal] = useState(false);

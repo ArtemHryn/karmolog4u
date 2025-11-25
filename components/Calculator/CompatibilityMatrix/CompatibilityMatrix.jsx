@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import { getLifeMap, getPersonalGraph } from '@helper/calculator/personal';
+import { getLifeMap, getPersonalGraph } from '@/helper/calculator/personal';
 import MatrixGraph from '../PersonalMatrix/MatrixGraph/MatrixGraph';
 import LifeMap from '../PersonalMatrix/LifeMap/LifeMap';
 
 import styles from './CompatibilityMatrix.module.scss';
-import { getCompatibilityGraph } from '@helper/calculator/compatibility';
+import { getCompatibilityGraph } from '@/helper/calculator/compatibility';
 import ResultMatrix from './ResultMatrix/ResultMatrix';
-import Container from '@components/Common/Container/Container';
+import Container from '@/components/Common/Container/Container';
 import { useTranslations } from 'next-intl';
 
 const CompatibilityMatrix = ({ partners }) => {

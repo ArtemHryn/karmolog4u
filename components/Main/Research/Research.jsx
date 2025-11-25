@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import Container from '@components/Common/Container/Container';
+import Container from '@/components/Common/Container/Container';
 import ResearchSlider from './ResearchSlider/ResearchSlider';
-import { unbounded } from '@app/[locale]//layout';
+import { unbounded } from '@/app/[locale]//layout';
 
 import styles from './Research.module.scss';
 

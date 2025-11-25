@@ -7,7 +7,7 @@ import Status from '../Meditations/Status/Status';
 import GiftsList from './GiftsList/GiftsList';
 import SkeletonProducts from '../SkeletonProducts/SkeletonProducts';
 
-import { base_url } from '@helper/consts';
+import { base_url } from '@/helper/consts';
 import styles from './Gifts.module.scss';
 
 const fetchGifts = async token => {

@@ -1,6 +1,6 @@
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
-import CalculatorHero from '@components/Calculator/CalculatorHero/CalculatorHero';
+import CalculatorHero from '@/components/Calculator/CalculatorHero/CalculatorHero';
 import DemonMatrixForm from './DemonMatrixForm/DemonMatrixForm';
 
 const heroData = {

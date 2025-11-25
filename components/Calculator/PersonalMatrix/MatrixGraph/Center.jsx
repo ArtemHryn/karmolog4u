@@ -1,6 +1,6 @@
-import Title from "@components/Common/Title/Title";
+import Title from '@/components/Common/Title/Title';
 
-import styles from './MatrixGraph.module.scss'
+import styles from './MatrixGraph.module.scss';
 
 const Center = ({ matrix, hideCenter2 }) => {
   const { center, center2 } = matrix;

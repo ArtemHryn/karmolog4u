@@ -1,11 +1,11 @@
 'use client';
 
 import { Suspense, useState } from 'react';
-import Container from '@components/Common/Container/Container';
-import GroupMatrix from '@components/Calculator/GroupMatrix/GroupMatrix';
-import SocialInfoDesc from '@components/Common/Calculator/SocialInfoDesc/SocialInfoDesc';
-import GroupHero from '@components/Calculator/GroupMatrix/GroupHero/GroupHero';
-import MoreCalculators from '@components/Calculator/MoreCalculators/MoreCalculators';
+import Container from '@/components/Common/Container/Container';
+import GroupMatrix from '@/components/Calculator/GroupMatrix/GroupMatrix';
+import SocialInfoDesc from '@/components/Common/Calculator/SocialInfoDesc/SocialInfoDesc';
+import GroupHero from '@/components/Calculator/GroupMatrix/GroupHero/GroupHero';
+import MoreCalculators from '@/components/Calculator/MoreCalculators/MoreCalculators';
 
 const heroData = {
   links: [

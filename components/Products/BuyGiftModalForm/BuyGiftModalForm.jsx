@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import Title from '@components/Common/Title/Title';
+import Title from '@/components/Common/Title/Title';
 import Form from './Form';
 
 import styles from './BuyGiftModalForm.module.scss';
@@ -16,7 +16,7 @@ const BuyGiftModalForm = () => {
   const pic = searchParams.get('pic');
 
   const t = useTranslations('Author_products.buy_gift_modal');
-  
+
   return (
     <div className={styles.modal_container}>
       <Title styled={styles.title}>{t('title')}:</Title>

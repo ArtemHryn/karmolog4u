@@ -9,7 +9,7 @@ import Filter from './Filter/Filter';
 import GuideAndBooksList from './GuideAndBooksList/GuideAndBooksList';
 import SkeletonProducts from '../SkeletonProducts/SkeletonProducts';
 
-import { ADMIN_BOOKS, ADMIN_GUIDES, ADMIN_OTHER_GUIDES, base_url } from '@helper/consts';
+import { ADMIN_BOOKS, ADMIN_GUIDES, ADMIN_OTHER_GUIDES, base_url } from '@/helper/consts';
 import styles from './GuideAndBooks.module.scss';
 
 const fetchGuidesAndBooks = async token => {

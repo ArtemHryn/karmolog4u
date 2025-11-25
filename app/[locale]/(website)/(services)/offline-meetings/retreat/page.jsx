@@ -1,11 +1,11 @@
-import QuestionAnswer from '@components/Common/QuestionAnswer/QuestionAnswer';
-import Feedback from '@components/Main/Feedback/Feedback';
-import Feedbacks from '@components/Services/Feedbacks/Feedbacks';
-import AboutPractice from '@components/Services/Offline-meetings/AboutPractice/AboutPractice';
-import AboutRetreat from '@components/Services/Offline-meetings/AboutRetreat/AboutRetreat';
-import OfflineMeetingsHero from '@components/Services/Offline-meetings/Hero/Hero';
-import getRetreatFeedbacks from '@helper/retreatFeedbacks';
-import getRetreatQuestions from '@helper/retreatQuestions';
+import QuestionAnswer from '@/components/Common/QuestionAnswer/QuestionAnswer';
+import Feedback from '@/components/Main/Feedback/Feedback';
+import Feedbacks from '@/components/Services/Feedbacks/Feedbacks';
+import AboutPractice from '@/components/Services/Offline-meetings/AboutPractice/AboutPractice';
+import AboutRetreat from '@/components/Services/Offline-meetings/AboutRetreat/AboutRetreat';
+import OfflineMeetingsHero from '@/components/Services/Offline-meetings/Hero/Hero';
+import getRetreatFeedbacks from '@/helper/retreatFeedbacks';
+import getRetreatQuestions from '@/helper/retreatQuestions';
 
 const text = {
   uk: [

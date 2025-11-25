@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import FinalMatrix from '../RegressionGraph/ModalWindow/Content/FinalMatrix/FinalMatrix';
 import Channels from '../RegressionGraph/ModalWindow/Content/Channels/Channels';
-import { getPersonalGraph } from '@helper/calculator/personal';
+import { getPersonalGraph } from '@/helper/calculator/personal';
 
 const RegressionChannels = ({ date, title, currentKey }) => {
   const [matrix, setMatrix] = useState(null);

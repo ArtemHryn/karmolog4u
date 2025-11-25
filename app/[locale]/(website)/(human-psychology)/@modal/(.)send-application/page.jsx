@@ -1,5 +1,5 @@
-import Modal from "@components/Common/Modal/Modal";
-import SendApplicationModalContext from "@components/HumanPsychology/SendApplicationModalContext/SendApplicationModalContext";
+import Modal from '@/components/Common/Modal/Modal';
+import SendApplicationModalContext from '@/components/HumanPsychology/SendApplicationModalContext/SendApplicationModalContext';
 
 const page = () => {
   return (

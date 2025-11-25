@@ -1,11 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Container from '@components/Common/Container/Container';
-import GuideAndBooksCheckboxes from '@components/Products/GuidesAndBooks/GuideAndBooksCheckboxes';
+import Container from '@/components/Common/Container/Container';
+import GuideAndBooksCheckboxes from '@/components/Products/GuidesAndBooks/GuideAndBooksCheckboxes';
 
-import GuidesAndBooksList from '@components/Products/GuidesAndBooks/GuidesAndBooks';
-import GuideDescription from '@components/Products/GuidesAndBooks/GuideDescription';
+import GuidesAndBooksList from '@/components/Products/GuidesAndBooks/GuidesAndBooks';
+import GuideDescription from '@/components/Products/GuidesAndBooks/GuideDescription';
 
 const GuidesAndBooksPage = () => {
   const [showGuides, setGuides] = useState(false);

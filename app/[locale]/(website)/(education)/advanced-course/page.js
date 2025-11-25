@@ -1,15 +1,15 @@
 import { useTranslations } from 'next-intl';
-import QuestionAnswer from '@components/Common/QuestionAnswer/QuestionAnswer';
-import AboutCourse from '@components/Education/AboutCourse/AboutCourse';
-import EduPricing from '@components/Education/EduPricing/EduPricing';
-import WhatIsWaitingForYou from '@components/Education/WhatIsWaitingForYou/WhatIsWaitingForYou';
-import Feedback from '@components/Main/Feedback/Feedback';
-import Feedbacks from '@components/Services/Feedbacks/Feedbacks';
-import Hero from '@components/Services/Hero/Hero';
-import { addInfo } from '@helper/education/advancedCourseEduPricing';
-import getAdvancedCourseFeedback from '@helper/education/advancedCourseFeedbakcs';
-import getAdvancedCourseQuestions from '@helper/education/advancedCoursesQuestions';
-import { getCardsForAdvancedCourse } from '@helper/education/whatIsWaitingForYou';
+import QuestionAnswer from '@/components/Common/QuestionAnswer/QuestionAnswer';
+import AboutCourse from '@/components/Education/AboutCourse/AboutCourse';
+import EduPricing from '@/components/Education/EduPricing/EduPricing';
+import WhatIsWaitingForYou from '@/components/Education/WhatIsWaitingForYou/WhatIsWaitingForYou';
+import Feedback from '@/components/Main/Feedback/Feedback';
+import Feedbacks from '@/components/Services/Feedbacks/Feedbacks';
+import Hero from '@/components/Services/Hero/Hero';
+import { addInfo } from '@/helper/education/advancedCourseEduPricing';
+import getAdvancedCourseFeedback from '@/helper/education/advancedCourseFeedbakcs';
+import getAdvancedCourseQuestions from '@/helper/education/advancedCoursesQuestions';
+import { getCardsForAdvancedCourse } from '@/helper/education/whatIsWaitingForYou';
 
 const links = [
   {

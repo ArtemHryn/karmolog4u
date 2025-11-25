@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import styles from './AddCourseHeader.module.scss';
-import { unbounded } from '@app/[locale]/layout';
+import { unbounded } from '@/app/[locale]/layout';
 
 const Actions = ({ place }) => {
   return (

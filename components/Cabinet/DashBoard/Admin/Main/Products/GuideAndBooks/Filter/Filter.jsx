@@ -1,5 +1,5 @@
 import Tick from '../../Meditations/Filter/Tick';
-import { ADMIN_BOOKS, ADMIN_GUIDES, ADMIN_OTHER_GUIDES } from '@helper/consts';
+import { ADMIN_BOOKS, ADMIN_GUIDES, ADMIN_OTHER_GUIDES } from '@/helper/consts';
 
 import styles from './Filter.module.scss';
 

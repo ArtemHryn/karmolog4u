@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: center;
   gap: 40px;
+  width: 100%;
   @media all and (width >= $min_desktop) {
     max-width: $min_desktop;
     margin-inline: auto;

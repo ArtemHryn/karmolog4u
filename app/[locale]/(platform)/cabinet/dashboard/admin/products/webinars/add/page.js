@@ -1,7 +1,7 @@
-import FormHead from '@components/Cabinet/DashBoard/Admin/FormHead/FormHead';
+import FormHead from '@/components/Cabinet/DashBoard/Admin/FormHead/FormHead';
 
 import styles from './add_meditation_page.module.scss';
-import AddWebinar from '@components/Cabinet/DashBoard/Admin/Main/Products/Webinars/AddWebinar/AddWebinar';
+import AddWebinar from '@/components/Cabinet/DashBoard/Admin/Main/Products/Webinars/AddWebinar/AddWebinar';
 
 const AddMeditationPage = () => {
   return (

@@ -1,14 +1,14 @@
 'use client';
 
 import { Suspense, useState } from 'react';
-import Container from '@components/Common/Container/Container';
-import ParentsAndChildrenHero from '@components/Calculator/ParentsAndChildren/ParentsAndChildrenHero/ParentsAndChildrenHero';
-import ParentsAndChildren from '@components/Calculator/ParentsAndChildren/ParentsAndChildren';
-import MoreCalculators from '@components/Calculator/MoreCalculators/MoreCalculators';
-import SocialInfoDesc from '@components/Common/Calculator/SocialInfoDesc/SocialInfoDesc';
+import Container from '@/components/Common/Container/Container';
+import ParentsAndChildrenHero from '@/components/Calculator/ParentsAndChildren/ParentsAndChildrenHero/ParentsAndChildrenHero';
+import ParentsAndChildren from '@/components/Calculator/ParentsAndChildren/ParentsAndChildren';
+import MoreCalculators from '@/components/Calculator/MoreCalculators/MoreCalculators';
+import SocialInfoDesc from '@/components/Common/Calculator/SocialInfoDesc/SocialInfoDesc';
 
-import styles from '@components/Calculator/ParentsAndChildren/ParentsAndChildren.module.scss';
-import ChildrenCalc from '@components/Calculator/ParentsAndChildren/ChildrenCalc/ChildrenCalc';
+import styles from '@/components/Calculator/ParentsAndChildren/ParentsAndChildren.module.scss';
+import ChildrenCalc from '@/components/Calculator/ParentsAndChildren/ChildrenCalc/ChildrenCalc';
 
 const social = {
   uk: [

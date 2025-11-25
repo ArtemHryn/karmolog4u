@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
-import Container from '@components/Common/Container/Container';
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
+import Container from '@/components/Common/Container/Container';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 
 import styled from './About.module.scss';
-import HeroNavArrow from '@components/Common/Icons/HeroNavArrow';
+import HeroNavArrow from '@/components/Common/Icons/HeroNavArrow';
 
 const text = {
   uk: [

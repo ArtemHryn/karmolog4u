@@ -1,8 +1,8 @@
-import Container from '@components/Common/Container/Container';
+import Container from '@/components/Common/Container/Container';
 import Image from 'next/image';
 
 import styles from './AboutFoundation.module.scss';
-import Title from '@components/Common/Title/Title';
+import Title from '@/components/Common/Title/Title';
 import { useTranslations } from 'next-intl';
 
 function AboutFoundation() {

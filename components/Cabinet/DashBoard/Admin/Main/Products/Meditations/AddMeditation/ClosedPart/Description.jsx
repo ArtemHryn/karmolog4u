@@ -1,5 +1,5 @@
 import { useFormContext } from 'react-hook-form';
-import { open_Sans } from '@app/[locale]/layout';
+import { open_Sans } from '@/app/[locale]/layout';
 import styles from './ClosedPart.module.scss';
 
 const Description = () => {

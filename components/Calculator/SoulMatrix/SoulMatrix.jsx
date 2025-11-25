@@ -3,9 +3,9 @@ import ConsciousnessGraph from '../Consciousness/ConsciousnessGraph/Consciousnes
 import ResultLifeMap from '../CompatibilityMatrix/ResultMatrix/ResultLifeMap/ResultLifeMap';
 
 import styles from './SoulMatrixHero.module.scss';
-import { getPersonalGraph } from '@helper/calculator/personal';
-import { getResultLifeMap } from '@helper/calculator/compatibility';
-import { getConsciousness, getExtensionList } from '@helper/calculator/consciousness';
+import { getPersonalGraph } from '@/helper/calculator/personal';
+import { getResultLifeMap } from '@/helper/calculator/compatibility';
+import { getConsciousness, getExtensionList } from '@/helper/calculator/consciousness';
 
 const SoulMatrix = ({ date, name }) => {
   const [matrix, setMatrix] = useState({});

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { useSession } from 'next-auth/react';
-import { fetchLessonsList } from '@helper/platform/fetchUserLessonsList';
+import { fetchLessonsList } from '@/helper/platform/fetchUserLessonsList';
 import { LessonDetailsProps } from '@/types/ssk_course';
 import NextLesson from './Icons/NextLesson';
 

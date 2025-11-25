@@ -7,7 +7,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 
-import { base_url } from '@helper/consts';
+import { base_url } from '@/helper/consts';
 import styles from './Navigation.module.scss';
 
 const defaultNavList = [

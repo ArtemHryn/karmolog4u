@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import Buttons from './Buttons';
 import Matrix from '../Matrix/Matrix';
-import ResultLifeMap from '@components/Calculator/CompatibilityMatrix/ResultMatrix/ResultLifeMap/ResultLifeMap';
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
+import ResultLifeMap from '@/components/Calculator/CompatibilityMatrix/ResultMatrix/ResultLifeMap/ResultLifeMap';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 
-import { regression } from '@helper/calculator/regression';
-import { getResultLifeMap } from '@helper/calculator/compatibility';
-import { getPersonalGraph } from '@helper/calculator/personal';
-import { getConsciousness } from '@helper/calculator/consciousness';
+import { regression } from '@/helper/calculator/regression';
+import { getResultLifeMap } from '@/helper/calculator/compatibility';
+import { getPersonalGraph } from '@/helper/calculator/personal';
+import { getConsciousness } from '@/helper/calculator/consciousness';
 
 import styles from './Channels.module.scss';
 

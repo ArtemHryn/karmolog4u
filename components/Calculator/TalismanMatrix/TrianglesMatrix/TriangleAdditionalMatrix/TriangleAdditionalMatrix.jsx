@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import DemonMatrixSvg from '@components/Calculator/DemonMatrix/DemonMatrixGraph/DemonMatrixSvg';
+import DemonMatrixSvg from '@/components/Calculator/DemonMatrix/DemonMatrixGraph/DemonMatrixSvg';
 import TopTalismanMatrix from './Sides/TopTalismanMatrix';
 import CenterTalismanMatrix from './Sides/CenterTalismanMatrix';
 import BottomTalismanMatrix from './Sides/BottomTalismanMatrix';
-import { getPersonalGraph } from '@helper/calculator/personal';
-import { additionalTrianglesMatrix } from '@helper/calculator/triangles';
-import { getCompatibilityGraph } from '@helper/calculator/compatibility';
+import { getPersonalGraph } from '@/helper/calculator/personal';
+import { additionalTrianglesMatrix } from '@/helper/calculator/triangles';
+import { getCompatibilityGraph } from '@/helper/calculator/compatibility';
 
 import styles from './TriangleAdditionalMatrix.module.scss';
 

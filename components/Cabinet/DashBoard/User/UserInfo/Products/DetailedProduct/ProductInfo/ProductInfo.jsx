@@ -5,16 +5,9 @@ import Image from 'next/image';
 import { useSession } from 'next-auth/react';
 import YouTube from 'react-youtube';
 import TitleNoStyles from '../../../../../../../Common/TitleNoStyles/TitleNoStyles';
-import {
-  base_url,
-  BOOKS,
-  CLOSED_MEDITATIONS,
-  GUIDES,
-  OTHER_GUIDES,
-  WEBINARS,
-} from '@/helper/consts';
+import { BOOKS, CLOSED_MEDITATIONS, GUIDES, OTHER_GUIDES, WEBINARS } from '@/helper/consts';
 import styles from './ProductInfo.module.scss';
-import { toast } from 'react-toastify';
+import { useFileDownload } from '@/hooks/useFileDownload';
 
 const ProductInfo = ({ product }) => {
   const router = useRouter();
@@ -41,25 +34,9 @@ const ProductInfo = ({ product }) => {
     [GUIDES]: 'Гайд 22 енегрії',
   };
 
-  const onDownloadFile = async () => {
-    const fileName = file?.path?.split('/').pop();
-    const response = await fetch(`${base_url}/file/${fileName}`, {
-      headers: {
-        Authorization: `Bearer ${data.accessToken}`,
-      },
-    });
-    if (!response.ok) {
-      toast.error('Помилка при завантаженні файлу');
-      return;
-    }
-    const blob = await response.blob();
-    const url = window.URL.createObjectURL(new Blob([blob]));
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = file.originalName;
-    link.click();
-    window.URL.revokeObjectURL(url);
-  };
+  console.log(file);
+
+  const { downloadFile } = useFileDownload(data?.accessToken || '');
 
   return (
     <div className={styles.main_wrapper}>
@@ -91,7 +68,15 @@ const ProductInfo = ({ product }) => {
             <div className={styles.download_wrapper}>
               <p className={styles.category}>{categoriesMap[category]}</p>
               {file && (
-                <button onClick={onDownloadFile} className={styles.download_button}>
+                <button
+                  onClick={() =>
+                    downloadFile({
+                      originalName: file.originalName,
+                      savedName: file?.path?.split('/').pop(),
+                    })
+                  }
+                  className={styles.download_button}
+                >
                   <svg viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M15 13C15.55 13 16 13.45 16 14V16C16 16.55 15.55 17 15 17H1C0.45 17 0 16.55 0 16V14C0 13.45 0.45 13 1 13C1.55 13 2 13.45 2 14V15H14V14C14 13.45 14.45 13 15 13ZM8 0C8.553 0 9 0.448 9 1V8.99902L11.4004 7.2002C11.8424 6.86733 12.4688 6.95844 12.7998 7.40039C13.1317 7.84238 13.0416 8.46884 12.5996 8.7998L8.59961 11.7998C8.42264 11.9327 8.21094 12 8 12C7.79901 12 7.5978 11.9393 7.4248 11.8184L3.4248 9.00391C2.97308 8.68596 2.86402 8.06224 3.18164 7.61133C3.49964 7.15933 4.1232 7.05016 4.5752 7.36816L7.00293 9.0752C7.00108 9.05037 7 9.0253 7 9V1C7 0.448 7.447 0 8 0Z"

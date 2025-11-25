@@ -1,10 +1,10 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import Title from '@components/Cabinet/DashBoard/Admin/Main/Products/Title/Title';
+import Title from '@/components/Cabinet/DashBoard/Admin/Main/Products/Title/Title';
 
 import styles from './layout.module.scss';
-import Navigation from '@components/Cabinet/DashBoard/Admin/Main/Products/Navigation/Navigation';
+import Navigation from '@/components/Cabinet/DashBoard/Admin/Main/Products/Navigation/Navigation';
 
 const ProductsLayout = ({ children }) => {
   const pathname = usePathname();

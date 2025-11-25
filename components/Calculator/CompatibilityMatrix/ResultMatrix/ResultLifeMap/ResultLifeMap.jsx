@@ -1,7 +1,7 @@
-import HolisticPowerTables from '@components/Calculator/HolisticPowerMatrix/HolisticPowerTable/HolisticPowerTable';
+import HolisticPowerTables from '@/components/Calculator/HolisticPowerMatrix/HolisticPowerTable/HolisticPowerTable';
 import SpiritLesson from './SpiritLesson';
 import ExtensionList from './ExtensionList';
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 
 import styles from './ResultLifeMap.module.scss';
 import { useLocale, useTranslations } from 'next-intl';
@@ -25,7 +25,7 @@ const ResultLifeMap = ({ maps, spiritLesson, extensionList, holisticTable, regre
                   <li key={el.name[locale]} className={styles.second_life_map_list_item}>
                     <p className={`${styles.key} ${index === 2 && styles.result_key}`}>{el.key}</p>
                     <p className={styles.key_text}>
-                      {index === 2 && regression && t('regression.life_map.result')} {' '}
+                      {index === 2 && regression && t('regression.life_map.result')}{' '}
                       {el.name[locale]}
                     </p>
                   </li>

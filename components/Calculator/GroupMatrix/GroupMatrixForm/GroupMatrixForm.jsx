@@ -3,7 +3,7 @@ import { useForm, useFieldArray, Controller } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import TextMaskInput from 'react-text-mask';
 
-import { open_Sans } from '@app/[locale]//layout';
+import { open_Sans } from '@/app/[locale]//layout';
 
 import styles from './GroupMatrixForm.module.scss';
 import { useTranslations } from 'next-intl';

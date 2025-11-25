@@ -1,6 +1,6 @@
 import { useLocale } from 'next-intl';
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
-import { titleList } from '@helper/calculator/triangles';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
+import { titleList } from '@/helper/calculator/triangles';
 
 import styles from './TrianglesTitle.module.scss';
 

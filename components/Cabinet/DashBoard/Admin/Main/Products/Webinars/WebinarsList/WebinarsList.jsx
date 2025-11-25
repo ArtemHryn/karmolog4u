@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-import { DRAFT, ETHERS, HIDDEN, PUBLISHED, WEBINARS } from '@helper/consts';
+import { DRAFT, ETHERS, HIDDEN, PUBLISHED, WEBINARS } from '@/helper/consts';
 import EditButton from './EditButton/EditButton';
 
 import styles from './WebinarsList.module.scss';
@@ -21,7 +21,6 @@ const WebinarsList = ({ showWebinars, showEthers, isCheckedLS, status, webinars 
       ...(showWebinars ? webinars.filter(el => el.category.includes(WEBINARS)) : []),
       ...(showEthers ? webinars.filter(el => el.category.includes(ETHERS)) : []),
     ];
-
 
     const finalList = [
       ...(status === 'all'

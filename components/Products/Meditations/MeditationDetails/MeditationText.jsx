@@ -1,9 +1,9 @@
-import Title from '@components/Common/Title/Title';
+import Title from '@/components/Common/Title/Title';
 import Link from 'next/link';
 
 import styles from './MeditationsDescriptions.module.scss';
 import MeditationsTextList from './MeditationsTextList';
-import useLocalizedValue from '@hooks/useLocalizedValue';
+import useLocalizedValue from '@/hooks/useLocalizedValue';
 import { useTranslations } from 'next-intl';
 
 const list = {
