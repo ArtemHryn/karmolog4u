@@ -63,6 +63,17 @@ const YearMatrixForm = ({
 
     if (!period && !!date) {
       const [day, month, year] = date.split('.');
+      const inputDate = new Date(year, month - 1, day);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      if (inputDate > today) {
+        setValue('period', 0);
+        router.push(getRoute(name, date, 0, redirectTo), {
+          scroll: false,
+        });
+        return;
+      }
+
       const calculatedPeriod = getCurrentAgeInPeriod(ageCalculator(day, month, year), periodList);
       setValue('period', calculatedPeriod.value);
       router.push(getRoute(name, date, calculatedPeriod.value, redirectTo), {
