@@ -8,6 +8,7 @@
   border-radius: 30px;
   height: 50px;
   padding: 0 20px;
+  background-color: transparent;
   @media screen and (min-width: $min_tablet) {
     width: 546px;
     height: 60px;
@@ -17,8 +18,17 @@
   }
 }
 
+.p-dropdown-panel {
+  border-radius: 30px;
+}
+
+.p-dropdown-label {
+  color: $main_text_color;
+}
+
 .p-dropdown-items-wrapper {
-  background-color: $section_color;
+  background-color: $main_bg;
+
   border-radius: 10px;
   border: 1px solid $matrix_table_border;
   @media screen and (min-width: $min_tablet) {
@@ -31,6 +41,7 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+
   @media screen and (min-width: $min_tablet) {
     flex-direction: row;
     flex-wrap: wrap;
@@ -38,12 +49,16 @@
     column-gap: 10px;
   }
 }
-
+.p-dropdown-item-label {
+  color: $main_text_color;
+}
 .p-dropdown-item {
   padding: 8px 10px;
   &[aria-selected='true'] {
     border: 1px solid $matrix_table_border;
+    background-color: transparent;
     border-radius: 30px;
+    opacity: 0.8;
   }
   @media screen and (min-width: $min_tablet) {
     padding: 8px 0;
@@ -52,4 +67,10 @@
     justify-content: center;
     width: calc((100% - 20px) / 3);
   }
+}
+
+.p-focus {
+  border: 1px solid $matrix_table_border;
+  background-color: transparent;
+  border-radius: 30px;
 }

@@ -5,8 +5,9 @@ import { useTranslations } from 'next-intl';
 
 const CurrentPeriod = ({ period }) => {
   const t = useTranslations('Calculator.personal');
-  if (Object.keys(period).length === 0) return null;
+  if (!period || Object.keys(period).length === 0) return null;
   const keys = period.arcane.split('-');
+
   return (
     <div className={styles.wrapper}>
       <Title variant="h3" styled={styles.title}>
