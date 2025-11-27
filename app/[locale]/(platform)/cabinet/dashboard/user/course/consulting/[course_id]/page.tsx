@@ -1,4 +1,4 @@
-import ConsultingCourseInfo from '@components/Cabinet/DashBoard/User/CoursesDetails/CourseInfo/Consultation/ConsultingCourseInfo';
+import ConsultingCourseInfo from '@/components/Cabinet/DashBoard/User/CoursesDetails/CourseInfo/Consultation/ConsultingCourseInfo';
 
 interface DetailedConsultingPageProps {
   params: { course_id: string };

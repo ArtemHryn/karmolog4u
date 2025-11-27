@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { getServerSession } from 'next-auth';
-import { authOptions } from '@app/api/auth/[...nextauth]/route';
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import CourseWrapper from '../CourseWrapper/CourseWrapper';
 import ConsultingHeader from './ConsultingHeader/ConsultingHeader';
 import Course from '../SSK/Skeletons/Course';

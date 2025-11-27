@@ -1,7 +1,7 @@
 import React from 'react';
 import { format } from 'date-fns';
 import { ModuleSectionProps } from '@/types/cons_adv_courses';
-import { unbounded_client } from '@app/[locale]/clients-fonts';
+import { unbounded_client } from '@/app/[locale]/clients-fonts';
 
 import styles from './ModuleHeader.module.scss';
 

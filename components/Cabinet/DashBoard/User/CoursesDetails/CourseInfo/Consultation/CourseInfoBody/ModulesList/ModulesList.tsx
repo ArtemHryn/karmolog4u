@@ -1,7 +1,7 @@
 'use client';
 
 import { CourseInfoHeaderProps } from '@/types/ssk_course';
-import { fetchLessonsList } from '@helper/platform/fetchUserLessonsList';
+import { fetchLessonsList } from '@/helper/platform/fetchUserLessonsList';
 import { useSuspenseQuery } from '@tanstack/react-query';
 
 import styles from './ModulesList.module.scss';

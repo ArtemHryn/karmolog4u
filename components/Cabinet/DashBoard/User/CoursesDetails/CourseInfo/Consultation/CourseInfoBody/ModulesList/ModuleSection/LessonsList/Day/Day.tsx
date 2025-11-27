@@ -1,6 +1,6 @@
 import { LessonItems } from '@/types/cons_adv_courses';
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
 import Lesson from '../Lesson/Lesson';
+import { unbounded_client } from '@/app/[locale]/clients-fonts';
 
 import styles from './Day.module.scss';
 
@@ -13,9 +13,7 @@ const Day = ({ lessons, day }: DayProps) => {
   return (
     <li className={styles.item}>
       <div className={styles.title_wrapper}>
-        <TitleNoStyles variant="p" styled={styles.title}>
-          {`День ${day}`}
-        </TitleNoStyles>
+        <p className={`${styles.title} ${unbounded_client.className}`}>{`День ${day}`}</p>
       </div>
       <ul className={styles.lessons_list}>
         {lessons.map(el => (

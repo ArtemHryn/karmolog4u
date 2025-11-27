@@ -1,5 +1,5 @@
 import React from 'react';
-import TitleNoStyles from '@components/Common/TitleNoStyles/TitleNoStyles';
+import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 
 import styles from './CourseInfoBodyWrapper.module.scss';
 

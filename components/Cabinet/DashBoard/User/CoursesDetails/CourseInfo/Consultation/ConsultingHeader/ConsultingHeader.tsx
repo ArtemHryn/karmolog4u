@@ -1,6 +1,6 @@
 'use client';
 
-import { fetchCourseDetailsForUser } from '@helper/platform/fetchCourseDetailsForUser';
+import { fetchCourseDetailsForUser } from '@/helper/platform/fetchCourseDetailsForUser';
 import { useSuspenseQuery } from '@tanstack/react-query';
 import AgreementInfo from './AgreementInfo/AgreementInfo';
 
@@ -14,6 +14,10 @@ const ConsultingHeader = ({ token, id }: ConsultingHeaderProps) => {
     queryKey: ['course', id],
     queryFn: () => fetchCourseDetailsForUser(token, id),
   });
+
+  console.log(course);
+  
+
   return (
     <div>
       <AgreementInfo isSign={course?.purchaseInfo?.agreement} />

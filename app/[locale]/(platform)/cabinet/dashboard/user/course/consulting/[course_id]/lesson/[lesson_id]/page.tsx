@@ -1,9 +1,9 @@
 import { Suspense } from 'react';
-import { authOptions } from '@app/api/auth/[...nextauth]/route';
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import { getServerSession } from 'next-auth';
-import LessonDetailsNavigation from '@components/Cabinet/DashBoard/User/LessonsDetails/LessonDetailsNavigation/LessonDetailsNavigation';
-import LessonsDetails from '@components/Cabinet/DashBoard/User/LessonsDetails/LessonsDetails';
-import Loader from '@components/Cabinet/DashBoard/User/Loader/Loader';
+import LessonDetailsNavigation from '@/components/Cabinet/DashBoard/User/LessonsDetails/LessonDetailsNavigation/LessonDetailsNavigation';
+import LessonsDetails from '@/components/Cabinet/DashBoard/User/LessonsDetails/LessonsDetails';
+import Loader from '@/components/Cabinet/DashBoard/User/Loader/Loader';
 import { LessonDetailsProps } from '@/types/ssk_course';
 import styles from './page.module.scss';
 
