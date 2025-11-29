@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import debounce from 'lodash.debounce';
 
@@ -9,7 +9,7 @@ const Search = ({ search, setSearch }) => {
   const searchParams = useSearchParams();
   const router = useRouter();
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const debouncedSetSearch = useMemo(
+  const debouncedSetSearch = useRef(
     debounce(value => {
       const params = new URLSearchParams(searchParams.toString());
       setSearch(value);
@@ -27,12 +27,13 @@ const Search = ({ search, setSearch }) => {
   const handleChange = e => {
     const value = e.target.value;
     setInputValue(value);
-    debouncedSetSearch(value);
+    debouncedSetSearch.current(value);
   };
 
   useEffect(() => {
+    const debounced = debouncedSetSearch.current;
     return () => {
-      debouncedSetSearch.cancel();
+      debounced.cancel();
     };
   }, [debouncedSetSearch]);
 
