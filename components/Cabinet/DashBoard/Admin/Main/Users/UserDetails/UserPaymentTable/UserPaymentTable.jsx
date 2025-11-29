@@ -1,7 +1,7 @@
 import { DataTable } from 'primereact/datatable';
 import styles from './UserPaymentTable.module.scss';
 import './table.scss';
-import EmptyTable from '../../../../Education/TablesInfo/Table/EmptyTable/EmptyTable';
+import EmptyTable from '../../../Education/TablesInfo/Table/EmptyTable/EmptyTable';
 import { Column } from 'primereact/column';
 
 const UserPaymentTable = ({ userDetails }) => {
