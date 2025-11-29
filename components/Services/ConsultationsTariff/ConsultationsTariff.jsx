@@ -8,6 +8,7 @@ import { useTranslations } from 'next-intl';
 
 const ConsultationsTariff = () => {
   const t = useTranslations('Services.consultations.consultations_tariff');
+
   return (
     <Container>
       <Title styled={`${styles.title}`}>{t('title')}</Title>

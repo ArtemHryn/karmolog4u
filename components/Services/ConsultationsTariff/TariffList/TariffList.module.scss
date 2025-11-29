@@ -103,6 +103,10 @@
   }
 }
 
+.btn_wrapper {
+  margin-left: auto;
+}
+
 .btn {
   display: flex;
   align-items: center;
@@ -118,9 +122,6 @@
   transition: all 250ms ease;
   &:is(:hover, :focus) {
     background-color: $buttons_hover_color;
-  }
-  @media all and (min-width: $min_tablet) {
-    margin-left: auto;
   }
 }
 
