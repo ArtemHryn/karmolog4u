@@ -1,7 +1,7 @@
 import { base_url } from '@/helper/consts';
 import { getServerSession } from 'next-auth';
 import DetailedProduct from '@/components/Cabinet/DashBoard/User/UserInfo/Products/DetailedProduct/DetailedProduct';
-import { authOptions } from '../../../../../../../../../api/auth/[...nextauth]/route';
+import { authOptions } from '@/lib/authOptions.js';
 import { notFound } from 'next/navigation';
 
 export const revalidate = 0;

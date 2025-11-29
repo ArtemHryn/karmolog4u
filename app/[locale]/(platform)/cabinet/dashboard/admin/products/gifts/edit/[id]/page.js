@@ -1,7 +1,7 @@
 import { getServerSession } from 'next-auth';
 import FormHead from '@/components/Cabinet/DashBoard/Admin/FormHead/FormHead';
 import AddGift from '@/components/Cabinet/DashBoard/Admin/Main/Products/Gifts/AddGift/AddGift';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { authOptions } from '@/lib/authOptions.js';
 import { base_url } from '@/helper/consts';
 
 import styles from './edit_gifts_page.module.scss';

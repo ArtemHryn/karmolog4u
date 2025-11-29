@@ -1,5 +1,12 @@
+// app/[locale]/(website)/(education)/advanced-course/layout.js
+
 import { getTranslations } from 'next-intl/server';
 
+/**
+ * @param {Object} props
+ * @param {Object} props.params
+ * @param {string} props.params.locale
+ */
 export async function generateMetadata({ params: { locale } }) {
   const t = await getTranslations({ locale, namespace: 'Metadata.Education.advanced_course' });
 
@@ -80,12 +87,16 @@ export const viewport = {
   themeColor: 'black',
 };
 
-const FoundationLayout = ({ children, modal }) => {
+/**
+ * @param {Object} props
+ * @param {React.ReactNode} props.children
+ */
+const AdvancedCourseLayout = ({ children }) => {
   return (
     <>
-      {children} {modal}
+      {children}
     </>
   );
 };
 
-export default FoundationLayout;
+export default AdvancedCourseLayout;

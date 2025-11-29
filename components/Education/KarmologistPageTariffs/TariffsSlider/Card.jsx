@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
-import { unbounded } from '@/app/[locale]//layout';
+import { open_Sans, unbounded } from '@/app/[locale]//layout';
 import useLocalizedValue from '@/hooks/useLocalizedValue';
 import HeroNavArrow from '@/components/Common/Icons/HeroNavArrow';
 
 import styles from './TariffsSlider.module.scss';
+import ShowModalButton from '../../../Common/ShowModalButton/ShowModalButton';
 
 const Card = ({ card, link }) => {
   const t = useTranslations('Education.karmologist_himself.karmologist_page_tariff');
@@ -32,13 +33,12 @@ const Card = ({ card, link }) => {
         </ul>
         <p className={`${styles.price} ${unbounded.className}`}>{card.price}</p>
         <div className={styles.btn_wrapper}>
-          <Link href={link} className={`${styles.btn}`}>
-            {t('full_payment')}
-          </Link>
+          <ShowModalButton styles={`${styles.btn}`} name={t('full_payment')} />
           {!card.hidePrepaymentBtn && (
-            <Link href={link} className={`${styles.btn} ${styles.second_btn}`}>
-              Предоплата 50%
-            </Link>
+            <ShowModalButton
+              styles={`${styles.btn} ${styles.second_btn}`}
+              name={'Предоплата 50%'}
+            />
           )}
         </div>
       </div>

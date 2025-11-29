@@ -1,7 +1,7 @@
 import { getServerSession } from 'next-auth';
 import FormHead from '@/components/Cabinet/DashBoard/Admin/FormHead/FormHead';
 import AddGuideAndBooks from '@/components/Cabinet/DashBoard/Admin/Main/Products/GuideAndBooks/AddGuideAndBooks/AddGuideAndBooks';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { authOptions } from '@/lib/authOptions.js';
 
 import styles from './edit_meditation_page.module.scss';
 import { base_url } from '@/helper/consts';

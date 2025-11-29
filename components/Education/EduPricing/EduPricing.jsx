@@ -1,4 +1,4 @@
-import { useLocale, useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import Container from '@/components/Common/Container/Container';
 import Title from '@/components/Common/Title/Title';
 import Link from 'next/link';
@@ -7,6 +7,7 @@ import useLocalizedValue from '@/hooks/useLocalizedValue';
 
 import styles from './EduPricing.module.scss';
 import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
+import ShowModalButton from '../../Common/ShowModalButton/ShowModalButton';
 
 function EduPricing({ card, addInfo = [], desc, link, additionalTitle, additionalCard }) {
   const t = useTranslations('Education.advanced_course.edu_pricing');
@@ -39,9 +40,7 @@ function EduPricing({ card, addInfo = [], desc, link, additionalTitle, additiona
               </Title>
             </div>
           </div>
-          <Link href={link} className={`${styles.button} ${open_Sans.className}`}>
-            {t('button')}
-          </Link>
+          <ShowModalButton styles={`${styles.button} ${open_Sans.className}`} />
         </div>
         {additionalCard && (
           <div className={styles.card}>
@@ -58,9 +57,7 @@ function EduPricing({ card, addInfo = [], desc, link, additionalTitle, additiona
                 </Title>
               </div>
             </div>
-            <Link href={link} className={`${styles.button} ${open_Sans.className}`}>
-              {t('button')}
-            </Link>
+            <ShowModalButton styles={`${styles.button} ${open_Sans.className}`} />
           </div>
         )}
       </div>

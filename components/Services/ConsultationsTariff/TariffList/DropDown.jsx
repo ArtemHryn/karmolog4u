@@ -8,6 +8,7 @@ import ToggleArrow from '@/components/Common/Icons/ConsultationsIcons/ToggleArro
 
 import styles from './TariffList.module.scss';
 import { useLocale, useTranslations } from 'next-intl';
+import ShowModalButton from '../../../Common/ShowModalButton/ShowModalButton';
 
 const DropDown = ({ tariff }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -52,14 +53,11 @@ const DropDown = ({ tariff }) => {
         {price}
         <span>{isPerHour ? `${locale === 'uk' ? '/година' : '/час'}` : ''}</span>
       </p>
-      <Link
-        href={'consultations/dialog'}
-        aria-label={t('join')}
-        className={`${styles.btn} ${open_Sans.className}`}
-      >
-        {t('join')}
-      </Link>
 
+      <ShowModalButton
+        styles={`${styles.btn} ${open_Sans.className}`}
+        wrapperStyles={styles.btn_wrapper}
+      />
       <div className={styles.wrapper_tab}>
         <ActiveDropDown
           isOpen={isOpen}

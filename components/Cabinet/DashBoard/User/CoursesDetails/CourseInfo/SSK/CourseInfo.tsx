@@ -4,7 +4,7 @@ import CourseInfoBody from './CourseInfoBody/CourseInfoBody';
 
 import styles from './CourseInfo.module.scss';
 import { getServerSession } from 'next-auth';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { authOptions } from '@/lib/authOptions.js';
 import Course from './Skeletons/Course';
 import Lessons from './Skeletons/Lessons';
 
