@@ -1,4 +1,3 @@
-import BackButton from '@/components/Cabinet/Authentication/BackButton/BackButton';
 import LoginForm from '@/components/Cabinet/Authentication/Login/LoginForm';
 import Container from '@/components/Common/Container/Container';
 

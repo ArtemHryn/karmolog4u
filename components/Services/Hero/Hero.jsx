@@ -1,11 +1,11 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import Container from '@/components/Common/Container/Container';
 import HeroNav from '@/components/Common/HeroNav/HeroNav';
 
 import styles from './Hero.module.scss';
-import { open_Sans, unbounded } from '@/app/[locale]/layout';
+import { unbounded, open_Sans } from '@/app/[locale]/layout';
+import ShowModalButton from '../../Common/ShowModalButton/ShowModalButton';
 
 const Hero = ({ linkNames = [], title, img }) => {
   const locale = useLocale();
@@ -18,12 +18,7 @@ const Hero = ({ linkNames = [], title, img }) => {
           <h1 className={`${styles.title} ${unbounded.className}`}>
             {typeof title === 'string' ? title : title[locale]}
           </h1>
-          <Link
-            href={`${linkNames[0].href}/dialog`}
-            className={`${styles.button} ${open_Sans.className}`}
-          >
-            {t('hero_button')}
-          </Link>
+          <ShowModalButton styles={`${styles.button} ${open_Sans.className}`} />
         </div>
         <picture className={styles.img}>
           {img.imgDesk && <source srcSet={img.imgDesk} media="(min-width: 1280px)" />}

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { unbounded } from '@/app/[locale]//layout';
 import styles from './Pricing.module.scss';
 import { useLocale, useTranslations } from 'next-intl';
+import ShowModalButton from '../../Common/ShowModalButton/ShowModalButton';
 
 function Card({ content: { title, addTitle, price } }) {
   const t = useTranslations('Services.therapy_sessions.pricing');
@@ -15,9 +16,7 @@ function Card({ content: { title, addTitle, price } }) {
         </h4>
         <h3 className={`${styles.card_price} ${unbounded.className}`}>{price}</h3>
       </div>
-      <Link href={'therapy-sessions/dialog'} aria-label={t('button')} className={styles.button}>
-        {t('button')}
-      </Link>
+      <ShowModalButton styles={styles.button} />
     </div>
   );
 }

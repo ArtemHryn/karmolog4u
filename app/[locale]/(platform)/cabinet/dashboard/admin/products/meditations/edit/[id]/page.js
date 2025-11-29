@@ -1,7 +1,7 @@
 import FormHead from '@/components/Cabinet/DashBoard/Admin/FormHead/FormHead';
 import styles from './edit_meditation_page.module.scss';
 import MeditationForm from '@/components/Cabinet/DashBoard/Admin/Main/Products/Meditations/AddMeditation/AddMeditation';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { authOptions } from '@/lib/authOptions.js';
 import { base_url } from '@/helper/consts';
 import { getServerSession } from 'next-auth';
 

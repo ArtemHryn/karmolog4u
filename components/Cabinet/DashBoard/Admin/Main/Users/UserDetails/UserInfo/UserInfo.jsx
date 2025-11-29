@@ -6,7 +6,7 @@ import styles from './UserInfo.module.scss';
 import SubmitButtons from './SubmitButtons';
 import { toast } from 'react-toastify';
 import { useEffect } from 'react';
-import Tick from '../../../../Education/TablesInfo/Table/TableHeaders/Tick';
+import Tick from '../../../Education/TablesInfo/Table/TableHeaders/Tick';
 import { base_url } from '@/helper/consts';
 import { useMutation } from '@tanstack/react-query';
 import { useSession } from 'next-auth/react';

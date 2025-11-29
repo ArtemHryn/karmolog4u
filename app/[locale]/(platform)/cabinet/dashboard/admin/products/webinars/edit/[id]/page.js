@@ -1,7 +1,7 @@
 import FormHead from '@/components/Cabinet/DashBoard/Admin/FormHead/FormHead';
 import AddWebinar from '@/components/Cabinet/DashBoard/Admin/Main/Products/Webinars/AddWebinar/AddWebinar';
 import { getServerSession } from 'next-auth';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { authOptions } from '@/lib/authOptions.js';
 import styles from './edit_meditation_page.module.scss';
 import { base_url } from '@/helper/consts';
 

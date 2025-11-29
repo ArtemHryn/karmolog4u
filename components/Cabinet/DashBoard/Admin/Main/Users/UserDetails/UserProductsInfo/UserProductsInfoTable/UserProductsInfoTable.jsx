@@ -1,6 +1,6 @@
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
-import EmptyTable from '../../../../../Education/TablesInfo/Table/EmptyTable/EmptyTable';
+import EmptyTable from '../../../../Education/TablesInfo/Table/EmptyTable/EmptyTable';
 
 import styles from './UserProductsInfoTable.module.scss';
 import './table.scss';
