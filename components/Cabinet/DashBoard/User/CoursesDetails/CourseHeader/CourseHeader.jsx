@@ -47,7 +47,7 @@ const CourseHeader = ({unbounded}) => {
   return (
     <header className={header}>
       <div className={styles.logo_wrapper}>
-        <Link href={'/cabinet/dashboard/user/achievement'} className={styles.logo_link}>
+        <Link href={'/cabinet/dashboard/user/education'} className={styles.logo_link}>
           <Logo />
         </Link>
         <AccountLabel />

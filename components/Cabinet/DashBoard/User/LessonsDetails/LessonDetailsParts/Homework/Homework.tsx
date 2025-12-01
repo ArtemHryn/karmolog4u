@@ -12,7 +12,7 @@ interface HomeworkProps {
 
 const Homework = ({ homework, homeworkFiles }: HomeworkProps) => {
   const { data: token } = useSession();
-  const { downloadFile } = useFileDownload(token?.accessToken || '');
+  const { mutate: downloadFile, isPending } = useFileDownload(token?.accessToken || '');
   return (
     <div className={styles.wrapper}>
       <TitleNoStyles variant="h3" styled={styles.title}>
@@ -23,7 +23,12 @@ const Homework = ({ homework, homeworkFiles }: HomeworkProps) => {
         <ul className={styles.list}>
           {homeworkFiles.map(hw => (
             <li key={hw.id} className={styles.item}>
-              <button type="button" onClick={() => downloadFile(hw)} className={`${styles.button}`}>
+              <button
+                type="button"
+                onClick={() => downloadFile(hw)}
+                className={`${styles.button}`}
+                disabled={isPending}
+              >
                 {hw.originalName}
               </button>
             </li>

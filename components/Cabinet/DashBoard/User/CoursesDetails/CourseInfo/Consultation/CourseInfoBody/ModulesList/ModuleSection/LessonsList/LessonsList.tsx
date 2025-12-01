@@ -20,9 +20,6 @@ const LessonsList = ({ mod, showLessons }: LessonsListProps) => {
   };
   const days = getLessonsSortedList();
 
-console.log(mod);
-
-
   return (
     <ul className={`${styles.list} ${showLessons ? '' : styles.close}`}>
       {Object.keys(days).map((el, index) => (

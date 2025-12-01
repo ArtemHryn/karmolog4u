@@ -43,4 +43,7 @@
   border-radius: 6px;
   background-color: $dark_gold_light;
   @include fontRegular(13px, 400, 13px, $third_text_color);
+  &:disabled {
+    opacity: 0.6;
+  }
 }
