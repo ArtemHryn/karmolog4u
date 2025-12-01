@@ -11,6 +11,9 @@ import NextLesson from './Icons/NextLesson';
 import styles from './LessonDetailsNavigation.module.scss';
 import PrevLesson from './Icons/PrevLesson';
 
+type ModuleLesson = { id: string };
+type ModuleItem = { lessonsList: ModuleLesson[] };
+
 const LessonDetailsNavigation = ({ params }: LessonDetailsProps) => {
   const { data: session } = useSession();
   const router = useRouter();
@@ -18,27 +21,45 @@ const LessonDetailsNavigation = ({ params }: LessonDetailsProps) => {
   const queryClient = useQueryClient();
   const accessToken = session?.accessToken || '';
   const cachedLessons = queryClient.getQueryData(['lessons', params.course_id]);
-  const { data: lessons } = useQuery({
+
+  const { data: lessons, isError } = useQuery({
     queryKey: ['lessons', params.course_id],
-    queryFn: () => fetchLessonsList(accessToken, params.course_id),
+    queryFn: () =>
+      fetchLessonsList(
+        accessToken,
+        params.course_id,
+        `${!pathName.includes('ssk') ? 'list' : 'SSK'}`
+      ),
     gcTime: 24 * 60 * 60 * 1000,
     enabled: !!accessToken,
     initialData: cachedLessons,
   });
 
-  if (!lessons) return null;
+  if (!lessons || isError) return null;
 
-  const currentLessonIndex = lessons?.findIndex((lesson: any) => lesson.id === params.lesson_id);
+  const filteredLessons = () => {
+    if (pathName.includes('ssk')) return lessons;
+    const targetModule = lessons.find((m: ModuleItem) =>
+      m.lessonsList.some((l: ModuleLesson) => l.id === params.lesson_id)
+    );
+    return targetModule.lessonsList;
+  };
+
+  const lessonsList = filteredLessons();
+
+  const currentLessonIndex = lessonsList?.findIndex(
+    (lesson: any) => lesson.id === params.lesson_id
+  );
 
   const getNavigationLink = (direction: string) => {
     if (direction === 'previous' && currentLessonIndex! > 0) {
       return `${pathName.split('/').slice(0, -1).join('/')}/${
-        lessons![currentLessonIndex! - 1].id
+        lessonsList![currentLessonIndex! - 1].id
       }`;
     }
-    if (direction === 'next' && currentLessonIndex! < lessons!.length - 1) {
+    if (direction === 'next' && currentLessonIndex! < lessonsList!.length - 1) {
       return `${pathName.split('/').slice(0, -1).join('/')}/${
-        lessons![currentLessonIndex! + 1].id
+        lessonsList![currentLessonIndex! + 1].id
       }`;
     }
     return '';
@@ -66,8 +87,8 @@ const LessonDetailsNavigation = ({ params }: LessonDetailsProps) => {
       <li>
         <button
           type="button"
-          disabled={currentLessonIndex === lessons!.length - 1}
-          aria-disabled={currentLessonIndex === lessons!.length - 1}
+          disabled={currentLessonIndex === lessonsList!.length - 1}
+          aria-disabled={currentLessonIndex === lessonsList!.length - 1}
           onClick={() => router.push(getNavigationLink('next'))}
           className={`${styles.button}`}
         >

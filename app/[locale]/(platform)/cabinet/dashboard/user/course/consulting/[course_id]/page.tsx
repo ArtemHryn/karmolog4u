@@ -1,10 +1,11 @@
+import ConsultingCourseInfo from '@/components/Cabinet/DashBoard/User/CoursesDetails/CourseInfo/Consultation/ConsultingCourseInfo';
 
-const DetailedConsultingPage = () => {
-  return (
-    <div>
-      
-    </div>
-  )
+interface DetailedConsultingPageProps {
+  params: { course_id: string };
 }
 
-export default DetailedConsultingPage
+const DetailedConsultingPage = ({ params }: DetailedConsultingPageProps) => {
+  return <ConsultingCourseInfo id={params.course_id} />;
+};
+
+export default DetailedConsultingPage;

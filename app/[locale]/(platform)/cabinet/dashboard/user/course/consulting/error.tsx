@@ -10,6 +10,8 @@ type LessonErrorProps = {
 
 const LessonErrorBoundary = ({ error, reset }: LessonErrorProps) => {
   const router = useRouter();
+  console.log('error: ', error);
+
   return (
     <div className={styles.wrapper}>
       <p className={styles.text}>{error.message}</p>

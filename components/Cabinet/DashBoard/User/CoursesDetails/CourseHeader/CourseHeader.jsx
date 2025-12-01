@@ -8,12 +8,11 @@ import { useSession } from 'next-auth/react';
 import AccountLabel from './AccountLabel/AccountLabel';
 import Logo from '../../../../Authentication/FormHeader/Logo';
 
-import { unbounded } from '@/app/[locale]/layout';
 import { fetchCourseDetailsForUser } from '@/helper/platform/fetchCourseDetailsForUser';
 
 import styles from './CourseHeader.module.scss';
 
-const CourseHeader = () => {
+const CourseHeader = ({unbounded}) => {
   const pathName = usePathname();
   const { course_id } = useParams();
   const { data } = useSession();
@@ -27,7 +26,7 @@ const CourseHeader = () => {
   const sections = {
     ssk: { style: styles.ssk, title: 'САМ СОБІ КАРМОЛОГ' },
     advanced: { style: styles.advanced, title: 'Поглиблений курс' },
-    consulting: { style: styles.consulting, title: 'КОНСУЛЬТАНТСЬКИЙ КУРС ' },
+    consulting: { style: styles.consulting, title: '<span>КОНСУЛЬТАНТСЬКИЙ</span> КУРС ' },
   };
 
   const activeSection = Object.keys(sections).find(key => pathName.includes(key));
@@ -48,13 +47,17 @@ const CourseHeader = () => {
   return (
     <header className={header}>
       <div className={styles.logo_wrapper}>
-        <Link href={'/cabinet/dashboard/user/achievement'} className={styles.logo_link}>
+        <Link href={'/cabinet/dashboard/user/education'} className={styles.logo_link}>
           <Logo />
         </Link>
         <AccountLabel />
       </div>
       <div className={styles.greeting_wrapper}>
-        <p className={`${styles.greeting} ${unbounded.className}`}>{greeting}</p>
+        <p
+          className={`${styles.greeting} ${unbounded.className}`}
+          dangerouslySetInnerHTML={{ __html: greeting }}
+        />
+
         <p className={`${styles.date} ${unbounded.className}`}>
           Курс дійсний до {availableTo && availableTo}
         </p>

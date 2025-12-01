@@ -36,7 +36,7 @@ const ProductInfo = ({ product }) => {
 
   console.log(file);
 
-  const { downloadFile } = useFileDownload(data?.accessToken || '');
+  const { mutate: downloadFile } = useFileDownload(token?.accessToken || '');
 
   return (
     <div className={styles.main_wrapper}>

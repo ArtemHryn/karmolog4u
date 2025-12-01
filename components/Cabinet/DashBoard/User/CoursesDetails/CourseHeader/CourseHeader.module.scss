@@ -15,7 +15,6 @@
     gap: 32px;
     padding: 32px;
   }
-
 }
 
 .ssk {
@@ -86,8 +85,13 @@
 .greeting {
   @include fontRegular(32px, 400, 32px, $main_text_color, center);
   text-transform: uppercase;
+
   @media all and (width >= $min_desktop) {
-    font-size: 64px;
+    font-size: 60px;
+  }
+  & > span {
+    word-break: break-all;
+    overflow-wrap: anywhere;
   }
 }
 

@@ -1,10 +1,11 @@
 import CourseHeader from '@/components/Cabinet/DashBoard/User/CoursesDetails/CourseHeader/CourseHeader';
 import UserFooter from '@/components/Cabinet/DashBoard/User/Footer/Footer';
+import { unbounded } from '../../../../../layout';
 
 const CourseLayout = ({ children }) => {
   return (
     <>
-      <CourseHeader />
+      <CourseHeader unbounded={unbounded} />
       {children}
       <UserFooter />
     </>

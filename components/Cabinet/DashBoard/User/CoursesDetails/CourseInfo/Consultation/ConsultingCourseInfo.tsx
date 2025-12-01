@@ -1,15 +1,17 @@
 import { Suspense } from 'react';
-import CourseInfoHeader from './CourseInfoHeader/CourseInfoHeader';
-import CourseInfoBody from './CourseInfoBody/CourseInfoBody';
-
 import { getServerSession } from 'next-auth';
-import CourseWrapper from '../CourseWrapper/CourseWrapper';
 import { authOptions } from '@/lib/authOptions.js';
+import CourseWrapper from '../CourseWrapper/CourseWrapper';
+import ConsultingHeader from './ConsultingHeader/ConsultingHeader';
+import Course from '../SSK/Skeletons/Course';
+import CourseInfoBody from './CourseInfoBody/CourseInfoBody';
+import Lessons from '../SSK/Skeletons/Lessons';
 
-import Course from './Skeletons/Course';
-import Lessons from './Skeletons/Lessons';
+interface ConsultingCourseInfoProps {
+  id: string;
+}
 
-const CourseInfo = async ({ id }: { id: string }) => {
+const ConsultingCourseInfo = async ({ id }: ConsultingCourseInfoProps) => {
   // @ts-expect-error: JS authOptions is untyped
   const session = await getServerSession(authOptions);
   if (!session) {
@@ -19,7 +21,7 @@ const CourseInfo = async ({ id }: { id: string }) => {
   return (
     <CourseWrapper>
       <Suspense fallback={<Course />}>
-        <CourseInfoHeader token={accessToken} id={id} />
+        <ConsultingHeader token={accessToken} id={id} />
       </Suspense>
       <Suspense fallback={<Lessons />}>
         <CourseInfoBody token={accessToken} id={id} />
@@ -28,4 +30,4 @@ const CourseInfo = async ({ id }: { id: string }) => {
   );
 };
 
-export default CourseInfo;
+export default ConsultingCourseInfo;

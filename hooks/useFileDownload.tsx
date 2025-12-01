@@ -1,3 +1,4 @@
+import { useMutation } from '@tanstack/react-query';
 import { base_url } from '@/helper/consts';
 import { toast } from 'react-toastify';
 
@@ -7,12 +8,10 @@ interface FileItems {
 }
 
 export const useFileDownload = (token: string) => {
-  const downloadFile = async (file: FileItems) => {
-    if (!file) {
-      toast.error('Невірні дані файлу');
-      return;
-    }
-    try {
+  const mutation = useMutation({
+    mutationFn: async (file: FileItems) => {
+      if (!file) throw new Error('Невірні дані файлу');
+
       const response = await fetch(`${base_url}/file/${file.savedName}`, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -20,8 +19,7 @@ export const useFileDownload = (token: string) => {
       });
 
       if (!response.ok) {
-        toast.error('Помилка при завантаженні файлу');
-        return;
+        throw new Error('Помилка при завантаженні файлу');
       }
 
       const blob = await response.blob();
@@ -33,9 +31,15 @@ export const useFileDownload = (token: string) => {
       link.click();
 
       window.URL.revokeObjectURL(url);
-    } catch (e) {
-      toast.error('Помилка при завантаженні файлу');
-    }
-  };
-  return { downloadFile };
+      return true;
+    },
+    onError: (error: any) => {
+      toast.error(error.message || 'Помилка при завантаженні файлу');
+    },
+    onSuccess: () => {
+      toast.success('Файл завантажується');
+    },
+  });
+
+  return mutation;
 };

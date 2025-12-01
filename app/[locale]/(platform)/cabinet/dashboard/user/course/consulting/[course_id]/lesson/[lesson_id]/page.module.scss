@@ -1,0 +1,18 @@
+@import '/styles/main.scss';
+
+.main {
+  position: relative;
+  top: -25px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  padding: 24px;
+  border-radius: 30px;
+  background: $card_bg_v2;
+  @media all and (width >= $min_tablet) {
+    padding: 32px;
+  }
+  @media all and (width >= $min_desktop) {
+    padding: 40px;
+  }
+}
