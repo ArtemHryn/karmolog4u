@@ -1,0 +1,47 @@
+@import '/styles/main.scss';
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  @media all and (width >= $min_tablet) {
+    gap: 24px;
+  }
+}
+
+.item {
+  width: calc((100% - 8px) / 2);
+  height: 64px;
+  border: 1px solid $accent_v2;
+  border-radius: 8px;
+  background-color: $main_bg;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  padding: 0 8px;
+  @media all and (width >= $min_tablet) {
+    width: calc((100% - 24px) / 2);
+  }
+}
+
+.redirect_el {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 100%;
+  width: 100%;
+  @include fontRegular(13px, 400, 19.89px);
+  @media all and (width >= $min_tablet) {
+    font-size: 16px;
+  }
+}
+
+.icon_wrapper {
+  display: flex;
+  justify-content: flex-end;
+  width: 40px;
+  height: 40px;
+  color: $buttons_color;
+  & > svg {
+    fill: currentColor;
+  }
+}

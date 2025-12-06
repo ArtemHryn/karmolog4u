@@ -18,3 +18,7 @@ export interface ModuleSectionProps {
     durationInDays: number;
   };
 }
+
+export interface AboutCourse {
+  chat: string;
+}

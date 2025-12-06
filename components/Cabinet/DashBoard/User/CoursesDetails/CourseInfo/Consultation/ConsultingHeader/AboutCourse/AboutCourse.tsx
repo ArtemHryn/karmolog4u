@@ -1,9 +1,20 @@
+import DateInfo from './DateInfo/DateInfo';
+
+import styles from './AboutCourse.module.scss';
+import CourseNavigation from './CourseNavigation/CourseNavigation';
+import { AboutCourse as CourseInfo } from '@/types/cons_adv_courses';
+
 interface AboutCourseProps {
-  course: any;
+  course: CourseInfo;
 }
 
 const AboutCourse = ({ course }: AboutCourseProps) => {
-  return <div></div>;
+  return (
+    <div className={styles.wrapper}>
+      <DateInfo />
+      <CourseNavigation course={course} />
+    </div>
+  );
 };
 
 export default AboutCourse;

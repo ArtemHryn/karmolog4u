@@ -4,4 +4,15 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  max-width: $min_desktop;
+  margin-inline: auto;
+}
+
+.course_info_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  @media all and (width >= $min_desktop) {
+    flex-direction: row-reverse;
+  }
 }

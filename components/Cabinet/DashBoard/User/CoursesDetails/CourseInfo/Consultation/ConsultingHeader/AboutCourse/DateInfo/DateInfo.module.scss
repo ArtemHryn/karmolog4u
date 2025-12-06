@@ -1,0 +1,24 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.next_lesson_wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid $accent_v2;
+  border-radius: 8px;
+  padding: 4px 24px;
+  width: 224px;
+  height: 64px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  background: $main_bg;
+}
+
+.next_lesson_text {
+  @include fontRegular(14px, 400, 20px, $main_text_color, center);
+}
