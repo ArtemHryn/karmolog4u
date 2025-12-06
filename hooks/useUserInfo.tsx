@@ -7,7 +7,14 @@ const endpoints = {
   products: { path: 'get-all-products', mainPath: 'productPurchase' },
 };
 
-const getUserInfo = async (token, action, type) => {
+interface UseUserInfoProps {
+  action: 'courses' | 'achievement' | 'products';
+  token?: string;
+  queryKey: string[];
+  activePart?: string;
+}
+
+const getUserInfo = async (token: string, action: keyof typeof endpoints, type: string) => {
   const endpoint = endpoints[action];
   const res = await fetch(
     `${base_url}/${endpoint.mainPath}/${type ? `${endpoint.path}/${type}` : `${endpoint.path}`}`,
@@ -26,7 +33,7 @@ const getUserInfo = async (token, action, type) => {
   return await res.json();
 };
 
-const useUserInfo = ({ action, token, queryKey, activePart }) => {
+const useUserInfo = ({ action, token = '', queryKey, activePart = '' }: UseUserInfoProps) => {
   return useQuery({
     queryKey,
     queryFn: () => getUserInfo(token, action, activePart),

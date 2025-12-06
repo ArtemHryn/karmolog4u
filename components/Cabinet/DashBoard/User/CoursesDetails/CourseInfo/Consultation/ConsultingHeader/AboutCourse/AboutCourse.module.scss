@@ -1,0 +1,17 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-inline: auto;
+  gap: 32px;
+  border: 1px solid $accent_v2;
+  border-radius: 12px;
+  padding: 16px;
+  min-width: 312px;
+  width: 100%;
+  background: $card_bg_v2;
+  @media all and (width >= $min_tablet) {
+    flex-direction: row;
+  }
+}

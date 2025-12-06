@@ -6,6 +6,7 @@ import AgreementInfo from './AgreementInfo/AgreementInfo';
 import Greeting from './Greeting/Greeting';
 
 import styles from './ConsultingHeader.module.scss';
+import AboutCourse from './AboutCourse/AboutCourse';
 
 interface ConsultingHeaderProps {
   token: string;
@@ -19,7 +20,7 @@ const text = [
 ];
 
 const ConsultingHeader = ({ token, id }: ConsultingHeaderProps) => {
-  const { data: course, isError } = useSuspenseQuery({
+  const { data: course } = useSuspenseQuery({
     queryKey: ['course', id],
     queryFn: () => fetchCourseDetailsForUser(token, id),
   });
@@ -29,7 +30,8 @@ const ConsultingHeader = ({ token, id }: ConsultingHeaderProps) => {
   return (
     <div className={styles.wrapper}>
       <AgreementInfo isSign={course?.purchaseInfo?.agreement} />
-      <div>
+      <div className={styles.course_info_wrapper}>
+        <AboutCourse course={course} />
         <Greeting title={'Любі друзі!'} text={text} />
       </div>
     </div>
