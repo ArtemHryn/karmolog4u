@@ -57,11 +57,28 @@ const CourseNavigation = ({ course }: CourseNavigationProps) => {
 
   const linkToSSK = getLinkToSSK();
 
+  const mainPathname = () => {
+    if (pathName.split('/').pop() !== course.id) {
+      const p = pathName.split('/').slice(0, -1).join('/');
+      return `${p}/`;
+    }
+    return `${pathName}/`;
+  };
+
   return (
     <ul className={styles.list}>
-      <li className={`${styles.item}`}>
-        <Link href={`${pathName}/agreement`} className={`${styles.redirect_el}`}>
-          <div className={styles.icon_wrapper}>
+      <li className={`${styles.item} ${pathName.includes('agreement') ? styles.active_item : ''}`}>
+        <Link
+          href={`${mainPathname()}agreement`}
+          className={`${styles.redirect_el} ${
+            pathName.includes('agreement') ? styles.active_link : ''
+          }`}
+        >
+          <div
+            className={`${styles.icon_wrapper} ${
+              pathName.includes('agreement') ? styles.active_link : ''
+            }`}
+          >
             <AgreementIcon />
           </div>
           Договір учасника
@@ -98,13 +115,22 @@ const CourseNavigation = ({ course }: CourseNavigationProps) => {
             <div className={styles.icon_wrapper}>
               <ToSSKIcon />
             </div>
-            Вступний курс по методу
+            Інтенсив по матриці
           </Link>
         </li>
       )}
-      <li className={`${styles.item}`}>
-        <Link href={`${pathName}/literature`} className={`${styles.redirect_el}`}>
-          <div className={styles.icon_wrapper}>
+      <li className={`${styles.item} ${pathName.includes('literature') ? styles.active_item : ''}`}>
+        <Link
+          href={`${mainPathname()}literature`}
+          className={`${styles.redirect_el} ${
+            pathName.includes('literature') ? styles.active_link : ''
+          }`}
+        >
+          <div
+            className={`${styles.icon_wrapper} ${
+              pathName.includes('literature') ? styles.active_link : ''
+            }`}
+          >
             <LiteratureIcon />
           </div>
           Список літератури

@@ -1,0 +1,37 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  @media all and (width >= $min_tablet) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    row-gap: 80px;
+  }
+}
+
+.text {
+  @include fontRegular(13px, 400, 19px);
+  text-wrap: auto;
+  @media all and (width >= $min_tablet) {
+    max-width: calc(100% - 301px);
+  }
+  @media all and (width >= $min_desktop) {
+    font-size: 16px;
+  }
+}
+
+.button {
+  @include buttonsDefault();
+  @include fontRegular(16px, 500, 24px, $section_color);
+  border-radius: 30px;
+  width: 241px;
+  height: 48px;
+  background-color: $buttons_color;
+  margin-inline: auto;
+  &:disabled {
+    opacity: 0.5;
+  }
+}
