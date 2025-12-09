@@ -1,0 +1,13 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.text {
+  @include fontRegular(14px, 400, 20px, $main_text_color);
+  @media all and (width >= $min_desktop) {
+    font-size: 16px;
+  }
+}

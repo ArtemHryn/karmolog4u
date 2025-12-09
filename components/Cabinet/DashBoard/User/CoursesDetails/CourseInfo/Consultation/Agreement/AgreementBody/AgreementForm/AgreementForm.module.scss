@@ -1,0 +1,10 @@
+@import '/styles/main.scss';
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  @media all and (width >= $min_tablet) {
+    gap: 60px;
+  }
+}

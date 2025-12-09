@@ -21,4 +21,13 @@ export interface ModuleSectionProps {
 
 export interface AboutCourse {
   chat: string;
+  id: string;
+}
+
+export interface AgreementBodyProps {
+  user: {
+    name?: string;
+    lastName?: string;
+    mobPhone?: string;
+  };
 }

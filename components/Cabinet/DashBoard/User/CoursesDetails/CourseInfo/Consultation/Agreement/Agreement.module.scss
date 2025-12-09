@@ -1,0 +1,39 @@
+@import '/styles/main.scss';
+
+.main_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 80px;
+  @media all and (width >= $min_desktop) {
+    align-items: center;
+  }
+}
+
+.title_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  @media all and (width >= $min_tablet) {
+    gap: 20px;
+  }
+}
+
+.title {
+  @include fontRegular(22px, 400, 22px, $main_text_color, center);
+  text-transform: uppercase;
+  @media all and (width >= $min_desktop) {
+    font-size: 44px;
+  }
+}
+
+.text {
+  @include fontRegular(14px, 400, 20px, $main_text_color, center);
+  text-wrap: auto;
+  @media all and (width >= $min_tablet) {
+    font-size: 20px;
+  }
+  @media all and (width >= $min_desktop) {
+    font-size: 24px;
+  }
+}

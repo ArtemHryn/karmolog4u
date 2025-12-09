@@ -23,6 +23,10 @@
   }
 }
 
+.active_item {
+  background-color: $additional_bg;
+}
+
 .redirect_el {
   display: flex;
   align-items: center;
@@ -30,6 +34,7 @@
   height: 100%;
   width: 100%;
   @include fontRegular(13px, 400, 19.89px);
+
   @media all and (width >= $min_tablet) {
     font-size: 16px;
   }
@@ -44,4 +49,8 @@
   & > svg {
     fill: currentColor;
   }
+}
+
+.active_link {
+  color: $third_text_color;
 }

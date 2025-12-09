@@ -27,7 +27,7 @@ const getUserInfo = async (token: string, action: keyof typeof endpoints, type: 
   );
   if (!res.ok) {
     const errorBody = await res.json();
-    throw new Error(errorBody?.message || 'Помилка');
+    throw errorBody;
   }
 
   return await res.json();
