@@ -30,9 +30,9 @@ const LessonDetailsNavigation = ({ params }: LessonDetailsProps) => {
         params.course_id,
         `${!pathName.includes('ssk') ? 'list' : 'SSK'}`
       ),
-    gcTime: 24 * 60 * 60 * 1000,
     enabled: !!accessToken,
     initialData: cachedLessons,
+    staleTime: 60 * 1000,
   });
 
   if (!lessons || isError) return null;

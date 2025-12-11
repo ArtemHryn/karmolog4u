@@ -1,0 +1,84 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  @media all and (width >= $min_tablet) {
+    gap: 44px;
+  }
+}
+
+.title {
+  @include fontRegular(20px, 400, 20px);
+  @media all and (width >= $min_tablet) {
+    font-size: 22px;
+  }
+  @media all and (width >= $min_desktop) {
+    font-size: 28px;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  @media all and (width >= $min_tablet) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.element {
+  display: flex;
+  gap: 12px;
+}
+
+.text {
+  @include fontRegular(14px, 400, 20px);
+  text-wrap: auto;
+}
+
+.text_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.link {
+  position: relative;
+  padding-bottom: 3px;
+  transition: all 250ms ease;
+  height: min-content;
+  width: fit-content;
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 0;
+    background-color: currentColor;
+    transition: all 250ms ease;
+  }
+  @media (hover: hover) {
+    &:is(:hover, :focus) {
+      color: $seconds_text_color;
+    }
+  }
+  @media (hover: none) {
+    &:is(:active, :focus) {
+      color: $seconds_text_color;
+    }
+  }
+  @media (hover: hover) {
+    &:is(:hover, :focus)::after {
+      width: 100%;
+    }
+  }
+  @media (hover: none) {
+    &:is(:active, :focus)::after {
+      width: 100%;
+    }
+  }
+}
