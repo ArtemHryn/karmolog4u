@@ -1,0 +1,18 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.title {
+  text-transform: uppercase;
+  @include fontRegular(32px, 400, 32px, $main_text_color, center);
+  @media all and (width >= $min_tablet) {
+    font-size: 32px;
+  }
+  @media all and (width >= $min_desktop) {
+    font-size: 44px;
+  }
+}

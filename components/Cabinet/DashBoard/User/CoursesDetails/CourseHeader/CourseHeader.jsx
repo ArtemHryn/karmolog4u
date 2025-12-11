@@ -3,7 +3,6 @@
 import { useParams, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { useQuery } from '@tanstack/react-query';
-import { useSession } from 'next-auth/react';
 
 import AccountLabel from './AccountLabel/AccountLabel';
 import Logo from '../../../../Authentication/FormHeader/Logo';
@@ -11,16 +10,15 @@ import Logo from '../../../../Authentication/FormHeader/Logo';
 import { fetchCourseDetailsForUser } from '@/helper/platform/fetchCourseDetailsForUser';
 
 import styles from './CourseHeader.module.scss';
+import { unbounded_client } from '../../../../../../app/[locale]/clients-fonts';
 
-const CourseHeader = ({unbounded}) => {
+const CourseHeader = ({ token }) => {
   const pathName = usePathname();
   const { course_id } = useParams();
-  const { data } = useSession();
 
-  const { data: course } = useQuery({
+  const { data: course, isLoading } = useQuery({
     queryKey: ['course', course_id],
-    queryFn: () => fetchCourseDetailsForUser(data?.accessToken, course_id),
-    enabled: !!data?.accessToken,
+    queryFn: () => fetchCourseDetailsForUser(token, course_id),
   });
 
   const sections = {
@@ -54,13 +52,15 @@ const CourseHeader = ({unbounded}) => {
       </div>
       <div className={styles.greeting_wrapper}>
         <p
-          className={`${styles.greeting} ${unbounded.className}`}
+          className={`${styles.greeting} ${unbounded_client.className}`}
           dangerouslySetInnerHTML={{ __html: greeting }}
         />
 
-        <p className={`${styles.date} ${unbounded.className}`}>
-          Курс дійсний до {availableTo && availableTo}
-        </p>
+        {!isLoading && (
+          <p className={`${styles.date} ${unbounded_client.className}`}>
+            Курс дійсний до {availableTo && availableTo}
+          </p>
+        )}
       </div>
     </header>
   );

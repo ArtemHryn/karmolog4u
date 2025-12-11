@@ -31,3 +31,9 @@ export interface AgreementBodyProps {
     mobPhone?: string;
   };
 }
+
+export interface BonusLinkItem {
+  link: string;
+  name?: string;
+  author?: string;
+}

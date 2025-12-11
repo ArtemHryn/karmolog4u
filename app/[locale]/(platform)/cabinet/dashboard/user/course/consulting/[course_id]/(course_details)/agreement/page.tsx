@@ -1,4 +1,4 @@
-import Agreement from '@/components/Cabinet/DashBoard/User/CoursesDetails/CourseInfo/Consultation/Agreement/Agreement';
+import Agreement from '@/components/Cabinet/DashBoard/User/CoursesDetails/CourseInfo/Agreement/Agreement';
 
 import { Suspense } from 'react';
 

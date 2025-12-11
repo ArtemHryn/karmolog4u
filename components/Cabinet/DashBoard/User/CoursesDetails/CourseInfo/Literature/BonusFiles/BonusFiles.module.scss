@@ -1,0 +1,61 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  @media all and (width >= $min_tablet) {
+    gap: 44px;
+  }
+}
+
+.title {
+  @include fontRegular(20px, 400, 20px);
+  @media all and (width >= $min_tablet) {
+    font-size: 22px;
+  }
+  @media all and (width >= $min_desktop) {
+    font-size: 28px;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  @media all and (width >= $min_tablet) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.element {
+  display: flex;
+  gap: 32px;
+}
+
+.text {
+  @include fontRegular(14px, 400, 20px);
+  text-wrap: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  height: 24px;
+  & > svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.name {
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  text-underline-offset: 3px;
+}

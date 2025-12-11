@@ -22,3 +22,22 @@
     padding: 0 80px;
   }
 }
+
+.link_back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  @include fontRegular(14px, 600, 19.6px, $buttons_color);
+  margin-bottom: 28px;
+  &:hover {
+    color: $buttons_hover_color;
+  }
+  & > svg {
+    width: 14px;
+    height: 14px;
+  }
+  @media all and (width >= $min_desktop) {
+    font-size: 16px;
+    margin-bottom: 56px;
+  }
+}
