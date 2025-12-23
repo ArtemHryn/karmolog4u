@@ -68,7 +68,7 @@ const ActionsColumn = ({ rowData }) => {
               {rowData.paymentPlan !== FULL && (
                 <li>
                   <button
-                    onClick={() => console.log('1')}
+                    onClick={() => userPurchase.mutate({ action: 'full_access', id: rowData.id })}
                     className={`${styles.button} ${open_Sans.className}`}
                   >
                     <AllLessons /> Повний доступ

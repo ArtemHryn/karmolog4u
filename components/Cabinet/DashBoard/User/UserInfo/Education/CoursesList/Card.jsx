@@ -14,7 +14,7 @@ import {
 } from '@/helper/consts';
 
 const Card = ({ course }) => {
-  const { name = 'не вказано', availableTo, accessEndDate, cover, id, paymentPlan, type } = course;
+  const { name, availableTo, accessEndDate, cover, id, paymentPlan, type, accessType } = course;
 
   const routing = {
     [SSK_INDEPENDENT]: 'ssk',
@@ -44,12 +44,14 @@ const Card = ({ course }) => {
               {name}
             </Link>
             <p className={`${styles.available}`}>
-              дійсний до{' '}
-              {new Date(accessEndDate).toLocaleString(undefined, {
-                day: '2-digit',
-                month: '2-digit',
-                year: 'numeric',
-              })}
+              дійсний до:{' '}
+              {accessType === 'PERMANENT'
+                ? 'Безстроково'
+                : new Date(accessEndDate).toLocaleString(undefined, {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric',
+                  })}
             </p>
           </div>
           {paymentPlan === PARTIAL && (

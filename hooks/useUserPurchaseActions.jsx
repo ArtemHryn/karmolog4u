@@ -9,7 +9,7 @@ const endpoints = {
   add: { path: 'add', method: 'POST' },
   prolong: { path: 'extend-access', method: 'PATCH' },
   practice: { path: 'extend-practice', method: 'PATCH' },
-  full_access: { path: 'complete-access', method: 'PATCH' },
+  full_access: { path: 'complete-access', method: 'POST' },
 };
 
 const fetcher = async ({ token, data, id, action }) => {
@@ -25,6 +25,8 @@ const fetcher = async ({ token, data, id, action }) => {
 
   if (!res.ok) {
     const errorBody = await res.json();
+    console.log(errorBody);
+
     throw new Error(errorBody?.message || 'Помилка');
   }
 
