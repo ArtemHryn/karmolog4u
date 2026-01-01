@@ -8,6 +8,7 @@ import LinkToChatIcon from './Icons/LinkToChatIcon';
 import ToArchiveIcon from './Icons/ToArchiveIcon';
 import DeleteCourseIcon from './Icons/DeleteCourseIcon';
 import OpenMenuIcon from './Icons/OpenMenuIcon';
+import { ADVANCED, CONSULTING } from '@/helper/consts';
 
 import styles from './ActionsColumn.module.scss';
 
@@ -29,6 +30,17 @@ const ActionsColumn = ({
       toast.success('Посилання скопійовано');
     } catch (err) {
       toast.error('Помилка копіювання:', err);
+    }
+  };
+
+  const getCourseTypeLink = () => {
+    switch (rowData.value) {
+      case CONSULTING:
+        return `${origin}/cabinet/dashboard/user/course/consulting/${id}`;
+      case ADVANCED:
+        return `${origin}/cabinet/dashboard/user/course/advanced/${id}`;
+      default:
+        return `${origin}/cabinet/dashboard/user/course/ssk/${id}`;
     }
   };
 
@@ -64,7 +76,7 @@ const ActionsColumn = ({
             </li>
             <li>
               <button
-                onClick={() => copyToClipboard(`${origin}/cabinet/dashboard/admin`)}
+                onClick={() => copyToClipboard(getCourseTypeLink())}
                 className={styles.list_action_tag}
               >
                 <LinkToCourseIcon />

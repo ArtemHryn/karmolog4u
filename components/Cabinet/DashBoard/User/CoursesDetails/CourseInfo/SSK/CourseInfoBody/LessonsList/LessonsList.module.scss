@@ -21,7 +21,6 @@
 .lesson_item {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   gap: 32px;
   border: 1px solid $accent_v2;
   border-radius: 30px;
@@ -45,15 +44,23 @@
 .title {
   @include fontRegular(16px, 400, 25.28px, $seconds_text_color);
   text-transform: uppercase;
+  @media all and (width >= $min_desktop) {
+    font-size: 18px;
+  }
 }
 
 .description {
   @include fontRegular(14px, 400, 22.12px, $main_text_color);
   display: -webkit-box;
+  text-wrap: wrap;
   -webkit-line-clamp: 4; // максимум 4 рядки
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis; // додає "..." якщо текст обрізається
+  flex-grow: 1;
+  @media all and (width >= $min_desktop) {
+    font-size: 16px;
+  }
 }
 
 .link {

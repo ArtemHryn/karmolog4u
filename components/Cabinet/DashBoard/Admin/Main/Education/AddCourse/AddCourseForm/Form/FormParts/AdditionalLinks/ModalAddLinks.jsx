@@ -5,18 +5,14 @@ import { open_Sans } from '@/app/[locale]/layout';
 import styles from './AdditionalLinks.module.scss';
 
 const ModalAddLinks = ({ setShowModal, fieldName, title, linkFieldName = 'name' }) => {
-  const {
-    register,
-    formState: { errors },
-    control,
-  } = useFormContext();
+  const { register, control } = useFormContext();
   const { fields, append, remove } = useFieldArray({
     name: fieldName,
     control,
   });
 
   const lastElement = index => {
-    return fields.length <= 5 && index + 1 === fields.length;
+    return index + 1 === fields.length;
   };
 
   return (
