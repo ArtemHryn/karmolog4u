@@ -12,6 +12,8 @@ import Footer from './Footer/Footer';
 import { useDebounce } from '@/hooks/useDebounce';
 import ActionsColumn from './ActionsColumn/ActionsColumn';
 import EmptyTable from './EmptyTable/EmptyTable';
+import ConfirmWindow from './ConfirmWindow/ConfirmWindow';
+import NameColumnBody from './NameColumnBody/NameColumnBody';
 
 import { coursesTypeList, accessTypeList, completenessList } from '@/helper/platform/coursesList';
 
@@ -19,8 +21,6 @@ import { base_url } from '@/helper/consts';
 import styles from './Table.module.scss';
 import './table.scss';
 import 'react-toastify/dist/ReactToastify.css';
-import ConfirmWindow from './ConfirmWindow/ConfirmWindow';
-import NameColumnBody from './NameColumnBody/NameColumnBody';
 
 const fetchCourses = async ({ token, status, filters, limit, page }) => {
   const { searchQuery, name, type, access, completeness } = filters;
@@ -190,6 +190,7 @@ const Table = ({ activeBtn, search, setNumberOfCourses }) => {
     const tableData = courses[0].data.map(el => ({
       name: el.name || 'Не вказано',
       type: coursesTypeList.find(courseType => courseType.value === el.type)?.name || 'Не вказано',
+      value: coursesTypeList.find(courseType => courseType.value === el.type)?.value || null,
       stream: el.stream || 'Не вказано',
       id: el.id || 'Не вказано',
       access: accessTypeList.find(access => access.value === el.access?.type)?.name || 'Не вказано',
