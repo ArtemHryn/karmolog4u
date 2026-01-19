@@ -12,7 +12,7 @@ import { useFileDownload } from '@/hooks/useFileDownload';
 const ProductInfo = ({ product }) => {
   const router = useRouter();
   const pathName = usePathname();
-  const { data } = useSession();
+  const { data: token } = useSession();
 
   const {
     video = null,
@@ -24,7 +24,6 @@ const ProductInfo = ({ product }) => {
     detailsDescription = null,
     file = null,
   } = product;
-  // console.log(product);
 
   const categoriesMap = {
     [CLOSED_MEDITATIONS]: 'Медитація',
@@ -33,8 +32,6 @@ const ProductInfo = ({ product }) => {
     [BOOKS]: 'Книга',
     [GUIDES]: 'Гайд 22 енегрії',
   };
-
-  console.log(file);
 
   const { mutate: downloadFile } = useFileDownload(token?.accessToken || '');
 

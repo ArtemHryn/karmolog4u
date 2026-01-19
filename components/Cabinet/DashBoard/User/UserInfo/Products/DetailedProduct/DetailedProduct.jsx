@@ -6,6 +6,7 @@ import { Suspense } from 'react';
 import Loader from '../../../Loader/Loader';
 
 const DetailedProduct = ({ product, token }) => {
+  
   return (
     <div className={styles.wrapper}>
       <ProductInfo product={product} />

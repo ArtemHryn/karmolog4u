@@ -1,6 +1,7 @@
+import { redirect } from "next/navigation";
 
 const page = () => {
-  return <div>consulting</div>;
+  return redirect('/cabinet/dashboard/user/education');
 }
 
 export default page

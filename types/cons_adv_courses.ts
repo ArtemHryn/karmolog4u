@@ -22,6 +22,7 @@ export interface ModuleSectionProps {
 export interface AboutCourse {
   chat: string;
   id: string;
+  type: string;
 }
 
 export interface AgreementBodyProps {
