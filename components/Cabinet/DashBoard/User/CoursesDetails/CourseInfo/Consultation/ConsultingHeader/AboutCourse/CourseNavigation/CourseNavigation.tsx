@@ -15,6 +15,8 @@ import { open_Sans_Client } from '@/app/[locale]/clients-fonts';
 import useUserInfo from '@/hooks/useUserInfo';
 
 import styles from './CourseNavigation.module.scss';
+import { ADVANCED, CONSULTING } from '@/helper/consts';
+import Calculator from './Icons/Calculator';
 
 interface CourseNavigationProps {
   course: AboutCourse;
@@ -106,7 +108,7 @@ const CourseNavigation = ({ course }: CourseNavigationProps) => {
           Оплата практики
         </button>
       </li>
-      {linkToSSK && (
+      {linkToSSK && course.type === CONSULTING && (
         <li className={`${styles.item}`}>
           <Link
             href={`/cabinet/dashboard/user/course/ssk/${linkToSSK}`}
@@ -158,17 +160,30 @@ const CourseNavigation = ({ course }: CourseNavigationProps) => {
           Відділ турботи
         </Link>
       </li>
-      <li className={`${styles.item}`}>
-        <button
-          onClick={() => {}}
-          className={`${styles.redirect_el} ${open_Sans_Client.className}`}
-        >
-          <div className={styles.icon_wrapper}>
-            <Certificate />
-          </div>
-          Отримати сертифікат
-        </button>
-      </li>
+      {course.type === CONSULTING && (
+        <li className={`${styles.item}`}>
+          <button
+            onClick={() => {}}
+            className={`${styles.redirect_el} ${open_Sans_Client.className}`}
+          >
+            <div className={styles.icon_wrapper}>
+              <Certificate />
+            </div>
+            Отримати сертифікат
+          </button>
+        </li>
+      )}
+      {course.type === ADVANCED && (
+        <li className={`${styles.item}`}>
+          {' '}
+          <Link href={'cabinet/dashboard/user/support'} className={`${styles.redirect_el}`}>
+            <div className={styles.icon_wrapper}>
+              <Calculator />
+            </div>
+            Калькулятор
+          </Link>
+        </li>
+      )}
     </ul>
   );
 };
