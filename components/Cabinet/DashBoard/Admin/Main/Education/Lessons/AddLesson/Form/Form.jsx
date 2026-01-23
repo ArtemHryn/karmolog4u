@@ -46,6 +46,7 @@ const setDefaultFormValues = items => {
       feedbacks: [{ feedback: '' }, { feedback: '' }],
       homeworkFiles: [],
       bonusFiles: [],
+      dateStart: new Date(Date.now()),
     };
   }
 
@@ -60,6 +61,7 @@ const setDefaultFormValues = items => {
     lessonTimeStart: new Date(new Date(lessonTimeStart)),
     lessonTimeEnd: new Date(new Date(lessonTimeEnd)),
     additional_links: additionalLinks,
+    dateStart: new Date(lessonTimeStart || new Date()),
   };
 };
 
@@ -95,7 +97,6 @@ const Form = ({ editLesson }) => {
     },
   });
 
-
   const onFormSubmit = data => {
     const {
       videoLinks,
@@ -107,6 +108,7 @@ const Form = ({ editLesson }) => {
       feedbacks,
       lessonTimeStart,
       lessonTimeEnd,
+      dateStart,
       moduleDay,
       modulePart,
       ...lessonInfo
@@ -161,7 +163,13 @@ const Form = ({ editLesson }) => {
       targetId: moduleId || params.course_id,
       ...(moduleId
         ? {
-            lessonTimeStart,
+            lessonTimeStart: new Date(
+              dateStart.getFullYear(),
+              dateStart.getMonth(),
+              dateStart.getDate(),
+              lessonTimeStart.getHours(),
+              lessonTimeStart.getMinutes()
+            ),
             lessonTimeEnd,
             moduleDay: +moduleDay,
             modulePart: +modulePart,

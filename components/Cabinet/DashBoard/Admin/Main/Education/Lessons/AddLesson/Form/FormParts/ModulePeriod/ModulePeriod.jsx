@@ -40,6 +40,21 @@ const ModulePeriod = () => {
         <p className={styles.label}>5. Розклад уроку</p>
         <div className={styles.time_wrapper}>
           <Controller
+            name="dateStart"
+            control={control}
+            render={({ field }) => (
+              <div className={styles.time_label}>
+                <p>Дата</p>
+                <Calendar
+                  id={field.name}
+                  value={field.value}
+                  onChange={e => field.onChange(e.value)}
+                  dateFormat='dd.mm.yy'
+                />
+              </div>
+            )}
+          />
+          <Controller
             name="lessonTimeStart"
             control={control}
             render={({ field }) => (
