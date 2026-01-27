@@ -1,12 +1,15 @@
+import { format } from 'date-fns';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import styles from './Calendar.module.scss';
 
 export default function EventsCalendar({ events }) {
   const [value, setValue] = useState(new Date());
+  if (!events) return null;
   const renderTileContent = ({ date }) => {
-    const dateStr = date.toISOString().split('T')[0];
+    const dateStr = format(date, 'yyyy-MM-dd');
     const tooltip = events[dateStr];
 
     return tooltip ? (
@@ -17,11 +20,14 @@ export default function EventsCalendar({ events }) {
   };
 
   const handleClickDay = date => {
-    const dateStr = date.toISOString().split('T')[0];
+    const dateStr = format(date, 'yyyy-MM-dd');
     const event = events[dateStr];
 
     if (event) {
-      console.log(`${dateStr}: ${event}`);
+      toast.info(`${dateStr}: ${event}`, {
+        progressClassName: styles.event_toast_progress_bar,
+        className: styles.event_toast,
+      });
     }
     setValue(date); // оновлює вибраний день
   };

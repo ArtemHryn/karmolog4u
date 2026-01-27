@@ -94,20 +94,22 @@ const CourseNavigation = ({ course }: CourseNavigationProps) => {
           <div className={styles.icon_wrapper}>
             <PaymentIcon />
           </div>
-          Оплата теорії
+          {course.type === CONSULTING ? 'Оплата теорії' : 'Внести платіж'}
         </button>
       </li>
-      <li className={`${styles.item}`}>
-        <button
-          onClick={() => {}}
-          className={`${styles.redirect_el} ${open_Sans_Client.className}`}
-        >
-          <div className={styles.icon_wrapper}>
-            <PaymentIcon />
-          </div>
-          Оплата практики
-        </button>
-      </li>
+      {course.type === CONSULTING && (
+        <li className={`${styles.item}`}>
+          <button
+            onClick={() => {}}
+            className={`${styles.redirect_el} ${open_Sans_Client.className}`}
+          >
+            <div className={styles.icon_wrapper}>
+              <PaymentIcon />
+            </div>
+            Оплата практики
+          </button>
+        </li>
+      )}
       {linkToSSK && course.type === CONSULTING && (
         <li className={`${styles.item}`}>
           <Link

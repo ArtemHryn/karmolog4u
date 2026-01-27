@@ -3,6 +3,8 @@ export interface LessonItems {
   moduleDay: number;
   modulePart: number;
   id: string;
+  lessonTimeStart: Date;
+  lessonTimeEnd: Date;
 }
 
 interface Access {

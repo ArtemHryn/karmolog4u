@@ -4,6 +4,7 @@ import AgreementBody from './AgreementBody/AgreementBody';
 import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 
 import styles from './Agreement.module.scss';
+import { ToastContainer } from 'react-toastify';
 
 const Agreement = async () => {
   // @ts-expect-error: JS authOptions is untyped
@@ -22,6 +23,7 @@ const Agreement = async () => {
         </TitleNoStyles>
       </div>
       <AgreementBody user={session.user} />
+      <ToastContainer />
     </div>
   );
 };

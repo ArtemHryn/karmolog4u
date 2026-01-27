@@ -27,6 +27,12 @@
   }
 }
 
+.info_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .name {
   @include fontRegular(14px, 600, 14px);
   word-break: break-word;
@@ -35,6 +41,11 @@
   @media all and (width >= $min_desktop) {
     font-size: 16px;
   }
+}
+
+.time {
+  @include fontRegular(13px, 400, 17px);
+  opacity: 0.7;
 }
 
 .button {
