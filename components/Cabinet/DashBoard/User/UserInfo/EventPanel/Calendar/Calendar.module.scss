@@ -10,7 +10,7 @@
 //основа
 .wrapper :global(.react-calendar) {
   width: 224px;
-  height: 250px;
+  max-height: 270px;
   background: $main_bg;
   color: $main_text_color;
   border-radius: 8px;
@@ -131,4 +131,15 @@
   justify-content: flex-end;
   height: 100%;
   padding-top: 2px; // опціонально, щоб підняти число дати
+}
+
+//toast
+.event_toast_progress_bar {
+  background-color: $additional_bg !important;
+}
+
+.event_toast {
+  & svg {
+    fill: $additional_bg !important;
+  }
 }

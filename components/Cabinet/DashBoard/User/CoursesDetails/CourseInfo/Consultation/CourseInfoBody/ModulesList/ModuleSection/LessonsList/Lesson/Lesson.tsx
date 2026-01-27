@@ -7,10 +7,26 @@ import { open_Sans_Client } from '@/app/[locale]/clients-fonts';
 const Lesson = ({ lesson }: { lesson: LessonItems }) => {
   const router = useRouter();
   const pathName = usePathname();
+  const dateFormatter = new Intl.DateTimeFormat('uk-UA', {
+    day: 'numeric',
+    month: 'long',
+  });
+  const timeFormatter = new Intl.DateTimeFormat('uk-UA', {
+    hour: '2-digit',
+    minute: '2-digit',
+  });
 
   return (
     <li className={styles.item}>
-      <p className={styles.name}>{lesson.name}</p>
+      <div className={styles.info_wrapper}>
+        <p className={styles.name}>{lesson.name}</p>
+        <p className={styles.time}>
+          {dateFormatter.format(new Date(lesson.lessonTimeStart))}
+          {'  '}
+          {timeFormatter.format(new Date(lesson.lessonTimeStart))} -{' '}
+          {timeFormatter.format(new Date(lesson.lessonTimeEnd))}
+        </p>
+      </div>
       <button
         className={`${styles.button} ${open_Sans_Client.className}`}
         onClick={() => router.push(`${pathName}/lesson/${lesson.id}`)}

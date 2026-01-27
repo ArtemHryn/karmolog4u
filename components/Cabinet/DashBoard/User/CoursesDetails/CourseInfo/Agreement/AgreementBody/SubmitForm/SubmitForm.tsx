@@ -7,7 +7,7 @@ import styles from './SubmitForm.module.scss';
 const label =
   'Я підтверджую, що уважно ознайомився/ознайомилася зі змістом даного договору і надаю згоду на його підписання';
 
-const SubmitForm = () => {
+const SubmitForm = ({ isPending }: { isPending: boolean }) => {
   const { watch } = useFormContext();
 
   return (
@@ -20,7 +20,7 @@ const SubmitForm = () => {
       <button
         type="submit"
         className={`${styles.button} ${open_Sans.className}`}
-        disabled={!watch('isAgree')}
+        disabled={!watch('isAgree') || isPending}
       >
         Підписати договір
       </button>

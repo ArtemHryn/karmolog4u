@@ -11,7 +11,33 @@
   min-width: 312px;
   width: 100%;
   background: $card_bg_v2;
+}
+
+.consult_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
   @media all and (width >= $min_tablet) {
     flex-direction: row;
   }
+}
+
+.next_lesson_wrapper {
+  display: none;
+  @media all and (width >= $min_tablet) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $accent_v2;
+    border-radius: 8px;
+    padding: 4px 24px;
+    width: 100%;
+    height: 46px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+    background: $main_bg;
+  }
+}
+
+.next_lesson_text {
+  @include fontRegular(14px, 400, 20px, $main_text_color, center);
 }

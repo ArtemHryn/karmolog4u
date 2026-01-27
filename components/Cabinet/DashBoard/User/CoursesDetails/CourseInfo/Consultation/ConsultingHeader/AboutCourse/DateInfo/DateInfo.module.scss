@@ -22,3 +22,9 @@
 .next_lesson_text {
   @include fontRegular(14px, 400, 20px, $main_text_color, center);
 }
+
+.hide_next_lesson {
+  @media all and (width >= $min_tablet) {
+    display: none;
+  }
+}
