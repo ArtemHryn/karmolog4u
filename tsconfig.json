@@ -23,6 +23,6 @@
       }
     ]
   },
-  "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx", "app/api/auth/[...nextauth]/route.js"],
+  "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx", "app/api/auth/[...nextauth]/route.js", "components/Cabinet/DashBoard/Admin/Header/Menu/Navigation/Icons/Events.jsx"],
   "exclude": ["node_modules"]
 }
