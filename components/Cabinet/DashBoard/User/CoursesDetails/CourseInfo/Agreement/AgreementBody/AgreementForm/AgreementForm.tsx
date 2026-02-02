@@ -1,49 +1,55 @@
 'use client';
+import { useEffect } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { useMutation } from '@tanstack/react-query';
-import AgreementUserData from '../AgreementUserData/AgreementUserData';
-import AgreementSocial from '../AgreementSocial/AgreementSocial';
-
-import Definitions from '../Definitions/Definitions';
-import SubmitForm from '../SubmitForm/SubmitForm';
-import { AgreementBodyProps } from '@/types/cons_adv_courses';
-import { base_url } from '@/helper/consts';
-
-import styles from './AgreementForm.module.scss';
 import { useSession } from 'next-auth/react';
 import { useParams } from 'next/navigation';
+import { useMutation, useQuery } from '@tanstack/react-query';
+import AgreementUserData from '../AgreementUserData/AgreementUserData';
+import AgreementSocial from '../AgreementSocial/AgreementSocial';
+import Definitions from '../Definitions/Definitions';
+import SubmitForm from '../SubmitForm/SubmitForm';
+
+import { fetchAgreeToAgreement, getAgreementData } from '@/helper/platform/agreementFetch';
+import { AgreementBodyProps } from '@/types/cons_adv_courses';
+
+import styles from './AgreementForm.module.scss';
 
 type dataProps = Record<string, string>;
 
-type AgreePayload = {
-  data: dataProps;
-  token: string;
-  id: string;
-};
-
-const fetchAgreeToAgreement = async ({ data, token, id }: AgreePayload) => {
-  const res = await fetch(`${base_url}/contract/sign/${id}`, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify(data),
-  });
-  if (!res.ok) {
-    const errorMessage = await res.json();
-    throw new Error(errorMessage.message || 'Помилка відписання договору');
+const getDefaultValues = (agreementInfo: dataProps) => {
+  if (agreementInfo?.agreement) {
+    const { fullname, phone, idCode, passportData, telegram, viber, whatsapp } = agreementInfo;
+    return {
+      fullname,
+      phone,
+      idCode,
+      passportData,
+      telegram,
+      viber,
+      whatsapp,
+    };
   }
-  return res.json();
+  return {
+    fullname: `${agreementInfo?.lastName || ''} ${agreementInfo?.name || ''}`,
+    phone: agreementInfo?.mobPhone || '',
+  };
 };
 
 const AgreementForm = ({ user }: AgreementBodyProps) => {
   const { data: token } = useSession();
   const params = useParams();
+  const {
+    data: agreementData,
+    isError,
+    isLoading,
+  } = useQuery({
+    queryKey: ['agreement', params.course_id],
+    queryFn: () => getAgreementData(params.course_id as string, token?.accessToken ?? ''),
+    enabled: !!token?.accessToken,
+  });
+
   const method = useForm({
-    defaultValues: {
-      fullName: `${user?.lastName || ''} ${user?.name || ''}`,
-      phone: user?.mobPhone || '',
-    },
+    defaultValues: getDefaultValues(user),
   });
 
   const mutate = useMutation({
@@ -63,13 +69,30 @@ const AgreementForm = ({ user }: AgreementBodyProps) => {
     };
     mutate.mutate(assignData);
   };
+
+  useEffect(() => {
+    if (isLoading || isError || !agreementData?.data) return;
+    console.log(agreementData.data.contractDetails);
+    const [telegram, viber, whatsapp] = agreementData.data.contractDetails.messenger.split(';');
+
+    method.reset(
+      getDefaultValues({
+        ...agreementData.data.contractDetails,
+        agreement: agreementData.data.agreement,
+        telegram: telegram ? true : false,
+        viber: viber ? true : false,
+        whatsapp: whatsapp ? true : false,
+      })
+    );
+  }, [agreementData, isLoading, isError, method]);
+
   return (
     <FormProvider {...method}>
       <form onSubmit={method.handleSubmit(onSubmit)} className={styles.form}>
         <AgreementUserData />
         <AgreementSocial />
         <Definitions />
-        <SubmitForm isPending={mutate.isPending} />
+        <SubmitForm isPending={mutate.isPending} isAssigned={!!agreementData?.data?.agreement} />
       </form>
     </FormProvider>
   );

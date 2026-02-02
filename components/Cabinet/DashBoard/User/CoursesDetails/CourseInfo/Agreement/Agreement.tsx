@@ -5,6 +5,7 @@ import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 
 import styles from './Agreement.module.scss';
 import { ToastContainer } from 'react-toastify';
+import DownloadButton from './DownloadButton/DownloadButton';
 
 const Agreement = async () => {
   // @ts-expect-error: JS authOptions is untyped
@@ -15,9 +16,13 @@ const Agreement = async () => {
   return (
     <div className={styles.main_wrapper}>
       <div className={styles.title_wrapper}>
-        <TitleNoStyles variant="h2" styled={styles.title}>
-          Договір
-        </TitleNoStyles>
+        <div className={styles.agreement_wrapper}>
+          {' '}
+          <TitleNoStyles variant="h2" styled={styles.title}>
+            Договір
+          </TitleNoStyles>
+          <DownloadButton />
+        </div>
         <TitleNoStyles variant="p" styled={styles.text}>
           про надання освітньо-навчальних послуг
         </TitleNoStyles>
