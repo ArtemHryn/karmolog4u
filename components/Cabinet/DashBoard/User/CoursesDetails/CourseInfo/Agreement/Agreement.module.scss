@@ -22,9 +22,17 @@
 .title {
   @include fontRegular(22px, 400, 22px, $main_text_color, center);
   text-transform: uppercase;
+  justify-self: center;
+  grid-column: 2;
   @media all and (width >= $min_desktop) {
     font-size: 44px;
   }
+}
+
+.agreement_wrapper {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
 }
 
 .text {
