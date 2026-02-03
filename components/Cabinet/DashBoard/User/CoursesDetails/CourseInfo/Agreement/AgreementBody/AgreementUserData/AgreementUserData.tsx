@@ -6,7 +6,7 @@ const AgreementUserData = () => {
   return (
     <div className={styles.wrapper}>
       <Input
-        name={'fullName'}
+        name={'fullname'}
         label={'Фізична особа, громадянин'}
         placeholder="Прізвище, ім’я, по батькові"
       />
