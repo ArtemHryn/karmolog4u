@@ -1,0 +1,23 @@
+@import '/styles/main.scss';
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  @include fontRegular(14px, 600, 14px, $third_text_color);
+  @media all and (width >= $min_tablet) {
+    font-size: 16px;
+  }
+}
+
+.input {
+  @include fontRegular(14px, 400, 20px, $field_name_color);
+  border: 1px solid $p_separators;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}

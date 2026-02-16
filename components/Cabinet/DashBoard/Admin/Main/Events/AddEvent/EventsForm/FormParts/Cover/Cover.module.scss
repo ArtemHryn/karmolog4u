@@ -1,0 +1,63 @@
+@import '/styles/main.scss';
+
+.img_label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 147px;
+  height: 171px;
+  gap: 8px;
+  @include fontRegular(12px, 500, 12px, $third_text_color);
+  @media all and (width >= $min_desktop) {
+    width: 225px;
+    height: 271px;
+    order: 2;
+  }
+}
+
+.image_wrapper {
+  border-radius: 8px;
+  width: 147px;
+  height: 171px;
+  @media all and (width >= $min_desktop) {
+    width: 225px;
+    height: 271px;
+  }
+}
+
+.no_image {
+  border: 1px dashed #77a0fc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  & > svg {
+    width: 24px;
+    height: 24px;
+    @media all and (width >= $min_desktop) {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}
+
+.image {
+  width: 147px;
+  height: 171px;
+  object-fit: cover;
+  border-radius: 8px;
+  @media all and (width >= $min_desktop) {
+    width: 225px;
+    height: 271px;
+  }
+}
+
+.add_image_text {
+  @include fontRegular(12px, 500, 12px, $p_active_button, center);
+  text-wrap: balance;
+  @media all and (width >= $min_desktop) {
+    font-size: 16px;
+  }
+}
