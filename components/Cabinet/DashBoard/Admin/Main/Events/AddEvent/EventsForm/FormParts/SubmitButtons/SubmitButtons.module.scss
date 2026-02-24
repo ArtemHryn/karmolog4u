@@ -1,0 +1,48 @@
+@import '/styles/main.scss';
+
+.buttons_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  @media all and (width >= $min_tablet) {
+    flex-direction: row;
+  }
+  @media all and (width >= $min_desktop) {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+
+.submit_button {
+  display: flex;
+  align-items: center;
+  height: 44px;
+  gap: 24px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  @include fontRegular(16px, 600, 16px);
+  @media all and (width >= $min_tablet) {
+    width: 226px;
+    gap: 8px;
+  }
+  @media all and (width >= $min_desktop) {
+    height: 46px;
+  }
+  &_published {
+    background-color: $p_active_button;
+    & > svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+  &_draft {
+    color: $p_active_button;
+    border: 1px solid $p_active_button;
+
+    & > svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}

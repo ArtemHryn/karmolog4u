@@ -1,0 +1,20 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% / 2);
+}
+
+.time_selector {
+  width: 50px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.name {
+  @include fontRegular(14px, 600, 14px, $p_second_text_color);
+}

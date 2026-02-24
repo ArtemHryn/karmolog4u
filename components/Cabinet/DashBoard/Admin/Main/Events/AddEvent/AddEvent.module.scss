@@ -1,0 +1,14 @@
+@import '/styles/main.scss';
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
+
+.form_wrapper {
+  @media all and (width >= $min_desktop) {
+    padding: 0 32px;
+  }
+}

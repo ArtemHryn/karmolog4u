@@ -6,6 +6,7 @@ import Deleted from './Icons/Deleted';
 import Education from './Icons/Education';
 import Products from './Icons/Products';
 import Promocode from './Icons/Promocode';
+import EventsIcon from './Icons/Events';
 import Users from './Icons/Users';
 
 import styles from './Navigation.module.scss';
@@ -14,6 +15,7 @@ const nav = [
   { link: 'products', icon: Products, name: 'Авторські продукти' },
   { link: 'users', icon: Users, name: 'Користувачі' },
   { link: 'education', icon: Education, name: 'Навчання' },
+  { link: 'events', icon: EventsIcon, name: 'Події' },
   { link: 'promocode', icon: Promocode, name: 'Промокод' },
   { link: 'deleted', icon: Deleted, name: 'Видалене' },
 ];

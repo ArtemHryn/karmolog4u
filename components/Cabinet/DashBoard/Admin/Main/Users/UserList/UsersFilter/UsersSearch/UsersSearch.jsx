@@ -17,10 +17,11 @@ const UsersSearch = ({ search, setSearch }) => {
       if (value) {
         params.set('search', value);
       } else {
-        params.set('search', '');
+        params.delete('search');
       }
 
-      router.replace(`?${params.toString()}`);
+      const query = params.toString();
+      router.replace(query ? `?${query}` : '?');
     }, 500),
     []
   );

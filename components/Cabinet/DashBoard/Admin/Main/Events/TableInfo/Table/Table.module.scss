@@ -1,0 +1,50 @@
+@import '/styles/main.scss';
+
+.info_wrapper {
+  flex-grow: 1;
+}
+
+.table {
+  border: 1px solid $p_border;
+  border-radius: 8px;
+  min-width: 700px;
+}
+
+.column {
+  height: 60px;
+  padding: 16px;
+}
+
+.checkbox_column {
+  width: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+}
+
+.loader_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  background-color: $p_main_bg;
+}
+
+.name_link {
+  @media (hover: hover) {
+    &:is(:hover, :focus) {
+      text-decoration: underline;
+    }
+  }
+  @media (hover: none) {
+    &:is(:active, :focus) {
+      text-decoration: underline;
+    }
+  }
+}
+
+.empty_wrapper {
+  height: 80px !important;
+  min-height: 80px !important;
+}
