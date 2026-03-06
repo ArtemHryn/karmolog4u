@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { web_link } from '@/helper/consts';
 
 import styles from './Slide.module.scss';
 import { inter } from '@/app/[locale]/layout';
@@ -12,7 +11,7 @@ const Slide = ({ slide }) => {
 
   return (
     <Link
-      href={`${web_link}/products/${kebab}/${id}`}
+      href={`${window.location.hostname}/products/${kebab}/${id}`}
       target="_blank"
       rel="noreferrer noopener"
       className={`${styles.link}`}
