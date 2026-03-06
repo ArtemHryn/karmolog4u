@@ -1,30 +1,52 @@
 'use client';
-import { useParams, usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { useQuery } from '@tanstack/react-query';
+import { useLocale } from 'next-intl';
 import Container from '@/components/Common/Container/Container';
 import HeroNav from '@/components/Common/HeroNav/HeroNav';
 import MeditationsDescriptions from '@/components/Products/Meditations/MeditationDetails/MeditationsDescriptions';
 
-import list from '@/helper/products/meditationsList';
 import ProductionCanBeInterestingSlider from '@/components/Common/ProductionCanBeInterestingSlider/ProductionCanBeInterestingSlider';
-import { useLocale } from 'next-intl';
+import { base_url } from '@/helper/consts';
 
-const MeditationDetails = () => {
-  const [meditation, setMeditation] = useState(null);
-  const [canBeInteresting, setCanBeInteresting] = useState([]);
-  const params = useParams();
+const getMeditationById = async id => {
+  const res = await fetch(`${base_url}/products/meditations/get/${id}`);
+  if (!res.ok) {
+    throw new Error('Failed to fetch meditation details');
+  }
+  return res.json();
+};
+
+const getMeditationsList = async () => {
+  const res = await fetch(`${base_url}/products/meditations/get-all`);
+  if (!res.ok) {
+    throw new Error('Failed to fetch meditations list');
+  }
+  return res.json();
+};
+
+const MeditationDetails = ({ params }) => {
   const pathname = usePathname();
   const locale = useLocale();
 
-  useEffect(() => {
-    const allMeditations = [...list.getClosedMeditationsList(), ...list.getOpenedMeditationsList()];
-    const currentMeditation = allMeditations.find(el => `${el.id}` === params.id);
-    const meditationsCanBeInteresting = allMeditations.filter(
-      el => el.category === currentMeditation.category && el.id !== currentMeditation.id
-    );
-    setMeditation(currentMeditation);
-    setCanBeInteresting(meditationsCanBeInteresting);
-  }, [params.id]);
+  const { data: meditation, isLoading: isMetLoading } = useQuery({
+    queryKey: ['meditation', params.id],
+    queryFn: () => getMeditationById(params.id),
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    gcTime: 10 * 60 * 1000, // 10 minutes
+  });
+
+  const { data: meditations, isLoading: isListLoading } = useQuery({
+    queryKey: ['meditations'],
+    queryFn: getMeditationsList,
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    gcTime: 10 * 60 * 1000, // 10 minutes
+    enabled: !!meditation,
+    select: data => {
+      if (!meditation) return [];
+      return data.filter(m => m.category === meditation.category && m.id !== meditation.id);
+    },
+  });
 
   if (!meditation) return null;
 
@@ -32,15 +54,19 @@ const MeditationDetails = () => {
     { href: '/products/meditations', name: { uk: 'Медитації', ru: 'Медитации' } },
     {
       href: pathname,
-      name: typeof meditation.name === 'string' ? meditation.name : meditation.name[locale],
+      name: meditation.name[locale],
     },
   ];
 
   return (
     <Container>
-      <HeroNav linkNames={links} />
-      <MeditationsDescriptions meditation={meditation} />
-      <ProductionCanBeInterestingSlider slides={canBeInteresting} />
+      {!isMetLoading && !isListLoading && (
+        <>
+          <HeroNav linkNames={links} />
+          <MeditationsDescriptions product={meditation} />
+          {meditation && <ProductionCanBeInterestingSlider slides={meditations} />}
+        </>
+      )}
     </Container>
   );
 };

@@ -1,17 +1,13 @@
 @import '/styles/main.scss';
 
-.section {
-  padding-top: 0;
-}
-
-.list {
+.gifts_list {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   row-gap: 40px;
   @media all and (min-width: $min_tablet) {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 24px;
-    row-gap: 60px;
+    row-gap: 52px;
   }
   @media all and (min-width: $min_desktop) {
     row-gap: 87px;
@@ -19,80 +15,8 @@
   }
 }
 
-.list_item {
-  position: relative;
+.gifts_list_item {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  @media all and (min-width: $min_tablet) {
-    gap: 16px;
-  }
-}
-
-.discount {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-
-  border-radius: 50%;
-  background-color: #e60000;
-  @include fontRegular(12px, 500, 12px);
-}
-
-.bottom_wrapper {
-  display: flex;
-  justify-content: space-between;
-}
-
-.text_wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.title {
-  @include fontRegular(16px, 400, 22.4px);
-}
-
-.remark {
-  @include fontRegular(12px, 500, 12px, #7e7e7e);
-}
-
-.price {
-  display: flex;
-  gap: 24px;
-  @include fontRegular(20px, 400, 28px);
-  & > span {
-    color: #7e7e7e;
-  }
-}
-
-.details_link {
-  transition: all 250ms ease;
-  &:hover,
-  &:focus {
-    scale: 1.05;
-  }
-}
-
-.button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 70px;
-  height: 48px;
-
-  border-radius: 30px;
-  background-color: $buttons_color;
-  margin-left: 24px;
-  & > svg {
-    width: 24px;
-    height: 24px;
-  }
 }

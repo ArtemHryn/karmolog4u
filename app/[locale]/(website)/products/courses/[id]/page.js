@@ -1,45 +1,68 @@
 'use client';
-import { useEffect, useState } from 'react';
-import { useParams, usePathname, redirect } from 'next/navigation';
+import { useParams, usePathname } from 'next/navigation';
+import { useQuery } from '@tanstack/react-query';
 
 import Container from '@/components/Common/Container/Container';
 import HeroNav from '@/components/Common/HeroNav/HeroNav';
-import list from '@/helper/products/coursesList';
 import MeditationsDescriptions from '@/components/Products/Meditations/MeditationDetails/MeditationsDescriptions';
 import ProductionCanBeInterestingSlider from '@/components/Common/ProductionCanBeInterestingSlider/ProductionCanBeInterestingSlider';
+import { base_url } from '../../../../../../helper/consts';
+
+const getWebinarById = async id => {
+  const res = await fetch(`${base_url}/products/webinars/get/${id}`);
+  if (!res.ok) {
+    throw new Error('Failed to fetch meditation details');
+  }
+  return res.json();
+};
+
+const getWebinarsList = async () => {
+  const res = await fetch(`${base_url}/products/webinars/get-all`);
+  if (!res.ok) {
+    throw new Error('Failed to fetch meditations list');
+  }
+  return res.json();
+};
 
 const CoursesDetails = () => {
-  const [course, setCourse] = useState(null);
-  const [canBeInteresting, setCanBeInteresting] = useState([]);
-
   const params = useParams();
   const pathname = usePathname();
 
-  if (+params.id === 3) redirect('health-map-details');
+  const { data: webinar, isLoading: isWebLoading } = useQuery({
+    queryKey: ['webinar', params.id],
+    queryFn: () => getWebinarById(params.id),
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    gcTime: 10 * 60 * 1000, // 10 minutes
+  });
 
-  useEffect(() => {
-    const allCourses = [...list.webinars, ...list.intensives];
-    const currentCourse = allCourses.find(el => `${el.id}` === params.id);
+  const { data: webinars, isLoading: isListLoading } = useQuery({
+    queryKey: ['webinars'],
+    queryFn: getWebinarsList,
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    gcTime: 10 * 60 * 1000, // 10 minutes
+    enabled: !!webinar,
+    select: data => {
+      if (!webinar) return [];
+      return data.filter(w => w.category === webinar.category && w.id !== webinar.id);
+    },
+  });
 
-    const coursesCanBeInteresting = allCourses.filter(
-      el => el.category === currentCourse.category && el.id !== currentCourse.id
-    );
-    setCourse(currentCourse);
-    setCanBeInteresting(coursesCanBeInteresting);
-  }, [params.id]);
-
-  if (!course) return null;
+  if (!webinar) return null;
 
   const links = [
     { href: '/products/courses', name: { uk: 'Навчальні курси', ru: 'Учебные курсы' } },
-    { href: pathname, name: course.name },
+    { href: pathname, name: webinar.name },
   ];
 
   return (
     <Container>
-      <HeroNav linkNames={links} />
-      <MeditationsDescriptions meditation={course} />
-      <ProductionCanBeInterestingSlider slides={canBeInteresting} />
+      {!isWebLoading && !isListLoading && (
+        <>
+          <HeroNav linkNames={links} />
+          <MeditationsDescriptions product={webinar} />
+          <ProductionCanBeInterestingSlider slides={webinars} />
+        </>
+      )}
     </Container>
   );
 };

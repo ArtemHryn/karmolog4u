@@ -1,7 +1,7 @@
 'use client';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import Meditation from '@/components/Products/Meditations/Meditation';
+import ProductElementInList from '../../Products/ProductElementInList/ProductElementInList';
 
 import styles from './ProductionCanBeInterestingSlider.module.scss';
 import 'swiper/css';
@@ -29,7 +29,7 @@ const ProductionCanBeInterestingSlider = ({ slides }) => {
       {slides.map((el, index) => (
         <SwiperSlide key={index}>
           <div className={styles.meditation_wrapper}>
-            <Meditation card={el} />
+            <ProductElementInList card={el} />
           </div>
         </SwiperSlide>
       ))}

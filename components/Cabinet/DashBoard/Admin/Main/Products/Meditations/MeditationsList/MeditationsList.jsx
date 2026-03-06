@@ -25,9 +25,9 @@ const MeditationsList = ({ energies, opened, closed, isCheckedLS, status, medita
   useEffect(() => {
     if (!isCheckedLS) return;
     const sortedByCategory = [
-      ...(energies ? meditations.filter(el => el.category.includes(ARCANES)) : []),
-      ...(closed ? meditations.filter(el => el.category.includes(CLOSED_MEDITATIONS)) : []),
-      ...(opened ? meditations.filter(el => el.category.includes(OPENED_MEDITATIONS)) : []),
+      ...(energies ? meditations?.filter(el => el.category.includes(ARCANES)) : []),
+      ...(closed ? meditations?.filter(el => el.category.includes(CLOSED_MEDITATIONS)) : []),
+      ...(opened ? meditations?.filter(el => el.category.includes(OPENED_MEDITATIONS)) : []),
     ];
     const finalList = [
       ...(status === 'all'

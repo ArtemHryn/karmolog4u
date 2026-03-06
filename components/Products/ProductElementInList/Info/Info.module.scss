@@ -1,0 +1,75 @@
+@import '/styles/main.scss';
+
+.info_wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.text_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  @media all and (min-width: $min_tablet) {
+    gap: 8px;
+  }
+}
+
+.name {
+  @include fontRegular(16px, 400, 22.4px);
+  flex-grow: 1;
+  display: flex;
+  gap: 12px;
+  transition: all 250ms ease;
+
+  & > p {
+    @include fontRegular(20px, 400, 22.4px);
+  }
+  @at-root a#{&} {
+    @media (hover: hover) {
+      &:is(:hover, :focus) {
+        scale: 1.02;
+      }
+    }
+    @media (hover: none) {
+      &:is(:active, :focus) {
+        scale: 1.02;
+      }
+    }
+  }
+}
+
+.price_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.price {
+  @include fontRegular(20px, 400, 28px);
+}
+
+.discount {
+  color: $p_second_text_color;
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 71px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 30px;
+  background-color: $buttons_color;
+  margin-left: 24px;
+  transition: all 250ms ease;
+  &:is(:hover, :focus) {
+    background-color: $buttons_hover_color;
+  }
+  & > svg {
+    width: 24px;
+    height: 24px;
+  }
+}

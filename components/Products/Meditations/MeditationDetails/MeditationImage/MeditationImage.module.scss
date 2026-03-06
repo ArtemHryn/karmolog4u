@@ -1,0 +1,38 @@
+@import '/styles/main.scss';
+
+.video {
+  width: 328px;
+  height: 205px;
+  border-radius: 30px;
+  @media all and (min-width: $min_tablet) {
+    width: 736px;
+    height: 462px;
+  }
+  @media all and (min-width: $min_desktop) {
+    width: 519px;
+    height: 326px;
+  }
+}
+
+.no_image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(270deg, #cfb691 -135.76%, #000 102.98%);
+  width: 328px;
+  height: 205px;
+  border-radius: 30px;
+  @media all and (min-width: $min_tablet) {
+    width: 736px;
+    height: 462px;
+  }
+  @media all and (min-width: $min_desktop) {
+    width: 519px;
+    height: 326px;
+  }
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+}

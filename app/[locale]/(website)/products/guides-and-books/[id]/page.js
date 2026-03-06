@@ -1,41 +1,64 @@
 'use client';
-import { useEffect, useState } from 'react';
 import { useParams, usePathname } from 'next/navigation';
+import { useQuery } from '@tanstack/react-query';
 import Container from '@/components/Common/Container/Container';
 import HeroNav from '@/components/Common/HeroNav/HeroNav';
 import MeditationsDescriptions from '@/components/Products/Meditations/MeditationDetails/MeditationsDescriptions';
 import ProductionCanBeInterestingSlider from '@/components/Common/ProductionCanBeInterestingSlider/ProductionCanBeInterestingSlider';
-import list from '@/helper/products/guidesAndBooksList';
+import { base_url } from '../../../../../../helper/consts';
+
+const getGuideAndBookById = async id => {
+  const res = await fetch(`${base_url}/products/guides-and-books/get/${id}`);
+  if (!res.ok) {
+    throw new Error('Failed to fetch meditation details');
+  }
+  return res.json();
+};
+
+const getGuidesAndBooksList = async () => {
+  const res = await fetch(`${base_url}/products/guides-and-books/get-all`);
+  if (!res.ok) {
+    throw new Error('Failed to fetch meditations list');
+  }
+  return res.json();
+};
 
 const GuideAndBooksDetails = () => {
-  const [book, setBook] = useState(null);
-  const [canBeInteresting, setCanBeInteresting] = useState([]);
-
-  const params = useParams();
   const pathname = usePathname();
+  const params = useParams();
 
-  useEffect(() => {
-    const allBooks = [...list.otherGuidesList, ...list.booksList];
-    const currentBook = allBooks.find(el => `${el.id}` === params.id);
+  const { data: guideAndBook, isLoading: isGnBLoading } = useQuery({
+    queryKey: ['guideAndBook', params.id],
+    queryFn: () => getGuideAndBookById(params.id),
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    gcTime: 10 * 60 * 1000, // 10 minutes
+  });
 
-    const coursesCanBeInteresting = allBooks.filter(
-      el => el.category === currentBook.category && el.id !== currentBook.id
-    );
-    setBook(currentBook);
-    setCanBeInteresting(coursesCanBeInteresting);
-  }, [params.id]);
+  const { data: guidesAndBooks, isLoading: isListLoading } = useQuery({
+    queryKey: ['guidesAndBooks'],
+    queryFn: getGuidesAndBooksList,
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    gcTime: 10 * 60 * 1000, // 10 minutes
+    enabled: !!guideAndBook,
+    select: data => {
+      if (!guideAndBook) return [];
+      return data.filter(g => g.category === guideAndBook.category && g.id !== guideAndBook.id);
+    },
+  });
 
-  if (!book) return null;
+  if (!guideAndBook) return null;
 
   const links = [
     { href: '/products/guides-and-books', name: 'Гайди та книги' },
-    { href: pathname, name: book.name },
+    { href: pathname, name: guideAndBook.name },
   ];
   return (
     <Container>
       <HeroNav linkNames={links} />
-      <MeditationsDescriptions meditation={book} />
-      <ProductionCanBeInterestingSlider slides={canBeInteresting} />
+      <MeditationsDescriptions product={guideAndBook} />
+      {isGnBLoading && isListLoading && (
+        <ProductionCanBeInterestingSlider slides={guidesAndBooks} />
+      )}
     </Container>
   );
 };
