@@ -1,0 +1,28 @@
+@import '/styles/main.scss';
+
+.text_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  @media all and (min-width: $min_tablet) {
+    gap: 48px;
+  }
+  @media all and (min-width: $min_desktop) {
+    gap: 40px;
+  }
+}
+
+.title {
+  @include fontRegular(24px, 400, 24px);
+  @media all and (min-width: $min_tablet) {
+    @include fontRegular(28px, 400, 39.2px);
+  }
+}
+
+.text {
+  @include fontRegular(14px, 400, 19.6px);
+  white-space: pre-line;
+  @media all and (min-width: $min_tablet) {
+    @include fontRegular(16px, 400, 22.4px);
+  }
+}

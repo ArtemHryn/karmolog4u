@@ -42,7 +42,7 @@ const ImageInput = () => {
       <input
         type="file"
         ref={fileInputRef}
-        accept="image/png, image/wepb, image/jpeg"
+        accept="image/png, image/webp, image/jpeg"
         hidden
         {...register('cover', { onChange: handleFileChange })}
       />

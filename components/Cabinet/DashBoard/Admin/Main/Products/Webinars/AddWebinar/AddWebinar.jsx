@@ -109,6 +109,10 @@ const AddWebinar = ({ edit }) => {
       description_ru,
       video,
       showDetails,
+      price,
+      discount,
+      end_date,
+      start_date,
     } = data;
     if (!getValues('category')) {
       setError('category', { type: 'manual', message: 'Оберіть категорію' });
@@ -140,6 +144,13 @@ const AddWebinar = ({ edit }) => {
         formData.append('cover', cover);
       }
       formData.append('description', JSON.stringify({ uk: description_uk, ru: description_ru }));
+      if (price) formData.append('price', price);
+      if (discount) {
+        formData.append(
+          'discount',
+          JSON.stringify({ discount, start: start_date, expiredAt: end_date })
+        );
+      }
       if (showDetails) {
         formData.append('detailsTitle', JSON.stringify({ uk: data.title_uk, ru: data.title_ru }));
         formData.append(
@@ -148,6 +159,8 @@ const AddWebinar = ({ edit }) => {
         );
       }
     }
+
+    console.log(data);
 
     mutation.mutate({ info: formData });
   };

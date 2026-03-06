@@ -40,6 +40,7 @@ const Meditations = () => {
   } = useQuery({
     queryKey: ['meditations'],
     queryFn: () => fetchMeditations(token.accessToken),
+    enabled: !!token?.accessToken,
   });
 
   useEffect(() => {
@@ -52,6 +53,8 @@ const Meditations = () => {
   }, [isCheckedLS]);
 
   if (isError) return <div>Error...</div>;
+
+  if (!meditations) return null;
 
   return (
     <div className={styles.wrapper}>

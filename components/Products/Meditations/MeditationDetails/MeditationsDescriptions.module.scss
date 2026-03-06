@@ -16,30 +16,7 @@
   }
 }
 
-//images
-.video {
-  width: 328px;
-  height: 205px;
-  border-radius: 30px;
-  @media all and (min-width: $min_tablet) {
-    width: 736px;
-    height: 462px;
-  }
-  @media all and (min-width: $min_desktop) {
-    width: 519px;
-    height: 326px;
-  }
-}
-
 //title
-.title {
-  @include fontRegular(24px, 400, 24px);
-  margin-bottom: 32px;
-  @media all and (min-width: $min_tablet) {
-    @include fontRegular(28px, 400, 39.2px);
-    margin-bottom: 40px;
-  }
-}
 
 .price {
   @include fontRegular(24px, 400, 24px);

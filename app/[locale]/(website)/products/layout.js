@@ -1,11 +1,10 @@
 import ProductsNavigation from '@/components/Products/ProductsNavigation/ProductsNavigation';
 
-const ProductsLayout = ({ children, modal }) => {
+const ProductsLayout = ({ children }) => {
   return (
     <main>
       <ProductsNavigation />
       {children}
-      {modal}
     </main>
   );
 };

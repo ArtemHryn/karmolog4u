@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import PhoneInput from 'react-phone-input-2';
 import { useForm, Controller } from 'react-hook-form';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import AsyncSelect from 'react-select/async';
 import Select from 'react-select';
 import Link from 'next/link';
@@ -11,18 +11,19 @@ import Title from '@/components/Common/Title/Title';
 
 import styles from './BuyGiftModalForm.module.scss';
 import 'react-phone-input-2/lib/bootstrap.css';
+import { getPriceWithDiscount } from '../../../helper/products/getDiscount';
 
-const Form = ({ price }) => {
+const Form = ({ price, discount }) => {
   const [license, setLicense] = useState(false);
   const [warehousesList, setWarehousesList] = useState([]);
   const [cityValue, setCityValue] = useState('');
   const t = useTranslations('Author_products.buy_gift_modal');
+  const locale = useLocale();
 
   const {
     register,
     handleSubmit,
     setValue,
-    getValues,
     control,
     formState: { errors },
   } = useForm();
@@ -30,12 +31,12 @@ const Form = ({ price }) => {
   const onFormSubmit = data => {
     console.log(data);
   };
-  getValues('city');
+
   const loadOptions = async (value, callback) => {
     if (value.length < 3) return;
     const data = await fetch(`/api/nova-poshta/cities?city=${value}`);
     const options = await data.json();
-    await callback(options.data);
+    return options.data;
   };
 
   const cityStyling = {
@@ -49,12 +50,16 @@ const Form = ({ price }) => {
   };
 
   const onCityChange = async selectedCity => {
-    const data = await fetch(`/api/nova-poshta/warehouses?warehouse=${selectedCity.value}`);
+    if (!selectedCity) return;
+    const data = await fetch(
+      `/api/nova-poshta/warehouses?warehouse=${selectedCity.value}&ln=${locale}`
+    );
     const wh = await data.json();
     setWarehousesList(wh.data);
     setValue('city', selectedCity);
     setCityValue(selectedCity.value);
   };
+
   return (
     <form className={styles.form} onSubmit={handleSubmit(onFormSubmit)}>
       <Title variant="p" styled={styles.form_title}>
@@ -101,9 +106,13 @@ const Form = ({ price }) => {
           }}
           render={({ field }) => (
             <AsyncSelect
+              {...field}
               loadOptions={loadOptions}
               defaultOptions
-              onChange={onCityChange}
+              onChange={val => {
+                field.onChange(val);
+                onCityChange(val);
+              }}
               noOptionsMessage={() => {
                 return t('city.enter_three_letters');
               }}
@@ -124,8 +133,9 @@ const Form = ({ price }) => {
             }}
             render={({ field }) => (
               <Select
+                {...field}
                 options={warehousesList}
-                onChange={wh => setValue('warehouse', wh.value)}
+                onChange={val => field.onChange(val)}
                 noOptionsMessage={() => {
                   return t('warehouse.not_found');
                 }}
@@ -188,9 +198,16 @@ const Form = ({ price }) => {
           </Link>
         </p>
       </div>
-      <Title variant="p" styled={styles.form_price}>
-        {t('price')}:<span>{price}</span>
-      </Title>
+      <div className={styles.form_price_wrapper}>
+        <Title variant="p" styled={`${styles.form_price}`}>
+          {t('price')}:<span className={`${discount ? styles.discount : ''}`}>{price}€</span>
+        </Title>
+        {discount && (
+          <Title variant="p" styled={`${styles.form_price}`}>
+            {getPriceWithDiscount({ discount, price })}€
+          </Title>
+        )}
+      </div>
       <button type="submit" className={styles.submit_btn} disabled={!license}>
         {t('button')}
       </button>

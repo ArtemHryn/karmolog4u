@@ -1,0 +1,44 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.price_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.price {
+  @include fontRegular(24px, 400, 24px);
+  @media all and (min-width: $min_tablet) {
+    @include fontRegular(28px, 400, 39.2px);
+  }
+}
+
+.discount {
+  color: $p_second_text_color;
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+
+.button {
+  display: flex;
+  width: 328px;
+  height: 52px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  background-color: $buttons_color;
+  @include fontRegular(16px, 600, 16px, $third_text_color);
+
+  @media all and (min-width: $min_tablet) {
+    width: 261px;
+  }
+  @media all and (min-width: $min_desktop) {
+    width: 194px;
+  }
+}

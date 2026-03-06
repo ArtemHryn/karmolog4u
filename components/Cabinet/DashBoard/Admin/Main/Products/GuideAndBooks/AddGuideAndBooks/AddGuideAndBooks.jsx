@@ -168,10 +168,10 @@ const AddGuideAndBooks = ({ edit }) => {
         <div className={styles.labels_wrapper}>
           <RequiredLabels categories={categoriesList} />
           {watch('category') === OTHER_GUIDES && (
-            <OtherGuidesPart serverFile={edit.file.originalName} />
+            <OtherGuidesPart serverFile={edit?.file.originalName} />
           )}
-          {watch('category') === BOOKS && <BooksPart serverFile={edit.file.originalName} />}
-          {watch('category') === GUIDES && <GuidesPart serverFile={edit.file.originalName} />}
+          {watch('category') === BOOKS && <BooksPart serverFile={edit?.file.originalName} />}
+          {watch('category') === GUIDES && <GuidesPart serverFile={edit?.file.originalName} />}
         </div>
         <SubmitButtons setStatusAndSubmit={setStatusAndSubmit} />
       </form>

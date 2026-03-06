@@ -1,4 +1,5 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 
 import styles from './SimpleModalContainer.module.scss';
 
@@ -30,10 +31,11 @@ const SimpleModalContainer = ({ children, setShowModal }: SimpleModalContainerPr
     };
   }, [setShowModal]);
 
-  return (
+  return createPortal(
     <div className={styles.overlay} onClick={onClick} ref={overlay} role="dialog" aria-modal="true">
       {children}
-    </div>
+    </div>,
+    document.body
   );
 };
 

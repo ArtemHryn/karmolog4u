@@ -1,0 +1,20 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.title {
+  @include fontRegular(16px, 600, 25px);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.text {
+  @include fontRegular(14px, 400, 19.6px);
+}

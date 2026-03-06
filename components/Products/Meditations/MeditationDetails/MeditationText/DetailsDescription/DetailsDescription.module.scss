@@ -1,0 +1,19 @@
+@import '/styles/main.scss';
+
+.desc_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title {
+  @include fontRegular(18px, 600, 18px);
+}
+
+.desc {
+  @include fontRegular(14px, 400, 19.6px);
+  white-space: pre-line;
+  @media all and (min-width: $min_tablet) {
+    @include fontRegular(16px, 400, 22.4px);
+  }
+}

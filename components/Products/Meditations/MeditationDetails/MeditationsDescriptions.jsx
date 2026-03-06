@@ -1,23 +1,33 @@
-import MeditationText from './MeditationText';
-import MeditationImage from './MeditationImage';
-import useLocalizedValue from '@/hooks/useLocalizedValue';
-
+import { useState } from 'react';
+import MeditationImage from './MeditationImage/MeditationImage';
+import ModalBuyForm from '../../ModalBuyForm/ModalBuyForm';
 import styles from './MeditationsDescriptions.module.scss';
+import MeditationText from './MeditationText/MeditationText';
+import SimpleModalContainer from '../../../Common/SimpleModalContainer/SimpleModalContainer';
+import BuyGiftModalForm from '@/components/Products/BuyGiftModalForm/BuyGiftModalForm';
 
-const MeditationsDescriptions = ({ meditation }) => {
-  const { descVideo, img, name, desc, price, category } = meditation;
-  const localizedName = useLocalizedValue(name);
+const MeditationsDescriptions = ({ product }) => {
+  const [showModal, setShowModal] = useState(false);
+  const { video, cover, name, description, price, category, discount, detailsDescription } =
+    product;
 
   return (
     <div className={styles.wrapper}>
-      <MeditationImage descVideo={descVideo} img={img} name={localizedName} />
+      <MeditationImage video={video} cover={cover} />
       <MeditationText
-        name={localizedName}
-        desc={desc}
+        name={name}
+        description={description}
+        setShowModal={setShowModal}
         price={price}
         category={category}
-        img={img}
+        discount={discount}
+        detailsDescription={detailsDescription}
       />
+      {showModal && (
+        <SimpleModalContainer setShowModal={setShowModal}>
+          {category ? <ModalBuyForm card={product} /> : <BuyGiftModalForm gift={product} />}
+        </SimpleModalContainer>
+      )}
     </div>
   );
 };
