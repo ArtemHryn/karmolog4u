@@ -35,10 +35,10 @@ const text = {
 };
 
 const additionalCards = {
-  ru: { title: 'Практический модуль', price: '12 000', text: '(полная стоимость)' },
+  ru: { title: 'Практический модуль', price: '300€', text: '(полная стоимость)' },
   uk: {
     title: 'Практичний модуль',
-    price: '12 000',
+    price: '300€',
     text: '(повна вартість)',
   },
 };
@@ -61,7 +61,7 @@ const ConsultingCourse = ({ params: { locale } }) => {
       />
       <WhatIsWaitingForYou cards={cards} column1Style={true} />
       <EduPricing
-        card={{ title: 'Консультантський курс', price: '1400€' }}
+        card={{ title: 'Консультантський курс', price: '1700€' }}
         additionalCard={additionalCards[locale]}
         addInfo={addInfo}
         additionalTitle={t('additionalTitle')}

@@ -1,7 +1,6 @@
 import { useTranslations } from 'next-intl';
 import Container from '@/components/Common/Container/Container';
 import Title from '@/components/Common/Title/Title';
-import Link from 'next/link';
 import { open_Sans } from '@/app/[locale]//layout';
 import useLocalizedValue from '@/hooks/useLocalizedValue';
 
@@ -9,7 +8,7 @@ import styles from './EduPricing.module.scss';
 import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 import ShowModalButton from '../../Common/ShowModalButton/ShowModalButton';
 
-function EduPricing({ card, addInfo = [], desc, link, additionalTitle, additionalCard }) {
+function EduPricing({ card, addInfo = [], desc, additionalTitle, additionalCard }) {
   const t = useTranslations('Education.advanced_course.edu_pricing');
 
   const renderAddInfo = useLocalizedValue(addInfo);
@@ -50,7 +49,7 @@ function EduPricing({ card, addInfo = [], desc, link, additionalTitle, additiona
               </Title>
               <div className={styles.card_price_wrap}>
                 <Title variant="h3" styled={styles.card_price}>
-                  {additionalCard.price} &#8372;
+                  {additionalCard.price}
                 </Title>
                 <Title variant="h5" styled={styles.card_info}>
                   ({t('full_payment')})
