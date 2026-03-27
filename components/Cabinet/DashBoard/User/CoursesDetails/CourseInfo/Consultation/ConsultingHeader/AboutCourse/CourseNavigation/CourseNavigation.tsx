@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { useParams, usePathname } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import { AboutCourse } from '@/types/cons_adv_courses';
 import {
@@ -17,6 +17,7 @@ import useUserInfo from '@/hooks/useUserInfo';
 import styles from './CourseNavigation.module.scss';
 import { ADVANCED, CONSULTING } from '@/helper/consts';
 import Calculator from './Icons/Calculator';
+import { useCertDownloading } from '@/hooks/useCertDownloading';
 
 interface CourseNavigationProps {
   course: AboutCourse;
@@ -30,6 +31,7 @@ interface CourseItem {
 
 const CourseNavigation = ({ course }: CourseNavigationProps) => {
   const pathName = usePathname();
+  const params = useParams();
   const { data: token } = useSession();
 
   const {
@@ -40,6 +42,14 @@ const CourseNavigation = ({ course }: CourseNavigationProps) => {
     token: token?.accessToken,
     action: 'courses',
     queryKey: ['user-courses'],
+  });
+
+  console.log(course.purchaseInfo);
+
+  const { downloadCert, isPending } = useCertDownloading({
+    token: token?.accessToken || '',
+    user: `${token?.user.name || 'unknown'}_${token?.user.lastName || 'unknown'}`,
+    id: params.course_id as string,
   });
 
   const getLinkToSSK = (): string | false => {
@@ -165,8 +175,9 @@ const CourseNavigation = ({ course }: CourseNavigationProps) => {
       {course.type === CONSULTING && (
         <li className={`${styles.item}`}>
           <button
-            onClick={() => {}}
+            onClick={downloadCert}
             className={`${styles.redirect_el} ${open_Sans_Client.className}`}
+            disabled={isPending || !course.purchaseInfo.completed}
           >
             <div className={styles.icon_wrapper}>
               <Certificate />

@@ -25,6 +25,7 @@ export interface AboutCourse {
   chat: string;
   id: string;
   type: string;
+  purchaseInfo: { completed: boolean };
 }
 
 export interface AgreementBodyProps {
