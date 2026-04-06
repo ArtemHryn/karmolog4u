@@ -7,20 +7,30 @@ import 'react-phone-input-2/lib/bootstrap.css';
 import Title from '@/components/Common/Title/Title';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import { useSession } from 'next-auth/react';
 
-const Form = ({ price }) => {
+const Form = ({ price, id }) => {
   const [license, setLicense] = useState(false);
   const t = useTranslations('Author_products.buy_product_modal');
+  const { data: info } = useSession();
 
   const {
     register,
     handleSubmit,
     control,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: info?.user
+      ? {
+          name: `${info.user.name} ${info.user.lastName}`,
+          email: info.user.email,
+          phone: info.user.mobPhone,
+        }
+      : {},
+  });
 
   const onFormSubmit = data => {
-    console.log(data);
+    console.log({ ...data, id });
   };
 
   return (
@@ -75,7 +85,7 @@ const Form = ({ price }) => {
             <PhoneInput
               country={'ua'}
               value={field.value}
-              onChange={phone => field.onChange(phone)}
+              onChange={phone => field.onChange('+' + phone)}
               prefix="+"
               defaultMask="(...) ...-..-.."
               className={styles.phone}
