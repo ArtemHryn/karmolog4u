@@ -10,15 +10,15 @@ const getSecondRow = (period, periodEl, periodList) => {
     const [el] = secondEl.arcane.split('-');
     return { day: el1, center: +el, year: checkNum(el1, el) };
   }
+  if (period === 5 || period === 75) {
+    const [el] = period == 5 ? periodList[60].arcane : periodList[4].arcane;
+    return { day: +el1, center: +el, year: checkNum(el1, el) };
+  }
+
   if (period !== 5 && (period - 5) % 10 === 0 && (period - 5) % 20 !== 0) {
     const secondEl = periodList.find(el => el.age === period + 10);
     const [el] = secondEl.arcane.split('-');
     return { day: el1, center: +el, year: checkNum(el1, el) };
-  }
-
-  if (period === 5 || period === 75) {
-    const [el] = period == 5 ? periodList[60].arcane : periodList[4].arcane;
-    return { day: +el1, center: +el, year: checkNum(el1, el) };
   }
 
   const growingAge = [5, 15, 25, 35, 45, 55, 65].some(
@@ -56,6 +56,7 @@ export const getYearMatrix = ({ period, periodList }) => {
   const periodFromMatrix = periodList.find(el => el.age === +period);
   const [topLeft1, month, topRight1] = periodFromMatrix.arcane.split('-');
   const secondsRow = getSecondRow(+period, periodFromMatrix.arcane, periodList);
+
   const data = { topLeft1, month, topRight1, ...secondsRow };
   Object.keys(data).forEach(el => (data[el] = +data[el]));
   return {
@@ -65,5 +66,3 @@ export const getYearMatrix = ({ period, periodList }) => {
     bottomRight1: checkNum(topRight1, secondsRow.year),
   };
 };
-
-
