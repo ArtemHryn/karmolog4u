@@ -30,7 +30,7 @@ const BuyGiftModalForm = ({ gift }) => {
         {t('notification.part1')} <br />
         {t('notification.part2')}
       </p>
-      <Form price={price} discount={discount.discount} />
+      <Form price={price} discount={discount?.discount} />
     </div>
   );
 };
