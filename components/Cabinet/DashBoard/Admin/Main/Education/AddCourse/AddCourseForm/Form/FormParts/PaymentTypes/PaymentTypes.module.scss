@@ -1,0 +1,36 @@
+@import '/styles/main.scss';
+
+.payment_types_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.payment_ticks_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.textarea {
+  border: 1px solid $p_separators;
+  border-radius: 8px;
+  padding: 8px 8px 8px 16px;
+  width: 100%;
+  min-height: 80px;
+  max-height: 150px;
+  @include fontRegular(14px, 400, 20px, $third_text_color);
+  scrollbar-width: none; /* для Firefox */
+  -ms-overflow-style: none; /* для IE і Edge */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  &::placeholder {
+    @include fontRegular(14px, 400, 20px, $p_header_title_border);
+    font-family: inherit;
+  }
+}
+
+.error {
+  @include fontRegular(12px, 400, 14px, red);
+}

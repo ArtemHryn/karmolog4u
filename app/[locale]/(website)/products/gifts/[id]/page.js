@@ -35,11 +35,7 @@ const GiftDetailsPage = ({ params: { locale } }) => {
     gcTime: 10 * 60 * 1000, // 10 minutes
   });
 
-  const {
-    data: gifts,
-    isLoading,
-    isError,
-  } = useQuery({
+  const { data: gifts, isLoading } = useQuery({
     queryKey: ['gifts'],
     queryFn: getGifts,
     enabled: !!gift,

@@ -33,7 +33,7 @@ const ModalBuyForm = ({ card }) => {
             alt="замовлення"
             width={91}
             height={72}
-            onError={() => setError(false)}
+            onError={() => setError(true)}
           />
         )}
         <p className={styles.product_name}>{name[locale]}</p>

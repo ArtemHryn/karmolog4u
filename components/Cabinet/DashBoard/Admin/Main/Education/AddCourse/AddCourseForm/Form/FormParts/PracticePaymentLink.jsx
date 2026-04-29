@@ -6,7 +6,7 @@ const PracticePaymentLink = () => {
   const { register, setValue } = useFormContext();
   return (
     <label className={styles.label}>
-      9. Посилання оплату практики (Консультантський, Поглиблений)
+      9. Ціна за практику (Консультантський, Поглиблений)
       <input
         {...register('practiceInvoice', {
           onChange: e => {
@@ -16,6 +16,8 @@ const PracticePaymentLink = () => {
         })}
         placeholder="Введіть ціну практики"
         className={styles.input}
+        type="number"
+        step="10"
       />
     </label>
   );

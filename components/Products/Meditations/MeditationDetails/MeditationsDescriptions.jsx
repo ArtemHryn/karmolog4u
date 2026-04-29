@@ -5,6 +5,8 @@ import styles from './MeditationsDescriptions.module.scss';
 import MeditationText from './MeditationText/MeditationText';
 import SimpleModalContainer from '../../../Common/SimpleModalContainer/SimpleModalContainer';
 import BuyGiftModalForm from '@/components/Products/BuyGiftModalForm/BuyGiftModalForm';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const MeditationsDescriptions = ({ product }) => {
   const [showModal, setShowModal] = useState(false);
@@ -28,6 +30,7 @@ const MeditationsDescriptions = ({ product }) => {
           {category ? <ModalBuyForm card={product} /> : <BuyGiftModalForm gift={product} />}
         </SimpleModalContainer>
       )}
+      <ToastContainer />
     </div>
   );
 };

@@ -6,14 +6,14 @@ import { useLocale, useTranslations } from 'next-intl';
 import AsyncSelect from 'react-select/async';
 import Select from 'react-select';
 import Link from 'next/link';
+import { useSession } from 'next-auth/react';
 
 import Title from '@/components/Common/Title/Title';
+import FormInput from '../ModalBuyForm/FormInput/FormInput';
+import { getPriceWithDiscount } from '../../../helper/products/getDiscount';
 
 import styles from './BuyGiftModalForm.module.scss';
 import 'react-phone-input-2/lib/bootstrap.css';
-import { getPriceWithDiscount } from '../../../helper/products/getDiscount';
-import FormInput from '../ModalBuyForm/FormInput/FormInput';
-import { useSession } from 'next-auth/react';
 
 const Form = ({ price, discount }) => {
   const [license, setLicense] = useState(false);
