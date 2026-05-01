@@ -8,12 +8,10 @@
     "incremental": true,
     "module": "esnext",
     "esModuleInterop": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "typeRoots": ["./types", "./node_modules/@types"],
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./*"]
     },
@@ -23,6 +21,13 @@
       }
     ]
   },
-  "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx", "app/api/auth/[...nextauth]/route.js", "components/Cabinet/DashBoard/Admin/Header/Menu/Navigation/Icons/Events.jsx"],
+  "include": [
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "app/api/auth/[...nextauth]/route.js",
+    "components/Cabinet/DashBoard/Admin/Header/Menu/Navigation/Icons/Events.jsx"
+  ],
   "exclude": ["node_modules"]
 }
