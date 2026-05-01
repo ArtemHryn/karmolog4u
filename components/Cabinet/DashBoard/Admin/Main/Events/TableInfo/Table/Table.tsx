@@ -1,50 +1,60 @@
-import { useState } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
+import { format } from 'date-fns';
+import { EventRow } from '@/types/events';
 
-import './table.scss';
-import styles from './Table.module.scss';
 import EmptyTable from '../../../Education/TablesInfo/Table/EmptyTable/EmptyTable';
 import Footer from '../../../Education/TablesInfo/Table/Footer/Footer';
 
+import styles from './Table.module.scss';
+import './table.scss';
+import NameColumn from './NameColumn/NameColumn';
+import ActionsColumn from './ActionsColumn/ActionsColumn';
+
 interface TableProps {
-  setNumberOfCourses: (num: number) => void;
+  setDeleteEvents: React.Dispatch<React.SetStateAction<EventRow[]>>;
+  deleteEvents: EventRow[];
+  currentPage: number;
+  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
+  emptyMessage?: string;
+  events: EventRow[];
+  totalPages: number;
 }
 
-type EventRow = {
-  id: number;
-  name: string;
-  date: string;
-  time: string;
-};
-
-const table = [
-  { id: 1, name: 'Event 1', date: '2024-01-01', time: '10:00 AM' },
-  { id: 2, name: 'Event 2', date: '2024-01-02', time: '02:00 PM' },
-];
-
-const Table = ({ setNumberOfCourses }: TableProps) => {
-  const [selectedProducts, setSelectedProducts] = useState<EventRow[]>([]);
-  const [currentPage, setCurrentPage] = useState(1);
+const Table = ({
+  setDeleteEvents,
+  deleteEvents,
+  currentPage,
+  setCurrentPage,
+  emptyMessage,
+  events,
+  totalPages,
+}: TableProps) => {
+  const filteredEvents = events.map((event: EventRow) => {
+    const formattedStartDate = format(new Date(event.dateStart), 'yyyy-MM-dd HH:mm');
+    const formattedEndDate = format(new Date(event.dateEnd), 'yyyy-MM-dd HH:mm');
+    return { ...event, dateStart: formattedStartDate, dateEnd: formattedEndDate };
+  });
 
   return (
     <div>
       <DataTable
-        value={table}
+        value={filteredEvents}
         resizableColumns
         showGridlines
         dataKey="id"
-        onSelectionChange={e => setSelectedProducts(e.value)}
-        selection={selectedProducts}
+        onSelectionChange={e => setDeleteEvents(e.value)}
+        selection={deleteEvents}
         columnResizeMode="fit"
         selectionMode={'checkbox'}
-        emptyMessage={
-          <EmptyTable
-            message="Зараз немає подій"
-            styledWrapper={styles.empty_wrapper}
+        emptyMessage={<EmptyTable message={emptyMessage} styledWrapper={styles.empty_wrapper} />}
+        footer={
+          <Footer
+            totalPage={totalPages || 1}
+            setCurrentPage={setCurrentPage}
+            currentPage={currentPage}
           />
         }
-        footer={<Footer totalPage={2} setCurrentPage={setCurrentPage} currentPage={currentPage} />}
       >
         <Column
           selectionMode="multiple"
@@ -54,9 +64,14 @@ const Table = ({ setNumberOfCourses }: TableProps) => {
           bodyStyle={{ width: '44px' }}
           bodyClassName={styles.checkbox_column}
         />
-        <Column field="name" header="Назва події" className={styles.column} />
-        <Column field="date" header="Дата" className={styles.column} />
-        <Column field="time" header="Час" className={styles.column} />
+        <Column
+          body={rowData => <NameColumn rowData={rowData} />}
+          header="Назва події"
+          className={styles.column}
+        />
+        <Column field="dateStart" header="Початок" className={styles.column} />
+        <Column field="dateEnd" header="Кінець" className={styles.column} />
+        <Column header="" body={rowData => <ActionsColumn rowData={rowData} />} />
       </DataTable>
     </div>
   );

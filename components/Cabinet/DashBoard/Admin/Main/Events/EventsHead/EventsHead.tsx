@@ -3,14 +3,29 @@ import TitleNoStyles from '../../../../../../Common/TitleNoStyles/TitleNoStyles'
 import UsersSearch from '../../Users/UserList/UsersFilter/UsersSearch/UsersSearch';
 
 import styles from './EventsHead.module.scss';
+import { EventRow } from '@/types/events';
+import useDeleteEvents from '@/hooks/useDeleteEvents';
+import { useSession } from 'next-auth/react';
 
 interface EventsHeadProps {
   search: string;
   setSearch: (search: string) => void;
-  deleteEvents: string[];
+  deleteEvents: EventRow[];
+  status: string;
 }
 
-const EventsHead = ({ search, setSearch, deleteEvents }: EventsHeadProps) => {
+const EventsHead = ({ search, setSearch, deleteEvents, status }: EventsHeadProps) => {
+  const { data: session } = useSession();
+  const mutateDeleteEvent = useDeleteEvents({
+    token: session?.accessToken || '',
+    status,
+  });
+
+  const onDeleteEvents = () => {
+    const idsToDelete = deleteEvents.map(event => event.id);
+    mutateDeleteEvent.mutate(idsToDelete);
+  };
+
   return (
     <div className={styles.wrapper}>
       <TitleNoStyles variant="h1" styled={styles.title}>
@@ -28,7 +43,7 @@ const EventsHead = ({ search, setSearch, deleteEvents }: EventsHeadProps) => {
         </Link>
         <UsersSearch search={search} setSearch={setSearch} />
         {deleteEvents.length > 0 && (
-          <button className={styles.delete_btn} type="button" onClick={() => {}}>
+          <button className={styles.delete_btn} type="button" onClick={() => onDeleteEvents()}>
             {' '}
             <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path

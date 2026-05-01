@@ -1,0 +1,14 @@
+@import '/styles/main.scss';
+
+.link {
+  @media (hover: hover) {
+    &:is(:hover, :focus) {
+      text-decoration: underline;
+    }
+  }
+  @media (hover: none) {
+    &:is(:active, :focus) {
+      text-decoration: underline;
+    }
+  }
+}

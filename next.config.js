@@ -26,6 +26,12 @@ const nextConfig = {
         hostname: 'karmolog-dev.up.railway.app',
         pathname: '/**', // Якщо у вас є певний шаблон для шляхів
       },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '3010', // Якщо порт є частиною вашої URL
+        pathname: '/**', // Якщо у вас є певний шаблон для шляхів
+      },
     ],
   },
 };

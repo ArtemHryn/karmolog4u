@@ -11,7 +11,7 @@ const filtersList = [
   { name: 'Архів', link: ARCHIVE },
 ];
 
-const Filters = ({ activeBtn, setActiveBtn, numberOfCourses }) => {
+const Filters = ({ activeBtn, setActiveBtn, numberOfCourses, setDeleteEvents }) => {
   const onFilterChange = () => {
     if (!numberOfCourses) return filtersList;
 
@@ -26,7 +26,10 @@ const Filters = ({ activeBtn, setActiveBtn, numberOfCourses }) => {
             className={`${styles.button} ${open_Sans.className} ${
               activeBtn === link ? styles.button_active : ''
             }`}
-            onClick={() => setActiveBtn(link)}
+            onClick={() => {
+              setActiveBtn(link);
+              !!setDeleteEvents && setDeleteEvents([]);
+            }}
           >
             {name}
             <span>({count ? count : 0})</span>
