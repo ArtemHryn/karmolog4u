@@ -13,3 +13,20 @@ ol {
   margin: 0;
   list-style: none;
 }
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 250ms ease;
+  @media (hover: hover) {
+    &:is(:hover, :focus) {
+      scale: 1.05;
+    }
+  }
+  @media (hover: none) {
+    &:is(:active, :focus) {
+      scale: 1.05;
+    }
+  }
+}

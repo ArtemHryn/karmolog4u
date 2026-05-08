@@ -1,0 +1,17 @@
+@import '/styles/main.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.title {
+  @include fontRegular(22px, 500, 22px, $main_text_color, center);
+}
+
+.list_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}

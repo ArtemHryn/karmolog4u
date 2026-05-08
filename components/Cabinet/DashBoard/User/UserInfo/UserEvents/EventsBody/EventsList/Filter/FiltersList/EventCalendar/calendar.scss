@@ -1,0 +1,49 @@
+@import '/styles/main.scss';
+
+.p-datepicker {
+  background-color: $main_bg;
+  border: 1px solid $accent_v2;
+  border-radius: 16px;
+  color: $main_text_color;
+}
+
+.p-datepicker-header {
+  background-color: $main_bg;
+  border: none;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.p-datepicker-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.p-datepicker-month {
+  color: $main_text_color;
+}
+
+.p-datepicker-year {
+  color: $main_text_color;
+}
+
+.p-datepicker-next {
+  color: $main_text_color;
+}
+
+.p-datepicker-prev {
+  color: $main_text_color;
+}
+
+.p-datepicker-today {
+  &>span {
+    background-color: $accent_v2;
+    border-radius: 4px;
+    opacity: 0.8;
+  }
+}
+
+.p-highlight {
+  background-color: $accent_v2;
+}

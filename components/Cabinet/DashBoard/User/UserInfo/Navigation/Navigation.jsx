@@ -7,11 +7,13 @@ import Education from './Icons/Education';
 import Personal from './Icons/Personal';
 import Support from './Icons/Support';
 import styles from './Navigation.module.scss';
+import Events from './Icons/Events';
 
 const navList = [
   { name: 'Мої досягнення', icon: Achievement, link: '/cabinet/dashboard/user/achievement' },
   { name: 'Навчання', icon: Education, link: '/cabinet/dashboard/user/education' },
   { name: 'Продукти', icon: Products, link: '/cabinet/dashboard/user/products' },
+  { name: 'Події', icon: Events, link: '/cabinet/dashboard/user/events' },
   { name: 'Особисті дані', icon: Personal, link: '/cabinet/dashboard/user/personal' },
   { name: 'Відділ турботи', icon: Support, link: '/cabinet/dashboard/user/support' },
 ];
