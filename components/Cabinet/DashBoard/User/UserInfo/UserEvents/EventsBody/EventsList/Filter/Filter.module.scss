@@ -1,0 +1,45 @@
+@import '/styles/main.scss';
+
+.button_wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.text {
+  @include fontRegular(14px, 400, 19.06px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.show_button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $dark_gold_dark;
+  border-radius: 8px;
+  width: 44px;
+  height: 44px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  background: $buttons_color;
+}
+
+.svg {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  opacity: 1;
+  transition: all 0.2s ease-in-out;
+}
+
+.svg_hide {
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}

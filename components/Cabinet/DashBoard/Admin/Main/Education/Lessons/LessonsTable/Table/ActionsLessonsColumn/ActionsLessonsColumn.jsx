@@ -46,16 +46,10 @@ const ActionsLessonsColumn = ({
   };
 
   useEffect(() => {
-    if (showDialogWindow && op.current) {
+    if ((showDialogWindow || showDialogMoveTo) && op.current) {
       op.current.hide();
     }
-  }, [showDialogWindow]);
-
-  useEffect(() => {
-    if (showDialogMoveTo && op.current) {
-      op.current.hide();
-    }
-  }, [showDialogMoveTo]);
+  }, [showDialogWindow, showDialogMoveTo]);
 
   return (
     <>

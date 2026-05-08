@@ -4,7 +4,7 @@ import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 import styles from './EventsHeader.module.scss';
 import { unbounded } from '@/app/[locale]/fonts';
 
-const EventsHeader = () => {
+const EventsHeader = ({ headerTitle = 'Додавання події' }: { headerTitle?: string }) => {
   return (
     <>
       {' '}
@@ -25,7 +25,7 @@ const EventsHeader = () => {
           href="/cabinet/dashboard/admin/events"
           className={`${styles.link} ${unbounded.className}`}
         >
-          Додавання події
+          {headerTitle}
         </Link>
       </div>
     </>

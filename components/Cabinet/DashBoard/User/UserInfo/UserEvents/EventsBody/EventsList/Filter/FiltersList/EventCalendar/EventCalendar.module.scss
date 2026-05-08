@@ -1,0 +1,26 @@
+@import '/styles/main.scss';
+
+.show_calendar_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  border: none;
+  margin-left: auto;
+  & > svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.calendar {
+  & > input {
+    background-color: transparent;
+    border: none;
+    @include fontRegular(14px, 400, 14px);
+    &[aria-expanded='true'] {
+      box-shadow: 0 0 0 0.1rem $accent_v2;
+    }
+  }
+}

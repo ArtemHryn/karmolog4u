@@ -7,26 +7,11 @@ import Prev from '../Type/Icons/Prev';
 
 import styles from './Contract.module.scss';
 import './calendar.scss';
+import { locales } from '@/helper/calendarLocate';
 
 const CalendarComponent = ({ title, name, isDate }) => {
   const { control, clearErrors, trigger } = useFormContext();
-  addLocale('ua', {
-    dayNamesMin: ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПН', 'СБ', 'НД'],
-    monthNames: [
-      'Січень',
-      'Лютий',
-      'Березень',
-      'Квітень',
-      'Травень',
-      'Червень',
-      'Липень',
-      'Серпень',
-      'Вересень',
-      'Жовтень',
-      'Листопад',
-      'Грудень',
-    ],
-  });
+  addLocale('ua', locales);
   return (
     <Controller
       name={name}

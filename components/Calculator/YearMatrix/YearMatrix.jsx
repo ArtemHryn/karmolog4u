@@ -20,6 +20,7 @@ const YearMatrix = ({ date, name, period }) => {
     const result = getPersonalGraph({ info: { day, month, year }, lifeMap: true });
     const periodList = getPeriod({ info: result });
     const yearMatrix = getYearMatrix({ period, periodList });
+
     const finalMatrix = getPersonalGraph({
       info: yearMatrix,
       isPartners: true,
