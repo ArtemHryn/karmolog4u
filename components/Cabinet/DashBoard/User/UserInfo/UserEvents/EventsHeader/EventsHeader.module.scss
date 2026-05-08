@@ -1,0 +1,30 @@
+@import '/styles/main.scss';
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 48px 24px;
+  height: 280px;
+  background-image: url('/assets//images/events/events_header_mobile.webp');
+  background-position: center;
+  background-size: cover;
+  align-items: center;
+
+  @media all and (width >=$min_tablet) {
+    background-image: url('/assets//images/events/events_header_tablet.webp');
+    gap: 32px;
+  }
+}
+
+.actions_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.events {
+  @include fontRegular(32px, 400, 32px);
+  text-transform: uppercase;
+}
