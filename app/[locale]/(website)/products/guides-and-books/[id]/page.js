@@ -52,11 +52,12 @@ const GuideAndBooksDetails = () => {
     { href: '/products/guides-and-books', name: 'Гайди та книги' },
     { href: pathname, name: guideAndBook.name },
   ];
+
   return (
     <Container>
       <HeroNav linkNames={links} />
       <MeditationsDescriptions product={guideAndBook} />
-      {isGnBLoading && isListLoading && (
+      {!isGnBLoading && !isListLoading && (
         <ProductionCanBeInterestingSlider slides={guidesAndBooks} />
       )}
     </Container>

@@ -1,7 +1,15 @@
 import { useParams, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
-import { ARCANES, CLOSED_MEDITATIONS, ETHERS, WEBINARS } from '@/helper/consts';
+import {
+  ARCANES,
+  BOOKS,
+  CLOSED_MEDITATIONS,
+  ETHERS,
+  GUIDES,
+  OTHER_GUIDES,
+  WEBINARS,
+} from '@/helper/consts';
 import { ProductCardProps } from '@/types/products';
 
 import styles from './Info.module.scss';
@@ -24,7 +32,7 @@ const Info = ({ card, setShowModal }: InfoProps) => {
     return price - (price * discount.discount) / 100;
   };
 
-  const showSellButtonCategories = [CLOSED_MEDITATIONS, WEBINARS];
+  const showSellButtonCategories = [CLOSED_MEDITATIONS, WEBINARS, GUIDES, BOOKS, OTHER_GUIDES];
 
   return (
     <div className={styles.info_wrapper}>
@@ -52,7 +60,7 @@ const Info = ({ card, setShowModal }: InfoProps) => {
           </div>
         )}
       </div>
-      {showSellButtonCategories.includes(category) && Number(price) > 0 && (
+      {(showSellButtonCategories.includes(category) || !category) && Number(price) > 0 && (
         <button
           className={styles.button}
           aria-label={t('aria_label')}

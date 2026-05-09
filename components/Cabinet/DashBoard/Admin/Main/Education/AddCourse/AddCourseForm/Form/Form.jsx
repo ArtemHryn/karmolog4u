@@ -21,6 +21,7 @@ import { typesList } from '@/helper/platform/coursesList';
 
 import styles from './Form.module.scss';
 import 'react-toastify/dist/ReactToastify.css';
+import PaymentTypes from './FormParts/PaymentTypes/PaymentTypes';
 
 async function AddOrUpdateCourse({ data, token, action, id }) {
   const url =
@@ -72,6 +73,10 @@ const setDefaultFormFields = items => {
     literature,
     contract,
     cover,
+    paymentTypes: {
+      allowed: { telegram: tg, wayForPay, requisites },
+      requisitesText,
+    },
   } = items;
 
   return {
@@ -106,6 +111,10 @@ const setDefaultFormFields = items => {
             { author: '', link: '' },
           ],
     cover: cover ? cover : '',
+    ...(requisites ? { requisitesText } : {}),
+    tg,
+    wayForPay,
+    requisites,
   };
 };
 
@@ -116,6 +125,7 @@ const Form = ({ editCourse }) => {
     defaultValues: setDefaultFormFields(editCourse),
   });
   const queryClient = useQueryClient();
+  console.log(editCourse);
 
   const mutation = useMutation({
     mutationFn: ({ info }) =>
@@ -158,6 +168,10 @@ const Form = ({ editCourse }) => {
       period,
       cover,
       practiceInvoice,
+      requisites,
+      wayForPay,
+      tg,
+      requisitesText,
     } = data;
 
     const setFieldError = (field, message) => {
@@ -234,6 +248,16 @@ const Form = ({ editCourse }) => {
       }
     }
 
+    if (!tg && !wayForPay && !requisites) {
+      toast.error('Вкажіть хоча б один тип оплати');
+      return;
+    }
+
+    const paymentTypes = {
+      allowed: { telegram: tg, wayForPay, requisites },
+      ...(requisites ? { requisitesText } : {}),
+    };
+
     const requiredParams = {
       name,
       type,
@@ -252,6 +276,7 @@ const Form = ({ editCourse }) => {
       status,
       price: +price,
       cover,
+      paymentTypes,
     };
 
     if (
@@ -261,6 +286,7 @@ const Form = ({ editCourse }) => {
     ) {
       requiredParams.contract = contract;
     }
+    console.log(requiredParams);
 
     mutation.mutate({ info: requiredParams });
   };
@@ -283,6 +309,7 @@ const Form = ({ editCourse }) => {
                 title={'6. Додаткові файли курсу'}
               />
               <PracticePaymentLink />
+              <PaymentTypes />
             </div>
             <CoverWithPrice />
           </div>

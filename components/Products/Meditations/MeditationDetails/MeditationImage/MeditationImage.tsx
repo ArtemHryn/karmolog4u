@@ -3,6 +3,7 @@ import Youtube from 'react-youtube';
 import Logo from '@/components/Common/Icons/Logo';
 
 import styles from './MeditationImage.module.scss';
+import { useState } from 'react';
 
 interface MeditationImageProps {
   video: string;
@@ -10,7 +11,8 @@ interface MeditationImageProps {
 }
 
 const MeditationImage = ({ video, cover }: MeditationImageProps) => {
-  if (!video && !cover) {
+  const [error, setError] = useState(false);
+  if ((!video && !cover) || error) {
     return (
       <div className={styles.no_image}>
         <Logo styled={styles.logo} />
@@ -29,6 +31,8 @@ const MeditationImage = ({ video, cover }: MeditationImageProps) => {
           width={736}
           height={462}
           className={styles.video}
+          onError={() => setError(true)}
+          unoptimized
         />
       )}
     </div>

@@ -6,7 +6,6 @@
   justify-content: center;
   max-width: 360px;
   padding: 40px 16px;
-
   border-radius: 30px;
   background-color: #131313;
   overflow-y: auto;
@@ -261,4 +260,19 @@
 
 .error {
   @include fontRegular(10px, 500, 10px, #e60000);
+}
+
+.img_error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 91px;
+  height: 72px;
+  background-image: linear-gradient(270deg, #cfb691 -135.76%, #000 102.98%);
+  border-radius: 8px;
+}
+
+.img_error_logo {
+  width: 40px;
+  height: 40px;
 }
