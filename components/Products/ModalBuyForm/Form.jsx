@@ -12,6 +12,7 @@ import FormInput from './FormInput/FormInput';
 import { useMutation } from '@tanstack/react-query';
 import { base_url } from '../../../helper/consts';
 import { toast } from 'react-toastify';
+import useSendDataToWayForPay from '../../../hooks/useSendDataToWayForPay';
 
 const sendCustomerInfo = async (data, token) => {
   const res = await fetch(`${base_url}/payments/product/create`, {
@@ -49,18 +50,7 @@ const Form = ({ price, id }) => {
       : {},
   });
 
-  const mutation = useMutation({
-    mutationFn: data => sendCustomerInfo(data, info?.accessToken),
-    onSuccess: data => {
-      console.log('success', data);
-
-      const event = new EventSource(`${base_url}/payments/products/events/${id}`);
-      event.onmessage = e => {
-        console.log(JSON.parse(e.data));
-      };
-    },
-    onError: err => toast.error(err.message),
-  });
+  const mutation = useSendDataToWayForPay(info?.accessToken ?? '');
 
   const {
     handleSubmit,
@@ -70,7 +60,7 @@ const Form = ({ price, id }) => {
 
   const onFormSubmit = data => {
     const { phone, ...rest } = data;
-    mutation.mutate({ ...rest, itemId: id, phone: `+${phone}` });
+    mutation.mutate({ ...rest, itemId: id, phone: `+${phone}`, paymentType: 'FULL' });
   };
 
   return (
