@@ -1,0 +1,41 @@
+@import '/styles/main.scss';
+
+.payment {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    @media all and (width >=$min_tablet) {
+        justify-content: space-between;
+        align-items: center;
+        width: 190px;
+        padding: 8px 0;
+    }
+}
+
+.payment_text {
+    @include fontRegular(8px, 400, 12px, $main_text_color);
+
+    @media all and (width >=$min_tablet) {
+        font-size: 13px;
+        text-align: center;
+    }
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 112px;
+    height: 27px;
+    border-radius: 8px;
+    background: $buttons_color;
+    @include fontRegular(10px, 600, 10px, $third_text_color);
+
+    @media all and (width >=$min_tablet) {
+        font-size: 16px;
+        height: 30px;
+        width: 100%;
+        border-radius: 14px;
+    }
+}

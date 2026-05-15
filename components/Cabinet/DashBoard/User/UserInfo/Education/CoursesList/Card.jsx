@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 import styles from './CoursesList.module.scss';
-import { open_Sans, unbounded } from '@/app/[locale]/layout';
+import { unbounded } from '@/app/[locale]/layout';
 import Link from 'next/link';
 import {
   ADVANCED,
@@ -12,9 +12,21 @@ import {
   SSK_WITH_CURATOR,
   SSK_WITH_SERGIY,
 } from '@/helper/consts';
+import SSKButton from './PaymentButtons/SSKButton';
+import PaymentButton from './PaymentButtons/PaymentButton';
 
 const Card = ({ course }) => {
-  const { name, availableTo, accessEndDate, cover, id, paymentPlan, type, accessType } = course;
+  const {
+    name,
+    availableTo,
+    accessEndDate,
+    cover,
+    id,
+    paymentPlan,
+    type,
+    accessType,
+    paymentTypes,
+  } = course;
 
   const routing = {
     [SSK_INDEPENDENT]: 'ssk',
@@ -54,27 +66,14 @@ const Card = ({ course }) => {
                   })}
             </p>
           </div>
-          {paymentPlan === PARTIAL && (
-            <div className={styles.payment}>
-              <p className={styles.payment_text}>Сплачено 50% рахунку</p>
-              <button type="button" className={`${styles.button} ${open_Sans.className}`}>
-                Сплатити залишок
-              </button>
-            </div>
-          )}
+          {paymentPlan === PARTIAL && <SSKButton paymentTypes={paymentTypes} id={id} name={name} />}
           {paymentPlan === INSTALLMENTS && (
-            <div className={styles.payment}>
-              <p className={styles.payment_text}>{`Сплачено до ${new Date(
-                availableTo
-              ).toLocaleString(undefined, {
-                day: '2-digit',
-                month: '2-digit',
-                year: 'numeric',
-              })}`}</p>
-              <button type="button" className={`${styles.button} ${open_Sans.className}`}>
-                Сплатити за місяць
-              </button>
-            </div>
+            <PaymentButton
+              availableTo={availableTo}
+              paymentTypes={paymentTypes}
+              id={id}
+              name={name}
+            />
           )}
         </div>
       </div>

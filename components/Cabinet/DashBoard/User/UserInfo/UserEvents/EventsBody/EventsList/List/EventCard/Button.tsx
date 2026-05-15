@@ -11,7 +11,7 @@ const Button = () => {
         Подати заявку для участі
       </button>
       {showModal && (
-        <SimpleModalContainer setShowModal={setShowModal}>
+        <SimpleModalContainer setShowModal={setShowModal} showCenter>
           <ModalContext />
         </SimpleModalContainer>
       )}

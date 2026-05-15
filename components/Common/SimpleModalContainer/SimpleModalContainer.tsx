@@ -6,9 +6,14 @@ import styles from './SimpleModalContainer.module.scss';
 interface SimpleModalContainerProps {
   children: React.ReactNode;
   setShowModal: (show: boolean) => void;
+  showCenter?: boolean;
 }
 
-const SimpleModalContainer = ({ children, setShowModal }: SimpleModalContainerProps) => {
+const SimpleModalContainer = ({
+  children,
+  setShowModal,
+  showCenter = false,
+}: SimpleModalContainerProps) => {
   const overlay = useRef<HTMLDivElement>(null);
 
   const onClick = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -32,7 +37,13 @@ const SimpleModalContainer = ({ children, setShowModal }: SimpleModalContainerPr
   }, [setShowModal]);
 
   return createPortal(
-    <div className={styles.overlay} onClick={onClick} ref={overlay} role="dialog" aria-modal="true">
+    <div
+      className={`${styles.overlay} ${showCenter ? styles.center : ''}`}
+      onClick={onClick}
+      ref={overlay}
+      role="dialog"
+      aria-modal="true"
+    >
       {children}
     </div>,
     document.body
