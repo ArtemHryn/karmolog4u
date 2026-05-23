@@ -3,8 +3,17 @@ import paymentWFPForm from '@/helper/education/paymentWFPForm';
 import { useMutation } from '@tanstack/react-query';
 import { toast } from 'react-toastify';
 
-const sendCustomerInfo = async (id: string, token: string) => {
-  const res = await fetch(`${base_url}/payments/education/create/${id}`, {
+type QueryParams = {
+  id: string;
+  type: 'course' | 'practice';
+};
+
+const sendCustomerInfo = async (id: string, token: string, type: 'course' | 'practice') => {
+  const routes = {
+    course: 'payments/education/create',
+    practice: 'payments/education/create/practice',
+  };
+  const res = await fetch(`${base_url}/${routes[type]}/${id}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -25,7 +34,7 @@ const sendCustomerInfo = async (id: string, token: string) => {
 
 const useGetEducationPayment = (token: string) => {
   return useMutation({
-    mutationFn: (id: string) => sendCustomerInfo(id, token),
+    mutationFn: ({ id, type }: QueryParams) => sendCustomerInfo(id, token, type),
     onSuccess: paymentWFPForm,
     onError: (er: { message: string }) => toast.error(er.message),
   });

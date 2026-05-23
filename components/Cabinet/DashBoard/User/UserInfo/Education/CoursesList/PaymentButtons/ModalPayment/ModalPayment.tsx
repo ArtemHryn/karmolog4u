@@ -13,6 +13,7 @@ interface ModalPaymentProps {
   requisitesText: string;
   id: string;
   name: string;
+  type?: 'course' | 'practice';
 }
 
 type PaymentButton = {
@@ -21,7 +22,13 @@ type PaymentButton = {
   type: PaymentMethod;
 };
 
-const ModalPayment = ({ allowed, requisitesText, id, name }: ModalPaymentProps) => {
+const ModalPayment = ({
+  allowed,
+  requisitesText,
+  id,
+  name,
+  type = 'course',
+}: ModalPaymentProps) => {
   const [showReq, setShowReq] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
   const { data: token } = useSession();
@@ -40,7 +47,7 @@ const ModalPayment = ({ allowed, requisitesText, id, name }: ModalPaymentProps) 
     {
       name: 'WayForPay',
       type: 'wayForPay',
-      action: () => mutation.mutate(id),
+      action: () => mutation.mutate({ id, type }),
     },
     {
       name: 'Реквізити',
