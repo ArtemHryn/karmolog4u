@@ -15,9 +15,11 @@ import { open_Sans_Client } from '@/app/[locale]/clients-fonts';
 import useUserInfo from '@/hooks/useUserInfo';
 
 import styles from './CourseNavigation.module.scss';
-import { ADVANCED, CONSULTING } from '@/helper/consts';
+import { ADVANCED, CONSULTING, FULL } from '@/helper/consts';
 import Calculator from './Icons/Calculator';
 import { useCertDownloading } from '@/hooks/useCertDownloading';
+import useGetEducationPayment from '@/hooks/useGetEducationPayment';
+import PaymentButton from './PaymentButton';
 
 interface CourseNavigationProps {
   course: AboutCourse;
@@ -44,13 +46,13 @@ const CourseNavigation = ({ course }: CourseNavigationProps) => {
     queryKey: ['user-courses'],
   });
 
-  console.log(course.purchaseInfo);
-
   const { downloadCert, isPending } = useCertDownloading({
     token: token?.accessToken || '',
     user: `${token?.user.name || 'unknown'}_${token?.user.lastName || 'unknown'}`,
     id: params.course_id as string,
   });
+
+  const educationPayment = useGetEducationPayment(token?.accessToken || '');
 
   const getLinkToSSK = (): string | false => {
     if (isLoading || isError || !coursesList?.length) return false;
@@ -97,27 +99,26 @@ const CourseNavigation = ({ course }: CourseNavigationProps) => {
         </Link>
       </li>
       <li className={`${styles.item}`}>
-        <button
-          onClick={() => {}}
-          className={`${styles.redirect_el} ${open_Sans_Client.className}`}
-        >
-          <div className={styles.icon_wrapper}>
-            <PaymentIcon />
-          </div>
-          {course.type === CONSULTING ? 'Оплата теорії' : 'Внести платіж'}
-        </button>
+        <PaymentButton
+          type={'course'}
+          disabled={course.purchaseInfo.paymentPlan === FULL}
+          buttonName={course.type === CONSULTING ? 'Оплата теорії' : 'Внести платіж'}
+          icon={PaymentIcon}
+          course={course}
+        />
       </li>
       {course.type === CONSULTING && (
         <li className={`${styles.item}`}>
-          <button
-            onClick={() => {}}
-            className={`${styles.redirect_el} ${open_Sans_Client.className}`}
-          >
-            <div className={styles.icon_wrapper}>
-              <PaymentIcon />
-            </div>
-            Оплата практики
-          </button>
+          <PaymentButton
+            type={'practice'}
+            disabled={
+              !course.numberOfPractices ||
+              course.numberOfPractices === course.purchaseInfo.practiceAmount
+            }
+            buttonName={'Оплата практики'}
+            icon={PaymentIcon}
+            course={course}
+          />
         </li>
       )}
       {linkToSSK && course.type === CONSULTING && (
@@ -189,7 +190,7 @@ const CourseNavigation = ({ course }: CourseNavigationProps) => {
       {course.type === ADVANCED && (
         <li className={`${styles.item}`}>
           {' '}
-          <Link href={'cabinet/dashboard/user/support'} className={`${styles.redirect_el}`}>
+          <Link href={'uk/calculator'} className={`${styles.redirect_el}`}>
             <div className={styles.icon_wrapper}>
               <Calculator />
             </div>

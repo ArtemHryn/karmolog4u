@@ -40,8 +40,11 @@ const PersonalInfo = ({ user: { name, lastName, email, mobPhone, cover = null } 
   const mutation = useMutation({
     mutationFn: data => updateUserInfo(data, userInfo.accessToken),
     onSuccess: () => {
-      update();
-      router.refresh();
+      toast.success('Успішно змінено');
+      setTimeout(() => {
+        update();
+        router.refresh();
+      }, 1000);
     },
     onError: error => {
       console.error('Error updating user info:', error);
@@ -89,6 +92,10 @@ const PersonalInfo = ({ user: { name, lastName, email, mobPhone, cover = null } 
                 },
               },
             ]}
+          />
+          <DoubleInputField
+            label={'3. Безпека'}
+            fields={[{ type: 'password', name: 'password' }]}
           />
         </div>
         {formState.isDirty && <SubmitButtons reset={reset} />}

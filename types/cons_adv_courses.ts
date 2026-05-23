@@ -21,11 +21,18 @@ export interface ModuleSectionProps {
   };
 }
 
+type PaymentMethod = 'telegram' | 'wayForPay' | 'requisites';
+
+type AllowedPayments = Record<PaymentMethod, boolean>;
+
 export interface AboutCourse {
   chat: string;
   id: string;
   type: string;
-  purchaseInfo: { completed: boolean };
+  purchaseInfo: { completed: boolean; paymentPlan: 'FULL' | 'INSTALLMENT'; practiceAmount: number };
+  numberOfPractices: number;
+  paymentTypes: { allowed: AllowedPayments; requisitesText?: string };
+  name: string;
 }
 
 export interface AgreementBodyProps {
