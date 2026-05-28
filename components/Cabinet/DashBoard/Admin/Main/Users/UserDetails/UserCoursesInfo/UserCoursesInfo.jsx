@@ -33,14 +33,14 @@ const UserCoursesInfo = () => {
     isError,
   } = useQuery({
     queryKey: ['user_purchases'],
-    queryFn: () => fetchUserPurchases({ token: user.accessToken, userId: id }),
+    queryFn: () => fetchUserPurchases({ token: user?.accessToken, userId: id }),
     placeholderData: prevD => prevD,
+    enabled: !!user?.accessToken && !!id,
   });
 
   const availableCourses = () => {
     return purchases?.map(p => p.course.id);
   };
-
 
   return (
     <div className={styles.main_wrapper}>

@@ -78,6 +78,7 @@ const UserList = () => {
         totalUsers={users?.[0]?.totalPromo || 1}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
+        selectedOption={selectedOption}
       />
     </div>
   );

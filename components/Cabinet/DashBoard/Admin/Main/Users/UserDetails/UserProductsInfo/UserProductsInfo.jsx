@@ -33,8 +33,9 @@ const UserProductsInfo = () => {
     isError,
   } = useQuery({
     queryKey: ['products_purchase', 'users'],
-    queryFn: () => fetchUserPurchases({ token: token.accessToken, userId: id }),
+    queryFn: () => fetchUserPurchases({ token: token?.accessToken, userId: id }),
     placeholderData: prevD => prevD,
+    enabled: !!token?.accessToken && !!id,
   });
 
   const usedPurchases = () => {
