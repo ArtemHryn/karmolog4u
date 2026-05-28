@@ -16,7 +16,7 @@ const UserDetails = ({ userDetails }) => {
         <UserInfo userDetails={userDetails} />
         <UserCoursesInfo />
         <UserProductsInfo />
-        <UserPaymentTable userDetails={userDetails} />
+        <UserPaymentTable />
       </div>
     </>
   );

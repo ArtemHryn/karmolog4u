@@ -11,12 +11,6 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '4499', // Якщо порт є частиною вашої URL
-        pathname: '/covers/**', // Якщо у вас є певний шаблон для шляхів
-      },
-      {
         protocol: 'https',
         hostname: 'karmolog4u-backend-dev-production.up.railway.app',
         pathname: '/covers/**', // Якщо у вас є певний шаблон для шляхів
@@ -30,6 +24,11 @@ const nextConfig = {
         protocol: 'http',
         hostname: 'localhost',
         port: '3010', // Якщо порт є частиною вашої URL
+        pathname: '/**', // Якщо у вас є певний шаблон для шляхів
+      },
+      {
+        protocol: 'https',
+        hostname: 'karmolog4u-backend-test.up.railway.app',
         pathname: '/**', // Якщо у вас є певний шаблон для шляхів
       },
     ],

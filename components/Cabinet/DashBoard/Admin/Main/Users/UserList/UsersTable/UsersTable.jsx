@@ -11,22 +11,26 @@ import EmptyTable from '../../../Education/TablesInfo/Table/EmptyTable/EmptyTabl
 import OpenAccountProperties from './OpenAccountProperties/OpenAccountProperties';
 import './table.scss';
 
-const UsersTable = ({ users, totalUsers, currentPage, setCurrentPage }) => {
+const UsersTable = ({ users, totalUsers, currentPage, setCurrentPage, selectedOption }) => {
   const [selectedProducts, setSelectedProducts] = useState(null);
 
   const filterUsers = () => {
     if (!users || users.length === 0) return [];
-    const filtered = users.map(({ mobPhone, education, createdAt, lastLogin, ...otherData }) => ({
-      mobPhone: mobPhone
-        ? mobPhone.startsWith('+')
-          ? mobPhone
-          : `+${mobPhone}`
-        : 'немає телефону',
-      product: education?.[0]?.name || 'немає курсу',
-      createdAt: new Date(createdAt).toLocaleDateString(),
-      lastLogin: lastLogin ? new Date(lastLogin).toLocaleDateString() : 'Не входив',
-      ...otherData,
-    }));
+    const filtered = users.map(
+      ({ mobPhone, education, createdAt, lastLogin, courses, ...otherData }) => ({
+        mobPhone: mobPhone
+          ? mobPhone.startsWith('+')
+            ? mobPhone
+            : `+${mobPhone}`
+          : 'немає телефону',
+        product: selectedOption?.value
+          ? courses?.find(c => c.id === selectedOption.value)?.name || 'немає курсу'
+          : courses?.[0]?.name || 'немає курсу',
+        createdAt: createdAt ? new Date(createdAt).toLocaleDateString() : 'Невідомо',
+        lastLogin: lastLogin ? new Date(lastLogin).toLocaleDateString() : 'Не входив',
+        ...otherData,
+      })
+    );
 
     return filtered;
   };

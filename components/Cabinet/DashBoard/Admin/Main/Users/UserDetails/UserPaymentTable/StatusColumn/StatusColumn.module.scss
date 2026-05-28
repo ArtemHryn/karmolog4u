@@ -1,0 +1,28 @@
+@import '/styles/main.scss';
+
+.status {
+	border: 1px solid #cfdbf0;
+	padding: 4px 12px;
+	@include fontRegular(14px, 400, 20px, #163b90, center);
+	width: fit-content;
+	margin-left: 16px;
+	border-radius: 8px;
+	background-color: #e0ebff;
+}
+
+.approved {
+	background-color: #e3fbe8;
+	color: #11491c;
+	border-color: #d1efd7;
+}
+
+.declined {
+	background-color: #FEF2F2;
+	border-color: #ecebeb;
+	color: #DC2626
+}
+
+.pending {
+	background-color: #FEF3C7;
+	color: #D97706;
+}
