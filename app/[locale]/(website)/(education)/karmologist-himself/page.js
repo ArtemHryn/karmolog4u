@@ -11,6 +11,7 @@ import getKarmologistCoursesFeedbacks from '@/helper/education/karmologistCourse
 import getKarmologistCoursesQuestions from '@/helper/education/karmologistCoursesQuestions';
 import { getCardsForKarmologistHimself } from '@/helper/education/whatIsWaitingForYou';
 import getTariffs from '@/helper/education/karmologistTariffs';
+import { fetchPrice } from '../../../../../helper/education/fetchPrice';
 
 const links = [
   {
@@ -38,9 +39,12 @@ const text = {
   ],
 };
 
-const KarmologistPage = () => {
+const KarmologistPage = async () => {
   const { column1, column2 } = getKarmologistCoursesQuestions();
   const cards = getCardsForKarmologistHimself();
+
+  const { prices } = await fetchPrice('ssk');
+
   return (
     <main>
       <Hero
@@ -61,7 +65,7 @@ const KarmologistPage = () => {
         showTest
       />
       <WhatIsWaitingForYou cards={cards} />
-      <KarmologistPageTariffs tariffs={getTariffs()} link={'karmologist-himself/dialog'} />
+      <KarmologistPageTariffs tariffs={getTariffs(prices)} link={'karmologist-himself/dialog'} />
       <AccessToTheCourse />
       <Feedbacks feedbacks={getKarmologistCoursesFeedbacks()} />
       <QuestionAnswer column1={column1} column2={column2} main />
