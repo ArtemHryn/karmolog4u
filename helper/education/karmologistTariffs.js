@@ -1,4 +1,6 @@
-const getTariffs = () => {
+import { SSK_INDEPENDENT, SSK_WITH_CURATOR, SSK_WITH_SERGIY } from '../consts';
+
+const getTariffs = prices => {
   return [
     {
       title: { uk: 'Тариф "Самостійний"', ru: 'Тариф "Самостоятельный"' },
@@ -24,7 +26,7 @@ const getTariffs = () => {
           'Доступ к материалам - 6 месяцев',
         ],
       },
-      price: '250€',
+      price: `${prices.find(p => p.type === SSK_INDEPENDENT).price ?? 250}€`,
       nextSlideInfo: true,
       hidePrepaymentBtn: true,
     },
@@ -58,7 +60,7 @@ const getTariffs = () => {
           'Ответы на ваши вопросы от куратора',
         ],
       },
-      price: '400€',
+      price: `${prices.find(p => p.type === SSK_WITH_CURATOR).price ?? 400}€`,
     },
     {
       title: { uk: 'Тариф </br>"З Сергієм"', ru: 'Тариф <br/>"С Сергеем"' },
@@ -95,7 +97,7 @@ const getTariffs = () => {
           'Обучение комплексному чтению и трактовке личной матрицы судьбы',
         ],
       },
-      price: '750€',
+      price: `${prices.find(p => p.type === SSK_WITH_SERGIY).price ?? 750}€`,
     },
   ];
 };

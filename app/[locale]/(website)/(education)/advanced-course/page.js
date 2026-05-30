@@ -1,4 +1,3 @@
-import { useTranslations } from 'next-intl';
 import QuestionAnswer from '@/components/Common/QuestionAnswer/QuestionAnswer';
 import AboutCourse from '@/components/Education/AboutCourse/AboutCourse';
 import EduPricing from '@/components/Education/EduPricing/EduPricing';
@@ -10,6 +9,8 @@ import { addInfo } from '@/helper/education/advancedCourseEduPricing';
 import getAdvancedCourseFeedback from '@/helper/education/advancedCourseFeedbakcs';
 import getAdvancedCourseQuestions from '@/helper/education/advancedCoursesQuestions';
 import { getCardsForAdvancedCourse } from '@/helper/education/whatIsWaitingForYou';
+import { fetchPrice } from '../../../../../helper/education/fetchPrice';
+import { getTranslations } from 'next-intl/server';
 
 const links = [
   {
@@ -35,10 +36,13 @@ const text = {
   ],
 };
 
-const AdvancedPage = () => {
+const AdvancedPage = async () => {
   const cards = getCardsForAdvancedCourse();
   const { column1, column2 } = getAdvancedCourseQuestions();
-  const t = useTranslations('Education.advanced_course.edu_pricing');
+  const t = await getTranslations('Education.advanced_course.edu_pricing');
+  const prices = await fetchPrice('advanced');
+
+  const { price = 2500 } = prices;
 
   return (
     <main>
@@ -60,8 +64,11 @@ const AdvancedPage = () => {
       />
       <WhatIsWaitingForYou cards={cards} column1Style={true} />
       <EduPricing
-        card={{ title: { uk: 'Поглиблений курс', ru: 'Углубленный курс' }, price: '2500€' }}
-        addInfo={addInfo}
+        card={{
+          title: { uk: 'Поглиблений курс', ru: 'Углубленный курс' },
+          price: `${price}€`,
+        }}
+        addInfo={addInfo(price)}
         link="/advanced-course/dialog"
         desc={{
           first: t('warning1'),

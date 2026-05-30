@@ -9,9 +9,10 @@ import getConsultingCourseFeedbacks from '@/helper/education/consultingCourseFee
 import Feedbacks from '@/components/Services/Feedbacks/Feedbacks';
 import EduPricing from '@/components/Education/EduPricing/EduPricing';
 import { addInfo } from '@/helper/education/consultingCourseEduPricing';
+import { getTranslations } from 'next-intl/server';
 
 import styled from '@/components/Education/ConsultingCourse/AboutCourse/AboutCourse.module.scss';
-import { useTranslations } from 'next-intl';
+import { fetchPrice } from '../../../../../helper/education/fetchPrice';
 
 const text = {
   uk: [
@@ -34,19 +35,27 @@ const text = {
   ],
 };
 
-const additionalCards = {
-  ru: { title: 'Практический модуль', price: '300€', text: '(полная стоимость)' },
-  uk: {
-    title: 'Практичний модуль',
-    price: '300€',
-    text: '(повна вартість)',
-  },
-};
-
-const ConsultingCourse = ({ params: { locale } }) => {
-  const t = useTranslations('Education.consulting_course.edu_pricing');
+const ConsultingCourse = async ({ params: { locale } }) => {
+  const t = await getTranslations('Education.consulting_course.edu_pricing');
   const cards = getCardsForConsultingCourse();
   const { column1, column2 } = getConsultingCourseQuestions();
+
+  const prices = await fetchPrice('consulting');
+  const { price = 1700, practicePrice = 50, practice = 6 } = prices;
+
+  const additionalCards = {
+    ru: {
+      title: 'Практический модуль',
+      price: `${practicePrice * practice}€`,
+      text: '(полная стоимость)',
+    },
+    uk: {
+      title: 'Практичний модуль',
+      price: `${practicePrice * practice}€`,
+      text: '(повна вартість)',
+    },
+  };
+
   return (
     <main>
       <Hero />
@@ -61,9 +70,9 @@ const ConsultingCourse = ({ params: { locale } }) => {
       />
       <WhatIsWaitingForYou cards={cards} column1Style={true} />
       <EduPricing
-        card={{ title: 'Консультантський курс', price: '1700€' }}
+        card={{ title: 'Консультантський курс', price: `${price}€` }}
         additionalCard={additionalCards[locale]}
-        addInfo={addInfo}
+        addInfo={addInfo(price, practicePrice, practice)}
         additionalTitle={t('additionalTitle')}
         link={`/consulting-course/dialog`}
         desc={{
