@@ -13,6 +13,7 @@ import { fetchAgreeToAgreement, getAgreementData } from '@/helper/platform/agree
 import { AgreementBodyProps } from '@/types/cons_adv_courses';
 
 import styles from './AgreementForm.module.scss';
+import { toast } from 'react-toastify';
 
 type dataProps = Record<string, string>;
 
@@ -59,6 +60,9 @@ const AgreementForm = ({ user }: AgreementBodyProps) => {
         token: token?.accessToken ?? '',
         id: params.course_id as string,
       }),
+    onSuccess: () => {
+      toast.success('Договір успішно підписаний')
+    }
   });
 
   const onSubmit = (data: dataProps) => {
@@ -71,8 +75,7 @@ const AgreementForm = ({ user }: AgreementBodyProps) => {
   };
 
   useEffect(() => {
-    if (isLoading || isError || !agreementData?.data) return;
-    console.log(agreementData.data.contractDetails);
+    if (isLoading || isError || !agreementData?.data?.contractDetails) return;
     const [telegram, viber, whatsapp] = agreementData.data.contractDetails.messenger.split(';');
 
     method.reset(

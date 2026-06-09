@@ -166,7 +166,7 @@ const CourseNavigation = ({ course }: CourseNavigationProps) => {
       </li>
       <li className={`${styles.item}`}>
         {' '}
-        <Link href={'cabinet/dashboard/user/support'} className={`${styles.redirect_el}`}>
+        <Link href={'/cabinet/dashboard/user/support'} className={`${styles.redirect_el}`}>
           <div className={styles.icon_wrapper}>
             <SupDepIcon />
           </div>
