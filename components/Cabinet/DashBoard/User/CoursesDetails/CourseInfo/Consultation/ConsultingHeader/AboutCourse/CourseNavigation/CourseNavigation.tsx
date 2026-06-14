@@ -18,7 +18,6 @@ import styles from './CourseNavigation.module.scss';
 import { ADVANCED, CONSULTING, FULL } from '@/helper/consts';
 import Calculator from './Icons/Calculator';
 import { useCertDownloading } from '@/hooks/useCertDownloading';
-import useGetEducationPayment from '@/hooks/useGetEducationPayment';
 import PaymentButton from './PaymentButton';
 
 interface CourseNavigationProps {
@@ -51,8 +50,6 @@ const CourseNavigation = ({ course }: CourseNavigationProps) => {
     user: `${token?.user.name || 'unknown'}_${token?.user.lastName || 'unknown'}`,
     id: params.course_id as string,
   });
-
-  const educationPayment = useGetEducationPayment(token?.accessToken || '');
 
   const getLinkToSSK = (): string | false => {
     if (isLoading || isError || !coursesList?.length) return false;
@@ -190,7 +187,7 @@ const CourseNavigation = ({ course }: CourseNavigationProps) => {
       {course.type === ADVANCED && (
         <li className={`${styles.item}`}>
           {' '}
-          <Link href={'uk/calculator'} className={`${styles.redirect_el}`}>
+          <Link href={'/calculator'} className={`${styles.redirect_el}`}>
             <div className={styles.icon_wrapper}>
               <Calculator />
             </div>

@@ -13,6 +13,7 @@ const Agreement = async () => {
   if (!session) {
     throw new Error('User is not authenticated');
   }
+
   return (
     <div className={styles.main_wrapper}>
       <div className={styles.title_wrapper}>
@@ -27,7 +28,7 @@ const Agreement = async () => {
           про надання освітньо-навчальних послуг
         </TitleNoStyles>
       </div>
-      <AgreementBody user={session.user} />
+      <AgreementBody user={session.user} token={session.accessToken} />
       <ToastContainer />
     </div>
   );
