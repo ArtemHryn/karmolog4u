@@ -1,23 +1,45 @@
 'use client';
 import { useEffect } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { useSession } from 'next-auth/react';
 import { useParams } from 'next/navigation';
-import { useMutation, useQuery } from '@tanstack/react-query';
+import { useMutation, UseQueryResult } from '@tanstack/react-query';
 import AgreementUserData from '../AgreementUserData/AgreementUserData';
 import AgreementSocial from '../AgreementSocial/AgreementSocial';
 import Definitions from '../Definitions/Definitions';
 import SubmitForm from '../SubmitForm/SubmitForm';
 
-import { fetchAgreeToAgreement, getAgreementData } from '@/helper/platform/agreementFetch';
-import { AgreementBodyProps } from '@/types/cons_adv_courses';
+import { fetchAgreeToAgreement } from '@/helper/platform/agreementFetch';
+import { AgreementBodyProps, Contract } from '@/types/cons_adv_courses';
 
 import styles from './AgreementForm.module.scss';
 import { toast } from 'react-toastify';
 
-type dataProps = Record<string, string>;
+interface FormValues {
+  fullname: string;
+  phone: string;
+  idCode: string;
+  passportData: string;
+  telegram: boolean;
+  viber: boolean;
+  whatsapp: boolean;
+  isAgree: boolean;
+}
 
-const getDefaultValues = (agreementInfo: dataProps) => {
+interface DefaultValuesData {
+  agreement?: boolean;
+  name?: string;
+  lastName?: string;
+  mobPhone?: string;
+  fullname?: string;
+  phone?: string;
+  idCode?: string;
+  passportData?: string;
+  telegram?: boolean;
+  viber?: boolean;
+  whatsapp?: boolean;
+}
+
+const getDefaultValues = (agreementInfo: DefaultValuesData): Partial<FormValues> => {
   if (agreementInfo?.agreement) {
     const { fullname, phone, idCode, passportData, telegram, viber, whatsapp } = agreementInfo;
     return {
@@ -36,36 +58,32 @@ const getDefaultValues = (agreementInfo: dataProps) => {
   };
 };
 
-const AgreementForm = ({ user }: AgreementBodyProps) => {
-  const { data: token } = useSession();
-  const params = useParams();
-  const {
-    data: agreementData,
-    isError,
-    isLoading,
-  } = useQuery({
-    queryKey: ['agreement', params.course_id],
-    queryFn: () => getAgreementData(params.course_id as string, token?.accessToken ?? ''),
-    enabled: !!token?.accessToken,
-  });
+interface AgreementFormProps extends AgreementBodyProps {
+  data: UseQueryResult<Contract>;
+}
 
-  const method = useForm({
+const AgreementForm = ({ user, token, data }: AgreementFormProps) => {
+  const params = useParams();
+
+  const { data: agreementData, isError, isLoading } = data;
+
+  const method = useForm<FormValues>({
     defaultValues: getDefaultValues(user),
   });
 
   const mutate = useMutation({
-    mutationFn: (data: dataProps) =>
+    mutationFn: (data: Record<string, string>) =>
       fetchAgreeToAgreement({
         data,
-        token: token?.accessToken ?? '',
+        token,
         id: params.course_id as string,
       }),
     onSuccess: () => {
-      toast.success('Договір успішно підписаний')
-    }
+      toast.success('Договір успішно підписаний');
+    },
   });
 
-  const onSubmit = (data: dataProps) => {
+  const onSubmit = (data: FormValues) => {
     const { telegram, viber, whatsapp, isAgree, ...rest } = data;
     const assignData = {
       ...rest,
@@ -75,16 +93,17 @@ const AgreementForm = ({ user }: AgreementBodyProps) => {
   };
 
   useEffect(() => {
-    if (isLoading || isError || !agreementData?.data?.contractDetails) return;
-    const [telegram, viber, whatsapp] = agreementData.data.contractDetails.messenger.split(';');
+    if (isLoading || isError || !agreementData?.agreement || !agreementData?.contractDetails)
+      return;
+    const messengers = agreementData.contractDetails.messenger.split(';').map(i => i.trim());
 
     method.reset(
       getDefaultValues({
-        ...agreementData.data.contractDetails,
-        agreement: agreementData.data.agreement,
-        telegram: telegram ? true : false,
-        viber: viber ? true : false,
-        whatsapp: whatsapp ? true : false,
+        ...agreementData.contractDetails,
+        agreement: agreementData.agreement,
+        telegram: messengers.includes('telegram'),
+        viber: messengers.includes('viber'),
+        whatsapp: messengers.includes('whatsapp'),
       })
     );
   }, [agreementData, isLoading, isError, method]);
@@ -94,8 +113,12 @@ const AgreementForm = ({ user }: AgreementBodyProps) => {
       <form onSubmit={method.handleSubmit(onSubmit)} className={styles.form}>
         <AgreementUserData />
         <AgreementSocial />
-        <Definitions />
-        <SubmitForm isPending={mutate.isPending} isAssigned={!!agreementData?.data?.agreement} />
+        <Definitions data={agreementData?.contractDetails?.points || []} />
+        <SubmitForm
+          isPending={mutate.isPending}
+          isAssigned={!!agreementData?.agreement}
+          signUpTo={agreementData?.contractDetails.signUpTo || ''}
+        />
       </form>
     </FormProvider>
   );

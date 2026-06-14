@@ -35,12 +35,25 @@ export interface AboutCourse {
   name: string;
 }
 
+type Point = {
+  name: string;
+  description: string;
+};
+
+export interface Contract {
+  isError: boolean;
+  isLoading: boolean;
+  agreement: boolean;
+  contractDetails: { points: Point[]; messenger: string; signUpTo: string };
+}
+
 export interface AgreementBodyProps {
   user: {
     name?: string;
     lastName?: string;
     mobPhone?: string;
   };
+  token: string;
 }
 
 export interface BonusLinkItem {
