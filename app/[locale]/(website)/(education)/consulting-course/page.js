@@ -40,8 +40,12 @@ const ConsultingCourse = async ({ params: { locale } }) => {
   const cards = getCardsForConsultingCourse();
   const { column1, column2 } = getConsultingCourseQuestions();
 
-  const prices = await fetchPrice('consulting');
-  const { price = 1700, practicePrice = 50, practice = 6 } = prices;
+  // const prices = await fetchPrice('consulting');
+  // const { price = 1700, practicePrice = 50, practice = 6 } = prices;
+
+  const price = 1700
+  const practicePrice = 50
+  const practice = 6;
 
   const additionalCards = {
     ru: {

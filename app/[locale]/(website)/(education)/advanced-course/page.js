@@ -40,9 +40,11 @@ const AdvancedPage = async () => {
   const cards = getCardsForAdvancedCourse();
   const { column1, column2 } = getAdvancedCourseQuestions();
   const t = await getTranslations('Education.advanced_course.edu_pricing');
-  const prices = await fetchPrice('advanced');
+  // const prices = await fetchPrice('advanced');
 
-  const { price = 2500 } = prices;
+  // const { price = 2500 } = prices;
+
+  const price = 2500
 
   return (
     <main>
