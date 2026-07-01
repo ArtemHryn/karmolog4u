@@ -1,13 +1,13 @@
 'use client';
 import { usePathname } from 'next/navigation';
 import { useQuery } from '@tanstack/react-query';
-import { useLocale } from 'next-intl';
 import Container from '@/components/Common/Container/Container';
 import HeroNav from '@/components/Common/HeroNav/HeroNav';
 import MeditationsDescriptions from '@/components/Products/Meditations/MeditationDetails/MeditationsDescriptions';
 
 import ProductionCanBeInterestingSlider from '@/components/Common/ProductionCanBeInterestingSlider/ProductionCanBeInterestingSlider';
 import { base_url } from '@/helper/consts';
+import { useEffect } from 'react';
 
 const getMeditationById = async id => {
   const res = await fetch(`${base_url}/products/meditations/get/${id}`);
@@ -27,14 +27,20 @@ const getMeditationsList = async () => {
 
 const MeditationDetails = ({ params }) => {
   const pathname = usePathname();
-  const locale = useLocale();
+  const { locale, id } = params;
 
   const { data: meditation, isLoading: isMetLoading } = useQuery({
-    queryKey: ['meditation', params.id],
-    queryFn: () => getMeditationById(params.id),
+    queryKey: ['meditation', id],
+    queryFn: () => getMeditationById(id),
     staleTime: 5 * 60 * 1000, // 5 minutes
     gcTime: 10 * 60 * 1000, // 10 minutes
   });
+
+  useEffect(() => {
+    if (meditation) {
+      document.title = meditation.name[locale];
+    }
+  }, [meditation, locale]);
 
   const { data: meditations, isLoading: isListLoading } = useQuery({
     queryKey: ['meditations'],

@@ -125,7 +125,6 @@ const Form = ({ editCourse }) => {
     defaultValues: setDefaultFormFields(editCourse),
   });
   const queryClient = useQueryClient();
-  console.log(editCourse);
 
   const mutation = useMutation({
     mutationFn: ({ info }) =>

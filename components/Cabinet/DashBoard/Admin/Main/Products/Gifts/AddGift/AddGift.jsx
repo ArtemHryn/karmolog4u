@@ -59,8 +59,6 @@ const AddGift = ({ edit }) => {
   const { data: token } = useSession();
   const { handleSubmit, setValue } = methods;
 
-  console.log(edit);
-
   const mutation = useMutation({
     mutationFn: ({ info }) =>
       AddOrUpdateGift({

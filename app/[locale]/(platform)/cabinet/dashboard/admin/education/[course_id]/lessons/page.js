@@ -6,13 +6,12 @@ import Lessons from '@/components/Cabinet/DashBoard/Admin/Main/Education/Lessons
 
 export const revalidate = 0;
 
-const editCourse = async (id, token) => {
+const courseDetails = async (id, token) => {
   const res = await fetch(`${base_url}/admin/education/course/get/${id}`, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
-    cache: 'no-store',
   });
   if (!res.ok) {
     const errorMessage = await res.json();
@@ -22,22 +21,19 @@ const editCourse = async (id, token) => {
 };
 
 const LessonsPage = async ({ params }) => {
-  try {
-    const session = await getServerSession(authOptions);
-    const accessToken = session?.accessToken;
-    if (!accessToken) {
-      console.error('Access token not found in session');
-      return <div>Немає доступу</div>;
-    }
-
-    const course = await editCourse(params.course_id, accessToken);
-
-    if (!course) notFound();
-    return <Lessons course={course} />;
-  } catch (err) {
-    console.error('Помилка завантаження курсу:', err);
-    return notFound();
+  const session = await getServerSession(authOptions);
+  const accessToken = session?.accessToken;
+  if (!accessToken) {
+    console.error('Access token not found in session');
+    notFound();
   }
+
+  const course = await courseDetails(params.course_id, accessToken);
+
+  if (!course) notFound();
+  console.log(course);
+
+  return <Lessons course={course} />;
 };
 
 export default LessonsPage;

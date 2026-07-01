@@ -12,7 +12,6 @@ const fetchUserDetails = async (id, token) => {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
-    cache: 'no-store',
   });
   if (!res.ok) {
     const errorMessage = await res.json();
@@ -24,24 +23,21 @@ const fetchUserDetails = async (id, token) => {
 export const revalidate = 0;
 
 const UserProfilePage = async ({ params }) => {
-  try {
-    const session = await getServerSession(authOptions);
-    const accessToken = session?.accessToken;
-    if (!accessToken || session.user.role !== 'ADMIN') {
-      console.error('Access token not found in session');
-      return <div>Немає доступу</div>;
-    }
-    const userDetails = await fetchUserDetails(params.id, accessToken);
-    if (!userDetails) notFound();
-
-    return (
-      <main className={styles.main}>
-        <UserDetails userDetails={userDetails} />
-      </main>
-    );
-  } catch (error) {
-    return <div>{error.message}</div>;
+  const session = await getServerSession(authOptions);
+  const accessToken = session?.accessToken;
+  if (!accessToken || session?.user?.role !== 'ADMIN') {
+    console.error('Access token not found in session');
+    return <div>Немає доступу</div>;
   }
+  const userDetails = await fetchUserDetails(params.id, accessToken);
+
+  if (!userDetails) notFound();
+
+  return (
+    <main className={styles.main}>
+      <UserDetails userDetails={userDetails} />
+    </main>
+  );
 };
 
 export default UserProfilePage;
