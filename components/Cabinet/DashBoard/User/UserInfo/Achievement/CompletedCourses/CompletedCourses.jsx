@@ -3,43 +3,16 @@
 import Image from 'next/image';
 import { useSession } from 'next-auth/react';
 import SectionsTemplate from '../SectionsTemplate/SectionsTemplate';
-import { base_url } from '@/helper/consts';
 import useUserInfo from '@/hooks/useUserInfo';
 
 import styles from './CompletedCourses.module.scss';
-
-const course = [
-  {
-    name: 'Курс 1 з довгою назвою на два рядки і ще додамо третій',
-    numberOfLessons: 22,
-    img: '/assets/images/therapySessions/session-insight-mob.webp',
-  },
-  {
-    name: 'Курс 2',
-    numberOfLessons: 22,
-    img: '/assets/images/therapySessions/session-insight-mob.webp',
-  },
-];
-
-const getCompletedCourses = async token => {
-  const res = fetch(`${base_url}/coursePurchase/get-achievement`, {
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`,
-    },
-  });
-  if (!res.ok) {
-    const errorBody = await res.json();
-    throw new Error(errorBody?.message || 'Помилка');
-  }
-  return res.json();
-};
+import Loader from '../../../Loader/Loader';
 
 const CompletedCourses = () => {
   const { data: token } = useSession();
 
   const {
-    data: courses,
+    data: achi,
     isLoading,
     isError,
   } = useUserInfo({
@@ -48,24 +21,36 @@ const CompletedCourses = () => {
     queryKey: ['user-achievement'],
   });
 
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  if (isError) {
+    return (
+      <div className={styles.error_wrapper}>
+        <p className={styles.error_text}>Помилка завантаження списку пройденних курсів</p>
+        <p className={styles.error_text}>
+          Будь ласка, спробуйте ще або зверніться до адміністратора
+        </p>
+      </div>
+    );
+  }
+
+  if (!achi) return null;
+  const achievements = [...(achi ?? []), ...Array(Math.max(0, 3 - (achi?.length ?? 0))).fill(null)];
+
   return (
     <SectionsTemplate title={'Пройдені курси'}>
       <ul className={styles.list}>
-        {[0, 1, 2].map(i => (
+        {achievements.map((c, i) => (
           <li key={i} className={styles.item}>
-            {course[i] ? (
+            {c !== null ? (
               <div className={styles.item_wrapper}>
-                <Image
-                  src={course[i].img}
-                  width={138}
-                  alt={course[i].name}
-                  height={83}
-                  className={styles.img}
-                />
+                <Image src={c.cover} width={138} alt={c.name} height={83} className={styles.img} />
                 <div className={styles.desc_wrapper}>
-                  <p className={styles.name}>{course[i].name}</p>
+                  <p className={styles.name}>{c.name}</p>
                   <p className={styles.lessons}>
-                    {course[i].numberOfLessons}/{course[i].numberOfLessons} уроків
+                    {c.numberOfLessons}/{c.numberOfLessons} уроків
                   </p>
                 </div>
               </div>

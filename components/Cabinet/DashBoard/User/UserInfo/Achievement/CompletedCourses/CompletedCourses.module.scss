@@ -4,20 +4,22 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     flex-direction: row;
     flex-wrap: wrap;
   }
-  @media all and (width >= $min_tablet) {
-  }
+
+  @media all and (width >=$min_tablet) {}
 }
 
 .item {
-  @media all and (width >= $min_tablet) {
+  @media all and (width >=$min_tablet) {
     width: calc((100% - 20px) / 3);
     min-width: 325px;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     width: calc((100% - 20px) / 3);
     min-width: 233px;
     max-width: 400px;
@@ -35,7 +37,8 @@
   border-radius: 10px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
   border: 1px solid $accent_v2;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     width: 100%;
   }
 }
@@ -44,7 +47,8 @@
   object-fit: fill;
   width: 138px;
   height: 83px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     width: 98px;
     height: 86px;
   }
@@ -79,4 +83,23 @@
   border-radius: 10px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
   border: 1px dashed $accent_v2;
+}
+
+
+.error_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px $accent_v2 dashed;
+  border-bottom: 1px $accent_v2 dashed;
+  padding: 24px 0px;
+  width: fit-content;
+}
+
+.error_text {
+  @include fontRegular(14px, 400, 14px);
+
+  @media all and (width >=$min_tablet) {
+    font-size: 16px;
+  }
 }
