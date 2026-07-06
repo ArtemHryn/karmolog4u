@@ -1,5 +1,5 @@
 'use client';
-import { useParams, usePathname } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { useQuery } from '@tanstack/react-query';
 
 import Container from '@/components/Common/Container/Container';
@@ -7,6 +7,7 @@ import HeroNav from '@/components/Common/HeroNav/HeroNav';
 import MeditationsDescriptions from '@/components/Products/Meditations/MeditationDetails/MeditationsDescriptions';
 import ProductionCanBeInterestingSlider from '@/components/Common/ProductionCanBeInterestingSlider/ProductionCanBeInterestingSlider';
 import { base_url } from '../../../../../../helper/consts';
+import { useEffect } from 'react';
 
 const getWebinarById = async id => {
   const res = await fetch(`${base_url}/products/webinars/get/${id}`);
@@ -24,16 +25,21 @@ const getWebinarsList = async () => {
   return res.json();
 };
 
-const CoursesDetails = () => {
-  const params = useParams();
+const CoursesDetails = ({ params: { locale, id } }) => {
   const pathname = usePathname();
 
   const { data: webinar, isLoading: isWebLoading } = useQuery({
-    queryKey: ['webinar', params.id],
-    queryFn: () => getWebinarById(params.id),
+    queryKey: ['webinar', id],
+    queryFn: () => getWebinarById(id),
     staleTime: 5 * 60 * 1000, // 5 minutes
     gcTime: 10 * 60 * 1000, // 10 minutes
   });
+
+  useEffect(() => {
+    if (webinar) {
+      document.title = webinar.name[locale];
+    }
+  }, [webinar, locale]);
 
   const { data: webinars, isLoading: isListLoading } = useQuery({
     queryKey: ['webinars'],

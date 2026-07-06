@@ -6,6 +6,7 @@ import HeroNav from '@/components/Common/HeroNav/HeroNav';
 import MeditationsDescriptions from '@/components/Products/Meditations/MeditationDetails/MeditationsDescriptions';
 import ProductionCanBeInterestingSlider from '@/components/Common/ProductionCanBeInterestingSlider/ProductionCanBeInterestingSlider';
 import { base_url } from '../../../../../../helper/consts';
+import { useEffect } from 'react';
 
 const getGuideAndBookById = async id => {
   const res = await fetch(`${base_url}/products/guides-and-books/get/${id}`);
@@ -23,7 +24,7 @@ const getGuidesAndBooksList = async () => {
   return res.json();
 };
 
-const GuideAndBooksDetails = () => {
+const GuideAndBooksDetails = ({ params: { locale } }) => {
   const pathname = usePathname();
   const params = useParams();
 
@@ -33,6 +34,12 @@ const GuideAndBooksDetails = () => {
     staleTime: 5 * 60 * 1000, // 5 minutes
     gcTime: 10 * 60 * 1000, // 10 minutes
   });
+
+  useEffect(() => {
+    if (guideAndBook) {
+      document.title = guideAndBook.name[locale];
+    }
+  }, [guideAndBook, locale]);
 
   const { data: guidesAndBooks, isLoading: isListLoading } = useQuery({
     queryKey: ['guidesAndBooks'],
@@ -50,7 +57,7 @@ const GuideAndBooksDetails = () => {
 
   const links = [
     { href: '/products/guides-and-books', name: 'Гайди та книги' },
-    { href: pathname, name: guideAndBook.name },
+    { href: pathname, name: guideAndBook.name[locale] },
   ];
 
   return (

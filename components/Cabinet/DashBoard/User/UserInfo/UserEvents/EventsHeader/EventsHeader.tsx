@@ -9,7 +9,7 @@ const EventsHeader = () => {
   return (
     <header className={styles.header}>
       <div className={styles.actions_wrapper}>
-        <Link href="/cabinet/dashboard/user/">
+        <Link href="/cabinet/dashboard/user/achievement">
           <Logo />
         </Link>
         <Link href="/cabinet/dashboard/user/personal">

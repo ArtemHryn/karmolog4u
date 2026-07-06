@@ -5,7 +5,7 @@ import UserFooter from '@/components/Cabinet/DashBoard/User/Footer/Footer';
 
 import styles from './layout.module.scss';
 
-const UserInfoLayout = ({ children }) => {
+const UserInfoLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className={styles.wrapper}>
       <Header />

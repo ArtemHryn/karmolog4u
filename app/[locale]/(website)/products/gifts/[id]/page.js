@@ -7,6 +7,7 @@ import HeroNav from '@/components/Common/HeroNav/HeroNav';
 import MeditationsDescriptions from '../../../../../../components/Products/Meditations/MeditationDetails/MeditationsDescriptions';
 import { base_url } from '../../../../../../helper/consts';
 import ProductionCanBeInterestingSlider from '@/components/Common/ProductionCanBeInterestingSlider/ProductionCanBeInterestingSlider';
+import { useEffect } from 'react';
 
 const getGiftById = async id => {
   const res = await fetch(`${base_url}/products/gifts/get/${id}`);
@@ -24,16 +25,22 @@ const getGifts = async () => {
   return res.json();
 };
 
-const GiftDetailsPage = ({ params: { locale } }) => {
+const GiftDetailsPage = ({ params: { locale, id } }) => {
   const params = useParams();
   const pathname = usePathname();
 
   const { data: gift, isLoading: isGiftLoading } = useQuery({
-    queryKey: ['gift', params.id],
-    queryFn: () => getGiftById(params.id),
+    queryKey: ['gift', id],
+    queryFn: () => getGiftById(id),
     staleTime: 5 * 60 * 1000, // 5 minutes
     gcTime: 10 * 60 * 1000, // 10 minutes
   });
+
+  useEffect(() => {
+    if (gift) {
+      document.title = gift.name[locale];
+    }
+  }, [gift, locale]);
 
   const { data: gifts, isLoading } = useQuery({
     queryKey: ['gifts'],
@@ -51,7 +58,7 @@ const GiftDetailsPage = ({ params: { locale } }) => {
 
   const links = [
     { href: '/products/gifts', name: { uk: 'Подарунки Студії', ru: 'Подарки Студии' } },
-    { href: pathname, name: gift.name },
+    { href: pathname, name: gift.name[locale] },
   ];
 
   return (

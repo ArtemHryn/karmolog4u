@@ -9,7 +9,6 @@ const PaymentTypes = () => {
     register,
     formState: { errors },
   } = useFormContext();
-  console.log(watch('wayForPay'));
 
   return (
     <div className={styles.payment_types_wrapper}>
