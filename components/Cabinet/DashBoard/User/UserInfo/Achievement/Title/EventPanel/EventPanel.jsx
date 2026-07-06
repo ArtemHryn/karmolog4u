@@ -3,9 +3,31 @@
 import { useState } from 'react';
 import styles from './EventPanel.module.scss';
 import EventDetailsModal from '../EventDetailsModal/EventDetailsModal';
+import { useSession } from 'next-auth/react';
+import { addYears, subMonths } from 'date-fns';
+import { useQuery } from '@tanstack/react-query';
+import { fetchEvents } from '../../../../../../../../helper/platform/getEvents';
 
-const EventPanel = ({ events }) => {
+const EventPanel = () => {
   const [showModal, setShowModal] = useState(false);
+  const { data: session } = useSession();
+
+  const from = subMonths(new Date(), 1).toISOString();
+  const to = addYears(new Date(), 1).toISOString();
+  const { data: events } = useQuery({
+    queryKey: ['events', 'user'],
+    queryFn: () =>
+      fetchEvents({
+        from: from,
+        to: to,
+        token: session?.accessToken || '',
+      }),
+    enabled: !!session?.accessToken,
+    placeholderData: prevD => prevD,
+  });
+
+  if (!events) return null;
+
   return (
     <div className={styles.wrapper}>
       <button className={styles.button} onClick={() => setShowModal(true)}>
@@ -15,7 +37,7 @@ const EventPanel = ({ events }) => {
             fill="#AF9369"
           />
         </svg>
-        {Object.keys(events || {}).length > 0 && (
+        {!!events && (
           <div className={styles.info}>
             <svg viewBox="0 0 6 7" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path

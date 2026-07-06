@@ -3,19 +3,12 @@ import NoEvents from './NoEvents';
 import styles from './Events.module.scss';
 
 const Events = ({ events }) => {
-  if (events === undefined || Object.keys(events).length === 0) {
-    return <NoEvents />;
-  }
-  const eventsList = Object.entries(events).map(([date, event]) => ({
-    date,
-    event,
-    link: 'https://www.youtube.com/',
-  }));
+  if (!events || events.length === 0) return <NoEvents />;
 
   return (
     <ul className={styles.list}>
-      {eventsList.map(({ date, event, link }) => (
-        <li key={date} className={styles.list_item}>
+      {events.map(({ dateStart, name }) => (
+        <li key={dateStart} className={styles.list_item}>
           <svg
             viewBox="0 0 18 18"
             fill="none"
@@ -29,10 +22,11 @@ const Events = ({ events }) => {
               fill="#CFB691"
             />
           </svg>
-          {date && (
+          {dateStart && (
             <p className={styles.text}>
-              Приєднуйтеся до нового вебінару {event} в {date} Посилання для участі: нажміть на{' '}
-              <Link href={link} target="_blank" rel="noreferrer noopener">
+              Приєднуйтеся до нового вебінару {name} в {dateStart.slice(0, 10)} Посилання для
+              участі: нажміть на{' '}
+              <Link href={'https://t.me/karmologforyou'} target="_blank" rel="noreferrer noopener">
                 посилання
               </Link>
             </p>

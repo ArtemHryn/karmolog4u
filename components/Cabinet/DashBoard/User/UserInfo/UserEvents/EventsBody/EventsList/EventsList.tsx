@@ -9,27 +9,9 @@ import { unbounded_client } from '@/app/[locale]/clients-fonts';
 import List from './List/List';
 import ProductsLoading from '@/components/Products/ProductsLoading/ProductsLoading';
 import useEventRange from '@/hooks/useEventRange';
-import { base_url } from '@/helper/consts';
+import { fetchEvents } from '@/helper/platform/getEvents';
 
 import styles from './EventsList.module.scss';
-
-const fetchEvents = async ({ from, to, token }: { from?: string; to?: string; token: string }) => {
-  const params = new URLSearchParams();
-
-  if (from) params.set('from', from);
-  if (to) params.set('to', to);
-
-  const res = await fetch(`${base_url}/user/events/all?${params.toString()}`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
-
-  if (!res.ok) {
-    throw new Error('');
-  }
-  return res.json();
-};
 
 const EventsList = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -57,15 +39,12 @@ const EventsList = () => {
         token: session?.accessToken || '',
       }),
     enabled: isValidRange && !!session?.accessToken,
-    // enabled: false,
     placeholderData: prevD => prevD,
   });
 
   if (isError) {
     toast.error(error?.message || 'Помилка завантаження');
   }
-
-  console.log(events);
 
   return (
     <div className={styles.wrapper}>

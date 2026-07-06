@@ -44,9 +44,10 @@
 }
 
 .img {
-  object-fit: fill;
+  object-fit: cover;
   width: 138px;
   height: 83px;
+  border-radius: 4px;
 
   @media all and (width >=$min_tablet) {
     width: 98px;
