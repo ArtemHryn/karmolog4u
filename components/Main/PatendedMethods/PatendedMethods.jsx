@@ -5,6 +5,7 @@ import Slider from './Slider/Slider';
 import styles from './PatentedMethods.module.scss';
 import { useTranslations } from 'next-intl';
 
+
 const PatentedMethods = () => {
   const t = useTranslations('Main.PatentedMethods');
   return (
@@ -22,7 +23,7 @@ const PatentedMethods = () => {
             fill="#CFB691"
           />
         </svg>
-      </Title>
+      </Title>{' '}
       <Slider />
     </Container>
   );

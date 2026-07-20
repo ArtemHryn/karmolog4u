@@ -11,9 +11,12 @@
 .title {
   text-align: center;
   margin-bottom: 40px;
+
   @media all and (min-width: $min_tablet) {
     margin-bottom: 48px;
+    text-wrap: balance;
   }
+
   @media all and (min-width: $min_desktop) {
     margin-bottom: 60px;
   }
@@ -23,9 +26,11 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+
   @media all and (min-width: $min_tablet) {
     gap: 24px;
   }
+
   @media all and (min-width: $min_desktop) {
     flex-direction: row;
   }
@@ -38,9 +43,11 @@
   background-color: #2e2e2e;
   border-radius: 30px;
   gap: 24px;
+
   @media all and (min-width: $min_tablet) {
     padding: 60px 54px;
   }
+
   @media all and (min-width: $min_desktop) {
     width: 737px;
   }
@@ -48,9 +55,11 @@
 
 .text {
   @include fontRegular(16px, 400, 22.4px);
+
   &_bold {
     font-weight: 600;
   }
+
   @media all and (min-width: $min_tablet) {
     @include fontRegular(18px, 400, 25.2px);
   }
@@ -68,10 +77,12 @@
 
   @include fontRegular(16px, 600, 16px, #101010);
   transition: all 250ms ease;
+
   &:hover {
     background-color: #fdfdfd;
     scale: 1.05;
   }
+
   @media all and (min-width: $min_tablet) {
     width: 411px;
     height: 60px;
@@ -87,6 +98,7 @@
 
 .spot {
   display: none;
+
   @media all and (min-width: $min_tablet) {
     position: absolute;
     display: block;
@@ -99,14 +111,13 @@
     transform: rotate(-90deg);
 
     border-radius: 287px;
-    background-image: linear-gradient(
-      180deg,
-      rgba(207, 182, 145, 0.4) 0%,
-      rgba(207, 182, 145, 0.4) 45.14%
-    );
+    background-image: linear-gradient(180deg,
+        rgba(207, 182, 145, 0.4) 0%,
+        rgba(207, 182, 145, 0.4) 45.14%);
 
     filter: blur(125px);
   }
+
   @media all and (min-width: $min_desktop) {
     right: 12%;
     top: -12%;

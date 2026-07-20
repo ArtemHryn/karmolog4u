@@ -12,12 +12,12 @@ const HowIsGoingNailing = () => {
     <Container>
       <h2 className={`${styles.title} ${unbounded.className}`}>{t('main_title')}</h2>
       <div className={styles.topic_container}>
-        <Video id={'PLuUtpIkhVY?si=JvbMh9b9m1iDWych'} />
-        <Video id={'xhtsBunobUs?si=H0RsNzwKHYPFJLx3'} />
+        <Video id={'PLuUtpIkhVY'} />
+        <Video id={'xhtsBunobUs'} />
       </div>
       <h2 className={`${styles.title} ${unbounded.className}`}>{t('additional_title')}</h2>
       <div className={styles.topic_container2}>
-        <Video id={'1elEAD1qJfA?si=QQJAHeGe6e6EWblu'} />
+        <Video id={'1elEAD1qJfA'} />
         <SeeMoreOnMyYouTube />
       </div>
     </Container>

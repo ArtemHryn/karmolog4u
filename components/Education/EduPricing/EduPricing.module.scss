@@ -147,7 +147,8 @@
 
 .info_element {
   @media all and (min-width: $min_desktop) {
-    width: 628px;
+    max-width: 628px;
+    width: calc((100% - 24px) / 2);
   }
 }
 

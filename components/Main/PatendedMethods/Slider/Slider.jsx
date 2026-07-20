@@ -28,6 +28,8 @@ const Slider = () => {
       return `<span class="${className} ${styles.pagination}"></span>`;
     },
   };
+
+
   return (
     <div>
       <Swiper

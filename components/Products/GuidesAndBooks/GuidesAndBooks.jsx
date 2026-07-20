@@ -9,7 +9,7 @@ import styles from './GuidesAndBooks.module.scss';
 const getGuidesAndBooksList = async () => {
   const res = await fetch(`${base_url}/products/guides-and-books/get-all`);
   if (!res.ok) {
-    throw new Error('Failed to fetch meditations list');
+    throw new Error('Failed to fetch guides and books list');
   }
   return res.json();
 };

@@ -19,7 +19,7 @@ const ShowModalButton = ({ styles, name, wrapperStyles }) => {
         {name ? name : t('hero_button')}
       </button>
       {showModal && (
-        <SimpleModalContainer setShowModal={setShowModal}>
+        <SimpleModalContainer setShowModal={setShowModal} showCenter>
           <ModalContext />
         </SimpleModalContainer>
       )}

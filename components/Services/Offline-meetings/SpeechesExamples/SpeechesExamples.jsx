@@ -8,18 +8,18 @@ import { useLocale, useTranslations } from 'next-intl';
 
 const examples = [
   {
-    videoId: 'BhmkDrlU8Cs?si=6hjwrji_nJJML6xD',
+    videoId: 'BhmkDrlU8Cs',
     title: { uk: 'Жінка очима чоловіка', ru: 'Женщина глазами мужчины' },
   },
   {
-    videoId: 'z4mgRLcsv48?si=u97Dki9z1u-LqQz3',
+    videoId: 'z4mgRLcsv48',
     title: {
       uk: 'Сила роду , карма батьків, як змінити долю',
       ru: 'Сила рода, карма родителей, как изменить судьбу',
     },
   },
   {
-    videoId: 'EBqm4_GGeV8?si=3h6VUk-1v-xZcF6V',
+    videoId: 'EBqm4_GGeV8',
     title: {
       uk: 'Карма та доля людини . Що можна дізнатися за допомогою матриці?',
       ru: 'Карма и судьба человека. Что можно узнать с помощью матрицы?',
@@ -27,14 +27,14 @@ const examples = [
   },
 
   {
-    videoId: 'K-Rhc_dFkzY?si=ImYFol8_L8JVYHqS',
+    videoId: 'K-Rhc_dFkzY',
     title: {
       uk: 'Любов до себе та взаємозвʼязок з навколишнім світом',
       ru: 'Любовь к себе и взаимосвязь с окружающим миром и окружающим миром',
     },
   },
   {
-    videoId: 'QQUWJRoNQa4?si=UdqLY2ruOCNwOBQQ',
+    videoId: 'QQUWJRoNQa4',
     title: { uk: 'Як визначити справжні бажання?', ru: 'Как определить истинные желания?' },
   },
 ];

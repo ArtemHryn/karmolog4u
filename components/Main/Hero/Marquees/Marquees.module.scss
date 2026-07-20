@@ -6,9 +6,11 @@
   bottom: 0%;
   left: 0;
   z-index: 3;
+
   @media all and (min-width: $min_tablet) {
     bottom: 4%;
   }
+
   @media all and (min-width: $min_desktop) {
     bottom: 3.5%;
   }
@@ -18,21 +20,24 @@
   @include fontRegular(14px, 400, 19.5px);
   padding: 12px 10px;
   text-transform: uppercase;
+
   &_dark {
     @include fontRegular(14px, 400, 19.5px, $third_text_color);
     padding: 12px 10px;
   }
+
   @media all and (min-width: $min_tablet) {
     @include fontRegular(18px, 400, 25.2px);
     padding: 18px 10px;
+
     &_dark {
       @include fontRegular(18px, 400, 25.2px, $third_text_color);
       padding: 18px 10px;
       text-transform: uppercase;
     }
   }
-  @media all and (min-width: $min_desktop) {
-  }
+
+  @media all and (min-width: $min_desktop) {}
 }
 
 .redText {
@@ -42,6 +47,7 @@
   rotate: (-2deg);
   transform-origin: left center;
   z-index: 2;
+
   @media all and (min-width: $min_desktop) {
     rotate: (-1.8deg);
     transform-origin: center;
@@ -52,7 +58,6 @@
   rotate: (2deg);
   background-color: #000;
   position: absolute;
-  top: -20px;
   transform-origin: left center;
 
   @media all and (min-width: $min_desktop) {

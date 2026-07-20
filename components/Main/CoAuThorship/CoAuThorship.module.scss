@@ -6,6 +6,7 @@
 
 .container {
   position: relative;
+
   @media all and (min-width: $min_desktop) {
     display: flex;
     justify-content: space-between;
@@ -17,9 +18,11 @@
 .header {
   @include fontRegular(24px, 400, 24px, $main_text_color, center);
   margin-bottom: 42px;
+
   @media all and (min-width: $min_tablet) {
     @include fontRegular(36px, 400, 36px, $main_text_color, center);
   }
+
   @media all and (min-width: $min_desktop) {
     @include fontRegular(36px, 400, 36px);
   }
@@ -30,6 +33,7 @@
   flex-direction: column;
   gap: 24px;
   margin-bottom: 48px;
+
   @media all and (min-width: $min_tablet) {
     margin-bottom: 60px;
   }
@@ -37,9 +41,12 @@
 
 .description {
   @include fontRegular(16px, 400, 22.4px, $main_text_color, center);
+  text-wrap: balance;
+
   @media screen and (min-width: $min_tablet) {
     @include fontRegular(18px, 400, 25.2px, $main_text_color, center);
   }
+
   @media all and (min-width: $min_desktop) {
     @include fontRegular(18px, 400, 25.2px);
   }
@@ -47,6 +54,7 @@
 
 .arrow {
   display: none;
+
   @media all and (min-width: $min_desktop) {
     width: 120px;
     height: 74px;
@@ -60,9 +68,11 @@
   0% {
     transform: translateX(0px);
   }
+
   50% {
     transform: translateX(12px);
   }
+
   100% {
     transform: translateX(0px);
   }
@@ -70,6 +80,7 @@
 
 .spot {
   display: none;
+
   @media all and (min-width: $min_desktop) {
     position: absolute;
     display: block;
@@ -81,11 +92,9 @@
     height: 270px;
 
     border-radius: 270px;
-    background: linear-gradient(
-      180deg,
-      rgba(206, 180, 144, 0.4) 0%,
-      rgba(207, 182, 145, 0.4) 45.14%
-    );
+    background: linear-gradient(180deg,
+        rgba(206, 180, 144, 0.4) 0%,
+        rgba(207, 182, 145, 0.4) 45.14%);
 
     filter: blur(125px);
   }

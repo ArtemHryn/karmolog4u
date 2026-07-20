@@ -9,16 +9,19 @@
   opacity: 1 !important;
   width: 10px;
   height: 10px;
+
   @media all and (min-width: $min_tablet) {
     width: 16px !important;
     height: 16px !important;
   }
+
   @media all and (min-width: $min_desktop) {
-    .swiper > .swiper-pagination {
+    .swiper>.swiper-pagination {
       display: none !important;
     }
   }
 }
+
 //Swiper element
 
 .slider_element_container {
@@ -27,8 +30,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-
-  height: 238px;
+  gap: 8px;
+  height: 248px;
   width: 100%;
 
   border-radius: 30px;
@@ -36,16 +39,20 @@
   padding: 18px 15px;
   background: #000;
   margin-bottom: 30px;
+
   @media all and (min-width: $min_tablet) {
     padding: 18px 29px;
     margin-bottom: 50px;
   }
+
   @media all and (min-width: $min_desktop) {
     padding: 18px 56.5px;
+
   }
 }
 
 .logo {
+  flex-shrink: 1;
   width: 30px;
   height: 30px;
 }
@@ -66,6 +73,7 @@
 
   @include fontRegular(16px, 600, 16px, $third_text_color);
   transition: all 250ms ease;
+
   &:is(:hover, :focus) {
     background-color: $buttons_hover_color;
   }
@@ -74,6 +82,7 @@
 .slider_button {
   position: absolute;
   display: none;
+
   @media all and (min-width: $min_desktop) {
     display: block;
 
@@ -81,15 +90,18 @@
     background-color: $buttons_color;
     padding: 20px 0;
     transition: all 0.3s ease;
+
     &_prev {
       left: 0;
       rotate: 180deg;
       transform: translateY(50%);
     }
+
     &_next {
       right: 0;
       transform: translateY(-50%);
     }
+
     &:hover,
     &:focus {
       background-color: $buttons_hover_color;

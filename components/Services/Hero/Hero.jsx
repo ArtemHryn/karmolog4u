@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useLocale, useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 import Container from '@/components/Common/Container/Container';
 import HeroNav from '@/components/Common/HeroNav/HeroNav';
 
@@ -9,7 +9,6 @@ import ShowModalButton from '../../Common/ShowModalButton/ShowModalButton';
 
 const Hero = ({ linkNames = [], title, img }) => {
   const locale = useLocale();
-  const t = useTranslations('Services.therapy_sessions');
   return (
     <Container>
       <HeroNav linkNames={linkNames} />

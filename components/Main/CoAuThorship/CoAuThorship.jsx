@@ -1,6 +1,5 @@
 import Container from '@/components/Common/Container/Container';
 import Books from './Books/Books';
-import BooksTab from './Books/BooksTab';
 import BooksArrow from '@/components/Common/Icons/BooksArrow';
 import { unbounded } from '@/app/[locale]//layout';
 
@@ -22,7 +21,6 @@ const CoAuThorship = () => {
         <BooksArrow styled={styles.arrow} />
       </div>
       <Books />
-      <BooksTab />
     </Container>
   );
 };
