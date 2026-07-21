@@ -1,9 +1,5 @@
-const psychologyLayout = ({ children, modal }) => {
-  return (
-    <main>
-      {children} {modal}
-    </main>
-  );
+const psychologyLayout = ({ children }) => {
+  return <main>{children}</main>;
 };
 
 export default psychologyLayout;
