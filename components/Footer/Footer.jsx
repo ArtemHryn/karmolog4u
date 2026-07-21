@@ -19,10 +19,10 @@ function Footer() {
         </Link>
         <div className={styles.container}>
           <div className={styles.link_wrap}>
-            <Link href={'/'} className={`${styles.hover}`}>
+            <Link href={'/policy'} className={`${styles.hover}`}>
               {t('policy')}
             </Link>
-            <Link href={'/'} className={` ${styles.hover}`}>
+            <Link href={'/offer'} className={` ${styles.hover}`}>
               {t('agreement')}
             </Link>
           </div>

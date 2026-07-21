@@ -1,0 +1,8 @@
+@import "../styles/main.scss";
+
+.main {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	padding: 60px 16px;
+}
