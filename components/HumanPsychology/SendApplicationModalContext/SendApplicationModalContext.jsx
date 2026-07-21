@@ -1,29 +1,22 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import Form from './Form';
 import Title from '@/components/Common/Title/Title';
 import styles from './SendApplicationModalContext.module.scss';
-import { useRouter } from 'next/navigation';
 
 const SendApplicationModalContext = () => {
   const [isSent, setIsSent] = useState(false);
-  const router = useRouter();
-  useEffect(() => {
-    if (isSent) {
-      setTimeout(() => router.back(), 3000);
-    }
-  });
+  const t = useTranslations('Human_psychology.Association.SendAppTo');
 
   return isSent ? (
     <div className={styles.successful_container}>
-      <Title styled={styles.successful_title}>Дякуємо! </Title>
-      <p className={styles.successful_text}>
-        Протягом тижня ми звʼяжемось з Вами стосовно свого рішення про вступ в асоціацію
-      </p>
+      <Title styled={styles.successful_title}>{t('thanks')} </Title>
+      <p className={styles.successful_text}>{t('we_will_contact')}</p>
     </div>
   ) : (
     <div className={styles.modal_container}>
-      <Title styled={styles.title}>Заявка на вступ до Асоціації “Кармотерапії та психології”</Title>
+      <Title styled={styles.title}>{t('app_has_sent')}</Title>
       <Form setIsSent={setIsSent} />
     </div>
   );

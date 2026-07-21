@@ -1,12 +1,17 @@
+'use client';
+
 import Container from '@/components/Common/Container/Container';
 import Title from '@/components/Common/Title/Title';
-import Link from 'next/link';
 import Image from 'next/image';
 
-import styles from './SendAppToAssociation.module.scss';
 import { useTranslations } from 'next-intl';
+import { useState } from 'react';
+import SimpleModalContainer from '../../Common/SimpleModalContainer/SimpleModalContainer';
+import SendApplicationModalContext from '../SendApplicationModalContext/SendApplicationModalContext';
+import styles from './SendAppToAssociation.module.scss';
 
 const SendAppToAssociation = () => {
+  const [showModal, setShowModal] = useState(false);
   const t = useTranslations('Human_psychology.Association.SendAppTo');
   return (
     <Container styledSection={styles.section} styled={styles.container}>
@@ -34,9 +39,9 @@ const SendAppToAssociation = () => {
           </ul>
           <p className={styles.text}>{t('paid_entrance')}</p>
           <p className={styles.text_bold}>{t('together_change_the_world')}</p>
-          <Link href={'send-application'} className={styles.link}>
+          <button onClick={() => setShowModal(true)} className={styles.link}>
             {t('button')}
-          </Link>
+          </button>
         </div>
         <picture className={styles.img}>
           <source
@@ -52,6 +57,11 @@ const SendAppToAssociation = () => {
           />
         </picture>
       </div>
+      {showModal && (
+        <SimpleModalContainer setShowModal={setShowModal} showCenter>
+          <SendApplicationModalContext />
+        </SimpleModalContainer>
+      )}
     </Container>
   );
 };

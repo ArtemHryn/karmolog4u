@@ -1,22 +1,47 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { Controller, useForm } from "react-hook-form";
-import Link from "next/link";
-import PhoneInput from "react-phone-input-2";
-import TextMaskInput from "react-text-mask";
-import { useRouter } from "next/navigation";
+import { useState } from 'react';
+import { Controller, useForm } from 'react-hook-form';
+import Link from 'next/link';
+import PhoneInput from 'react-phone-input-2';
+import TextMaskInput from 'react-text-mask';
+import { useRouter } from 'next/navigation';
 
-import Field from "./Field";
+import Field from './Field';
 
-import styles from "./SendApplicationModalContext.module.scss";
-import "react-phone-input-2/lib/bootstrap.css";
+import styles from './SendApplicationModalContext.module.scss';
+import 'react-phone-input-2/lib/bootstrap.css';
+import { useMutation } from '@tanstack/react-query';
+import { base_url } from '../../../helper/consts';
+import { toast } from 'react-toastify';
+import { useTranslations } from 'next-intl';
 
-const url = "https://karmolog4u-server.onrender.com/mails/send-mail";
+const sendApplication = async data => {
+  console.log(data);
+
+  const response = await fetch(`${base_url}/send-application`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (!response.ok) {
+    throw new Error('Помилка при відправці заявки');
+  }
+
+  const res = response.json();
+  console.log(res);
+
+  return res;
+};
 
 const Form = ({ setIsSent }) => {
   const [license, setLicense] = useState(false);
   const router = useRouter();
+  const t = useTranslations('Human_psychology.Association.SendAppTo.Form');
+
   const {
     register,
     handleSubmit,
@@ -24,40 +49,38 @@ const Form = ({ setIsSent }) => {
     formState: { errors },
   } = useForm();
 
-  const onFormSubmit = async (data) => {
-    const [d, m, y] = data.date;
-    data.date = `${y}-${m}-${d}`;
-    const body = JSON.stringify(data);
-    try {
-      await fetch(url, {
-        method: "POST",
-        body,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+  const mutation = useMutation({
+    mutationFn: sendApplication,
+    onSuccess: () => {
       setIsSent(true);
-    } catch (error) {
+      setTimeout(() => router.back(), 2000);
+    },
+    onError: error => {
+      toast.error(error.message);
       console.log(error);
-      router.back();
-    }
+    },
+  });
+
+  const onFormSubmit = async data => {
+    const { date, phone } = data;
+    const [day, month, year] = date.split('.');
+
+    mutation.mutate({
+      ...data,
+      phone: `+${phone}`,
+      date: `${year}-${month}-${day}`,
+    });
   };
 
   return (
     <form className={styles.form} onSubmit={handleSubmit(onFormSubmit)}>
       {/* ПІБ */}
-      <Field
-        register={register}
-        name={"name"}
-        title={"ПІП українською мовою"}
-        error={errors}
-        required={true}
-      />
+      <Field register={register} name={'name'} title={t('name')} error={errors} required={true} />
       {/* ПІБ англ*/}
       <Field
         register={register}
-        name={"nameEng"}
-        title={"ПІП англійською мовою"}
+        name={'nameEng'}
+        title={t('nameEng')}
         error={errors}
         required={true}
       />
@@ -66,51 +89,49 @@ const Form = ({ setIsSent }) => {
         name="date"
         control={control}
         rules={{
-          required: { value: true, message: "Введіть дату народження" },
+          required: { value: true, message: 'Введіть дату народження' },
           pattern: {
             value: /^\d{2}\.\d{2}\.\d{4}$/,
-            message: "Введіть дату в форматі дд.мм.рррр",
+            message: 'Введіть дату в форматі дд.мм.рррр',
           },
         }}
         render={({ field }) => (
           <div className={styles.inputGroup}>
             <TextMaskInput
               value={field.value}
-              onChange={(e) => field.onChange(e.target.value)}
-              mask={[/\d/, /\d/, ".", /\d/, /\d/, ".", /\d/, /\d/, /\d/, /\d/]}
+              onChange={e => field.onChange(e.target.value)}
+              mask={[/\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/]}
               type="text"
               guide={false}
               placeholder="дд.мм.рррр"
               className={`${styles.input} ${styles.input_date}`}
               id="date"
-            />{" "}
+            />{' '}
             <label htmlFor="date" className={styles.label}>
-              Дата народження
+              {t('date')}
             </label>
-            {errors.date && (
-              <p className={styles.error}>{errors.date.message}</p>
-            )}
+            {errors.date && <p className={styles.error}>{errors.date.message}</p>}
           </div>
         )}
       />
       {/* моб номер */}
       <div className={styles.number_wrapper}>
-        <p>Ваш номер телефону</p>
+        <p>{t('phone')}</p>
         <Controller
           name="phone"
           control={control}
           rules={{
             minLength: {
               value: 12,
-              message: "Введіть номер в форматі (XXX) XXX-XX-XX",
+              message: 'Введіть номер в форматі (XXX) XXX-XX-XX',
             },
-            required: { value: true, message: "Введіть номер телефону" },
+            required: { value: true, message: 'Введіть номер телефону' },
           }}
           render={({ field }) => (
             <PhoneInput
-              country={"ua"}
+              country={'ua'}
               value={field.value}
-              onChange={(phone) => field.onChange(phone)}
+              onChange={phone => field.onChange(phone)}
               prefix="+"
               defaultMask="(...) ...-..-.."
               className={styles.phone}
@@ -129,80 +150,74 @@ const Form = ({ setIsSent }) => {
           id="email"
           className={styles.input}
           placeholder=" "
-          {...register("email", {
-            required: "Будь ласка, введіть email",
+          {...register('email', {
+            required: 'Будь ласка, введіть email',
             pattern: {
               value: /\S+@\S+\.\S+/,
-              message: "Введіть коректний email",
+              message: 'Введіть коректний email',
             },
           })}
         />
         <label htmlFor="email" className={styles.label}>
-          Ваш email
+          {t('email')}
         </label>
         {errors.email && <p className={styles.error}>{errors.email.message}</p>}
       </div>
       {/* ФБ або інста */}
       <Field
         register={register}
-        name={"socLink"}
-        title={"Сторінка/акаунт у Facebook або Instagram"}
+        name={'socLink'}
+        title={t('socLink')}
         error={errors}
         required={true}
       />
       {/* Освіта */}
       <Field
         register={register}
-        name={"education"}
-        title={"Освіта (ЗВО, спеціальність, рік закінчення)"}
+        name={'education'}
+        title={t('education')}
         error={errors}
         required={true}
       />
       {/* Навчання в студії */}
       <Field
         register={register}
-        name={"educationInStudio"}
-        title={"Навчання у школі Студії Трансформації Сергія Скляренко"}
+        name={'educationInStudio'}
+        title={t('educationInStudio')}
         error={errors}
         required={true}
       />
       {/* курси */}
       <Field
         register={register}
-        name={"courses"}
-        title={"Курси підвищення кваліфікації (перерахувати)"}
+        name={'courses'}
+        title={t('courses')}
         error={errors}
         required={true}
       />
       {/* аспірантура */}
       <Field
         register={register}
-        name={"graduateSchool"}
-        title={"Навчання в аспірантурі/докторантурі"}
+        name={'graduateSchool'}
+        title={'Навчання в аспірантурі/докторантурі'}
         error={errors}
         required={true}
       />
       {/* робота */}
-      <Field
-        register={register}
-        name={"work"}
-        title={"Місце роботи, посада"}
-        error={errors}
-        required={true}
-      />
+      <Field register={register} name={'work'} title={t('work')} error={errors} required={true} />
       {/* наукові інтереси */}
       <Field
         register={register}
-        name={"interesting"}
-        title={"Наукові інтереси (перерахувати)"}
+        name={'interesting'}
+        title={t('interesting')}
         error={errors}
         required={true}
       />
       {/* інші членства */}
       <Field
         register={register}
-        name={"otherMemberships"}
-        title={"Членство в інших організаціях/установах (перерахувати)"}
+        name={'otherMemberships'}
+        title={t('otherMemberships')}
         error={errors}
         required={true}
       />
@@ -214,12 +229,28 @@ const Form = ({ setIsSent }) => {
           id="motivation"
           className={styles.textArea}
           placeholder=" "
-          {...register("motivation", {
-            required: "Заповніть поле",
+          {...register('motivation', {
+            required: 'Заповніть поле',
           })}
         />
         <label htmlFor="motivation" className={styles.label}>
-          Мотивація до вступу в Асоціацію “Кармотерапії та психології”
+          {t('motivation')}
+        </label>
+        {errors.otherMemberships && (
+          <p className={styles.error}>{errors.otherMemberships.message}</p>
+        )}
+      </div>
+      <div className={styles.inputGroup}>
+        <textarea
+          rows={4}
+          type="text"
+          id="comment"
+          className={styles.textArea}
+          placeholder=" "
+          {...register('comment')}
+        />
+        <label htmlFor="comment" className={styles.label}>
+          {t('comment')}
         </label>
         {errors.otherMemberships && (
           <p className={styles.error}>{errors.otherMemberships.message}</p>
@@ -231,7 +262,7 @@ const Form = ({ setIsSent }) => {
           type="checkbox"
           id="license"
           checked={license}
-          onChange={(e) => setLicense(e.target.checked)}
+          onChange={e => setLicense(e.target.checked)}
         />
         <label htmlFor="license">
           <svg viewBox="0,0,50,50">
@@ -239,18 +270,18 @@ const Form = ({ setIsSent }) => {
           </svg>
         </label>
         <p className={styles.text}>
-          Я підтверджую, що ознайомився (-лася) з{" "}
-          <Link href={"/"} target="_blank">
-            політикою конфіденційності
-          </Link>{" "}
-          та{" "}
-          <Link href={"/"} target="_blank">
-            договором публічної оферти
+          {t('license1')}{' '}
+          <Link href={'/'} target="_blank">
+            {t('license2')}
+          </Link>{' '}
+          та{' '}
+          <Link href={'/'} target="_blank">
+            {t('license3')}
           </Link>
         </p>
       </div>
-      <button type="submit" className={styles.submit_btn} disabled={!license}>
-        Подати заявку
+      <button type="submit" className={styles.submit_btn} disabled={!license || mutation.isPending}>
+        {mutation.isPending ? t('button_sending') : `${t('send')}`}
       </button>
     </form>
   );

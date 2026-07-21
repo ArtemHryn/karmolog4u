@@ -77,7 +77,7 @@
   max-width: 100%;
   min-height: 85px;
   @media all and (min-width: $min_tablet) {
-    height: 81px;
+    min-height: 81px;
   }
 }
 
