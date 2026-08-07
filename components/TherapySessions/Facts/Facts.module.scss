@@ -30,7 +30,7 @@
   padding: 20px 24px;
   border-radius: 30px;
   @media screen and (min-width: $min_desktop) {
-    width: 628px;
+    width: calc((100% - 24px) / 2);
   }
 }
 
