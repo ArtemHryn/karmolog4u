@@ -7,7 +7,7 @@ const UserHeader = ({ title = 'Користувачі', onlyDesktop }) => {
   if (onlyDesktop) {
     return (
       <div className={`${styles.wrapper} ${styles.wrapper_desktopOnly}`}>
-        <TitleNoStyles styled={styles.title}>{title}</TitleNoStyles>
+        <TitleNoStyles className={`${styles.title}`}>{title}</TitleNoStyles>
       </div>
     );
   }

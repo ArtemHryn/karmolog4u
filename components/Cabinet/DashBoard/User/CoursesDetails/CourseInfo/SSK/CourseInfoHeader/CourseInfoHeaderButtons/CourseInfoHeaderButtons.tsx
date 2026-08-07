@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { useParams, usePathname } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 import { CourseInfoHeaderWithChatProps } from '@/types/ssk_course';
 import LiteratureList from './Icons/LiteratureList';
 import Support from './Icons/Support';
@@ -10,17 +11,24 @@ import { SSK_INDEPENDENT, SSK_WITH_CURATOR } from '@/helper/consts';
 import { open_Sans } from '@/app/[locale]/layout';
 
 import styles from './CourseInfoHeaderButtons.module.scss';
+import { useCertDownloading } from '@/hooks/useCertDownloading';
 
 const CourseInfoHeaderButtons = ({ type, completed, chat }: CourseInfoHeaderWithChatProps) => {
   const pathName = usePathname();
+  const { data: token } = useSession();
+  const params = useParams();
+
+  const { downloadCert, isPending } = useCertDownloading({
+    token: token?.accessToken || '',
+    user: `${token?.user.name || 'unknown'}_${token?.user.lastName || 'unknown'}`,
+    id: params.course_id as string,
+  });
 
   const getLiteratureLink = () => {
     const splittedPathName = pathName.split('/');
     if (splittedPathName.pop() === 'literature') return pathName;
     return `${pathName}/literature`;
   };
-
-  console.log(chat);
 
   return (
     <ul className={styles.list}>
@@ -41,8 +49,8 @@ const CourseInfoHeaderButtons = ({ type, completed, chat }: CourseInfoHeaderWith
       </li>
       <li className={styles.full_width}>
         <button
-          onClick={() => {}}
-          disabled={!completed}
+          onClick={downloadCert}
+          disabled={!completed || isPending}
           className={`${styles.link} ${open_Sans.className}`}
         >
           <Certificate /> Отримати сертифікат

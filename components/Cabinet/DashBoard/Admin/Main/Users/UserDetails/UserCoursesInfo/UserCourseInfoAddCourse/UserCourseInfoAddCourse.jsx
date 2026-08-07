@@ -53,6 +53,7 @@ const UserCourseInfoAddCourse = ({ availableCourses, isLoadingCourses }) => {
               <>
                 <button
                   className={styles.save_courses_button}
+                  title="Повний курс"
                   onClick={() =>
                     coursesMutation.mutate({
                       action: 'add',
@@ -78,6 +79,7 @@ const UserCourseInfoAddCourse = ({ availableCourses, isLoadingCourses }) => {
                 <button
                   className={styles.save_courses_button}
                   onClick={() => onAddingInstallment()}
+                  title="частково"
                 >
                   <svg viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
