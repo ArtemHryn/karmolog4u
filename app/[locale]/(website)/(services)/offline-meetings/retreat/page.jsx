@@ -47,7 +47,7 @@ const Retreat = () => {
       <AboutPractice
         practiceSteps={howToGet}
         showResult={false}
-        title={'Як потрапити на ретрит?'}
+        title={{ uk: 'Як потрапити на ретрит?', ru: 'Как попасть на ретрит?'}}
       />
 
       <Feedbacks feedbacks={getRetreatFeedbacks()} />

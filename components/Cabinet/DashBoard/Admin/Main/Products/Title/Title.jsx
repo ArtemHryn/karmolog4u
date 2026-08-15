@@ -1,4 +1,3 @@
-import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 import AddProductButton from '../AddProductButton/AddProductButton';
 
 import styles from './Title.module.scss';

@@ -18,7 +18,7 @@ const ProductsList = ({ list }) => {
   } = useFormContext();
 
   useEffect(() => {
-    if (isCheckedProduct && watch('product')) return null;
+    if (isCheckedProduct && watch('product')) return;
     const currentProduct = list.find(item => item.id === watch('product'));
 
     if (currentProduct) {

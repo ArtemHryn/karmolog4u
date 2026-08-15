@@ -26,7 +26,7 @@ const Literature = ({ token, id }: LiteratureProps) => {
         Матеріали
       </TitleNoStyles>
       <LinksList list={course.literature} title={'Список літератури'} />
-      <LinksList list={course.optionalLink} title={'Додтакові посилання'} />
+      <LinksList list={course.optionalLink} title={'Додаткові посилання'} />
       <BonusFiles title="Додаткові файли курсу" files={course.optionalFiles} />
     </div>
   );

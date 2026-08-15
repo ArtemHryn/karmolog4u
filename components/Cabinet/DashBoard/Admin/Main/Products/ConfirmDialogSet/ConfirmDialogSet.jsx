@@ -3,6 +3,10 @@ import { HIDDEN } from '@/helper/consts';
 
 import styles from './ConfirmDialogSet.module.scss';
 
+const hide =
+  'Після цього він стане недоступним для публічного перегляду, але ви зможете будь-коли повернути його із розділу “Приховані”.';
+const show = 'Після цього він стане доступний для публічного перегляду';
+
 const ConfirmDialogSet = ({
   status,
   name,
@@ -17,10 +21,10 @@ const ConfirmDialogSet = ({
     <>
       <div className={`${styles.overlay} ${!visibleDialogToHide ? styles.hide_overlay : ''}`}>
         <ConfirmDialog
-          header={`${status === HIDDEN ? 'Приховати продукт' : 'Опубілковати продукт'}`}
+          header={`${status !== HIDDEN ? 'Приховати продукт' : 'Опубілковати продукт'}`}
           message={`Ви впевнені, що хочете ${
-            status === HIDDEN ? 'приховати' : 'опубілковати'
-          }  ${name}? Після цього він стане недоступним для публічного перегляду, але ви зможете будь-коли повернути його із розділу “Приховані”.`}
+            status !== HIDDEN ? 'приховати' : 'опубілковати'
+          }  ${name}? ${status !== HIDDEN ? hide : show}`}
           accept={acceptOnHide}
           reject={rejectOnHide}
           acceptContext={`${status === HIDDEN ? 'Опубілковати' : 'Приховати'}`}

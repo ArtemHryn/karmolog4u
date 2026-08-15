@@ -10,7 +10,6 @@ const BooksPart = ({ serverFile }) => {
       <ImageInput />
       <GuideAndBookFile serverFile={serverFile} />
       <Price />
-      <Description />
     </>
   );
 };

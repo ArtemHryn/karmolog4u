@@ -11,7 +11,7 @@ const BackButton = () => {
         type="burron"
         aria-label="кнопка повернутися назад"
         className={styles.button}
-        onClick={() => router.back()}
+        onClick={() => router.push('/')}
       >
         <svg
           width="25"

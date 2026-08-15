@@ -8,7 +8,7 @@ import Viber from '@/components/Common/SocialIcons/Viber';
 import { useTranslations } from 'next-intl';
 
 const links = [
-  { icon: Instagram, to: 'https://www.instagram.com/karmolog4u/' },
+  { icon: Instagram, to: 'https://www.instagram.com/serhii_skliarenko' },
   { icon: Telegram, to: 'https://t.me/karmologforyou' },
   {
     icon: TikTok,
@@ -18,7 +18,7 @@ const links = [
     icon: Whatsapp,
     to: 'https://api.whatsapp.com/send/?phone=380678696760&text&type=phone_number&app_absent=0',
   },
-  { icon: YouTube, to: 'https://www.youtube.com/@user-qi5qi3vr9k' },
+  { icon: YouTube, to: 'https://www.youtube.com/@karmolog4u' },
   {
     icon: Viber,
     to: 'viber://chat/?number=%2B380678696760',

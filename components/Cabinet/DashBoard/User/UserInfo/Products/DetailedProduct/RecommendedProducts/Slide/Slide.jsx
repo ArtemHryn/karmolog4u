@@ -11,7 +11,7 @@ const Slide = ({ slide }) => {
 
   return (
     <Link
-      href={`${window.location.hostname}/products/${kebab}/${id}`}
+      href={`${window.location.origin}/products/${kebab}/${id}`}
       target="_blank"
       rel="noreferrer noopener"
       className={`${styles.link}`}

@@ -47,7 +47,7 @@ const AboutPeopleOnTheWay = async () => {
         </li>
         <li>
           <Link
-            href={'https://www.instagram.com/karmolog4u/?igshid=MzRlODBiNWFlZA%3D%3D'}
+            href={'https://www.instagram.com/serhii_skliarenko'}
             className={`${styles.socialText} ${unbounded.className}`}
             target="_blank"
             rel="noreferrer noopener"

@@ -18,8 +18,10 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #888; /* Колір заповнення скролбара */
-  border-radius: 6px; /* Округлені кути заповнення скролбара */
+  background-color: #888;
+  /* Колір заповнення скролбара */
+  border-radius: 6px;
+  /* Округлені кути заповнення скролбара */
 }
 
 a {
@@ -55,11 +57,13 @@ button {
   background-color: transparent;
   cursor: pointer;
   transition: all 250ms ease;
+
   @media (hover: hover) {
     &:is(:hover, :focus) {
       scale: 1.05;
     }
   }
+
   @media (hover: none) {
     &:is(:active, :focus) {
       scale: 1.05;

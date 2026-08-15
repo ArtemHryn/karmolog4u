@@ -11,6 +11,7 @@ const OtherGuidesPart = ({ serverFile }) => {
     register,
     formState: { errors },
   } = useFormContext();
+
   return (
     <>
       <ImageInput />
@@ -25,7 +26,6 @@ const OtherGuidesPart = ({ serverFile }) => {
       </label>
       <GuideAndBookFile serverFile={serverFile} />
       <Price />
-      <Description />
     </>
   );
 };
