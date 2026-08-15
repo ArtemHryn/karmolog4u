@@ -83,6 +83,7 @@ const EditButton = ({ id, name, status }) => {
     callback(false);
     document.body.style.overflow = 'auto';
   };
+
   return (
     <>
       {' '}

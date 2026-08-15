@@ -17,6 +17,7 @@
   @media all and (min-width: $min_desktop) {
     grid-template-rows: repeat(2, 1fr);
     place-items: center;
+    gap: 18px;
   }
 }
 

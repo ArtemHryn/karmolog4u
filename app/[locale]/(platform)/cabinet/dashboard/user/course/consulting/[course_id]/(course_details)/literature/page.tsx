@@ -15,8 +15,6 @@ const ConsultingLiteraturePage = async ({ params }: LiteraturePageProps) => {
     throw new Error('User is not authenticated');
   }
   const accessToken = session?.accessToken;
-  console.log(accessToken);
-  console.log(params);
 
   return (
     <Suspense fallback={<Lessons />}>

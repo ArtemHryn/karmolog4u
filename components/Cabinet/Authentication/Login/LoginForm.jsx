@@ -61,7 +61,7 @@ const LoginForm = () => {
               })}
               defaultValue={'123456789'}
             />
-              <ShowPasswordIcon showPassword={showPassword} setShowPassword={setShowPassword} />
+            <ShowPasswordIcon showPassword={showPassword} setShowPassword={setShowPassword} />
           </label>
         </div>
         <Link href={'/cabinet/reset-password'} className={`${styles.forgot_password}`}>

@@ -7,7 +7,7 @@ import EditButtonIcon from '../../../Meditations/MeditationsList/EditButton/Edit
 import EditMenu from '../../../Meditations/MeditationsList/EditButton/EditMenu';
 import ConfirmDialogSet from '../../../ConfirmDialogSet/ConfirmDialogSet';
 
-import { base_url, HIDDEN } from '@/helper/consts';
+import { base_url, HIDDEN, PUBLISHED } from '@/helper/consts';
 
 const deleteWebinars = async (id, token) => {
   const res = await fetch(`${base_url}/admin/products/webinars/delete/${id}`, {

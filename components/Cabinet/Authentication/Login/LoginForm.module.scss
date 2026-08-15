@@ -16,6 +16,7 @@
   border-radius: 30px;
   padding: 24px 16px;
   width: 100%;
+
   @media all and (min-width: $min_tablet) {
     width: 458px;
     padding: 40px 24px;
@@ -49,22 +50,33 @@
   border: 1px solid $form_border;
   border-radius: 30px;
   background-color: transparent;
+
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-text-fill-color: $main_text_color !important;
+  }
 }
 
 .forgot_password {
   display: block;
   @include fontRegular(16px, 400, 22.4px, $seconds_text_color, right);
   margin-bottom: 24px;
+
   @media (hover: hover) {
     &:is(:hover, :focus) {
       text-decoration: underline;
     }
   }
+
   @media (hover: none) {
     &:is(:active, :focus) {
       text-decoration: underline;
     }
   }
+
   @media all and (min-width: $min_tablet) {
     margin-bottom: 28px;
   }
@@ -82,12 +94,14 @@
   @include fontRegular(16px, 600, 16px, $third_text_color);
   margin-bottom: 20px;
   transition: all 250ms ease-in;
+
   @media (hover: hover) {
     &:is(:hover, :focus) {
       background-color: $card_bg;
       border: 1px solid $form_border;
     }
   }
+
   @media (hover: none) {
     &:is(:active, :focus) {
       background-color: $card_bg;
@@ -98,15 +112,18 @@
 
 .link_to_registration {
   @include fontRegular(16px, 400, 22.4px, $main_text_color, center);
-  & > a {
+
+  &>a {
     color: $seconds_text_color;
     transition: all 250ms ease-in;
+
     @media all and (min-width: $min_tablet) {
       @media (hover: hover) {
         &:is(:hover, :focus) {
           color: $main_text_color;
         }
       }
+
       @media (hover: none) {
         &:is(:active, :focus) {
           color: $main_text_color;

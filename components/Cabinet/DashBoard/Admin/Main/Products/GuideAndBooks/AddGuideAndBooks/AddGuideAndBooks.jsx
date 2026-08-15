@@ -14,6 +14,7 @@ import { base_url, BOOKS, GUIDES, OTHER_GUIDES, youtubeRegex } from '@/helper/co
 
 import styles from './AddGuideAndBooks.module.scss';
 import 'react-toastify/dist/ReactToastify.css';
+import Description from '../../Meditations/AddMeditation/ClosedPart/Description';
 
 async function guideAndBooksAction({ data, token, action, id }) {
   const url =
@@ -168,10 +169,11 @@ const AddGuideAndBooks = ({ edit }) => {
         <div className={styles.labels_wrapper}>
           <RequiredLabels categories={categoriesList} />
           {watch('category') === OTHER_GUIDES && (
-            <OtherGuidesPart serverFile={edit?.file.originalName} />
+            <OtherGuidesPart serverFile={edit?.file?.originalName || null} />
           )}
-          {watch('category') === BOOKS && <BooksPart serverFile={edit?.file.originalName} />}
-          {watch('category') === GUIDES && <GuidesPart serverFile={edit?.file.originalName} />}
+          {watch('category') === BOOKS && <BooksPart serverFile={edit?.file?.originalName} />}
+          {watch('category') === GUIDES && <GuidesPart serverFile={edit?.file?.originalName} />}
+          <Description />
         </div>
         <SubmitButtons setStatusAndSubmit={setStatusAndSubmit} />
       </form>

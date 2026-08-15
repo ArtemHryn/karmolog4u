@@ -10,7 +10,7 @@ const AdditionalLinks = ({ list }: AdditionalLinksProps) => {
   return (
     <div className={styles.wrapper}>
       <TitleNoStyles variant="h2" styled={styles.title}>
-        ДОДАКОВІ ПОСИЛАННЯ:
+        ДОДАТКОВІ ПОСИЛАННЯ:
       </TitleNoStyles>
       <ul className={styles.list}>
         {list.map((l, i) => (

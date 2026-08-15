@@ -7,6 +7,7 @@ import styles from './Hero.module.scss';
 import { open_Sans } from '@/app/[locale]//layout';
 
 import Title from '@/components/Common/Title/Title';
+import ShowModalButton from '../../../Common/ShowModalButton/ShowModalButton';
 
 const linkNames = [{ href: '/consulting-course', name: 'Консультантський курс' }];
 
@@ -18,17 +19,8 @@ function Hero() {
         <div className={styles.text_wrapper}>
           <Title styled={styles.title}>КОНСУЛЬТАНТСЬКИЙ КУРС</Title>
           <Title styled={styles.title_mobile}>КОНСУЛЬТАНТ- СЬКИЙ КУРС</Title>
-          <Link
-            href={`${linkNames[0].href}/dialog`}
-            className={`${styles.button} ${open_Sans.className}`}
-          >
-            Записатися
-          </Link>
+          <ShowModalButton styles={`${styles.button} ${open_Sans.className}`} />
         </div>
-        {/* <picture className={styles.img}>
-          {img.imgDesk && (
-            <source srcSet={img.imgDesk} media="(min-width: 1280px)" />
-          )} */}
         <Image
           src={'/assets/images/consultingCourse/Hero.webp'}
           alt={''}
@@ -36,7 +28,6 @@ function Hero() {
           height={920}
           className={styles.img}
         />
-        {/* </picture> */}
       </div>
     </Container>
   );

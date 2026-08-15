@@ -17,7 +17,7 @@ function Pricing({ content, accTitle }) {
           <span className={styles.title_accent}>{accTitle[locale]}</span>
         </Title>
         <p className={styles.desc}>
-          {t('warning')} <Link href={'#'}>{t('link')}</Link>.
+          {t('warning')} <Link href={'/offer'}>{t('link')}</Link>.
         </p>
       </section>
       <div>
