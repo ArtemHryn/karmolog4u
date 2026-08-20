@@ -7,9 +7,10 @@ import SubmitButtons from './SubmitButtons';
 import { base_url } from '@/helper/consts';
 
 import styles from './PersonalInfo.module.scss';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import DoubleInputField from './DoubleInputField/DoubleInputField';
 import ProfilePhoto from './ProfilePhoto/ProfilePhoto';
+import 'react-toastify/dist/ReactToastify.css';
 
 const updateUserInfo = async (data, token) => {
   const response = await fetch(`${base_url}/user/update`, {
@@ -100,6 +101,7 @@ const PersonalInfo = ({ user: { name, lastName, email, mobPhone, cover = null } 
         </div>
         {formState.isDirty && <SubmitButtons reset={reset} />}
       </form>
+      <ToastContainer />
     </FormProvider>
   );
 };

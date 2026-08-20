@@ -48,10 +48,10 @@ export const metadata: Metadata = {
   },
 };
 
-const PromoLayout = ({ children, modal }: LayoutProps) => {
+const PromoLayout = ({ children }: LayoutProps) => {
   return (
     <>
-      {children} {modal}
+      {children}
     </>
   );
 };

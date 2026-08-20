@@ -45,9 +45,9 @@ const Meditations = () => {
 
   useEffect(() => {
     if (!isCheckedLS) {
-      setEnergies(() => JSON.parse(window.localStorage.getItem(ADMIN_ENERGIES)) ?? false);
-      setShowOpenedMeditation(() => JSON.parse(window.localStorage.getItem(ADMIN_OPENED)) ?? false);
-      setShowClosedMeditation(() => JSON.parse(window.localStorage.getItem(ADMIN_CLOSED)) ?? false);
+      setEnergies(() => JSON.parse(window.localStorage.getItem(ADMIN_ENERGIES)) ?? true);
+      setShowOpenedMeditation(() => JSON.parse(window.localStorage.getItem(ADMIN_OPENED)) ?? true);
+      setShowClosedMeditation(() => JSON.parse(window.localStorage.getItem(ADMIN_CLOSED)) ?? true);
       setIsCheckedLS(true);
     }
   }, [isCheckedLS]);

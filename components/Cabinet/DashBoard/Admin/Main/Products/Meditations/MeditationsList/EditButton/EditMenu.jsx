@@ -32,7 +32,7 @@ const EditMenu = ({ setVisibleDialogToHide, setVisibleDialogToDelete, status, id
           }}
         >
           <Hide />
-          {status === HIDDEN ? 'Опубліковати' : 'Приховати'}
+          {status === HIDDEN ? 'Опублікувати' : 'Приховати'}
         </button>
       </li>
       <li className={styles.item}>

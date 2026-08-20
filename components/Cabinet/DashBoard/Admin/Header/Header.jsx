@@ -6,13 +6,17 @@ import Burger from './Burger';
 import Menu from './Menu/Menu';
 
 import styles from './Header.module.scss';
+import Link from 'next/link';
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   return (
     <header className={`${styles.header}`}>
       <div className={`${styles.wrapper} ${showMenu ? styles.hide : ''}`}>
-        <Logo />
+        <Link href={'/'}>
+          {' '}
+          <Logo />
+        </Link>
         <button className={styles.button} onClick={() => setShowMenu(true)}>
           <Burger />
         </button>

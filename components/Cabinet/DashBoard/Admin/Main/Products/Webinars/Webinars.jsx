@@ -43,8 +43,8 @@ const Webinars = () => {
 
   useEffect(() => {
     if (!isCheckedLS) {
-      setShowWebinars(() => JSON.parse(window.localStorage.getItem(ADMIN_WEBINARS)) ?? false);
-      setShowEthers(() => JSON.parse(window.localStorage.getItem(ADMIN_ETHERS)) ?? false);
+      setShowWebinars(() => JSON.parse(window.localStorage.getItem(ADMIN_WEBINARS)) ?? true);
+      setShowEthers(() => JSON.parse(window.localStorage.getItem(ADMIN_ETHERS)) ?? true);
       setIsCheckedLS(true);
     }
   }, [isCheckedLS]);

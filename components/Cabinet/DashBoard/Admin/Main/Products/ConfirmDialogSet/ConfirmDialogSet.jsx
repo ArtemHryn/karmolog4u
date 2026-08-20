@@ -21,13 +21,13 @@ const ConfirmDialogSet = ({
     <>
       <div className={`${styles.overlay} ${!visibleDialogToHide ? styles.hide_overlay : ''}`}>
         <ConfirmDialog
-          header={`${status !== HIDDEN ? 'Приховати продукт' : 'Опубілковати продукт'}`}
+          header={`${status !== HIDDEN ? 'Приховати продукт' : 'Опублікувати продукт'}`}
           message={`Ви впевнені, що хочете ${
             status !== HIDDEN ? 'приховати' : 'опубілковати'
           }  ${name}? ${status !== HIDDEN ? hide : show}`}
           accept={acceptOnHide}
           reject={rejectOnHide}
-          acceptContext={`${status === HIDDEN ? 'Опубілковати' : 'Приховати'}`}
+          acceptContext={`${status === HIDDEN ? 'Опублікувати' : 'Приховати'}`}
         />
       </div>
       <div className={`${styles.overlay} ${!visibleDialogToDelete ? styles.hide_overlay : ''}`}>

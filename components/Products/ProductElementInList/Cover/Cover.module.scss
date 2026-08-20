@@ -7,9 +7,11 @@
   height: 205px;
   border-radius: 30px;
   background-image: linear-gradient(270deg, #cfb691 -135.76%, #000 102.98%);
+
   @media all and (min-width: $min_tablet) {
     height: 223px;
   }
+
   @media all and (min-width: $min_desktop) {
     height: 190px;
   }
@@ -24,10 +26,13 @@
   width: 328px;
   height: 205px;
   border-radius: 30px;
+  object-fit: cover;
+
   @media all and (min-width: $min_tablet) {
     height: 223px;
     width: 356px;
   }
+
   @media all and (min-width: $min_desktop) {
     height: 190px;
     width: 302px;

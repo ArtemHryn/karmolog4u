@@ -1,19 +1,10 @@
-import { useSearchParams } from 'next/navigation';
+'use client';
 import styles from './AddPromo.module.scss';
-import Link from 'next/link';
 
-const AddPromo = () => {
-  const searchParams = useSearchParams();
-  const search = searchParams.get('search');
-  const page = searchParams.get('page');
+const AddPromo = ({ setShowModal }) => {
   return (
     <>
-      <Link
-        className={styles.button}
-        href={`/cabinet/dashboard/admin/promocode/add_promo?search=${search}&page=${page}`}
-        scroll={false}
-        prefetch={true}
-      >
+      <button className={styles.button} onClick={() => setShowModal(true)}>
         <svg
           viewBox="0 0 16 16"
           fill="none"
@@ -28,7 +19,7 @@ const AddPromo = () => {
           />
         </svg>
         <span>Додати промокод</span>
-      </Link>
+      </button>
     </>
   );
 };

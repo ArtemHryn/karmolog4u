@@ -1,14 +1,12 @@
-import { useRouter } from 'next/navigation';
-
 import { open_Sans } from '@/app/[locale]/layout';
 import styles from './Buttons.module.scss';
 
-const Buttons = () => {
-  const router = useRouter();
+const Buttons = ({ setShowModal }) => {
   return (
     <div className={styles.buttons_wrapper}>
       <button
-        onClick={() => router.back()}
+        onClick={() => setShowModal(false)}
+        type="button"
         className={`${open_Sans.className} ${styles.button} ${styles.button_cancel}`}
       >
         Відмінити

@@ -1,17 +1,14 @@
-import { useRouter } from 'next/navigation';
-
 import styles from './ModalHeader.module.scss';
 
-const ModalHeader = () => {
-  const router = useRouter();
-
+const ModalHeader = ({ setShowModal }) => {
   return (
     <div className={styles.wrapper}>
       <p className={styles.title}>Додати промокод</p>
       <button
         aria-label="close modal"
-        onClick={() => router.back()}
+        onClick={() => setShowModal(false)}
         className={styles.close_button}
+        type="button"
       >
         <svg
           viewBox="0 0 12 13"

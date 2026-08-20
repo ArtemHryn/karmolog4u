@@ -6,7 +6,7 @@ import './products.scss';
 import styles from './ProductsList.module.scss';
 import { useEffect, useState } from 'react';
 
-const ProductsList = ({ list }) => {
+const ProductsList = ({ list, refId }) => {
   const [isCheckedProduct, setIsCheckedProduct] = useState(false);
   const {
     getValues,
@@ -18,14 +18,18 @@ const ProductsList = ({ list }) => {
   } = useFormContext();
 
   useEffect(() => {
-    if (isCheckedProduct && watch('product')) return;
-    const currentProduct = list.find(item => item.id === watch('product'));
+    if (isCheckedProduct) return;
+    if (!refId) {
+      setIsCheckedProduct(true);
+      return;
+    }
+    const currentProduct = list.find(item => item.id === refId);
 
     if (currentProduct) {
       setValue('product', currentProduct);
       setIsCheckedProduct(true);
     }
-  }, [isCheckedProduct, list, setValue, watch]);
+  }, [isCheckedProduct, list, refId, setValue]);
 
   return (
     <div className={styles.main_wrapper}>

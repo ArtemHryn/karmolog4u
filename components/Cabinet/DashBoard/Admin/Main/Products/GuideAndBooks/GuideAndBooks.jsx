@@ -45,11 +45,11 @@ const GuideAndBooks = () => {
 
   useEffect(() => {
     if (!isCheckedLS) {
-      setShowGuides(() => JSON.parse(window.localStorage.getItem(ADMIN_GUIDES)) ?? false);
+      setShowGuides(() => JSON.parse(window.localStorage.getItem(ADMIN_GUIDES)) ?? true);
       setShowOtherGuides(
-        () => JSON.parse(window.localStorage.getItem(ADMIN_OTHER_GUIDES)) ?? false
+        () => JSON.parse(window.localStorage.getItem(ADMIN_OTHER_GUIDES)) ?? true
       );
-      setShowBooks(() => JSON.parse(window.localStorage.getItem(ADMIN_BOOKS)) ?? false);
+      setShowBooks(() => JSON.parse(window.localStorage.getItem(ADMIN_BOOKS)) ?? true);
       setIsCheckedLS(true);
     }
   }, [isCheckedLS]);

@@ -7,7 +7,7 @@ import { PUBLISHED, DRAFT, ARCHIVE } from '/helper/consts';
 
 const filtersList = [
   { name: 'Чернетки', link: DRAFT },
-  { name: 'Опубликовані', link: PUBLISHED },
+  { name: 'Опубліковані', link: PUBLISHED },
   { name: 'Архів', link: ARCHIVE },
 ];
 

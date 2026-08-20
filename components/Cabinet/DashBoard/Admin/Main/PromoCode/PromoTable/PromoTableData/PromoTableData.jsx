@@ -15,6 +15,8 @@ import { base_url } from '@/helper/consts';
 import styles from './PromoTableData.module.scss';
 import './table.scss';
 import SelectedProductsInfo from './SelectedProductsInfo/SelectedProductsInfo';
+import PromoModalForm from '../../PromoHead/AddPromo/PromoModal/PromoModalForm/PromoModalForm';
+import SimpleModalContainer from '../../../../../../../Common/SimpleModalContainer/SimpleModalContainer';
 
 const fetchPromoCodes = async (token, search, page) => {
   const response = await fetch(
@@ -56,6 +58,7 @@ const PromoTableData = ({ search }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [visibleDialogToDelete, setVisibleDialogToDelete] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   const { data: token } = useSession();
   const searchParams = useSearchParams();
@@ -73,7 +76,7 @@ const PromoTableData = ({ search }) => {
   });
 
   const mutation = useMutation({
-    mutationFn: () => deletePromoById(token.accessToken, selectedId),
+    mutationFn: () => deletePromoById(token.accessToken, selectedId._id),
     onSuccess: () => {
       queryClient.invalidateQueries(['promocodes']);
     },
@@ -164,15 +167,19 @@ const PromoTableData = ({ search }) => {
             body={rowData => (
               <ActionsColumn
                 rowData={rowData}
-                search={search}
-                currentPage={currentPage}
                 setSelectedId={setSelectedId}
+                setShowModal={setShowModal}
                 setVisibleDialogToDelete={setVisibleDialogToDelete}
               />
             )}
             header=""
           />
         </DataTable>
+      )}
+      {showModal && (
+        <SimpleModalContainer setShowModal={setShowModal} showCenter>
+          <PromoModalForm edit={selectedId} setShowModal={setShowModal} />
+        </SimpleModalContainer>
       )}
     </div>
   );

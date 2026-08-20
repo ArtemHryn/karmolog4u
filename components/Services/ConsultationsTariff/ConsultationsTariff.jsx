@@ -13,7 +13,11 @@ const ConsultationsTariff = () => {
     <Container>
       <Title styled={`${styles.title}`}>{t('title')}</Title>
       <p className={styles.warning}>
-        {t('warning')} <Link href={'/offer'}>{t('link')}</Link>.
+        {t('warning')}{' '}
+        <Link href={'/offer'} target="_blank">
+          {t('link')}
+        </Link>
+        .
       </p>
       <TariffList />
     </Container>

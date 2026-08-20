@@ -8,7 +8,7 @@ import Feedback from '@/components/Main/Feedback/Feedback';
 
 const links = [
   {
-    name: { uk: 'ГО "Психологія людської долі"', ru: 'ОО "Психология человеческой судьбы"' },
+    name: { uk: 'Благодійний фонд', ru: 'Благотворительный фонд' },
     href: '/charitable-foundation',
   },
 ];

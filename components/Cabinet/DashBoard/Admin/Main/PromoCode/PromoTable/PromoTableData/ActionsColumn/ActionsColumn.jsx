@@ -1,27 +1,20 @@
-import { useRouter } from 'next/navigation';
 
 import styles from './ActionsColumn.module.scss';
 
 const ActionsColumn = ({
   rowData,
-  search,
-  currentPage,
   setSelectedId,
+  setShowModal,
   setVisibleDialogToDelete,
 }) => {
-  const router = useRouter();
   return (
     <>
       <div className={styles.wrapper}>
         <button
-          onClick={() =>
-            router.push(
-              `/cabinet/dashboard/admin/promocode/edit_promo?id=${rowData._id}&search=${search}&page=${currentPage}`,
-              {
-                scroll: false,
-              }
-            )
-          }
+          onClick={() => {
+            setSelectedId(rowData);
+            setShowModal(true);
+          }}
           className={styles.button}
         >
           <svg
@@ -41,7 +34,7 @@ const ActionsColumn = ({
         <button
           className={styles.button}
           onClick={() => {
-            setSelectedId(rowData._id);
+            setSelectedId(rowData);
             setVisibleDialogToDelete(true);
           }}
         >

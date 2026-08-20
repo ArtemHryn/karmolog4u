@@ -2,7 +2,6 @@ import { FormProvider, useForm } from 'react-hook-form';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useSession } from 'next-auth/react';
 import { toast, ToastContainer } from 'react-toastify';
-import { useRouter } from 'next/navigation';
 
 import Labels from './Labels/Labels';
 import Periods from './Periods/Periods';
@@ -56,16 +55,15 @@ const setDefaultValues = item => {
   const { name, promoDiscount, start, end, refId } = item;
   return {
     name,
-    discount: promoDiscount,
+    discount: parseInt(promoDiscount),
     start: new Date(start),
     end: new Date(end),
     product: refId,
   };
 };
 
-const PromoModalForm = ({ edit }) => {
+const PromoModalForm = ({ edit, setShowModal }) => {
   const methods = useForm({ defaultValues: setDefaultValues(edit) });
-  const router = useRouter();
   const { data: token } = useSession();
   const queryClient = useQueryClient();
 
@@ -81,7 +79,7 @@ const PromoModalForm = ({ edit }) => {
       toast.success(`${edit ? 'Промо успішно редаговано' : 'Промо успішно додано!'}`, {
         autoClose: 1000,
       });
-      setTimeout(() => router.back(), 1500);
+      setTimeout(() => setShowModal(false), 1500);
       queryClient.invalidateQueries({ queryKey: ['promocodes'] });
     },
     onError: err => {
@@ -115,12 +113,12 @@ const PromoModalForm = ({ edit }) => {
     <FormProvider {...methods}>
       <form className={styles.form} onSubmit={methods.handleSubmit(onFormSubmit)}>
         <div className={styles.labels_wrapper}>
-          <ModalHeader />
+          <ModalHeader setShowModal={setShowModal} />
           <Labels />
           <Periods />
-          <ProductsList list={data} />
+          <ProductsList list={data} refId={edit?.refId} />
         </div>
-        <Buttons />
+        <Buttons setShowModal={setShowModal} />
       </form>
       <ToastContainer />
     </FormProvider>

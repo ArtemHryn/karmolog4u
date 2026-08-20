@@ -4,15 +4,15 @@ import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useMutation } from '@tanstack/react-query';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import SubmitButtons from '../../Meditations/AddMeditation/SubmitButtons/SubmitButtons';
 import WebinarPart from './WebinarPart/WebinarPart';
 import EthersPart from './EthersPart/EthersPart';
 import RequiredLabels from '../../Meditations/AddMeditation/RequiredLabels/RequiredLabels';
 import { base_url, ETHERS, WEBINARS, youtubeRegex } from '@/helper/consts';
+import 'react-toastify/dist/ReactToastify.css';
 
 import styles from './AddWebinar.module.scss';
-import 'react-toastify/dist/ReactToastify.css';
 
 async function webinarAction({ data, token, action, id }) {
   const url =
@@ -159,8 +159,6 @@ const AddWebinar = ({ edit }) => {
         );
       }
     }
-
-    console.log(data);
 
     mutation.mutate({ info: formData });
   };
