@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 
 interface LayoutProps {
   children: React.ReactNode;
-  modal: React.ReactNode;
 }
 
 export const metadata: Metadata = {
@@ -49,11 +48,7 @@ export const metadata: Metadata = {
 };
 
 const PromoLayout = ({ children }: LayoutProps) => {
-  return (
-    <>
-      {children}
-    </>
-  );
+  return <>{children}</>;
 };
 
 export default PromoLayout;
