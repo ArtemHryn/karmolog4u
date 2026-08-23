@@ -7,11 +7,15 @@ import { inter } from '@/app/[locale]/layout';
 const Slide = ({ slide }) => {
   const { id, targetModule, cover, name } = slide;
 
-  const kebab = targetModule.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+  const productType = {
+    Webinars: 'courses',
+    GuidesAndBooks: 'guides-and-books',
+    Meditations: 'meditations',
+  };
 
   return (
     <Link
-      href={`${window.location.origin}/products/${kebab}/${id}`}
+      href={`${window.location.origin}/products/${productType[targetModule]}/${id}`}
       target="_blank"
       rel="noreferrer noopener"
       className={`${styles.link}`}

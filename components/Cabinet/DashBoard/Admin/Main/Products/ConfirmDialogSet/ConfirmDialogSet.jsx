@@ -23,7 +23,7 @@ const ConfirmDialogSet = ({
         <ConfirmDialog
           header={`${status !== HIDDEN ? 'Приховати продукт' : 'Опублікувати продукт'}`}
           message={`Ви впевнені, що хочете ${
-            status !== HIDDEN ? 'приховати' : 'опубілковати'
+            status !== HIDDEN ? 'приховати' : 'опублікувати'
           }  ${name}? ${status !== HIDDEN ? hide : show}`}
           accept={acceptOnHide}
           reject={rejectOnHide}

@@ -46,10 +46,10 @@ const LessonsDetails = ({ token, id }: LessonProps) => {
       {lesson.videoLinks.length > 0 && <LessonVideos videoLinks={lesson.videoLinks} />}
       {lesson.bonusFiles.length > 0 && <LessonBonusFiles files={lesson.bonusFiles} />}
       {lesson.recommendations && <Recommendations rec={lesson.recommendations} />}
+      {lesson.additionalLinks.length > 0 && <AdditionalLinks list={lesson.additionalLinks} />}
       {(lesson.homework || lesson.homeWorkFiles?.length > 0) && (
         <Homework homework={lesson.homework} homeworkFiles={lesson.homeworkFiles} />
       )}
-      {lesson.additionalLinks.length > 0 && <AdditionalLinks list={lesson.additionalLinks} />}
       <Feedbacks feedbacks={lesson.feedbacks} />
       <ToastContainer />
     </div>

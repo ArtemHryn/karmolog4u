@@ -7,7 +7,7 @@ const CourseInfoBodyWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className={styles.wrapper}>
       <TitleNoStyles styled={styles.title} variant="h2">
-        Программа
+        Програма
       </TitleNoStyles>
       {children}
     </div>

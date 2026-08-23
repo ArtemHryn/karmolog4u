@@ -12,6 +12,7 @@ interface UseUserInfoProps {
   token?: string;
   queryKey: string[];
   activePart?: string;
+  enabled?: boolean;
 }
 
 const getUserInfo = async (token: string, action: keyof typeof endpoints, type: string) => {
@@ -33,11 +34,17 @@ const getUserInfo = async (token: string, action: keyof typeof endpoints, type: 
   return await res.json();
 };
 
-const useUserInfo = ({ action, token = '', queryKey, activePart = '' }: UseUserInfoProps) => {
+const useUserInfo = ({
+  action,
+  token = '',
+  queryKey,
+  activePart = '',
+  enabled = true,
+}: UseUserInfoProps) => {
   return useQuery({
     queryKey,
     queryFn: () => getUserInfo(token, action, activePart),
-    enabled: !!token,
+    enabled: !!token && enabled,
   });
 };
 

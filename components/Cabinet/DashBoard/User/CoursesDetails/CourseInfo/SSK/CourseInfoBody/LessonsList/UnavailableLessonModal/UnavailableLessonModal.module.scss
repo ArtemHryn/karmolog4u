@@ -1,0 +1,61 @@
+@import '/styles/main.scss';
+
+.wrapper {
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 40px;
+
+	border: 1px solid $dark_gold_dark;
+	border-radius: 30px;
+	padding: 60px 40px;
+	width: 312px;
+	background: $card_bg_v2;
+}
+
+.close_button {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 44px;
+	height: 44px;
+
+	&>svg {
+		width: 24px;
+		height: 24px;
+	}
+}
+
+.text_wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.title {
+	@include fontRegular(18px, 400, 22px, $accent_v2, center)
+}
+
+.text {
+	@include fontRegular(14px, 400, 22px, $main_text_color, center)
+}
+
+.pay_button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 150px;
+	height: 44px;
+	border: 1px solid $dark_gold_light;
+	border-radius: 12px;
+
+	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+	background: $buttons_color;
+	@include fontRegular(14px, 600, 22px, $third_text_color)
+}
