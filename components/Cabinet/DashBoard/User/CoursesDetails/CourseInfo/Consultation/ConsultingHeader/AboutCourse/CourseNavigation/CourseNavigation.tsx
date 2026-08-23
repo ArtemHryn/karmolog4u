@@ -187,7 +187,7 @@ const CourseNavigation = ({ course }: CourseNavigationProps) => {
       {course.type === ADVANCED && (
         <li className={`${styles.item}`}>
           {' '}
-          <Link href={'/calculator'} className={`${styles.redirect_el}`}>
+          <Link href={'/calculator'} className={`${styles.redirect_el}`} target='_blank'>
             <div className={styles.icon_wrapper}>
               <Calculator />
             </div>

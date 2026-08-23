@@ -59,7 +59,6 @@ const LoginForm = () => {
                 required: t('email.empty_error'),
                 minLength: { value: 8, message: 'мінімум 8 символів' },
               })}
-              defaultValue={'123456789'}
             />
             <ShowPasswordIcon showPassword={showPassword} setShowPassword={setShowPassword} />
           </label>
