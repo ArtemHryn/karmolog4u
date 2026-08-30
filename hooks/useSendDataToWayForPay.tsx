@@ -3,8 +3,9 @@ import paymentWFPForm from '@/helper/education/paymentWFPForm';
 import { useMutation } from '@tanstack/react-query';
 import { toast } from 'react-toastify';
 
-const sendCustomerInfo = async (data: Record<string, string>, token: string) => {
-  const res = await fetch(`${base_url}/payments/product/create`, {
+const sendCustomerInfo = async (data: Record<string, string>, token: string, gift: boolean) => {
+  const link = gift ? 'payments/product/gift/create' : 'payments/product/create';
+  const res = await fetch(`${base_url}/${link}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -24,9 +25,9 @@ const sendCustomerInfo = async (data: Record<string, string>, token: string) => 
   return res.json();
 };
 
-const useSendDataToWayForPay = (token: string) => {
+const useSendDataToWayForPay = (token: string, gift: boolean = false) => {
   return useMutation({
-    mutationFn: (data: Record<string, string>) => sendCustomerInfo(data, token),
+    mutationFn: (data: Record<string, string>) => sendCustomerInfo(data, token, gift),
     onSuccess: paymentWFPForm,
     onError: err => toast.error(err.message),
   });

@@ -36,7 +36,7 @@ const Gifts = () => {
     <ul className={styles.gifts_list}>
       {gifts.map(el => (
         <li key={el.id} className={styles.gifts_list_item}>
-          <ProductElementInList card={el} />
+          <ProductElementInList card={el} gift={true} />
         </li>
       ))}
     </ul>

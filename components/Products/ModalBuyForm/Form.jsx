@@ -60,6 +60,7 @@ const Form = ({ price, id }) => {
 
   const onFormSubmit = data => {
     const { phone, ...rest } = data;
+
     mutation.mutate({ ...rest, itemId: id, phone: `+${phone}`, paymentType: 'FULL' });
   };
 
