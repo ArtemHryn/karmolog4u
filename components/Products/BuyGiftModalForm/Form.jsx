@@ -1,12 +1,13 @@
 'use client';
 import { useState } from 'react';
+import { useSession } from 'next-auth/react';
 import PhoneInput from 'react-phone-input-2';
 import { useForm, Controller, FormProvider } from 'react-hook-form';
 import { useLocale, useTranslations } from 'next-intl';
 import AsyncSelect from 'react-select/async';
 import Select from 'react-select';
 import Link from 'next/link';
-import { useSession } from 'next-auth/react';
+import useSendDataToWayForPay from '../../../hooks/useSendDataToWayForPay';
 
 import Title from '@/components/Common/Title/Title';
 import FormInput from '../ModalBuyForm/FormInput/FormInput';
@@ -15,7 +16,7 @@ import { getPriceWithDiscount } from '../../../helper/products/getDiscount';
 import styles from './BuyGiftModalForm.module.scss';
 import 'react-phone-input-2/lib/bootstrap.css';
 
-const Form = ({ price, discount }) => {
+const Form = ({ price, discount, id }) => {
   const [license, setLicense] = useState(false);
   const [warehousesList, setWarehousesList] = useState([]);
   const [cityValue, setCityValue] = useState('');
@@ -41,8 +42,18 @@ const Form = ({ price, discount }) => {
     formState: { errors },
   } = methods;
 
+  const mutation = useSendDataToWayForPay(info?.accessToken ?? '', true);
+
   const onFormSubmit = data => {
-    console.log(data);
+    const { warehouse, city, ...rest } = data;
+
+    mutation.mutate({
+      ...rest,
+      itemId: id,
+      paymentType: 'FULL',
+      warehouse: warehouse.label,
+      city: city.label,
+    });
   };
 
   const loadOptions = async (value, callback) => {

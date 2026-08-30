@@ -3,13 +3,16 @@ import Cover from './Cover/Cover';
 import Info from './Info/Info';
 import { ProductCardProps } from '@/types/products';
 import ModalBuyForm from '@/components/Products/ModalBuyForm/ModalBuyForm';
+import BuyGiftModalForm from '@/components/Products/BuyGiftModalForm/BuyGiftModalForm';
+
 import SimpleModalContainer from '@/components/Common/SimpleModalContainer/SimpleModalContainer';
 
 interface ProductElementInListProps {
   card: ProductCardProps;
+  gift?: boolean;
 }
 
-const ProductElementInList = ({ card }: ProductElementInListProps) => {
+const ProductElementInList = ({ card, gift = false }: ProductElementInListProps) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -18,7 +21,7 @@ const ProductElementInList = ({ card }: ProductElementInListProps) => {
       <Info card={card} setShowModal={setShowModal} />
       {showModal && (
         <SimpleModalContainer setShowModal={setShowModal}>
-          <ModalBuyForm card={card} />
+          {gift ? <BuyGiftModalForm gift={card} /> : <ModalBuyForm card={card} />}
         </SimpleModalContainer>
       )}
     </>
