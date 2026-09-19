@@ -26,14 +26,14 @@ export const fetchPrice = async (type: CourseType): Promise<PriceResponse> => {
       return type === 'ssk'
         ? {
             prices: {
-              independent: 250,
-              curator: 400,
-              sergiy: 750,
+              independent: 100,
+              curator: 200,
+              sergiy: 400,
             },
           }
         : type === 'advanced'
           ? {
-              price: 1500,
+              price: 2500,
             }
           : { price: 1700, practice: 50 };
     }
@@ -42,14 +42,14 @@ export const fetchPrice = async (type: CourseType): Promise<PriceResponse> => {
     return type === 'ssk'
       ? {
           prices: {
-            independent: 250,
-            curator: 400,
-            sergiy: 750,
+            independent: 100,
+            curator: 200,
+            sergiy: 400,
           },
         }
       : type === 'advanced'
         ? {
-            price: 1500,
+            price: 2500,
           }
         : { price: 1700, practice: 50 };
   }

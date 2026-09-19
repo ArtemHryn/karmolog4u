@@ -1,0 +1,62 @@
+@import '/styles/main.scss';
+
+.buttons_wrapper {
+	display: flex;
+	justify-content: space-evenly;
+	gap: 12px;
+
+	@media all and (width >=$min_tablet) {
+		flex-direction: column;
+	}
+}
+
+.button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	border-radius: 10px;
+	width: calc((100% - 12px) / 2);
+	height: 32px;
+	box-shadow:
+		0 4px 0 rgba(0, 0, 0, 0.2),
+		0 6px 12px rgba(0, 0, 0, 0.18);
+
+	transition:
+		transform 0.15s ease,
+		box-shadow 0.15s ease;
+
+	@include fontRegular(14px, 400, 14px);
+
+	@media (hover: hover) {
+		&:is(:hover, :focus) {
+			transform: translateY(-1px);
+
+			box-shadow:
+				0 5px 0 rgba(0, 0, 0, 0.2),
+				0 8px 16px rgba(0, 0, 0, 0.22);
+		}
+	}
+
+	@media (hover: none) {
+		&:is(:active, :focus) {
+			transform: translateY(3px);
+
+			box-shadow:
+				0 1px 0 rgba(0, 0, 0, 0.2),
+				0 2px 5px rgba(0, 0, 0, 0.15);
+		}
+	}
+
+	@media all and (width >=$min_tablet) {
+		width: 252px;
+	}
+}
+
+.danger {
+	background-color: rgb(164, 3, 3);
+}
+
+.banned {
+	background-color: $p_button_bg;
+}

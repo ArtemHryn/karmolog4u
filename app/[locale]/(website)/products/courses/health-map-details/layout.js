@@ -1,9 +1,5 @@
-const layout = ({ children, modal }) => {
-  return (
-    <>
-      {children} {modal}
-    </>
-  );
+const layout = ({ children }) => {
+  return <>{children}</>;
 };
 
 export default layout;

@@ -42,7 +42,7 @@ const AboutPeopleOnTheWay = async () => {
             rel="noreferrer noopener"
           >
             <TikTok styled={styles.icon} />
-            66,4 {t('count')}.
+            132,4 {t('count')}.
           </Link>
         </li>
         <li>
@@ -52,7 +52,7 @@ const AboutPeopleOnTheWay = async () => {
             target="_blank"
             rel="noreferrer noopener"
           >
-            <Instagram styled={styles.icon} /> 34,5 {t('count')}.
+            <Instagram styled={styles.icon} /> 39,8 {t('count')}.
           </Link>
         </li>
         <li>
@@ -74,7 +74,7 @@ const AboutPeopleOnTheWay = async () => {
             rel="noreferrer noopener"
           >
             <Telegram styled={styles.icon} />
-            7,2 {t('count')}.
+            4,4 {t('count')}.
           </Link>
         </li>
       </ul>

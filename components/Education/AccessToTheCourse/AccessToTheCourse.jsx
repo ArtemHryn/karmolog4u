@@ -18,12 +18,12 @@ const AccessToTheCourse = () => {
         <li className={styles.element}>
           <p className={`${styles.text} ${unbounded.className}`}>{t('period', { months: 1 })}:</p>
           <p className={`${styles.text} ${unbounded.className}`}>50€</p>
-          <ShowModalButton styles={`${styles.button} ${open_Sans.className}`} />
+          <ShowModalButton styles={`${styles.button} ${open_Sans.className}`} name={t('prolong')} />
         </li>
         <li className={styles.element}>
           <p className={`${styles.text} ${unbounded.className}`}>{t('period', { months: 2 })}:</p>
           <p className={`${styles.text} ${unbounded.className}`}>90€</p>
-          <ShowModalButton styles={`${styles.button} ${open_Sans.className}`} />
+          <ShowModalButton styles={`${styles.button} ${open_Sans.className}`} name={t('prolong')} />
         </li>
       </ul>
     </Container>

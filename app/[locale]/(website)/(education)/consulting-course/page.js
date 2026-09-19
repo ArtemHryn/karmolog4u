@@ -39,13 +39,14 @@ const ConsultingCourse = async ({ params: { locale } }) => {
   const t = await getTranslations('Education.consulting_course.edu_pricing');
   const cards = getCardsForConsultingCourse();
   const { column1, column2 } = getConsultingCourseQuestions();
+  const feedbackTitle = { uk: 'Відгуки учнів', ru: 'Отзывы учеников' };
 
-  // const prices = await fetchPrice('consulting');
-  // const { price = 1700, practicePrice = 50, practice = 6 } = prices;
+  const prices = await fetchPrice('consulting');
+  const { price = 1700, practicePrice = 50, practice = 6 } = prices;
 
-  const price = 1700
-  const practicePrice = 50
-  const practice = 6;
+  // const price = 1700
+  // const practicePrice = 50
+  // const practice = 6;
 
   const additionalCards = {
     ru: {
@@ -84,7 +85,7 @@ const ConsultingCourse = async ({ params: { locale } }) => {
           second: t('warning2'),
         }}
       />
-      <Feedbacks feedbacks={getConsultingCourseFeedbacks()} />
+      <Feedbacks feedbacks={getConsultingCourseFeedbacks()} title={feedbackTitle[locale]} />
       <QuestionAnswer column1={column1} column2={column2} />
       <Feedback />
     </main>
