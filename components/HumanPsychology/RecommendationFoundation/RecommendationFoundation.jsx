@@ -5,6 +5,7 @@ import Title from '@/components/Common/Title/Title';
 import ArrowRight from '@/components/Common/Icons/HumanPsychologyIcons/ArrowRight';
 
 import styles from './RecommendationFoundation.module.scss';
+import DetailsModal from './DetailsModal/DetailsModal';
 
 function RecommendationFoundation() {
   const t = useTranslations('Human_psychology.Foundation.recommendation');
@@ -40,9 +41,7 @@ function RecommendationFoundation() {
             {t('hunting')}
           </Title>
           <ArrowRight styled={styles.arrow_thanks} />
-          <a href="#" className={styles.link_thanks}>
-            {t('link')}
-          </a>
+          <DetailsModal />
         </article>
         <article className={styles.article_thanks}>
           <p className={styles.text_thanks}>{t('thanks')}</p>

@@ -1,31 +1,8 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import styles from './ActionsColumn.module.scss';
-import { base_url } from '@/helper/consts';
 import { useSession } from 'next-auth/react';
 import { toast } from 'react-toastify';
-
-const banOrDeleteAccount = async ({ token, id, action }) => {
-  const link = `${base_url}/admin/user/${action === 'ban' ? 'block' : 'delete'}`;
-  const res = await fetch(link, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json',
-    },
-    method: 'PATCH',
-    body: JSON.stringify({ users: [id] }),
-  });
-  const parsedData = await res.json();
-
-  if (!res.ok) {
-    const message =
-      parsedData?.message[0] ||
-      parsedData?.message ||
-      `Помилка ${action === 'ban' ? 'блокування' : 'видалення'} користувача`;
-    throw new Error(message);
-  }
-
-  return parsedData;
-};
+import { banOrDeleteAccount } from '../../../../../../../../../helper/platform/banOrDeleteUser';
 
 const ActionsColumn = ({ rowData }) => {
   const { banned, toDelete, id } = rowData;

@@ -5,11 +5,11 @@ import { unbounded } from '@/app/[locale]//layout';
 import FeedbacksSlider from './FeedbacksSlider/FeedbacksSlider';
 import { useTranslations } from 'next-intl';
 
-const Feedbacks = ({ feedbacks }) => {
+const Feedbacks = ({ feedbacks, title }) => {
   const t = useTranslations('Services.feedbacks');
   return (
     <Container>
-      <h1 className={`${styles.title} ${unbounded.className}`}>{t('title')}</h1>
+      <h1 className={`${styles.title} ${unbounded.className}`}>{title ? title : t('title')}</h1>
       <FeedbacksSlider feedbacks={feedbacks} />
     </Container>
   );

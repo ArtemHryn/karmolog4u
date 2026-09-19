@@ -240,6 +240,7 @@ const Form = ({ setIsSent }) => {
           <p className={styles.error}>{errors.otherMemberships.message}</p>
         )}
       </div>
+      {/* комент */}
       <div className={styles.inputGroup}>
         <textarea
           rows={4}

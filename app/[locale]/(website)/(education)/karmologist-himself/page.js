@@ -39,11 +39,12 @@ const text = {
   ],
 };
 
-const KarmologistPage = async () => {
+const KarmologistPage = async ({ params }) => {
   const { column1, column2 } = getKarmologistCoursesQuestions();
   const cards = getCardsForKarmologistHimself();
 
   const { prices } = await fetchPrice('ssk');
+  const feedbackTitle = { uk: 'Відгуки учнів', ru: 'Отзывы учеников' };
 
   return (
     <main>
@@ -67,7 +68,10 @@ const KarmologistPage = async () => {
       <WhatIsWaitingForYou cards={cards} />
       <KarmologistPageTariffs tariffs={getTariffs(prices)} link={'karmologist-himself/dialog'} />
       <AccessToTheCourse />
-      <Feedbacks feedbacks={getKarmologistCoursesFeedbacks()} />
+      <Feedbacks
+        feedbacks={getKarmologistCoursesFeedbacks()}
+        title={feedbackTitle[params.locale]}
+      />
       <QuestionAnswer column1={column1} column2={column2} main />
       <Feedback />
     </main>
