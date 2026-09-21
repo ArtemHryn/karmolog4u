@@ -26,7 +26,7 @@ const getTariffs = prices => {
           'Доступ к материалам - 6 месяцев',
         ],
       },
-      price: `${prices.find(p => p.type === SSK_INDEPENDENT).price ?? 100}€`,
+      price: `${prices?.find(p => p.type === SSK_INDEPENDENT)?.price ?? 100}€`,
       nextSlideInfo: true,
       hidePrepaymentBtn: true,
     },
@@ -60,7 +60,7 @@ const getTariffs = prices => {
           'Ответы на ваши вопросы от куратора',
         ],
       },
-      price: `${prices.find(p => p.type === SSK_WITH_CURATOR).price ?? 200}€`,
+      price: `${prices?.find(p => p.type === SSK_WITH_CURATOR)?.price ?? 200}€`,
     },
     {
       title: { uk: 'Тариф </br>"З Сергієм"', ru: 'Тариф <br/>"С Сергеем"' },
@@ -97,7 +97,7 @@ const getTariffs = prices => {
           'Обучение комплексному чтению и трактовке личной матрицы судьбы',
         ],
       },
-      price: `${prices.find(p => p.type === SSK_WITH_SERGIY).price ?? 400}€`,
+      price: `${prices?.find(p => p.type === SSK_WITH_SERGIY)?.price ?? 400}€`,
     },
   ];
 };

@@ -44,8 +44,8 @@ const KarmologistPage = async ({ params }) => {
   const cards = getCardsForKarmologistHimself();
 
   const { prices } = await fetchPrice('ssk');
-  const feedbackTitle = { uk: 'Відгуки учнів', ru: 'Отзывы учеников' };
 
+  const feedbackTitle = { uk: 'Відгуки учнів', ru: 'Отзывы учеников' };
   return (
     <main>
       <Hero
