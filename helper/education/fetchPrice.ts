@@ -4,18 +4,15 @@ type CourseType = 'advanced' | 'consulting' | 'ssk';
 
 type DefaultPriceResponse = {
   price: number;
-  practice?: number;
+  practicePrice?: number;
 };
 
-type SskPriceResponse = {
-  prices: {
-    independent: number;
-    curator: number;
-    sergiy: number;
-  };
+type SskPrice = {
+  type: 'SSK_INDEPENDENT' | 'SSK_WITH_CURATOR' | 'SSK_WITH_SERGIY';
+  price: number;
 };
 
-type PriceResponse = DefaultPriceResponse | SskPriceResponse;
+type PriceResponse = DefaultPriceResponse | SskPrice[];
 
 export const fetchPrice = async (type: CourseType): Promise<PriceResponse> => {
   try {
@@ -24,33 +21,29 @@ export const fetchPrice = async (type: CourseType): Promise<PriceResponse> => {
     });
     if (!res.ok) {
       return type === 'ssk'
-        ? {
-            prices: {
-              independent: 100,
-              curator: 200,
-              sergiy: 400,
-            },
-          }
+        ? [
+            { type: 'SSK_INDEPENDENT', price: 100 },
+            { type: 'SSK_WITH_CURATOR', price: 200 },
+            { type: 'SSK_WITH_SERGIY', price: 400 },
+          ]
         : type === 'advanced'
           ? {
               price: 2500,
             }
-          : { price: 1700, practice: 50 };
+          : { price: 1700, practicePrice: 50 };
     }
     return await res.json();
   } catch (e) {
     return type === 'ssk'
-      ? {
-          prices: {
-            independent: 100,
-            curator: 200,
-            sergiy: 400,
-          },
-        }
+      ? [
+          { type: 'SSK_INDEPENDENT', price: 100 },
+          { type: 'SSK_WITH_CURATOR', price: 200 },
+          { type: 'SSK_WITH_SERGIY', price: 400 },
+        ]
       : type === 'advanced'
         ? {
             price: 2500,
           }
-        : { price: 1700, practice: 50 };
+        : { price: 1700, practicePrice: 50 };
   }
 };
