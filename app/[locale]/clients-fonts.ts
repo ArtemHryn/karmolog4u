@@ -1,4 +1,3 @@
-'use client';
 import { Open_Sans, Unbounded } from 'next/font/google';
 
 export const open_Sans_Client = Open_Sans({
