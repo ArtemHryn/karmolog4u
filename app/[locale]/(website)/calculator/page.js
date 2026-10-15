@@ -1,4 +1,4 @@
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
 import Container from '@/components/Common/Container/Container';
 import HeroNav from '@/components/Common/HeroNav/HeroNav';
@@ -15,9 +15,9 @@ const links = [
   },
 ];
 
-function Calculator({ params }) {
+function Calculator() {
   const t = useTranslations('Calculator.More');
-
+  const locale = useLocale();
   return (
     <main>
       <Container styledSection={styles.container}>
