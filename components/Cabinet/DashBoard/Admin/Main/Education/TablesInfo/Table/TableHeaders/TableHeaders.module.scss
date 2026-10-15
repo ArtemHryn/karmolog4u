@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .name_wrapper {
   display: flex;
@@ -6,7 +6,8 @@
   justify-content: space-between;
   padding: 0 16px;
   width: 100%;
-  & > svg {
+
+  &>svg {
     width: 20px;
     height: 16px;
   }
@@ -18,7 +19,8 @@
   justify-content: center;
   width: 24px;
   height: 24px;
-  & > svg {
+
+  &>svg {
     width: 20px;
     height: 16px;
   }
@@ -42,7 +44,8 @@
   justify-content: center;
   width: 24px;
   height: 12px;
-  & > svg {
+
+  &>svg {
     width: 14px;
     height: 8px;
   }
@@ -88,10 +91,12 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     gap: 12px;
   }
 }
+
 .checkbox_wrapper *,
 .checkbox_wrapper *:after,
 .checkbox_wrapper *:before {
@@ -104,15 +109,15 @@
   appearance: none;
 }
 
-.checkbox_wrapper input:checked + label svg path {
+.checkbox_wrapper input:checked+label svg path {
   stroke-dashoffset: 0;
 }
 
-.checkbox_wrapper input:focus + label {
+.checkbox_wrapper input:focus+label {
   transform: scale(1.03);
 }
 
-.checkbox_wrapper input + label {
+.checkbox_wrapper input+label {
   display: flex;
   border: 1px solid $p_separators;
   width: 20px;
@@ -121,27 +126,28 @@
   cursor: pointer;
   transition: all 0.2s ease;
 
-  & > svg {
+  &>svg {
     width: 18px;
     height: 18px;
   }
 }
 
-.checkbox_wrapper input + label:active {
+.checkbox_wrapper input+label:active {
   transform: scale(1.05);
   border-radius: 12px;
 }
 
-.checkbox_wrapper input + label svg {
-  pointer-events: none;
-  padding: 10%;
-}
-.checkbox_wrapper input:checked + label svg {
+.checkbox_wrapper input+label svg {
   pointer-events: none;
   padding: 10%;
 }
 
-.checkbox_wrapper input + label svg path {
+.checkbox_wrapper input:checked+label svg {
+  pointer-events: none;
+  padding: 10%;
+}
+
+.checkbox_wrapper input+label svg path {
   fill: none;
   stroke: $section_color;
   stroke-width: 4px;

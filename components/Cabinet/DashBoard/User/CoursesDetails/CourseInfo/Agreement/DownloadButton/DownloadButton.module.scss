@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .button {
   display: flex;
@@ -10,11 +10,13 @@
   height: 32px;
   background-color: $buttons_color;
   border-radius: 8px;
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     width: 44px;
     height: 44px;
   }
-  & > svg {
+
+  &>svg {
     width: 16px;
     height: 17px;
   }

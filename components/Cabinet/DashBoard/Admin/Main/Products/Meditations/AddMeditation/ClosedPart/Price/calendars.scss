@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .p-calendar {
   background-color: transparent;
@@ -16,7 +16,7 @@
   border: 16px;
 }
 
-.p-datepicker-title{
-    display: flex;
-    gap: 12px;
+.p-datepicker-title {
+  display: flex;
+  gap: 12px;
 }

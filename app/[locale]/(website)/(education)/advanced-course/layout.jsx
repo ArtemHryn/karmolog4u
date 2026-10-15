@@ -1,13 +1,13 @@
-// app/[locale]/(website)/(education)/advanced-course/layout.js
-
 import { getTranslations } from 'next-intl/server';
 
 /**
  * @param {Object} props
- * @param {Object} props.params
- * @param {string} props.params.locale
+ * @param {Promise<{ locale: string }>} props.params
  */
-export async function generateMetadata({ params: { locale } }) {
+
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+
   const t = await getTranslations({ locale, namespace: 'Metadata.Education.advanced_course' });
 
   return {
@@ -92,11 +92,7 @@ export const viewport = {
  * @param {React.ReactNode} props.children
  */
 const AdvancedCourseLayout = ({ children }) => {
-  return (
-    <>
-      {children}
-    </>
-  );
+  return <>{children}</>;
 };
 
 export default AdvancedCourseLayout;

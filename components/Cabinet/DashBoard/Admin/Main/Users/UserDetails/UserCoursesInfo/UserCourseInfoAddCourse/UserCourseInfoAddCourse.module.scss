@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .save_courses_button_wrapper {
   display: flex;
@@ -13,7 +13,8 @@
   height: 24px;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.27);
   border-radius: 4px;
-  & > svg {
+
+  &>svg {
     width: 12px;
     height: 16px;
   }

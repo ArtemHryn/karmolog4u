@@ -1,11 +1,12 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .list {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     gap: 24px;
   }
 }
@@ -21,7 +22,8 @@
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
   background-color: $main_bg;
   border-radius: 12px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     flex-direction: row;
     width: 100%;
     min-height: auto;
@@ -29,12 +31,13 @@
     max-width: 1000px;
     padding: 10px;
   }
-  @media all and (width >= $min_desktop) {
-  }
+
+  @media all and (width >=$min_desktop) {}
 }
 
 .title {
   position: relative;
+
   &::after {
     content: '';
     position: absolute;
@@ -66,13 +69,14 @@
 .title_mob {
   @include fontRegular(16px, 400, 25.28px, $main_text_color);
   width: max-content;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     display: none;
   }
 }
 
 .title_wrapper {
-  @media all and (width >= $min_tablet) {
+  @media all and (width >=$min_tablet) {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -82,7 +86,8 @@
 
 .title_tablet {
   display: none;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     display: block;
     @include fontRegular(24px, 400, 24px, $main_text_color);
   }
@@ -98,7 +103,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     flex-direction: row;
     flex-grow: 1;
     width: 100%;
@@ -115,7 +121,8 @@
   padding: 4px 8px;
   @include fontRegular(8px, 400, 8px, $main_text_color);
   background-color: rgba(207, 182, 145, 0.3);
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     display: block;
     background-color: transparent;
     font-size: 13px;
@@ -128,9 +135,9 @@
   width: 140px;
   height: 112px;
   object-fit: cover;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     width: 137px;
     height: 80px;
   }
 }
-

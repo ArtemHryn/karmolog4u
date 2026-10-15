@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .buttons_list {
   display: flex;
@@ -17,6 +17,7 @@
   padding: 0px 10px;
   background: $dark_gold_light;
   @include fontRegular(13px, 400, 13px, $third_text_color);
+
   &_active {
     background: rgba(207, 182, 145, 0.3);
     color: $main_text_color;

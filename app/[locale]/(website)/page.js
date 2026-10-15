@@ -11,7 +11,9 @@ import Research from '@/components/Main/Research/Research';
 import StarCustomers from '@/components/Main/StarCustomers/StarCustomers';
 import { getTranslations } from 'next-intl/server';
 
-export async function generateMetadata({ params: { locale } }) {
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+
   const t = await getTranslations({ locale, namespace: 'Metadata.Main' });
   return {
     metadataBase: new URL('https://karmolog4u.vercel.app'),

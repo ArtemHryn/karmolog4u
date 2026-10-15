@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .wrapper {
   border: 1px solid $p_border;
@@ -21,7 +21,8 @@
 .close_button {
   width: 24px;
   height: 24px;
-  & > svg {
+
+  &>svg {
     width: 100%;
     height: 100%;
   }

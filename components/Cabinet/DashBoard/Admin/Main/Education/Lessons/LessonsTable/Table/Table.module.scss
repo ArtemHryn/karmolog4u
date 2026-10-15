@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .info_wrapper {
   flex-grow: 1;
@@ -13,6 +13,7 @@
 .column {
   height: 60px;
   padding: 16px;
+
   &:first-child {
     width: 46px;
   }
@@ -32,6 +33,7 @@
       text-decoration: underline;
     }
   }
+
   @media (hover: none) {
     &:is(:active, :focus) {
       text-decoration: underline;

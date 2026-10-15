@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 //main
 
@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
+
   &.period {
     gap: 4px;
   }
@@ -16,16 +17,18 @@
   flex-direction: column;
   gap: 8px;
   @include fontRegular(14px, 600, 14px, $third_text_color);
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     font-size: 16px;
   }
-  @media all and (width >= $min_desktop) {
-  }
+
+  @media all and (width >=$min_desktop) {}
 }
 
 .name {
   @include fontRegular(14px, 600, 20.02px, $p_header_title_border);
 }
+
 //Available
 
 .wrapper {
@@ -42,12 +45,13 @@
   border-radius: 8px;
   padding: 12px;
   height: 44px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     justify-content: flex-start;
     gap: 60px;
   }
-  @media all and (width >= $min_desktop) {
-  }
+
+  @media all and (width >=$min_desktop) {}
 }
 
 //Period
@@ -58,11 +62,12 @@
   border-radius: 8px;
   padding: 12px 6px;
   gap: 24px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     gap: 20px;
   }
-  @media all and (width >= $min_desktop) {
-  }
+
+  @media all and (width >=$min_desktop) {}
 }
 
 .period_radio_wrapper {
@@ -88,6 +93,7 @@
   align-items: center;
   gap: 4px;
 }
+
 .months_input {
   width: 40px;
   border: 1px solid $p_separators;

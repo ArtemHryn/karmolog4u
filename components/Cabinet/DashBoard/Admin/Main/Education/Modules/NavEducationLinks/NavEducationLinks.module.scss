@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .nav_education_list {
   display: flex;
@@ -11,7 +11,8 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  & > span {
+
+  &>span {
     color: $p_active_button;
   }
 }
@@ -19,9 +20,11 @@
 .link {
   @include fontRegular(16px, 400, 16.8px, $p_active_button);
   transition: background-color 0.3s ease;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     font-size: 18px;
   }
+
   &:hover {
     color: $p_second_text_color;
   }

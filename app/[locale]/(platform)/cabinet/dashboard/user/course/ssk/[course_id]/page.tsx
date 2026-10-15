@@ -1,13 +1,15 @@
 import CourseInfo from '@/components/Cabinet/DashBoard/User/CoursesDetails/CourseInfo/SSK/CourseInfo';
 
 interface SSKPageProps {
-  params: { course_id: string };
+  params: Promise<{ course_id: string }>;
 }
 
-const SSKPage = ({ params }: SSKPageProps) => {
+const SSKPage = async ({ params }: SSKPageProps) => {
+  const { course_id } = await params;
+
   return (
     <>
-      <CourseInfo id={params.course_id} />
+      <CourseInfo id={course_id} />
     </>
   );
 };

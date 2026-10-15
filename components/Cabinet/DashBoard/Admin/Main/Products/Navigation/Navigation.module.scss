@@ -1,11 +1,12 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .list {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   padding: 0 16px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     gap: 16px;
   }
 }
@@ -18,10 +19,12 @@
   height: 64px;
   border-radius: 8px;
   border: 1px solid $p_border;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     width: calc((100% - 16px) / 2);
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     width: calc((100% - (16px * 3)) / 4);
   }
 }
@@ -34,11 +37,13 @@
   height: 100%;
   gap: 8px;
   @include fontRegular(14px, 400, 19.6px, $third_text_color);
+
   &_active {
     background-color: #e5edff;
     font-weight: 600;
   }
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     font-size: 16px;
   }
 }
@@ -52,6 +57,7 @@
   width: 24px;
   height: 24px;
   font-size: 12px;
+
   &_active {
     background-color: $p_button_bg;
     color: $main_text_color;

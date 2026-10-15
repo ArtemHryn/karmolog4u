@@ -1,11 +1,13 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .element {
   border: 1px solid $matrix_table_border;
   width: 328px;
+
   @media all and (min-width: $min_tablet) {
     width: 355px;
   }
+
   @media all and (min-width: $min_desktop) {
     width: 397px;
   }
@@ -20,6 +22,7 @@
 .name_list_element {
   border-bottom: 1px solid $matrix_table_border;
   border-right: 1px solid $matrix_table_border;
+
   &:last-child {
     border-right: none;
   }
@@ -28,9 +31,11 @@
 .empty_box {
   background-color: $additional_bg;
   width: 29px;
+
   @media all and (min-width: $min_tablet) {
     width: 38px;
   }
+
   @media all and (min-width: $min_desktop) {
     width: 50px;
   }
@@ -40,11 +45,13 @@
   @include fontRegular(16px, 400, 22.4px, $third_text_color);
   padding: 6px 4px;
   width: 98px;
+
   @media all and (min-width: $min_tablet) {
     font-size: 18px;
     padding: 18px 5px;
     width: 104px;
   }
+
   @media all and (min-width: $min_desktop) {
     width: 114px;
     padding: 18px 10px;
@@ -57,9 +64,11 @@
   display: flex;
   height: 40px;
   border-bottom: 1px solid $matrix_table_border;
+
   &:last-child {
     border-bottom: none;
   }
+
   @media all and (min-width: $min_tablet) {
     height: 52px;
   }
@@ -72,13 +81,16 @@
   width: 31px;
   border-right: 1px solid $matrix_table_border;
   @include fontRegular(14px, 400, 19.6px);
+
   &:last-child {
     border-right: none;
   }
+
   @media all and (min-width: $min_tablet) {
     width: 40px;
     font-size: 18px;
   }
+
   @media all and (min-width: $min_desktop) {
     width: 51px;
   }
@@ -91,13 +103,16 @@
   width: 99px;
   height: 100%;
   border-right: 1px solid $matrix_table_border;
+
   &:last-child {
     border-right: none;
   }
+
   @media all and (min-width: $min_tablet) {
     width: 105px;
     font-size: 18px;
   }
+
   @media all and (min-width: $min_desktop) {
     width: 115px;
   }

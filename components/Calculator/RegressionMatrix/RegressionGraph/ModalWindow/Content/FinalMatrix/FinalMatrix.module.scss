@@ -1,8 +1,9 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .wrapper {
   border-bottom: 1px solid $accent_v2;
   padding: 40px 0px;
+
   @media all and (min-width: $min_desktop) {
     display: flex;
     justify-content: center;
@@ -12,6 +13,7 @@
 
 .title {
   @include fontRegular(24px, 400, 24px, $main_text_color, center);
+
   @media all and (min-width: $min_tablet) {
     font-size: 28px;
     max-width: 70%;
@@ -22,6 +24,6 @@
 
 .matrix_wrapper {
   @media all and (min-width: $min_desktop) {
-   width: 618px;
+    width: 618px;
   }
 }

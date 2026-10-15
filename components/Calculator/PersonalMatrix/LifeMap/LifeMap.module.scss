@@ -1,9 +1,10 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .main_wrapper {
   display: flex;
   flex-direction: column;
   gap: 60px;
+
   @media all and (min-width: $min_tablet) {
     gap: 96px;
   }
@@ -13,6 +14,7 @@
   text-align: center;
   font-size: 24px;
   margin-bottom: 40px;
+
   @media all and (min-width: $min_tablet) {
     font-size: 28px;
     margin-bottom: 48px;
@@ -23,6 +25,7 @@
   display: flex;
   flex-direction: column;
   gap: 48px;
+
   @media all and (min-width: $min_tablet) {
     gap: 60px;
     flex-wrap: wrap;
@@ -35,9 +38,11 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+
   @media all and (min-width: $min_tablet) {
     width: 311px;
   }
+
   @media all and (min-width: $min_desktop) {
     width: 280px;
   }
@@ -64,6 +69,7 @@
 
 .map_name_el {
   @include fontRegular(14px, 400, 19.6px);
+
   @media all and (min-width: $min_tablet) {
     font-size: 16px;
   }
@@ -80,6 +86,7 @@
   margin-bottom: 40px;
   font-size: 24px;
   text-align: center;
+
   @media all and (min-width: $min_tablet) {
     font-size: 28px;
   }
@@ -91,9 +98,11 @@
   justify-content: center;
   column-gap: 100px;
   row-gap: 36px;
+
   @media all and (min-width: $min_tablet) {
     justify-content: space-around;
   }
+
   @media all and (min-width: $min_desktop) {
     flex-wrap: nowrap;
     gap: 0px;
@@ -130,6 +139,7 @@
 .extension_name {
   @include fontRegular(16px, 400, 22.4px);
   text-align: center;
+
   @media all and (min-width: $min_tablet) {
     @include fontRegular(20px, 400, 28px);
   }

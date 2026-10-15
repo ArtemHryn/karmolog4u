@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .show_calendar_button {
   display: flex;
@@ -8,17 +8,19 @@
   width: 40px;
   border: none;
   margin-left: auto;
-  & > svg {
+
+  &>svg {
     width: 24px;
     height: 24px;
   }
 }
 
 .calendar {
-  & > input {
+  &>input {
     background-color: transparent;
     border: none;
     @include fontRegular(14px, 400, 14px);
+
     &[aria-expanded='true'] {
       box-shadow: 0 0 0 0.1rem $accent_v2;
     }

@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 //About
 
@@ -7,14 +7,15 @@
   flex-direction: column;
   gap: 8px;
   @include fontRegular(14px, 600, 14px, $third_text_color);
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     // width: 332px;
     // width: calc((100% - 26px) / 2);
 
     font-size: 16px;
   }
-  @media all and (width >= $min_desktop) {
-  }
+
+  @media all and (width >=$min_desktop) {}
 }
 
 .input {
@@ -34,7 +35,8 @@
 
 .submit_title {
   @include fontRegular(14px, 400, 21.98px, $third_text_color);
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     text-align: end;
   }
 }
@@ -43,10 +45,12 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     flex-direction: row;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     justify-content: flex-end;
   }
 }
@@ -60,25 +64,30 @@
   border-radius: 8px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
   @include fontRegular(16px, 600, 16px);
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     width: 226px;
     gap: 8px;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     height: 46px;
   }
+
   &_published {
     background-color: $p_active_button;
-    & > svg {
+
+    &>svg {
       width: 18px;
       height: 18px;
     }
   }
+
   &_draft {
     color: $p_active_button;
     border: 1px solid $p_active_button;
 
-    & > svg {
+    &>svg {
       width: 16px;
       height: 16px;
     }
@@ -128,11 +137,12 @@
 
 .file_name {
   @include fontRegular(8px, 400, 12px, $third_text_color);
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     font-size: 10px;
   }
-  @media all and (width >= $min_desktop) {
-  }
+
+  @media all and (width >=$min_desktop) {}
 }
 
 .delete_button {

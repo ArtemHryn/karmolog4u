@@ -5,12 +5,14 @@ import { getServerSession } from 'next-auth';
 import { Suspense } from 'react';
 
 interface LiteraturePageProps {
-  params: { course_id: string };
+  params: Promise<{ course_id: string }>;
 }
 
 const ConsultingLiteraturePage = async ({ params }: LiteraturePageProps) => {
   // @ts-expect-error: JS authOptions is untyped
   const session = await getServerSession(authOptions);
+  const { course_id } = await params;
+
   if (!session) {
     throw new Error('User is not authenticated');
   }
@@ -18,7 +20,7 @@ const ConsultingLiteraturePage = async ({ params }: LiteraturePageProps) => {
 
   return (
     <Suspense fallback={<Lessons />}>
-      <Literature token={accessToken} id={params.course_id} />
+      <Literature token={accessToken} id={course_id} />
     </Suspense>
   );
 };

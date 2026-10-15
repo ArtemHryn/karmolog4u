@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .books_wrapper {
   @media all and (min-width: $min_tablet) {}

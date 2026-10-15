@@ -1,11 +1,12 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .main_wrapper {
   display: flex;
   flex-direction: column;
   gap: 32px;
   margin-inline: auto;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     width: 100%;
   }
 }
@@ -15,7 +16,8 @@
   align-items: center;
   gap: 4px;
   @include fontRegular(13px, 400, 13px, $seconds_text_color);
-  & > svg {
+
+  &>svg {
     width: 10px;
     height: 10px;
     fill: currentColor;
@@ -26,16 +28,18 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     flex-grow: 1;
   }
 }
 
 .download_button {
-  & > svg {
+  &>svg {
     width: 16px;
     height: 16px;
-    @media all and (width >= $min_tablet) {
+
+    @media all and (width >=$min_tablet) {
       width: 20px;
       height: 20px;
     }
@@ -49,7 +53,7 @@
 }
 
 .additional_info_wrapper {
-  @media all and (width >= $min_tablet) {
+  @media all and (width >=$min_tablet) {
     flex-direction: row;
     gap: 24px;
   }
@@ -61,7 +65,8 @@
   max-height: 300px;
   aspect-ratio: 4/3;
   border: 0.5px solid rgba(207, 182, 145, 0.3);
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     width: 330px;
     height: 226px;
   }
@@ -73,7 +78,8 @@
   height: 208px;
   border: 0.5px solid rgba(207, 182, 145, 0.3);
   object-fit: cover;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     width: 330px;
     height: 226px;
   }
@@ -81,7 +87,8 @@
 
 .category {
   @include fontRegular(14px, 600, 14px);
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     font-size: 16px;
   }
 }

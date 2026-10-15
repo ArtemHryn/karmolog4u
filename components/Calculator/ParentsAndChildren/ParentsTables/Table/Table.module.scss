@@ -1,12 +1,14 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .table_el {
   display: flex;
   flex-direction: column;
   gap: 40px;
+
   @media all and (min-width: $min_tablet) {
     gap: 48px;
   }
+
   @media all and (min-width: $min_desktop) {
     width: 627px;
   }
@@ -14,9 +16,11 @@
 
 .title {
   @include fontRegular(24px, 400, 30px, $main_text_color, center);
+
   @media all and (min-width: $min_tablet) {
     font-size: 28px;
   }
+
   @media all and (min-width: $min_desktop) {
     font-size: 24px;
   }
@@ -36,17 +40,21 @@
   &:first-child {
     width: 44px;
   }
+
   &:last-child {
     width: 130px;
     border-right: none;
     padding: 0 2px;
   }
+
   @media all and (min-width: $min_tablet) {
     height: 50px;
     width: 172px;
+
     &:first-child {
       width: 90px;
     }
+
     &:last-child {
       width: 199px;
     }
@@ -59,17 +67,21 @@
   justify-content: center;
   height: 100%;
   @include fontRegular(14px, 400, 19.6px, $third_text_color, center);
+
   &_mob {
     @media all and (min-width: $min_tablet) {
       display: none;
     }
   }
+
   &_tablet {
     display: none;
+
     @media all and (min-width: $min_tablet) {
       display: flex;
     }
   }
+
   @media all and (min-width: $min_tablet) {
     font-size: 18px;
   }
@@ -85,6 +97,7 @@
 .arcanes_list_element {
   display: flex;
   border-bottom: 1px solid $matrix_table_border;
+
   &:last-child {
     border-bottom: none;
   }
@@ -102,17 +115,21 @@
   &:first-child {
     width: 44px;
   }
+
   &:last-child {
     width: 130px;
     border-right: none;
   }
+
   @media all and (min-width: $min_tablet) {
     font-size: 18px;
     height: 37px;
     width: 172px;
+
     &:first-child {
       width: 90px;
     }
+
     &:last-child {
       width: 199px;
     }

@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .wrapper {
   display: flex;
@@ -10,11 +10,13 @@
 .button {
   flex-grow: 1;
   transition: all 250ms ease;
+
   @media (hover: hover) {
     &:is(:hover, :focus) {
       scale: 1.1;
     }
   }
+
   @media (hover: none) {
     &:is(:active, :focus) {
       scale: 1.1;
@@ -26,5 +28,3 @@
   width: 20px;
   height: 20px;
 }
-
-

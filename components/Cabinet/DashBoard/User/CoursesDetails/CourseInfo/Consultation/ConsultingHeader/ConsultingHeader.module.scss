@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .wrapper {
   display: flex;
@@ -12,7 +12,8 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     flex-direction: row-reverse;
   }
 }
@@ -23,14 +24,17 @@
   gap: 8px;
   @include fontRegular(14px, 600, 19.6px, $buttons_color);
   margin-bottom: 28px;
+
   &:hover {
     color: $buttons_hover_color;
   }
-  & > svg {
+
+  &>svg {
     width: 14px;
     height: 14px;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     font-size: 16px;
     margin-bottom: 56px;
   }

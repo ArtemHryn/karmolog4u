@@ -1,25 +1,28 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .title {
   margin-bottom: 40px;
   text-align: center !important;
   max-width: 280px;
   margin-inline: auto;
+
   @media screen and (min-width: $min_tablet) {
     margin-bottom: 60px;
     max-width: 95%;
   }
-  @media all and (min-width: $min_desktop) {
-  }
+
+  @media all and (min-width: $min_desktop) {}
 }
 
 .list {
   display: flex;
   flex-direction: column;
   gap: 16px;
+
   @media all and (min-width: $min_tablet) {
     gap: 24px;
   }
+
   @media all and (min-width: $min_desktop) {
     flex-direction: row;
   }
@@ -35,12 +38,14 @@
   border: 1px solid $seconds_text_color;
   gap: 28px;
   padding: 30px;
+
   @media all and (min-width: $min_tablet) {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     gap: 0;
   }
+
   @media all and (min-width: $min_desktop) {
     width: calc((100% - 24px) / 2);
   }
@@ -48,6 +53,7 @@
 
 .text {
   @include fontRegular(28px, 400, 28px, #fff, center);
+
   @media all and (min-width: $min_tablet) {
     line-height: 1.4;
   }
@@ -67,13 +73,15 @@
   @include fontRegular(16px, 600, 16px, $third_text_color);
 
   transition: all 250ms ease;
+
   &:is(:hover, :focus) {
     scale: 1.05;
     background-color: $buttons_hover_color;
   }
+
   @media all and (min-width: $min_tablet) {
     margin: 0;
   }
-  @media all and (min-width: $min_desktop) {
-  }
+
+  @media all and (min-width: $min_desktop) {}
 }

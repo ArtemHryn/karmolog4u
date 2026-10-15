@@ -1,10 +1,12 @@
 type ParamsProps = {
-  params: {
+  params: Promise<{
     course_id: string;
-  };
+  }>;
 };
 
 export const generateMetadata = async ({ params }: ParamsProps) => {
+  const { course_id } = await params;
+
   return {
     title: 'Консультантський курс',
     description: 'Консультантський курс | Користувач',
@@ -12,17 +14,17 @@ export const generateMetadata = async ({ params }: ParamsProps) => {
     metadataBase: new URL('https://karmolog4u.vercel.app'),
 
     alternates: {
-      canonical: `/cabinet/dashboard/course/consulting/${params.course_id}`,
+      canonical: `/cabinet/dashboard/course/consulting/${course_id}`,
       languages: {
-        'uk-UA': `/uk/cabinet/dashboard/course/consulting/${params.course_id}`,
-        'ru-RU': `/ru/cabinet/dashboard/user/course/consulting/${params.course_id}`,
+        'uk-UA': `/uk/cabinet/dashboard/course/consulting/${course_id}`,
+        'ru-RU': `/ru/cabinet/dashboard/user/course/consulting/${course_id}`,
       },
     },
 
     openGraph: {
       title: 'Консультантський курс',
       description: 'Консультантський курс | Користувач',
-      url: `/cabinet/dashboard/course/consulting/${params.course_id}`,
+      url: `/cabinet/dashboard/course/consulting/${course_id}`,
       siteName: 'Karmolog4u',
       type: 'website',
       locale: 'uk_UA',

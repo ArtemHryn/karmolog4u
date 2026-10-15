@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 //inputs
 .label {
@@ -16,6 +16,7 @@
   padding: 24px 16px;
   height: 48px;
   @include fontRegular(14px, 400, 19.6px, $third_text_color);
+
   &::placeholder {
     color: $form_placeholder;
   }

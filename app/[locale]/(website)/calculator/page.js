@@ -15,7 +15,7 @@ const links = [
   },
 ];
 
-function Calculator({ params: { locale } }) {
+function Calculator({ params }) {
   const t = useTranslations('Calculator.More');
 
   return (

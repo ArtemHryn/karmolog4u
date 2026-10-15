@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .wrapper {
   display: flex;
@@ -18,17 +18,20 @@
   overflow-x: auto;
   background-color: #eeedf1;
   scrollbar-width: none;
+
   &::-webkit-scrollbar {
     display: none;
   }
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     width: min-content;
   }
 }
 
 .button_wrapper {
   display: none;
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     display: block;
   }
 }
@@ -43,17 +46,20 @@
   border-radius: 6px;
   transition: all 250ms linear;
   @include fontRegular(16px, 400, 22.4px, $p_second_text_color);
+
   &_active {
     background-color: $p_main_bg;
     scale: 1.05;
     color: $third_text_color;
     transition: all 250ms ease;
   }
+
   @media (hover: hover) {
     &:is(:hover, :focus) {
       scale: 1.05;
     }
   }
+
   @media (hover: none) {
     &:is(:active, :focus) {
       scale: 1.05;

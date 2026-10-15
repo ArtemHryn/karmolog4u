@@ -1,12 +1,14 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .image {
   height: 208px;
   object-fit: cover;
   object-position: bottom;
+
   @media all and (min-width: $min_tablet) {
     height: 410px;
   }
+
   @media all and (min-width: $min_desktop) {
     height: auto;
   }

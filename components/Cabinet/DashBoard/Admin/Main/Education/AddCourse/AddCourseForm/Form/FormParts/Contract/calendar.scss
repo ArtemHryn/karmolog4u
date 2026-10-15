@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .p-calendar {
   background-color: transparent;
@@ -13,11 +13,12 @@
   border: none;
   width: 78px;
   @include fontRegular(16px, 400, 22.4px, $third_text_color);
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     padding-left: 20px;
   }
-  @media all and (width >= $min_desktop) {
-  }
+
+  @media all and (width >=$min_desktop) {}
 }
 
 .p-datepicker {
@@ -37,13 +38,14 @@
 .p-datepicker-title {
   display: flex;
   gap: 12px;
-  & > .p-datepicker-month,
-  & > .p-datepicker-year {
+
+  &>.p-datepicker-month,
+  &>.p-datepicker-year {
     @include fontRegular(14px, 600, 25.2px, $third_text_color);
   }
 }
 
-.p-datepicker table td > span.p-highlight {
+.p-datepicker table td>span.p-highlight {
   background-color: $p_active_button;
   color: $p_third_text_color;
 }

@@ -1,11 +1,12 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .name_last_name_wrapper {
   display: flex;
   flex-direction: column;
   gap: 8px;
   width: 100%;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     width: calc((100% - 32px) / 2);
   }
 }

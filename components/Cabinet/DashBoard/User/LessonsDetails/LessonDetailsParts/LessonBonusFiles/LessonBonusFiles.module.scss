@@ -1,11 +1,12 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .list {
   display: flex;
   flex-direction: column;
   gap: 16px;
   width: 100%;
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     flex-direction: row;
     flex-wrap: wrap;
   }
@@ -23,7 +24,8 @@
   min-height: 98px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
   background: $main_bg;
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     width: calc(50% - 8px);
   }
 }
@@ -54,10 +56,12 @@
   border-radius: 300px;
   width: 50px;
   height: 50px;
-  & > svg {
+
+  &>svg {
     width: 24px;
     height: 24px;
   }
+
   &:disabled {
     opacity: 0.6;
   }

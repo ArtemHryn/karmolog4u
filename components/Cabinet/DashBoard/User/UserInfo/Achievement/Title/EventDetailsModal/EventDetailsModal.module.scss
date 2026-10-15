@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .overlay {
   position: fixed;
@@ -36,7 +36,8 @@
   z-index: 1001;
   height: 90vh;
   overflow-y: auto;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     max-width: 462px;
     gap: 32px;
     padding: 40px;

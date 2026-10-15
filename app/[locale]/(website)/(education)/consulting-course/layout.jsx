@@ -1,7 +1,14 @@
 import { getTranslations } from 'next-intl/server';
 
-export async function generateMetadata({ params: { locale } }) {
-  const t = await getTranslations({ locale, namespace: 'Metadata.Education.karmologist_himself' });
+/**
+ * @param {Object} props
+ * @param {Promise<{ locale: string }>} props.params
+ */
+
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+
+  const t = await getTranslations({ locale, namespace: 'Metadata.Education.consulting_course' });
 
   return {
     metadataBase: new URL('https://karmolog4u.vercel.app'),

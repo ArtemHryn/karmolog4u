@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .section {
   overflow: visible;
@@ -11,9 +11,11 @@
 .title {
   text-align: center;
   margin-bottom: 40px;
+
   @media all and (min-width: $min_tablet) {
     margin-bottom: 48px;
   }
+
   @media all and (min-width: $min_desktop) {
     margin-bottom: 60px;
   }
@@ -26,9 +28,11 @@
   flex-direction: column;
   gap: 16px;
   margin-bottom: 36px;
+
   @media all and (min-width: $min_tablet) {
     gap: 24px;
   }
+
   @media all and (min-width: $min_desktop) {
     flex-direction: row;
   }
@@ -38,9 +42,11 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+
   @media all and (min-width: $min_tablet) {
     gap: 24px;
   }
+
   @media all and (min-width: $min_desktop) {
     width: (calc((100% - 24px) / 2));
   }
@@ -50,13 +56,14 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+
   @media all and (min-width: $min_tablet) {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 24px;
   }
-  @media all and (min-width: $min_desktop) {
-  }
+
+  @media all and (min-width: $min_desktop) {}
 }
 
 .inner_list_item {
@@ -68,15 +75,18 @@
   border-radius: 30px;
   background-color: #2e2e2e;
   width: 100%;
+
   &_gold {
     background-color: #cfb691;
   }
+
   &_light {
     background-color: #fdfdfd;
   }
 
   @media all and (min-width: $min_tablet) {
     padding: 51.5px 40px;
+
     &_gold {
       flex-direction: column;
       align-items: flex-start;
@@ -84,6 +94,7 @@
       padding: 41px 40px;
       height: 302px;
     }
+
     &_light {
       flex-direction: column;
       align-items: flex-start;
@@ -92,11 +103,14 @@
       padding: 41px 40px;
     }
   }
+
   @media all and (min-width: $min_desktop) {
     padding: 51.5px 34px;
+
     &_gold {
       padding: 41px 40px;
     }
+
     &_light {
       flex-direction: column;
       align-items: flex-start;
@@ -110,17 +124,21 @@
 .text {
   @include fontRegular(14px, 600, 14px);
   width: 216px;
+
   &_dark {
     color: #2e2e2e;
   }
+
   @media all and (min-width: $min_tablet) {
     width: 100%;
     max-width: 506px;
     @include fontRegular(16px, 600, 16px);
+
     &_dark {
       color: #2e2e2e;
     }
   }
+
   @media all and (min-width: $min_desktop) {
     max-width: 409px;
   }
@@ -129,16 +147,18 @@
 .icon {
   width: 40px;
   height: 40px;
+
   @media all and (min-width: $min_tablet) {
     width: 86px;
     height: 86px;
   }
-  @media all and (min-width: $min_desktop) {
-  }
+
+  @media all and (min-width: $min_desktop) {}
 }
 
 .spot {
   display: none;
+
   @media all and (min-width: $min_tablet) {
     position: absolute;
     display: block;
@@ -151,14 +171,13 @@
     transform: rotate(-90deg);
 
     border-radius: 287px;
-    background-image: linear-gradient(
-      180deg,
-      rgba(207, 182, 145, 0.4) 0%,
-      rgba(207, 182, 145, 0.4) 45.14%
-    );
+    background-image: linear-gradient(180deg,
+        rgba(207, 182, 145, 0.4) 0%,
+        rgba(207, 182, 145, 0.4) 45.14%);
 
     filter: blur(125px);
   }
+
   @media all and (min-width: $min_desktop) {
     left: 10%;
   }
@@ -171,10 +190,12 @@
   padding: 24px 28px;
   background-color: $card_bg_v2;
   border-radius: 30px;
+
   @media all and (min-width: $min_tablet) {
     padding: 30px 50px;
     align-items: center;
   }
+
   @media all and (min-width: $min_desktop) {
     flex-direction: row;
     padding: 24px;
@@ -183,6 +204,7 @@
 
 .write_us_text {
   @include fontRegular(16px, 400, 22.4px, $main_text_color, center);
+
   @media all and (min-width: $min_tablet) {
     font-size: 18px;
   }
@@ -197,11 +219,13 @@
   background-color: $buttons_color;
   border-radius: 30px;
   @include fontRegular(16px, 600, 22.4px, $third_text_color);
+
   @media all and (min-width: $min_tablet) {
     width: 410px;
     height: 60px;
     font-size: 18px;
   }
+
   @media all and (min-width: $min_desktop) {
     flex-shrink: 0;
   }

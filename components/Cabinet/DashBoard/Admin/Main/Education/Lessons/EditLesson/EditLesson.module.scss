@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .main {
   display: flex;
@@ -8,11 +8,13 @@
   width: 100%;
   background-color: $p_main_bg;
   min-height: calc(100vh - 65px);
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     padding: 24px;
     gap: 32px;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     padding: 0;
     overflow-y: auto;
     max-height: 100vh;
@@ -26,7 +28,8 @@
   align-items: center;
   gap: 24px;
   flex-grow: 1;
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     padding: 0px 24px;
   }
 }

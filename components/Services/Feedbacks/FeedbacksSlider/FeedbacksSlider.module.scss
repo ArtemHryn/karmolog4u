@@ -1,9 +1,10 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 @keyframes increaseText {
   from {
     max-height: 360px;
   }
+
   to {
     max-height: 1500px;
   }
@@ -13,6 +14,7 @@
   from {
     max-height: 1500px;
   }
+
   to {
     max-height: 360px;
   }
@@ -22,9 +24,11 @@
 .swiper {
   position: relative;
   padding-bottom: 20px !important;
+
   @media all and (min-width: $min_tablet) {
     padding-bottom: 40px !important;
   }
+
   @media all and (min-width: $min_desktop) {
     overflow: visible !important;
   }
@@ -35,8 +39,10 @@
     width: 70% !important;
   }
 }
+
 .pagination {
   opacity: 1 !important;
+
   @media all and (min-width: $min_tablet) {
     --swiper-pagination-bullet-width: 16px;
     --swiper-pagination-bullet-height: 16px;
@@ -60,11 +66,13 @@
   border-radius: 30px;
   background-color: #000;
   border: 1px solid $seconds_text_color;
+
   @media all and (min-width: $min_tablet) {
     flex-direction: row;
     padding: 26px 50px;
     min-height: 420px;
   }
+
   @media all and (min-width: $min_desktop) {
     min-height: 343px;
   }
@@ -73,6 +81,7 @@
 .card_text_container {
   display: flex;
   flex-direction: column;
+
   @media all and (min-width: $min_tablet) {
     order: 2;
   }
@@ -82,6 +91,7 @@
   @include fontRegular(24px, 400, 24px);
   margin-right: auto;
   margin-bottom: 24px;
+
   @media all and (min-width: $min_tablet) {
     @include fontRegular(30px, 400, 30px);
   }
@@ -104,6 +114,7 @@
   text-overflow: ellipsis;
   max-height: 350px;
   margin-bottom: 28px;
+
   @media all and (min-width: $min_tablet) {
     -webkit-line-clamp: 9;
     max-height: 210px;
@@ -119,6 +130,7 @@
   @include fontRegular(16px, 400, 22.4px);
   margin: 0 auto;
   text-decoration: underline;
+
   @media all and (min-width: $min_tablet) {
     margin: 0;
   }
@@ -128,6 +140,7 @@
 
 .btn_container {
   display: none;
+
   @media all and (min-width: $min_desktop) {
     position: absolute;
     top: -103px;
@@ -149,6 +162,7 @@
   background-color: $buttons_color;
   padding: 8px;
   transition: scale 250ms ease;
+
   &:hover,
   &:focus {
     scale: 1.1;
@@ -157,9 +171,11 @@
 
 .arrow {
   fill: $third_text_color;
+
   &_right {
     rotate: -90deg;
   }
+
   &_left {
     rotate: 90deg;
   }

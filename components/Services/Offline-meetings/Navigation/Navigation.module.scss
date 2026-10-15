@@ -1,10 +1,11 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .nav_links_list {
   display: flex;
   flex-direction: column;
   gap: 24px;
   align-items: center;
+
   @media all and (min-width: $min_desktop) {
     flex-direction: row;
   }
@@ -24,6 +25,7 @@
 
   @include fontRegular(20px, 400, 20px);
   transition: all 350ms ease;
+
   @media all and (min-width: $min_tablet) {
     font-size: 24px;
 
@@ -32,17 +34,20 @@
 
     padding: 20px 0px;
   }
-  @media all and (min-width: $min_desktop) {
-  }
+
+  @media all and (min-width: $min_desktop) {}
+
   &:hover,
   &:focus {
     scale: 1.1;
     color: $third_text_color;
     background-color: $buttons_color;
+
     @media all and (min-width: $min_desktop) {
       scale: 1.05;
     }
   }
+
   &_active {
     color: $third_text_color;
     background-color: $buttons_color;

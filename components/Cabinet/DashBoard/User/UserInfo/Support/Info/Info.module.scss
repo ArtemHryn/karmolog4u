@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .wrapper {
   display: flex;
@@ -6,11 +6,13 @@
   gap: 60px;
   max-width: $min_mobile;
   margin-inline: auto;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     max-width: $min_tablet;
     flex-direction: row;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     max-width: $min_desktop;
   }
 }
@@ -19,7 +21,8 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     flex-grow: 1;
   }
 }
@@ -27,7 +30,8 @@
 .text {
   @include fontRegular(14px, 400, 20.02px);
   color: $main_text_color;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     font-size: 16px;
   }
 }
@@ -36,7 +40,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     gap: 16px;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -47,7 +52,8 @@
 .buttons_wrapper_element {
   width: 152px;
   height: 44px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     width: 160px;
   }
 }
@@ -64,17 +70,20 @@
   background-color: $main_bg;
   border: 1px solid $accent_v2;
   border-radius: 8px;
-  & > svg {
+
+  &>svg {
     width: 24px;
     height: 24px;
     fill: currentColor;
   }
+
   @media (hover: hover) {
     &:is(:hover, :focus) {
       background-color: $buttons_hover_color;
       color: $third_text_color;
     }
   }
+
   @media (hover: none) {
     &:is(:active, :focus) {
       background-color: $buttons_hover_color;

@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .payment_types_wrapper {
   display: flex;
@@ -20,11 +20,15 @@
   min-height: 80px;
   max-height: 150px;
   @include fontRegular(14px, 400, 20px, $third_text_color);
-  scrollbar-width: none; /* для Firefox */
-  -ms-overflow-style: none; /* для IE і Edge */
+  scrollbar-width: none;
+  /* для Firefox */
+  -ms-overflow-style: none;
+
+  /* для IE і Edge */
   &::-webkit-scrollbar {
     display: none;
   }
+
   &::placeholder {
     @include fontRegular(14px, 400, 20px, $p_header_title_border);
     font-family: inherit;

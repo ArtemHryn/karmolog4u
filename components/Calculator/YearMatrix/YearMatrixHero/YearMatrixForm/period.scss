@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .p-dropdown {
   display: flex;
@@ -9,10 +9,12 @@
   height: 50px;
   padding: 0 20px;
   background-color: transparent;
+
   @media screen and (min-width: $min_tablet) {
     width: 546px;
     height: 60px;
   }
+
   @media screen and (min-width: $min_desktop) {
     width: 628px;
   }
@@ -31,6 +33,7 @@
 
   border-radius: 10px;
   border: 1px solid $matrix_table_border;
+
   @media screen and (min-width: $min_tablet) {
     display: flex;
   }
@@ -49,17 +52,21 @@
     column-gap: 10px;
   }
 }
+
 .p-dropdown-item-label {
   color: $main_text_color;
 }
+
 .p-dropdown-item {
   padding: 8px 10px;
+
   &[aria-selected='true'] {
     border: 1px solid $matrix_table_border;
     background-color: transparent;
     border-radius: 30px;
     opacity: 0.8;
   }
+
   @media screen and (min-width: $min_tablet) {
     padding: 8px 0;
     display: flex;

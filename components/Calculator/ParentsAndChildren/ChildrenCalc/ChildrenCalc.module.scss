@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .main_wrapper {
   position: relative;
@@ -6,6 +6,7 @@
   flex-direction: column;
   gap: 48px;
   align-items: center;
+
   @media all and (min-width: $min_tablet) {
     gap: 60px;
   }
@@ -13,9 +14,11 @@
 
 .title {
   @include fontRegular(24px, 400, 30px, $main_text_color, center);
-  & > span {
+
+  &>span {
     color: $seconds_text_color;
   }
+
   @media all and (min-width: $min_tablet) {
     display: flex;
     flex-direction: column;
@@ -28,9 +31,11 @@
   position: absolute;
   width: 120px;
   height: 120px;
+
   &1 {
     left: 0;
   }
+
   &2 {
     right: 0;
   }
@@ -40,9 +45,11 @@
     height: 193px;
     top: 2%;
   }
+
   &1 {
     left: 3%;
   }
+
   &2 {
     right: 3%;
   }

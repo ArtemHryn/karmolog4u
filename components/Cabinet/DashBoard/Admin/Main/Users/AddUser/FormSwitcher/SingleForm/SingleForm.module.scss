@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .form {
   display: flex;
@@ -34,6 +34,4 @@
   gap: 12px;
 }
 
-.error {
-  
-}
+.error {}

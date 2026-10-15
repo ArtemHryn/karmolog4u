@@ -1,19 +1,22 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
+
 .arrow {
   position: absolute;
   top: 85%;
   right: 9%;
   animation: pulse 3s infinite;
+
   @media all and (min-width: $min_tablet) {
     display: none;
   }
-  @media all and (min-width: $min_desktop) {
-  }
+
+  @media all and (min-width: $min_desktop) {}
 }
 
 .arrow_tab {
   display: none;
   position: absolute;
+
   @media all and (min-width: $min_tablet) {
     width: 180px;
     height: 190px;
@@ -22,6 +25,7 @@
     right: 16%;
     animation: biggerPulse 3s infinite;
   }
+
   @media all and (min-width: $min_desktop) {
     width: 240px;
     height: 190px;
@@ -34,9 +38,11 @@
   0% {
     transform: rotate(0deg) translateY(0px) scale(1);
   }
+
   50% {
     transform: rotate(15deg) translateY(10px) scale(1.1);
   }
+
   100% {
     transform: rotate(0deg) translateY(0px) scale(1);
   }
@@ -46,9 +52,11 @@
   0% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.1);
   }
+
   100% {
     transform: scale(1);
   }

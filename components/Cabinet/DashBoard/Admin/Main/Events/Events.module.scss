@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .main {
   display: flex;
@@ -8,11 +8,13 @@
   width: 100%;
   background-color: #fdfdfd;
   min-height: calc(100vh - 65px);
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     padding: 24px;
     gap: 32px;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     padding: 0;
     overflow-y: auto;
     max-height: 100vh;
@@ -21,7 +23,8 @@
 
 .title_wrapper {
   display: none;
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     display: flex;
     align-items: center;
     height: 80px;

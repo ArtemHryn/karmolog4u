@@ -1,11 +1,12 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     flex-direction: row;
     justify-content: space-between;
   }
@@ -13,7 +14,8 @@
 
 .title {
   @include fontRegular(20px, 400, 20px, $seconds_text_color);
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     order: 1;
     font-size: 24px;
   }

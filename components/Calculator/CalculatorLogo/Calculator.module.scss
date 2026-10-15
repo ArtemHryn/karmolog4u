@@ -1,8 +1,10 @@
-@import '../styles/main.scss';
+@use '../styles/main.scss' as *;
+;
 
 .wrap {
   display: none;
   position: absolute;
+
   @media all and (min-width: $min_tablet) {
     display: block;
     width: 120px;
@@ -30,6 +32,7 @@
 .icon {
   width: 120px;
   height: 120px;
+
   @media all and (min-width: $min_desktop) {
     width: 193px;
     height: 193px;

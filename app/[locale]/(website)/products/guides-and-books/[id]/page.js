@@ -24,7 +24,7 @@ const getGuidesAndBooksList = async () => {
   return res.json();
 };
 
-const GuideAndBooksDetails = ({ params: { locale } }) => {
+const GuideAndBooksDetails = () => {
   const pathname = usePathname();
   const params = useParams();
 
@@ -37,9 +37,9 @@ const GuideAndBooksDetails = ({ params: { locale } }) => {
 
   useEffect(() => {
     if (guideAndBook) {
-      document.title = guideAndBook.name[locale];
+      document.title = guideAndBook.name[params.locale];
     }
-  }, [guideAndBook, locale]);
+  }, [guideAndBook, params.locale]);
 
   const { data: guidesAndBooks, isLoading: isListLoading } = useQuery({
     queryKey: ['guidesAndBooks'],
@@ -57,7 +57,7 @@ const GuideAndBooksDetails = ({ params: { locale } }) => {
 
   const links = [
     { href: '/products/guides-and-books', name: 'Гайди та книги' },
-    { href: pathname, name: guideAndBook.name[locale] },
+    { href: pathname, name: guideAndBook.name[params.locale] },
   ];
 
   return (

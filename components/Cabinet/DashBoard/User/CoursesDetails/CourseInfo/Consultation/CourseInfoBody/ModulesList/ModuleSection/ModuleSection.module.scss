@@ -1,9 +1,10 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .item {
   position: relative;
   display: flex;
   width: 100%;
+
   &::before {
     content: '';
     position: absolute;
@@ -12,7 +13,8 @@
     background-color: $additional_bg;
     left: 20px;
   }
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     gap: 24px;
   }
 }

@@ -1,8 +1,9 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .main_wrapper {
   display: none;
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     display: flex;
     align-items: center;
     justify-content: space-between;

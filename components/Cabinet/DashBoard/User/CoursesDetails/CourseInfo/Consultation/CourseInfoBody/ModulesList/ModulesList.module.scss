@@ -1,6 +1,6 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
-.list{
+.list {
     display: flex;
     flex-direction: column;
 }

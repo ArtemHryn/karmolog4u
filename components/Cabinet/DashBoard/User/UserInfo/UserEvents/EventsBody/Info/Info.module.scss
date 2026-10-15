@@ -1,13 +1,15 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .wrapper {
   display: flex;
   flex-direction: column;
   gap: 32px;
 }
+
 .title {
   @include fontRegular(20px, 400, 20px);
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     font-size: 40px;
   }
 }
@@ -16,7 +18,8 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     flex-direction: row;
     gap: 40px;
   }
@@ -24,7 +27,8 @@
 
 .text {
   @include fontRegular(14px, 400, 20.02px);
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     @include fontRegular(16px, 400, 24px);
   }
 }

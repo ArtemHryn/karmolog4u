@@ -25,8 +25,8 @@ const getGifts = async () => {
   return res.json();
 };
 
-const GiftDetailsPage = ({ params: { locale, id } }) => {
-  const params = useParams();
+const GiftDetailsPage = () => {
+  const { locale, id } = useParams;
   const pathname = usePathname();
 
   const { data: gift, isLoading: isGiftLoading } = useQuery({

@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .title {
   @include fontRegular(24px, 400, 30px, $main_text_color, center);
@@ -10,20 +10,25 @@
   border-bottom: 1px solid $seconds_text_color;
   background: $matrix_bg_gradient;
   padding: 40px 0;
+
   @media all and (min-width: $min_mobile) {
     padding-left: 16px;
     padding-right: 16px;
   }
+
   @media all and (min-width: $min_tablet) {
     padding: 80px 16px;
   }
+
   @media all and (min-width: $min_desktop) {
     padding: 90px 2px;
   }
+
   @media all and (min-width: $mac) {
     padding-left: 16px;
     padding-right: 16px;
   }
+
   @media all and (min-width: $big_pc) {
     padding-left: 80px;
     padding-right: 80px;

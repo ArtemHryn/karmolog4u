@@ -1,14 +1,13 @@
 type ParamsProps = {
-  params: {
+  params: Promise<{
     course_id: string;
     lesson_id: string;
     module_id: string;
-  };
+  }>;
 };
 
-export const generateMetadata = async ({
-  params: { course_id, lesson_id, module_id },
-}: ParamsProps) => {
+export const generateMetadata = async ({ params }: ParamsProps) => {
+  const { course_id, lesson_id, module_id } = await params;
   return {
     title: 'Редагувати Урок | Модуль',
     description: 'Редагувати Урок | Адмін',

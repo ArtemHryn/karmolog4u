@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .label {
   position: relative;
@@ -14,11 +14,12 @@
   border: 1px solid $p_border;
   background-color: #fff;
   @include fontRegular(16px, 400, 16px, $third_text_color);
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     width: 220px;
   }
-  @media all and (width >= $min_desktop) {
-  }
+
+  @media all and (width >=$min_desktop) {}
 }
 
 .search_icon {

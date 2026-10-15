@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .wrapper {
   display: flex;
@@ -6,47 +6,53 @@
   padding: 8px;
   gap: 8px;
   border-bottom: 1px solid $card_bg;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     gap: 24px;
     padding: 0;
   }
-  @media all and (width >= $min_desktop) {
-  }
+
+  @media all and (width >=$min_desktop) {}
 }
 
 .title_wrapper {
   display: flex;
   flex-direction: column;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     width: 100%;
   }
-  @media all and (width >= $min_desktop) {
-  }
+
+  @media all and (width >=$min_desktop) {}
 }
 
 .name {
   @include fontRegular(14px, 400, 14px);
   height: 44px;
   line-height: 30px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     line-height: normal;
     height: auto;
     font-size: 16px;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     font-size: 20px;
   }
 }
 
 .dates {
   @include fontRegular(14px, 600, 14px);
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     font-size: 16px;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     font-size: 20px;
   }
 }

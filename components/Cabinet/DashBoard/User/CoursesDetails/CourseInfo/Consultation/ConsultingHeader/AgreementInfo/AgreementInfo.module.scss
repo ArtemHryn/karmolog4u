@@ -1,16 +1,18 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .wrapper {
   display: flex;
   gap: 8px;
   color: $accent_v2;
   align-items: center;
-  & > svg {
+
+  &>svg {
     width: 32px;
     height: 32px;
     fill: currentColor;
   }
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     gap: 24px;
   }
 }
@@ -18,10 +20,12 @@
 .text {
   @include fontRegular(14px, 400, 20.02px, $seconds_text_color);
   max-width: calc(100% - 40px);
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     max-width: 100%;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     font-size: 18px;
   }
 }

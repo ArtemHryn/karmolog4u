@@ -40,6 +40,8 @@ const text = {
 };
 
 const KarmologistPage = async ({ params }) => {
+  const { locale } = await params;
+
   const { column1, column2 } = getKarmologistCoursesQuestions();
   const cards = getCardsForKarmologistHimself();
 
@@ -68,10 +70,7 @@ const KarmologistPage = async ({ params }) => {
       <WhatIsWaitingForYou cards={cards} />
       <KarmologistPageTariffs tariffs={getTariffs(prices)} link={'karmologist-himself/dialog'} />
       <AccessToTheCourse />
-      <Feedbacks
-        feedbacks={getKarmologistCoursesFeedbacks()}
-        title={feedbackTitle[params.locale]}
-      />
+      <Feedbacks feedbacks={getKarmologistCoursesFeedbacks()} title={feedbackTitle[locale]} />
       <QuestionAnswer column1={column1} column2={column2} main />
       <Feedback />
     </main>

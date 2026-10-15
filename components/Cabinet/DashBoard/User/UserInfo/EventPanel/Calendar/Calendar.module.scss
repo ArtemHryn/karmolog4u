@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .wrapper {
   display: flex;
@@ -18,6 +18,7 @@
   padding: 10px;
   border: 1px solid $accent_v2;
 }
+
 .wrapper :global(.react-calendar__tile) {
   color: $main_text_color;
 }
@@ -31,7 +32,8 @@
 .wrapper :global(.react-calendar__month-view__days) {
   display: grid !important;
   grid-template-columns: repeat(7, 1fr);
-  gap: 0px 4px; /* 8px між рядками (висота), 4px між колонками (ширина) */
+  gap: 0px 4px;
+  /* 8px між рядками (висота), 4px між колонками (ширина) */
   flex-grow: 1;
 }
 
@@ -56,6 +58,7 @@
 .wrapper :global(.react-calendar__navigation__next-button) {
   color: $main_text_color;
   min-width: 34px;
+
   &:hover,
   &:focus {
     background-color: transparent !important;
@@ -67,6 +70,7 @@
 .wrapper :global(.react-calendar__navigation__label__labelText) {
   color: $main_text_color;
   font-weight: bold;
+
   &:hover,
   &:focus {
     background-color: transparent !important;
@@ -75,6 +79,7 @@
 }
 
 .wrapper :global(.react-calendar__navigation__label) {
+
   &:hover,
   &:focus {
     background-color: transparent !important;
@@ -95,9 +100,11 @@
 
 //при наведенні курсора на день
 .wrapper :global(.react-calendar__tile) {
+
   &:hover,
   &:focus {
-    background-color: transparent; /* без фону */
+    background-color: transparent;
+    /* без фону */
     color: $p_active_button;
   }
 }

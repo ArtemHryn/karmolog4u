@@ -1,7 +1,8 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .inner_topic_container {
   position: relative;
+
   @media all and (min-width: $min_desktop) {
     display: flex;
     flex-direction: column;
@@ -33,10 +34,12 @@
   background-color: #000;
   @include fontRegular(24px, 400, 24px);
   transition: scale 350ms ease;
+
   &:hover,
   &:focus {
     scale: 1.05;
   }
+
   @media all and (min-width: $min_tablet) {
     width: 356px;
     @include fontRegular(32px, 400, 32px);
@@ -47,6 +50,7 @@
   width: 24px;
   height: 24px;
   fill: $buttons_color;
+
   @media all and (min-width: $min_tablet) {
     width: 48px;
     height: 48px;
@@ -55,6 +59,7 @@
 
 .spot {
   display: none;
+
   @media all and (min-width: $min_desktop) {
     position: absolute;
     display: block;
@@ -66,11 +71,9 @@
     height: 260px;
 
     border-radius: 280px;
-    background-image: linear-gradient(
-      180deg,
-      rgba(207, 182, 145, 0.4) 7%,
-      rgba(207, 182, 145, 0.4) 45.14%
-    );
+    background-image: linear-gradient(180deg,
+        rgba(207, 182, 145, 0.4) 7%,
+        rgba(207, 182, 145, 0.4) 45.14%);
 
     filter: blur(105px);
   }

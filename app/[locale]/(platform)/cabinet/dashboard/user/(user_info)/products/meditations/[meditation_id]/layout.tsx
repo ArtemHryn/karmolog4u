@@ -1,10 +1,11 @@
 type ParamsProps = {
-  params: {
+  params: Promise<{
     meditation_id: string;
-  };
+  }>;
 };
 
 export const generateMetadata = async ({ params }: ParamsProps) => {
+  const { meditation_id } = await params;
   return {
     title: 'Деталі медитації',
     description: 'Деталі медитації | Користувач',
@@ -12,17 +13,17 @@ export const generateMetadata = async ({ params }: ParamsProps) => {
     metadataBase: new URL('https://karmolog4u.vercel.app'),
 
     alternates: {
-      canonical: `/cabinet/dashboard/user/products/meditations/${params.meditation_id}`,
+      canonical: `/cabinet/dashboard/user/products/meditations/${meditation_id}`,
       languages: {
-        'uk-UA': `/uk/cabinet/dashboard/user/products/meditations/${params.meditation_id}`,
-        'ru-RU': `/ru/cabinet/dashboard/user/products/meditations/${params.meditation_id}`,
+        'uk-UA': `/uk/cabinet/dashboard/user/products/meditations/${meditation_id}`,
+        'ru-RU': `/ru/cabinet/dashboard/user/products/meditations/${meditation_id}`,
       },
     },
 
     openGraph: {
       title: 'Деталі медитації',
       description: 'Деталі медитації | Користувач',
-      url: `/cabinet/dashboard/user/products/meditations/${params.meditation_id}`,
+      url: `/cabinet/dashboard/user/products/meditations/${meditation_id}`,
       siteName: 'Karmolog4u',
       type: 'website',
       locale: 'uk_UA',

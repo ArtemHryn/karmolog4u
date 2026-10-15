@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .wrapper {
   display: flex;
@@ -39,7 +39,8 @@
   gap: 12px;
   height: 32px;
   align-items: center;
-  & > svg {
+
+  &>svg {
     width: 20px;
     height: 20px;
   }

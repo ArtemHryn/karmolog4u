@@ -18,8 +18,9 @@ const getEventById = async (id: string, token: string) => {
   }
 };
 
-const EditEventPage = async ({ params }: { params: { id: string } }) => {
+const EditEventPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   try {
+    const { id } = await params;
     // @ts-expect-error: JS authOptions is untyped
     const session = await getServerSession(authOptions);
     const accessToken = session?.accessToken;
@@ -28,7 +29,7 @@ const EditEventPage = async ({ params }: { params: { id: string } }) => {
       return <div>Немає доступу</div>;
     }
 
-    const event = await getEventById(params.id, accessToken);
+    const event = await getEventById(id, accessToken);
 
     if (!event) notFound();
     return <EditEvent event={event} />;

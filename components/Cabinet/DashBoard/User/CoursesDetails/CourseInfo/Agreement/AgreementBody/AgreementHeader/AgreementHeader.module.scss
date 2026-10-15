@@ -1,10 +1,11 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .text {
   @include fontRegular(14px, 400, 20px, $main_text_color);
   text-wrap: auto;
   white-space: pre-line;
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     font-size: 16px;
   }
 }

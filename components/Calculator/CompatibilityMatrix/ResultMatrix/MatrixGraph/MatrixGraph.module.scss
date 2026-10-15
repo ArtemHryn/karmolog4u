@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .graph_wrapper {
   position: relative;
@@ -7,14 +7,17 @@
     display: flex;
     justify-content: center;
   }
+
   @media all and (min-width: $min_desktop) {
     width: 618px;
     height: 716px;
   }
 }
+
 .graph {
   width: 328px;
   height: 413px;
+
   @media all and (min-width: $min_tablet) {
     width: 618px;
     height: 716px;
@@ -26,6 +29,7 @@
   font-size: 24px !important;
   font-weight: 400 !important;
   line-height: normal;
+
   @media all and (min-width: $min_tablet) {
     font-size: 28px !important;
     line-height: 1.42 !important;
@@ -45,12 +49,14 @@
   color: $seconds_text_color !important;
   top: 28.7%;
   left: 47.5%;
+
   @media all and (min-width: $min_tablet) {
     width: 30px;
     font-size: 16px !important;
     top: 28.8%;
     left: 48.3%;
   }
+
   @media all and (min-width: $min_desktop) {
     left: 47.9%;
   }
@@ -58,6 +64,7 @@
 
 .earth {
   top: 45%;
+
   @media all and (min-width: $min_tablet) {
     top: 47%;
   }

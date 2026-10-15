@@ -1,9 +1,11 @@
-@import '../styles/main.scss';
+@use '../styles/main.scss' as *;
+;
 
 .wrap {
   padding: 20px 0;
 
   background-color: $section_color;
+
   @media all and (min-width: $min_tablet) {
     padding: 24px 0 32px;
   }
@@ -15,10 +17,12 @@
   flex-direction: column;
   gap: 46px;
   max-width: 328px;
+
   @media all and (min-width: $min_tablet) {
     max-width: 736px;
     gap: 40px;
   }
+
   @media all and (min-width: $min_desktop) {
     max-width: 1280px;
     gap: 40px;
@@ -30,6 +34,7 @@
   flex-direction: row;
   gap: 22px;
   width: 262px;
+
   @media all and (min-width: $min_tablet) {
     width: max-content;
     flex-direction: column;
@@ -44,9 +49,11 @@
   transition-property: color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
   &:hover .title {
     color: $seconds_text_color;
   }
+
   &:hover {
     color: $seconds_text_color;
   }
@@ -55,6 +62,7 @@
 .logo {
   width: 40px;
   height: 40px;
+
   @media all and (min-width: $min_tablet) {
     width: 70px;
     height: 70px;
@@ -72,6 +80,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+
   @media all and (min-width: $min_tablet) {
     gap: 40px;
     justify-content: flex-end;
@@ -82,11 +91,13 @@
   display: flex;
   flex-direction: column;
   gap: 46px;
+
   @media all and (min-width: $min_tablet) {
     flex-direction: row-reverse;
     margin: 0 auto;
     gap: 64px;
   }
+
   @media all and (min-width: $min_desktop) {
     margin: 0;
     justify-content: space-between;

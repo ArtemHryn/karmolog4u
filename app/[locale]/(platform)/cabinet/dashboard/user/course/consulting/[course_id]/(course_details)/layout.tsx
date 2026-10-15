@@ -7,12 +7,14 @@ import ConsultingHeader from '@/components/Cabinet/DashBoard/User/CoursesDetails
 
 interface CourseDetailsHeaderLayoutProps {
   children: React.ReactNode;
-  params: { course_id: string };
+  params: Promise<{ course_id: string }>;
 }
 
 const CourseDetailsHeaderLayout = async ({ params, children }: CourseDetailsHeaderLayoutProps) => {
   // @ts-expect-error: JS authOptions is untyped
   const session = await getServerSession(authOptions);
+  const { course_id } = await params;
+
   if (!session) {
     throw new Error('User is not authenticated');
   }
@@ -21,7 +23,7 @@ const CourseDetailsHeaderLayout = async ({ params, children }: CourseDetailsHead
   return (
     <CourseWrapper>
       <Suspense fallback={<Course />}>
-        <ConsultingHeader token={accessToken} id={params.course_id} />
+        <ConsultingHeader token={accessToken} id={course_id} />
       </Suspense>
       {children}
     </CourseWrapper>

@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .wrapper {
   display: flex;
@@ -24,7 +24,7 @@
 }
 
 .hide_next_lesson {
-  @media all and (width >= $min_tablet) {
+  @media all and (width >=$min_tablet) {
     display: none;
   }
 }

@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .list {
   display: flex;
@@ -11,6 +11,7 @@
   display: inline-block;
   padding-bottom: 10px;
   transition: color 0.3s ease;
+
   &::after {
     content: '';
     position: absolute;
@@ -24,11 +25,13 @@
     transform-origin: left center;
     background-color: $dark_gold_dark;
   }
+
   @media (hover: hover) {
     &:is(:hover, :focus) {
       color: $buttons_hover_color;
     }
   }
+
   @media (hover: none) {
     &:is(:active, :focus) {
       color: $buttons_hover_color;
@@ -39,13 +42,15 @@
   &:focus::after {
     transform: scaleX(1);
   }
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     font-size: 16px;
   }
 }
 
 .link_active {
   color: $buttons_hover_color;
+
   &::after {
     transform: scaleX(1);
     background-color: $dark_gold_dark;
@@ -54,6 +59,7 @@
   @media all and (min-width: $min_tablet) {
     color: $buttons_hover_color;
   }
+
   @media all and (min-width: $min_desktop) {
     color: $buttons_hover_color;
   }

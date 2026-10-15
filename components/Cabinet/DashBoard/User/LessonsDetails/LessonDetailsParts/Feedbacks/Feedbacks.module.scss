@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .form {
   display: flex;
@@ -9,7 +9,8 @@
 
 .title {
   @include fontRegular(16px, 400, 16px);
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     font-size: 24px;
   }
 }
@@ -20,7 +21,8 @@
   gap: 16px;
   width: 100%;
   flex-grow: 1;
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 24px;
@@ -32,10 +34,12 @@
   flex-direction: column;
   gap: 8px;
   @include fontRegular(14px, 400, 20.02px);
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     font-size: 16px;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     width: calc(50% - 12px);
   }
 }
@@ -50,7 +54,8 @@
   border: 1px solid $dark_gold_light;
   max-height: 200px;
   overflow-y: auto;
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     max-height: 150px;
   }
 }
@@ -64,12 +69,15 @@
   border-radius: 8px;
   background: $buttons_color;
   @include fontRegular(14px, 600, 20.02px, $third_text_color);
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     font-size: 16px;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     margin-left: auto;
   }
+
   &:disabled {
     opacity: 0.3;
   }

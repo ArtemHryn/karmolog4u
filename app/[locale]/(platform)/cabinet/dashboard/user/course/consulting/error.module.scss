@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .wrapper {
   position: relative;
@@ -13,10 +13,12 @@
   background: $main_bg;
   border: 1px solid $dark_gold_dark;
   min-height: calc(90vh - 305px);
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     padding: 32px;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     padding: 40px;
   }
 }

@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .wrapper {
   display: flex;
@@ -19,12 +19,14 @@
 
 .user_link {
   transition: all 250ms ease;
+
   @media (hover: hover) {
     &:is(:hover, :focus) {
       text-decoration: underline;
       color: $p_active_button;
     }
   }
+
   @media (hover: none) {
     &:is(:active, :focus) {
       text-decoration: underline;

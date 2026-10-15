@@ -1,8 +1,9 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .aside {
   display: none;
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     display: flex;
     flex-direction: column;
     width: 265px;

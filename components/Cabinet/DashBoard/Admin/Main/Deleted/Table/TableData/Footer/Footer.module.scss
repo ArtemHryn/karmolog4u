@@ -1,8 +1,9 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .items_info_wrapper {
   display: none;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     display: block;
   }
 }

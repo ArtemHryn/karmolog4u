@@ -1,5 +1,5 @@
 'use client';
-import { usePathname } from 'next/navigation';
+import { useParams, usePathname } from 'next/navigation';
 import { useQuery } from '@tanstack/react-query';
 
 import Container from '@/components/Common/Container/Container';
@@ -25,7 +25,8 @@ const getWebinarsList = async () => {
   return res.json();
 };
 
-const CoursesDetails = ({ params: { locale, id } }) => {
+const CoursesDetails = () => {
+  const { locale, id } = useParams;
   const pathname = usePathname();
 
   const { data: webinar, isLoading: isWebLoading } = useQuery({

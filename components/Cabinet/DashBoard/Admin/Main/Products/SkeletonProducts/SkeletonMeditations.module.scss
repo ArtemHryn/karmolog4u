@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .wrapper {
   display: flex;
@@ -6,7 +6,8 @@
   height: 100%;
   gap: 12px;
   padding: 0 16px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     flex-direction: row;
   }
 }
@@ -15,7 +16,8 @@
   border: 1px solid $p_border;
   border-radius: 8px;
   height: 95px !important;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     height: 118px;
   }
 }

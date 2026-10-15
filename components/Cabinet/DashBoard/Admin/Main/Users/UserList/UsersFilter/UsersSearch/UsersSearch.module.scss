@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .label {
   position: relative;
@@ -18,28 +18,33 @@
   z-index: 2;
   transition: all 240ms ease;
   right: 0;
-  & > svg {
+
+  &>svg {
     width: 14px;
     height: 14px;
   }
+
   @media (hover: hover) {
     &:is(:hover, :focus) {
       scale: 1.05;
     }
   }
+
   @media (hover: none) {
     &:is(:active, :focus) {
       scale: 1.05;
     }
   }
+
   &_show_input {
     background-color: transparent;
     border: none;
     box-shadow: none;
   }
-  @media all and (width >= $min_tablet) {
-  }
+
+  @media all and (width >=$min_tablet) {}
 }
+
 .input {
   position: relative;
   width: 100%;
@@ -52,15 +57,18 @@
   transform: scaleX(0);
   right: 0;
   transform-origin: right;
+
   &:focus {
     border: 1px solid #101010;
   }
+
   &_active {
     transform: scaleX(1);
     width: 100%;
     border: 1px solid $p_btn_border;
   }
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     right: 0;
   }
 }

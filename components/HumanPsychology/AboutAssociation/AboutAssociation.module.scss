@@ -1,12 +1,14 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .container {
   display: flex;
   flex-direction: column;
   gap: 16px;
+
   @media all and (min-width: $min_tablet) {
     gap: 24px;
   }
+
   @media all and (min-width: $min_desktop) {
     gap: 60px;
   }
@@ -16,11 +18,14 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+
   @media all and (min-width: $min_tablet) {
     gap: 24px;
   }
+
   @media all and (min-width: $min_desktop) {
     flex-direction: row;
+
     &:last-child {
       flex-direction: row-reverse;
     }
@@ -35,9 +40,11 @@
 
   border-radius: 30px;
   background-color: $card_bg_v2;
+
   @media all and (min-width: $min_tablet) {
     padding: 60px 54px;
   }
+
   @media all and (min-width: $min_desktop) {
     padding: 0px 54.5px;
     width: 737px;
@@ -47,9 +54,11 @@
 
 .text {
   @include fontRegular(16px, 400, 22.4px);
-  & > a {
+
+  &>a {
     text-decoration: underline;
   }
+
   @media all and (min-width: $min_tablet) {
     font-size: 18px;
   }

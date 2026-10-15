@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .p-datatable-wrapper {
   overflow-x: auto;
@@ -30,12 +30,13 @@
   background-color: $light_table_header_gray;
   border-radius: 0px 0px 12px 12px;
   overflow-x: scroll;
+
   &::-webkit-scrollbar {
     width: 2px;
     height: 4px;
   }
 
-  @media all and (width >= $min_tablet) {
+  @media all and (width >=$min_tablet) {
     justify-content: space-between;
     padding: 0 12px;
   }

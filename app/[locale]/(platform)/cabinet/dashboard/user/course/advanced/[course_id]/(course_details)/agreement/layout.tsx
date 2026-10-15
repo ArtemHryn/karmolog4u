@@ -1,10 +1,12 @@
 type ParamsProps = {
-  params: {
+  params: Promise<{
     course_id: string;
-  };
+  }>;
 };
 
 export const generateMetadata = async ({ params }: ParamsProps) => {
+  const { course_id } = await params;
+
   return {
     title: 'Договір',
     description: 'Договір | Користувач',
@@ -12,17 +14,17 @@ export const generateMetadata = async ({ params }: ParamsProps) => {
     metadataBase: new URL('https://karmolog4u.vercel.app'),
 
     alternates: {
-      canonical: `/cabinet/dashboard/course/advanced/${params.course_id}/agreement`,
+      canonical: `/cabinet/dashboard/course/advanced/${course_id}/agreement`,
       languages: {
-        'uk-UA': `/uk/cabinet/dashboard/course/advanced/${params.course_id}/agreement`,
-        'ru-RU': `/ru/cabinet/dashboard/user/course/advanced/${params.course_id}/agreement`,
+        'uk-UA': `/uk/cabinet/dashboard/course/advanced/${course_id}/agreement`,
+        'ru-RU': `/ru/cabinet/dashboard/user/course/advanced/${course_id}/agreement`,
       },
     },
 
     openGraph: {
       title: 'Договір',
       description: 'Договір | Користувач',
-      url: `/cabinet/dashboard/course/advanced/${params.course_id}/agreement`,
+      url: `/cabinet/dashboard/course/advanced/${course_id}/agreement`,
       siteName: 'Karmolog4u',
       type: 'website',
       locale: 'uk_UA',

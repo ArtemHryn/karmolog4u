@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .graph_wrapper {
   position: relative;
@@ -12,6 +12,7 @@
 .graph {
   width: 328px;
   height: 413px;
+
   @media all and (min-width: $min_tablet) {
     width: 618px;
     height: 716px;
@@ -31,33 +32,40 @@
   line-height: 28px !important;
   text-align: center;
   color: $seconds_text_color !important;
+
   &_main {
     top: 46.2%;
     left: 46%;
   }
+
   &_additional {
     top: 46.1%;
     left: 57.6%;
     font-size: 10px !important;
   }
+
   @media all and (min-width: $min_tablet) {
     width: 40px;
     font-size: 22px !important;
+
     &_main {
       top: 48.2%;
       left: 47.5%;
     }
+
     &_additional {
       top: 48.1%;
       left: 57.4%;
       font-size: 16px !important;
     }
   }
+
   @media all and (min-width: $min_desktop) {
     &_main {
       top: 48.4%;
       left: 47.2%;
     }
+
     &_additional {
       top: 48.2%;
       left: 59%;

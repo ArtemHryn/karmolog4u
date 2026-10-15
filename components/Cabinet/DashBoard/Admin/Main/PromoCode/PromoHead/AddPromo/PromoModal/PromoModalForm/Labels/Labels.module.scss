@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .label {
   display: flex;
@@ -13,7 +13,8 @@
   border: 1px solid $p_border;
   border-radius: 8px;
   padding: 0px 16px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     height: 48px;
   }
 }

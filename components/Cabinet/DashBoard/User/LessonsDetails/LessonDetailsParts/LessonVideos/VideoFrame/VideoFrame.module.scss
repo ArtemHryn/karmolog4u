@@ -1,12 +1,14 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .wrapper {
   width: 100%;
   aspect-ratio: 312/175;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     aspect-ratio: 680/380;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     aspect-ratio: 1280/650;
     max-height: 650px;
   }

@@ -35,7 +35,14 @@ const text = {
   ],
 };
 
-const ConsultingCourse = async ({ params: { locale } }) => {
+/**
+ * @param {Object} props
+ * @param {Promise<{ locale: string }>} props.params
+ */
+
+const ConsultingCourse = async ({ params }) => {
+  const { locale } = await params;
+
   const t = await getTranslations('Education.consulting_course.edu_pricing');
   const cards = getCardsForConsultingCourse();
   const { column1, column2 } = getConsultingCourseQuestions();

@@ -1,23 +1,27 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .header_wrapper {
   display: flex;
   flex-direction: column;
   gap: 24px;
   opacity: 0.2;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     flex-direction: row;
     max-width: $min_tablet;
     margin-inline: auto;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     max-width: $min_desktop;
   }
-  @media all and (width >= $mac) {
+
+  @media all and (width >=$mac) {
     max-width: $mac;
     padding: 0 16px;
   }
-  @media all and (width >= $big_pc) {
+
+  @media all and (width >=$big_pc) {
     max-width: $big_pc;
     padding: 0 80px;
   }
@@ -27,20 +31,24 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     width: 340px;
     gap: 16px;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     width: 737px;
   }
 }
+
 .text {
   height: 40px !important;
   width: 100%;
   border-radius: 8px;
   background-color: $form_border;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     height: 62px !important;
   }
 }
@@ -49,10 +57,12 @@
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     width: 340px;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     width: 519px;
   }
 }
@@ -67,10 +77,12 @@
 //lessons
 .title {
   @include fontRegular(32px, 400, 32px, $main_text_color, center);
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     font-size: 36px;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     font-size: 44px;
   }
 }
@@ -87,7 +99,8 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     flex-direction: row;
     width: 100%;
   }
@@ -96,7 +109,8 @@
 .list_item {
   width: 312px;
   height: 327px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     width: calc((100% - 16px) / 2) !important;
   }
 }

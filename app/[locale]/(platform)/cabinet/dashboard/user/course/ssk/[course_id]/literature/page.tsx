@@ -8,12 +8,14 @@ import { authOptions } from '@/lib/authOptions';
 import Literature from '@/components/Cabinet/DashBoard/User/CoursesDetails/CourseInfo/Literature/Literature';
 
 interface LiteraturePageProps {
-  params: { course_id: string };
+  params: Promise<{ course_id: string }>;
 }
 
 const LiteraturePage = async ({ params }: LiteraturePageProps) => {
   // @ts-expect-error: JS authOptions is untyped
   const session = await getServerSession(authOptions);
+  const { course_id } = await params;
+
   if (!session) {
     throw new Error('User is not authenticated');
   }
@@ -21,10 +23,10 @@ const LiteraturePage = async ({ params }: LiteraturePageProps) => {
   return (
     <CourseWrapper>
       <Suspense fallback={<Course />}>
-        <CourseInfoHeader token={accessToken} id={params.course_id} />
+        <CourseInfoHeader token={accessToken} id={course_id} />
       </Suspense>
       <Suspense fallback={<Lessons />}>
-        <Literature token={accessToken} id={params.course_id} />
+        <Literature token={accessToken} id={course_id} />
       </Suspense>
     </CourseWrapper>
   );

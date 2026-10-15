@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .section {
   overflow: visible;
@@ -11,9 +11,11 @@
 .title {
   text-align: center !important;
   margin-bottom: 40px;
+
   @media all and (min-width: $min_tablet) {
     margin-bottom: 48px;
   }
+
   @media all and (min-width: $min_desktop) {
     margin-bottom: 60px;
   }
@@ -25,9 +27,11 @@
   align-items: baseline;
   @include fontRegular(16px, 400, 22.4px);
   margin-bottom: 16px;
-  & > a {
+
+  &>a {
     text-decoration: underline;
   }
+
   @media all and (min-width: $min_tablet) {
     @include fontRegular(18px, 400, 25.2px);
     margin-bottom: 24px;
@@ -41,7 +45,8 @@
   border-radius: 30px;
   margin-bottom: 36px;
   text-wrap: balance;
-  & > b {
+
+  &>b {
     font-weight: 600;
     line-height: 1;
   }
@@ -51,6 +56,7 @@
     padding: 30px 51.5px;
     margin-bottom: 48px;
   }
+
   @media all and (min-width: $min_desktop) {
     padding: 30px 77px;
   }
@@ -59,21 +65,24 @@
 .mission_title {
   @include fontRegular(14px, 400, 19.6px, $main_text_color, center);
   margin-bottom: 20px;
+
   @media all and (min-width: $min_tablet) {
     font-size: 18px;
     margin-bottom: 24px;
   }
-  @media all and (min-width: $min_desktop) {
-  }
+
+  @media all and (min-width: $min_desktop) {}
 }
 
 .mission_list {
   display: flex;
   flex-direction: column;
   gap: 16px;
+
   @media all and (min-width: $min_tablet) {
     gap: 24px;
   }
+
   @media all and (min-width: $min_desktop) {
     flex-direction: row;
   }
@@ -85,9 +94,11 @@
   border-radius: 30px;
   background: #2e2e2e;
   overflow: hidden;
+
   @media all and (min-width: $min_tablet) {
     padding: 50px 50px;
   }
+
   @media all and (min-width: $min_desktop) {
     width: calc((100% - 24px) / 2);
     padding: 50px 64px;
@@ -96,6 +107,7 @@
 
 .mission_text {
   @include fontRegular(14px, 400, 19.6px, #fdfdfd);
+
   @media all and (min-width: $min_tablet) {
     @include fontRegular(16px, 400, 22.4px, #fdfdfd);
   }
@@ -115,6 +127,7 @@
   background-color: #cfb691;
   clip-path: polygon(100% 0, 0% 100%, 100% 100%);
   @include fontRegular(24px, 400, 24px, #101010);
+
   @media all and (min-width: $min_tablet) {
     width: 135px;
     height: 85px;
@@ -125,6 +138,7 @@
 
 .spot {
   display: none;
+
   @media all and (min-width: $min_tablet) {
     position: absolute;
     display: block;
@@ -134,14 +148,13 @@
     height: 287px;
     transform: rotate(-90deg);
     border-radius: 287px;
-    background-image: linear-gradient(
-      180deg,
-      rgba(207, 182, 145, 0.4) 0%,
-      rgba(207, 182, 145, 0.4) 45.14%
-    );
+    background-image: linear-gradient(180deg,
+        rgba(207, 182, 145, 0.4) 0%,
+        rgba(207, 182, 145, 0.4) 45.14%);
 
     filter: blur(125px);
   }
+
   @media all and (min-width: $min_desktop) {
     right: 10%;
     top: -4%;

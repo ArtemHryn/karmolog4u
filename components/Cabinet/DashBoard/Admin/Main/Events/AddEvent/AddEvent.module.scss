@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .main {
   display: flex;
@@ -8,7 +8,7 @@
 }
 
 .form_wrapper {
-  @media all and (width >= $min_desktop) {
+  @media all and (width >=$min_desktop) {
     padding: 0 32px;
   }
 }

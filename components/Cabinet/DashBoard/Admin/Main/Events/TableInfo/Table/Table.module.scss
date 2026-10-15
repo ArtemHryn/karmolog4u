@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .info_wrapper {
   flex-grow: 1;
@@ -37,6 +37,7 @@
       text-decoration: underline;
     }
   }
+
   @media (hover: none) {
     &:is(:active, :focus) {
       text-decoration: underline;

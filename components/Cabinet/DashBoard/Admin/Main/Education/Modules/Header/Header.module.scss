@@ -1,8 +1,9 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .wrapper {
   display: none;
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     display: block;
     background-color: $p_main_bg;
     padding: 24px;

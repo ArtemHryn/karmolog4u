@@ -1,14 +1,16 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .list {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     width: 340px;
     align-items: center;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     width: 519px;
   }
 }
@@ -19,7 +21,8 @@
 
 .full_width {
   width: 100%;
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     width: calc((100% - 16px) / 2);
   }
 }
@@ -38,38 +41,43 @@
   width: 100%;
   @include fontRegular(16px, 400, 16px);
   transition: all 250ms ease;
-  & > svg {
+
+  &>svg {
     fill: $accent_v2;
   }
+
   @media (hover: hover) {
     &:is(:hover, :focus) {
       scale: 1.05;
     }
   }
+
   @media (hover: none) {
     &:is(:active, :focus) {
       scale: 1.05;
     }
   }
+
   &:disabled {
     opacity: 0.3;
     border-color: $dark_gold_dark;
     background-color: $card_bg_v2;
     color: $main_text_color;
   }
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     height: 62px;
   }
-  @media all and (width >= $min_desktop) {
-  }
+
+  @media all and (width >=$min_desktop) {}
 }
 
 .active {
   background-color: $buttons_color;
   border: 1px solid $dark_gold_light;
   color: $card_bg_v2;
-  & > svg {
+
+  &>svg {
     fill: currentColor;
   }
 }
-

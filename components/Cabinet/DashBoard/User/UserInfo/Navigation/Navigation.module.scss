@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .list {
   display: flex;
@@ -21,6 +21,7 @@
   border: 1px solid $accent_v2;
   @include fontRegular(16px, 600, 16px, $main_text_color);
   background-color: $main_bg;
+
   &_active {
     background-color: $accent_v2;
     color: $third_text_color;

@@ -1,8 +1,9 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .desktop_title_wrapper {
   display: none;
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     display: block;
     height: 80px;
     border-bottom: 1px solid $form_border;
@@ -17,21 +18,24 @@
 .wrapper {
   display: flex;
   gap: 8px;
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     padding: 0 32px;
   }
 }
 
 .link {
   @include fontRegular(16px, 400, 22.5px, $p_active_button);
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     font-size: 18px;
   }
 }
 
 .divider {
   @include fontRegular(16px, 400, 22.5px, $p_active_button);
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     font-size: 18px;
   }
 }

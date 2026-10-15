@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .swiper_wrapper {
   overflow: hidden;
@@ -21,7 +21,8 @@
   border-radius: 12px;
   border: 1px solid #af9369;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     flex-direction: row;
     height: 255px;
   }
@@ -34,7 +35,8 @@
   max-width: 500px;
   border-radius: 8px;
   margin-inline: auto;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     height: 100%;
     max-width: 153px;
     object-position: top;
@@ -45,7 +47,8 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     flex-grow: 1;
     gap: 14px;
   }
@@ -56,11 +59,13 @@
   text-decoration: underline;
   text-decoration-color: transparent;
   transition: text-decoration-color 0.3s ease;
+
   @media (hover: hover) {
     &:is(:hover, :focus) {
       text-decoration-color: currentColor;
     }
   }
+
   @media (hover: none) {
     &:is(:active, :focus) {
       text-decoration-color: currentColor;
@@ -73,7 +78,8 @@
   flex-direction: column;
   list-style-type: disc;
   padding-left: 20px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     display: block;
     column-count: 2;
     column-gap: 20px;

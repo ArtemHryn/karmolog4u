@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .list {
   display: flex;
@@ -7,7 +7,8 @@
   padding: 24px;
   width: 100%;
   flex-grow: 2;
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     width: 265px;
   }
 }
@@ -19,24 +20,29 @@
   border-radius: 8px;
   @include fontRegular(16px, 400, 22.4px, $p_second_text_color);
   transition: all 250ms ease;
+
   &_active {
     background-color: $p_button_bg;
     color: $p_third_text_color;
   }
+
   @media (hover: hover) {
     &:is(:hover, :focus) {
       scale: 1.05;
     }
   }
+
   @media (hover: none) {
     &:is(:active, :focus) {
       scale: 1.05;
     }
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     border: 1px solid #c2c2c2;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
     background: $p_nav_bg;
+
     &_active {
       background-color: $p_button_bg;
       color: $p_third_text_color;
@@ -48,6 +54,7 @@
   width: 20px;
   height: 20px;
   fill: $p_second_text_color;
+
   &_active {
     fill: $p_third_text_color;
   }

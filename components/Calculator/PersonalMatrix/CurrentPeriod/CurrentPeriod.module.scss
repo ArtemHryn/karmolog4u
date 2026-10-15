@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .wrapper {
   @media all and (min-width: $min_desktop) {
@@ -10,6 +10,7 @@
   font-size: 24px;
   text-align: center;
   margin-bottom: 40px;
+
   @media all and (min-width: $min_tablet) {
     font-size: 28px;
     margin-bottom: 48px;
@@ -33,6 +34,7 @@
   border-radius: 50%;
   border: 2px solid $accent_v2;
   @include fontRegular(16px, 400, 22.4px);
+
   @media all and (min-width: $min_tablet) {
     @include fontRegular(20px, 400, 28px);
     width: 46px;

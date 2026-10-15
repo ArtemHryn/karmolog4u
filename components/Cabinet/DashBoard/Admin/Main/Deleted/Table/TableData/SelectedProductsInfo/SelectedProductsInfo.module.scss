@@ -1,11 +1,12 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .wrapper {
   display: flex;
   flex-direction: column;
   gap: 10px;
   margin-bottom: 16px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
@@ -33,11 +34,13 @@
     0 29px 18px 0 rgba(74, 74, 74, 0.05), 0 52px 21px 0 rgba(74, 74, 74, 0.01),
     0 81px 23px 0 rgba(74, 74, 74, 0);
   transition: all 250ms ease;
+
   @media (hover: hover) {
     &:is(:hover, :focus) {
       scale: 1.05;
     }
   }
+
   @media (hover: none) {
     &:is(:active, :focus) {
       scale: 1.05;

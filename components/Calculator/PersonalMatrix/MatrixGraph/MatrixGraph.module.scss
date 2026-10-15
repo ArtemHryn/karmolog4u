@@ -1,4 +1,5 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
+
 .graph_wrapper {
   position: relative;
 
@@ -7,9 +8,11 @@
     justify-content: center;
   }
 }
+
 .graph {
   width: 328px;
   height: 413px;
+
   @media all and (min-width: $min_tablet) {
     width: 618px;
     height: 716px;
@@ -21,6 +24,7 @@
 .lines {
   position: absolute;
   @include fontRegular(8px, 500, 11px);
+
   @media all and (min-width: $min_tablet) {
     font-size: 12px;
   }
@@ -30,6 +34,7 @@
   top: 36%;
   left: 48%;
   rotate: 270deg;
+
   @media all and (min-width: $min_tablet) {
     top: 37%;
     left: 48%;
@@ -39,10 +44,12 @@
 .earth {
   top: 43.5%;
   right: 25%;
+
   @media all and (min-width: $min_tablet) {
     top: 44.5%;
     right: 32%;
   }
+
   @media all and (min-width: $min_desktop) {
     top: 44.5%;
     right: 27%;
@@ -53,10 +60,12 @@
   top: 40%;
   left: 27%;
   rotate: 45deg;
+
   @media all and (min-width: $min_tablet) {
     top: 39%;
     left: 32%;
   }
+
   @media all and (min-width: $min_desktop) {
     top: 38%;
     left: 32%;
@@ -67,10 +76,12 @@
   bottom: 38.5%;
   left: 29%;
   rotate: 315deg;
+
   @media all and (min-width: $min_tablet) {
     bottom: 40%;
     left: 31.5%;
   }
+
   @media all and (min-width: $min_desktop) {
     bottom: 38%;
     left: 31.5%;
@@ -90,6 +101,7 @@
   line-height: 28px !important;
   text-align: center;
   color: $seconds_text_color !important;
+
   @media all and (min-width: $min_tablet) {
     width: 35px;
     font-size: 20px !important;
@@ -107,6 +119,7 @@
   line-height: 28px !important;
   text-align: center;
   color: $seconds_text_color !important;
+
   @media all and (min-width: $min_tablet) {
     width: 30px;
     font-size: 16px !important;
@@ -124,6 +137,7 @@
   line-height: 28px !important;
   text-align: center;
   color: $seconds_text_color !important;
+
   @media all and (min-width: $min_tablet) {
     width: 30px;
     font-size: 16px !important;
@@ -135,97 +149,120 @@
     top: 46.2%;
     left: 0%;
   }
+
   &_topLeft1 {
     top: 21.3%;
     left: 13.5%;
   }
+
   &_month {
     top: 10.5%;
     left: 45.7%;
   }
+
   &_topRight1 {
     top: 21.1%;
     right: 12.5%;
   }
+
   &_year {
     top: 46%;
     right: 0%;
   }
+
   &_bottomRight1 {
     bottom: 21.6%;
     right: 13%;
   }
+
   &_bottom1 {
     bottom: 11.5%;
     right: 45.1%;
   }
+
   &_bottomLeft1 {
     bottom: 21.8%;
     left: 13.7%;
   }
+
   @media all and (min-width: $min_tablet) {
     &_day {
       top: 48.2%;
       left: 9.4%;
     }
+
     &_topLeft1 {
       top: 20.8%;
       left: 21%;
     }
+
     &_month {
       top: 9%;
       left: 48%;
     }
+
     &_topRight1 {
       top: 20.7%;
       right: 19.8%;
     }
+
     &_year {
       top: 48%;
       right: 9.3%;
     }
+
     &_bottomRight1 {
       bottom: 20%;
       right: 20.3%;
     }
+
     &_bottom1 {
       bottom: 8.7%;
       right: 47.2%;
     }
+
     &_bottomLeft1 {
       bottom: 20.2%;
       left: 21.2%;
     }
   }
+
   @media all and (min-width: $min_desktop) {
     &_day {
       top: 48.5%;
       left: 1.6%;
     }
+
     &_topLeft1 {
       top: 21%;
       left: 15.5%;
     }
+
     &_month {
       top: 9%;
       left: 47.7%;
     }
+
     &_topRight1 {
       top: 20.7%;
       right: 14.1%;
     }
+
     &_year {
       top: 48%;
       right: 1.5%;
     }
+
     &_bottomRight1 {
       bottom: 20%;
       right: 14.3%;
     }
+
     &_bottom1 {
       bottom: 8.7%;
       right: 46.7%;
     }
+
     &_bottomLeft1 {
       bottom: 20.2%;
       left: 15.5%;
@@ -238,97 +275,120 @@
     top: 46.4%;
     left: 8.5%;
   }
+
   &_topLeft2 {
     top: 25.6%;
     left: 20.3%;
   }
+
   &_top2 {
     top: 16.9%;
     left: 46.3%;
   }
+
   &_topRight2 {
     top: 25.4%;
     right: 19.1%;
   }
+
   &_right2 {
     top: 46.2%;
     right: 8.7%;
   }
+
   &_bottomRight2 {
     bottom: 26%;
     right: 19%;
   }
+
   &_bottom2 {
     bottom: 17.6%;
     right: 45.8%;
   }
+
   &_bottomLeft2 {
     bottom: 26%;
     left: 20%;
   }
+
   @media all and (min-width: $min_tablet) {
     &_left2 {
       top: 48.2%;
       left: 16.5%;
     }
+
     &_topLeft2 {
       top: 25.2%;
       left: 26.3%;
     }
+
     &_top2 {
       top: 15.7%;
       left: 48.2%;
     }
+
     &_topRight2 {
       top: 25.1%;
       right: 25.1%;
     }
+
     &_right2 {
       top: 48%;
       right: 16.4%;
     }
+
     &_bottomRight2 {
       bottom: 25%;
       right: 25.1%;
     }
+
     &_bottom2 {
       bottom: 15.7%;
       right: 47.5%;
     }
+
     &_bottomLeft2 {
       bottom: 25%;
       left: 26.2%;
     }
   }
+
   @media all and (min-width: $min_desktop) {
     &_left2 {
       top: 48.2%;
       left: 10.1%;
     }
+
     &_topLeft2 {
       top: 25.3%;
       left: 21.8%;
     }
+
     &_top2 {
       top: 15.9%;
       left: 48%;
     }
+
     &_topRight2 {
       top: 25.1%;
       right: 20.2%;
     }
+
     &_right2 {
       top: 48%;
       right: 10%;
     }
+
     &_bottomRight2 {
       bottom: 24.9%;
       right: 20.2%;
     }
+
     &_bottom2 {
       bottom: 15.7%;
       right: 47%;
     }
+
     &_bottomLeft2 {
       bottom: 25%;
       left: 21.5%;
@@ -341,97 +401,120 @@
     top: 46.2%;
     left: 16%;
   }
+
   &_topLeft3 {
     top: 29%;
     left: 25.6%;
   }
+
   &_top3 {
     top: 21.8%;
     left: 47.2%;
   }
+
   &_topRight3 {
     top: 28.7%;
     right: 24.7%;
   }
+
   &_right3 {
     top: 46%;
     right: 16.2%;
   }
+
   &_bottomRight3 {
     bottom: 29.9%;
     right: 24.5%;
   }
+
   &_bottom3 {
     bottom: 23%;
     right: 46.6%;
   }
+
   &_bottomLeft3 {
     bottom: 30%;
     left: 25.5%;
   }
+
   @media all and (min-width: $min_tablet) {
     &_left3 {
       top: 48.2%;
       left: 22%;
     }
+
     &_topLeft3 {
       top: 29.2%;
       left: 30.2%;
     }
+
     &_top3 {
       top: 21.4%;
       left: 48.4%;
     }
+
     &_topRight3 {
       top: 29%;
       right: 29.2%;
     }
+
     &_right3 {
       top: 48%;
       right: 22%;
     }
+
     &_bottomRight3 {
       bottom: 29.1%;
       right: 28.9%;
     }
+
     &_bottom3 {
       bottom: 21.5%;
       right: 47.6%;
     }
+
     &_bottomLeft3 {
       bottom: 29.3%;
       left: 30%;
     }
   }
+
   @media all and (min-width: $min_desktop) {
     &_left3 {
       top: 48.2%;
       left: 16.8%;
     }
+
     &_topLeft3 {
       top: 29.2%;
       left: 26.3%;
     }
+
     &_top3 {
       top: 21.4%;
       left: 48%;
     }
+
     &_topRight3 {
       top: 29%;
       right: 25.1%;
     }
+
     &_right3 {
       top: 48%;
       right: 16.6%;
     }
+
     &_bottomRight3 {
       bottom: 29.1%;
       right: 25%;
     }
+
     &_bottom3 {
       bottom: 21.4%;
       right: 47.1%;
     }
+
     &_bottomLeft3 {
       bottom: 29.1%;
       left: 26.3%;
@@ -452,12 +535,14 @@
   color: $seconds_text_color !important;
   top: 46.5%;
   left: 45.8%;
+
   @media all and (min-width: $min_tablet) {
     width: 40px;
     font-size: 22px !important;
     top: 48.2%;
     left: 47.5%;
   }
+
   @media all and (min-width: $min_desktop) {
     top: 48.4%;
     left: 47.2%;
@@ -478,6 +563,7 @@
   top: 46.2%;
   left: 54.9%;
   color: $seconds_text_color !important;
+
   @media all and (min-width: $min_tablet) {
     width: 40px;
     font-size: 16px !important;
@@ -485,6 +571,7 @@
     top: 48.2%;
     left: 54.7%;
   }
+
   @media all and (min-width: $min_desktop) {
     top: 48.2%;
     left: 55.6%;
@@ -496,85 +583,105 @@
     top: 28.5%;
     left: 47.1%;
   }
+
   &_innerLeft {
     top: 46.2%;
     left: 24.4%;
   }
+
   &_innerRight {
     top: 46.2%;
     right: 24.4%;
   }
+
   &_innerBottom {
     bottom: 29.6%;
     left: 47.3%;
   }
+
   &_money {
     bottom: 40.8%;
     right: 22.4%;
   }
+
   &_balance {
     bottom: 34.5%;
     right: 30.5%;
   }
+
   &_love {
     bottom: 28.8%;
     right: 38.1%;
   }
+
   @media all and (min-width: $min_tablet) {
     &_innerTop {
       top: 28.6%;
       left: 48.1%;
     }
+
     &_innerLeft {
       top: 48.1%;
       left: 29.1%;
     }
+
     &_innerRight {
       top: 48.1%;
       right: 29.1%;
     }
+
     &_innerBottom {
       bottom: 28.7%;
       left: 48.3%;
     }
+
     &_money {
       bottom: 41%;
       right: 27.3%;
     }
+
     &_balance {
       bottom: 34.3%;
       right: 33.9%;
     }
+
     &_love {
       bottom: 27.9%;
       right: 40.5%;
     }
   }
+
   @media all and (min-width: $min_desktop) {
     &_innerTop {
       top: 28.8%;
       left: 48%;
     }
+
     &_innerLeft {
       top: 48.1%;
       left: 25.3%;
     }
+
     &_innerRight {
       top: 48.1%;
       right: 25%;
     }
+
     &_innerBottom {
       bottom: 28.7%;
       left: 48%;
     }
+
     &_money {
       bottom: 41%;
       right: 22.9%;
     }
+
     &_balance {
       bottom: 34.2%;
       right: 30.9%;
     }
+
     &_love {
       bottom: 27.9%;
       right: 38.5%;

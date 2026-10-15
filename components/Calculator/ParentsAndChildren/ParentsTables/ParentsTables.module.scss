@@ -1,13 +1,15 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .list {
   display: flex;
   flex-direction: column;
   gap: 60px;
+
   @media all and (min-width: $min_tablet) {
     width: 627px;
     margin: 0 auto;
   }
+
   @media all and (min-width: $min_desktop) {
     width: 100%;
     flex-direction: row;

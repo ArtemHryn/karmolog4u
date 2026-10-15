@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .wrapper {
   display: flex;
@@ -14,7 +14,8 @@
 
 .title {
   @include fontRegular(16px, 400, 25.28px, $third_text_color);
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     font-size: 24px;
   }
 }
@@ -22,7 +23,8 @@
 .desc {
   @include fontRegular(14px, 400, 20.02px, $third_text_color);
   white-space: pre-line;
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     font-size: 20px;
   }
 }
@@ -43,6 +45,7 @@
   border-radius: 6px;
   background-color: $dark_gold_light;
   @include fontRegular(13px, 400, 13px, $third_text_color);
+
   &:disabled {
     opacity: 0.6;
   }

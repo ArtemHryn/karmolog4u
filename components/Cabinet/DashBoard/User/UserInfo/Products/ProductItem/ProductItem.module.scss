@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .list_item {
   display: flex;
@@ -12,13 +12,16 @@
   max-width: 400px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
   background-color: $main_bg;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     max-width: 375px;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     max-width: 340px;
   }
-  @media all and (width >= $big_pc) {
+
+  @media all and (width >=$big_pc) {
     max-width: 375px;
   }
 }
@@ -45,12 +48,15 @@
 .name {
   @include fontRegular(14px, 600, 14.5px);
   display: -webkit-box;
-  -webkit-line-clamp: 4; /* максимум 4 рядки */
+  -webkit-line-clamp: 4;
+  /* максимум 4 рядки */
   line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis; /* "…" в кінці, якщо не вмістилось */
-  @media all and (width >= $min_tablet) {
+  text-overflow: ellipsis;
+
+  /* "…" в кінці, якщо не вмістилось */
+  @media all and (width >=$min_tablet) {
     font-size: 16px;
   }
 }

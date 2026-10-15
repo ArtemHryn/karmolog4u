@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .loader_wrapper {
   display: flex;
@@ -7,7 +7,8 @@
   background-color: transparent;
   height: 50vh;
   width: 100%;
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     width: 30vw;
   }
 }
@@ -15,10 +16,12 @@
 .spinner {
   width: 150px;
   height: 150px;
+
   :global(.p-progress-spinner-circle) {
     stroke: #007bff;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     width: 200px;
     height: 200px;
   }

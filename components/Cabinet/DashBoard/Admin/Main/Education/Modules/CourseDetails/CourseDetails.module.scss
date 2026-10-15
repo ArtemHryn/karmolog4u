@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .wrapper {
   display: flex;
@@ -14,13 +14,15 @@
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
   background-color: $p_nav_bg;
   margin-inline: auto;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     width: 100%;
     height: 120px;
     justify-content: flex-start;
     gap: 16px;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     gap: 48px;
   }
 }
@@ -40,11 +42,12 @@
   flex-direction: column;
   gap: 4px;
 
-  @media all and (width >= $min_tablet) {
+  @media all and (width >=$min_tablet) {
     order: 2;
     flex-grow: 1;
   }
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     max-width: calc((100% - 96px - 92px) / 2);
   }
 }
@@ -52,7 +55,7 @@
 .second_list {
   display: none;
 
-  @media all and (width >= $min_desktop) {
+  @media all and (width >=$min_desktop) {
     display: block;
   }
 }
@@ -65,13 +68,16 @@
 
 .list_text {
   @include fontRegular(14px, 400, 16.8px, $third_text_color);
+
   &:first-child {
     width: 100px;
   }
+
   &:last-child {
     font-weight: 600;
     flex-grow: 1;
     overflow-x: auto;
+
     &::-webkit-scrollbar {
       display: none;
     }
@@ -82,13 +88,16 @@
     /* Edge/IE (не підтримується повністю, але на всяк) */
     -ms-overflow-style: none;
   }
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     font-size: 16px;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     &:first-child {
       width: 130px;
     }
+
     &:last-child {
       overflow-x: auto;
       max-width: calc(100% - 130px - 8px);
@@ -101,6 +110,7 @@
   text-overflow: ellipsis;
   overflow-x: auto;
   overflow-y: hidden;
+
   @media (hover: hover) {
     &:is(:hover, :focus) {
       scale: 1;

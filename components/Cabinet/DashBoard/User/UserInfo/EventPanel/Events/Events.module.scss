@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .list {
   display: flex;
@@ -6,16 +6,22 @@
   gap: 24px;
   width: 224px;
   overflow-y: auto;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE 10+ */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+
+  /* IE 10+ */
   &::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
+    display: none;
+    /* Chrome, Safari, Opera */
   }
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     width: 100%;
     max-width: 462px;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     width: 224px;
   }
 }
@@ -38,7 +44,8 @@
   width: 169px;
   flex-grow: 1;
   @include fontRegular(13px, 400, 17.94px);
-  & > a {
+
+  &>a {
     color: $buttons_color;
     text-decoration: underline;
   }
@@ -57,7 +64,8 @@
 .text_no_events {
   @include fontRegular(13px, 400, 17.94px, $main_text_color, center);
   width: 100%;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     font-size: 16px;
   }
 }

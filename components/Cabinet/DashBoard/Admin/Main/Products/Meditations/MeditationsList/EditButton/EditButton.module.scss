@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .edit_icon {
   width: 16px;
@@ -27,11 +27,13 @@
   @include fontRegular(16px, 400, 22.4px, $third_text_color);
 
   transition: all 250ms linear;
+
   @media (hover: hover) {
     &:is(:hover, :focus) {
       scale: 1.02;
     }
   }
+
   @media (hover: none) {
     &:is(:active, :focus) {
       scale: 1.02;
@@ -40,7 +42,7 @@
 }
 
 .item {
-  &:last-child > button {
+  &:last-child>button {
     color: #cc3636;
   }
 }

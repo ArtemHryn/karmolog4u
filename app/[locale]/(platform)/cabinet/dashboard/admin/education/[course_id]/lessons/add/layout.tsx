@@ -1,10 +1,11 @@
 type ParamsProps = {
-  params: {
+  params: Promise<{
     course_id: string;
-  };
+  }>;
 };
 
 export const generateMetadata = async ({ params }: ParamsProps) => {
+  const { course_id } = await params;
   return {
     title: 'Додати Урок',
     description: 'Додати Урок | Адмін',
@@ -12,17 +13,17 @@ export const generateMetadata = async ({ params }: ParamsProps) => {
     metadataBase: new URL('https://karmolog4u.vercel.app'),
 
     alternates: {
-      canonical: `/cabinet/dashboard/admin/education/${params.course_id}/lessons/add`,
+      canonical: `/cabinet/dashboard/admin/education/${course_id}/lessons/add`,
       languages: {
-        'uk-UA': `/uk/cabinet/dashboard/admin/education/${params.course_id}/lessons/add`,
-        'ru-RU': `/ru/cabinet/dashboard/admin/education/${params.course_id}/lessons/add`,
+        'uk-UA': `/uk/cabinet/dashboard/admin/education/${course_id}/lessons/add`,
+        'ru-RU': `/ru/cabinet/dashboard/admin/education/${course_id}/lessons/add`,
       },
     },
 
     openGraph: {
       title: 'Додати Урок',
       description: 'Додати Урок | Адмін',
-      url: `/cabinet/dashboard/admin/education/${params.course_id}/lessons/add`,
+      url: `/cabinet/dashboard/admin/education/${course_id}/lessons/add`,
       siteName: 'Karmolog4u',
       type: 'website',
       locale: 'uk_UA',

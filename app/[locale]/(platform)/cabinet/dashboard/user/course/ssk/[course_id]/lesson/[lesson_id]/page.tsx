@@ -10,15 +10,17 @@ import styles from './page.module.scss';
 const LessonDetails = async ({ params }: LessonDetailsProps) => {
   // @ts-expect-error: JS authOptions is untyped
   const session = await getServerSession(authOptions);
+  const { lesson_id, course_id } = await params;
+
   if (!session) {
     throw new Error('User is not authenticated');
   }
   const accessToken = session?.accessToken;
   return (
     <main className={styles.main}>
-      <LessonDetailsNavigation params={params} />
+      <LessonDetailsNavigation params={{ course_id, lesson_id }} />
       <Suspense fallback={<Loader />}>
-        <LessonsDetails token={accessToken} id={params.lesson_id} />
+        <LessonsDetails token={accessToken} id={lesson_id} />
       </Suspense>
     </main>
   );

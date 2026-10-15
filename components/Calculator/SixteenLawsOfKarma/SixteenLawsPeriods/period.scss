@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .p-dropdown {
   display: flex;
@@ -8,6 +8,7 @@
   border-radius: 30px;
   height: 50px;
   padding: 0 20px;
+
   @media screen and (min-width: $min_tablet) {
     height: 60px;
   }
@@ -23,6 +24,7 @@
   border: 1px solid $matrix_table_border;
   border-top: none;
   padding: 20px 0;
+
   @media screen and (min-width: $min_tablet) {
     display: flex;
   }
@@ -44,15 +46,18 @@
 
 .p-dropdown-item {
   padding: 8px 15px;
+
   &[aria-selected='true'] {
     border: 1px solid $matrix_table_border;
     border-radius: 30px;
   }
+
   &.p-focus {
     border: 1px solid $matrix_table_border;
     border-radius: 30px;
     opacity: 0.9;
   }
+
   @media screen and (min-width: $min_tablet) {
     display: flex;
     align-items: center;

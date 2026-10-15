@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .main {
   position: relative;
@@ -9,10 +9,12 @@
   padding: 24px;
   border-radius: 30px;
   background: $card_bg_v2;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     padding: 32px;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     padding: 40px;
   }
 }

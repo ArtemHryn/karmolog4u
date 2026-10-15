@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .btn {
   position: fixed;
@@ -15,21 +15,26 @@
   background-color: rgba(255, 255, 255, 0.15);
   border-radius: 30px;
   z-index: 1000;
-  & > span {
+
+  &>span {
     display: none;
   }
+
   transition: scale 250ms ease;
+
   &:is(:hover, :focus) {
     scale: 1.05;
   }
-  @media all and (min-width: $min_tablet) {
-  }
+
+  @media all and (min-width: $min_tablet) {}
+
   @media all and (min-width: $min_desktop) {
     bottom: 40px;
     right: 5%;
     width: 72px;
     height: 58px;
-    & > span {
+
+    &>span {
       display: block;
       @include fontRegular(12px, 500, 12px, $main_text_color, center);
     }

@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .wrapper {
   display: flex;
@@ -10,7 +10,8 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     flex-direction: row-reverse;
     justify-content: space-between;
   }

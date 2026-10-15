@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .p-dropdown {
   display: flex;
@@ -32,10 +32,12 @@
 
 .p-dropdown-item {
   padding: 8px 10px;
+
   &[aria-selected='true'] {
     background-color: rgba(83, 191, 245, 0.2);
   }
-  @media screen and (width >= $min_tablet) {
+
+  @media screen and (width >=$min_tablet) {
     padding: 8px 0;
     display: flex;
     align-items: center;

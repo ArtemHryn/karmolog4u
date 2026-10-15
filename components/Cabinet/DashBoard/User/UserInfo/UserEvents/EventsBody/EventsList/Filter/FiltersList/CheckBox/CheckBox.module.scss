@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .checkboxWrapper {
   display: flex;
@@ -37,6 +37,6 @@
   transition: transform 0.2s ease;
 }
 
-.checkboxInput:checked + .customCheckbox::after {
+.checkboxInput:checked+.customCheckbox::after {
   transform: translate(-50%, -50%) scale(1);
 }

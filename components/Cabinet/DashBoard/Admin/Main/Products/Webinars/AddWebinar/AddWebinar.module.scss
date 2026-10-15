@@ -1,9 +1,10 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .form {
   background-color: $p_main_bg;
   flex-grow: 2;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -23,7 +24,8 @@
   gap: 12px;
 
   background-color: #fff;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     margin-bottom: 0;
     margin-top: 16px;
     padding: 24px;
@@ -31,8 +33,3 @@
     gap: 16px;
   }
 }
-
-
-
-
-

@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .main {
   position: relative;
@@ -12,11 +12,13 @@
   box-shadow: 0 -4px 40px 0 rgba(207, 182, 145, 0.5);
   background: $main_bg;
   min-height: 100px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     padding: 100px 32px;
     gap: 80px;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     padding: 40px 80px;
     gap: 100px;
   }

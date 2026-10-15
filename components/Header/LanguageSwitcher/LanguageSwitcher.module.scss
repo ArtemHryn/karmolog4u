@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 /* The switch - the box around the slider */
 .switch {
@@ -27,7 +27,8 @@
   background: $tips_bg;
   border-radius: 50px;
   transition: all 0.4s linear;
-  & > span {
+
+  &>span {
     color: $matrix_table_border;
     font-size: 14px;
   }
@@ -51,7 +52,7 @@
   transition: all 0.4s linear;
 }
 
-.switch input:checked + .slider:before {
+.switch input:checked+.slider:before {
   transform: translateX(32px);
 }
 

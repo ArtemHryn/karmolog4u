@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .label {
   display: flex;
@@ -30,7 +30,8 @@
   right: 4%;
   top: 50%;
   transform: translate(50%, -40%);
-  & > svg {
+
+  &>svg {
     width: 16px;
     height: 16px;
   }

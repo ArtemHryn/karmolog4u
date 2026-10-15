@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .box {
   @media all and (min-width: $min_desktop) {
@@ -18,10 +18,12 @@
   @include fontRegular(26px, 400, 44.8px);
   margin-bottom: 28px;
   text-transform: uppercase;
+
   @media all and (min-width: $min_tablet) {
     @include fontRegular(48px, 400, 48px);
     margin-bottom: 44px;
   }
+
   @media all and (min-width: $min_desktop) {
     @include fontRegular(60px, 400, 89.6px);
     margin-bottom: 48px;
@@ -49,12 +51,14 @@
     scale: 1.05;
     background-color: $buttons_hover_color;
   }
+
   @media all and (min-width: $min_tablet) {
     width: 356px;
     height: 60px;
     @include fontRegular(18px, 600, 18px, $third_text_color);
     margin-bottom: 24px;
   }
+
   @media all and (min-width: $min_desktop) {
     width: 411px;
     margin-bottom: 0px;
@@ -63,6 +67,7 @@
 
 .img {
   border-radius: 30px;
+
   @media all and (min-width: $min_desktop) {
     width: 519px;
     min-height: 300px;

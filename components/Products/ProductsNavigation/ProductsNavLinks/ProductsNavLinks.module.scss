@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .section {
   padding-bottom: 0px !important;
@@ -14,6 +14,7 @@
   display: inline-block;
   padding-bottom: 24px;
   transition: color 0.3s ease;
+
   &::after {
     content: '';
     position: absolute;
@@ -27,14 +28,17 @@
     transform-origin: left center;
     background-color: $buttons_hover_color;
   }
+
   &:hover,
   &:focus {
     color: $buttons_hover_color;
   }
+
   &:hover::after,
   &:focus::after {
     transform: scaleX(1);
   }
+
   @media all and (min-width: $min_tablet) {
     @include fontRegular(18px, 600, 18px);
   }
@@ -42,6 +46,7 @@
 
 .link_active {
   color: $buttons_hover_color;
+
   &::after {
     transform: scaleX(1);
     background-color: $buttons_color;
@@ -50,6 +55,7 @@
   @media all and (min-width: $min_tablet) {
     color: $buttons_hover_color;
   }
+
   @media all and (min-width: $min_desktop) {
     color: $buttons_hover_color;
   }

@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .wrapper {
   display: flex;
@@ -9,6 +9,7 @@
 
 .title {
   @include fontRegular(14px, 600, 14px, $seconds_text_color);
+
   @media all and (min-width: $min_tablet) {
     font-size: 16px;
   }
@@ -19,9 +20,11 @@
   position: relative;
   width: 60vw;
   margin-inline: auto;
+
   @media all and (min-width: $min_tablet) {
     width: 75vw;
   }
+
   @media all and (min-width: $min_desktop) {
     width: 60vw;
   }
@@ -35,10 +38,12 @@
 
 .button {
   display: flex;
+
   &_prev {
     rotate: 180deg;
   }
-  & > svg {
+
+  &>svg {
     width: 14px;
     height: 14px;
   }

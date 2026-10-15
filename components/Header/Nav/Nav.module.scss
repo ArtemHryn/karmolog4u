@@ -1,12 +1,15 @@
-@import '../styles/main.scss';
+@use '../styles/main.scss' as *;
+;
 
 .links_wrap {
   display: flex;
   flex-direction: column;
   gap: 32px;
+
   @media all and (min-width: $min_tablet) {
     gap: 44px;
   }
+
   @media all and (min-width: $min_desktop) {
     flex-direction: row;
     align-items: center;
@@ -20,9 +23,11 @@
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   @include fontRegular(16px, 600, 22.4px);
   display: block;
+
   @media all and (min-width: $min_desktop) {
     @include fontRegular(18px, 600, 22.4px);
     padding: 8px;
+
     &:hover {
       color: $seconds_text_color;
     }
@@ -31,15 +36,18 @@
 
 .dropdown_wrap {
   position: relative;
+
   @media all and (min-width: $min_desktop) {
     &:hover .dropdown_list {
       opacity: 1;
       pointer-events: all;
     }
+
     &:focus .dropdown_list {
       opacity: 1;
       pointer-events: all;
     }
+
     &:hover .title {
       color: $seconds_text_color;
     }
@@ -48,6 +56,7 @@
 
 .dropdown_button {
   font-family: inherit;
+
   @media all and (max-width: $min_desktop) {
     width: 100%;
     display: flex;
@@ -62,6 +71,7 @@
   transition-property: transform;
   transition-duration: 350ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
   @media all and (min-width: $min_desktop) {
     display: none;
   }
@@ -75,6 +85,7 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+
   @media all and (max-width: 1279.5px) {
     overflow: hidden;
     max-height: 0;
@@ -115,15 +126,19 @@
   transition-duration: 350ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   padding: 8px;
+
   &:first-child {
     margin-top: 20px;
+
     @media all and (min-width: $min_tablet) {
       margin-top: 24px;
     }
+
     @media all and (min-width: $min_desktop) {
       margin-top: 0px;
     }
   }
+
   &:hover {
     color: $seconds_text_color;
   }

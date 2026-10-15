@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .container {
   display: grid;
@@ -7,16 +7,20 @@
   @media all and (min-width: $min_tablet) {
     gap: 32px;
   }
+
   @media all and (min-width: $min_desktop) {
     gap: 0px;
     align-items: center;
   }
 }
+
 .title {
   @include fontRegular(28px, 400, 39.2px);
+
   @media all and (min-width: $min_tablet) {
     @include fontRegular(36px, 400, 36px);
   }
+
   @media all and (min-width: $min_desktop) {
     grid-column: 2;
     grid-row: 1;
@@ -27,6 +31,7 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+
   @media all and (min-width: $min_desktop) {
     grid-column: 2;
     grid-row: 2;
@@ -37,6 +42,7 @@
 
 .text {
   @include fontRegular(16px, 400, 22.4px);
+
   @media all and (min-width: $min_tablet) {
     @include fontRegular(18px, 400, 25.2px);
   }
@@ -55,6 +61,7 @@
 
 .img_in_list {
   display: none;
+
   @media all and (min-width: $min_desktop) {
     display: block;
     padding-top: 36px;

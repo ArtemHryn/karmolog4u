@@ -1,17 +1,19 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .list {
   display: flex;
   flex-direction: column;
   gap: 24px;
   align-items: center;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     flex-direction: row;
     flex-wrap: wrap;
     width: 704px;
     margin-inline: auto;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     width: 1280px;
   }
 }
@@ -29,13 +31,16 @@
   height: 327px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
   background: $card_bg_v2;
+
   &_unavailable {
     opacity: 0.5;
   }
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     width: 340px;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     width: 410px;
     height: 341px;
   }
@@ -44,7 +49,8 @@
 .title {
   @include fontRegular(16px, 400, 25.28px, $seconds_text_color);
   text-transform: uppercase;
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     font-size: 18px;
   }
 }
@@ -58,7 +64,8 @@
   overflow: hidden;
   text-overflow: ellipsis; // додає "..." якщо текст обрізається
   flex-grow: 1;
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     font-size: 16px;
   }
 }

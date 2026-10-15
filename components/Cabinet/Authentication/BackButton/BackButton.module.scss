@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .button {
   display: flex;
@@ -10,6 +10,7 @@
   background-color: $auth_btn_bg_color;
   @include fontRegular(14px, 400, 119.6px, $main_text_color);
   border-radius: 30px;
+
   @media all and (min-width: $min_tablet) {
     width: 163px;
     height: 48px;

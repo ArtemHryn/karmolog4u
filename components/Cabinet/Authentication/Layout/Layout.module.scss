@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .main {
   display: flex;
@@ -6,7 +6,8 @@
   align-items: center;
   gap: 5vh;
   min-height: 100dvh;
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     flex-direction: row;
     padding: 24px;
     gap: 10vw;
@@ -16,6 +17,7 @@
 .header {
   width: 328px;
   padding-top: 16px;
+
   @media all and (min-width: $min_tablet) {
     width: 100%;
     padding: 16px;
@@ -26,10 +28,12 @@
     background-repeat: no-repeat;
     border-radius: 0px 0px 30px 30px;
   }
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     height: 220px;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     border-radius: 30px;
     background-position: center;
     width: 40vw;

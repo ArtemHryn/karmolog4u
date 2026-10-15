@@ -1,11 +1,13 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .title {
   margin-bottom: 40px;
   text-align: center !important;
+
   @media screen and (min-width: $min_tablet) {
     margin-bottom: 48px;
   }
+
   @media all and (min-width: $min_desktop) {
     margin-bottom: 60px;
   }
@@ -18,23 +20,29 @@
   padding: 24px;
   border-radius: 30px;
   background-color: $card_bg_v2;
-  & > p {
+
+  &>p {
     @include fontRegular(16px, 400, 22.4px);
   }
+
   @media screen and (min-width: $min_tablet) {
     padding: 50px;
-    & > p {
+
+    &>p {
       font-size: 18px;
     }
   }
+
   @media screen and (min-width: $min_desktop) {
     padding: 64px 54px;
     width: 737px;
   }
+
   &_ru {
     @media screen and (min-width: $min_tablet) {
       padding: 50px 40px;
     }
+
     @media screen and (min-width: $min_desktop) {
       padding: 50px 40px;
     }
@@ -45,6 +53,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+
   @media screen and (min-width: $min_desktop) {
     flex-direction: row;
   }
@@ -54,10 +63,12 @@
   object-fit: cover;
   border-radius: 30px;
   height: 169px;
+
   @media screen and (min-width: $min_tablet) {
     height: 298px;
     width: 100%;
   }
+
   @media screen and (min-width: $min_desktop) {
     width: 519px;
     height: 100%;

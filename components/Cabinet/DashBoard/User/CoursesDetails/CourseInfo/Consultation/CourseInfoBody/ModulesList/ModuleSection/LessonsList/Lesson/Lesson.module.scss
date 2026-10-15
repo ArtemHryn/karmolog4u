@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .item {
   display: flex;
@@ -12,7 +12,8 @@
   min-width: 216px;
   min-height: 97px;
   max-width: 80%;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -20,7 +21,8 @@
     min-width: 480px;
     min-height: 80px;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     width: calc((100% - 16px) / 2);
     flex-grow: 1;
     min-height: 96px;
@@ -36,9 +38,10 @@
 .name {
   @include fontRegular(14px, 600, 14px);
   word-break: break-word;
-  @media all and (width >= $min_tablet) {
-  }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_tablet) {}
+
+  @media all and (width >=$min_desktop) {
     font-size: 16px;
   }
 }
@@ -59,11 +62,13 @@
   height: 30px;
   background-color: $buttons_color;
   @include fontRegular(16px, 600, 16px, $third_text_color);
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     width: 150px;
     height: 48px;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     border-radius: 30px;
     width: 164px;
   }

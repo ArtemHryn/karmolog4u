@@ -1,12 +1,14 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .wrapper {
   position: relative;
   padding-bottom: 40px;
+
   @media all and (min-width: $min_tablet) {
     display: flex;
     justify-content: center;
   }
+
   @media all and (min-width: $min_desktop) {
     padding-bottom: 0px;
   }
@@ -15,6 +17,7 @@
 .matrix {
   width: 328px;
   height: 328px;
+
   @media all and (min-width: $min_tablet) {
     width: 618px;
     height: 725px;

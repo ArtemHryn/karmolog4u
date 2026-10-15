@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .p-calendar {
   background-color: transparent;
@@ -9,7 +9,8 @@
   @include fontRegular(16px, 400, 22.4px, $third_text_color);
   height: 44px;
   border-radius: 8px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     height: 48px;
   }
 }

@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .title {
   @include fontRegular(24px, 400, 24px);
@@ -15,9 +15,11 @@
   flex-direction: column;
   gap: 24px;
   margin-bottom: 60px;
+
   @media all and (min-width: $min_tablet) {
     margin-bottom: 80px;
   }
+
   @media all and (min-width: $min_desktop) {
     flex-direction: row;
   }
@@ -27,6 +29,7 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
+
   @media all and (min-width: $min_desktop) {
     flex-direction: row;
     align-items: center;
@@ -39,10 +42,12 @@
   max-width: 328px;
   max-height: 182px;
   border-radius: 30px;
+
   @media all and (min-width: $min_tablet) {
     max-width: 736px;
     max-height: 410px;
   }
+
   @media all and (min-width: $min_desktop) {
     max-width: 628px;
     max-height: 350px;

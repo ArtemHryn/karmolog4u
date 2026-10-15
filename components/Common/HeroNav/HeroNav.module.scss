@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .list {
   display: flex;
@@ -6,15 +6,18 @@
   flex-wrap: wrap;
   gap: 6px;
   margin-bottom: 44px;
+
   @media all and (min-width: $min_tablet) {
     gap: 10px;
     margin-bottom: 60px;
   }
 }
+
 .list_item {
   display: flex;
   align-items: center;
   gap: 5px;
+
   @media all and (min-width: $min_tablet) {
     gap: 10px;
   }
@@ -23,6 +26,7 @@
 .link {
   @include fontRegular(14px, 400, 19.6px, $main_text_color);
   transition: all 250ms ease;
+
   &:is(:hover, :focus) {
     color: $seconds_text_color;
   }

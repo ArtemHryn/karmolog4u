@@ -1,10 +1,11 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .more_about_course_wrapper {
-  @media all and (width >= $min_tablet) {
+  @media all and (width >=$min_tablet) {
     order: 3;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     display: none;
   }
 }
@@ -16,11 +17,13 @@
   @include fontRegular(14px, 600, 16.8px, $p_active_button);
   text-decoration: underline;
   text-decoration-skip-ink: none;
-  & > svg {
+
+  &>svg {
     width: 14px;
     height: 14px;
   }
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     font-size: 16px;
   }
 }
@@ -38,7 +41,8 @@
   min-height: 400px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
   background-color: $card_bg;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     width: 484px;
     min-height: 344px;
   }
@@ -70,7 +74,8 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     gap: 16px;
   }
 }
@@ -78,12 +83,15 @@
 .list_text {
   @include fontRegular(14px, 400, 16.8px, $third_text_color);
   overflow-x: auto;
+
   &:first-child {
     width: 120px;
   }
+
   &:last-child {
     font-weight: 600;
     width: calc(100% - 136px);
+
     &::-webkit-scrollbar {
       display: none;
     }
@@ -94,7 +102,8 @@
     /* Edge/IE (не підтримується повністю, але на всяк) */
     -ms-overflow-style: none;
   }
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     font-size: 16px;
   }
 }

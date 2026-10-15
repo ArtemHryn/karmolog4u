@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .wrapper {
   display: flex;
@@ -6,11 +6,13 @@
   justify-content: flex-end;
   width: 100%;
   flex-grow: 1;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     order: 2;
     width: auto;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     display: none;
   }
 }
@@ -22,7 +24,8 @@
   justify-content: center;
   width: 44px;
   height: 44px;
-  & > svg {
+
+  &>svg {
     width: 18px;
     height: 20px;
   }
@@ -39,7 +42,8 @@
   width: 10px;
   height: 10px;
   background-color: #ecdbc3;
-  & > svg {
+
+  &>svg {
     width: 6px;
     height: 7px;
   }

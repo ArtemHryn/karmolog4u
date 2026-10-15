@@ -1,11 +1,12 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .list {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   align-items: center;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     gap: 24px;
   }
 }
@@ -18,7 +19,8 @@
   background-color: $main_bg;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
   padding: 0 8px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     width: calc((100% - 24px) / 2);
   }
 }
@@ -35,9 +37,10 @@
   width: 100%;
   @include fontRegular(13px, 400, 19.89px);
 
-  @media all and (width >= $min_tablet) {
+  @media all and (width >=$min_tablet) {
     font-size: 16px;
   }
+
   &:disabled {
     opacity: 0.3;
   }
@@ -49,7 +52,8 @@
   width: 40px;
   height: 40px;
   color: $buttons_color;
-  & > svg {
+
+  &>svg {
     fill: currentColor;
   }
 }

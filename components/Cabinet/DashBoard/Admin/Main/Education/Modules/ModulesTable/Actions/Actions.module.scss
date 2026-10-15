@@ -1,10 +1,11 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .actions_wrapper {
   display: flex;
   gap: 16px;
   align-items: center;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     justify-content: flex-end;
   }
 }
@@ -16,11 +17,13 @@
   padding: 0px 12px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
   background-color: $p_main_bg;
-  & > svg {
+
+  &>svg {
     width: 20px;
     height: 20px;
   }
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     order: 2;
   }
 }
@@ -34,16 +37,19 @@
   background-color: $p_active_button;
   border: none;
   @include fontRegular(14px, 600, 14px);
-  & > svg {
+
+  &>svg {
     width: 16px;
     height: 16px;
   }
-  & > span > span {
+
+  &>span>span {
     @media all and (width < $min_tablet) {
       display: none;
     }
   }
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     order: 3;
     width: 181px;
   }

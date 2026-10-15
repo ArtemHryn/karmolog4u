@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .list {
   display: flex;
@@ -13,22 +13,28 @@
   @include fontRegular(14px, 600, 15px, $seconds_text_color);
   text-decoration: underline;
   text-decoration-skip-ink: none;
-  & > svg {
+
+  &>svg {
     width: 14px;
     height: 14px;
     fill: currentColor;
   }
-  & > span {
+
+  &>span {
     display: none;
   }
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     font-size: 16px;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     font-size: 18px;
-    & > span {
+
+    &>span {
       display: inline;
     }
+
     &:disabled {
       color: rgba(207, 182, 145, 0.3);
     }

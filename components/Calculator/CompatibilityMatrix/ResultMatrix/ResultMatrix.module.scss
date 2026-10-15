@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .result_matrix_wrapper {
   @media all and (min-width: $min_desktop) {

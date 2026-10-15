@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .wrapper {
   @media all and (min-width: $min_desktop) {
@@ -18,6 +18,7 @@
 .graph {
   width: 328px;
   height: 413px;
+
   @media all and (min-width: $min_tablet) {
     width: 618px;
     height: 716px;
@@ -31,57 +32,71 @@
   justify-content: center;
   width: 24px;
   @include fontRegular(10px, 700, 28px, $seconds_text_color);
+
   &_innerTopLeft {
     top: 34.2%;
     left: 31%;
   }
+
   &_innerTopRight {
     top: 34.2%;
     right: 30%;
   }
+
   &_innerBottomRight {
     bottom: 34.7%;
     right: 30%;
   }
+
   &_innerBottomLeft {
     bottom: 34.7%;
     left: 31%;
   }
+
   @media all and (min-width: $min_tablet) {
     width: 30px;
     font-size: 16px;
+
     &_innerTopLeft {
       top: 33.9%;
       left: 35.1%;
     }
+
     &_innerTopRight {
       top: 34%;
       right: 34.2%;
     }
+
     &_innerBottomRight {
       bottom: 33%;
       right: 34.2%;
     }
+
     &_innerBottomLeft {
       bottom: 33%;
       left: 35%;
     }
   }
+
   @media all and (min-width: $min_desktop) {
     width: 30px;
     font-size: 16px;
+
     &_innerTopLeft {
       top: 33.9%;
       left: 32.4%;
     }
+
     &_innerTopRight {
       top: 33.9%;
       right: 31.2%;
     }
+
     &_innerBottomRight {
       bottom: 33%;
       right: 31.2%;
     }
+
     &_innerBottomLeft {
       bottom: 33%;
       left: 32.3%;

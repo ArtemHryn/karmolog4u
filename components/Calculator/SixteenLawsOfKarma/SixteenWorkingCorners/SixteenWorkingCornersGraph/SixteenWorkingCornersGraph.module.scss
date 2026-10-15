@@ -1,7 +1,8 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .graph_wrapper {
   position: relative;
+
   @media all and (min-width: $min_tablet) {
     display: flex;
     justify-content: center;
@@ -11,6 +12,7 @@
 .graph {
   width: 328px;
   height: 413px;
+
   @media all and (min-width: $min_tablet) {
     width: 618px;
     height: 716px;
@@ -19,6 +21,7 @@
 
 .title {
   @include fontRegular(14px, 400, 19.6px, $main_text_color, center);
+
   @media all and (min-width: $min_tablet) {
     font-size: 18px;
     width: 587px;

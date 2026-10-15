@@ -1,14 +1,16 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .list {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     flex-direction: row;
     gap: 24px;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     gap: 40px;
   }
 }
@@ -18,10 +20,12 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     gap: 12px;
   }
 }
+
 .checkbox_wrapper *,
 .checkbox_wrapper *:after,
 .checkbox_wrapper *:before {
@@ -34,15 +38,15 @@
   appearance: none;
 }
 
-.checkbox_wrapper input:checked + label svg path {
+.checkbox_wrapper input:checked+label svg path {
   stroke-dashoffset: 0;
 }
 
-.checkbox_wrapper input:focus + label {
+.checkbox_wrapper input:focus+label {
   transform: scale(1.03);
 }
 
-.checkbox_wrapper input + label {
+.checkbox_wrapper input+label {
   display: flex;
   border: 1px solid $p_button_bg;
   width: 20px;
@@ -51,28 +55,29 @@
   cursor: pointer;
   transition: all 0.2s ease;
 
-  & > svg {
+  &>svg {
     width: 18px;
     height: 18px;
   }
 }
 
-.checkbox_wrapper input + label:active {
+.checkbox_wrapper input+label:active {
   transform: scale(1.05);
   border-radius: 12px;
 }
 
-.checkbox_wrapper input + label svg {
+.checkbox_wrapper input+label svg {
   pointer-events: none;
   padding: 10%;
 }
-.checkbox_wrapper input:checked + label svg {
+
+.checkbox_wrapper input:checked+label svg {
   pointer-events: none;
   padding: 10%;
   background-color: $p_button_bg;
 }
 
-.checkbox_wrapper input + label svg path {
+.checkbox_wrapper input+label svg path {
   fill: none;
   stroke: $main_text_color;
   stroke-width: 4px;

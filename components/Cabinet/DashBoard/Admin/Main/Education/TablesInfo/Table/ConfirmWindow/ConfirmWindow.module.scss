@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .overlay {
   position: fixed;
@@ -51,6 +51,7 @@
   padding: 4px 8px;
   @include fontRegular(16px, 600, 16px, $p_third_text_color);
   background-color: $p_active_button;
+
   &_cancel {
     background-color: $p_nav_bg;
     border: 1px solid $p_separators;

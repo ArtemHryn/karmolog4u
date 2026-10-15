@@ -1,8 +1,9 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .circles {
   position: absolute;
   display: none;
+
   @media all and (min-width: $min_tablet) {
     display: inline-block;
   }
@@ -14,6 +15,7 @@
     top: -20%;
     left: 1%;
   }
+
   @media all and (min-width: $min_desktop) {
     width: 165px;
     top: -20%;
@@ -27,6 +29,7 @@
     bottom: -4%;
     right: 0;
   }
+
   @media all and (min-width: $min_desktop) {
     width: 100px;
     bottom: 18%;

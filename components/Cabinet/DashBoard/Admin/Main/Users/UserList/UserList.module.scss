@@ -1,10 +1,11 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .users_lists_wrapper {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     padding: 0px 24px 24px;
   }
 }

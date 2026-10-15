@@ -1,10 +1,12 @@
 type ParamsProps = {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 };
 
 export async function generateMetadata({ params }: ParamsProps) {
+  const { id } = await params;
+
   return {
     title: 'Деталі користувача',
     description: 'Деталі користувача | Адмін',
@@ -12,17 +14,17 @@ export async function generateMetadata({ params }: ParamsProps) {
     metadataBase: new URL('https://karmolog4u.vercel.app'),
 
     alternates: {
-      canonical: `/cabinet/dashboard/admin/users/${params.id}`,
+      canonical: `/cabinet/dashboard/admin/users/${id}`,
       languages: {
-        'uk-UA': '/uk/cabinet/dashboard/admin/users/${params.id}',
-        'ru-RU': '/ru/cabinet/dashboard/admin/users/${params.id}',
+        'uk-UA': '/uk/cabinet/dashboard/admin/users/${id}',
+        'ru-RU': '/ru/cabinet/dashboard/admin/users/${id}',
       },
     },
 
     openGraph: {
       title: 'Деталі користувача',
       description: 'Деталі користувача | Адмін',
-      url: '/cabinet/dashboard/admin/users/${params.id}',
+      url: '/cabinet/dashboard/admin/users/${id}',
       siteName: 'Karmolog4u',
       type: 'website',
       locale: 'uk_UA',

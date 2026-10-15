@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .matrix_wrapper {
   border-top: 1px solid $seconds_text_color;
@@ -9,6 +9,7 @@
 .regression_matrix_wrapper {
   display: flex;
   justify-content: center;
+
   @media all and (min-width: $min_desktop) {
     gap: 34px;
   }

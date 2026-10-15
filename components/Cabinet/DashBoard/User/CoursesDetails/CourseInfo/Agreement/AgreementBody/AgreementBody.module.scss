@@ -1,10 +1,11 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .wrapper {
   display: flex;
   flex-direction: column;
   gap: 60px;
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     max-width: $min_desktop;
     justify-content: center;
   }

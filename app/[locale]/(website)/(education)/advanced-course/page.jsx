@@ -36,7 +36,14 @@ const text = {
   ],
 };
 
+/**
+ * @param {Object} props
+ * @param {Promise<{ locale: string }>} props.params
+ */
+
 const AdvancedPage = async ({ params }) => {
+  const { locale } = await params;
+
   const cards = getCardsForAdvancedCourse();
   const { column1, column2 } = getAdvancedCourseQuestions();
   const t = await getTranslations('Education.advanced_course.edu_pricing');
@@ -78,7 +85,7 @@ const AdvancedPage = async ({ params }) => {
           second: t('warning2'),
         }}
       />
-      <Feedbacks feedbacks={getAdvancedCourseFeedback()} title={feedbackTitle[params.locale]} />
+      <Feedbacks feedbacks={getAdvancedCourseFeedback()} title={feedbackTitle[locale]} />
       <QuestionAnswer column1={column1} column2={column2} main />
 
       <Feedback />

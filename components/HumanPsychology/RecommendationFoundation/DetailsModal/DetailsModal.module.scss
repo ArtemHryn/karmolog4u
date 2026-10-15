@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .button_thanks {
 	@include fontRegular(16px, 600, 19.2px, $section_color, center);

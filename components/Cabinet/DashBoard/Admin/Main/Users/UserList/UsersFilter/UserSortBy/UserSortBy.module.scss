@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .sort_button {
   @include buttonsDefault();
@@ -7,14 +7,16 @@
   gap: 8px;
   background-color: #fff;
 
-  & > svg {
+  &>svg {
     width: 20px;
     height: 16px;
   }
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     order: 3;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     order: 1;
   }
 }
@@ -31,20 +33,24 @@
   width: 213px;
   max-height: 190px;
   overflow-y: auto;
-  scrollbar-width: thin; /* Firefox */
-  scrollbar-color: rgba(0, 0, 0, 0.3) transparent; /* Firefox */
+  scrollbar-width: thin;
+  /* Firefox */
+  scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+  /* Firefox */
 
   &::-webkit-scrollbar {
     width: 1px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.3); /* Колір ползунка */
+    background-color: rgba(0, 0, 0, 0.3);
+    /* Колір ползунка */
     border-radius: 1px;
   }
 
   &::-webkit-scrollbar-track {
-    background: transparent; /* Трек скролбару */
+    background: transparent;
+    /* Трек скролбару */
   }
 }
 
@@ -54,6 +60,7 @@
   justify-content: center;
   width: 190px;
   height: 48px;
+
   &_active {
     color: $p_active_button;
   }

@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .wrapper {
   display: flex;
@@ -17,14 +17,16 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     flex-direction: row;
   }
 }
 
 .next_lesson_wrapper {
   display: none;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     display: flex;
     align-items: center;
     justify-content: center;

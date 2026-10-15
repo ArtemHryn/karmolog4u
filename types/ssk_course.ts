@@ -23,7 +23,7 @@ export interface CourseInfoHeaderProps {
 }
 
 export interface LessonDetailsProps {
-  params: { lesson_id: string; course_id: string };
+  params: Promise<{ lesson_id: string; course_id: string }>;
 }
 
 export interface LessonVideosProps {

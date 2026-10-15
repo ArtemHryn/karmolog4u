@@ -1,16 +1,19 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .text {
   @include fontRegular(14px, 400, 20.02px);
   text-wrap: wrap;
-  & > span {
+
+  &>span {
     font-weight: 600;
     white-space: nowrap;
   }
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     font-size: 13px;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     font-size: 16px;
   }
 }
@@ -20,11 +23,13 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     width: 340px;
     gap: 0px;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     width: 737px;
   }
 }
@@ -35,10 +40,12 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     width: 340px;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     width: 737px;
     gap: 4px;
   }
@@ -54,7 +61,7 @@
 }
 
 .list_wrapper {
-  @media all and (width >= $min_tablet) {
+  @media all and (width >=$min_tablet) {
     display: none;
   }
 }
@@ -73,7 +80,7 @@
   margin-left: 12px;
   list-style-position: outside;
 
-  & > li {
+  &>li {
     color: $main_text_color;
   }
 }

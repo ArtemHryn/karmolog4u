@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .wrapper {
   display: flex;
@@ -7,7 +7,8 @@
 
 .text {
   @include fontRegular(14px, 400, 20px, $main_text_color);
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     font-size: 16px;
   }
 }

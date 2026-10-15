@@ -1,10 +1,11 @@
 type ParamsProps = {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 };
 
-export const generateMetadata = async ({ params: { id } }: ParamsProps) => {
+export const generateMetadata = async ({ params }: ParamsProps) => {
+  const { id } = await params;
   return {
     title: 'Редагувати подію',
     description: 'Редагувати подію | Адмін',

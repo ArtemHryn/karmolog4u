@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .overlay {
   position: fixed;
@@ -38,7 +38,8 @@
   &_show {
     transform: translateX(1%);
   }
-  @media all and (width >= 500px) {
+
+  @media all and (width >=500px) {
     border-top-left-radius: 16px;
     border-bottom-left-radius: 16px;
   }

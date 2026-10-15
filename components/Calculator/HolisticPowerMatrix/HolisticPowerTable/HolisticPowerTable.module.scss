@@ -1,13 +1,15 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .main_wrapper {
   display: flex;
   flex-direction: column;
   gap: 40px;
   align-items: center;
+
   @media all and (min-width: $min_tablet) {
     gap: 48px;
   }
+
   @media all and (min-width: $min_desktop) {
     justify-content: center;
   }
@@ -15,6 +17,7 @@
 
 .title {
   @include fontRegular(24px, 400, 30px, $main_text_color, center);
+
   @media all and (min-width: $min_tablet) {
     font-size: 28px;
   }
@@ -28,6 +31,7 @@
   display: flex;
   height: 50px;
   border-bottom: 0.5px solid rgb(126, 126, 126);
+
   &:last-child {
     border: none;
   }
@@ -41,6 +45,7 @@
   padding: 0px 59px 0px 12px;
   border-right: 0.5px solid rgb(126, 126, 126);
   @include fontRegular(14px, 400, 19.6px);
+
   @media all and (min-width: $min_tablet) {
     font-size: 16px;
     width: 340px;
@@ -57,9 +62,11 @@
   border-right: 0.5px solid rgb(126, 126, 126);
 
   @include fontRegular(14px, 400, 19.6px);
+
   &:last-child {
     border: none;
   }
+
   @media all and (min-width: $min_tablet) {
     font-size: 16px;
     width: 59px;

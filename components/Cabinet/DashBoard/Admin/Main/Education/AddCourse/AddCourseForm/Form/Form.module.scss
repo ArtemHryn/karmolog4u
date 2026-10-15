@@ -1,4 +1,4 @@
-@import '/styles/main.scss';
+@use '/styles/main.scss' as *;
 
 .form {
   display: flex;
@@ -8,14 +8,17 @@
   border-radius: 8px;
   padding: 16px 8px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     border-radius: 12px;
     padding: 16px;
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     padding: 12px;
   }
-  @media all and (width >= $big_pc) {
+
+  @media all and (width >=$big_pc) {
     padding: 32px;
   }
 }
@@ -24,10 +27,12 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
-  @media all and (width >= $min_tablet) {
+
+  @media all and (width >=$min_tablet) {
     flex-direction: row;
   }
-  @media all and (width >= $big_pc) {
+
+  @media all and (width >=$big_pc) {
     gap: 4vw;
   }
 }
@@ -39,23 +44,26 @@
 }
 
 .column1 {
-  @media all and (width >= $min_tablet) {
+  @media all and (width >=$min_tablet) {
     width: calc((100% - 26px) / 2);
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     width: 356px;
   }
 }
 
 .column2 {
-  @media all and (width >= $min_tablet) {
+  @media all and (width >=$min_tablet) {
     width: calc((100% - 26px) / 2);
   }
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     flex-direction: row;
     width: calc((356px + 225px + 63.5px));
   }
-  @media all and (width >= $big_pc) {
+
+  @media all and (width >=$big_pc) {
     gap: 4vw;
     width: calc((356px + 225px + 4vw));
   }
@@ -65,7 +73,8 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
-  @media all and (width >= $min_desktop) {
+
+  @media all and (width >=$min_desktop) {
     width: 356px;
   }
 }
