@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { open_Sans_Client } from '@/app/[locale]/clients-fonts';
+import { open_Sans } from '@/app/[locale]/fonts';
 
 import styles from './PaymentButtons.module.scss';
 import SimpleModalContainer from '@/components/Common/SimpleModalContainer/SimpleModalContainer';
@@ -23,7 +23,7 @@ const SSKButton = ({ paymentTypes, id, name }: SSKButtonProps) => {
       <p className={styles.payment_text}>Сплачено 50% рахунку</p>
       <button
         type="button"
-        className={`${styles.button} ${open_Sans_Client.className}`}
+        className={`${styles.button} ${open_Sans.className}`}
         onClick={() => setShowModal(true)}
       >
         Сплатити залишок

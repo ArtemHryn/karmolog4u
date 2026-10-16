@@ -1,7 +1,7 @@
 'use client';
 
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { open_Sans_Client } from '@/app/[locale]/clients-fonts';
+import { open_Sans } from '@/app/[locale]/fonts';
 import styles from './UserActions.module.scss';
 import { useSession } from 'next-auth/react';
 import { banOrDeleteAccount } from '@/helper/platform/banOrDeleteUser';
@@ -63,13 +63,13 @@ const UserActions = ({ banned, id }: UserActionsProps) => {
   return (
     <div className={styles.buttons_wrapper}>
       <button
-        className={`${styles.button} ${styles.danger} ${open_Sans_Client.className} ${banned ? styles.banned : ''}`}
+        className={`${styles.button} ${styles.danger} ${open_Sans.className} ${banned ? styles.banned : ''}`}
         onClick={() => mutation.mutate({ action: 'ban' })}
       >
         {banned ? 'Розблокувати' : 'Заблокувати'}
       </button>
       <button
-        className={`${styles.button} ${styles.danger} ${open_Sans_Client.className}`}
+        className={`${styles.button} ${styles.danger} ${open_Sans.className}`}
         onClick={() => resetMutation.mutate()}
       >
         Скинути пароль

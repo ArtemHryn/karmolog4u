@@ -11,7 +11,7 @@ import {
   Certificate,
   ToSSKIcon,
 } from './Icons';
-import { open_Sans_Client } from '@/app/[locale]/clients-fonts';
+import { open_Sans } from '@/app/[locale]/fonts';
 import useUserInfo from '@/hooks/useUserInfo';
 
 import styles from './CourseNavigation.module.scss';
@@ -174,7 +174,7 @@ const CourseNavigation = ({ course }: CourseNavigationProps) => {
         <li className={`${styles.item}`}>
           <button
             onClick={downloadCert}
-            className={`${styles.redirect_el} ${open_Sans_Client.className}`}
+            className={`${styles.redirect_el} ${open_Sans.className}`}
             disabled={isPending || !course.purchaseInfo.completed}
           >
             <div className={styles.icon_wrapper}>
@@ -187,7 +187,7 @@ const CourseNavigation = ({ course }: CourseNavigationProps) => {
       {course.type === ADVANCED && (
         <li className={`${styles.item}`}>
           {' '}
-          <Link href={'/calculator'} className={`${styles.redirect_el}`} target='_blank'>
+          <Link href={'/calculator'} className={`${styles.redirect_el}`} target="_blank">
             <div className={styles.icon_wrapper}>
               <Calculator />
             </div>

@@ -1,4 +1,4 @@
-import { open_Sans_Client } from '@/app/[locale]/clients-fonts';
+import { open_Sans } from '@/app/[locale]/fonts';
 import styles from './PaymentSection.module.scss';
 
 interface PaymentSectionProps {
@@ -18,7 +18,7 @@ const PaymentSection = ({ price, setShowModal, discount }: PaymentSectionProps) 
         {discount && <p className={styles.price}>{getPriceWithDiscount()}€</p>}
       </div>
       <button
-        className={`${styles.button} ${open_Sans_Client.className}`}
+        className={`${styles.button} ${open_Sans.className}`}
         onClick={() => setShowModal(true)}
       >
         Придбати

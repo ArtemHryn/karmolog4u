@@ -5,8 +5,8 @@ import { useRef } from 'react';
 import { OverlayPanel } from 'primereact/overlaypanel';
 
 import styles from './ActionsColumn.module.scss';
-import { open_Sans_Client } from '@/app/[locale]/clients-fonts';
 import useDeclinePayment from '@/hooks/useDeclinePayment';
+import { open_Sans } from '@/app/[locale]/fonts';
 
 interface ActionsColumnProps {
   id: string;
@@ -35,7 +35,7 @@ const ActionsColumn = ({ rowData, id }: ActionsColumnProps) => {
         <ul className={styles.list}>
           <li>
             <button
-              className={`${styles.button} ${open_Sans_Client.className}`}
+              className={`${styles.button} ${open_Sans.className}`}
               onClick={() => mutate.mutate(rowData.id)}
             >
               Відхилити

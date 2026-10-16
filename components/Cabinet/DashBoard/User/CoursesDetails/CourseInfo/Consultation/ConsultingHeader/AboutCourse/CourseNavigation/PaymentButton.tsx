@@ -1,4 +1,4 @@
-import { open_Sans_Client } from '@/app/[locale]/clients-fonts';
+import { open_Sans } from '@/app/[locale]/fonts';
 
 import styles from './CourseNavigation.module.scss';
 import { useState } from 'react';
@@ -31,7 +31,7 @@ const PaymentButton = ({ type, disabled, icon: Icon, buttonName, course }: Payme
       {' '}
       <button
         onClick={() => setShowModal(true)}
-        className={`${styles.redirect_el} ${open_Sans_Client.className}`}
+        className={`${styles.redirect_el} ${open_Sans.className}`}
         disabled={disabled}
       >
         <div className={styles.icon_wrapper}>

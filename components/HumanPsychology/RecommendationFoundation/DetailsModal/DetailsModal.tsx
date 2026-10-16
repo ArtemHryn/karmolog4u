@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 
 import SimpleModalContainer from '@/components/Common/SimpleModalContainer/SimpleModalContainer';
-import { open_Sans_Client } from '@/app/[locale]/clients-fonts';
+import { open_Sans } from '@/app/[locale]/fonts';
 import styles from './DetailsModal.module.scss';
 import CharityModal from './CharityModal/CharityModal';
 
@@ -15,7 +15,7 @@ const DetailsModal = () => {
   return (
     <>
       <button
-        className={`${styles.button_thanks} ${open_Sans_Client.className}`}
+        className={`${styles.button_thanks} ${open_Sans.className}`}
         onClick={() => setShowModal(true)}
       >
         {t('link')}

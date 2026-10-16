@@ -10,7 +10,7 @@ import Logo from '../../../../Authentication/FormHeader/Logo';
 import { fetchCourseDetailsForUser } from '@/helper/platform/fetchCourseDetailsForUser';
 
 import styles from './CourseHeader.module.scss';
-import { unbounded_client } from '../../../../../../app/[locale]/clients-fonts';
+import { unbounded } from '../../../../../../app/[locale]/fonts';
 
 const CourseHeader = ({ token }) => {
   const pathName = usePathname();
@@ -52,12 +52,12 @@ const CourseHeader = ({ token }) => {
       </div>
       <div className={styles.greeting_wrapper}>
         <p
-          className={`${styles.greeting} ${unbounded_client.className}`}
+          className={`${styles.greeting} ${unbounded.className}`}
           dangerouslySetInnerHTML={{ __html: greeting }}
         />
 
         {!isLoading && (
-          <p className={`${styles.date} ${unbounded_client.className}`}>
+          <p className={`${styles.date} ${unbounded.className}`}>
             Курс дійсний до {availableTo && availableTo}
           </p>
         )}

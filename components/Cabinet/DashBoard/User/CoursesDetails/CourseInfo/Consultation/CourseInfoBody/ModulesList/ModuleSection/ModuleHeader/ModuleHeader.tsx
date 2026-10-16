@@ -1,7 +1,7 @@
 import React from 'react';
 import { format } from 'date-fns';
 import { ModuleSectionProps } from '@/types/cons_adv_courses';
-import { unbounded_client } from '@/app/[locale]/clients-fonts';
+import { unbounded } from '@/app/[locale]/fonts';
 
 import styles from './ModuleHeader.module.scss';
 
@@ -15,7 +15,7 @@ const ModuleHeader = ({ mod, showLessons, setShowLessons }: ModuleHeaderProps) =
     <div className={styles.wrapper}>
       <div className={styles.title_wrapper}>
         {' '}
-        <h4 className={`${styles.name} ${unbounded_client.className}`}>{mod.name}</h4>
+        <h4 className={`${styles.name} ${unbounded.className}`}>{mod.name}</h4>
         <p className={styles.dates}>
           З {format(mod.access.dateStart, 'dd.MM.yy')} по {format(mod.access.dateEnd, 'dd.MM.yy')}
         </p>

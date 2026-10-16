@@ -5,7 +5,7 @@ import { useSession } from 'next-auth/react';
 import { useQuery } from '@tanstack/react-query';
 import { toast } from 'react-toastify';
 import Filter from './Filter/Filter';
-import { unbounded_client } from '@/app/[locale]/clients-fonts';
+import { unbounded } from '@/app/[locale]/fonts';
 import List from './List/List';
 import ProductsLoading from '@/components/Products/ProductsLoading/ProductsLoading';
 import useEventRange from '@/hooks/useEventRange';
@@ -48,7 +48,7 @@ const EventsList = () => {
 
   return (
     <div className={styles.wrapper}>
-      <h1 className={`${styles.title} ${unbounded_client.className}`}>Програма заходів</h1>
+      <h1 className={`${styles.title} ${unbounded.className}`}>Програма заходів</h1>
       <div>
         <Filter
           isOpen={isOpen}

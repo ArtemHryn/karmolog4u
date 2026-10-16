@@ -1,4 +1,4 @@
-import { open_Sans_Client } from '@/app/[locale]/clients-fonts';
+import { open_Sans } from '@/app/[locale]/fonts';
 import styles from './FormParts.module.scss';
 import { useFormContext } from 'react-hook-form';
 
@@ -16,7 +16,7 @@ const Name = () => {
       1. Назва події:
       <textarea
         placeholder="Введіть назву події"
-        className={`${styles.name} ${open_Sans_Client.className}`}
+        className={`${styles.name} ${open_Sans.className}`}
         {...register('name', { required: "Назва події є обов'язковою" })}
       />
       {errors.name && <p className={styles.error}>{errors?.name?.message}</p>}

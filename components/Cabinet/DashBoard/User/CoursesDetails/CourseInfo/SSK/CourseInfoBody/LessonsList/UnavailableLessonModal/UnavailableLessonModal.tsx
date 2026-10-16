@@ -1,4 +1,4 @@
-import { open_Sans_Client, unbounded_client } from '@/app/[locale]/clients-fonts';
+import { open_Sans, unbounded } from '@/app/[locale]/fonts';
 import styles from './UnavailableLessonModal.module.scss';
 
 interface UnavailableLessonModalProps {
@@ -22,7 +22,7 @@ const UnavailableLessonModal = ({
           />
         </svg>
       </button>
-      <p className={`${styles.title} ${unbounded_client.className}`}>Доступ тимчасово закритий</p>
+      <p className={`${styles.title} ${unbounded.className}`}>Доступ тимчасово закритий</p>
       <div className={styles.text_wrapper}>
         <p className={styles.text}>Цей урок стане доступним після оплати курсу.</p>
         <p className={styles.text}>
@@ -31,7 +31,7 @@ const UnavailableLessonModal = ({
         </p>
       </div>
       <button
-        className={`${styles.pay_button} ${open_Sans_Client.className}`}
+        className={`${styles.pay_button} ${open_Sans.className}`}
         onClick={() => {
           setShowModal(false);
           setShowPaymentModal(true);

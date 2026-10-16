@@ -1,4 +1,4 @@
-import { open_Sans_Client } from '@/app/[locale]/clients-fonts';
+import { open_Sans } from '@/app/[locale]/fonts';
 import styles from './PaymentButtons.module.scss';
 import { useState } from 'react';
 import SimpleModalContainer from '@/components/Common/SimpleModalContainer/SimpleModalContainer';
@@ -31,7 +31,7 @@ const PaymentButton = ({ availableTo, paymentTypes, id, name }: PaymentButtonPro
       )}`}</p>
       <button
         type="button"
-        className={`${styles.button} ${open_Sans_Client.className}`}
+        className={`${styles.button} ${open_Sans.className}`}
         onClick={() => setShowModal(true)}
       >
         Сплатити за місяць
