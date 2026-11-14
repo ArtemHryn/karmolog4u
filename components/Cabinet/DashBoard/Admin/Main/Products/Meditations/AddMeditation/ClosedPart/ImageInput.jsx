@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { useFormContext } from 'react-hook-form';
+import { toast } from 'react-toastify';
 import styles from './ClosedPart.module.scss';
+
+const MAX_FILE_SIZE = 10 * 1024 * 1024;
 
 const ImageInput = () => {
   const [previewImage, setPreviewImage] = useState(null);
@@ -19,6 +22,12 @@ const ImageInput = () => {
   const handleFileChange = e => {
     const file = e.target.files?.[0];
     if (file) {
+      if (file.size > MAX_FILE_SIZE) {
+        toast.error('Розмір зображення не повинен перевищувати 10 MB');
+        e.target.value = '';
+        return;
+      }
+
       setPreviewImage(URL.createObjectURL(file));
       setValue('cover', file);
     }
