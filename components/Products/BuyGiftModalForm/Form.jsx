@@ -11,7 +11,6 @@ import useSendDataToWayForPay from '../../../hooks/useSendDataToWayForPay';
 
 import Title from '@/components/Common/Title/Title';
 import FormInput from '../ModalBuyForm/FormInput/FormInput';
-import { getPriceWithDiscount } from '../../../helper/products/getDiscount';
 
 import styles from './BuyGiftModalForm.module.scss';
 import 'react-phone-input-2/lib/bootstrap.css';
@@ -83,6 +82,11 @@ const Form = ({ price, discount, id }) => {
     setWarehousesList(wh.data);
     setValue('city', selectedCity);
     setCityValue(selectedCity.value);
+  };
+
+  const getFinalPrice = () => {
+    if (!discount) return price;
+    return price - discount;
   };
 
   return (
@@ -214,7 +218,7 @@ const Form = ({ price, discount, id }) => {
           </Title>
           {discount && (
             <Title variant="p" styled={`${styles.form_price}`}>
-              {getPriceWithDiscount({ discount, price })}€
+              {getFinalPrice()}€
             </Title>
           )}
         </div>

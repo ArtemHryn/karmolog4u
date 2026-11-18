@@ -2,7 +2,19 @@ import { useLocale } from 'next-intl';
 
 import styles from './HowToGetIt.module.scss';
 
-const list = {
+type Locale = 'uk' | 'ru';
+
+type Step = {
+  title: string;
+  text: string;
+};
+
+type HowToGetItList = {
+  title: Record<Locale, string>;
+  text: Record<Locale, Step[]>;
+};
+
+const list: HowToGetItList = {
   title: { uk: 'ЯК ОТРИМАТИ ПРОДУКТ?', ru: 'КАК ПОЛУЧИТЬ ПРОДУКТ?' },
   text: {
     uk: [
@@ -32,8 +44,9 @@ const list = {
     ],
   },
 };
+
 const HowToGetIt = () => {
-  const locale = useLocale() as 'uk' | 'ru';
+  const locale = useLocale() as Locale;
   const { title, text } = list;
   return (
     <div className={styles.wrapper}>

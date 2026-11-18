@@ -54,6 +54,8 @@ const GiftDetailsPage = () => {
     },
   });
 
+  if (isGiftLoading) return <Container>Продукт завантажується...</Container>;
+
   if (!gift) {
     return <Container>Продукт не знайдено</Container>;
   }
@@ -65,13 +67,17 @@ const GiftDetailsPage = () => {
 
   return (
     <Container>
-      {!isGiftLoading && !isLoading && (
-        <>
-          <HeroNav linkNames={links} />
-          <MeditationsDescriptions product={gift} />
-          {!!gifts && <ProductionCanBeInterestingSlider slides={gifts} />}
-        </>
-      )}
+      <>
+        <HeroNav linkNames={links} />
+        <MeditationsDescriptions product={gift} />
+        {isLoading ? (
+          <Container>Продукти завантажуєються</Container>
+        ) : !!gifts ? (
+          <ProductionCanBeInterestingSlider slides={gifts} />
+        ) : (
+          <Container>Помилка завантаження продуктів</Container>
+        )}
+      </>
     </Container>
   );
 };

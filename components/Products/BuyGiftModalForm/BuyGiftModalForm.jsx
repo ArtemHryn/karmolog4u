@@ -20,6 +20,11 @@ const BuyGiftModalForm = ({ gift }) => {
   const imageSrc = typeof cover === 'string' && cover.trim() ? cover.trim() : null;
   const showFallback = !imageSrc || failedCover === imageSrc;
 
+  const getFinalPrice = () => {
+    if (!discount?.discount) return price;
+    return price - discount.discount;
+  };
+
   return (
     <div className={styles.modal_container}>
       <Title styled={styles.title}>{t('title')}:</Title>
@@ -42,7 +47,7 @@ const BuyGiftModalForm = ({ gift }) => {
         <p className={styles.product_name}>{name[locale]}</p>
         {price && (
           <Title styled={styles.price} variant="p">
-            {price}€
+            {getFinalPrice() ?? price}€
           </Title>
         )}
       </div>

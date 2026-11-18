@@ -15,9 +15,14 @@ const ModalBuyForm = ({ card }) => {
   const t = useTranslations('Author_products.buy_product_modal');
   const locale = useLocale();
 
-  const { name, price, cover, id } = card;
+  const { name, price, cover, id, discount } = card;
   const imageSrc = typeof cover === 'string' && cover.trim() ? cover.trim() : null;
   const showFallback = !imageSrc || failedCover === imageSrc;
+
+  const getFinalPrice = () => {
+    if (!discount?.discount) return price;
+    return price - discount.discount;
+  };
 
   return (
     <div className={styles.modal_container}>
@@ -42,7 +47,7 @@ const ModalBuyForm = ({ card }) => {
         <p className={styles.product_name}>{name[locale]}</p>
         {price && (
           <Title styled={styles.price} variant="p">
-            {price}€
+            {getFinalPrice()}€
           </Title>
         )}
       </div>
@@ -50,7 +55,7 @@ const ModalBuyForm = ({ card }) => {
         {t('notification.part1')} <br />
         {t('notification.part2')}
       </p>
-      <Form price={`${price}€`} id={id} />
+      <Form price={`${getFinalPrice()}€`} id={id} />
     </div>
   );
 };

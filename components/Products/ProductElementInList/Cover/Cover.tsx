@@ -26,9 +26,7 @@ const Cover = ({ card }: CoverProps) => {
   try {
     const parsedCover = new URL(normalizedCover);
     if (['http:', 'https:'].includes(parsedCover.protocol)) coverUrl = parsedCover.href;
-  } catch {
-    console.log('Помилка картинки ', name.uk);
-  }
+  } catch {}
 
   useEffect(() => {
     setCoverFailed(false);
