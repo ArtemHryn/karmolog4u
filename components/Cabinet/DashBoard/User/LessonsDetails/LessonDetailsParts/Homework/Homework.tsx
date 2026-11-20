@@ -4,6 +4,7 @@ import { BonusFileProps } from '@/types/ssk_course';
 import styles from './Homework.module.scss';
 import { useFileDownload } from '@/hooks/useFileDownload';
 import { useSession } from 'next-auth/react';
+import Markdown from '../Markdown/Markdown';
 
 interface HomeworkProps {
   homework: string;
@@ -18,7 +19,11 @@ const Homework = ({ homework, homeworkFiles }: HomeworkProps) => {
       <TitleNoStyles variant="h3" styled={styles.title}>
         ДОМАШНЄ ЗАВДАННЯ
       </TitleNoStyles>
-      {homework && <p className={styles.desc}>{homework}</p>}
+      {homework && (
+        <div className={styles.desc}>
+          <Markdown desc={homework} />
+        </div>
+      )}
       {homework && homeworkFiles.length > 0 && (
         <ul className={styles.list}>
           {homeworkFiles.map(hw => (

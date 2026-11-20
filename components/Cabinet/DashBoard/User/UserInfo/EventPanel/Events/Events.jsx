@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { format, parseISO } from 'date-fns';
 import NoEvents from './NoEvents';
 import styles from './Events.module.scss';
 
@@ -24,10 +25,10 @@ const Events = ({ events }) => {
           </svg>
           {dateStart && (
             <p className={styles.text}>
-              Приєднуйтеся до нового вебінару {name} в {dateStart.slice(0, 10)} Посилання для
-              участі: нажміть на{' '}
+              Долучайтеся до події «{name}», яка відбудеться{' '}
+              {format(parseISO(dateStart), 'dd.MM.yyyy')}.
               <Link href={'https://t.me/karmologforyou'} target="_blank" rel="noreferrer noopener">
-                посилання
+                Приєднатись до події
               </Link>
             </p>
           )}

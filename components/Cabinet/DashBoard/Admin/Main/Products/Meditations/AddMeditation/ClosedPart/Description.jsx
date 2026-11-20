@@ -1,5 +1,6 @@
 import { useFormContext } from 'react-hook-form';
 import { open_Sans } from '@/app/[locale]/layout';
+import MarkdownHelp from '../../../MarkdownHelp/MarkdownHelp';
 import styles from './ClosedPart.module.scss';
 
 const Description = () => {
@@ -7,7 +8,9 @@ const Description = () => {
   return (
     <>
       <label className={`${styles.label} `}>
-        Опис українською
+        <span className={styles.labelWithHelp}>
+          Опис українською <MarkdownHelp />
+        </span>
         <textarea
           {...register('description_uk')}
           className={`${styles.textarea} ${open_Sans.className}`}
@@ -15,7 +18,9 @@ const Description = () => {
         />
       </label>
       <label className={`${styles.label}`}>
-        Опис російською
+        <span className={styles.labelWithHelp}>
+          Опис російською <MarkdownHelp />
+        </span>
         <textarea
           {...register('description_ru')}
           className={`${styles.textarea} ${open_Sans.className}`}

@@ -1,6 +1,7 @@
 import TitleNoStyles from '@/components/Common/TitleNoStyles/TitleNoStyles';
 
 import styles from './Recommendations.module.scss';
+import Markdown from '../Markdown/Markdown';
 
 const Recommendations = ({ rec }: { rec: string }) => {
   return (
@@ -8,7 +9,9 @@ const Recommendations = ({ rec }: { rec: string }) => {
       <TitleNoStyles variant="h3" styled={styles.title}>
         РЕКОМЕНДАЦІЇ ДО УРОКУ:
       </TitleNoStyles>
-      <p className={styles.rec}>{rec}</p>
+      <div className={styles.rec}>
+        <Markdown desc={rec} />
+      </div>
     </div>
   );
 };

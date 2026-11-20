@@ -1,0 +1,87 @@
+.markdownHelpButton {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 20px;
+	height: 20px;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: #e3f3ff;
+	color: #2877a8;
+	font: 600 13px/1 sans-serif;
+	cursor: pointer;
+	transition: background 0.2s ease, color 0.2s ease;
+
+	&:hover,
+	&:focus-visible {
+		background: #c9e9ff;
+		color: #15577f;
+	}
+}
+
+.markdownHelpContent {
+	max-height: 360px;
+	overflow-y: auto;
+	padding: 12px;
+	color: #344454;
+	font-size: 13px;
+
+	section {
+		padding: 8px 0;
+		scroll-margin-top: 8px;
+	}
+
+	h4 {
+		margin: 4px 0 8px;
+		color: #236b96;
+		font-size: 14px;
+	}
+
+	p {
+		margin: 5px 0;
+	}
+
+	code {
+		padding: 1px 4px;
+		border-radius: 4px;
+		background: #f0f5f8;
+		color: #28516b;
+	}
+}
+
+.markdownHelpNav {
+	position: sticky;
+	top: -4px;
+	z-index: 1;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	padding: 4px 0 9px;
+	background: #fff;
+
+	button {
+		padding: 5px 8px;
+		border: 1px solid #d8eaf5;
+		border-radius: 14px;
+		background: #eff8fd;
+		color: #236b96;
+		font-size: 11px;
+		cursor: pointer;
+	}
+}
+
+.markdownHelpPanel {
+	width: min(440px, calc(100vw - 32px));
+}
+
+.itemWrapper {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+}
+
+.markdownList {
+	display: flex;
+	flex-direction: column;
+}

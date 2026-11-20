@@ -1,4 +1,7 @@
 'use client';
+
+import { use } from 'react';
+import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { useQuery } from '@tanstack/react-query';
 import Container from '@/components/Common/Container/Container';
@@ -7,7 +10,7 @@ import MeditationsDescriptions from '@/components/Products/Meditations/Meditatio
 
 import ProductionCanBeInterestingSlider from '@/components/Common/ProductionCanBeInterestingSlider/ProductionCanBeInterestingSlider';
 import { base_url } from '@/helper/consts';
-import { useEffect } from 'react';
+import ProductsLoading from '../../../../../../components/Products/ProductsLoading/ProductsLoading';
 
 const getMeditationById = async id => {
   const res = await fetch(`${base_url}/products/meditations/get/${id}`);
@@ -27,7 +30,7 @@ const getMeditationsList = async () => {
 
 const MeditationDetails = ({ params }) => {
   const pathname = usePathname();
-  const { locale, id } = params;
+  const { locale, id } = use(params);
 
   const { data: meditation, isLoading: isMetLoading } = useQuery({
     queryKey: ['meditation', id],
@@ -42,7 +45,11 @@ const MeditationDetails = ({ params }) => {
     }
   }, [meditation, locale]);
 
-  const { data: meditations, isLoading: isListLoading } = useQuery({
+  const {
+    data: meditations,
+    isLoading: isListLoading,
+    isError,
+  } = useQuery({
     queryKey: ['meditations'],
     queryFn: getMeditationsList,
     staleTime: 5 * 60 * 1000, // 5 minutes
@@ -53,6 +60,13 @@ const MeditationDetails = ({ params }) => {
       return data.filter(m => m.category === meditation.category && m.id !== meditation.id);
     },
   });
+
+  if (isMetLoading)
+    return (
+      <Container>
+        <ProductsLoading />
+      </Container>
+    );
 
   if (!meditation) {
     return <Container>Продукт не знайдено</Container>;
@@ -68,13 +82,17 @@ const MeditationDetails = ({ params }) => {
 
   return (
     <Container>
-      {!isMetLoading && !isListLoading && (
-        <>
-          <HeroNav linkNames={links} />
-          <MeditationsDescriptions product={meditation} />
-          {meditation && <ProductionCanBeInterestingSlider slides={meditations} />}
-        </>
-      )}
+      <>
+        <HeroNav linkNames={links} />
+        <MeditationsDescriptions product={meditation} />
+        {isListLoading ? (
+          <Container>
+            <ProductsLoading />
+          </Container>
+        ) : (
+          <ProductionCanBeInterestingSlider slides={isError ? [] : meditations} />
+        )}
+      </>
     </Container>
   );
 };

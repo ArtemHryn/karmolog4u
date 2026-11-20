@@ -1,6 +1,7 @@
 import { useLocale } from 'next-intl';
 
 import styles from './DetailsDescription.module.scss';
+import MarkdownDesc from './MarkdownDesc';
 
 interface DetailsDescriptionProps {
   detailsDescription?: { [key: string]: string };
@@ -12,7 +13,7 @@ const DetailsDescription = ({ detailsDescription, detailsTitle }: DetailsDescrip
   return (
     <div className={styles.desc_wrapper}>
       {detailsTitle && <p className={styles.title}>{detailsTitle[locale]}</p>}
-      {detailsDescription && <p className={styles.desc}>{detailsDescription[locale]}</p>}
+      {detailsDescription && <MarkdownDesc desc={detailsDescription[locale]} />}
     </div>
   );
 };

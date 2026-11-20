@@ -14,6 +14,7 @@ import SubmitButtons from './FormParts/SubmitButtons';
 
 import styles from './Form.module.scss';
 import { base_url } from '@/helper/consts';
+import { getYoutubeVideoId } from '@/helper/platform/getYoutubeId';
 
 async function AddOrUpdateLesson({ data, token, action, id }) {
   const url =
@@ -134,23 +135,19 @@ const Form = ({ editLesson }) => {
     }
 
     const isValidVideoLinks = () => {
-      let isValid = true;
-      if (videoLinks[0]?.link === '' || videoLinks[0].name === '') {
-        return isValid;
+      const invalidVideo = (videoLinks || []).find(
+        video => video.name && video.link && !getYoutubeVideoId(video.link)
+      );
+
+      if (invalidVideo) {
+        toast.error(`Посилання ${invalidVideo.name} не валідне`);
+        return false;
       }
-      const isValidYouTube = link =>
-        typeof link === 'string' &&
-        ((link.includes('youtube.com') && link.includes('v=')) || link.includes('youtu.be/'));
-      videoLinks.forEach(video => {
-        if (!isValidYouTube(video.link)) {
-          isValid = false;
-        }
-      });
-      return isValid;
+
+      return true;
     };
 
     if (!isValidVideoLinks()) {
-      toast.error('Посилання не є дійсним YouTube посиланням');
       return;
     }
 
@@ -216,27 +213,27 @@ const Form = ({ editLesson }) => {
           )}
           <Descriptions
             name="recommendations"
-            title={`${moduleId ? '6.' : '4.'}  Рекомендації до уроку`}
+            title={`${moduleId ? '6.' : '4.'}  Рекомендації до уроку: `}
             placeholder="Додайте рекомендації"
           />
           <div className={styles.form_sizer}>
-            <AdditionalLinks title={`${moduleId ? '7.' : '5.'} Додаткові посилання`} />
+            <AdditionalLinks title={`${moduleId ? '7.' : '5.'} Додаткові посилання:`} />
           </div>
           <div className={styles.form_sizer}>
             <AdditionalLinks
-              title={`${moduleId ? '8.' : '6.'} Посилання на відео`}
+              title={`${moduleId ? '8.' : '6.'} Посилання на відео:`}
               form_name={'videoLinks'}
             />
           </div>
           <Descriptions
             name="homework"
-            title={`${moduleId ? '9.' : '7.'} Домашнє завдання`}
+            title={`${moduleId ? '9.' : '7.'} Домашнє завдання: `}
             placeholder="Опис ДЗ"
           />
           <div className={styles.form_sizer}>
             {' '}
             <AdditionalFiles
-              title={`${moduleId ? '10.' : '8.'} Файли домашнього завдання`}
+              title={`${moduleId ? '10.' : '8.'} Файли домашнього завдання:`}
               form_name={'homeworkFiles'}
               editFiles={editLesson?.homeworkFiles}
             />
@@ -244,12 +241,12 @@ const Form = ({ editLesson }) => {
           <div className={styles.form_sizer}>
             {' '}
             <AdditionalFiles
-              title={`${moduleId ? '11.' : '9.'} Бонусні файли`}
+              title={`${moduleId ? '11.' : '9.'} Бонусні файли:`}
               form_name={'bonusFiles'}
               editFiles={editLesson?.bonusFiles}
             />
           </div>
-          <Feedbacks title={`${moduleId ? '12.' : '10.'} Зворотній зв’язок`} />
+          <Feedbacks title={`${moduleId ? '12.' : '10.'} Зворотній зв’язок:`} />
         </div>
         <SubmitButtons setStatusAndSubmit={setStatusAndSubmit} />
       </form>

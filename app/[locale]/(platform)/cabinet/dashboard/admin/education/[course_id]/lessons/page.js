@@ -21,6 +21,7 @@ const courseDetails = async (id, token) => {
 };
 
 const LessonsPage = async ({ params }) => {
+  const { course_id } = await params;
   const session = await getServerSession(authOptions);
   const accessToken = session?.accessToken;
   if (!accessToken) {
@@ -28,10 +29,9 @@ const LessonsPage = async ({ params }) => {
     notFound();
   }
 
-  const course = await courseDetails(params.course_id, accessToken);
+  const course = await courseDetails(course_id, accessToken);
 
   if (!course) notFound();
-  console.log(course);
 
   return <Lessons course={course} />;
 };

@@ -52,6 +52,12 @@
   width: 100%;
 }
 
+.labelWithHelp {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .input {
   border: 1px solid $p_border;
   border-radius: 8px;

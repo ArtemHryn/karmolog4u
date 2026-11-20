@@ -3,6 +3,7 @@ import { useFormContext } from 'react-hook-form';
 import styles from './WebinarPart.module.scss';
 import Tick from '../../../Meditations/AddMeditation/Tick';
 import { open_Sans } from '@/app/[locale]/layout';
+import MarkdownHelp from '../../../MarkdownHelp/MarkdownHelp';
 
 const tickName = 'showDetails';
 
@@ -42,7 +43,9 @@ const WebinarDetails = () => {
             {errors?.title_ru && <p className={styles.error}>{errors.title_ru.message}</p>}
           </label>
           <label className={`${styles.label} `}>
-            Опис українською
+            <span className={styles.labelWithHelp}>
+              Опис українською <MarkdownHelp />
+            </span>
             <textarea
               {...register('details_description_uk')}
               className={`${styles.textarea} ${open_Sans.className}`}
@@ -50,7 +53,9 @@ const WebinarDetails = () => {
             />
           </label>
           <label className={`${styles.label}`}>
-            Опис російською
+            <span className={styles.labelWithHelp}>
+              Опис російською <MarkdownHelp />
+            </span>
             <textarea
               {...register('details_description_ru')}
               className={`${styles.textarea} ${open_Sans.className}`}

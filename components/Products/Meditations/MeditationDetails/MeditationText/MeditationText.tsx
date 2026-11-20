@@ -6,6 +6,7 @@ import { CLOSED_MEDITATIONS, TRAINING, WEBINARS } from '@/helper/consts';
 
 import styles from './MeditationText.module.scss';
 import DetailsDescription from './DetailsDescription/DetailsDescription';
+import MarkdownDesc from './DetailsDescription/MarkdownDesc';
 
 interface MeditationTextProps {
   name: { [key: string]: string };
@@ -35,7 +36,7 @@ const MeditationText = ({
       {Number(price) > 0 && (
         <PaymentSection setShowModal={setShowModal} price={price} discount={discount} />
       )}
-      {description && <p className={styles.text}>{description[locale]}</p>}
+      {description && <MarkdownDesc desc={description[locale]} />}
       {[CLOSED_MEDITATIONS, WEBINARS, TRAINING].includes(category) && <HowToGetIt />}
       {detailsDescription && <DetailsDescription detailsDescription={detailsDescription} />}
     </div>

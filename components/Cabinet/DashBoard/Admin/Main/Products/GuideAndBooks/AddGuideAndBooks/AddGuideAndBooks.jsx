@@ -191,10 +191,8 @@ const AddGuideAndBooks = ({ edit }) => {
       );
     }
 
-    if (category === OTHER_GUIDES || category === BOOKS) {
-      if (description_ru && description_uk) {
-        formData.append('description', JSON.stringify({ uk: description_uk, ru: description_ru }));
-      }
+    if (description_ru && description_uk) {
+      formData.append('description', JSON.stringify({ uk: description_uk, ru: description_ru }));
     }
 
     mutation.mutate({ info: formData });

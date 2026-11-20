@@ -97,6 +97,7 @@ const PersonalInfo = ({ user: { name, lastName, email, mobPhone, cover = null } 
           <DoubleInputField
             label={'3. Безпека'}
             fields={[{ type: 'password', name: 'password' }]}
+            placeholder='Новий пароль'
           />
         </div>
         {formState.isDirty && <SubmitButtons reset={reset} />}

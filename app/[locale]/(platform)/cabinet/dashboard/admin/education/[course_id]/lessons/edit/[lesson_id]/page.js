@@ -38,6 +38,7 @@ const fetchPageInfo = async (id, token, course_id) => {
 };
 
 const EditLessonPage = async ({ params }) => {
+  const { lesson_id, course_id } = params;
   try {
     const session = await getServerSession(authOptions);
     const accessToken = session?.accessToken;
@@ -47,7 +48,7 @@ const EditLessonPage = async ({ params }) => {
       return <div>Немає доступу</div>;
     }
 
-    const { lesson, course } = await fetchPageInfo(params.lesson_id, accessToken, params.course_id);
+    const { lesson, course } = await fetchPageInfo(lesson_id, accessToken, course_id);
     return <EditLesson course={course} editLesson={lesson} />;
   } catch (error) {
     console.error('Помилка завантаження модулів:', error);

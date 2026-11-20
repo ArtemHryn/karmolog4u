@@ -22,9 +22,10 @@ export default function EventsCalendar({ events }) {
   const handleClickDay = date => {
     const dateStr = format(date, 'yyyy-MM-dd');
     const event = events[dateStr];
+    const formattedDate = format(date, 'dd.MM.yyyy');
 
     if (event) {
-      toast.info(`${dateStr}: ${event}`, {
+      toast.info(`${formattedDate}: ${event}`, {
         progressClassName: styles.event_toast_progress_bar,
         className: styles.event_toast,
       });

@@ -8,6 +8,7 @@ import {
   ETHERS,
   GUIDES,
   OTHER_GUIDES,
+  TRAINING,
   WEBINARS,
 } from '@/helper/consts';
 import { ProductCardProps } from '@/types/products';
@@ -32,7 +33,14 @@ const Info = ({ card, setShowModal }: InfoProps) => {
     return price - discount.discount;
   };
 
-  const showSellButtonCategories = [CLOSED_MEDITATIONS, WEBINARS, GUIDES, BOOKS, OTHER_GUIDES];
+  const showSellButtonCategories = [
+    CLOSED_MEDITATIONS,
+    WEBINARS,
+    GUIDES,
+    BOOKS,
+    OTHER_GUIDES,
+    TRAINING,
+  ];
 
   const openInNewTab = category === ETHERS && Boolean(video?.playlist);
   const getLink = () => {

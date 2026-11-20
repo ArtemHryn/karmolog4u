@@ -26,4 +26,64 @@
   @media all and (width >=$min_desktop) {
     font-size: 20px;
   }
+
+  p {
+    font-size: inherit;
+    margin: 0;
+  }
+
+  ul {
+    list-style: disc;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  ol {
+    list-style: decimal;
+    padding-left: 20px;
+  }
+
+  strong {
+    font-weight: 700;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  del {
+    text-decoration: line-through;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 700;
+  }
+
+  a {
+    color: $seconds_text_color;
+    text-decoration: underline;
+  }
+
+  blockquote {
+    border-left: 3px solid #ccc;
+    padding-left: 12px;
+    margin: 12px 0;
+  }
+
+  hr {
+    margin: 16px 0;
+    border-color: #ddd;
+  }
+
+  img {
+    width: 312px;
+    height: 208px;
+    border-radius: 12px;
+    object-fit: cover;
+  }
 }

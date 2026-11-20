@@ -1,4 +1,5 @@
 import { useFormContext } from 'react-hook-form';
+import MarkdownHelp from '../../../../../Products/MarkdownHelp/MarkdownHelp';
 
 import styles from './FormParts.module.scss';
 import { inter } from '@/app/[locale]/layout';
@@ -8,7 +9,9 @@ const Descriptions = ({ name, placeholder = '', name2, placeholder2 = '', title 
 
   return (
     <div className={styles.description_wrapper}>
-      <p className={styles.description_title}>{title}</p>
+      <p className={styles.description_title}>
+        {title} <MarkdownHelp />
+      </p>
       <textarea
         {...register(name)}
         className={`${styles.description_textarea} ${inter.className}`}

@@ -1,17 +1,15 @@
 'use client';
 
 import { usePathname, useRouter } from 'next/navigation';
-import Image from 'next/image';
-import Link from 'next/link';
 import { useSession } from 'next-auth/react';
-import YouTube from 'react-youtube';
 import TitleNoStyles from '../../../../../../../Common/TitleNoStyles/TitleNoStyles';
 import { BOOKS, CLOSED_MEDITATIONS, GUIDES, OTHER_GUIDES, WEBINARS } from '@/helper/consts';
 import { useFileDownload } from '@/hooks/useFileDownload';
-import Logo from '@/components/Common/Icons/Logo';
+import Description from './Description';
+
+import Cover from './Cover/Cover';
 
 import styles from './ProductInfo.module.scss';
-import Cover from './Cover/Cover';
 
 const ProductInfo = ({ product }) => {
   const router = useRouter();
@@ -79,7 +77,8 @@ const ProductInfo = ({ product }) => {
             <TitleNoStyles styled={styles.name}>{name.uk}</TitleNoStyles>
           </div>
         </div>
-        <p className={styles.description}>{description.uk}</p>
+        <Description desc={description.uk} />
+
         {detailsTitle && detailsDescription && (
           <div className={`${styles.info_wrapper}`}>
             <TitleNoStyles styled={styles.detailed_title} variant="h3">

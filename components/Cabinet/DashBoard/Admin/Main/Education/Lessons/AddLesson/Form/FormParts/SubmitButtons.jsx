@@ -18,7 +18,7 @@ const SubmitButtons = ({ setStatusAndSubmit }) => {
             fill="#FDFDFD"
           />
         </svg>
-        Додати урок
+        Зрегти урок
       </button>
       <button
         type="button"

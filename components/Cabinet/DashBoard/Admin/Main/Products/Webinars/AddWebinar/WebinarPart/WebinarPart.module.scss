@@ -40,6 +40,12 @@
   }
 }
 
+.labelWithHelp {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .error {
   @include fontRegular(12px, 500, 12px, red);
 }

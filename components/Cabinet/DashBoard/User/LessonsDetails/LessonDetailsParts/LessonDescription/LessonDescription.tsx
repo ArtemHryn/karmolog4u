@@ -1,4 +1,5 @@
 import TitleNoStyles from '../../../../../../Common/TitleNoStyles/TitleNoStyles';
+import Markdown from '../Markdown/Markdown';
 
 import styles from './LessonDescription.module.scss';
 
@@ -8,7 +9,9 @@ const LessonDescription = ({ description }: { description: string }) => {
       <TitleNoStyles variant="h2" styled={styles.title}>
         У ЦЬОМУ УРОЦІ ПОГОВОРИМО:
       </TitleNoStyles>
-      <p className={styles.description}>{description}</p>
+      <div className={styles.description}>
+        <Markdown desc={description} />
+      </div>
     </div>
   );
 };
