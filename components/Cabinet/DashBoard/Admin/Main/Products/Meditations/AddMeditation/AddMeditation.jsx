@@ -55,6 +55,7 @@ const setDefaultValues = item => {
     price = '',
     discount = null,
     cover = null,
+    isMarkdown = false,
   } = item;
 
   return {
@@ -66,6 +67,7 @@ const setDefaultValues = item => {
     description_uk: description.uk,
     description_ru: description.ru,
     price: price,
+    isMarkdown,
     discount: discount?.discount,
     start_date: discount ? new Date(discount.start) : undefined,
     end_date: discount ? new Date(discount.expiredAt) : undefined,
@@ -109,11 +111,22 @@ const MeditationForm = ({ edit }) => {
   };
 
   const onSubmit = data => {
-    const { name_uk, name_ru, status, category, cover, description_uk, description_ru, video } =
-      data;
+    const {
+      name_uk,
+      name_ru,
+      status,
+      category,
+      cover,
+      description_uk,
+      description_ru,
+      video,
+      isMarkdown,
+    } = data;
     if (!getValues('category')) {
       setError('category', { type: 'manual', message: 'Оберіть категорію' });
     }
+    console.log(data);
+
     //дістаємо дані з посилання на YouTube
     const youtubeData = getYoutubeUrlData(video);
 
@@ -131,6 +144,7 @@ const MeditationForm = ({ edit }) => {
       category,
       status,
       video: youtubeData,
+      isMarkdown,
     };
     //додаємо ключи які точно є
     Object.entries(requiredParams).forEach(([key, value]) =>

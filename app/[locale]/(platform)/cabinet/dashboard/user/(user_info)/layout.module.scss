@@ -40,6 +40,7 @@
   @media all and (width >=$min_tablet) {
     padding: 60px 24px 24px 24px;
     height: calc((100vh - 146px));
+    min-height: 654px;
     scrollbar-width: none;
     /* Firefox */
     -ms-overflow-style: none;

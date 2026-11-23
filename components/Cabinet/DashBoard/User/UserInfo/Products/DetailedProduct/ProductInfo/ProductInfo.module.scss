@@ -34,6 +34,11 @@
   }
 }
 
+.title_info_wrapper {
+  @extend .info_wrapper;
+  max-height: 200px;
+}
+
 .download_button {
   &>svg {
     width: 16px;
@@ -138,6 +143,15 @@
     height: 208px;
     border-radius: 12px;
     object-fit: cover;
+  }
+}
+
+.text {
+  @include fontRegular(14px, 400, 19.6px);
+  white-space: pre-line;
+
+  @media all and (min-width: $min_tablet) {
+    @include fontRegular(16px, 400, 22.4px);
   }
 }
 

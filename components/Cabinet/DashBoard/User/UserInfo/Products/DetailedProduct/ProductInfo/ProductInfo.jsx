@@ -3,7 +3,14 @@
 import { usePathname, useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import TitleNoStyles from '../../../../../../../Common/TitleNoStyles/TitleNoStyles';
-import { BOOKS, CLOSED_MEDITATIONS, GUIDES, OTHER_GUIDES, WEBINARS } from '@/helper/consts';
+import {
+  BOOKS,
+  CLOSED_MEDITATIONS,
+  GUIDES,
+  OTHER_GUIDES,
+  TRAINING,
+  WEBINARS,
+} from '@/helper/consts';
 import { useFileDownload } from '@/hooks/useFileDownload';
 import Description from './Description';
 
@@ -26,6 +33,7 @@ const ProductInfo = ({ product }) => {
     detailsDescription = null,
     file = null,
     link = null,
+    isMarkdown = false,
   } = product;
 
   const categoriesMap = {
@@ -34,6 +42,7 @@ const ProductInfo = ({ product }) => {
     [OTHER_GUIDES]: 'Гайд',
     [BOOKS]: 'Книга',
     [GUIDES]: 'Гайд 22 енегрії',
+    [TRAINING]: 'Тренінг',
   };
 
   const { mutate: downloadFile } = useFileDownload(token?.accessToken || '');
@@ -51,7 +60,7 @@ const ProductInfo = ({ product }) => {
       <div className={`${styles.info_wrapper}`}>
         <div className={`${styles.info_wrapper} ${styles.additional_info_wrapper}`}>
           <Cover video={video} link={link} cover={cover} name={name} />
-          <div className={`${styles.info_wrapper}`}>
+          <div className={`${styles.title_info_wrapper}`}>
             <div className={styles.download_wrapper}>
               <p className={styles.category}>{categoriesMap[category]}</p>
               {file && (
@@ -77,14 +86,23 @@ const ProductInfo = ({ product }) => {
             <TitleNoStyles styled={styles.name}>{name.uk}</TitleNoStyles>
           </div>
         </div>
-        <Description desc={description.uk} />
+        {description?.uk &&
+          (isMarkdown ? (
+            <Description desc={description.uk} />
+          ) : (
+            <p className={styles.text}>{description.uk}</p>
+          ))}
 
-        {detailsTitle && detailsDescription && (
+        {detailsTitle?.uk && detailsDescription?.uk && (
           <div className={`${styles.info_wrapper}`}>
             <TitleNoStyles styled={styles.detailed_title} variant="h3">
               {detailsTitle.uk}
             </TitleNoStyles>
-            <p className={styles.description}>{detailsDescription.uk}</p>
+            {isMarkdown ? (
+              <Description desc={detailsDescription.uk} />
+            ) : (
+              <p className={styles.text}>{detailsDescription.uk}</p>
+            )}
           </div>
         )}
       </div>

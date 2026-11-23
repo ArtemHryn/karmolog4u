@@ -139,5 +139,9 @@
   width: 32px;
   height: 32px;
   right: 3%;
-  top: 37%;
+  top: 29px;
+}
+
+.error {
+  @include fontRegular(12px, 400, 12px, red);
 }

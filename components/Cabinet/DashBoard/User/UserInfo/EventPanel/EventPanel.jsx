@@ -9,6 +9,15 @@ import Events from './Events/Events';
 import { fetchEvents } from '../../../../../../helper/platform/getEvents';
 import Loader from '../../Loader/Loader';
 
+const Error = ({ er }) => {
+  return (
+    <div className={styles.event_wrapper} role="alert">
+      <p className={styles.error_title}>Помилка завантаження подій</p>
+      <p className={styles.error_text}>{!!er ? er : 'Зверніться до адміністратора сайта'}</p>
+    </div>
+  );
+};
+
 const EventPanel = () => {
   const { data: session } = useSession();
 
@@ -18,6 +27,7 @@ const EventPanel = () => {
     data: events,
     isError,
     isLoading,
+    error,
   } = useQuery({
     queryKey: ['events', 'user'],
     queryFn: () =>
@@ -37,13 +47,8 @@ const EventPanel = () => {
       </div>
     );
   }
-
   if (isError) {
-    return (
-      <div className={styles.event_wrapper}>
-        <p>Помилка завантаження подій</p>
-      </div>
-    );
+    return <Error er={error?.message} />;
   }
 
   if (!events) return null;

@@ -16,7 +16,11 @@ const CourseHeader = ({ token }) => {
   const pathName = usePathname();
   const { course_id } = useParams();
 
-  const { data: course, isLoading } = useQuery({
+  const {
+    data: course,
+    isLoading,
+    error,
+  } = useQuery({
     queryKey: ['course', course_id],
     queryFn: () => fetchCourseDetailsForUser(token, course_id),
   });
@@ -58,7 +62,9 @@ const CourseHeader = ({ token }) => {
 
         {!isLoading && (
           <p className={`${styles.date} ${unbounded.className}`}>
-            Курс дійсний до {availableTo && availableTo}
+            {!!error && error?.message
+              ? error.message
+              : `Курс дійсний до ${!!availableTo && availableTo}`}
           </p>
         )}
       </div>

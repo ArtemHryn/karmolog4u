@@ -1,4 +1,4 @@
-import { useFormContext } from 'react-hook-form';
+﻿import { useFormContext } from 'react-hook-form';
 import Description from '../../../Meditations/AddMeditation/ClosedPart/Description';
 import ImageInput from '../../../Meditations/AddMeditation/ClosedPart/ImageInput';
 import Price from '../../../Meditations/AddMeditation/ClosedPart/Price/Price';
@@ -15,7 +15,7 @@ const WebinarPart = () => {
     <>
       <ImageInput />
       <label className={`${styles.label}`}>
-        Посилання
+        Посилання на YouTube
         <input
           {...register('video')}
           placeholder="Введіть посилання"
@@ -23,7 +23,21 @@ const WebinarPart = () => {
         />
         {errors?.video && <p className={styles.error}>{errors.video.message}</p>}
       </label>
-      <Price/>
+      <Price />
+      <label className={`${styles.label}`}>
+        Посилання на файл
+        <input
+          {...register('link', {
+            validate: value =>
+              !value ||
+              /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[^\s]*)?$/i.test(value) ||
+              'Введіть коректне посилання',
+          })}
+          placeholder="Введіть посилання"
+          className={`${styles.input}`}
+        />
+        {errors?.link && <p className={styles.error}>{errors.link.message}</p>}
+      </label>
       <Description />
       <WebinarDetails />
     </>

@@ -12,16 +12,17 @@ const ExportUsersForm = () => {
   const mutateUser = useCreateUser({ token: token?.accessToken, onSuccessCallback: () => reset() });
 
   const onFormSubmit = data => {
-    if (data.education.length === 0) {
+    const { education = [] } = data;
+    if (education?.length === 0) {
       mutateUser.mutate({ action: 'export' });
       return;
     }
-    mutateUser.mutate({ data: data.education.map(({ value }) => value), action: 'export' });
+    mutateUser.mutate({ data: education?.map(({ value }) => value), action: 'export' });
   };
   return (
     <form className={styles.form} onSubmit={handleSubmit(onFormSubmit)}>
-      <ProductsSelector title={'Додати до продукту'} control={control} name={'education'} />
-      <SubmitButtons />
+      <ProductsSelector title={'Експортувати за продуктом'} control={control} name={'education'} />
+      <SubmitButtons submitName={'Завантажити'} />
     </form>
   );
 };

@@ -3,12 +3,12 @@ import { useRouter } from 'next/navigation';
 import { open_Sans } from '@/app/[locale]/layout';
 import styles from './SubmitButtons.module.scss';
 
-const SubmitButtons = () => {
+const SubmitButtons = ({ submitName = 'Додати' }) => {
   const router = useRouter();
   return (
     <div className={styles.buttons_wrapper}>
       <button className={`${styles.button} ${styles.button_add} ${open_Sans.className}`}>
-        Додати
+        {submitName}
       </button>
       <button
         type="button"

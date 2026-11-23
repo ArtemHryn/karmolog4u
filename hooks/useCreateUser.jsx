@@ -28,10 +28,12 @@ const addUser = async ({ token, data, link }) => {
 
 const exportUsers = async ({ token, data }) => {
   const res = await fetch(`${base_url}/admin/user/export/${data ? 'list' : 'all'}`, {
-    method: 'GET',
+    method: 'POST',
     headers: {
       Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
     },
+    body: !!data ? JSON.stringify(data) : undefined,
   });
 
   if (!res.ok) {
@@ -74,7 +76,7 @@ export const useCreateUser = ({ token, onSuccessCallback }) => {
         toast.success('Експорт успішний');
       } else {
         // Обробка успішної відповіді для інших action
-        toast.success('Операція успішна');
+        toast.success(data?.message || 'Операція успішна');
         queryClient.invalidateQueries({ queryKey: ['users_list'] });
         onSuccessCallback?.();
       }

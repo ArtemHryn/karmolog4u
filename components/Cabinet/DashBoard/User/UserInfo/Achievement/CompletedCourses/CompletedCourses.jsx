@@ -15,6 +15,7 @@ const CompletedCourses = () => {
     data: achi,
     isLoading,
     isError,
+    error,
   } = useUserInfo({
     token: token?.accessToken,
     action: 'achievement',
@@ -30,7 +31,7 @@ const CompletedCourses = () => {
       <div className={styles.error_wrapper}>
         <p className={styles.error_text}>Помилка завантаження списку пройденних курсів</p>
         <p className={styles.error_text}>
-          Будь ласка, спробуйте ще або зверніться до адміністратора
+          {error?.message || 'Будь ласка, спробуйте ще або зверніться до адміністратора'}
         </p>
       </div>
     );

@@ -48,7 +48,17 @@ const setDefaultValues = item => {
     price = '',
     discount = null,
     cover,
+    isMarkdown = false,
+    detailsTitle,
+    detailsDescription,
+    link,
   } = item;
+  const showDetails =
+    !!detailsTitle?.uk &&
+    !!detailsTitle?.ru &&
+    !!detailsDescription?.ru &&
+    !!detailsDescription?.uk;
+
   return {
     name_uk: name.uk,
     name_ru: name.ru,
@@ -57,7 +67,14 @@ const setDefaultValues = item => {
     isWaiting: isWaiting,
     description_uk: description.uk,
     description_ru: description.ru,
+    title_uk: detailsTitle?.uk || '',
+    title_ru: detailsTitle?.ru || '',
+    details_description_uk: detailsDescription?.uk || '',
+    details_description_ru: detailsDescription?.ru || '',
+    showDetails,
+    link,
     price: price,
+    isMarkdown,
     discount: discount?.discount,
     start_date: discount ? new Date(discount.start) : undefined,
     end_date: discount ? new Date(discount.expiredAt) : undefined,
@@ -115,6 +132,8 @@ const AddWebinar = ({ edit }) => {
       discount,
       end_date,
       start_date,
+      isMarkdown,
+      link,
     } = data;
     if (!getValues('category')) {
       setError('category', { type: 'manual', message: 'Оберіть категорію' });
@@ -138,6 +157,7 @@ const AddWebinar = ({ edit }) => {
       category,
       status,
       video: youtubeData,
+      isMarkdown,
     };
     //додаємо ключи які точно є
     Object.entries(requiredParams).forEach(([key, value]) => {
@@ -155,6 +175,9 @@ const AddWebinar = ({ edit }) => {
           'discount',
           JSON.stringify({ discount, start: start_date, expiredAt: end_date })
         );
+      }
+      if (link) {
+        formData.append('link', link);
       }
       if (showDetails) {
         formData.append('detailsTitle', JSON.stringify({ uk: data.title_uk, ru: data.title_ru }));

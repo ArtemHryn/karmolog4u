@@ -1,5 +1,16 @@
 @use '/styles/main.scss' as *;
 
+.cover_wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	align-items: center;
+
+	@media all and (width >=$min_tablet) {
+
+		align-items: flex-start;
+	}
+}
 
 .video {
 	border-radius: 12px;
@@ -117,6 +128,7 @@
 	max-width: 330px;
 	width: 100%;
 	height: 40px;
+	flex-shrink: 0;
 
 	@media (hover: hover) {
 		&:is(:hover, :focus) {
@@ -128,5 +140,18 @@
 		&:is(:active, :focus) {
 			scale: 1.05;
 		}
+	}
+}
+
+
+.links_wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	width: 100%;
+	align-items: center;
+
+	@media all and (width >=$min_tablet) {
+		flex-direction: row;
 	}
 }

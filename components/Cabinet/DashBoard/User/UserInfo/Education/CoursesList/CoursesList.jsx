@@ -11,14 +11,20 @@ import styles from './CoursesList.module.scss';
 const CoursesList = () => {
   const { data: token } = useSession();
 
-  const { data, isLoading, isError } = useUserInfo({
+  const { data, isLoading, isError, error } = useUserInfo({
     token: token?.accessToken,
     action: 'courses',
     queryKey: ['user-courses'],
   });
 
   if (isLoading) return <Loader />;
-  if (isError) return <ErrorLoading />;
+  if (isError)
+    return (
+      <ErrorLoading
+        title={'Помилка завантаження списка курсів!'}
+        er={error?.message || undefined}
+      />
+    );
 
   if (!data) return null;
 

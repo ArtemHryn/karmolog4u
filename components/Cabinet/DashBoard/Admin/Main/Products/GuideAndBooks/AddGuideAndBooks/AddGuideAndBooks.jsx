@@ -50,6 +50,7 @@ const setDefaultValues = item => {
     price = '',
     discount = null,
     cover = null,
+    isMarkdown = false,
   } = item;
   const videoId = typeof video === 'object' ? video?.video : video;
   const playlistId = typeof video === 'object' ? video?.playlist : '';
@@ -62,6 +63,7 @@ const setDefaultValues = item => {
   return {
     name_uk: name.uk,
     name_ru: name.ru,
+    isMarkdown,
     category: category,
     file: file ?? null,
     video: youtubeUrl,
@@ -123,6 +125,7 @@ const AddGuideAndBooks = ({ edit }) => {
       discount,
       price,
       file,
+      isMarkdown,
     } = data;
     if (!getValues('category')) {
       setError('category', { type: 'manual', message: 'Оберіть категорію' });
@@ -172,6 +175,7 @@ const AddGuideAndBooks = ({ edit }) => {
       category,
       status,
       file: selectedFile ?? '',
+      isMarkdown,
     };
 
     Object.entries(requiredParams).forEach(([key, value]) =>

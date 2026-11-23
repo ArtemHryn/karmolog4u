@@ -5,6 +5,7 @@ import Logo from '@/components/Common/Icons/Logo';
 
 import styles from './Cover.module.scss';
 import Image from 'next/image';
+import { useSession } from 'next-auth/react';
 
 interface CoverProps {
   video?: {
@@ -20,9 +21,12 @@ interface CoverProps {
 }
 
 const Cover = ({ video, link, cover, name }: CoverProps) => {
+  const data = useSession();
+
   const showLogo = !cover || !cover?.startsWith('http');
+
   return (
-    <div>
+    <div className={styles.cover_wrapper}>
       {video?.video ? (
         <YouTube
           videoId={video.video}
@@ -49,16 +53,29 @@ const Cover = ({ video, link, cover, name }: CoverProps) => {
           <Logo styled={styles.card_logo} />
         </div>
       )}
-      {video?.playlist && (
-        <Link
-          href={`https://www.youtube.com/watch?v=${video.video}&list=${video.playlist}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.redirect_link}
-        >
-          Переглянути весь плейлист
-        </Link>
-      )}
+      <div className={styles.links_wrapper}>
+        {' '}
+        {video?.playlist && (
+          <Link
+            href={`https://www.youtube.com/watch?v=${video.video}&list=${video.playlist}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.redirect_link}
+          >
+            Переглянути весь плейлист
+          </Link>
+        )}
+        {!!video?.video && !!link && (
+          <Link
+            href={`https://www.youtube.com/watch?v=${video.video}&list=${video.playlist}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.redirect_link}
+          >
+            Додаткове посилання
+          </Link>
+        )}
+      </div>
     </div>
   );
 };

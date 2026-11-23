@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { Nullable } from 'primereact/ts-helpers';
 import { useSession } from 'next-auth/react';
 import { useQuery } from '@tanstack/react-query';
-import { toast } from 'react-toastify';
 import Filter from './Filter/Filter';
 import { unbounded } from '@/app/[locale]/fonts';
 import List from './List/List';
@@ -12,6 +11,7 @@ import useEventRange from '@/hooks/useEventRange';
 import { fetchEvents } from '@/helper/platform/getEvents';
 
 import styles from './EventsList.module.scss';
+import ErrorLoading from '../../../../ErrorLoading/ErrorLoading';
 
 const EventsList = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,7 +43,7 @@ const EventsList = () => {
   });
 
   if (isError) {
-    toast.error(error?.message || 'Помилка завантаження');
+    return <ErrorLoading title="Помилка завантаження подій !" er={error?.message || undefined} />;
   }
 
   return (

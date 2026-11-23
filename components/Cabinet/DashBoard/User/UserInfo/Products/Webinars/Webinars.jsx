@@ -9,7 +9,6 @@ import useUserInfo from '@/hooks/useUserInfo';
 import styles from './Webinars.module.scss';
 import ProductItem from '../ProductItem/ProductItem';
 
-
 const Webinars = () => {
   const { data: token } = useSession();
   const pathName = usePathname();
@@ -23,6 +22,7 @@ const Webinars = () => {
     data: webinars,
     isLoading,
     isError,
+    error,
   } = useUserInfo({
     action: 'products',
     queryKey: ['user_products', 'webinars'],
@@ -31,7 +31,7 @@ const Webinars = () => {
   });
 
   if (isLoading) return <Loader />;
-  if (isError) return <ErrorLoading />;
+  if (isError) return <ErrorLoading er={error?.message || undefined}/>;
 
   if (!webinars) return null;
 

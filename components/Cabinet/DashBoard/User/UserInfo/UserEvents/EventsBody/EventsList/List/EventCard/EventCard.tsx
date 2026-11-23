@@ -1,5 +1,5 @@
 import { EventRow } from '@/types/events';
-import { format } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 import Image from 'next/image';
 
 import styles from './EventCard.module.scss';
@@ -11,7 +11,7 @@ interface EventCardProps {
 }
 
 const EventCard = ({ card }: EventCardProps) => {
-  const formDate = () => format(new Date(card.dateStart), 'yyyy-MM-dd');
+  const formDate = () => format(parseISO(card.dateStart), 'dd.MM.yyyy');
   const formatTime = () => format(new Date(card.dateStart), 'HH:mm');
   const { isDesktop } = useBreakpoint();
   return (
@@ -22,7 +22,7 @@ const EventCard = ({ card }: EventCardProps) => {
       <div className={styles.info_wrapper}>
         <div className={styles.date_wrapper}>
           <p className={styles.date}>{formDate()}</p>
-          <p className={styles.date}>{formatTime()}</p>
+          <p className={styles.date}>о {formatTime()}</p>
         </div>
         {!isDesktop && (
           <Image src={card.cover} alt={card.name} width={292} height={206} className={styles.img} />

@@ -39,6 +39,7 @@ const Meditations = () => {
     data: products,
     isLoading,
     isError,
+    error,
   } = useUserInfo({
     action: 'products',
     queryKey: ['user_products', 'meditations'],
@@ -47,7 +48,7 @@ const Meditations = () => {
   });
 
   if (isLoading) return <Loader />;
-  if (isError) return <ErrorLoading />;
+  if (isError) return <ErrorLoading er={error?.message || undefined} />;
 
   if (!products) return null;
 

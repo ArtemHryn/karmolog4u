@@ -39,6 +39,7 @@ const GuidesAndBooks = () => {
     data: guidesAndBooks,
     isLoading,
     isError,
+    error,
   } = useUserInfo({
     action: 'products',
     queryKey: ['user_products', 'guides-and-books'],
@@ -47,7 +48,7 @@ const GuidesAndBooks = () => {
   });
 
   if (isLoading) return <Loader />;
-  if (isError) return <ErrorLoading />;
+  if (isError) return <ErrorLoading er={error?.message || undefined} />;
 
   if (!guidesAndBooks) return null;
 

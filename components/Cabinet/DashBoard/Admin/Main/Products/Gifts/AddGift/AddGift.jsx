@@ -38,7 +38,7 @@ async function AddOrUpdateGift({ data, token, action, id }) {
 
 const setDefaultValues = item => {
   if (!item) return { cover: '' };
-  const { name, description, price = '', discount = null, cover = null } = item;
+  const { name, description, price = '', discount = null, cover = null, isMarkdown = false } = item;
 
   return {
     name_uk: name.uk,
@@ -46,6 +46,7 @@ const setDefaultValues = item => {
     description_uk: description.uk,
     description_ru: description.ru,
     price: price,
+    isMarkdown,
     discount: discount?.discount,
     start_date: discount ? new Date(discount.start) : undefined,
     end_date: discount ? new Date(discount.expiredAt) : undefined,
@@ -96,6 +97,7 @@ const AddGift = ({ edit }) => {
         uk: description_uk,
         ru: description_ru,
       },
+      isMarkdown,
     };
 
     Object.entries(requiredParams).forEach(([key, value]) =>

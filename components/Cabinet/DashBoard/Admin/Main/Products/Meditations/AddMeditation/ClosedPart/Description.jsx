@@ -2,11 +2,13 @@ import { useFormContext } from 'react-hook-form';
 import { open_Sans } from '@/app/[locale]/layout';
 import MarkdownHelp from '../../../MarkdownHelp/MarkdownHelp';
 import styles from './ClosedPart.module.scss';
+import Tick from '../Tick';
 
 const Description = () => {
   const { register } = useFormContext();
   return (
     <>
+      <Tick name={'isMarkdown'} label="Markdown форматування" id="101" />
       <label className={`${styles.label} `}>
         <span className={styles.labelWithHelp}>
           Опис українською <MarkdownHelp />

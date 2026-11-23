@@ -1,6 +1,8 @@
+import { useFormContext } from 'react-hook-form';
 import styles from './Tick.module.scss';
 
-const Tick = ({ id, name, register, form_name }) => {
+const Tick = ({ id, name, form_name }) => {
+  const { register } = useFormContext();
   return (
     <div className={styles.checkbox_wrapper}>
       <input type="checkbox" id={`check-${id}`} {...register(form_name)} />

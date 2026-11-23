@@ -17,6 +17,7 @@ interface MeditationTextProps {
   discount?: { discount: number };
   detailsDescription?: { [key: string]: string };
   detailsTitle?: { [key: string]: string };
+  isMarkdown: boolean;
 }
 
 const MeditationText = ({
@@ -27,6 +28,7 @@ const MeditationText = ({
   category,
   discount,
   detailsDescription,
+  isMarkdown,
 }: MeditationTextProps) => {
   const locale = useLocale();
 
@@ -36,7 +38,12 @@ const MeditationText = ({
       {Number(price) > 0 && (
         <PaymentSection setShowModal={setShowModal} price={price} discount={discount} />
       )}
-      {description && <MarkdownDesc desc={description[locale]} />}
+      {description?.[locale] &&
+        (isMarkdown ? (
+          <MarkdownDesc desc={description[locale]} />
+        ) : (
+          <p className={styles.text}>{description[locale]}</p>
+        ))}
       {[CLOSED_MEDITATIONS, WEBINARS, TRAINING].includes(category) && <HowToGetIt />}
       {detailsDescription && <DetailsDescription detailsDescription={detailsDescription} />}
     </div>

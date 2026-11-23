@@ -1,22 +1,23 @@
-import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/navigation';
+import { FormProvider, useForm } from 'react-hook-form';
 import { useSession } from 'next-auth/react';
 import { toast } from 'react-toastify';
 import ProductsSelector from '../ProductsSelector/ProductsSelector';
 import Tick from '../Tick/Tick';
 import SubmitButtons from '../SubmitButtons/SubmitButtons';
 import { open_Sans } from '@/app/[locale]/layout';
+import { useCreateUser } from '@/hooks/useCreateUser';
 
 import styles from './ImportUsersForm.module.scss';
-import { useCreateUser } from '@/hooks/useCreateUser';
-import { useRouter } from 'next/navigation';
+import { FULL, INSTALLMENTS, PARTIAL } from '../../../../../../../../../helper/consts';
 
 const ImportUsersForm = () => {
   const router = useRouter();
-  const { register, control, handleSubmit, reset } = useForm({
-    defaultValues: { education: [], verified: true, sendToEmail: true },
+  const methods = useForm({
+    defaultValues: { education: [], verified: true, sendToEmail: true, isFullPaymentPlan: true },
   });
   const { data: token } = useSession();
-
+  const { register, control, handleSubmit, reset } = methods;
   const mutateUser = useCreateUser({
     token: token?.accessToken,
     onSuccessCallback: () => {
@@ -30,7 +31,7 @@ const ImportUsersForm = () => {
   const onFormSubmit = data => {
     const isValidEmail = email => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
 
-    const { education, users, ...otherData } = data;
+    const { education, users, isFullPaymentPlan, ...otherData } = data;
     const usersList = users.trim().replace(/;\s*$/, '').split(';\n').filter(Boolean);
     const editedUsersList = usersList.map(line => {
       const [email, name, lastName, mobPhone] = line.split(',').map(l => l.trim());
@@ -59,46 +60,48 @@ const ImportUsersForm = () => {
 
     const dataToSend = {
       ...otherData,
-      education: education.map(({ value }) => value),
+      education: education.map(({ value, type }) => ({
+        courseId: value,
+        paymentPlan: isFullPaymentPlan ? FULL : type.includes('SSK_') ? PARTIAL : INSTALLMENTS,
+      })),
       users: editedUsersList,
     };
+    console.log(dataToSend);
+
     mutateUser.mutate({ data: dataToSend, action: 'import' });
   };
   return (
-    <form className={styles.form} onSubmit={handleSubmit(onFormSubmit)}>
-      <p className={styles.info}>
-        Введіть email-адреси для створення облікових записів. Формат:
-        <span> {"email,ім'я,прізвище,телефон;(закінчити рядок ;)."}</span>
-        Пароль генерується автоматично і надсилається на вказаний email.
-      </p>
-      <ProductsSelector title={'Додати до продукту'} control={control} name={'education'} />
-      <label className={styles.label}>
-        Користувачі
-        <textarea
-          {...register('users', { required: true })}
-          className={`${styles.textarea} ${open_Sans.className}`}
-          onInput={e => {
-            e.target.style.height = 'auto';
-            e.target.style.height = e.target.scrollHeight + 'px';
-          }}
-        />
-      </label>
-      <div className={styles.ticks_wrapper}>
-        <Tick
-          name={'Згенерувати та надіслати пароль на електронну пошту'}
-          id="1"
-          register={register}
-          form_name={'sendToEmail'}
-        />
-        <Tick
-          name={'Обліковий запис користувача активний'}
-          id="2"
-          register={register}
-          form_name={'verified'}
-        />
-      </div>
-      <SubmitButtons />
-    </form>
+    <FormProvider {...methods}>
+      <form className={styles.form} onSubmit={handleSubmit(onFormSubmit)}>
+        <p className={styles.info}>
+          Введіть email-адреси для створення облікових записів. Формат:
+          <span> {"email,ім'я,прізвище,телефон;(закінчити рядок ;)."}</span>
+          Пароль генерується автоматично і надсилається на вказаний email.
+        </p>
+        <ProductsSelector title={'Додати до продукту'} control={control} name={'education'} />
+        <label className={styles.label}>
+          Користувачі
+          <textarea
+            {...register('users', { required: true })}
+            className={`${styles.textarea} ${open_Sans.className}`}
+            onInput={e => {
+              e.target.style.height = 'auto';
+              e.target.style.height = e.target.scrollHeight + 'px';
+            }}
+          />
+        </label>
+        <div className={styles.ticks_wrapper}>
+          <Tick name={'Повний доступ'} id="3" form_name={'isFullPaymentPlan'} />
+          <Tick
+            name={'Згенерувати та надіслати пароль на електронну пошту'}
+            id="1"
+            form_name={'sendToEmail'}
+          />
+          <Tick name={'Обліковий запис користувача активний'} id="2" form_name={'verified'} />
+        </div>
+        <SubmitButtons />
+      </form>
+    </FormProvider>
   );
 };
 

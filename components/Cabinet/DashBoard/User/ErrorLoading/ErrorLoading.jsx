@@ -1,6 +1,11 @@
 import TitleNoStyles from '../../../../Common/TitleNoStyles/TitleNoStyles';
 import styles from './ErrorLoading.module.scss';
-const ErrorLoading = () => {
+
+const defaultTitle = 'Помилка завантаження продуктів !';
+const defaultError =
+  'Не вдалося завантажити продукти. Будь ласка, спробуйте оновити сторінку або зайдіть пізніше';
+
+const ErrorLoading = ({ title = defaultTitle, er = defaultError }) => {
   return (
     <div className={styles.wrapper}>
       <div>
@@ -19,12 +24,9 @@ const ErrorLoading = () => {
       </div>
       <div className={styles.text_wrapper}>
         <TitleNoStyles variant="h3" styled={styles.title}>
-          Помилка завантаження продуктів !
+          {title}
         </TitleNoStyles>
-        <p className={styles.text}>
-          Не вдалося завантажити продукти. Будь ласка, спробуйте оновити сторінку або зайдіть
-          пізніше
-        </p>
+        <p className={styles.text}>{er}</p>
       </div>
     </div>
   );

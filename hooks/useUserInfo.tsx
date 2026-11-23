@@ -28,7 +28,7 @@ const getUserInfo = async (token: string, action: keyof typeof endpoints, type: 
   );
   if (!res.ok) {
     const errorBody = await res.json();
-    throw errorBody;
+    throw new Error(errorBody?.message || 'Помилка завантаження');
   }
 
   return await res.json();

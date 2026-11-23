@@ -1,6 +1,14 @@
 import { base_url } from '../consts';
 
-export const fetchEvents = async ({ from, to, token }: { from?: string; to?: string; token: string }) => {
+export const fetchEvents = async ({
+  from,
+  to,
+  token,
+}: {
+  from?: string;
+  to?: string;
+  token: string;
+}) => {
   const params = new URLSearchParams();
 
   if (from) params.set('from', from);
@@ -13,7 +21,10 @@ export const fetchEvents = async ({ from, to, token }: { from?: string; to?: str
   });
 
   if (!res.ok) {
-    throw new Error('');
+    const errorBody = await res.json();
+    throw new Error(
+      errorBody?.message || 'Не вдалося завантажити події. Спробуйте оновити сторінку.'
+    );
   }
   return res.json();
 };

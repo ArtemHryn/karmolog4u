@@ -25,8 +25,6 @@ const fetcher = async ({ token, data, id, action }) => {
 
   if (!res.ok) {
     const errorBody = await res.json();
-    console.log(errorBody);
-
     throw new Error(errorBody?.message || 'Помилка');
   }
 

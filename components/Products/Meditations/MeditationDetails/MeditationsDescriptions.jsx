@@ -10,9 +10,17 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const MeditationsDescriptions = ({ product }) => {
   const [showModal, setShowModal] = useState(false);
-  const { video, cover, name, description, price, category, discount, detailsDescription } =
-    product;
-
+  const {
+    video,
+    cover,
+    name,
+    description,
+    price,
+    category,
+    discount,
+    detailsDescription,
+    isMarkdown = false,
+  } = product;
 
   return (
     <div className={styles.wrapper}>
@@ -25,6 +33,7 @@ const MeditationsDescriptions = ({ product }) => {
         category={category}
         discount={discount}
         detailsDescription={detailsDescription}
+        isMarkdown={isMarkdown}
       />
       {showModal && (
         <SimpleModalContainer setShowModal={setShowModal}>
